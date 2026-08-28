@@ -1,0 +1,13 @@
+{
+  "created_at_utc": "2026-08-28T20:38:41Z",
+  "development_sha256": "2a8b535a0581b51a2a1eff8c764038a11cac7db08b67217c9b9dae22157e3e72",
+  "held_adt_numeric_access_authorized": false,
+  "held_margin_request_begins_after_this_record": true,
+  "margin_authorization_sha256": "ccfc854bc2024efd5a191af1f983190da23a7e1b5866b74ecfef6319675924e6",
+  "public_margin_authorization_commit": "94b4a61e6d127d575cb653e7a0e84e260b125ee4",
+  "rerun_permitted": false,
+  "runner_sha256": "3708bccf52283e4f08e9fa842d7045dcc0756fa41d54476aaa1fc6ddc7197e76",
+  "schema": "stephenson-citeseq-held-prediction-attempt/1.0",
+  "source_manifest_sha256": "431e8a370bc9b08a207ab0ff8d3581f80abaf0f36b55eba4accedc5685a3d3cd",
+  "status": "TERMINAL_ATTEMPT_STARTED"
+}
