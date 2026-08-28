@@ -12,7 +12,7 @@ import math
 import os
 from pathlib import Path
 import re
-from typing import Any, Iterable
+from typing import Any, Iterable, Optional
 import urllib.request
 
 import h5py
@@ -116,6 +116,10 @@ class ResidualConfig:
     transport_multiplier: float
 
 
+class _AttemptNotOwned(FileExistsError):
+    pass
+
+
 def _timestamp() -> str:
     return (
         datetime.now(timezone.utc)
@@ -149,6 +153,10 @@ def _canonical_json_sha256(value: Any) -> str:
     return hashlib.sha256(encoded).hexdigest()
 
 
+def _serialized_json(payload: dict[str, Any]) -> str:
+    return json.dumps(payload, indent=2, sort_keys=True, allow_nan=False) + "\n"
+
+
 def _axis_sha256(values: Iterable[str]) -> str:
     digest = hashlib.sha256()
     for value in values:
@@ -166,13 +174,22 @@ def _read_json(path: Path) -> dict[str, Any]:
 
 
 def _write_json(path: Path, payload: dict[str, Any], *, exclusive: bool = True) -> None:
-    text = json.dumps(payload, indent=2, sort_keys=True, allow_nan=False) + "\n"
+    text = _serialized_json(payload)
     path.parent.mkdir(parents=True, exist_ok=True)
     mode = "x" if exclusive else "w"
     with path.open(mode) as stream:
         stream.write(text)
         stream.flush()
         os.fsync(stream.fileno())
+
+
+def _write_terminal_attempt(path: Path, payload: dict[str, Any]) -> None:
+    try:
+        _write_json(path, payload)
+    except FileExistsError as error:
+        raise _AttemptNotOwned(
+            "terminal attempt belongs to another invocation"
+        ) from error
 
 
 def _relative(path: Path) -> str:
@@ -1125,7 +1142,159 @@ def _gate(
     }
 
 
-def reduce_development(
+def _validated_reduced_records(
+    records: Any,
+    manifest: dict[str, dict[str, Any]],
+    preflight: dict[str, dict[str, Any]],
+) -> dict[str, dict[str, Any]]:
+    expected_order = (*CALIBRATION, *PILOT)
+    expected_fields = {
+        "donor",
+        "role",
+        "pregnancy",
+        "severity",
+        "cells",
+        "selected_barcode_axis_sha256",
+        "common_barcode_axis_sha256",
+        "common_barcode_count",
+        "rna_marker_counts",
+        "rna_positive_counts",
+        "gex_access",
+        "tables",
+        "destroyed_tables",
+        "rna_profiles",
+        "adt_profiles",
+        "adt_marker_counts",
+        "adt_high_counts",
+        "adt_access",
+        "table_sha256",
+        "destroyed_table_sha256",
+    }
+    if (
+        not isinstance(records, list)
+        or len(records) != len(expected_order)
+        or any(not isinstance(record, dict) for record in records)
+        or [record.get("donor") for record in records] != list(expected_order)
+    ):
+        raise PermissionError("reduced development sample order differs")
+
+    def integer_vector(value: Any, *, maximum: Optional[int] = None) -> bool:
+        return (
+            isinstance(value, list)
+            and len(value) == len(MARKERS)
+            and all(
+                type(item) is int and item >= 0 and (maximum is None or item <= maximum)
+                for item in value
+            )
+        )
+
+    def access_record(value: Any) -> bool:
+        return (
+            isinstance(value, dict)
+            and set(value)
+            == {
+                "raw_data_values_decoded",
+                "raw_indices_values_decoded",
+                "raw_indptr_values_read",
+            }
+            and all(type(item) is int and item >= 0 for item in value.values())
+            and value["raw_data_values_decoded"] == value["raw_indices_values_decoded"]
+            and value["raw_indptr_values_read"] == 2 * CELL_BUDGET
+        )
+
+    by_donor: dict[str, dict[str, Any]] = {}
+    for donor, record in zip(expected_order, records):
+        sample = manifest[donor]
+        metadata_record = preflight[donor]
+        try:
+            tables_raw = np.asarray(record.get("tables"))
+            destroyed_raw = np.asarray(record.get("destroyed_tables"))
+            tables = np.asarray(tables_raw, dtype=np.int64)
+            destroyed = np.asarray(destroyed_raw, dtype=np.int64)
+            rna_profiles = np.asarray(record.get("rna_profiles"), dtype=float)
+            adt_profiles = np.asarray(record.get("adt_profiles"), dtype=float)
+        except (OverflowError, TypeError, ValueError) as error:
+            raise PermissionError(
+                f"reduced record differs for donor {donor}"
+            ) from error
+        integer_tables = (
+            tables_raw.dtype.kind in "iu" and destroyed_raw.dtype.kind in "iu"
+        )
+        rna_counts = record.get("rna_marker_counts")
+        rna_positive = record.get("rna_positive_counts")
+        adt_counts = record.get("adt_marker_counts")
+        expected_rows = np.empty((len(MARKERS), len(MARKERS), 2), dtype=np.int64)
+        if integer_vector(rna_positive, maximum=CELL_BUDGET):
+            positive = np.asarray(rna_positive, dtype=np.int64)
+            expected_rows[..., 0] = (CELL_BUDGET - positive)[:, None]
+            expected_rows[..., 1] = positive[:, None]
+        else:
+            expected_rows.fill(-1)
+        expected_columns = np.full_like(expected_rows, CELL_BUDGET // 2)
+        valid_profiles = (
+            integer_vector(rna_positive, maximum=CELL_BUDGET)
+            and rna_profiles.shape == (len(MARKERS),)
+            and adt_profiles.shape == rna_profiles.shape
+            and np.isfinite(rna_profiles).all()
+            and np.isfinite(adt_profiles).all()
+            and np.all((adt_profiles >= 0.0) & (adt_profiles <= math.log1p(100.0)))
+            and np.array_equal(rna_profiles, positive / CELL_BUDGET)
+            and all(type(item) is float for item in record.get("rna_profiles", []))
+            and all(type(item) is float for item in record.get("adt_profiles", []))
+        )
+        valid_counts = (
+            integer_vector(rna_counts)
+            and integer_vector(rna_positive, maximum=CELL_BUDGET)
+            and integer_vector(adt_counts)
+            and record.get("adt_high_counts") == [CELL_BUDGET // 2] * len(MARKERS)
+            and np.all(np.asarray(rna_counts) >= np.asarray(rna_positive))
+            and all(
+                count != 0 or profile == 0.0
+                for count, profile in zip(adt_counts, adt_profiles)
+            )
+        )
+        valid_tables = (
+            integer_tables
+            and tables.shape == (len(MARKERS), len(MARKERS), 2, 2)
+            and destroyed.shape == tables.shape
+            and np.all(tables >= 0)
+            and np.all(destroyed >= 0)
+            and np.array_equal(_margins(tables)[0], expected_rows)
+            and np.array_equal(_margins(tables)[1], expected_columns)
+            and np.array_equal(_margins(destroyed)[0], expected_rows)
+            and np.array_equal(_margins(destroyed)[1], expected_columns)
+            and record.get("table_sha256") == _array_sha256(tables)
+            and record.get("destroyed_table_sha256") == _array_sha256(destroyed)
+        )
+        if (
+            set(record) != expected_fields
+            or record.get("donor") != donor
+            or record.get("role") != sample["role"]
+            or record.get("pregnancy") != sample["pregnancy"]
+            or record.get("severity") != sample["severity"]
+            or type(record.get("cells")) is not int
+            or record.get("cells") != CELL_BUDGET
+            or record.get("common_barcode_axis_sha256")
+            != metadata_record["common_barcode_axis_sha256"]
+            or type(record.get("common_barcode_count")) is not int
+            or record.get("common_barcode_count")
+            != metadata_record["common_barcode_count"]
+            or record.get("common_barcode_count") < CELL_BUDGET
+            or not re.fullmatch(
+                r"[0-9a-f]{64}", str(record.get("selected_barcode_axis_sha256"))
+            )
+            or not valid_counts
+            or not valid_profiles
+            or not access_record(record.get("gex_access"))
+            or not access_record(record.get("adt_access"))
+            or not valid_tables
+        ):
+            raise PermissionError(f"reduced record differs for donor {donor}")
+        by_donor[donor] = record
+    return by_donor
+
+
+def _reduce_development_once(
     source_path: Path,
     preflight_path: Path,
     authorization_path: Path,
@@ -1133,6 +1302,7 @@ def reduce_development(
     source_root: Path,
     attempt_path: Path,
     output_path: Path,
+    pilot_path: Path,
 ) -> dict[str, Any]:
     _require_open()
     for observed, expected, label in (
@@ -1145,16 +1315,17 @@ def reduce_development(
         ),
         (attempt_path, DEFAULT_DEVELOPMENT_ATTEMPT, "development attempt"),
         (output_path, DEFAULT_REDUCED, "reduced development"),
+        (pilot_path, DEFAULT_PILOT, "pilot result"),
     ):
         _require_designated(observed, expected, label)
+    if attempt_path.exists() or output_path.exists() or pilot_path.exists():
+        raise _AttemptNotOwned("development reduction and pilot fit are one-shot")
     permit = _validated_protocol_authorization(
         authorization_path, authorization_commit, "DEVELOPMENT_ACCESS_AUTHORIZED"
     )
     manifest = _sample_manifest(source_path)
     preflight = _preflight_records(preflight_path)
-    if attempt_path.exists() or output_path.exists():
-        raise FileExistsError("development attempt is one-shot")
-    _write_json(
+    _write_terminal_attempt(
         attempt_path,
         {
             "schema": "gse239452-development-attempt/1.0",
@@ -1163,6 +1334,8 @@ def reduce_development(
             "authorization_sha256": _sha256(authorization_path),
             "public_authorization_commit": authorization_commit,
             "numeric_development_access_begins_after_this_record": True,
+            "development_reduction_and_pilot_fit_are_single_process": True,
+            "standalone_pilot_retry_permitted": False,
             "held_numeric_values_read": 0,
         },
     )
@@ -1176,7 +1349,7 @@ def reduce_development(
         )
         for donor in (*CALIBRATION, *PILOT)
     ]
-    payload = {
+    reduced_payload = {
         "schema": "gse239452-reduced-development/1.0",
         "status": "DEVELOPMENT_REDUCTION_COMPLETE",
         "created_at_utc": _timestamp(),
@@ -1203,11 +1376,57 @@ def reduce_development(
             "held_adt_numeric_values_read": 0,
         },
     }
-    _write_json(output_path, payload)
-    return payload
+    canonical_records = _validated_reduced_records(records, manifest, preflight)
+    analysis = _pilot_analysis(canonical_records)
+    reduced_sha256 = hashlib.sha256(
+        _serialized_json(reduced_payload).encode()
+    ).hexdigest()
+    pilot_payload = {
+        "schema": "gse239452-pilot-result/1.0",
+        "status": "PILOT_PASS" if analysis["pilot_gate"]["passes"] else "PILOT_FAIL",
+        "created_at_utc": _timestamp(),
+        "runner_sha256": _sha256(Path(__file__)),
+        "reduced_development_sha256": reduced_sha256,
+        "calibration_donors": list(CALIBRATION),
+        "pilot_donors": list(PILOT),
+        **analysis,
+    }
+    _write_json(output_path, reduced_payload)
+    if _sha256(output_path) != reduced_sha256:
+        raise PermissionError("serialized reduced development differs from memory")
+    _write_json(pilot_path, pilot_payload)
+    return pilot_payload
 
 
-def _validated_reduced(path: Path) -> dict[str, dict[str, Any]]:
+def reduce_development(
+    source_path: Path,
+    preflight_path: Path,
+    authorization_path: Path,
+    authorization_commit: str,
+    source_root: Path,
+    attempt_path: Path,
+    output_path: Path,
+    pilot_path: Path,
+) -> dict[str, Any]:
+    return _terminal_wrapper(
+        "development_reduction_and_pilot",
+        attempt_path,
+        lambda: _reduce_development_once(
+            source_path,
+            preflight_path,
+            authorization_path,
+            authorization_commit,
+            source_root,
+            attempt_path,
+            output_path,
+            pilot_path,
+        ),
+    )
+
+
+def _validated_reduced(
+    path: Path, source_root: Optional[Path] = None
+) -> dict[str, dict[str, Any]]:
     payload = _read_json(path)
     expected_fields = {
         "schema",
@@ -1278,6 +1497,8 @@ def _validated_reduced(path: Path) -> dict[str, dict[str, Any]]:
             "authorization_sha256",
             "public_authorization_commit",
             "numeric_development_access_begins_after_this_record",
+            "development_reduction_and_pilot_fit_are_single_process",
+            "standalone_pilot_retry_permitted",
             "held_numeric_values_read",
         }
         or attempt.get("schema") != "gse239452-development-attempt/1.0"
@@ -1287,36 +1508,29 @@ def _validated_reduced(path: Path) -> dict[str, dict[str, Any]]:
         or attempt.get("public_authorization_commit") != authorization_commit
         or attempt.get("numeric_development_access_begins_after_this_record")
         is not True
+        or attempt.get("development_reduction_and_pilot_fit_are_single_process")
+        is not True
+        or attempt.get("standalone_pilot_retry_permitted") is not False
         or attempt.get("held_numeric_values_read") != 0
     ):
         raise PermissionError("development attempt does not replay")
-    records = payload.get("samples")
-    if not isinstance(records, list) or len(records) != len(CALIBRATION) + len(PILOT):
-        raise PermissionError("reduced development sample count differs")
-    by_donor = {row.get("donor"): row for row in records if isinstance(row, dict)}
-    if set(by_donor) != set(CALIBRATION) | set(PILOT):
-        raise PermissionError("reduced development donor set differs")
     manifest = _sample_manifest(DEFAULT_SOURCE)
-    for donor, record in by_donor.items():
-        tables = np.asarray(record.get("tables"), dtype=np.int64)
-        destroyed = np.asarray(record.get("destroyed_tables"), dtype=np.int64)
-        if (
-            record.get("role") != manifest[donor]["role"]
-            or record.get("cells") != CELL_BUDGET
-            or tables.shape != (len(MARKERS), len(MARKERS), 2, 2)
-            or destroyed.shape != tables.shape
-            or not np.all(tables.sum(axis=(-2, -1)) == CELL_BUDGET)
-            or not np.array_equal(_margins(tables)[0], _margins(destroyed)[0])
-            or not np.array_equal(_margins(tables)[1], _margins(destroyed)[1])
-            or record.get("table_sha256") != _array_sha256(tables)
-            or record.get("destroyed_table_sha256") != _array_sha256(destroyed)
-            or record.get("adt_high_counts") != [CELL_BUDGET // 2] * len(MARKERS)
-            or not re.fullmatch(
-                r"[0-9a-f]{64}", str(record.get("selected_barcode_axis_sha256"))
-            )
-        ):
-            raise PermissionError(f"reduced record differs for donor {donor}")
-    return by_donor
+    preflight = _preflight_records(DEFAULT_PREFLIGHT)
+    records = payload.get("samples")
+    validated = _validated_reduced_records(records, manifest, preflight)
+    canonical = [
+        _reduce_one(
+            donor,
+            SOURCE_ROOT if source_root is None else source_root,
+            manifest,
+            preflight,
+            read_adt_numeric=True,
+        )
+        for donor in (*CALIBRATION, *PILOT)
+    ]
+    if _canonical_json_sha256(records) != _canonical_json_sha256(canonical):
+        raise PermissionError("reduced development differs from source replay")
+    return validated
 
 
 def _pilot_analysis(records: dict[str, dict[str, Any]]) -> dict[str, Any]:
@@ -1345,29 +1559,9 @@ def _pilot_analysis(records: dict[str, dict[str, Any]]) -> dict[str, Any]:
     }
 
 
-def fit_pilot(reduced_path: Path, output_path: Path) -> dict[str, Any]:
-    _require_open()
-    _require_designated(reduced_path, DEFAULT_REDUCED, "reduced development")
-    _require_designated(output_path, DEFAULT_PILOT, "pilot result")
-    if output_path.exists():
-        raise FileExistsError("pilot result is one-shot")
-    records = _validated_reduced(reduced_path)
-    analysis = _pilot_analysis(records)
-    payload = {
-        "schema": "gse239452-pilot-result/1.0",
-        "status": "PILOT_PASS" if analysis["pilot_gate"]["passes"] else "PILOT_FAIL",
-        "created_at_utc": _timestamp(),
-        "runner_sha256": _sha256(Path(__file__)),
-        "reduced_development_sha256": _sha256(reduced_path),
-        "calibration_donors": list(CALIBRATION),
-        "pilot_donors": list(PILOT),
-        **analysis,
-    }
-    _write_json(output_path, payload)
-    return payload
-
-
-def _validated_pilot(path: Path, *, require_pass: bool) -> dict[str, Any]:
+def _validated_pilot(
+    path: Path, *, require_pass: bool, source_root: Optional[Path] = None
+) -> dict[str, Any]:
     payload = _read_json(path)
     expected_fields = {
         "schema",
@@ -1398,15 +1592,17 @@ def _validated_pilot(path: Path, *, require_pass: bool) -> dict[str, Any]:
         or payload.get("graph_vs_zero_is_diagnostic_only") is not True
     ):
         raise PermissionError("pilot result differs from the frozen runner")
-    replay = _pilot_analysis(_validated_reduced(DEFAULT_REDUCED))
+    replay = _pilot_analysis(_validated_reduced(DEFAULT_REDUCED, source_root))
     for field, expected in replay.items():
         if _canonical_json_sha256(payload.get(field)) != _canonical_json_sha256(
             expected
         ):
             raise PermissionError(f"pilot {field} does not replay exactly")
+    expected_status = "PILOT_PASS" if replay["pilot_gate"]["passes"] else "PILOT_FAIL"
+    if payload.get("status") != expected_status:
+        raise PermissionError("pilot status does not match the replayed gate")
     if require_pass and (
-        payload.get("status") != "PILOT_PASS"
-        or payload.get("pilot_gate", {}).get("passes") is not True
+        payload.get("pilot_gate", {}).get("passes") is not True
         or payload.get("all_development_models") is None
     ):
         raise PermissionError("pilot gate did not authorize held-GEX access")
@@ -1448,7 +1644,7 @@ def predict_held(
         (output_path, DEFAULT_PREDICTION, "held predictions"),
     ):
         _require_designated(observed, expected, label)
-    pilot = _validated_pilot(pilot_path, require_pass=True)
+    pilot = _validated_pilot(pilot_path, require_pass=True, source_root=source_root)
     _validated_artifact_authorization(
         authorization_path,
         authorization_commit,
@@ -1457,8 +1653,8 @@ def predict_held(
         artifact_field="pilot_result",
     )
     if attempt_path.exists() or output_path.exists():
-        raise FileExistsError("held prediction is one-shot")
-    _write_json(
+        raise _AttemptNotOwned("held prediction is one-shot")
+    _write_terminal_attempt(
         attempt_path,
         {
             "schema": "gse239452-prediction-attempt/1.0",
@@ -1539,7 +1735,9 @@ def predict_held(
     return payload
 
 
-def _validated_prediction(path: Path) -> dict[str, Any]:
+def _validated_prediction(
+    path: Path, source_root: Optional[Path] = None
+) -> dict[str, Any]:
     payload = _read_json(path)
     expected_fields = {
         "schema",
@@ -1579,7 +1777,7 @@ def _validated_prediction(path: Path) -> dict[str, Any]:
         or payload.get("access_audit") != expected_access
     ):
         raise PermissionError("held predictions differ from the frozen runner")
-    pilot = _validated_pilot(DEFAULT_PILOT, require_pass=True)
+    pilot = _validated_pilot(DEFAULT_PILOT, require_pass=True, source_root=source_root)
     models = payload.get("models")
     if _canonical_json_sha256(models) != _canonical_json_sha256(
         pilot["all_development_models"]
@@ -1744,7 +1942,7 @@ def score_held(
         (output_path, DEFAULT_SCORE, "score result"),
     ):
         _require_designated(observed, expected, label)
-    prediction = _validated_prediction(prediction_path)
+    prediction = _validated_prediction(prediction_path, source_root)
     _validated_artifact_authorization(
         authorization_path,
         authorization_commit,
@@ -1753,8 +1951,8 @@ def score_held(
         artifact_field="held_predictions",
     )
     if attempt_path.exists() or output_path.exists():
-        raise FileExistsError("held scoring is one-shot")
-    _write_json(
+        raise _AttemptNotOwned("held scoring is one-shot")
+    _write_terminal_attempt(
         attempt_path,
         {
             "schema": "gse239452-score-attempt/1.0",
@@ -1849,8 +2047,7 @@ def score_held(
 
 def _terminal_wrapper(phase: str, attempt_path: Path, operation: Any) -> dict[str, Any]:
     expected_attempts = {
-        "development_reduction": DEFAULT_DEVELOPMENT_ATTEMPT,
-        "pilot_evaluation": DEFAULT_DEVELOPMENT_ATTEMPT,
+        "development_reduction_and_pilot": DEFAULT_DEVELOPMENT_ATTEMPT,
         "held_prediction": DEFAULT_PREDICTION_ATTEMPT,
         "held_score": DEFAULT_SCORE_ATTEMPT,
     }
@@ -1859,10 +2056,16 @@ def _terminal_wrapper(phase: str, attempt_path: Path, operation: Any) -> dict[st
     _require_designated(
         attempt_path, expected_attempts[phase], f"{phase} terminal attempt"
     )
+    attempt_preexisted = attempt_path.exists()
     try:
         return operation()
     except Exception as error:
-        if attempt_path.exists() and not DEFAULT_TERMINAL_REFUSAL.exists():
+        if (
+            not isinstance(error, _AttemptNotOwned)
+            and not attempt_preexisted
+            and attempt_path.exists()
+            and not DEFAULT_TERMINAL_REFUSAL.exists()
+        ):
             _write_json(
                 DEFAULT_TERMINAL_REFUSAL,
                 {
@@ -1889,8 +2092,6 @@ def main() -> None:
     reduce_parser.add_argument("--authorization-commit", required=True)
     reduce_parser.add_argument("--source-root", type=Path, default=SOURCE_ROOT)
 
-    subparsers.add_parser("fit-pilot")
-
     predict_parser = subparsers.add_parser("predict-held")
     predict_parser.add_argument("--authorization-commit", required=True)
     predict_parser.add_argument("--source-root", type=Path, default=SOURCE_ROOT)
@@ -1901,24 +2102,15 @@ def main() -> None:
 
     args = parser.parse_args()
     if args.phase == "reduce-development":
-        payload = _terminal_wrapper(
-            "development_reduction",
+        payload = reduce_development(
+            DEFAULT_SOURCE,
+            DEFAULT_PREFLIGHT,
+            DEFAULT_DEVELOPMENT_AUTHORIZATION,
+            args.authorization_commit,
+            args.source_root,
             DEFAULT_DEVELOPMENT_ATTEMPT,
-            lambda: reduce_development(
-                DEFAULT_SOURCE,
-                DEFAULT_PREFLIGHT,
-                DEFAULT_DEVELOPMENT_AUTHORIZATION,
-                args.authorization_commit,
-                args.source_root,
-                DEFAULT_DEVELOPMENT_ATTEMPT,
-                DEFAULT_REDUCED,
-            ),
-        )
-    elif args.phase == "fit-pilot":
-        payload = _terminal_wrapper(
-            "pilot_evaluation",
-            DEFAULT_DEVELOPMENT_ATTEMPT,
-            lambda: fit_pilot(DEFAULT_REDUCED, DEFAULT_PILOT),
+            DEFAULT_REDUCED,
+            DEFAULT_PILOT,
         )
     elif args.phase == "predict-held":
         payload = _terminal_wrapper(

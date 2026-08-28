@@ -1,13 +1,13 @@
 {
   "schema": "gse239452-protocol-authorization/1.0",
-  "status": "DEVELOPMENT_ACCESS_AUTHORIZED",
-  "public_protocol_commit": "b68dd6d7aeddb9e4638362a24c0945cbdf4aa994",
+  "status": "PENDING_PUBLIC_PROTOCOL_COMMIT",
+  "public_protocol_commit": null,
   "binding_sha256": {
-    "experiments/confirm_gse239452_citeseq.py": "85d9a201fd2106020666998a16ebe6ceeefb6571e9c7c10913cca1ccde6e6db4",
+    "experiments/confirm_gse239452_citeseq.py": "a5e0d751973bd0cfe3e437dccbf7afaa61ded250eef8ef68b3bdf8e078e575e6",
     "experiments/preflight_gse239452_citeseq.py": "8a05d67404c701b55f7059a3c5348521981829bba1647cb05419240c8658ea1d",
-    "tests/test_gse239452_citeseq_confirmation.py": "4fa5d93206fa20352ccd4342d9850a5c75b497e8e19d4708aef7971443371e36",
+    "tests/test_gse239452_citeseq_confirmation.py": "d0b00c1f8982203ac40de1f326c245b983a032073e5f8d4b439b13424342916a",
     "tests/test_gse239452_citeseq_preflight.py": "e0d8b453370e602c8703541d2fb8463e7e4798af6a8905dfd6144dc83e1fd750",
-    "docs/GSE239452_PREGNANCY_CITESEQ_CONFIRMATION_PROTOCOL_2026-08-28.md": "0a90b7874c9840efdf48f095c7418baa6b3f1de3f1fa1e1ed292235f00ab3dec",
+    "docs/GSE239452_PREGNANCY_CITESEQ_CONFIRMATION_PROTOCOL_2026-08-28.md": "f340a4c1faf510eeb307c9e8115d091fb61212661f4d7c2450e5847cffbef0f0",
     "data/confirmation/gse239452_citeseq/candidate_designation_v1.json": "92fc14d671b60cf6c8290c4c3295f474e0db400fda81b7366723950e4d53a2bf",
     "data/confirmation/gse239452_citeseq/source_manifest_v1.json": "41e6a1242156354c99f2e75db8ffa398c9824a78cdc7bd56ff54cfb5b8504b23",
     "results/development/gse239452_citeseq_metadata_preflight.json": "6283bbe2a9a36f7c8548d78253a1c6101c88986ad77f7cf0eeb0cd6a40db7f60",

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import threading
 
 import h5py
 import numpy as np
@@ -37,6 +38,55 @@ def _synthetic_tables(donors: int = 4) -> tuple[np.ndarray, np.ndarray, np.ndarr
         rna_profiles.append(rna.mean(axis=0))
         adt_profiles.append(adt.mean(axis=0))
     return np.asarray(tables), np.asarray(rna_profiles), np.asarray(adt_profiles)
+
+
+def _reduced_record_fixture():
+    table = np.full((9, 9, 2, 2), 128, dtype=np.int64)
+    access = {
+        "raw_data_values_decoded": 100,
+        "raw_indices_values_decoded": 100,
+        "raw_indptr_values_read": 2 * confirmation.CELL_BUDGET,
+    }
+    common_axis_sha256 = "b" * 64
+    records = []
+    manifest = {}
+    preflight = {}
+    for donor in (*confirmation.CALIBRATION, *confirmation.PILOT):
+        role = "calibration" if donor in confirmation.CALIBRATION else "pilot"
+        manifest[donor] = {
+            "role": role,
+            "pregnancy": "NonPregnant",
+            "severity": "Asymptomatic",
+        }
+        preflight[donor] = {
+            "common_barcode_axis_sha256": common_axis_sha256,
+            "common_barcode_count": 600,
+        }
+        records.append(
+            {
+                "donor": donor,
+                "role": role,
+                "pregnancy": "NonPregnant",
+                "severity": "Asymptomatic",
+                "cells": confirmation.CELL_BUDGET,
+                "selected_barcode_axis_sha256": "a" * 64,
+                "common_barcode_axis_sha256": common_axis_sha256,
+                "common_barcode_count": 600,
+                "rna_marker_counts": [256] * 9,
+                "rna_positive_counts": [256] * 9,
+                "gex_access": dict(access),
+                "tables": table.tolist(),
+                "destroyed_tables": table.tolist(),
+                "rna_profiles": [0.5] * 9,
+                "adt_profiles": [1.0] * 9,
+                "adt_marker_counts": [512] * 9,
+                "adt_high_counts": [256] * 9,
+                "adt_access": dict(access),
+                "table_sha256": confirmation._array_sha256(table),
+                "destroyed_table_sha256": confirmation._array_sha256(table),
+            }
+        )
+    return records, manifest, preflight
 
 
 def test_transport_alpha_grid_is_shared_and_includes_one_half():
@@ -229,6 +279,7 @@ def test_development_attempt_follows_authorization_and_precedes_numeric_access(
     authorization = tmp_path / "authorization.json"
     attempt = tmp_path / "attempt.json"
     reduced = tmp_path / "reduced.json"
+    pilot = tmp_path / "pilot.json"
     for path in (source, preflight, authorization):
         path.write_text("{}\n")
 
@@ -240,6 +291,7 @@ def test_development_attempt_follows_authorization_and_precedes_numeric_access(
     )
     monkeypatch.setattr(confirmation, "DEFAULT_DEVELOPMENT_ATTEMPT", attempt)
     monkeypatch.setattr(confirmation, "DEFAULT_REDUCED", reduced)
+    monkeypatch.setattr(confirmation, "DEFAULT_PILOT", pilot)
     monkeypatch.setattr(
         confirmation, "DEFAULT_TERMINAL_REFUSAL", tmp_path / "terminal.json"
     )
@@ -259,18 +311,34 @@ def test_development_attempt_follows_authorization_and_precedes_numeric_access(
 
     def write(path, payload, *, exclusive=True):
         del exclusive
-        events.append("attempt_record" if path == attempt else "reduced_output")
-        path.write_text(json.dumps(payload))
+        labels = {
+            attempt: "attempt_record",
+            reduced: "reduced_output",
+            pilot: "pilot_output",
+        }
+        events.append(labels[path])
+        path.write_text(confirmation._serialized_json(payload))
 
     def numeric_read(donor, *_args, **_kwargs):
         events.append(f"numeric_read:{donor}")
         return {"donor": donor}
+
+    def validate_records(records, *_args):
+        events.append("in_memory_record_validation")
+        return {record["donor"]: record for record in records}
+
+    def pilot_analysis(records):
+        events.append("in_memory_pilot_fit")
+        assert tuple(records) == (*confirmation.CALIBRATION, *confirmation.PILOT)
+        return {"pilot_gate": {"passes": False}}
 
     monkeypatch.setattr(confirmation, "_validated_protocol_authorization", authorize)
     monkeypatch.setattr(confirmation, "_sample_manifest", manifest)
     monkeypatch.setattr(confirmation, "_preflight_records", metadata_preflight)
     monkeypatch.setattr(confirmation, "_write_json", write)
     monkeypatch.setattr(confirmation, "_reduce_one", numeric_read)
+    monkeypatch.setattr(confirmation, "_validated_reduced_records", validate_records)
+    monkeypatch.setattr(confirmation, "_pilot_analysis", pilot_analysis)
 
     confirmation.reduce_development(
         source,
@@ -280,6 +348,7 @@ def test_development_attempt_follows_authorization_and_precedes_numeric_access(
         tmp_path,
         attempt,
         reduced,
+        pilot,
     )
     first_numeric = next(
         index for index, value in enumerate(events) if value.startswith("numeric_read:")
@@ -291,6 +360,8 @@ def test_development_attempt_follows_authorization_and_precedes_numeric_access(
         "attempt_record",
     ]
     assert first_numeric > events.index("attempt_record")
+    assert events.index("in_memory_pilot_fit") < events.index("reduced_output")
+    assert events[-2:] == ["reduced_output", "pilot_output"]
 
 
 def test_reduced_validator_replays_authorization_and_attempt_and_refuses_tampering(
@@ -320,28 +391,12 @@ def test_reduced_validator_replays_authorization_and_attempt_and_refuses_tamperi
         "authorization_sha256": confirmation._sha256(authorization),
         "public_authorization_commit": authorization_commit,
         "numeric_development_access_begins_after_this_record": True,
+        "development_reduction_and_pilot_fit_are_single_process": True,
+        "standalone_pilot_retry_permitted": False,
         "held_numeric_values_read": 0,
     }
     attempt.write_text(json.dumps(attempt_payload))
-    table = np.full((9, 9, 2, 2), 128, dtype=np.int64)
-    records = []
-    manifest = {}
-    for donor in (*confirmation.CALIBRATION, *confirmation.PILOT):
-        role = "calibration" if donor in confirmation.CALIBRATION else "pilot"
-        manifest[donor] = {"role": role}
-        records.append(
-            {
-                "donor": donor,
-                "role": role,
-                "cells": confirmation.CELL_BUDGET,
-                "tables": table.tolist(),
-                "destroyed_tables": table.tolist(),
-                "table_sha256": confirmation._array_sha256(table),
-                "destroyed_table_sha256": confirmation._array_sha256(table),
-                "adt_high_counts": [256] * 9,
-                "selected_barcode_axis_sha256": "a" * 64,
-            }
-        )
+    records, manifest, preflight_records = _reduced_record_fixture()
     payload = {
         "schema": "gse239452-reduced-development/1.0",
         "status": "DEVELOPMENT_REDUCTION_COMPLETE",
@@ -371,6 +426,19 @@ def test_reduced_validator_replays_authorization_and_attempt_and_refuses_tamperi
     }
     monkeypatch.setattr(confirmation, "_sample_manifest", lambda *_args: manifest)
     monkeypatch.setattr(
+        confirmation, "_preflight_records", lambda *_args: preflight_records
+    )
+    canonical_by_donor = {
+        record["donor"]: json.loads(json.dumps(record)) for record in records
+    }
+    monkeypatch.setattr(
+        confirmation,
+        "_reduce_one",
+        lambda donor, *_args, **_kwargs: json.loads(
+            json.dumps(canonical_by_donor[donor])
+        ),
+    )
+    monkeypatch.setattr(
         confirmation,
         "_validated_protocol_authorization",
         lambda *_args, **_kwargs: {"public_protocol_commit": protocol_commit},
@@ -382,6 +450,120 @@ def test_reduced_validator_replays_authorization_and_attempt_and_refuses_tamperi
     reduced.write_text(json.dumps(payload))
     with pytest.raises(PermissionError, match="does not replay"):
         confirmation._validated_reduced(reduced)
+
+    payload["development_authorization"]["path"] = confirmation._relative(authorization)
+    payload["samples"][0]["adt_profiles"][0] = 2.0
+    reduced.write_text(json.dumps(payload))
+    with pytest.raises(PermissionError, match="source replay"):
+        confirmation._validated_reduced(reduced)
+
+    payload["samples"][0]["adt_profiles"][0] = 1.0
+    original = np.asarray(payload["samples"][0]["tables"], dtype=np.int64)
+    changed = original.copy()
+    changed[0, 0] += np.asarray([[1, -1], [-1, 1]], dtype=np.int64)
+    for changed_margin, original_margin in zip(
+        confirmation._margins(changed), confirmation._margins(original)
+    ):
+        np.testing.assert_array_equal(changed_margin, original_margin)
+    payload["samples"][0]["tables"] = changed.tolist()
+    payload["samples"][0]["table_sha256"] = confirmation._array_sha256(changed)
+    reduced.write_text(json.dumps(payload))
+    with pytest.raises(PermissionError, match="source replay"):
+        confirmation._validated_reduced(reduced)
+
+
+def test_reduced_record_schema_and_cross_fields_refuse_tampering():
+    records, manifest, preflight = _reduced_record_fixture()
+    assert set(
+        confirmation._validated_reduced_records(records, manifest, preflight)
+    ) == set(manifest)
+
+    extra = json.loads(json.dumps(records))
+    extra[0]["undeclared_payload"] = [1, 2, 3]
+    with pytest.raises(PermissionError, match="record differs"):
+        confirmation._validated_reduced_records(extra, manifest, preflight)
+
+    rna_profile = json.loads(json.dumps(records))
+    rna_profile[0]["rna_profiles"][0] = 0.75
+    with pytest.raises(PermissionError, match="record differs"):
+        confirmation._validated_reduced_records(rna_profile, manifest, preflight)
+
+    adt_profile = json.loads(json.dumps(records))
+    adt_profile[0]["adt_profiles"][0] = -999.0
+    with pytest.raises(PermissionError, match="record differs"):
+        confirmation._validated_reduced_records(adt_profile, manifest, preflight)
+
+    altered_table = json.loads(json.dumps(records))
+    altered = np.asarray(altered_table[0]["tables"], dtype=np.int64)
+    altered[0, 0, 0, 0] += 1
+    altered_table[0]["tables"] = altered.tolist()
+    altered_table[0]["table_sha256"] = confirmation._array_sha256(altered)
+    assert altered_table[0]["table_sha256"] == confirmation._array_sha256(altered)
+    with pytest.raises(PermissionError, match="record differs"):
+        confirmation._validated_reduced_records(altered_table, manifest, preflight)
+
+
+def test_pilot_binding_refuses_margin_preserving_table_tamper_with_new_digest(
+    tmp_path, monkeypatch
+):
+    records, _, _ = _reduced_record_fixture()
+    reduced = tmp_path / "reduced.json"
+    reduced.write_text(confirmation._serialized_json({"samples": records}))
+    monkeypatch.setattr(confirmation, "DEFAULT_REDUCED", reduced)
+    analysis = {
+        "selection": {},
+        "calibration_models": {},
+        "pilot_losses": {},
+        "pilot_gate": {"passes": False},
+        "promotion_comparators": ["best_residual", "destroyed_link"],
+        "graph_vs_zero_is_diagnostic_only": True,
+        "all_development_models": None,
+        "held_gex_access_authorized": False,
+        "held_adt_access_authorized": False,
+    }
+    monkeypatch.setattr(confirmation, "_validated_reduced", lambda *_args: {})
+    monkeypatch.setattr(confirmation, "_pilot_analysis", lambda *_args: analysis)
+    pilot_payload = {
+        "schema": "gse239452-pilot-result/1.0",
+        "status": "PILOT_FAIL",
+        "created_at_utc": "2026-08-28T00:00:00Z",
+        "runner_sha256": confirmation._sha256(Path(confirmation.__file__)),
+        "reduced_development_sha256": confirmation._sha256(reduced),
+        "calibration_donors": list(confirmation.CALIBRATION),
+        "pilot_donors": list(confirmation.PILOT),
+        **analysis,
+    }
+    pilot = tmp_path / "pilot.json"
+    pilot.write_text(confirmation._serialized_json(pilot_payload))
+    confirmation._validated_pilot(pilot, require_pass=False)
+
+    original = np.asarray(records[0]["tables"], dtype=np.int64)
+    changed = original.copy()
+    changed[0, 0] += np.asarray([[1, -1], [-1, 1]], dtype=np.int64)
+    np.testing.assert_array_equal(
+        confirmation._margins(changed), confirmation._margins(original)
+    )
+    records[0]["tables"] = changed.tolist()
+    records[0]["table_sha256"] = confirmation._array_sha256(changed)
+    reduced.write_text(confirmation._serialized_json({"samples": records}))
+    with pytest.raises(PermissionError, match="pilot result differs"):
+        confirmation._validated_pilot(pilot, require_pass=False)
+
+
+def test_standalone_pilot_fit_and_retry_phase_are_absent(tmp_path):
+    assert not hasattr(confirmation, "fit_pilot")
+    called = False
+
+    def operation():
+        nonlocal called
+        called = True
+        return {}
+
+    with pytest.raises(ValueError, match="unknown terminal phase"):
+        confirmation._terminal_wrapper(
+            "pilot_evaluation", tmp_path / "attempt.json", operation
+        )
+    assert called is False
 
 
 def test_prediction_validator_recomputes_tables_and_refuses_tampering(
@@ -562,3 +744,119 @@ def test_terminal_wrapper_refuses_noncanonical_attempt_before_operation(
             "held_prediction", tmp_path / "alternate_attempt.json", operation
         )
     assert called is False
+
+
+def test_terminal_wrapper_does_not_poison_a_preexisting_completed_attempt(
+    tmp_path, monkeypatch
+):
+    attempt = tmp_path / "development_attempt.json"
+    attempt.write_text("{}\n")
+    terminal = tmp_path / "terminal_refusal.json"
+    monkeypatch.setattr(confirmation, "DEFAULT_DEVELOPMENT_ATTEMPT", attempt)
+    monkeypatch.setattr(confirmation, "DEFAULT_TERMINAL_REFUSAL", terminal)
+
+    def retry():
+        raise FileExistsError("development reduction and pilot fit are one-shot")
+
+    with pytest.raises(FileExistsError, match="one-shot"):
+        confirmation._terminal_wrapper(
+            "development_reduction_and_pilot", attempt, retry
+        )
+    assert not terminal.exists()
+
+
+def test_direct_development_failure_terminalizes_and_blocks_retry(
+    tmp_path, monkeypatch
+):
+    source = tmp_path / "source.json"
+    preflight = tmp_path / "preflight.json"
+    authorization = tmp_path / "authorization.json"
+    attempt = tmp_path / "attempt.json"
+    reduced = tmp_path / "reduced.json"
+    pilot = tmp_path / "pilot.json"
+    terminal = tmp_path / "terminal.json"
+    for path in (source, preflight, authorization):
+        path.write_text("{}\n")
+    monkeypatch.setattr(confirmation, "ROOT", tmp_path)
+    monkeypatch.setattr(confirmation, "DEFAULT_SOURCE", source)
+    monkeypatch.setattr(confirmation, "DEFAULT_PREFLIGHT", preflight)
+    monkeypatch.setattr(
+        confirmation, "DEFAULT_DEVELOPMENT_AUTHORIZATION", authorization
+    )
+    monkeypatch.setattr(confirmation, "DEFAULT_DEVELOPMENT_ATTEMPT", attempt)
+    monkeypatch.setattr(confirmation, "DEFAULT_REDUCED", reduced)
+    monkeypatch.setattr(confirmation, "DEFAULT_PILOT", pilot)
+    monkeypatch.setattr(confirmation, "DEFAULT_TERMINAL_REFUSAL", terminal)
+    monkeypatch.setattr(
+        confirmation,
+        "_validated_protocol_authorization",
+        lambda *_args: {"public_protocol_commit": "a" * 40},
+    )
+    monkeypatch.setattr(confirmation, "_sample_manifest", lambda *_args: {})
+    monkeypatch.setattr(confirmation, "_preflight_records", lambda *_args: {})
+    numeric_calls = 0
+
+    def fail_after_attempt(*_args, **_kwargs):
+        nonlocal numeric_calls
+        numeric_calls += 1
+        raise RuntimeError("synthetic post-attempt failure")
+
+    monkeypatch.setattr(confirmation, "_reduce_one", fail_after_attempt)
+    with pytest.raises(RuntimeError, match="post-attempt"):
+        confirmation.reduce_development(
+            source,
+            preflight,
+            authorization,
+            "b" * 40,
+            tmp_path,
+            attempt,
+            reduced,
+            pilot,
+        )
+    refusal = json.loads(terminal.read_text())
+    assert refusal["phase"] == "development_reduction_and_pilot"
+    assert refusal["rerun_permitted"] is False
+    with pytest.raises(PermissionError, match="permanently closes"):
+        confirmation.reduce_development(
+            source,
+            preflight,
+            authorization,
+            "b" * 40,
+            tmp_path,
+            attempt,
+            reduced,
+            pilot,
+        )
+    assert numeric_calls == 1
+
+
+def test_concurrent_attempt_loser_cannot_terminalize_the_winner(tmp_path, monkeypatch):
+    attempt = tmp_path / "development_attempt.json"
+    terminal = tmp_path / "terminal_refusal.json"
+    monkeypatch.setattr(confirmation, "DEFAULT_DEVELOPMENT_ATTEMPT", attempt)
+    monkeypatch.setattr(confirmation, "DEFAULT_TERMINAL_REFUSAL", terminal)
+    barrier = threading.Barrier(2)
+    outcomes = []
+
+    def operation():
+        barrier.wait()
+        confirmation._write_terminal_attempt(attempt, {"thread": threading.get_ident()})
+        return {}
+
+    def invoke():
+        try:
+            confirmation._terminal_wrapper(
+                "development_reduction_and_pilot", attempt, operation
+            )
+            outcomes.append("success")
+        except confirmation._AttemptNotOwned:
+            outcomes.append("not-owned")
+
+    threads = [threading.Thread(target=invoke) for _ in range(2)]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join()
+    assert sorted(outcomes) == ["not-owned", "success"]
+    assert attempt.exists()
+    assert not terminal.exists()
