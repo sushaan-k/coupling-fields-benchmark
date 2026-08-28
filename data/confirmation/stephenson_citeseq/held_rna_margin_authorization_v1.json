@@ -1,0 +1,10 @@
+{
+  "schema": "stephenson-citeseq-held-rna-authorization/1.0",
+  "status": "OUTCOME_ACCESS_AUTHORIZED",
+  "created_at_utc": "2026-08-28T20:37:09Z",
+  "public_development_commit": "bf1f023c79d634470033c32f7f42f5a5d8aacc01",
+  "development_path": "results/development/stephenson_citeseq_development.json",
+  "development_sha256": "2a8b535a0581b51a2a1eff8c764038a11cac7db08b67217c9b9dae22157e3e72",
+  "runner_sha256": "3708bccf52283e4f08e9fa842d7045dcc0756fa41d54476aaa1fc6ddc7197e76",
+  "source_manifest_sha256": "431e8a370bc9b08a207ab0ff8d3581f80abaf0f36b55eba4accedc5685a3d3cd"
+}
