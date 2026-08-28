@@ -2,6 +2,26 @@
 
 Frozen 2026-08-28 before downloading or opening any GEX or ADT H5 matrix.
 
+## v1.1 source-schema amendment
+
+The first `develop` invocation under the public v1 tag stopped on the first DB1
+GEX file because its barcode axis contains complete well-prefixed cell IDs and
+the v1 reader requested suffixes. The stop occurred during barcode-membership
+validation, before reading `data`, `indices`, or `indptr`; no GEX or ADT numeric
+value, held H5 file, or result was read or written. Inspection was then limited
+to the DB1 SCG1 barcode and feature axes. It established that GEX features are
+stored as gene symbols and ADT features as TotalSeq-C names, rather than the
+Ensembl and C identifiers in the frozen biological panel.
+
+Version 1.1 changes only this source adapter: it requests the deposited complete
+cell ID, gene symbol, and TotalSeq-C name corresponding to each already frozen
+cell and feature. The donor split, selected cells, panels, estimator grids,
+comparators, tie rules, gates, seeds, and support thresholds are unchanged. The
+machine-readable access record is
+`results/development/gse314416_citeseq_schema_amendment_v1_1.json`. Development
+can resume only after these bytes are public under
+`gse314416-citeseq-v1.1-protocol`; the v1 tag remains unchanged.
+
 ## Scientific question
 
 Can an RNA-protein conditional coupling field learned from healthy baseline
@@ -110,14 +130,17 @@ pilot gate permanently refuses held scoring. The held outcome is scored once.
 ## Access sequence
 
 1. Commit and publicly tag this protocol, runner, tests, source/designation
-   manifests, and metadata-only preflight as `gse314416-citeseq-v1-protocol`.
+   manifests, metadata-only preflight, and schema-amendment record as
+   `gse314416-citeseq-v1.1-protocol`. The original
+   `gse314416-citeseq-v1-protocol` tag is retained as the immutable pre-download
+   record.
 2. Download the opaque GEO archive and extract DB1--DB7 H5 files. Run
    `develop`; only DB1--DB2 are opened. Commit the pilot result and selected
    exact/residual configurations, then publicly tag
-   `gse314416-citeseq-v1-development`.
+   `gse314416-citeseq-v1.1-development`.
 3. Run `predict`; only held GEX marker rows are opened. Recipient RNA margins
    and all predicted tables are committed and publicly tagged
-   `gse314416-citeseq-v1-predictions`. No held ADT H5 is opened.
+   `gse314416-citeseq-v1.1-predictions`. No held ADT H5 is opened.
 4. Run `score`; this is the first held ADT access. Verify frozen margins and
    table hashes, evaluate the 77 donors once, and publish pass or failure.
 
