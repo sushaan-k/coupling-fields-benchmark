@@ -1,20 +1,21 @@
 {
   "schema": "coupling-fields-public-benchmark/1.0",
   "release_name": "coupling-fields-v1",
-  "assembled_at_utc": "2026-08-28T01:18:00Z",
+  "assembled_at_utc": "2026-08-28T01:30:00Z",
   "status": "PROSPECTIVE_PROTOCOL_FREEZE",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
-  "immutable_release_tag": null,
+  "public_freeze_commit": "2e5f47a8676000c743be0459b9d979262e7eb147",
+  "immutable_release_tag": "protocol-v1",
   "archive_doi": null,
   "code_license": null,
-  "candidate_designation_status": "DESIGNATED_AWAITING_PUBLIC_FREEZE",
+  "candidate_designation_status": "SEALED",
   "prospective_candidate_count": 2,
   "prospective_candidate_artifacts": [
     {
       "name": "LAWLOR_CANDIDATE_DESIGNATION.json",
       "source_path": "benchmark_release/coupling_fields_v1/LAWLOR_CANDIDATE_DESIGNATION.json",
-      "sha256": "d85ab4a1e1b4841f523ea0dde5d492cb01c62ca9358eb864fd168aeaf0bcbb1a",
-      "bytes": 6250
+      "sha256": "ae8ed653a2b4e7c6752f4282a77c3c9d022dddab3009c20cdb6181668ca40f03",
+      "bytes": 6183
     },
     {
       "name": "POKI_CANDIDATE_DESIGNATION.json",
@@ -25,8 +26,8 @@
     {
       "name": "POKI_PREANALYSIS_LOCK.json",
       "source_path": "data/confirmation/gse143417_pokiseq/preanalysis_lock_v1.json",
-      "sha256": "c4d3b4f229ae3e5c5f21a430254616b7e4cb343815ef0cbf19cdb9e18e544cf2",
-      "bytes": 2316
+      "sha256": "e62106b4087c323b243bf9142a4d1a99f952cd74fc8ebde43ff6519fec65726e",
+      "bytes": 2442
     }
   ],
   "completed_public_panels": 7,
@@ -223,8 +224,8 @@
     {
       "path": "data/confirmation/gse143417_pokiseq/preanalysis_lock_v1.json",
       "source_path": "data/confirmation/gse143417_pokiseq/preanalysis_lock_v1.json",
-      "sha256": "c4d3b4f229ae3e5c5f21a430254616b7e4cb343815ef0cbf19cdb9e18e544cf2",
-      "bytes": 2316,
+      "sha256": "e62106b4087c323b243bf9142a4d1a99f952cd74fc8ebde43ff6519fec65726e",
+      "bytes": 2442,
       "role": "PoKI-seq preanalysis lock"
     },
     {
@@ -460,9 +461,8 @@
     }
   ],
   "release_blockers": [
-    "first public protocol commit",
     "outcome execution and append-only result release",
-    "immutable final release tag",
+    "immutable final result release tag",
     "author-approved code license",
     "derived-data redistribution review"
   ]

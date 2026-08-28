@@ -2,7 +2,7 @@
   "schema": "lawlor-pbmc-coupling-candidate-designation/1.0",
   "protocol": "docs/SECOND_HELD_UNIT_CONFIRMATION_PROTOCOL_2026-08-27.md",
   "protocol_sha256": "15264be9238a8b96a55302cc69c5d73a61007e411decc9ecc01f3d93ccd5f5a6",
-  "status": "DESIGNATED_AWAITING_PUBLIC_FREEZE",
+  "status": "SEALED",
   "designated_at_utc": "2026-08-28T00:35:00Z",
   "accession": "HCA:efea6426-510a-4b60-9a19-277e52bfa815; ERP124005",
   "study_doi": "10.3389/fimmu.2021.636720",
@@ -87,9 +87,9 @@
     "mapreg/classical_residuals.py": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
     "mapreg/table_prediction.py": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e"
   },
-  "public_freeze_commit": null,
-  "public_freeze_url": null,
-  "sealed_at_utc": null,
-  "outcome_access_authorized": false,
-  "seal_blocker": "An immutable public commit and URL containing these exact protocol, runner, reducer, implementation, alias, source-manifest, and metadata-support bytes are required before RNA or ADT matrix access."
+  "public_freeze_commit": "2e5f47a8676000c743be0459b9d979262e7eb147",
+  "public_freeze_url": "https://github.com/sushaan-k/coupling-fields-benchmark/commit/2e5f47a8676000c743be0459b9d979262e7eb147",
+  "sealed_at_utc": "2026-08-28T01:25:48Z",
+  "outcome_access_authorized": true,
+  "seal_blocker": null
 }

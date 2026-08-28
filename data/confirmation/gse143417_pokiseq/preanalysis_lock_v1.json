@@ -5,7 +5,7 @@
     "form and score held target-TGFB pairing only after prediction hash exists"
   ],
   "candidate": "GSE143417 PoKI-seq Donor1 to held Donor2",
-  "created_utc": "2026-08-28T01:20:38.655236+00:00",
+  "created_utc": "2026-08-28T01:26:16.175539+00:00",
   "implementation_sha256": {
     "data/confirmation/gse143417_pokiseq/candidate_designation_v1.json": "4dafbfc270628ad6f0f9921757a9689dea34ceaf92a0ec3725d377545e63c8c8",
     "docs/GSE143417_POKISEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-27.md": "ae550d171b494b535a922a68b8f666d161c3c3b538a988909204766025843f1a",
@@ -19,7 +19,7 @@
     "tests/test_confirm_poki_gse143417.py": "2c91134fccda25de5937d72d2661f0babad29d23a6c11572de1d4b430273aa40",
     "tests/test_table_prediction.py": "bf34b51291516246e803a6df6c166c959fa083fd47d3bf115ef35b5bd0b305a4"
   },
-  "outcome_access_authorized": false,
+  "outcome_access_authorized": true,
   "primary_gate": [
     "held field correlation lower 95% endpoint > 0",
     "primary-minus-destroyed deviance upper 95% endpoint < 0",
@@ -27,12 +27,12 @@
     "primary-minus-best-matched-field deviance upper 95% endpoint < 0"
   ],
   "protocol": "gse143417-pokiseq-held-donor/1.0",
-  "public_freeze_commit": null,
-  "public_freeze_url": null,
+  "public_freeze_commit": "2e5f47a8676000c743be0459b9d979262e7eb147",
+  "public_freeze_url": "https://github.com/sushaan-k/coupling-fields-benchmark/commit/2e5f47a8676000c743be0459b9d979262e7eb147",
   "source": {
     "bytes": 492216320,
     "path": "data/confirmation/gse143417_pokiseq/GSE143417_RAW.tar",
     "sha256": "6bc8bf810fbca8f0585c337ed143d39d8bfbc3f85d623894ebadf4c6f357b632"
   },
-  "status": "SEALED_PREOUTCOME"
+  "status": "SEALED"
 }
