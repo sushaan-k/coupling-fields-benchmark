@@ -340,10 +340,12 @@ def test_frozen_json_artifacts_have_expected_bytes_and_finite_numbers():
 def test_benchmark_manifest_binds_combat_freeze_and_retains_gse299043_refusal():
     manifest = _load("benchmark_manifest.json")
     assert manifest["status"] == (
-        "PUBLIC_COMBAT_CITESEQ_PREOUTCOME_FREEZE_PENDING_VERIFICATION"
+        "PUBLIC_COMBAT_CITESEQ_PREOUTCOME_FREEZE_VERIFIED"
     )
     assert manifest["immutable_release_tag"] == "combat-citeseq-v1-protocol"
-    assert manifest["public_freeze_commit"] is None
+    assert manifest["public_freeze_commit"] == (
+        "240bded6e9980414c6dd37e28a061605c68a6822"
+    )
     assert manifest["prospective_candidate_count"] == 1
     assert manifest["active_candidate_count"] == 1
     assert manifest["completed_public_panels"] == 7
@@ -361,11 +363,12 @@ def test_benchmark_manifest_binds_combat_freeze_and_retains_gse299043_refusal():
     assert protocol["oxford_held_samples"] == 51
     assert protocol["st_georges_held_samples"] == 10
     assert protocol["held_score_attempted"] is False
+    assert manifest["combat_public_freeze_verification"]["status"] == "PASS"
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 167
+    assert len(artifacts) == 168
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 167
+    assert len(by_path) == 168
     for relative in (
         "docs/GSE299043_MLN_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
         "docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
@@ -382,6 +385,7 @@ def test_benchmark_manifest_binds_combat_freeze_and_retains_gse299043_refusal():
         "experiments/evaluate_gse299043_mln_development.py",
         "experiments/confirm_gse299043_mln.py",
         "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
+        "docs/COMBAT_CITESEQ_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
         "data/confirmation/combat_citeseq/candidate_designation_v1.json",
         "data/confirmation/combat_citeseq/source_manifest_v1.json",
         "results/development/combat_citeseq_metadata_preflight.json",
