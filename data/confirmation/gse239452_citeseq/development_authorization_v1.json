@@ -1,7 +1,7 @@
 {
   "schema": "gse239452-protocol-authorization/1.0",
-  "status": "PENDING_PUBLIC_PROTOCOL_COMMIT",
-  "public_protocol_commit": null,
+  "status": "DEVELOPMENT_ACCESS_AUTHORIZED",
+  "public_protocol_commit": "2e5c6cc13989afbf0a536fd25a32c07797c3d2b2",
   "binding_sha256": {
     "experiments/confirm_gse239452_citeseq.py": "a5e0d751973bd0cfe3e437dccbf7afaa61ded250eef8ef68b3bdf8e078e575e6",
     "experiments/preflight_gse239452_citeseq.py": "8a05d67404c701b55f7059a3c5348521981829bba1647cb05419240c8658ea1d",
