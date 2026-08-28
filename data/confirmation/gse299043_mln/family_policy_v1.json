@@ -1,0 +1,14 @@
+{
+  "schema": "gse299043-mln-family-policy/1.0",
+  "status": "ELIGIBLE_AFTER_PRIOR_TERMINAL_REFUSAL",
+  "prior_candidate": "GSE279451",
+  "required_terminal_artifact": "results/development/gse279451_sepsis_evaluation_refusal.json",
+  "required_terminal_artifact_sha256": "af6d1f26eb7ea3f566612e167843bd51c03cf961a595b434e55ae7ca4d20496b",
+  "required_terminal_status": "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
+  "prior_held_matrix_members_opened": 0,
+  "prior_rerun_permitted": false,
+  "gse299043_development_h5ad_access_before_public_freeze": false,
+  "gse299043_held_h5ad_access_before_public_prediction_authorization": false,
+  "maximum_development_attempts": 1,
+  "maximum_held_score_attempts": 1
+}

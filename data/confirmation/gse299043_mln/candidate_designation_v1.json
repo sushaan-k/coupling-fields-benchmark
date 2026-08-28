@@ -1,0 +1,142 @@
+{
+  "schema": "gse299043-mln-candidate-designation/1.0",
+  "status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
+  "accession": "GSE299043",
+  "bioproject": "PRJNA1215450",
+  "study_doi": "10.1038/s41590-025-02241-4",
+  "protocol": "docs/GSE299043_MLN_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
+  "metadata_preflight": "data/development/gse299043_mln/metadata_preflight_v1.tsv",
+  "source_manifest_template": "data/confirmation/gse299043_mln/source_manifest_template_v1.json",
+  "source_manifest": "data/confirmation/gse299043_mln/source_manifest_v1.json",
+  "family_policy": "data/confirmation/gse299043_mln/family_policy_v1.json",
+  "authorization_template": "data/confirmation/gse299043_mln/score_authorization_template_v1.json",
+  "authorization": "data/confirmation/gse299043_mln/score_authorization_v1.json",
+  "authorization_publication_template": "data/confirmation/gse299043_mln/score_authorization_publication_template_v1.json",
+  "authorization_publication": "data/confirmation/gse299043_mln/score_authorization_publication_v1.json",
+  "acquisition": "experiments/acquire_gse299043_nonheld.py",
+  "reducer": "experiments/reduce_gse299043_mln.py",
+  "development_evaluator": "experiments/evaluate_gse299043_mln_development.py",
+  "runner": "experiments/confirm_gse299043_mln.py",
+  "development_attempt": "data/development/gse299043_mln/development_attempt_v1.json",
+  "development_acquisition_refusal": "results/development/gse299043_mln_development_acquisition_refusal.json",
+  "evaluation_attempt": "data/development/gse299043_mln/evaluation_attempt_v1.json",
+  "development_evaluation_refusal": "results/development/gse299043_mln_evaluation_refusal.json",
+  "development_result": "results/development/gse299043_mln_exact_development.json",
+  "prediction": "results/gse299043_mln_exact_predictions.json",
+  "score_attempt": "data/confirmation/gse299043_mln/score_attempt_v1.json",
+  "score_output": "results/gse299043_mln_exact_confirmation.json",
+  "score_refusal": "results/gse299043_mln_exact_score_refusal.json",
+  "design": {
+    "biological_unit": "physical organ donor",
+    "tissue": "mesenteric lymph node",
+    "development_site": "Cambridge Biorepository for Translational Medicine",
+    "held_site": "LiveOnNY donors processed at Columbia University",
+    "development_donors": [
+      "591C",
+      "621B",
+      "637C",
+      "640C",
+      "647C",
+      "689C",
+      "694B",
+      "759B",
+      "768B",
+      "778C"
+    ],
+    "held_donors": [
+      "D512",
+      "D520",
+      "D523",
+      "D528",
+      "D529",
+      "D533",
+      "D534",
+      "D543",
+      "D564",
+      "D570"
+    ],
+    "source_members": {
+      "development": 56,
+      "held": 151,
+      "development_bytes": 2991542178,
+      "held_bytes": 4766004153
+    },
+    "markers": [
+      "CD4",
+      "CD7",
+      "CD14",
+      "CD19",
+      "CD33",
+      "CD38",
+      "CD44",
+      "CD47",
+      "CD52"
+    ],
+    "ordered_entities": 81,
+    "cells_per_donor": 512,
+    "minimum_informative_entities": 64,
+    "cell_selection_rule": "ascending SHA256('GSE299043-MLN-CELL-BUDGET-v1' + donor + filename + barcode) among frozen MLN assignments: HashSolo singlets except the exact source-backed 694B single-tissue member",
+    "single_tissue_one_hto_exception": "GSE299043_694B_001.CZI-IA11512689.v2.h5ad with sole normalized HTO 694B-MLN-206",
+    "rna_state": "raw UMI count greater than zero",
+    "adt_state": "per-donor deterministic lower/upper midrank with exactly 256 cells per state and SHA256 tie breaking",
+    "rna_graph_profile": "per-marker donor vector of binary detection prevalence, centered and scaled within each development fold",
+    "adt_graph_profile": "per-marker donor vector of mean per-cell log1p percentage of the nine-marker ADT panel, centered and scaled within each development fold",
+    "graph_pairing_access": false
+  },
+  "selection": {
+    "rule": "all hyperparameters and the strongest classical residual are selected by ten-fold leave-one-development-donor-out prediction; each fold rebuilds graphs and refits on nine donors",
+    "primary": "donor-heterogeneity-aware exact fixed-margin conditional coupling field with RNA and ADT marginal-profile graphs",
+    "classical_candidates": [
+      "sqrt(n)-normalized signed Pearson interaction residual, raw",
+      "sqrt(n)-normalized signed Pearson interaction residual, exact-null-centered",
+      "sqrt(n)-normalized signed-root Poisson-deviance interaction residual, raw",
+      "sqrt(n)-normalized signed-root Poisson-deviance interaction residual, exact-null-centered"
+    ],
+    "required_controls": [
+      "strongest classical residual",
+      "destroyed-link hierarchical coupling",
+      "hierarchical ridge-only coupling"
+    ],
+    "reported_controls": [
+      "label-permuted marker graphs",
+      "independence"
+    ],
+    "development_inference_status": "adaptive promotion heuristic; model selection and gating use the same ten development donors",
+    "held_inference_status": "confirmatory; held donors do not enter model selection",
+    "bootstrap": "20,000 shared physical-donor resamples from NumPy default_rng(20260828), linear 0.025 and 0.975 quantiles"
+  },
+  "gates": {
+    "development": {
+      "donors": 10,
+      "minimum_relative_deviance_reduction": 0.05,
+      "paired_bootstrap_upper_95_percent_endpoint_below_zero": true,
+      "minimum_favorable_donors": 8,
+      "comparators": [
+        "strongest classical residual",
+        "destroyed-link hierarchical coupling",
+        "hierarchical ridge-only coupling"
+      ]
+    },
+    "held": {
+      "donors": 10,
+      "minimum_relative_deviance_reduction": 0.05,
+      "paired_bootstrap_upper_95_percent_endpoint_below_zero": true,
+      "minimum_favorable_donors": 8,
+      "maximum_exact_one_sided_sign_flip_p": 0.025,
+      "comparators": [
+        "strongest classical residual",
+        "destroyed-link hierarchical coupling"
+      ]
+    }
+  },
+  "outcome_access": {
+    "h5ad_members_opened_at_designation": 0,
+    "development_attempt_marker_required_before_first_development_request": true,
+    "maximum_development_attempts": 1,
+    "development_failure_is_terminal_without_held_access": true,
+    "public_commit_bound_prediction_required_before_first_held_request": true,
+    "public_commit_bound_authorization_required_before_first_held_request": true,
+    "prediction_materialized_before_paired_truth": true,
+    "maximum_held_score_attempts": 1
+  }
+}

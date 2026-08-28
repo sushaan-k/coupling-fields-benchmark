@@ -232,11 +232,132 @@ def test_gse279451_public_plan_is_frozen_and_terminal_refusal_is_complete():
     assert not any(path.exists() for path in forbidden)
 
 
+def test_gse299043_public_plan_is_outcome_disabled_and_complete():
+    designation_path = (
+        ROOT / "data/confirmation/gse299043_mln/candidate_designation_v1.json"
+    )
+    authorization_path = (
+        ROOT
+        / "data/confirmation/gse299043_mln/score_authorization_template_v1.json"
+    )
+    designation = _load(designation_path)
+    authorization = _load(authorization_path)
+    assert designation["status"] == "DESIGNATED_OUTCOME_ACCESS_DISABLED"
+    design = designation["design"]
+    assert len(design["development_donors"]) == 10
+    assert len(design["held_donors"]) == 10
+    assert set(design["development_donors"]).isdisjoint(design["held_donors"])
+    assert design["source_members"] == {
+        "development": 56,
+        "held": 151,
+        "development_bytes": 2_991_542_178,
+        "held_bytes": 4_766_004_153,
+    }
+    assert design["ordered_entities"] == 81
+    assert design["cells_per_donor"] == 512
+    assert designation["selection"]["development_inference_status"].startswith(
+        "adaptive promotion heuristic"
+    )
+    assert designation["selection"]["held_inference_status"].startswith(
+        "confirmatory"
+    )
+    assert authorization["status"] == "OUTCOME_ACCESS_DISABLED"
+    assert all(
+        authorization[key] is None
+        for key in authorization
+        if key.endswith("_sha256") or key.startswith("public_prediction")
+    )
+    publication_template = _load(designation["authorization_publication_template"])
+    assert publication_template == {
+        "schema": "gse299043-mln-score-authorization-publication/1.0",
+        "status": "PUBLIC_AUTHORIZATION_UNAVAILABLE",
+        "authorization_path": designation["authorization"],
+        "authorization_sha256": None,
+        "public_authorization_commit": None,
+        "public_authorization_url": None,
+    }
+
+    preflight = ROOT / "data/development/gse299043_mln/metadata_preflight_v1.tsv"
+    with preflight.open(newline="") as stream:
+        rows = list(csv.DictReader(stream, delimiter="\t"))
+    assert len(rows) == 207
+    assert sum(row["role"] == "development" for row in rows) == 56
+    assert sum(row["role"] == "held" for row in rows) == 151
+
+    required = [
+        ROOT / designation["protocol"],
+        ROOT / designation["source_manifest_template"],
+        ROOT / designation["family_policy"],
+        ROOT / designation["authorization_template"],
+        ROOT / designation["authorization_publication_template"],
+        ROOT / designation["acquisition"],
+        ROOT / designation["reducer"],
+        ROOT / designation["development_evaluator"],
+        ROOT / designation["runner"],
+    ]
+    assert all(path.is_file() for path in required)
+
+    forbidden = [
+        ROOT / designation["source_manifest"],
+        ROOT / designation["development_attempt"],
+        ROOT / designation["development_acquisition_refusal"],
+        ROOT / designation["evaluation_attempt"],
+        ROOT / designation["development_evaluation_refusal"],
+        ROOT / designation["development_result"],
+        ROOT / designation["prediction"],
+        ROOT / designation["authorization"],
+        ROOT / designation["authorization_publication"],
+        ROOT / designation["score_attempt"],
+        ROOT / designation["score_output"],
+        ROOT / designation["score_refusal"],
+    ]
+    assert not any(path.exists() for path in forbidden)
+
+
 def test_frozen_json_artifacts_have_expected_bytes_and_finite_numbers():
     for relative_path, expected_sha256 in FROZEN_JSON_SHA256.items():
         path = ROOT / relative_path
         assert _sha256(path) == expected_sha256
         _assert_finite(_load(relative_path))
+
+
+def test_benchmark_manifest_binds_active_gse299043_release():
+    manifest = _load("benchmark_manifest.json")
+    assert manifest["status"] == "PUBLIC_GSE299043_MLN_OUTCOME_ACCESS_DISABLED"
+    assert manifest["immutable_release_tag"] == "gse299043-mln-v1-protocol"
+    assert manifest["prospective_candidate_count"] == 1
+    assert manifest["active_candidate_count"] == 1
+    assert manifest["completed_public_panels"] == 7
+    assert manifest["procedural_refusal_count"] == 6
+    protocol = manifest["next_protocol"]
+    assert protocol["designation"] == (
+        "data/confirmation/gse299043_mln/candidate_designation_v1.json"
+    )
+    assert protocol["h5ad_members_opened"] == 0
+    assert protocol["count_acquisition_started"] is False
+    assert protocol["held_inference_status"].startswith("confirmatory")
+
+    artifacts = manifest["artifacts"]
+    assert len(artifacts) == 153
+    by_path = {record["path"]: record for record in artifacts}
+    assert len(by_path) == 153
+    for relative in (
+        "docs/GSE299043_MLN_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
+        "data/confirmation/gse299043_mln/candidate_designation_v1.json",
+        "data/confirmation/gse299043_mln/source_manifest_template_v1.json",
+        "data/confirmation/gse299043_mln/score_authorization_template_v1.json",
+        "data/confirmation/gse299043_mln/score_authorization_publication_template_v1.json",
+        "data/development/gse299043_mln/metadata_preflight_v1.tsv",
+        "experiments/acquire_gse299043_nonheld.py",
+        "experiments/reduce_gse299043_mln.py",
+        "experiments/evaluate_gse299043_mln_development.py",
+        "experiments/confirm_gse299043_mln.py",
+    ):
+        assert relative in by_path
+    for relative, record in by_path.items():
+        artifact = ROOT / relative
+        assert artifact.stat().st_size == record["bytes"]
+        assert _sha256(artifact) == record["sha256"]
 
 
 def test_public_benchmark_tsv_matches_results_and_provenance():
@@ -246,9 +367,9 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
         rows = list(reader)
 
     assert len(reader.fieldnames or []) == 29
-    assert len(rows) == 13
+    assert len(rows) == 14
     by_panel = {row["panel"]: row for row in rows}
-    assert len(by_panel) == 13
+    assert len(by_panel) == 14
     assert all(None not in row for row in rows)
 
     estimator_by_sha256 = {
@@ -269,6 +390,9 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
         "NeurIPS 2021 BMMC CITE-seq": "experiments/confirm_scmmib_bmmc.py",
         "GSE279451 adult sepsis CITE-seq": (
             "experiments/evaluate_gse279451_sepsis_development.py"
+        ),
+        "GSE299043 MLN held-site confirmation": (
+            "experiments/evaluate_gse299043_mln_development.py"
         ),
         "PerturbSci-Kinetics": "experiments/benchmark_public_coupling_fields.py",
         "Frangieh Perturb-CITE-seq": "experiments/benchmark_public_coupling_fields.py",
@@ -519,6 +643,11 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
             "NOT_EVALUATED",
             "NOT_EVALUATED",
             "REFUSE_SUPPORT",
+        ),
+        "GSE299043 MLN held-site confirmation": (
+            "NOT_EVALUATED",
+            "NOT_EVALUATED",
+            "OUTCOME_DISABLED",
         ),
     }
     for panel, expected in expected_decisions.items():

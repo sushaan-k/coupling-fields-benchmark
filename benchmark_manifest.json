@@ -1,56 +1,66 @@
 {
   "schema": "coupling-fields-public-benchmark/1.0",
   "release_name": "coupling-fields-v1",
-  "assembled_at_utc": "2026-08-28T13:56:23Z",
-  "status": "PUBLIC_GSE279451_TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
+  "assembled_at_utc": "2026-08-28T15:29:56Z",
+  "status": "PUBLIC_GSE299043_MLN_OUTCOME_ACCESS_DISABLED",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
-  "public_freeze_commit": "f63c9dc760a85a1361ce75e13036eb23262b1bc7",
-  "immutable_release_tag": "gse279451-sepsis-v1-protocol",
+  "public_freeze_commit": null,
+  "immutable_release_tag": "gse299043-mln-v1-protocol",
   "archive_doi": null,
   "code_license": null,
-  "candidate_designation_status": "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
-  "prospective_candidate_count": 0,
-  "active_candidate_count": 0,
+  "candidate_designation_status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
+  "prospective_candidate_count": 1,
+  "active_candidate_count": 1,
   "prospective_candidate_artifacts": [
     {
-      "path": "GSE279451_CANDIDATE_DESIGNATION.json",
-      "source_path": "data/confirmation/gse279451_sepsis/candidate_designation_v1.json",
-      "sha256": "4143b6632f1b0e9bc1cae05cd9b876d70c534914fb4a1a0f35a23f04957a0b72",
-      "bytes": 6975
+      "path": "data/confirmation/gse299043_mln/candidate_designation_v1.json",
+      "source_path": "data/confirmation/gse299043_mln/candidate_designation_v1.json",
+      "sha256": "c8b6bd846f69567513398e2dd6faa9c661c09df930a09a7a57a273040733e26e",
+      "bytes": 6430
     },
     {
-      "path": "GSE279451_SCORE_AUTHORIZATION_TEMPLATE.json",
-      "source_path": "data/confirmation/gse279451_sepsis/score_authorization_template_v1.json",
-      "sha256": "bbc9f6e7418515fe4940aaeb80c4b7713588c4b02ad940169517d9e4b4a3cfb1",
-      "bytes": 899
+      "path": "data/confirmation/gse299043_mln/score_authorization_template_v1.json",
+      "source_path": "data/confirmation/gse299043_mln/score_authorization_template_v1.json",
+      "sha256": "59757603a892957aa99bc70dd7460f812ade8819516981602c59e5b687403d2e",
+      "bytes": 810
+    },
+    {
+      "path": "data/confirmation/gse299043_mln/score_authorization_publication_template_v1.json",
+      "source_path": "data/confirmation/gse299043_mln/score_authorization_publication_template_v1.json",
+      "sha256": "287c85aaf4f449a1cd0b6259204632fb4636b3b24fcc527c4533284f4c4481fc",
+      "bytes": 310
     }
   ],
   "completed_public_panels": 7,
   "procedural_refusal_count": 6,
   "kotliarov_outcome_status": "TERMINAL_REFUSAL",
   "next_protocol": {
-    "designation": "GSE279451_CANDIDATE_DESIGNATION.json",
-    "designation_sha256": "4143b6632f1b0e9bc1cae05cd9b876d70c534914fb4a1a0f35a23f04957a0b72",
-    "status": "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
-    "development_physical_donors": 19,
-    "held_physical_donors": 21,
-    "primary_cells_per_donor": 1024,
-    "count_acquisition_started": true,
-    "matrix_entries_decoded": true,
-    "development_matrix_members_decoded": 19,
-    "held_matrix_members_opened": 0,
+    "designation": "data/confirmation/gse299043_mln/candidate_designation_v1.json",
+    "designation_sha256": "c8b6bd846f69567513398e2dd6faa9c661c09df930a09a7a57a273040733e26e",
+    "status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
+    "tissue": "mesenteric lymph node",
+    "development_site": "Cambridge Biorepository for Translational Medicine",
+    "held_site": "LiveOnNY processed at Columbia University",
+    "development_physical_donors": 10,
+    "held_physical_donors": 10,
+    "ordered_rna_adt_entities": 81,
+    "primary_cells_per_donor": 512,
+    "source_members": 207,
+    "development_source_members": 56,
+    "held_source_members": 151,
+    "count_acquisition_started": false,
+    "h5ad_members_opened": 0,
+    "matrix_entries_decoded": false,
     "prediction_written": false,
     "held_score_attempted": false,
-    "rerun_permitted": false,
-    "unavailable_candidate_families": [
-      "common_effect_graph",
-      "common_effect_ridge_only"
-    ],
-    "source_manifest_sha256": "c15fdc13c68cff14c45cfc16153cdbc309f6c2252457634fda8abdca677e4603",
-    "development_attempt_sha256": "b8d7e745997e7b7ccd9a3bc8a7a7c3c7670b9e47c8b5d51e3d12fb70a5a8938d",
-    "evaluation_attempt_sha256": "a072d3340388afa60a33ef220b06e9e8d920a590d6b6894f66f02b999e1ef5a3",
-    "reduced_development_sha256": "2fab0353c44d65f6cf3d58ca19a214967c94fdccaeda89ed56c7398fb8f4185b",
-    "evaluation_refusal_sha256": "af6d1f26eb7ea3f566612e167843bd51c03cf961a595b434e55ae7ca4d20496b"
+    "development_interval_status": "adaptive promotion heuristic",
+    "held_inference_status": "confirmatory if the frozen held gate passes",
+    "source_template_sha256": "83a36f5eeb2641012e763652c21630c0b29d1230fbcbfd721f46a6828009c43c",
+    "metadata_preflight_sha256": "dfc929364a40895620c39897a671542670f1cf1e89058cf4ff02f51d16c86933",
+    "protocol_sha256": "b648a560d2a4e268035051675e3e2b4142fd48e36c2b0e98a43373affa5ad8f2",
+    "family_policy_sha256": "51bd22a51b6fe353a2ff95535199391ead2131396122474cc1f06f927b702fba",
+    "authorization_template_sha256": "59757603a892957aa99bc70dd7460f812ade8819516981602c59e5b687403d2e",
+    "authorization_publication_template_sha256": "287c85aaf4f449a1cd0b6259204632fb4636b3b24fcc527c4533284f4c4481fc"
   },
   "artifacts": [
     {
@@ -140,15 +150,15 @@
     {
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
       "source_path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "5a9cb193e456e38ccc3507d0d0b2eaa1dd89cf783fba57721156d100b5b70743",
-      "bytes": 21455,
+      "sha256": "f012c5e5cfc5084a130d0a72497ff1311acae1f2362ba7bf79342e814b26dc57",
+      "bytes": 22946,
       "role": "claim-evidence ledger"
     },
     {
       "path": "results/final_public_benchmark_table.tsv",
       "source_path": "results/final_public_benchmark_table.tsv",
-      "sha256": "29e55a744aab524f2b2339227be183750d8f10ba2892be14f56702ff813798ad",
-      "bytes": 13806,
+      "sha256": "d851231e40dde426ba8b29f73314a68a3134b7eb13027c9d8dbfbbbf2420fdae",
+      "bytes": 14908,
       "role": "panel-level benchmark table"
     },
     {
@@ -637,8 +647,8 @@
     {
       "path": "tests/test_public_artifact_integrity.py",
       "source_path": "tests/test_public_artifact_integrity.py",
-      "sha256": "80494bf1a47b12184516466cb29936803e80ec19b6ddc5e12e951645575aa71a",
-      "bytes": 27925,
+      "sha256": "2e0b8d82feeb460ed36a86211128c8465053cd4190eea6f594ca72acca0727eb",
+      "bytes": 33482,
       "role": "artifact integrity tests"
     },
     {
@@ -1018,6 +1028,111 @@
       "sha256": "207bc2a10ff0a7c31b7b36122d8754c0014584174f305d7dc7a4170577768eca",
       "bytes": 11953,
       "role": "heterogeneity-adaptive estimator tests"
+    },
+    {
+      "path": "docs/GSE299043_MLN_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "source_path": "docs/GSE299043_MLN_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "sha256": "b648a560d2a4e268035051675e3e2b4142fd48e36c2b0e98a43373affa5ad8f2",
+      "bytes": 9101,
+      "role": "prospective GSE299043 held-site protocol"
+    },
+    {
+      "path": "data/confirmation/gse299043_mln/candidate_designation_v1.json",
+      "source_path": "data/confirmation/gse299043_mln/candidate_designation_v1.json",
+      "sha256": "c8b6bd846f69567513398e2dd6faa9c661c09df930a09a7a57a273040733e26e",
+      "bytes": 6430,
+      "role": "GSE299043 outcome-disabled candidate designation"
+    },
+    {
+      "path": "data/confirmation/gse299043_mln/family_policy_v1.json",
+      "source_path": "data/confirmation/gse299043_mln/family_policy_v1.json",
+      "sha256": "51bd22a51b6fe353a2ff95535199391ead2131396122474cc1f06f927b702fba",
+      "bytes": 706,
+      "role": "GSE299043 successor-family policy"
+    },
+    {
+      "path": "data/confirmation/gse299043_mln/source_manifest_template_v1.json",
+      "source_path": "data/confirmation/gse299043_mln/source_manifest_template_v1.json",
+      "sha256": "83a36f5eeb2641012e763652c21630c0b29d1230fbcbfd721f46a6828009c43c",
+      "bytes": 165968,
+      "role": "disabled size-bound GSE299043 source template"
+    },
+    {
+      "path": "data/confirmation/gse299043_mln/score_authorization_template_v1.json",
+      "source_path": "data/confirmation/gse299043_mln/score_authorization_template_v1.json",
+      "sha256": "59757603a892957aa99bc70dd7460f812ade8819516981602c59e5b687403d2e",
+      "bytes": 810,
+      "role": "disabled GSE299043 score authorization template"
+    },
+    {
+      "path": "data/confirmation/gse299043_mln/score_authorization_publication_template_v1.json",
+      "source_path": "data/confirmation/gse299043_mln/score_authorization_publication_template_v1.json",
+      "sha256": "287c85aaf4f449a1cd0b6259204632fb4636b3b24fcc527c4533284f4c4481fc",
+      "bytes": 310,
+      "role": "disabled GSE299043 public-authorization sidecar template"
+    },
+    {
+      "path": "data/development/gse299043_mln/metadata_preflight_v1.tsv",
+      "source_path": "data/development/gse299043_mln/metadata_preflight_v1.tsv",
+      "sha256": "dfc929364a40895620c39897a671542670f1cf1e89058cf4ff02f51d16c86933",
+      "bytes": 80546,
+      "role": "metadata-only GSE299043 held-site preflight"
+    },
+    {
+      "path": "experiments/reduce_gse299043_mln.py",
+      "source_path": "experiments/reduce_gse299043_mln.py",
+      "sha256": "a5d92baf07d6e9855eed31e3d11b967a266469d77fe6b341cb50f6f19024dfd3",
+      "bytes": 32742,
+      "role": "streaming GSE299043 H5AD reducer"
+    },
+    {
+      "path": "experiments/acquire_gse299043_nonheld.py",
+      "source_path": "experiments/acquire_gse299043_nonheld.py",
+      "sha256": "6e4a40fbc3ba0c1e431593677e6bd764e68d95bbc60b0bee52ad5e2319574262",
+      "bytes": 25856,
+      "role": "one-shot nonheld GSE299043 acquisition"
+    },
+    {
+      "path": "experiments/evaluate_gse299043_mln_development.py",
+      "source_path": "experiments/evaluate_gse299043_mln_development.py",
+      "sha256": "6b48ae7524a376f7d0be3fcebcd7db298a149147eb32fc2b2a8003b4946c6d54",
+      "bytes": 46263,
+      "role": "ten-donor GSE299043 development evaluator"
+    },
+    {
+      "path": "experiments/confirm_gse299043_mln.py",
+      "source_path": "experiments/confirm_gse299043_mln.py",
+      "sha256": "474b4375e3982d6650f93ad7b7ee961a4e920e777a8ef5f50fbd494f044359d0",
+      "bytes": 80828,
+      "role": "fail-closed GSE299043 predict-score runner"
+    },
+    {
+      "path": "tests/test_reduce_gse299043_mln.py",
+      "source_path": "tests/test_reduce_gse299043_mln.py",
+      "sha256": "662a952472cef1d3202300b710f6dddf906d965e8edb1252b4489087f3f45df4",
+      "bytes": 15378,
+      "role": "GSE299043 reducer tests"
+    },
+    {
+      "path": "tests/test_acquire_gse299043_nonheld.py",
+      "source_path": "tests/test_acquire_gse299043_nonheld.py",
+      "sha256": "3db556136f51735ec14a3839122b8cc29b4b1fc364489b4ba5574f596fd47585",
+      "bytes": 14651,
+      "role": "GSE299043 acquisition and poison tests"
+    },
+    {
+      "path": "tests/test_evaluate_gse299043_mln_development.py",
+      "source_path": "tests/test_evaluate_gse299043_mln_development.py",
+      "sha256": "bb3d3230928da5bc2e6ca5710ceac3adcdba1498d2d44478a3659db24a6323fb",
+      "bytes": 17605,
+      "role": "GSE299043 evaluator tests"
+    },
+    {
+      "path": "tests/test_gse299043_mln_confirmation.py",
+      "source_path": "tests/test_gse299043_mln_confirmation.py",
+      "sha256": "19c829e5bf546aa2ba3a6e25c2657e119100a4048c80da7dc50e5d32eedac811",
+      "bytes": 36293,
+      "role": "GSE299043 held confirmation and authorization tests"
     }
   ],
   "release_blockers": [
@@ -1025,5 +1140,6 @@
     "derived-data redistribution review"
   ],
   "bmmc_outcome_status": "TERMINAL_NUMERICAL_DEVELOPMENT_REFUSAL",
-  "gse279451_outcome_status": "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL"
+  "gse279451_outcome_status": "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
+  "gse299043_outcome_status": "OUTCOME_ACCESS_DISABLED"
 }

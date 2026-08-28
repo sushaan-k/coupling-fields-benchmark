@@ -1,0 +1,23 @@
+{
+  "schema": "gse299043-mln-score-authorization/1.0",
+  "status": "OUTCOME_ACCESS_DISABLED",
+  "prediction_path": "results/gse299043_mln_exact_predictions.json",
+  "prediction_sha256": null,
+  "public_prediction_commit": null,
+  "public_prediction_url": null,
+  "runner_sha256": null,
+  "reducer_sha256": null,
+  "development_evaluator_sha256": null,
+  "gse279451_numerical_core_sha256": null,
+  "gse299043_reducer_sha256": null,
+  "hierarchical_estimator_sha256": null,
+  "heterogeneity_estimator_sha256": null,
+  "classical_residuals_sha256": null,
+  "evaluator_tests_sha256": null,
+  "protocol_sha256": null,
+  "candidate_designation_sha256": null,
+  "family_policy_sha256": null,
+  "authorization_publication_template_sha256": null,
+  "source_manifest_sha256": null,
+  "development_result_sha256": null
+}

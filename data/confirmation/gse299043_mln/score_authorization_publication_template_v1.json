@@ -1,0 +1,8 @@
+{
+  "schema": "gse299043-mln-score-authorization-publication/1.0",
+  "status": "PUBLIC_AUTHORIZATION_UNAVAILABLE",
+  "authorization_path": "data/confirmation/gse299043_mln/score_authorization_v1.json",
+  "authorization_sha256": null,
+  "public_authorization_commit": null,
+  "public_authorization_url": null
+}

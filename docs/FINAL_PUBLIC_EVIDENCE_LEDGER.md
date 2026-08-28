@@ -49,6 +49,14 @@ classical-residual comparison produced no decision. No prediction,
 authorization, held pairing, or held score was formed. All 21 held-donor matrix
 members remained unopened, and the candidate was not rerun.
 
+GSE299043 is the active outcome-disabled successor. Its immutable plan reserves
+ten Cambridge development donors and ten donor-disjoint LiveOnNY/Columbia held
+donors from mesenteric lymph node, with nine exact RNA--ADT markers and 81
+ordered interactions. The development screen and untouched held-site decision
+compare the coupling field directly with signed Pearson and Poisson-deviance
+interaction residual transfer. No GSE299043 H5AD member or performance outcome
+has been opened in this snapshot.
+
 The defensible methods-paper claim is therefore narrower than state-of-the-art
 prediction: the framework separates pairing-dependent structure from marginal
 response, estimates it against a fixed-margin link control, attaches a
@@ -72,6 +80,7 @@ reproduce across public paired assays.
 | Kotliarov PBMC | Ten batch-1 development donors; nine disjoint batch-2 held donors | 71 predeclared cognate markers | Not scored; fewer than four prespecified RNA-only lineages met the frozen 50-cell minimum in all 19 donors | Full Pearson and signed-deviance residual transfer not reached | Not reached | **REFUSE support** |
 | NeurIPS 2021 BMMC CITE-seq | Two fit donors, one development donor, six held donors | 100 ordered RNA--ADT pairs | Not scored; exact conditional optimizer failed the final common-effect development refit after the frozen numerical-equivalence retry | Strongest signed Pearson or Poisson-deviance residual transfer not reached | Held pairing not opened | **REFUSE numerical development** |
 | GSE279451 adult sepsis CITE-seq | Nineteen development donors; 21 held donors | 81 ordered RNA--ADT pairs | Not scored; terminal evaluation refusal after development reduction because both common-effect control families were unavailable | Prespecified raw or exact-null-centered signed Pearson or Poisson-deviance residual transfer; no comparison decision produced | All 21 held matrices unopened | **REFUSE development evaluation** |
+| GSE299043 MLN CITE-seq | Ten Cambridge development donors; ten LiveOnNY/Columbia held donors | 81 ordered RNA--ADT pairs | Not scored; outcome access disabled under the public protocol freeze | Prespecified raw or exact-null-centered signed Pearson or Poisson-deviance residual transfer | Held site sealed | **ACTIVE; NO EVIDENCE YET** |
 
 Metric intervals for the first five predictive panels and Arce resample
 targets. ReSisTrace intervals resample barcode-defined lineages conditional on
@@ -91,7 +100,7 @@ exact values and provenance fields are in the TSV.
 | The structured primary improves matched baselines. | The predeclared three-panel gate records 0 wins; MultiPerturb and PerturbFate also fail. | **REFUSE** | The structural estimator is a fixed denoiser evaluated beside simpler baselines, not a superior predictor. |
 | The scGPT hypergraph contributes specific biological information. | The shuffled graph matches or exceeds the primary in PerturbSci and PerturbFate; no positive panel isolates a graph-specific gain. | **REFUSE** | scGPT supplies a frozen structural prior; its specific benefit was not established. |
 | Guide/observation-error correction is validated on public data. | `fit_factorial_coupling` is tested and stress-tested synthetically, but the completed public scripts use conditional empirical tables, not the guide-aware likelihood. | **REFUSE real-data claim** | Guide-aware identification and refusal are implemented and assessed in simulation. |
-| The public benchmark establishes a positive held biological replicate. | ReSisTrace refuses treatment-contrast replication. Arce donor B has positive correlation, but the fixed primary has RMSE 1.093 versus 0.993 for linear cross-covariance; primary-minus-covariance target MSE is 0.199 [0.038, 0.352], and its primary-minus-destroyed interval includes zero. PoKI-seq, Lawlor, Hao, Kotliarov, BMMC, and GSE279451 stopped before held scoring. | **REFUSE** | No completed panel supplies a positive held biological-replicate result under its full decision gate. |
+| The public benchmark establishes a positive held biological replicate. | ReSisTrace refuses treatment-contrast replication. Arce donor B has positive correlation, but the fixed primary has RMSE 1.093 versus 0.993 for linear cross-covariance; primary-minus-covariance target MSE is 0.199 [0.038, 0.352], and its primary-minus-destroyed interval includes zero. PoKI-seq, Lawlor, Hao, Kotliarov, BMMC, and GSE279451 stopped before held scoring; GSE299043 remains outcome-disabled. | **REFUSE** | No completed panel supplies a positive held biological-replicate result under its full decision gate. |
 | Corrected pathway/complex recovery validates the primary. | The strict PerturbSci rerun required high field norm in every held truth and prediction and exclusion under matched destroyed links. It selected no target; no Reactome or CORUM module could pass. | **REFUSE as confirmatory biology** | The earlier averaged-unit enrichments are exploratory; the strict replicated module analysis was negative. |
 | Predicted local neighborhoods recover biological relations. | Mean top-5 neighbor recovery was 0.064 [0.050, 0.079] versus 0.051 [0.041, 0.063] after link destruction; the difference interval included zero and the random-label permutation p-value was 0.283. Reactome edge enrichment refused. CORUM was nominal against random, p=0.0269, but not significant after family correction, q=0.0538. | **REFUSE** | No corrected local-neighborhood claim survives the predeclared controls. |
 | The method is state of the art for perturbation prediction. | No completed comparison establishes this, and the task is association-field reproducibility rather than standard unseen-perturbation response prediction. | **REFUSE** | Do not make a state-of-the-art or direct-superiority claim. |
@@ -123,6 +132,14 @@ held contracts require a direct win over the strongest matched classical
 residual transfer. The terminal development evaluator could not instantiate
 the two common-effect control families required by the full gate, so it refused
 without a result or comparator decision.
+
+The GSE299043 estimator uses the same exact conditional likelihood with
+donor-varying log odds and marginal-profile RNA and ADT graphs. It adds an
+executable hierarchical ridge-only control and selects the strongest raw or
+exact-null-centered signed Pearson or signed-root Poisson-deviance transfer on
+the same donor folds. The development interval is an adaptive promotion
+heuristic because the same ten donors select and gate the model. Confirmatory
+inference is reserved for the untouched held-site donors.
 
 ## Synthetic and sensitivity evidence
 
@@ -237,6 +254,8 @@ and transparent refusal. Present PerturbSci as the positive held-guide result
 and ReSisTrace as positive arm-level linkage but negative treatment replication.
 Keep every RNA-protein/RNA-ATAC/PerturbFate refusal, including the terminal
 BMMC and GSE279451 development refusals, in the main benchmark table.
+Retain GSE299043 as an explicitly outcome-disabled row until its one-shot
+terminal result is public.
 Do not claim structural-prior superiority, confirmatory pathway recovery,
 local-neighborhood recovery, real-data validation of guide-error correction,
 positive biological replication, or state-of-the-art perturbation prediction
