@@ -1,0 +1,30 @@
+{
+  "schema": "kotliarov-public-freeze-verification/1.0",
+  "status": "PASS",
+  "fresh_clone": true,
+  "origin": "https://github.com/sushaan-k/coupling-fields-benchmark.git",
+  "immutable_tag": "confirmatory-family-v3",
+  "public_freeze_commit": "a034fd272ef631d70f39debc467570568ef8754a",
+  "designation_sha256": "575d547631dc4d8538003bbecb55b112403a6ceec0a2d783b5739319829753b1",
+  "all_bound_artifacts_match": true,
+  "sha256sum_records_verified": 104,
+  "manifest_artifacts_verified": 93,
+  "checked_artifacts": [
+    "data/development/kotliarov_pbmc/adt_gene_aliases_v1.tsv",
+    "scripts/authorize_kotliarov_pbmc_outcomes.py",
+    "data/confirmation/kotliarov_pbmc/score_authorization_template_v1.json",
+    "data/scgpt_gene_embeddings_manifest.json",
+    "data/development/kotliarov_pbmc/lineage_markers_v1.tsv",
+    "data/development/kotliarov_pbmc/metadata_support_v1.json",
+    "docs/KOTLIAROV_PBMC_HELD_BATCH_CONFIRMATION_PROTOCOL_2026-08-28.md",
+    "experiments/reduce_kotliarov_pbmc.py",
+    "tests/test_kotliarov_pbmc_reducer.py",
+    "experiments/confirm_kotliarov_pbmc.py",
+    "data/development/kotliarov_pbmc/source_manifest_v1.json",
+    "tests/test_kotliarov_pbmc_confirmation.py",
+    "scripts/verify_kotliarov_public_freeze.py",
+    "mapreg/coupling_fields.py",
+    "mapreg/classical_residuals.py",
+    "mapreg/table_prediction.py"
+  ]
+}
