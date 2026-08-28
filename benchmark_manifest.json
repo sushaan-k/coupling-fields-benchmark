@@ -96,6 +96,13 @@
       "role": "independent fresh-clone verification of the disabled-outcome freeze"
     },
     {
+      "path": "docs/CONFIRMATORY_FAMILY_OUTCOME_AUTHORIZATION_VERIFICATION_2026-08-28.json",
+      "source_path": "docs/CONFIRMATORY_FAMILY_OUTCOME_AUTHORIZATION_VERIFICATION_2026-08-28.json",
+      "sha256": "3c137903078905b071292f755d8e89fdc9832b6c9ba678401cb5c7b41326f04f",
+      "bytes": 8379,
+      "role": "independent fresh-clone verification of the outcome-authorization commit"
+    },
+    {
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
       "source_path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
       "sha256": "40e99ddfb56cc10be1abd25b66815f841e3243f25feba78c00198bd9facf99fb",

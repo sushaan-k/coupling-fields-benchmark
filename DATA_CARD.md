@@ -93,6 +93,8 @@ and day-3/day-7 absolute tables. The family applies Bonferroni over these two
 fixed candidates. Both designations are `SEALED` after independent fresh-clone
 verification of the immutable public candidate freeze. Prediction publication
 and its separate scoring authorization remain mandatory for each candidate.
+The authorization commit itself also has a published fresh-clone verification
+record.
 
 ## Classical interaction baseline
 

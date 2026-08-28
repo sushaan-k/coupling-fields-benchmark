@@ -61,6 +61,9 @@ against predictive performance.
 
 The independent verification is recorded in
 `docs/CONFIRMATORY_FAMILY_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json`.
+The later authorization commit was also verified from a fresh clone, as
+recorded in
+`docs/CONFIRMATORY_FAMILY_OUTCOME_AUTHORIZATION_VERIFICATION_2026-08-28.json`.
 The remaining binding is candidate-specific: each prediction must be published
 and bound by exact
 SHA-256 and byte count before the runner can construct a held joint table.
