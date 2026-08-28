@@ -6,6 +6,8 @@
 
 **Protocol date.** 2026-08-28.
 
+**Pre-outcome amendment v1.1.** After the initial public protocol commit and before any numerical matrix access, the executable seal was tightened to enforce canonical one-shot phase paths, replay the public development authorization and terminal attempt from the reduced artifact, require exact pilot-gate replay, bind held predictions to the replayed pilot models and held-GEX authorization, and reject extra artifact fields. The scientific question, donor split, state construction, estimator, grids, comparators, and gates are unchanged.
+
 ## Prospective boundary
 
 This protocol, its runner, tests, source manifest, designation, and metadata-only preflight must be committed to the public benchmark before any deposited `X`, `raw/X`, or layer value is read. The preflight opened HDF5 structure, text axes, matrix shapes, and sparse-dataset shapes only. It read zero normalized or raw matrix payload values. Its immutable result is `results/development/gse239452_citeseq_metadata_preflight.json`, currently SHA-256 `6283bbe2a9a36f7c8548d78253a1c6101c88986ad77f7cf0eeb0cd6a40db7f60`.
@@ -95,6 +97,6 @@ After that prediction and its score authorization are public, read held ADT raw 
 
 ## Public authorization chain
 
-Development authorization binds the exact public bytes of the runner, preflight, both focused tests, this protocol, the designation, source manifest, metadata preflight, and three numerical library modules at an immutable protocol commit. The authorization file is itself verified at a later immutable commit before the development attempt record is written.
+Development authorization binds the exact public bytes of the runner, preflight, both focused tests, this protocol, the designation, source manifest, metadata preflight, and three numerical library modules at an immutable protocol commit. The authorization file is itself verified at a later immutable commit before the development attempt record is written. The reduced artifact binds that attempt and replays the public authorization before pilot fitting; the pilot validator recomputes model selection, both promotion comparisons, the gate, and the all-development refit.
 
-Held-GEX authorization binds the exact public pilot-result bytes. Score authorization binds the exact public held-prediction bytes. Each authorization file is independently verified at its own immutable public commit. Local and public bytes must match before the corresponding attempt record is written.
+Held-GEX authorization binds the exact public pilot-result bytes. Frozen predictions bind the authorization and prediction attempt, require the exact replayed pilot models, recompute every expected table, and reject undeclared fields. Score authorization binds the exact public held-prediction bytes. Each authorization file is independently verified at its own immutable public commit. Local and public bytes must match before the corresponding attempt record is written.
