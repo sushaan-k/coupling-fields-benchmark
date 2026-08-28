@@ -55,11 +55,83 @@ def _write_json(path: Path, payload: dict[str, object]) -> None:
     path.write_text(json.dumps(payload, sort_keys=True) + "\n")
 
 
+def _patch_entry_defaults(
+    monkeypatch: pytest.MonkeyPatch, **bindings: Path
+) -> None:
+    for name, path in bindings.items():
+        monkeypatch.setattr(stephenson, name, path)
+
+
 def test_duplicate_json_keys_are_rejected(tmp_path: Path) -> None:
     path = tmp_path / "duplicate.json"
     path.write_text('{"status":"A","status":"B"}\n')
     with pytest.raises(ValueError, match="duplicate JSON key"):
         stephenson._read_json(path)
+
+
+def test_development_authorization_rejects_tampered_v11_tag(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    freeze_commit = "a" * 40
+    verification_commit = "b" * 40
+    authorization_commit = "c" * 40
+    authorization_path = tmp_path / "authorization.json"
+    verification_path = tmp_path / "verification.json"
+    bindings = {
+        label: {
+            "path": relative,
+            "sha256": stephenson._sha256(stephenson._bound_path(relative)),
+        }
+        for label, relative in stephenson.DEVELOPMENT_BINDING_PATHS.items()
+    }
+    authorization = {
+        "schema": "stephenson-citeseq-development-authorization/1.0",
+        "status": "OUTCOME_ACCESS_AUTHORIZED",
+        "created_at_utc": "2026-08-28T00:00:00Z",
+        "public_freeze_commit": freeze_commit,
+        "public_verification_commit": verification_commit,
+        "artifact_bindings": bindings,
+    }
+    verification = {
+        "schema": "stephenson-citeseq-public-freeze-verification/1.0",
+        "status": "PASS",
+        "fresh_clone": True,
+        "canonical_origin": stephenson.PUBLIC_ORIGIN,
+        "public_freeze_commit": freeze_commit,
+        "planned_immutable_tag": stephenson.PLANNED_IMMUTABLE_TAG,
+        "artifact_bindings": {
+            label: row
+            for label, row in bindings.items()
+            if label != "fresh_clone_verification"
+        },
+        "all_bound_artifacts_match": True,
+        "matrix_payload_reads": 0,
+    }
+    _write_json(authorization_path, authorization)
+    _write_json(verification_path, verification)
+    monkeypatch.setattr(stephenson, "DEFAULT_VERIFICATION", verification_path)
+    monkeypatch.setattr(stephenson, "_relative", lambda path: path.name)
+
+    def public_bytes(relative: str, _commit: str, label: str) -> bytes:
+        if label == "development authorization":
+            return authorization_path.read_bytes()
+        return stephenson._bound_path(relative).read_bytes()
+
+    monkeypatch.setattr(stephenson, "_immutable_public_bytes", public_bytes)
+    assert stephenson._validated_development_authorization(
+        authorization_path,
+        stephenson.DEFAULT_SOURCE,
+        authorization_commit,
+    )["public_freeze_commit"] == freeze_commit
+
+    verification["planned_immutable_tag"] = "stephenson-citeseq-wrong-tag"
+    _write_json(verification_path, verification)
+    with pytest.raises(PermissionError, match="fresh-clone verification"):
+        stephenson._validated_development_authorization(
+            authorization_path,
+            stephenson.DEFAULT_SOURCE,
+            authorization_commit,
+        )
 
 
 def test_role_assignment_is_deterministic_and_disjoint() -> None:
@@ -76,6 +148,59 @@ def test_role_assignment_rejects_missing_held_donor() -> None:
     records = _records()[:-1]
     with pytest.raises(PermissionError, match="eligible donor counts"):
         stephenson._assign_roles(records)
+
+
+def test_frozen_real_source_manifest_v1_1_validates_without_outcome_access(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    manifest = stephenson._read_json(stephenson.DEFAULT_SOURCE)
+    assert stephenson._sha256(stephenson.DEFAULT_SOURCE) == (
+        "431e8a370bc9b08a207ab0ff8d3581f80abaf0f36b55eba4accedc5685a3d3cd"
+    )
+    assert manifest["schema"] == "stephenson-citeseq-source-manifest/1.1"
+    assert (
+        manifest["sdrf_to_h5ad_sample_corrections"]
+        == stephenson.SDRF_TO_H5AD_SAMPLE
+    )
+    sentinel = Path("outcome-access-disabled.h5ad")
+    monkeypatch.setattr(stephenson, "_resolved_h5ad", lambda _: sentinel)
+    monkeypatch.setattr(
+        stephenson,
+        "_opaque_hashes",
+        lambda _: pytest.fail("source validation must not hash the H5AD"),
+    )
+
+    validated = stephenson._validated_source(
+        stephenson.DEFAULT_SOURCE, verify_hash=False
+    )
+
+    assert validated["payload"] == manifest
+    assert validated["h5ad"] == sentinel
+
+
+def test_seal_source_serializes_exact_sample_corrections(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    h5ad = tmp_path / stephenson.OFFICIAL_H5AD_NAME
+    sdrf = tmp_path / "source.sdrf.txt"
+    h5ad.write_bytes(b"opaque fixture")
+    sdrf.write_text("metadata fixture\n")
+    monkeypatch.setattr(stephenson, "_opaque_hashes", lambda _: ("a" * 64, "b" * 32))
+    monkeypatch.setattr(
+        stephenson,
+        "_metadata_inventory",
+        lambda *_: {"samples": []},
+    )
+
+    source = stephenson.seal_source(
+        h5ad,
+        sdrf,
+        tmp_path / "preflight.json",
+        tmp_path / "source.json",
+    )
+
+    assert source["schema"] == "stephenson-citeseq-source-manifest/1.1"
+    assert source["sdrf_to_h5ad_sample_corrections"] == stephenson.SDRF_TO_H5AD_SAMPLE
 
 
 def test_legacy_anndata_categorical_decodes(tmp_path: Path) -> None:
@@ -137,6 +262,70 @@ def test_csr_subset_reads_only_requested_feature_values(tmp_path: Path) -> None:
     assert observed.tolist() == [[0.0, 7.0], [11.0, 0.0]]
 
 
+def test_entrypoints_reject_every_nondefault_path_before_validation(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(
+        stephenson,
+        "_validated_development_authorization",
+        lambda *_args, **_kwargs: pytest.fail("development validator was reached"),
+    )
+    monkeypatch.setattr(
+        stephenson,
+        "_validated_margin_authorization",
+        lambda *_args, **_kwargs: pytest.fail("margin validator was reached"),
+    )
+    monkeypatch.setattr(
+        stephenson,
+        "_validated_score_authorization",
+        lambda *_args, **_kwargs: pytest.fail("score validator was reached"),
+    )
+    cases = (
+        (
+            stephenson.run_development,
+            [
+                stephenson.DEFAULT_SOURCE,
+                stephenson.DEFAULT_DEVELOPMENT_AUTHORIZATION,
+                "a" * 40,
+                stephenson.DEFAULT_DEVELOPMENT_ATTEMPT,
+                stephenson.DEFAULT_DEVELOPMENT,
+            ],
+            (0, 1, 3, 4),
+        ),
+        (
+            stephenson.predict_held,
+            [
+                stephenson.DEFAULT_SOURCE,
+                stephenson.DEFAULT_DEVELOPMENT,
+                stephenson.DEFAULT_MARGIN_AUTHORIZATION,
+                "a" * 40,
+                stephenson.DEFAULT_PREDICTION_ATTEMPT,
+                stephenson.DEFAULT_PREDICTION,
+            ],
+            (0, 1, 2, 4, 5),
+        ),
+        (
+            stephenson.score_held,
+            [
+                stephenson.DEFAULT_SOURCE,
+                stephenson.DEFAULT_DEVELOPMENT,
+                stephenson.DEFAULT_PREDICTION,
+                stephenson.DEFAULT_SCORE_AUTHORIZATION,
+                "a" * 40,
+                stephenson.DEFAULT_SCORE_ATTEMPT,
+                stephenson.DEFAULT_SCORE,
+            ],
+            (0, 1, 2, 3, 5, 6),
+        ),
+    )
+    for entrypoint, arguments, path_indices in cases:
+        for index in path_indices:
+            tampered = list(arguments)
+            tampered[index] = tmp_path / f"wrong-{entrypoint.__name__}-{index}"
+            with pytest.raises(PermissionError, match="path is not fixed"):
+                entrypoint(*tampered)
+
+
 def test_development_attempt_precedes_first_numeric_access(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -146,6 +335,13 @@ def test_development_attempt_precedes_first_numeric_access(
     output = tmp_path / "development.json"
     source_path.write_text("{}")
     authorization.write_text("{}")
+    _patch_entry_defaults(
+        monkeypatch,
+        DEFAULT_SOURCE=source_path,
+        DEFAULT_DEVELOPMENT_AUTHORIZATION=authorization,
+        DEFAULT_DEVELOPMENT_ATTEMPT=attempt,
+        DEFAULT_DEVELOPMENT=output,
+    )
     records = _records()
     source = {
         "records": records,
@@ -188,7 +384,17 @@ def test_development_rerun_rejected_before_validation(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     attempt = tmp_path / "attempt.json"
+    source = tmp_path / "source"
+    authorization = tmp_path / "auth"
+    output = tmp_path / "output"
     attempt.write_text("{}")
+    _patch_entry_defaults(
+        monkeypatch,
+        DEFAULT_SOURCE=source,
+        DEFAULT_DEVELOPMENT_AUTHORIZATION=authorization,
+        DEFAULT_DEVELOPMENT_ATTEMPT=attempt,
+        DEFAULT_DEVELOPMENT=output,
+    )
     monkeypatch.setattr(
         stephenson,
         "_validated_development_authorization",
@@ -196,11 +402,11 @@ def test_development_rerun_rejected_before_validation(
     )
     with pytest.raises(FileExistsError, match="one-shot"):
         stephenson.run_development(
-            tmp_path / "source",
-            tmp_path / "auth",
+            source,
+            authorization,
             "a" * 40,
             attempt,
-            tmp_path / "output",
+            output,
         )
 
 
@@ -225,6 +431,92 @@ def test_pilot_failure_blocks_held_margin_access(
         )
 
 
+def test_development_result_rejects_gate_comparator_and_model_tampering(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    attempt = tmp_path / "development-attempt.json"
+    attempt.write_text("{}")
+    monkeypatch.setattr(stephenson, "DEFAULT_DEVELOPMENT_ATTEMPT", attempt)
+    monkeypatch.setattr(stephenson, "_relative", lambda path: path.name)
+    source = {
+        "source_sha256": "a" * 64,
+        "payload": {"h5ad": {"sha256": "b" * 64}},
+    }
+    monkeypatch.setattr(
+        stephenson, "_validated_source", lambda *_args, **_kwargs: source
+    )
+    monkeypatch.setattr(
+        stephenson,
+        "_development_samples",
+        lambda _source, role: ("calibration",) if role == "calibration" else ("pilot",),
+    )
+    models = {
+        name: {"kind": kind} for name, kind in stephenson.METHOD_KINDS.items()
+    }
+    payload = {
+        "schema": "stephenson-citeseq-development/1.0",
+        "status": "PILOT_PASS",
+        "source_manifest_sha256": source["source_sha256"],
+        "h5ad_sha256": source["payload"]["h5ad"]["sha256"],
+        "runner_sha256": stephenson._sha256(Path(stephenson.__file__)),
+        "combat_data_and_comparator_utility_sha256": stephenson._sha256(
+            stephenson.ROOT
+            / stephenson.DEVELOPMENT_BINDING_PATHS[
+                "combat_data_and_comparator_utility"
+            ]
+        ),
+        "markers": list(stephenson.MARKERS),
+        "calibration_samples": ["calibration"],
+        "pilot_samples": ["pilot"],
+        "development_attempt": {
+            "path": attempt.name,
+            "sha256": stephenson._sha256(attempt),
+        },
+        "promotion_comparators": list(stephenson.PROMOTION_COMPARATORS),
+        "passes_pilot_gate": True,
+        "pilot_comparisons": {
+            name: {"passes": True} for name in stephenson.PROMOTION_COMPARATORS
+        },
+        "frozen_source_models": models,
+    }
+    baseline = tmp_path / "development-pass.json"
+    _write_json(baseline, payload)
+    assert stephenson._validated_development(
+        baseline, tmp_path / "source.json", require_pass=True
+    )["status"] == "PILOT_PASS"
+
+    variants = []
+    tampered = json.loads(json.dumps(payload))
+    tampered["passes_pilot_gate"] = False
+    variants.append(tampered)
+    tampered = json.loads(json.dumps(payload))
+    tampered["promotion_comparators"].reverse()
+    variants.append(tampered)
+    tampered = json.loads(json.dumps(payload))
+    tampered["pilot_comparisons"]["best_residual"]["passes"] = False
+    variants.append(tampered)
+    tampered = json.loads(json.dumps(payload))
+    del tampered["pilot_comparisons"]["destroyed_link"]
+    variants.append(tampered)
+    tampered = json.loads(json.dumps(payload))
+    del tampered["frozen_source_models"]["primary"]
+    variants.append(tampered)
+    tampered = json.loads(json.dumps(payload))
+    tampered["frozen_source_models"]["extra"] = {"kind": "independence"}
+    variants.append(tampered)
+    tampered = json.loads(json.dumps(payload))
+    tampered["frozen_source_models"]["best_residual"]["kind"] = "independence"
+    variants.append(tampered)
+
+    for index, candidate in enumerate(variants):
+        path = tmp_path / f"tampered-development-{index}.json"
+        _write_json(path, candidate)
+        with pytest.raises(PermissionError):
+            stephenson._validated_development(
+                path, tmp_path / "source.json", require_pass=True
+            )
+
+
 def test_prediction_attempt_precedes_worker_and_serializes_no_vectors(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -235,6 +527,14 @@ def test_prediction_attempt_precedes_worker_and_serializes_no_vectors(
     authorization_path = tmp_path / "authorization.json"
     for path in (source_path, development_path, authorization_path):
         path.write_text("{}")
+    _patch_entry_defaults(
+        monkeypatch,
+        DEFAULT_SOURCE=source_path,
+        DEFAULT_DEVELOPMENT=development_path,
+        DEFAULT_MARGIN_AUTHORIZATION=authorization_path,
+        DEFAULT_PREDICTION_ATTEMPT=attempt,
+        DEFAULT_PREDICTION=output,
+    )
     held = [record for record in _records() if record["role"] == "held_site"]
     source = {
         "records": held,
@@ -378,6 +678,15 @@ def test_score_attempt_precedes_first_held_truth_read(
     output_path = tmp_path / "score.json"
     for path in (source_path, development_path, prediction_path, authorization_path):
         path.write_text("{}")
+    _patch_entry_defaults(
+        monkeypatch,
+        DEFAULT_SOURCE=source_path,
+        DEFAULT_DEVELOPMENT=development_path,
+        DEFAULT_PREDICTION=prediction_path,
+        DEFAULT_SCORE_AUTHORIZATION=authorization_path,
+        DEFAULT_SCORE_ATTEMPT=attempt_path,
+        DEFAULT_SCORE=output_path,
+    )
     source = {
         "source_sha256": stephenson._sha256(source_path),
         "h5ad": tmp_path / "opaque.h5ad",

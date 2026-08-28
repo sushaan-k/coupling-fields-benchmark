@@ -1,0 +1,76 @@
+{
+  "access_audit": {
+    "development_attempt_exists": false,
+    "development_output_exists": false,
+    "h5ad_environment_path_resolved": false,
+    "h5ad_file_opened_by_refused_invocation": false,
+    "h5ad_opaque_hashing_performed_by_refused_invocation": false,
+    "held_matrix_rows_read": 0,
+    "matrix_payload_reads": 0,
+    "numeric_outcomes_observed": false
+  },
+  "amended_artifacts": {
+    "candidate_designation": {
+      "new_sha256": "780dc02f00656c3d9d651de68e00f7b40d61057bdfdebaf5de087638dac0dd41",
+      "old_sha256": "d984c95bd25e8afd3e53a3a20a2b53581aa448a968c729e533d82aa64d112f9b",
+      "path": "data/confirmation/stephenson_citeseq/candidate_designation_v1.json"
+    },
+    "protocol": {
+      "new_sha256": "61c964ceab77d1bb6a11dda4ea40012a879570e2f7d32b29e47934c49f541144",
+      "old_sha256": "c32466204e78d774d532783ad9a4b8789851a3fc3a8f7f517ca933ee7c2fdab8",
+      "path": "docs/STEPHENSON_CITESEQ_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md"
+    },
+    "runner": {
+      "new_sha256": "3708bccf52283e4f08e9fa842d7045dcc0756fa41d54476aaa1fc6ddc7197e76",
+      "old_sha256": "73c61d80a4fe9e11eb229ae77aee0c8cdad2b8de31d02e33fa6b16c0908f8213",
+      "path": "experiments/confirm_stephenson_citeseq.py"
+    },
+    "runner_test": {
+      "new_sha256": "3d89d5269c78eaec30e6c3f03c74a964a0730d44d0212bbc241a56b7a32574d9",
+      "old_sha256": "6d65a6ac01731724bb275f4d505d6c132b0cba6db748626d2a120101ceb2709e",
+      "path": "tests/test_stephenson_citeseq_confirmation.py"
+    },
+    "source_manifest": {
+      "new_sha256": "431e8a370bc9b08a207ab0ff8d3581f80abaf0f36b55eba4accedc5685a3d3cd",
+      "old_sha256": "c6643db4aa71e2decbdd53c530bbf791b560c8362f9375901e1dfe326dfcc117",
+      "path": "data/confirmation/stephenson_citeseq/source_manifest_v1.json"
+    }
+  },
+  "amendment": {
+    "allocation_changed": false,
+    "estimator_or_gate_changed": false,
+    "exact_serialized_value": {
+      "BGCV06_CV0326": "BGCV13_CV0326",
+      "BGCV13_CV0201": "BGCV06_CV0201"
+    },
+    "field_added": "sdrf_to_h5ad_sample_corrections",
+    "manifest_schema_after": "stephenson-citeseq-source-manifest/1.1",
+    "manifest_schema_before": "stephenson-citeseq-source-manifest/1.0",
+    "reason": "The metadata preflight recorded the two exact SDRF-to-H5AD corrections, but seal_source did not serialize the same field into the source manifest required by runtime validation.",
+    "sample_universe_changed": false
+  },
+  "created_at_utc": "2026-08-28T20:00:26Z",
+  "dataset_accession": "E-MTAB-10026",
+  "outcome_access_authorized_by_this_record": false,
+  "pre_access_refusal": {
+    "development_attempt_path": "data/confirmation/stephenson_citeseq/development_attempt_v1.json",
+    "development_output_path": "results/development/stephenson_citeseq_development.json",
+    "failure_stage": "source_manifest_validation",
+    "sanitized_error": "source manifest differs from the freeze",
+    "terminal_numeric_attempt_started": false
+  },
+  "prior_public_chain": {
+    "development_authorization_commit": "5c6dfaa03dfdf67a5743c798a2496af72b7cb727",
+    "development_authorization_sha256": "574278a6975fed6fb43bfe2b7ac2cd4887ccff5602f94bcfcbe2b4b8fa39cb90",
+    "protocol_freeze_commit": "604bc82515ba36f620e4d4af6d758c440714a161",
+    "public_verification_commit": "fa4127d36e51ab25d0740cecefc35fe6db7671dc"
+  },
+  "required_public_succession": [
+    "Commit and tag the v1.1 amendment as stephenson-citeseq-v1.1-protocol before any numeric access.",
+    "In a fresh clone of that tag, remove only the tracked worktree copy of docs/STEPHENSON_CITESEQ_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json; retain its history and prior tag, then run verify-freeze to regenerate the same fixed path and commit the replacement on main.",
+    "In a later authorization-only commit, replace data/confirmation/stephenson_citeseq/development_authorization_v1.json so it binds the v1.1 freeze and replacement verification.",
+    "Only the immutable commit containing that replacement authorization may enable the Cambridge development run."
+  ],
+  "schema": "stephenson-citeseq-pre-access-refusal-amendment/1.1",
+  "status": "PRE_ACCESS_SCHEMA_REFUSAL_AMENDED_OUTCOME_ACCESS_DISABLED"
+}

@@ -103,6 +103,10 @@
     }
   ],
   "preflight_sha256": "dfff0da339c89de44ffe503c6f8701d510401e101172c6e2771ac6dd39478346",
+  "sdrf_to_h5ad_sample_corrections": {
+    "BGCV06_CV0326": "BGCV13_CV0326",
+    "BGCV13_CV0201": "BGCV06_CV0201"
+  },
   "salts": {
     "adt_tie": "STEPHENSON-CITESEQ-ADT-v1",
     "calibration": "STEPHENSON-CAMBRIDGE-CALIBRATION-v1",
@@ -1364,7 +1368,7 @@
       "site": "Ncl"
     }
   ],
-  "schema": "stephenson-citeseq-source-manifest/1.0",
+  "schema": "stephenson-citeseq-source-manifest/1.1",
   "sdrf": {
     "bytes": 155174,
     "filename": "E-MTAB-10026.sdrf.txt",

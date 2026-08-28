@@ -146,6 +146,7 @@ EXPECTED_NCL_UNSTIMULATED = 56
 EXPECTED_SANGER = 11
 PILOT_FAVORABLE = 19
 HELD_FAVORABLE = 45
+PLANNED_IMMUTABLE_TAG = "stephenson-citeseq-v1.1-protocol"
 METHODS = (
     "primary",
     "best_residual",
@@ -153,6 +154,13 @@ METHODS = (
     "hierarchical_graph_zero",
     "independence",
 )
+METHOD_KINDS = {
+    "primary": "conditional_log_odds",
+    "best_residual": "classical_residual",
+    "destroyed_link": "conditional_log_odds",
+    "hierarchical_graph_zero": "conditional_log_odds",
+    "independence": "independence",
+}
 PROMOTION_COMPARATORS = ("best_residual", "destroyed_link")
 CONDITIONAL_GRID = tuple(
     itertools.product((1, 2), (0.1, 1.0, 10.0), (0.01, 0.1), (0.0, 0.1, 1.0))
@@ -169,6 +177,10 @@ DEVELOPMENT_BINDING_PATHS = {
     ),
     "designation": (
         "data/confirmation/stephenson_citeseq/candidate_designation_v1.json"
+    ),
+    "pre_access_refusal_amendment": (
+        "data/confirmation/stephenson_citeseq/"
+        "pre_access_refusal_amendment_v1_1.json"
     ),
     "source_manifest": (
         "data/confirmation/stephenson_citeseq/source_manifest_v1.json"
@@ -268,6 +280,18 @@ def _bound_path(relative: str) -> Path:
     except ValueError as error:
         raise PermissionError("binding escapes repository") from error
     return path
+
+
+def _require_fixed_paths(
+    stage: str, bindings: tuple[tuple[str, Path, Path], ...]
+) -> None:
+    for label, supplied, expected in bindings:
+        try:
+            matches = Path(supplied).expanduser().resolve() == expected.resolve()
+        except (OSError, RuntimeError) as error:
+            raise PermissionError(f"{stage} {label} path is not fixed") from error
+        if not matches:
+            raise PermissionError(f"{stage} {label} path is not fixed")
 
 
 def _immutable_public_bytes(relative: str, commit: str, label: str) -> bytes:
@@ -652,10 +676,11 @@ def seal_source(
     }
     _write_json(preflight_path, preflight)
     source = {
-        "schema": "stephenson-citeseq-source-manifest/1.0",
+        "schema": "stephenson-citeseq-source-manifest/1.1",
         "status": "SOURCE_SEALED_OUTCOME_ACCESS_DISABLED",
         "created_at_utc": _timestamp(),
         "preflight_sha256": _sha256(preflight_path),
+        "sdrf_to_h5ad_sample_corrections": SDRF_TO_H5AD_SAMPLE,
         "h5ad": {
             "filename": h5ad.name,
             "bytes": h5ad.stat().st_size,
@@ -721,7 +746,7 @@ def _resolved_h5ad(source: dict[str, Any]) -> Path:
 def _validated_source(source_path: Path, *, verify_hash: bool) -> dict[str, Any]:
     source = _read_json(source_path)
     if (
-        source.get("schema") != "stephenson-citeseq-source-manifest/1.0"
+        source.get("schema") != "stephenson-citeseq-source-manifest/1.1"
         or source.get("status") != "SOURCE_SEALED_OUTCOME_ACCESS_DISABLED"
         or source.get("preflight_sha256") != _sha256(DEFAULT_PREFLIGHT)
         or source.get("sdrf", {}).get("sha256") != OFFICIAL_SDRF_SHA256
@@ -794,7 +819,7 @@ def verify_public_freeze(commit: str, output_path: Path) -> dict[str, Any]:
         "fresh_clone": True,
         "canonical_origin": PUBLIC_ORIGIN,
         "public_freeze_commit": commit,
-        "planned_immutable_tag": "stephenson-citeseq-v1-protocol",
+        "planned_immutable_tag": PLANNED_IMMUTABLE_TAG,
         "artifact_bindings": bindings,
         "all_bound_artifacts_match": True,
         "matrix_payload_reads": 0,
@@ -871,6 +896,7 @@ def _validated_development_authorization(
         or verification.get("fresh_clone") is not True
         or verification.get("canonical_origin") != PUBLIC_ORIGIN
         or verification.get("public_freeze_commit") != freeze_commit
+        or verification.get("planned_immutable_tag") != PLANNED_IMMUTABLE_TAG
         or verification.get("artifact_bindings") != nonself
         or verification.get("all_bound_artifacts_match") is not True
         or verification.get("matrix_payload_reads") != 0
@@ -1640,6 +1666,15 @@ def run_development(
 ) -> dict[str, Any]:
     """Run the authorized Cambridge calibration and adaptive pilot once."""
 
+    _require_fixed_paths(
+        "development",
+        (
+            ("source", source_path, DEFAULT_SOURCE),
+            ("authorization", authorization_path, DEFAULT_DEVELOPMENT_AUTHORIZATION),
+            ("attempt", attempt_path, DEFAULT_DEVELOPMENT_ATTEMPT),
+            ("output", output_path, DEFAULT_DEVELOPMENT),
+        ),
+    )
     if attempt_path.exists() or output_path.exists():
         raise FileExistsError("development is one-shot")
     authorization = _validated_development_authorization(
@@ -1710,6 +1745,7 @@ def _validated_development(
         or payload.get("calibration_samples")
         != list(_development_samples(source, "calibration"))
         or payload.get("pilot_samples") != list(_development_samples(source, "pilot"))
+        or payload.get("promotion_comparators") != list(PROMOTION_COMPARATORS)
     ):
         raise PermissionError("development result differs from the freeze")
     attempt = payload.get("development_attempt")
@@ -1720,17 +1756,35 @@ def _validated_development(
         or attempt.get("sha256") != _sha256(DEFAULT_DEVELOPMENT_ATTEMPT)
     ):
         raise PermissionError("development attempt binding differs")
-    expected_models = set(METHODS)
+    status = payload.get("status")
+    passes_gate = payload.get("passes_pilot_gate")
+    if status not in {"PILOT_PASS", "PILOT_FAIL"} or (
+        (status == "PILOT_PASS") != (passes_gate is True)
+    ):
+        raise PermissionError("development status and pilot gate disagree")
     models = payload.get("frozen_source_models")
-    if payload.get("status") == "PILOT_PASS":
-        if not isinstance(models, dict) or set(models) != expected_models:
+    if status == "PILOT_PASS":
+        comparisons = payload.get("pilot_comparisons")
+        if not isinstance(comparisons, dict) or any(
+            not isinstance(comparisons.get(name), dict)
+            or comparisons[name].get("passes") is not True
+            for name in PROMOTION_COMPARATORS
+        ):
+            raise PermissionError("passing development result lacks comparator passes")
+        if (
+            not isinstance(models, dict)
+            or set(models) != set(METHOD_KINDS)
+            or any(
+                not isinstance(models[name], dict)
+                or models[name].get("kind") != kind
+                for name, kind in METHOD_KINDS.items()
+            )
+        ):
             raise PermissionError("passing development result lacks frozen models")
-    elif payload.get("status") == "PILOT_FAIL":
+    else:
         if models is not None:
             raise PermissionError("failed development result contains frozen models")
-    else:
-        raise PermissionError("development status is invalid")
-    if require_pass and payload.get("status") != "PILOT_PASS":
+    if require_pass and status != "PILOT_PASS":
         raise PermissionError("pilot did not authorize held access")
     return payload
 
@@ -1889,6 +1943,16 @@ def predict_held(
 ) -> dict[str, Any]:
     """Read only held RNA margins and freeze all method predictions."""
 
+    _require_fixed_paths(
+        "held prediction",
+        (
+            ("source", source_path, DEFAULT_SOURCE),
+            ("development", development_path, DEFAULT_DEVELOPMENT),
+            ("authorization", authorization_path, DEFAULT_MARGIN_AUTHORIZATION),
+            ("attempt", attempt_path, DEFAULT_PREDICTION_ATTEMPT),
+            ("output", output_path, DEFAULT_PREDICTION),
+        ),
+    )
     if attempt_path.exists() or output_path.exists():
         raise FileExistsError("held prediction is one-shot")
     permit = _validated_margin_authorization(
@@ -2130,6 +2194,17 @@ def score_held(
 ) -> dict[str, Any]:
     """Read held RNA--ADT pairings once after public prediction authorization."""
 
+    _require_fixed_paths(
+        "held score",
+        (
+            ("source", source_path, DEFAULT_SOURCE),
+            ("development", development_path, DEFAULT_DEVELOPMENT),
+            ("prediction", prediction_path, DEFAULT_PREDICTION),
+            ("authorization", authorization_path, DEFAULT_SCORE_AUTHORIZATION),
+            ("attempt", attempt_path, DEFAULT_SCORE_ATTEMPT),
+            ("output", output_path, DEFAULT_SCORE),
+        ),
+    )
     if attempt_path.exists() or output_path.exists():
         raise FileExistsError("held scoring is one-shot")
     permit = _validated_score_authorization(

@@ -2,10 +2,10 @@
   "schema": "stephenson-citeseq-candidate-designation/1.0",
   "status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
   "designation_date": "2026-08-28",
-  "planned_immutable_tag": "stephenson-citeseq-v1-protocol",
+  "planned_immutable_tag": "stephenson-citeseq-v1.1-protocol",
   "protocol": {
     "path": "docs/STEPHENSON_CITESEQ_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
-    "sha256": "c32466204e78d774d532783ad9a4b8789851a3fc3a8f7f517ca933ee7c2fdab8"
+    "sha256": "61c964ceab77d1bb6a11dda4ea40012a879570e2f7d32b29e47934c49f541144"
   },
   "dataset": {
     "accession": "E-MTAB-10026",
@@ -30,7 +30,7 @@
     "runner_test": "tests/test_stephenson_citeseq_confirmation.py",
     "source_manifest": {
       "path": "data/confirmation/stephenson_citeseq/source_manifest_v1.json",
-      "sha256": "c6643db4aa71e2decbdd53c530bbf791b560c8362f9375901e1dfe326dfcc117"
+      "sha256": "431e8a370bc9b08a207ab0ff8d3581f80abaf0f36b55eba4accedc5685a3d3cd"
     },
     "metadata_preflight": {
       "path": "results/development/stephenson_citeseq_metadata_preflight.json",
@@ -38,6 +38,7 @@
       "matrix_payload_reads": 0
     },
     "public_freeze_verification": "docs/STEPHENSON_CITESEQ_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+    "pre_access_refusal_amendment": "data/confirmation/stephenson_citeseq/pre_access_refusal_amendment_v1_1.json",
     "development_authorization": "data/confirmation/stephenson_citeseq/development_authorization_v1.json",
     "development_result": "results/development/stephenson_citeseq_development.json",
     "held_rna_margin_authorization": "data/confirmation/stephenson_citeseq/held_rna_margin_authorization_v1.json",
