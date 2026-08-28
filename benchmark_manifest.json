@@ -1,36 +1,43 @@
 {
   "schema": "coupling-fields-public-benchmark/1.0",
   "release_name": "coupling-fields-v1",
-  "assembled_at_utc": "2026-08-28T01:30:00Z",
-  "status": "PROSPECTIVE_PROTOCOL_FREEZE",
+  "assembled_at_utc": "2026-08-28T03:24:13Z",
+  "status": "PUBLIC_CANDIDATE_FREEZE_OUTCOME_ACCESS_DISABLED",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
-  "public_freeze_commit": "2e5f47a8676000c743be0459b9d979262e7eb147",
-  "immutable_release_tag": "protocol-v1.0.1",
+  "public_freeze_commit": null,
+  "immutable_release_tag": "confirmatory-family-v2",
   "archive_doi": null,
   "code_license": null,
-  "candidate_designation_status": "SEALED",
+  "candidate_designation_status": "OUTCOME_ACCESS_DISABLED",
   "prospective_candidate_count": 2,
   "prospective_candidate_artifacts": [
     {
       "name": "LAWLOR_CANDIDATE_DESIGNATION.json",
-      "source_path": "benchmark_release/coupling_fields_v1/LAWLOR_CANDIDATE_DESIGNATION.json",
-      "sha256": "ae8ed653a2b4e7c6752f4282a77c3c9d022dddab3009c20cdb6181668ca40f03",
-      "bytes": 6183
+      "source_path": "data/confirmation/pbmc_citeseq_hca/candidate_designation_v2.json",
+      "sha256": "1788474df6858fd5f0bdcda41dddabdc39e641def8a5eec823395a6f67d93b13",
+      "bytes": 9691
     },
     {
-      "name": "POKI_CANDIDATE_DESIGNATION.json",
-      "source_path": "data/confirmation/gse143417_pokiseq/candidate_designation_v1.json",
-      "sha256": "4dafbfc270628ad6f0f9921757a9689dea34ceaf92a0ec3725d377545e63c8c8",
-      "bytes": 1521
+      "name": "LAWLOR_SCORE_AUTHORIZATION_TEMPLATE.json",
+      "source_path": "data/confirmation/pbmc_citeseq_hca/score_authorization_template_v2.json",
+      "sha256": "091de7a96162c00384e660be3f2e8ac4ddb863c0c4dca42f4b8e963ac817bcd1",
+      "bytes": 1244
     },
     {
-      "name": "POKI_PREANALYSIS_LOCK.json",
-      "source_path": "data/confirmation/gse143417_pokiseq/preanalysis_lock_v1.json",
-      "sha256": "e62106b4087c323b243bf9142a4d1a99f952cd74fc8ebde43ff6519fec65726e",
-      "bytes": 2442
+      "name": "HAO_CANDIDATE_DESIGNATION.json",
+      "source_path": "data/confirmation/hao_gse164378/candidate_designation_v1.json",
+      "sha256": "e76fbc3a6ae7a666a3873baf60045ac0c7955ea42d021a4825b79df4c8b94550",
+      "bytes": 11155
+    },
+    {
+      "name": "HAO_SCORE_AUTHORIZATION_TEMPLATE.json",
+      "source_path": "data/confirmation/hao_gse164378/score_authorization_template_v1.json",
+      "sha256": "23f34680314cdb17bd4540e7cb8abc28015db50c9c6cf6dd6d5ffe7a37c9af81",
+      "bytes": 1346
     }
   ],
   "completed_public_panels": 7,
+  "preflight_refusal_count": 1,
   "artifacts": [
     {
       "path": "pyproject.toml",
@@ -56,16 +63,23 @@
     {
       "path": "docs/SECOND_HELD_UNIT_CONFIRMATION_PROTOCOL_2026-08-27.md",
       "source_path": "docs/SECOND_HELD_UNIT_CONFIRMATION_PROTOCOL_2026-08-27.md",
-      "sha256": "15264be9238a8b96a55302cc69c5d73a61007e411decc9ecc01f3d93ccd5f5a6",
-      "bytes": 14643,
+      "sha256": "5326f8b88ea79dbb7f146fcbf0e350ac99dcfcc00bdb6e1a885374912da10df9",
+      "bytes": 18651,
       "role": "prospective Lawlor PBMC confirmation protocol"
+    },
+    {
+      "path": "docs/GSE164378_HAO_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "source_path": "docs/GSE164378_HAO_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "sha256": "acb47fb17bdca84a9dc99c4ec9628ef7d8b3292a78c670e52004773bac6912fc",
+      "bytes": 14508,
+      "role": "prospective Hao GSE164378 confirmation protocol"
     },
     {
       "path": "docs/GSE143417_POKISEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-27.md",
       "source_path": "docs/GSE143417_POKISEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-27.md",
       "sha256": "ae550d171b494b535a922a68b8f666d161c3c3b538a988909204766025843f1a",
       "bytes": 7563,
-      "role": "prospective PoKI-seq confirmation protocol"
+      "role": "PoKI-seq protocol retained with its preflight refusal"
     },
     {
       "path": "docs/COUPLING_FIELD_CLASSICAL_BOUNDARY_2026-08-27.md",
@@ -77,15 +91,15 @@
     {
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
       "source_path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "04e8e07b98d6ca8ed1d385b42e38d2544946a21f90e42c8b8cf96ac508ed01bb",
-      "bytes": 15565,
+      "sha256": "40e99ddfb56cc10be1abd25b66815f841e3243f25feba78c00198bd9facf99fb",
+      "bytes": 16260,
       "role": "claim-evidence ledger"
     },
     {
       "path": "results/final_public_benchmark_table.tsv",
       "source_path": "results/final_public_benchmark_table.tsv",
-      "sha256": "f6cf3bc51aeef2c3b1ecdfdb48558e09401fdb003637ed50a2b47f5597e39d12",
-      "bytes": 7742,
+      "sha256": "b2875f8ca9134768d514a86ab0317129d52497c1939cdac9b36894ccce4dfaaa",
+      "bytes": 8640,
       "role": "panel-level benchmark table"
     },
     {
@@ -203,23 +217,72 @@
     {
       "path": "data/development/lawlor_hca_pbmc/metadata_support_v1.json",
       "source_path": "data/development/lawlor_hca_pbmc/metadata_support_v1.json",
-      "sha256": "75ed973440e0c2ff50f01b8c7513d70e84184d40543d137586051e680f016251",
-      "bytes": 4411,
+      "sha256": "5ca6e41599e6102fca8cc5457449765fc532e8630344cbc1ca7235aa75e4c1b1",
+      "bytes": 4880,
       "role": "Lawlor PBMC metadata-only eligibility audit"
     },
     {
       "path": "data/development/lawlor_hca_pbmc/adt_gene_aliases_v1.tsv",
       "source_path": "data/development/lawlor_hca_pbmc/adt_gene_aliases_v1.tsv",
-      "sha256": "d4aec23ef6aa8d54430a0cce4a94e595cfc66a2fd8b9c935b904f57449243ea5",
-      "bytes": 419,
+      "sha256": "ea266a0a20570929f05e48dd322d6c5b0714084b9e0e245998c9f722a07b0c62",
+      "bytes": 393,
       "role": "Lawlor PBMC frozen RNA-ADT aliases"
+    },
+    {
+      "path": "data/development/hao_gse164378/source_manifest_v1.json",
+      "source_path": "data/development/hao_gse164378/source_manifest_v1.json",
+      "sha256": "8461b3a9088c55132e0bffee0eeca673a01b536e76dca03a33746cdbeef5ae1c",
+      "bytes": 5294,
+      "role": "Hao GSE164378 source manifest"
+    },
+    {
+      "path": "data/development/hao_gse164378/metadata_support_v1.json",
+      "source_path": "data/development/hao_gse164378/metadata_support_v1.json",
+      "sha256": "633cf3c5e0f6b4475fac17949bf944456dc1649132611dd39925b3df8797a5ef",
+      "bytes": 1966,
+      "role": "Hao GSE164378 metadata-only eligibility audit"
+    },
+    {
+      "path": "data/development/hao_gse164378/adt_gene_aliases_v1.tsv",
+      "source_path": "data/development/hao_gse164378/adt_gene_aliases_v1.tsv",
+      "sha256": "68295c4762c78a26532a6bf57dbeb5f8a86b393e6ce09563314b7cff53f1c296",
+      "bytes": 443,
+      "role": "Hao GSE164378 frozen RNA-ADT aliases"
+    },
+    {
+      "path": "data/confirmation/pbmc_citeseq_hca/candidate_designation_v2.json",
+      "source_path": "data/confirmation/pbmc_citeseq_hca/candidate_designation_v2.json",
+      "sha256": "1788474df6858fd5f0bdcda41dddabdc39e641def8a5eec823395a6f67d93b13",
+      "bytes": 9691,
+      "role": "Lawlor PBMC version-2 disabled-outcome designation"
+    },
+    {
+      "path": "data/confirmation/pbmc_citeseq_hca/score_authorization_template_v2.json",
+      "source_path": "data/confirmation/pbmc_citeseq_hca/score_authorization_template_v2.json",
+      "sha256": "091de7a96162c00384e660be3f2e8ac4ddb863c0c4dca42f4b8e963ac817bcd1",
+      "bytes": 1244,
+      "role": "Lawlor PBMC version-2 score-authorization template"
+    },
+    {
+      "path": "data/confirmation/hao_gse164378/candidate_designation_v1.json",
+      "source_path": "data/confirmation/hao_gse164378/candidate_designation_v1.json",
+      "sha256": "e76fbc3a6ae7a666a3873baf60045ac0c7955ea42d021a4825b79df4c8b94550",
+      "bytes": 11155,
+      "role": "Hao GSE164378 version-1 disabled-outcome designation"
+    },
+    {
+      "path": "data/confirmation/hao_gse164378/score_authorization_template_v1.json",
+      "source_path": "data/confirmation/hao_gse164378/score_authorization_template_v1.json",
+      "sha256": "23f34680314cdb17bd4540e7cb8abc28015db50c9c6cf6dd6d5ffe7a37c9af81",
+      "bytes": 1346,
+      "role": "Hao GSE164378 version-1 score-authorization template"
     },
     {
       "path": "data/confirmation/gse143417_pokiseq/candidate_designation_v1.json",
       "source_path": "data/confirmation/gse143417_pokiseq/candidate_designation_v1.json",
       "sha256": "4dafbfc270628ad6f0f9921757a9689dea34ceaf92a0ec3725d377545e63c8c8",
       "bytes": 1521,
-      "role": "PoKI-seq candidate designation"
+      "role": "PoKI-seq historical candidate designation"
     },
     {
       "path": "data/confirmation/gse143417_pokiseq/preanalysis_lock_v1.json",
@@ -227,6 +290,13 @@
       "sha256": "e62106b4087c323b243bf9142a4d1a99f952cd74fc8ebde43ff6519fec65726e",
       "bytes": 2442,
       "role": "PoKI-seq preanalysis lock"
+    },
+    {
+      "path": "data/confirmation/gse143417_pokiseq/poki_marker_cells_v1.npz",
+      "source_path": "data/confirmation/gse143417_pokiseq/poki_marker_cells_v1.npz",
+      "sha256": "2808318e2847f6f1f12c5a9537fea8dddf543cd7ede30f2b47cc5e247862ea1f",
+      "bytes": 293205,
+      "role": "PoKI-seq checksum-bound preflight cache"
     },
     {
       "path": "data/scgpt_gene_embeddings_manifest.json",
@@ -308,16 +378,30 @@
     {
       "path": "experiments/reduce_lawlor_hca_pbmc.R",
       "source_path": "experiments/reduce_lawlor_hca_pbmc.R",
-      "sha256": "59dc61dfe9a283fd00c9a31d0a6e9148aaab2052d9b651fbc1015584cf4f3bcf",
-      "bytes": 6836,
+      "sha256": "65595a6461a0836eb1eda307614f0201594282cc36b54849018d12ea6bfdbc22",
+      "bytes": 6997,
       "role": "Lawlor PBMC sparse reducer"
     },
     {
       "path": "experiments/confirm_lawlor_hca_pbmc.py",
       "source_path": "experiments/confirm_lawlor_hca_pbmc.py",
-      "sha256": "4dd4b2746ecfc448dfbd44824f0fbbe4dc53447c5a2ce97957e66c13c8d0993a",
-      "bytes": 45491,
+      "sha256": "859b0f0e929b0807ba01ea6294456efa85373e2f08e4a4f031a782da1bfe3d77",
+      "bytes": 73125,
       "role": "Lawlor PBMC split predict-score runner"
+    },
+    {
+      "path": "experiments/reduce_hao_gse164378.py",
+      "source_path": "experiments/reduce_hao_gse164378.py",
+      "sha256": "6c4f6b03fb4c3e1d8d0fd37580b8ef8137b3f7c35654b9e271b26e46aa2f46d3",
+      "bytes": 17274,
+      "role": "Hao GSE164378 sparse reducer"
+    },
+    {
+      "path": "experiments/confirm_hao_gse164378.py",
+      "source_path": "experiments/confirm_hao_gse164378.py",
+      "sha256": "5653e61e99c199a8b3e59bfe9ec2025a55e75bf1e55559966e7b4c5109bffb6c",
+      "bytes": 73226,
+      "role": "Hao GSE164378 split prepare-predict-score runner"
     },
     {
       "path": "experiments/confirm_poki_gse143417_conditional_fields.py",
@@ -346,6 +430,13 @@
       "sha256": "1f5374edb8ff5d61159bf68c9b17169226fc8256f6e4df88225f7dc7b935d039",
       "bytes": 4498,
       "role": "classical-boundary simulation result"
+    },
+    {
+      "path": "results/gse143417_pokiseq_preflight_refusal.json",
+      "source_path": "results/gse143417_pokiseq_preflight_refusal.json",
+      "sha256": "24f7ad70fbbfd4e7482809db58bd94d1156c1e22c2dd94fa77d66b1d6acdcf24",
+      "bytes": 3020,
+      "role": "PoKI-seq frozen support-gate refusal"
     },
     {
       "path": "scripts/freeze_poki_gse143417_confirmation.py",
@@ -392,8 +483,8 @@
     {
       "path": "tests/test_public_artifact_integrity.py",
       "source_path": "tests/test_public_artifact_integrity.py",
-      "sha256": "f0657af0773ea3487f3dadb1edd82acca983a2f552bfff08982855f0a71b5ebd",
-      "bytes": 14973,
+      "sha256": "13d04e19d173bd98c78ab0a675deb21a9d23198815f06963b131b96c5879b19d",
+      "bytes": 17957,
       "role": "artifact integrity tests"
     },
     {
@@ -434,9 +525,16 @@
     {
       "path": "tests/test_lawlor_hca_pbmc_confirmation.py",
       "source_path": "tests/test_lawlor_hca_pbmc_confirmation.py",
-      "sha256": "fdd4fc827de65d6b915fd023148a224e439c40231c8efa171851b75af8e303ff",
-      "bytes": 8258,
+      "sha256": "c666459ff900e2199162e863aafbf9c4c7bb7775bfc2627ca136a1d73951ed6f",
+      "bytes": 33655,
       "role": "Lawlor PBMC pairing-seal and endpoint tests"
+    },
+    {
+      "path": "tests/test_hao_gse164378_confirmation.py",
+      "source_path": "tests/test_hao_gse164378_confirmation.py",
+      "sha256": "9b023689042a387b568c4b8c8c41806192a451498a0c63c9dfd558ed511143a9",
+      "bytes": 24091,
+      "role": "Hao GSE164378 pairing-seal and endpoint tests"
     },
     {
       "path": "tests/test_confirm_poki_gse143417.py",
@@ -461,8 +559,10 @@
     }
   ],
   "release_blockers": [
-    "outcome execution and append-only result release",
-    "immutable final result release tag",
+    "independent fresh-clone verification of the immutable public candidate freeze",
+    "explicit outcome-access authorization after that verified freeze",
+    "prediction publication, hash authorization, scoring, and append-only result release for both scoreable candidates",
+    "immutable final result release tag or equivalent commit-addressed release",
     "author-approved code license",
     "derived-data redistribution review"
   ]

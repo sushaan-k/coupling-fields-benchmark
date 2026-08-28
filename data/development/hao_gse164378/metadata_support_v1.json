@@ -1,0 +1,67 @@
+{
+  "schema": "hao-gse164378-metadata-support/1.0",
+  "accession": "GSE164378",
+  "metadata_file": "GSE164378_sc.meta.data_5P.csv.gz",
+  "metadata_bytes": 862416,
+  "metadata_sha256": "135f09bff567d41a7a31acede6ce591a31979b41aa850c24246ac38cb632f836",
+  "cells": 49147,
+  "unique_cell_ids": 49147,
+  "source_time_code_map": {
+    "0": "day0",
+    "2": "day3",
+    "7": "day7"
+  },
+  "time_mapping_evidence": "The GEO metadata encodes the first post-vaccine sample as 2. The official GSE164378 antibody/HTO workbook and the associated paper identify the same donor samples as day 3; the analysis uses the biological labels day0, day3, and day7.",
+  "excluded_donor": {
+    "donor": "P6",
+    "reason": "The publication reports a highly activated immune system before vaccination and removes P6 from vaccination-response analysis."
+  },
+  "development_donors": [
+    "P4",
+    "P7",
+    "P8",
+    "P1"
+  ],
+  "held_donors": [
+    "P5",
+    "P3",
+    "P2"
+  ],
+  "broad_lineages": [
+    "B",
+    "CD4 T",
+    "CD8 T",
+    "Mono",
+    "NK"
+  ],
+  "post_vaccine_blocks": [
+    "day3:B",
+    "day3:CD4 T",
+    "day3:CD8 T",
+    "day3:Mono",
+    "day3:NK",
+    "day7:B",
+    "day7:CD4 T",
+    "day7:CD8 T",
+    "day7:Mono",
+    "day7:NK"
+  ],
+  "minimum_cells_in_any_retained_donor_time_lineage": 47,
+  "minimum_cell_location": "P8; day3; B",
+  "minimum_cells_in_any_held_donor_time_lineage": 71,
+  "minimum_held_cell_locations": [
+    "P2; day3; NK",
+    "P3; day3; B"
+  ],
+  "donor_time_counts": {
+    "P1": {"day0": 2292, "day3": 2653, "day7": 2215},
+    "P2": {"day0": 2045, "day3": 1020, "day7": 1602},
+    "P3": {"day0": 1742, "day3": 1803, "day7": 1862},
+    "P4": {"day0": 2842, "day3": 3534, "day7": 2630},
+    "P5": {"day0": 1363, "day3": 1751, "day7": 2114},
+    "P7": {"day0": 2209, "day3": 1994, "day7": 1966},
+    "P8": {"day0": 2478, "day3": 1945, "day7": 2341}
+  },
+  "outcome_matrices_accessed": false,
+  "audit_completed_at_utc": "2026-08-28T01:45:22Z"
+}

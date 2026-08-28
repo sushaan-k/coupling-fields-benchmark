@@ -1,0 +1,94 @@
+{
+  "schema": "hao-gse164378-source/1.0",
+  "accession": "GSE164378",
+  "study_title": "Integrated analysis of multimodal single-cell data",
+  "study_doi": "10.1016/j.cell.2021.04.048",
+  "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE164378",
+  "supplementary_root": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE164nnn/GSE164378/suppl/",
+  "data_license": "No separate file license is stated on the GEO accession; repository terms apply.",
+  "outcome_integrity_policy": "Before any matrix access, this manifest fixes each direct URL, filename, and byte count. Independently verified SHA-256 values also bind the four inspected non-outcome barcode and feature files. The two outcome-matrix SHA-256 values remain unknown until authorized acquisition. The prepare step rejects any pinned hash, filename, or size mismatch, computes SHA-256 for every acquired file while reading it, and binds those hashes in source_acquisition.json and the immutable reducer bundle used by predict and score.",
+  "required_5p_source_bytes": 226047108,
+  "files": [
+    {
+      "name": "filelist.txt",
+      "role": "authoritative GEO supplementary-file inventory",
+      "bytes": 1813,
+      "sha256": "8724b89bbfa75855e26863c354b16356bfbedc907b04afa832a62c6db2de0fb2",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE164nnn/GSE164378/suppl/filelist.txt",
+      "accessed_before_seal": true
+    },
+    {
+      "name": "GSE164378_Antibody_HTO_info.xlsx",
+      "role": "antibody and donor-time metadata",
+      "bytes": 31422,
+      "sha256": "fd7e1c00b883fb951693be8dbe5368dba1b3456ca9ba7ac33e546b39d447fcd2",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE164nnn/GSE164378/suppl/GSE164378_Antibody_HTO_info.xlsx",
+      "accessed_before_seal": true
+    },
+    {
+      "name": "GSE164378_sc.meta.data_5P.csv.gz",
+      "role": "5-prime cell metadata and author broad-lineage labels",
+      "bytes": 862416,
+      "sha256": "135f09bff567d41a7a31acede6ce591a31979b41aa850c24246ac38cb632f836",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE164nnn/GSE164378/suppl/GSE164378_sc.meta.data_5P.csv.gz",
+      "accessed_before_seal": true
+    },
+    {
+      "name": "GSM5008740_RNA_5P-barcodes.tsv.gz",
+      "role": "5-prime RNA cell identifiers",
+      "bytes": 241462,
+      "sha256": "d3d316a3973ec745d9768e18124fb6518f9a434b404147fcb05ba25c9d68c7b7",
+      "sha256_status": "independently streamed and verified before seal; no matrix values accessed",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5008nnn/GSM5008740/suppl/GSM5008740_RNA_5P-barcodes.tsv.gz",
+      "accessed_before_seal": true
+    },
+    {
+      "name": "GSM5008740_RNA_5P-features.tsv.gz",
+      "role": "5-prime RNA feature identifiers",
+      "bytes": 233354,
+      "sha256": "9f3a435942cab5fa1bf41aac342d17ec4818d8c20139b5bcb3713cdedfdee7d1",
+      "sha256_status": "independently streamed and verified before seal; no matrix values accessed",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5008nnn/GSM5008740/suppl/GSM5008740_RNA_5P-features.tsv.gz",
+      "accessed_before_seal": true
+    },
+    {
+      "name": "GSM5008740_RNA_5P-matrix.mtx.gz",
+      "role": "5-prime RNA outcome matrix",
+      "bytes": 217895902,
+      "sha256": null,
+      "sha256_status": "not published by GEO; must be computed and bound by prepare after authorized acquisition",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5008nnn/GSM5008740/suppl/GSM5008740_RNA_5P-matrix.mtx.gz",
+      "accessed_before_seal": false
+    },
+    {
+      "name": "GSM5008741_ADT_5P-barcodes.tsv.gz",
+      "role": "5-prime ADT cell identifiers",
+      "bytes": 241462,
+      "sha256": "d3d316a3973ec745d9768e18124fb6518f9a434b404147fcb05ba25c9d68c7b7",
+      "sha256_status": "independently streamed and verified before seal; no matrix values accessed",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5008nnn/GSM5008741/suppl/GSM5008741_ADT_5P-barcodes.tsv.gz",
+      "accessed_before_seal": true
+    },
+    {
+      "name": "GSM5008741_ADT_5P-features.tsv.gz",
+      "role": "5-prime ADT feature identifiers",
+      "bytes": 457,
+      "sha256": "979b9f96fdcc951eaf7f34df67b0ba0cb2ab696ee75ef6064a6a0bb70654e53a",
+      "sha256_status": "independently streamed and verified before seal; no matrix values accessed",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5008nnn/GSM5008741/suppl/GSM5008741_ADT_5P-features.tsv.gz",
+      "accessed_before_seal": true
+    },
+    {
+      "name": "GSM5008741_ADT_5P-matrix.mtx.gz",
+      "role": "5-prime ADT outcome matrix",
+      "bytes": 7434471,
+      "sha256": null,
+      "sha256_status": "not published by GEO; must be computed and bound by prepare after authorized acquisition",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5008nnn/GSM5008741/suppl/GSM5008741_ADT_5P-matrix.mtx.gz",
+      "accessed_before_seal": false
+    }
+  ],
+  "preseal_access_note": "The two barcode axes and two feature lists were inspected to establish same-cell alignment and freeze the exact one-to-one marker aliases. Their independently verified SHA-256 values are pinned above. Neither RNA nor ADT matrix values were downloaded or opened.",
+  "outcome_matrix_values_accessed_before_seal": false,
+  "retrieved_at_utc": "2026-08-28T01:45:22Z"
+}

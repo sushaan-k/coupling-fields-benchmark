@@ -1,0 +1,18 @@
+{
+  "schema": "lawlor-hca-pbmc-score-authorization-template/2.0",
+  "status": "AWAITING_PUBLIC_PREDICTION",
+  "outcome_access_authorized": false,
+  "candidate": "HCA:efea6426-510a-4b60-9a19-277e52bfa815",
+  "prediction_path": "results/lawlor_hca_pbmc_predictions.json",
+  "score_authorization_path": "data/confirmation/pbmc_citeseq_hca/score_authorization_v2.json",
+  "score_release_path": "data/confirmation/pbmc_citeseq_hca/score_release_v2.json",
+  "prediction_sha256": null,
+  "prediction_bytes": null,
+  "prediction_public_url": null,
+  "prediction_public_commit": null,
+  "runner": "experiments/confirm_lawlor_hca_pbmc.py",
+  "runner_sha256": "859b0f0e929b0807ba01ea6294456efa85373e2f08e4a4f031a782da1bfe3d77",
+  "protocol": "docs/SECOND_HELD_UNIT_CONFIRMATION_PROTOCOL_2026-08-27.md",
+  "protocol_sha256": "5326f8b88ea79dbb7f146fcbf0e350ac99dcfcc00bdb6e1a885374912da10df9",
+  "blocker": "After the public candidate freeze authorizes outcome access, run predict and publish the exact prediction JSON at an immutable GitHub blob URL. Run public-bind to create score_authorization_v2.json, publish that authorization in a later commit, then run authorize-score with its exact blob URL. Score refuses without the resulting score release."
+}

@@ -38,5 +38,9 @@
     {"stimulus": "CD3_CD28", "cell_type": "NK", "reason": "minimum donor baseline support is 7 cells"},
     {"stimulus": "LPS", "cell_type": "all non-CD14 author broad labels", "reason": "outside the study-targeted monocyte contrast"}
   ],
-  "primary_grid": "each development-eligible matched RNA-ADT marker by six retained contrasts by four Helmert coordinates; 24 outputs per marker"
+  "primary_grid": "eligible matched RNA-ADT marker-contrast pairs with four Helmert coordinates for one retained stimulus-lineage contrast per entity",
+  "marginal_support_rule": "per-marker-lineage tertiles from pooled development baseline cells; distinct cuts and at least 5% in every RNA and ADT state in every development and held donor baseline/stimulus arm; held checks are pairing-independent",
+  "minimum_entity_pairs": 12,
+  "minimum_unique_marker_clusters": 12,
+  "held_support_invariance": "separate RNA and ADT margin checks are invariant to within-donor, condition, and lineage cell-pair permutations"
 }

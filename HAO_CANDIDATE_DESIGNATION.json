@@ -1,0 +1,184 @@
+{
+  "schema": "hao-gse164378-coupling-candidate-designation/1.0",
+  "designation": "data/confirmation/hao_gse164378/candidate_designation_v1.json",
+  "protocol": "docs/GSE164378_HAO_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
+  "protocol_sha256": "acb47fb17bdca84a9dc99c4ec9628ef7d8b3292a78c670e52004773bac6912fc",
+  "status": "OUTCOME_ACCESS_DISABLED",
+  "designated_at_utc": "2026-08-28T02:05:00Z",
+  "accession": "GSE164378",
+  "study_doi": "10.1016/j.cell.2021.04.048",
+  "assay_pair": "same-cell 10x 5-prime RNA and 54 antibody-derived tags",
+  "perturbation_system": "in vivo VSV-vectored HIV vaccination; not CRISPR",
+  "design": "held_donor",
+  "biological_unit_field": "donor",
+  "confirmatory_family": {
+    "scoreable_candidates": [
+      "Lawlor HCA PBMC",
+      "Hao GSE164378"
+    ],
+    "execute_all_candidates": true,
+    "stopping_rule": "none",
+    "family_status": "closed; any later candidate requires a newly declared alpha-spending family",
+    "directional_endpoint_rule": "Each two-sided 95% interval endpoint is a one-sided alpha 0.025 test; Bonferroni over two fixed candidates controls familywise alpha at 0.05.",
+    "poki_status": "reported separately; not scoreable or promotable because its frozen run produced no inferential test"
+  },
+  "source_manifest": "data/development/hao_gse164378/source_manifest_v1.json",
+  "source_manifest_sha256": "8461b3a9088c55132e0bffee0eeca673a01b536e76dca03a33746cdbeef5ae1c",
+  "metadata_support_artifact": "data/development/hao_gse164378/metadata_support_v1.json",
+  "metadata_support_sha256": "633cf3c5e0f6b4475fac17949bf944456dc1649132611dd39925b3df8797a5ef",
+  "source_total_bytes": 226047108,
+  "source_files": [
+    {
+      "name": "GSM5008740_RNA_5P-barcodes.tsv.gz",
+      "role": "RNA barcodes",
+      "bytes": 241462,
+      "sha256": "d3d316a3973ec745d9768e18124fb6518f9a434b404147fcb05ba25c9d68c7b7",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5008nnn/GSM5008740/suppl/GSM5008740_RNA_5P-barcodes.tsv.gz",
+      "accessed_before_seal": true
+    },
+    {
+      "name": "GSM5008740_RNA_5P-features.tsv.gz",
+      "role": "RNA features",
+      "bytes": 233354,
+      "sha256": "9f3a435942cab5fa1bf41aac342d17ec4818d8c20139b5bcb3713cdedfdee7d1",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5008nnn/GSM5008740/suppl/GSM5008740_RNA_5P-features.tsv.gz",
+      "accessed_before_seal": true
+    },
+    {
+      "name": "GSM5008740_RNA_5P-matrix.mtx.gz",
+      "role": "RNA outcome matrix",
+      "bytes": 217895902,
+      "sha256": null,
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5008nnn/GSM5008740/suppl/GSM5008740_RNA_5P-matrix.mtx.gz",
+      "accessed_before_seal": false
+    },
+    {
+      "name": "GSM5008741_ADT_5P-barcodes.tsv.gz",
+      "role": "ADT barcodes",
+      "bytes": 241462,
+      "sha256": "d3d316a3973ec745d9768e18124fb6518f9a434b404147fcb05ba25c9d68c7b7",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5008nnn/GSM5008741/suppl/GSM5008741_ADT_5P-barcodes.tsv.gz",
+      "accessed_before_seal": true
+    },
+    {
+      "name": "GSM5008741_ADT_5P-features.tsv.gz",
+      "role": "ADT features",
+      "bytes": 457,
+      "sha256": "979b9f96fdcc951eaf7f34df67b0ba0cb2ab696ee75ef6064a6a0bb70654e53a",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5008nnn/GSM5008741/suppl/GSM5008741_ADT_5P-features.tsv.gz",
+      "accessed_before_seal": true
+    },
+    {
+      "name": "GSM5008741_ADT_5P-matrix.mtx.gz",
+      "role": "ADT outcome matrix",
+      "bytes": 7434471,
+      "sha256": null,
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5008nnn/GSM5008741/suppl/GSM5008741_ADT_5P-matrix.mtx.gz",
+      "accessed_before_seal": false
+    }
+  ],
+  "preseal_source_access": "RNA and ADT barcode axes and feature lists were inspected and independently hashed to verify same-cell alignment and freeze aliases; neither RNA nor ADT matrix values were downloaded or opened.",
+  "development_units": [
+    "P4",
+    "P7",
+    "P8",
+    "P1"
+  ],
+  "held_units": [
+    "P5",
+    "P3",
+    "P2"
+  ],
+  "excluded_units": [
+    "P6"
+  ],
+  "excluded_unit_rule": "P6 is excluded because the publication reports pre-vaccine activation and removes it from vaccination-response analysis.",
+  "time_mapping": {
+    "source_0": "day0",
+    "source_2": "day3",
+    "source_7": "day7"
+  },
+  "lineages": [
+    "B",
+    "CD4 T",
+    "CD8 T",
+    "Mono",
+    "NK"
+  ],
+  "minimum_cells_per_donor_day_lineage": 40,
+  "observed_minimum_cells_all_frozen_blocks": 47,
+  "observed_minimum_cells_held_blocks": 71,
+  "primary_blocks": [
+    "day3",
+    "day7"
+  ],
+  "primary_estimand": "absolute post-vaccine 3x3 RNA-state by ADT-state tables in each held donor, day, and marginally supported cognate marker-lineage entity",
+  "primary_grid": "each marginally supported cognate marker-lineage entity by two post-vaccine days by four Helmert coupling coordinates; eight outputs per entity",
+  "alias_table": "data/development/hao_gse164378/adt_gene_aliases_v1.tsv",
+  "alias_sha256": "68295c4762c78a26532a6bf57dbeb5f8a86b393e6ce09563314b7cff53f1c296",
+  "alias_rule": "exact 33-entry one-to-one 5-prime feature mapping; no normalization fallback; reject duplicate ADT features, duplicate gene symbols, missing features, and duplicate RNA rows; exclude ambiguous CD16",
+  "state_rule": "per-marker-lineage RNA and ADT tertiles fitted only on pooled development-donor day-0 cells in that lineage; exact cuts are applied unchanged; retain an entity only when cuts are distinct and every RNA and ADT state has at least 5% occupancy separately in every development and held donor-day marginal; held joints are never formed for support filtering; require at least 12 unique cognate markers",
+  "primary_estimator": "equal development-donor mean absolute coupling field; the structured loss uses clipped inverse permutation variance of that mean, a nuclear penalty 0.1 times the largest singular value, a six-external-neighbor scGPT gene hypergraph plus represented-lineage hyperedges, graph penalty 5.0, and tolerance 1e-9",
+  "membership_permuted_rule": "permute scGPT embedding assignments once at the unique cognate-marker level; preserve every represented-lineage hyperedge exactly",
+  "optimizer_reporting": "prediction records convergence, iterations, relative step, objective, effective rank, singular values, and realized penalties for every structured fit",
+  "destroyed_rule": "margin-preserving pairing-destroyed development fields fit with the identical weights, nuclear penalty, hypergraph, graph penalty, and optimizer as the primary",
+  "classical_baselines": [
+    "full 3x3 Pearson independence-residual matrix, direct and identically structured",
+    "full 3x3 signed Poisson-deviance independence-residual matrix, direct and identically structured"
+  ],
+  "matched_baselines": [
+    "direct development mean",
+    "zero interaction",
+    "variance-scalar shrinkage",
+    "nuclear only",
+    "hypergraph only",
+    "endpoint ridge",
+    "direct covariance",
+    "membership-permuted structured field"
+  ],
+  "table_rule": "prediction stores no tables and its frozen code path does not use held RNA-ADT pairing; score reconstructs tables from locked coordinates plus held finite-table null means and held margins before invoking held-joint scoring",
+  "common_endpoint": "multinomial deviance per held cell under identical observed post-vaccine row and column margins",
+  "secondary_estimand": "day3-minus-day0 and day7-minus-day0 coupling-field correlation; descriptive only and excluded from promotion",
+  "primary_gate": [
+    "pooled held coupling-field correlation complete-marker bootstrap 95% CI lower endpoint greater than zero",
+    "positive coupling-field correlation in every held donor",
+    "primary-minus-identically-structured-destroyed per-cell deviance marker-bootstrap 95% CI upper endpoint below zero",
+    "primary-minus-best-classical per-cell deviance marker-bootstrap 95% CI upper endpoint below zero, reselecting the best classical method within each draw",
+    "primary-minus-best-matched per-cell deviance marker-bootstrap 95% CI upper endpoint below zero, reselecting the best matched method within each draw",
+    "no source-integrity, support, reconstruction, margin, or optimization refusal"
+  ],
+  "bootstrap_unit": "cognate marker cluster retaining every supported lineage-pair entity; inference is conditional on deposited held donors P5, P3, and P2",
+  "bootstrap_draws": 2000,
+  "seed": 20260828,
+  "runner": "experiments/confirm_hao_gse164378.py",
+  "runner_sha256": "5653e61e99c199a8b3e59bfe9ec2025a55e75bf1e55559966e7b4c5109bffb6c",
+  "reducer": "experiments/reduce_hao_gse164378.py",
+  "reducer_sha256": "6c4f6b03fb4c3e1d8d0fd37580b8ef8137b3f7c35654b9e271b26e46aa2f46d3",
+  "reduced_path": "data/development/hao_gse164378/reduced_v1",
+  "prepare_record": "data/development/hao_gse164378/prepared_v1.json",
+  "prediction_path": "results/hao_gse164378_predictions.json",
+  "score_authorization": "data/confirmation/hao_gse164378/score_authorization_v1.json",
+  "score_release": "data/confirmation/hao_gse164378/score_release_v1.json",
+  "score_output": "results/hao_gse164378_confirmation.json",
+  "score_arrays": "results/hao_gse164378_confirmation_arrays.npz",
+  "authorization_template": "data/confirmation/hao_gse164378/score_authorization_template_v1.json",
+  "authorization_template_sha256": "23f34680314cdb17bd4540e7cb8abc28015db50c9c6cf6dd6d5ffe7a37c9af81",
+  "prepare_refusal_path": "results/hao_gse164378_prepare_refusal.json",
+  "prediction_refusal_path": "results/hao_gse164378_prediction_refusal.json",
+  "score_refusal_path": "results/hao_gse164378_score_refusal.json",
+  "embedding": "data/scgpt_gene_embeddings.npz",
+  "embedding_sha256": "baf835e05077c6ec17e7bb0f48fc30632adc24be5bb91e591f74ab2e7985c60e",
+  "implementation_sha256": {
+    "mapreg/coupling_fields.py": "29a3875fa43572ead6c53cd7dea60bb9bdf07c35b417d79d8a97f30cbb230912",
+    "mapreg/classical_residuals.py": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
+    "mapreg/table_prediction.py": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e"
+  },
+  "test": "tests/test_hao_gse164378_confirmation.py",
+  "test_sha256": "9b023689042a387b568c4b8c8c41806192a451498a0c63c9dfd558ed511143a9",
+  "public_freeze_commit": null,
+  "public_freeze_url": null,
+  "sealed_at_utc": null,
+  "outcome_access_authorized": false,
+  "public_verification_requirement": "Before access, independently fresh-clone the candidate-freeze commit and verify the exact disabled designation and every bound artifact byte-for-byte. Before scoring, fresh-clone and verify the prediction and authorization artifacts and confirm that the authorization commit descends from the prediction commit. Release the verification record.",
+  "seal_blocker": "Publish this unchanged protocol, source and metadata manifests, exact aliases, runner, reducer, authorization template, and disabled designation at an immutable public commit. Independently verify all bound bytes from a fresh clone, release that record, then update only the public freeze fields and rebind the designation before prepare."
+}

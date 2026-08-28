@@ -1,6 +1,7 @@
 # Final public evidence ledger
 
-**Snapshot:** 26 August 2026  
+**Snapshot:** 28 August 2026
+
 **Machine-readable table:** `results/final_public_benchmark_table.tsv`
 
 ## Bottom line
@@ -15,8 +16,11 @@ positive lineage-bootstrap interval across the two deposited cultures. The
 three RNA-protein/RNA-ATAC development panels and PerturbFate refuse. In the
 Arce held-donor RNA-protein confirmation, correlation was positive, but the
 fixed primary lost to linear cross-covariance on RMSE and did not separate from
-destroyed links under the locked gate. All seven public panels are complete;
-none establishes estimator superiority.
+destroyed links under the locked gate. All seven outcome-scored public panels are complete;
+none establishes estimator superiority. A separately frozen PoKI-seq held-donor
+candidate stopped at its state-occupancy preflight for `Donor1:Stim:41BB`.
+No prediction or scored result was written, so this eighth benchmark entry is a
+support refusal rather than outcome-scored evidence.
 
 The defensible methods-paper claim is therefore narrower than state-of-the-art
 prediction: the framework separates pairing-dependent structure from marginal
@@ -35,6 +39,7 @@ reproduce across public paired assays.
 | PerturbFate | Four deposited technical dates | 49 | Pearson -0.092 [-0.152, -0.035]; RMSE 1.023 [1.010, 1.035] | Linear cross-covariance RMSE 1.000 | Direct-minus-destroyed target-MSE CI [-0.028, 0.079] | **REFUSE** |
 | ReSisTrace | Two deposited cultures; lineages resampled | 3 treatment contrasts | No prediction RMSE; treatment cosines -0.674, 0.223, 0.952, and every interval crosses zero | Not applicable | All 8 arm fields exceed the fixed-margin Monte Carlo link control, each BH q=0.0154 | **REFUSE treatment replication** |
 | Arce T-cell RNA-protein | Donor A development; donor B held confirmation | 28 | Pearson 0.412 [0.331, 0.494]; RMSE 1.093 [1.012, 1.185] | Linear cross-covariance: Pearson 0.304; RMSE 0.993 [0.989, 0.996] | Primary-minus-destroyed target-MSE CI [-0.448, 0.006] | **REFUSE** |
+| PoKI-seq | Donor1 development; Donor2 held confirmation | 33 predeclared queries | Not scored; state-occupancy preflight failed for `Donor1:Stim:41BB` | Not evaluated | Not reached | **REFUSE preflight** |
 
 Metric intervals for the first five predictive panels and Arce resample
 targets. ReSisTrace intervals resample barcode-defined lineages conditional on
@@ -54,7 +59,7 @@ exact values and provenance fields are in the TSV.
 | The structured primary improves matched baselines. | The predeclared three-panel gate records 0 wins; MultiPerturb and PerturbFate also fail. | **REFUSE** | The structural estimator is a fixed denoiser evaluated beside simpler baselines, not a superior predictor. |
 | The scGPT hypergraph contributes specific biological information. | The shuffled graph matches or exceeds the primary in PerturbSci and PerturbFate; no positive panel isolates a graph-specific gain. | **REFUSE** | scGPT supplies a frozen structural prior; its specific benefit was not established. |
 | Guide/observation-error correction is validated on public data. | `fit_factorial_coupling` is tested and stress-tested synthetically, but the completed public scripts use conditional empirical tables, not the guide-aware likelihood. | **REFUSE real-data claim** | Guide-aware identification and refusal are implemented and assessed in simulation. |
-| The public benchmark establishes a positive held biological replicate. | ReSisTrace refuses treatment-contrast replication. Arce donor B has positive correlation, but the fixed primary has RMSE 1.093 versus 0.993 for linear cross-covariance; primary-minus-covariance target MSE is 0.199 [0.038, 0.352], and its primary-minus-destroyed interval includes zero. | **REFUSE** | No panel supplies a positive held biological-replicate result under its full decision gate. |
+| The public benchmark establishes a positive held biological replicate. | ReSisTrace refuses treatment-contrast replication. Arce donor B has positive correlation, but the fixed primary has RMSE 1.093 versus 0.993 for linear cross-covariance; primary-minus-covariance target MSE is 0.199 [0.038, 0.352], and its primary-minus-destroyed interval includes zero. The frozen PoKI-seq candidate refused at the state-occupancy preflight before prediction or scoring. | **REFUSE** | No panel supplies a positive held biological-replicate result under its full decision gate. |
 | Corrected pathway/complex recovery validates the primary. | The strict PerturbSci rerun required high field norm in every held truth and prediction and exclusion under matched destroyed links. It selected no target; no Reactome or CORUM module could pass. | **REFUSE as confirmatory biology** | The earlier averaged-unit enrichments are exploratory; the strict replicated module analysis was negative. |
 | Predicted local neighborhoods recover biological relations. | Mean top-5 neighbor recovery was 0.064 [0.050, 0.079] versus 0.051 [0.041, 0.063] after link destruction; the difference interval included zero and the random-label permutation p-value was 0.283. Reactome edge enrichment refused. CORUM was nominal against random, p=0.0269, but not significant after family correction, q=0.0538. | **REFUSE** | No corrected local-neighborhood claim survives the predeclared controls. |
 | The method is state of the art for perturbation prediction. | No completed comparison establishes this, and the task is association-field reproducibility rather than standard unseen-perturbation response prediction. | **REFUSE** | Do not make a state-of-the-art or direct-superiority claim. |
@@ -129,13 +134,14 @@ Result artifact hashes at this snapshot:
 
 | Artifact | SHA-256 |
 |---|---|
-| `results/public_coupling_atlas_benchmark_v4_final_estimator.json` | `baad1d75df0176532d9ebd8968ff2277923e39ade619165f8d25138613dfb31c` |
+| `results/public_coupling_atlas_benchmark_v4_final_estimator.json` | `eb250bd749c92b7278e7e8c54e89f5126f3367ed489a91b664f1d664ea083195` |
 | `results/multiperturb_conditional_fields.json` | `a59d3b82b914991fbb2e08195e5401b2dde249158e5f9c923decfcc1e1df4507` |
 | `results/development/perturbfate_conditional_fields.json` | `cdf0c2cf66facfbbdfb03ac7a20c97d4cdaf4fc0bc9c63025e825dbeb1715c26` |
 | `results/resistrace_conditional_fields.json` | `edef0dba1d1dd94f19829088cb1fcd00f72dbacbc0695516b9c25afee6b20ffb` |
 | `results/arce_gse278572_conditional_field_confirmation.json` | `65d4bf6097a8fafee8e22f352c2c6c14fa13c1d8082073a4589d3ee693ef8b57` |
 | `results/arce_gse278572_postlock_controls.json` | `66d3343db745ad338091397226a9b93ca222df759107fbe46eddfcbee4c1a612` |
 | `results/perturbsci_module_validation.json` | `68032c3bc05fe0702edd8600cf91c86d0850b1db44857e67a42845e0fc164fc2` |
+| `results/gse143417_pokiseq_preflight_refusal.json` | `24f7ad70fbbfd4e7482809db58bd94d1156c1e22c2dd94fa77d66b1d6acdcf24` |
 
 The structured consistency check parsed every audited JSON with non-finite JSON
 constants rejected; verified embedded hashes for the v4 runner, estimator, and

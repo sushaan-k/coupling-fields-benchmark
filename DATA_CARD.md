@@ -2,8 +2,8 @@
 
 **Release candidate:** `coupling-fields-v1`
 **Snapshot date:** 28 August 2026
-**Distribution status:** public, commit-addressed prospective protocol freeze;
-outcome acquisition authorized, scoring still prediction-gated
+**Distribution status:** public, tag-addressed candidate freeze; Lawlor v2 and
+Hao v1 remain frozen with outcome access disabled
 
 ## Scope
 
@@ -13,7 +13,8 @@ machine-readable aggregate results, analysis protocols, source manifests,
 deterministic runners, the reference implementation, and integrity tests.
 Failed and refused panels are part of the benchmark.
 
-The current snapshot covers seven public panels:
+The current snapshot covers seven scored public-data panels and one separate
+preflight refusal:
 
 | Study | Linked measurements | Evaluation unit | Decision |
 |---|---|---|---|
@@ -24,22 +25,27 @@ The current snapshot covers seven public panels:
 | PerturbFate, GSE291147 | labeled and unlabeled RNA | technical dates | refuse |
 | ReSisTrace, GSE223003 | linked pre/post lineage states | two deposited cultures | arm-level linkage only |
 | Arce T-cell Perturb-CITE-seq, GSE278572 | RNA and surface protein | held donor | refuse |
+| PoKI-seq, GSE143417 | RNA and chromatin accessibility | held donor | preflight refusal; not scored |
 
 The exact values, uncertainty intervals, controls, decisions, and provenance
 are in `results/final_public_benchmark_table.tsv`. The evidence boundary is in
 `docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md`.
 
-Two additional public-data confirmations are specified but unscored. Candidate A
-is the Lawlor HCA PBMC CITE-seq held-donor experiment bound in
-`LAWLOR_CANDIDATE_DESIGNATION.json`. Candidate B is the separate GSE143417
-PoKI-seq held-donor experiment, bound by its candidate designation and
-preanalysis lock exposed as `POKI_CANDIDATE_DESIGNATION.json` and
-`POKI_PREANALYSIS_LOCK.json`; the complete source chain is retained at the
-repository root. Neither is counted among the seven completed panels. Their
-exact analyses were first published with outcome access disabled in commit
-`2e5f47a8676000c743be0459b9d979262e7eb147`; commit
-`044478d35d46783eba9d91e2ab17925327af0f92` authorized acquisition without
-changing the analysis bytes.
+The fixed, scoreable confirmatory family contains exactly two unscored
+candidates. Candidate A is Lawlor HCA PBMC CITE-seq version 2, bound in
+`LAWLOR_CANDIDATE_DESIGNATION.json`. Candidate B is Hao GSE164378 version 1,
+bound in `HAO_CANDIDATE_DESIGNATION.json`. Both must be executed and reported;
+a pass cannot stop the family. The packaged files are frozen publicly, but both
+designations still state `OUTCOME_ACCESS_DISABLED`, false outcome-access
+authorization, and null public-freeze fields. No Lawlor or Hao outcome is
+included or claimed.
+
+PoKI-seq is outside this two-candidate scoreable family. Its earlier frozen run
+failed the state-occupancy support gate before prediction and scoring. The
+refusal, retained designation, lock, cache, runner, and protocol are packaged
+at `results/gse143417_pokiseq_preflight_refusal.json` and their corresponding
+source paths. The refusal has `outcome_scored: false` and is neither a
+confirmatory test nor evidence for or against model performance.
 
 ## Intended use
 
@@ -66,8 +72,9 @@ structured estimates, endpoint and cross-covariance baselines, destroyed-link
 controls, target-bootstrap intervals, support checks, and refusal decisions.
 
 Raw source matrices are not bundled. They remain at their upstream public
-repositories. Source manifests record accessions, URLs, sizes, and checksums;
-prepared state caches are omitted where redistribution terms are not explicit.
+repositories. Source manifests record accessions, URLs, sizes, and available
+checksums. The small checksum-bound PoKI preflight cache is retained solely to
+audit the recorded refusal; no Lawlor or Hao outcome cache is included.
 
 ## Evaluation contract
 
@@ -78,14 +85,15 @@ squared-error differences, and link-destruction contrasts. Ninety-five percent
 intervals use 2,000 deterministic target bootstrap draws for predictive panels.
 All declared panels remain in the table regardless of outcome.
 
-The second-confirmation protocol fixes eligibility, encoders, splits,
-comparators, endpoints, pass criteria, exclusions, link controls, and
-multiplicity before outcome access. Candidate A is `SEALED`: its source
-checksums, six-development/four-confirmation donor split, six biological
-contrasts, runner, reducer, and implementation hashes are fixed and linked to
-the public freeze. Candidate B is independently `SEALED` under its dated
-protocol and runner; it is not a replacement for Candidate A. No result
-produced from an unsealed candidate is confirmatory.
+The two candidate protocols fix eligibility, encoders, splits, comparators,
+endpoints, pass criteria, exclusions, link controls, and multiplicity before
+outcome access. Lawlor v2 fixes a six-development/four-held donor split and six
+biological contrasts. Hao v1 fixes four development donors, three held donors,
+and day-3/day-7 absolute tables. The family applies Bonferroni over these two
+fixed candidates. Neither designation is yet `SEALED`: independent fresh-clone
+verification of the immutable public candidate freeze and a later
+authorization commit are still required. No result produced from an unsealed
+candidate is confirmatory.
 
 ## Classical interaction baseline
 
@@ -105,8 +113,10 @@ independence-residual construction.
 
 `benchmark_manifest.json` records the packaged path, source path, SHA-256, byte
 count, and role of every artifact. `SHA256SUMS` binds the manifest, this data
-card, the candidate designation, the score-authorization template, and all
-packaged files. The source checkout rebuilds the package with:
+card, both candidate designations, both score-authorization templates, and all
+packaged files. The packager also verifies the internal hashes named by each
+designation and the no-score fields in the PoKI refusal. The source checkout
+rebuilds the package with:
 
 ```bash
 python3 scripts/package_public_coupling_benchmark.py
@@ -118,10 +128,12 @@ Validate the package with:
 python3 scripts/package_public_coupling_benchmark.py --check
 ```
 
-The public entry point `./reproduce.sh` checks every distributed hash,
-committed aggregate results, and focused implementation tests. Full
-public-data reruns require locally
-acquired checksum-matched source objects or prepared caches.
+The release-candidate entry point `./reproduce.sh` checks every distributed
+hash, committed aggregate result, and both candidate lock suites. In the
+disabled phase, sealed operations refuse before loading the omitted scGPT
+embedding. Authorized prediction and full public-data reruns require locally
+acquired checksum-matched source objects, the checksum-matched embedding, or
+prepared caches as specified by each command.
 
 Candidate A preflight is read-only:
 
@@ -129,15 +141,23 @@ Candidate A preflight is read-only:
 python3 -m experiments.confirm_lawlor_hca_pbmc preflight
 ```
 
-The `predict` command is authorized by the public candidate seal. The `score`
-command remains blocked by the additional public-prediction hash gate described
-below.
+Candidate B preflight is also read-only when run without `--require-sealed`:
 
-The packaged Candidate A runner exposes separate `predict` and `score`
-commands. Held stimulus RNA and ADT margins may be used to write every
-predicted table to one JSON file, but `score` refuses to form their cell pairing
-until the file's exact SHA-256 and byte count appear at an immutable public URL
-and commit in `LAWLOR_SCORE_AUTHORIZATION.json`.
+```bash
+python3 -m experiments.confirm_hao_gse164378 preflight
+```
+
+Neither candidate's `prepare` or `predict` command is authorized by this
+freeze. They require the later public candidate seal and explicit
+outcome-access authorization. Scoring additionally requires each exact public
+prediction and its authorization/release chain.
+
+The packaged runners expose separated prediction and scoring commands. They
+refuse to form held joint pairings until the exact prediction SHA-256 and byte
+count are bound at an immutable public URL and commit through the candidate's
+authorization and release files. This package contains only the templates
+`LAWLOR_SCORE_AUTHORIZATION_TEMPLATE.json` and
+`HAO_SCORE_AUTHORIZATION_TEMPLATE.json`, not completed authorizations.
 
 ## Known limits
 
@@ -147,8 +167,9 @@ arm-level linkage evidence but not a replicated treatment contrast. The only
 completed held-donor panel, Arce, fails the full gate. Target-bootstrap
 intervals condition on the deposited biological units. State definitions and
 finite-sample association estimates remain representation-dependent.
-The Lawlor PBMC and PoKI-seq candidates have no outcomes in this snapshot and
-therefore add no positive evidence yet.
+The Lawlor PBMC and Hao candidates have no outcomes in this snapshot and add no
+positive or negative evidence. PoKI-seq has a preflight refusal but no score,
+so it likewise adds no evidence about predictive performance.
 
 The completed three-panel atlas was rerun with the current full-matrix
 classical residual implementation, SHA-256 `35516883a567...`. Coupling fields
@@ -162,14 +183,14 @@ The following fields state the distribution boundary of this snapshot:
 | Field | Status |
 |---|---|
 | Public repository URL | `https://github.com/sushaan-k/coupling-fields-benchmark` |
-| Immutable protocol release tag | `protocol-v1.0.1` (metadata correction; `protocol-v1` preserves the same frozen analysis bytes) |
+| Immutable candidate-freeze tag | `confirmatory-family-v2` |
 | Archive DOI | not assigned |
 | Repository code license | none granted |
 | scGPT-derived embedding | omitted; checksum and derivation manifest supplied |
 | Raw public matrices | omitted; upstream URLs and checksums supplied |
 | Completed-result implementation provenance | current and checksum-bound |
 
-A public commit-addressed benchmark does not require an archive DOI or an
-inferred license. It must not be described as open source or DOI-archived. The
-analysis is a prospective public protocol, not a registry-hosted
-preregistration.
+This package is public and source-visible. It must not be described as open
+source, DOI-archived, or registry-hosted preregistration. A public
+commit-addressed release does not imply an archive DOI, an open-source license,
+or registry status.

@@ -44,6 +44,9 @@ FROZEN_JSON_SHA256 = {
     "results/development/factorial_coupling_bootstrap_calibration_v1.json": (
         "744d79c3bc03321f15352d1aedda2b2308056106aa85cb841d0463396c89af62"
     ),
+    "results/gse143417_pokiseq_preflight_refusal.json": (
+        "24f7ad70fbbfd4e7482809db58bd94d1156c1e22c2dd94fa77d66b1d6acdcf24"
+    ),
 }
 
 
@@ -119,9 +122,9 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
         rows = list(reader)
 
     assert len(reader.fieldnames or []) == 29
-    assert len(rows) == 7
+    assert len(rows) == 8
     by_panel = {row["panel"]: row for row in rows}
-    assert len(by_panel) == 7
+    assert len(by_panel) == 8
     assert all(None not in row for row in rows)
 
     estimator = ROOT / "mapreg/coupling_fields.py"
@@ -136,6 +139,9 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
         "ReSisTrace": "experiments/validate_resistrace_conditional_fields.py",
         "Arce T-cell RNA-protein confirmation": (
             "experiments/confirm_arce_gse278572_conditional_fields.py"
+        ),
+        "PoKI-seq held-donor confirmation": (
+            "experiments/confirm_poki_gse143417_conditional_fields.py"
         ),
     }
     for panel, row in by_panel.items():
@@ -217,6 +223,58 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
     _metric_row_matches(arce_row, arce["methods"][arce_row["primary_method"]])
     assert not arce["confirmation_gate"]["passed"]
 
+    poki = _load("results/gse143417_pokiseq_preflight_refusal.json")
+    poki_row = by_panel["PoKI-seq held-donor confirmation"]
+    assert poki["status"] == "REFUSE_PREFLIGHT_STATE_OCCUPANCY"
+    assert poki["stage_reached"] == "PREDICT_STATE_OCCUPANCY_PREFLIGHT"
+    assert not poki["prediction_written"]
+    assert not poki["result_written"]
+    assert not poki["outcome_scored"]
+    assert poki["failure"]["exception_message"] == (
+        "state-occupancy preflight failed for Donor1:Stim:41BB"
+    )
+    assert poki["failure"]["failing_arm"] == {
+        "donor": "Donor1",
+        "context": "Stim",
+        "construct": "41BB",
+    }
+    lock = _load(poki["provenance"]["preanalysis_lock"]["path"])
+    assert poki["provenance"]["raw_archive"]["sha256"] == lock["source"]["sha256"]
+    assert poki["provenance"]["raw_archive"]["bytes"] == lock["source"]["bytes"]
+    for key in ("prepared_cache", "preanalysis_lock", "runner"):
+        record = poki["provenance"][key]
+        path = ROOT / record["path"]
+        assert path.stat().st_size == record["bytes"]
+        assert _sha256(path) == record["sha256"]
+    raw_record = poki["provenance"]["raw_archive"]
+    raw_path = ROOT / raw_record["path"]
+    if raw_path.is_file():
+        assert raw_path.stat().st_size == raw_record["bytes"]
+        assert _sha256(raw_path) == raw_record["sha256"]
+    for expected_output in poki["expected_outputs"].values():
+        assert not expected_output["exists_after_failure"]
+        assert expected_output["sha256"] is None
+        assert not (ROOT / expected_output["path"]).exists()
+    assert poki["public_protocol_history"] == {
+        "disabled_outcome_freeze": {
+            "commit": "2e5f47a8676000c743be0459b9d979262e7eb147",
+            "url": "https://github.com/sushaan-k/coupling-fields-benchmark/commit/2e5f47a8676000c743be0459b9d979262e7eb147",
+        },
+        "outcome_access_authorization": {
+            "commit": "044478d35d46783eba9d91e2ab17925327af0f92",
+            "url": "https://github.com/sushaan-k/coupling-fields-benchmark/commit/044478d35d46783eba9d91e2ab17925327af0f92",
+        },
+        "protocol_metadata_correction": {
+            "commit": "580932ed9a429e38f1de43d340c224db31c1cf9b",
+            "tag": "protocol-v1.0.1",
+            "url": "https://github.com/sushaan-k/coupling-fields-benchmark/commit/580932ed9a429e38f1de43d340c224db31c1cf9b",
+        },
+    }
+    assert poki_row["primary_metric"] == "not scored"
+    assert poki_row["result_artifact"] == (
+        "results/gse143417_pokiseq_preflight_refusal.json"
+    )
+
     expected_decisions = {
         "PerturbSci-Kinetics": ("PROMOTE", "REFUSE", "PROMOTE"),
         "Frangieh Perturb-CITE-seq": ("REFUSE", "REFUSE", "REFUSE"),
@@ -225,6 +283,11 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
         "PerturbFate": ("REFUSE", "REFUSE", "REFUSE"),
         "ReSisTrace": ("PROMOTE", "NA", "REFUSE"),
         "Arce T-cell RNA-protein confirmation": ("REFUSE", "REFUSE", "REFUSE"),
+        "PoKI-seq held-donor confirmation": (
+            "NOT_EVALUATED",
+            "NOT_EVALUATED",
+            "REFUSE_PREFLIGHT",
+        ),
     }
     for panel, expected in expected_decisions.items():
         row = by_panel[panel]

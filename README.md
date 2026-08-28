@@ -1,11 +1,11 @@
 # Coupling-fields benchmark
 
-This repository is a source-visible benchmark for perturbation-specific
-dependence in linked single-cell assays. It preserves positive, negative, and
-refused panels under one fixed evaluation contract. The current protocol
-freeze contains seven completed public panels and two untouched held-unit
-confirmations: PoKI-seq GSE143417 and the Lawlor Human Cell Atlas PBMC CITE-seq
-study.
+This repository is a public, source-visible benchmark for
+perturbation-specific dependence in linked single-cell assays. It preserves
+positive, negative, and refused panels under one fixed evaluation contract.
+It contains seven scored public-data panels, the unscored PoKI-seq GSE143417
+preflight refusal, and a frozen two-candidate confirmatory family: Lawlor HCA
+PBMC CITE-seq version 2 and Hao GSE164378 version 1.
 
 The method represents each finite joint table by its double-centered
 log-linear interaction, centers finite-sample estimates with fixed-margin
@@ -25,28 +25,44 @@ python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install -r requirements.txt
 python -m pip install -e . --no-deps
-./reproduce.sh
+shasum -a 256 -c SHA256SUMS
 ```
 
-The entry point verifies every distributed byte against `SHA256SUMS`, then
-runs the public API, estimator, classical-comparator, prospective-seal, and
-artifact-consistency tests. Raw public matrices are not redistributed.
+This verifies every distributed byte without acquiring candidate outcomes.
+The full `./reproduce.sh` entry point also runs both candidate lock suites. In
+the disabled phase, sealed operations refuse before loading the omitted scGPT
+embedding. Its expected hash and derivation inputs are recorded in
+`data/scgpt_gene_embeddings_manifest.json`; authorized prediction still
+requires that checksum-matched local artifact. Raw public matrices are not
+redistributed.
 
 ## Evidence contract
 
 `results/final_public_benchmark_table.tsv` is the completed-panel ledger.
 `docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md` states the corresponding claim boundary.
-The two prospective protocols, candidate designations, source manifests,
-runners, and disabled locks were committed before expression outcomes were
-opened. Commit `044478d35d46783eba9d91e2ab17925327af0f92` then authorized
-outcome acquisition without changing the frozen analyses.
+The two scoreable candidates are bound in
+`LAWLOR_CANDIDATE_DESIGNATION.json` and
+`HAO_CANDIDATE_DESIGNATION.json`. Both have status
+`OUTCOME_ACCESS_DISABLED`, `outcome_access_authorized: false`, and null public
+freeze fields. Their protocols, source manifests, metadata audits, aliases,
+runners, reducers, authorization templates, and tests are checksum-bound in
+this freeze. Tag `confirmatory-family-v2` preserves the disabled-outcome
+candidate bytes. It does not authorize acquisition of either candidate's RNA
+or ADT outcome matrix.
 
-Production scoring uses two public freezes. First, protocol and implementation
-bytes are committed before outcome acquisition. Second, every held-table
-prediction is committed by exact SHA-256 before the runner constructs the held
-joint table. This is a public, code-path prospective seal, not a blinded data
-enclave: the public source files remain accessible to anyone outside the
-declared runner.
+PoKI-seq is not a third scoreable candidate. Its frozen execution stopped at
+the state-occupancy support gate before a prediction or score was written.
+`results/gse143417_pokiseq_preflight_refusal.json` records the exact failing
+arm, input hashes, and `outcome_scored: false`; it supplies no evidence for or
+against predictive performance.
+
+The declared production workflow requires two further bindings. First, the
+tagged candidate bytes must be independently verified from a fresh clone
+before outcome access is authorized in a later commit. Second, each candidate's
+prediction must be published and bound by exact
+SHA-256 and byte count before the runner can construct a held joint table.
+This is a public code-path seal, not a blinded data enclave or a
+registry-hosted preregistration.
 
 The derived scGPT gene embedding used by the Lawlor graph prior is not bundled
 pending upstream model-weight redistribution review. Its expected output and
@@ -64,5 +80,9 @@ input hashes, official source URLs, and derivation script are supplied in
 - `data/`: source manifests and metadata-only eligibility records.
 - `tests/`: integrity, estimator, comparator, and pairing-seal tests.
 
-No code license is granted in this snapshot. Upstream datasets and model
-weights remain governed by their own terms.
+The disabled-outcome freeze is published at
+`https://github.com/sushaan-k/coupling-fields-benchmark` under tag
+`confirmatory-family-v2`. It has no archive DOI and grants no code license. It
+must not be called open source, DOI-archived, or registry-hosted
+preregistration. Upstream datasets and model weights remain governed by their
+own terms.

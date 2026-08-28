@@ -1,0 +1,77 @@
+{
+  "schema": "v2p2r.confirmation_preflight_refusal/1",
+  "accession": "GSE143417",
+  "candidate": "PoKI-seq Donor1 development to held Donor2 confirmation",
+  "protocol": "gse143417-pokiseq-held-donor/1.0",
+  "recorded_utc": "2026-08-28T01:37:21Z",
+  "status": "REFUSE_PREFLIGHT_STATE_OCCUPANCY",
+  "stage_reached": "PREDICT_STATE_OCCUPANCY_PREFLIGHT",
+  "outcome_scored": false,
+  "prediction_written": false,
+  "result_written": false,
+  "failure": {
+    "check": "minimum state fraction in every eligible donor-context-construct arm",
+    "exception_type": "ValueError",
+    "exception_message": "state-occupancy preflight failed for Donor1:Stim:41BB",
+    "failing_arm": {
+      "donor": "Donor1",
+      "context": "Stim",
+      "construct": "41BB"
+    },
+    "threshold": {
+      "minimum_state_fraction": 0.05,
+      "minimum_arm_cells": 30,
+      "state_count": 3
+    }
+  },
+  "expected_outputs": {
+    "prediction": {
+      "path": "results/gse143417_pokiseq_pretruth_predictions.json",
+      "exists_after_failure": false,
+      "sha256": null
+    },
+    "scored_result": {
+      "path": "results/gse143417_pokiseq_held_donor_confirmation.json",
+      "exists_after_failure": false,
+      "sha256": null
+    }
+  },
+  "provenance": {
+    "raw_archive": {
+      "path": "data/confirmation/gse143417_pokiseq/GSE143417_RAW.tar",
+      "bytes": 492216320,
+      "sha256": "6bc8bf810fbca8f0585c337ed143d39d8bfbc3f85d623894ebadf4c6f357b632"
+    },
+    "prepared_cache": {
+      "path": "data/confirmation/gse143417_pokiseq/poki_marker_cells_v1.npz",
+      "bytes": 293205,
+      "sha256": "2808318e2847f6f1f12c5a9537fea8dddf543cd7ede30f2b47cc5e247862ea1f"
+    },
+    "preanalysis_lock": {
+      "path": "data/confirmation/gse143417_pokiseq/preanalysis_lock_v1.json",
+      "bytes": 2442,
+      "sha256": "e62106b4087c323b243bf9142a4d1a99f952cd74fc8ebde43ff6519fec65726e"
+    },
+    "runner": {
+      "path": "experiments/confirm_poki_gse143417_conditional_fields.py",
+      "bytes": 56611,
+      "sha256": "0f3f36e27bc7a0f53113d7e7456b10bf4f62070718a3b8e7b0aa99b44561c8ef"
+    }
+  },
+  "public_protocol_history": {
+    "disabled_outcome_freeze": {
+      "commit": "2e5f47a8676000c743be0459b9d979262e7eb147",
+      "url": "https://github.com/sushaan-k/coupling-fields-benchmark/commit/2e5f47a8676000c743be0459b9d979262e7eb147"
+    },
+    "outcome_access_authorization": {
+      "commit": "044478d35d46783eba9d91e2ab17925327af0f92",
+      "url": "https://github.com/sushaan-k/coupling-fields-benchmark/commit/044478d35d46783eba9d91e2ab17925327af0f92"
+    },
+    "protocol_metadata_correction": {
+      "commit": "580932ed9a429e38f1de43d340c224db31c1cf9b",
+      "tag": "protocol-v1.0.1",
+      "url": "https://github.com/sushaan-k/coupling-fields-benchmark/commit/580932ed9a429e38f1de43d340c224db31c1cf9b"
+    }
+  },
+  "interpretation": "The frozen input-support gate refused the candidate before prediction. This artifact contains no held-donor score and supplies no evidence for or against predictive performance."
+}

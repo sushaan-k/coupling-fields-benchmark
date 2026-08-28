@@ -1,0 +1,18 @@
+{
+  "schema": "hao-gse164378-score-authorization-template/1.0",
+  "status": "AWAITING_PUBLIC_PREDICTION",
+  "outcome_access_authorized": false,
+  "candidate": "GSE164378",
+  "prediction_path": "results/hao_gse164378_predictions.json",
+  "score_authorization_path": "data/confirmation/hao_gse164378/score_authorization_v1.json",
+  "score_release_path": "data/confirmation/hao_gse164378/score_release_v1.json",
+  "prediction_sha256": null,
+  "prediction_bytes": null,
+  "prediction_public_url": null,
+  "prediction_public_commit": null,
+  "runner": "experiments/confirm_hao_gse164378.py",
+  "runner_sha256": "db3d42504acc4575e27ca844f5e48eab46442ea5a5d969a235ee11b84ca74b96",
+  "protocol": "docs/GSE164378_HAO_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
+  "protocol_sha256": "acb47fb17bdca84a9dc99c4ec9628ef7d8b3292a78c670e52004773bac6912fc",
+  "blocker": "After a public candidate freeze authorizes prepare, publish the exact prediction JSON at a GitHub blob URL with a 40-character lowercase commit and exact path. Independently fresh-clone and verify its path, bytes, and SHA-256 before public-bind. Publish score_authorization_v1.json in a later descendant commit, fresh-clone and verify its exact bytes and ancestry, then run authorize-score with its exact blob URL. Release the verification record. Score refuses without the release."
+}
