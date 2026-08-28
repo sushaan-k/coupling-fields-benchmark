@@ -2,20 +2,20 @@
   "schema": "coupling-fields-public-benchmark/1.0",
   "release_name": "coupling-fields-v1",
   "assembled_at_utc": "2026-08-28T03:24:13Z",
-  "status": "PUBLIC_CANDIDATE_FREEZE_OUTCOME_ACCESS_DISABLED",
+  "status": "PUBLIC_CONFIRMATORY_FAMILY_OUTCOME_ACCESS_AUTHORIZED",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
-  "public_freeze_commit": null,
+  "public_freeze_commit": "51752b40610579375624115ed189e3789d8e8916",
   "immutable_release_tag": "confirmatory-family-v2",
   "archive_doi": null,
   "code_license": null,
-  "candidate_designation_status": "OUTCOME_ACCESS_DISABLED",
+  "candidate_designation_status": "SEALED",
   "prospective_candidate_count": 2,
   "prospective_candidate_artifacts": [
     {
       "name": "LAWLOR_CANDIDATE_DESIGNATION.json",
       "source_path": "data/confirmation/pbmc_citeseq_hca/candidate_designation_v2.json",
-      "sha256": "1788474df6858fd5f0bdcda41dddabdc39e641def8a5eec823395a6f67d93b13",
-      "bytes": 9691
+      "sha256": "c80954d3cf1d4709931046ab6f79cb351d6fa2983ad8e0102b3c4897b7454304",
+      "bytes": 9608
     },
     {
       "name": "LAWLOR_SCORE_AUTHORIZATION_TEMPLATE.json",
@@ -26,8 +26,8 @@
     {
       "name": "HAO_CANDIDATE_DESIGNATION.json",
       "source_path": "data/confirmation/hao_gse164378/candidate_designation_v1.json",
-      "sha256": "e76fbc3a6ae7a666a3873baf60045ac0c7955ea42d021a4825b79df4c8b94550",
-      "bytes": 11155
+      "sha256": "76d89a7dafa44a2184ce6ad2306a96258d80b4690bb53ad0a8221ced78eff66e",
+      "bytes": 10957
     },
     {
       "name": "HAO_SCORE_AUTHORIZATION_TEMPLATE.json",
@@ -87,6 +87,13 @@
       "sha256": "beea87995fa97afa8df564f00a7d09e51b3daf533df4aef59a2b05f348c10b61",
       "bytes": 4098,
       "role": "classical-estimator boundary and interpretation"
+    },
+    {
+      "path": "docs/CONFIRMATORY_FAMILY_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+      "source_path": "docs/CONFIRMATORY_FAMILY_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+      "sha256": "d147414bd2f0e10a732a6838208f84b751f712edc23b2a5dae454f9bc6101959",
+      "bytes": 7445,
+      "role": "independent fresh-clone verification of the disabled-outcome freeze"
     },
     {
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
@@ -252,8 +259,8 @@
     {
       "path": "data/confirmation/pbmc_citeseq_hca/candidate_designation_v2.json",
       "source_path": "data/confirmation/pbmc_citeseq_hca/candidate_designation_v2.json",
-      "sha256": "1788474df6858fd5f0bdcda41dddabdc39e641def8a5eec823395a6f67d93b13",
-      "bytes": 9691,
+      "sha256": "c80954d3cf1d4709931046ab6f79cb351d6fa2983ad8e0102b3c4897b7454304",
+      "bytes": 9608,
       "role": "Lawlor PBMC version-2 disabled-outcome designation"
     },
     {
@@ -266,8 +273,8 @@
     {
       "path": "data/confirmation/hao_gse164378/candidate_designation_v1.json",
       "source_path": "data/confirmation/hao_gse164378/candidate_designation_v1.json",
-      "sha256": "e76fbc3a6ae7a666a3873baf60045ac0c7955ea42d021a4825b79df4c8b94550",
-      "bytes": 11155,
+      "sha256": "76d89a7dafa44a2184ce6ad2306a96258d80b4690bb53ad0a8221ced78eff66e",
+      "bytes": 10957,
       "role": "Hao GSE164378 version-1 disabled-outcome designation"
     },
     {
@@ -559,8 +566,6 @@
     }
   ],
   "release_blockers": [
-    "independent fresh-clone verification of the immutable public candidate freeze",
-    "explicit outcome-access authorization after that verified freeze",
     "prediction publication, hash authorization, scoring, and append-only result release for both scoreable candidates",
     "immutable final result release tag or equivalent commit-addressed release",
     "author-approved code license",

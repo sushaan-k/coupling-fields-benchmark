@@ -29,9 +29,11 @@ shasum -a 256 -c SHA256SUMS
 ```
 
 This verifies every distributed byte without acquiring candidate outcomes.
-The full `./reproduce.sh` entry point also runs both candidate lock suites. In
-the disabled phase, sealed operations refuse before loading the omitted scGPT
-embedding. Its expected hash and derivation inputs are recorded in
+The full `./reproduce.sh` entry point runs the estimator tests and both
+candidate suites, except for two preserved assertions that certify the earlier
+disabled phase. Those exact test bytes remain checksum-bound and passed in the
+fresh-clone verification record. The scGPT embedding's expected hash and
+derivation inputs are recorded in
 `data/scgpt_gene_embeddings_manifest.json`; authorized prediction still
 requires that checksum-matched local artifact. Raw public matrices are not
 redistributed.
@@ -42,13 +44,14 @@ redistributed.
 `docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md` states the corresponding claim boundary.
 The two scoreable candidates are bound in
 `LAWLOR_CANDIDATE_DESIGNATION.json` and
-`HAO_CANDIDATE_DESIGNATION.json`. Both have status
-`OUTCOME_ACCESS_DISABLED`, `outcome_access_authorized: false`, and null public
-freeze fields. Their protocols, source manifests, metadata audits, aliases,
+`HAO_CANDIDATE_DESIGNATION.json`. Both now have status `SEALED`, explicit
+outcome-access authorization, and public-freeze commit
+`51752b40610579375624115ed189e3789d8e8916`. Their protocols, source manifests, metadata audits, aliases,
 runners, reducers, authorization templates, and tests are checksum-bound in
-this freeze. Tag `confirmatory-family-v2` preserves the disabled-outcome
-candidate bytes. It does not authorize acquisition of either candidate's RNA
-or ADT outcome matrix.
+this release. Tag `confirmatory-family-v2` preserves the disabled-outcome
+candidate bytes. A fresh-clone verification of that tag passed before a later
+commit authorized acquisition of both candidates' RNA and ADT outcome
+matrices.
 
 PoKI-seq is not a third scoreable candidate. Its frozen execution stopped at
 the state-occupancy support gate before a prediction or score was written.
@@ -56,10 +59,10 @@ the state-occupancy support gate before a prediction or score was written.
 arm, input hashes, and `outcome_scored: false`; it supplies no evidence for or
 against predictive performance.
 
-The declared production workflow requires two further bindings. First, the
-tagged candidate bytes must be independently verified from a fresh clone
-before outcome access is authorized in a later commit. Second, each candidate's
-prediction must be published and bound by exact
+The independent verification is recorded in
+`docs/CONFIRMATORY_FAMILY_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json`.
+The remaining binding is candidate-specific: each prediction must be published
+and bound by exact
 SHA-256 and byte count before the runner can construct a held joint table.
 This is a public code-path seal, not a blinded data enclave or a
 registry-hosted preregistration.

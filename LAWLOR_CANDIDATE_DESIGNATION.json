@@ -2,7 +2,7 @@
   "schema": "lawlor-pbmc-coupling-candidate-designation/2.0",
   "protocol": "docs/SECOND_HELD_UNIT_CONFIRMATION_PROTOCOL_2026-08-27.md",
   "protocol_sha256": "5326f8b88ea79dbb7f146fcbf0e350ac99dcfcc00bdb6e1a885374912da10df9",
-  "status": "OUTCOME_ACCESS_DISABLED",
+  "status": "SEALED",
   "designated_at_utc": "2026-08-28T02:03:30Z",
   "supersedes": {
     "schema": "lawlor-pbmc-coupling-candidate-designation/1.0",
@@ -138,9 +138,9 @@
   },
   "test": "tests/test_lawlor_hca_pbmc_confirmation.py",
   "test_sha256": "c666459ff900e2199162e863aafbf9c4c7bb7775bfc2627ca136a1d73951ed6f",
-  "public_freeze_commit": null,
-  "public_freeze_url": null,
-  "sealed_at_utc": null,
-  "outcome_access_authorized": false,
-  "seal_blocker": "Publish the unchanged version-2 protocol, runner, reducer, designation, and score-authorization template at a new immutable commit; then update only the public freeze fields and rebind the designation before outcome access."
+  "public_freeze_commit": "51752b40610579375624115ed189e3789d8e8916",
+  "public_freeze_url": "https://github.com/sushaan-k/coupling-fields-benchmark/commit/51752b40610579375624115ed189e3789d8e8916",
+  "sealed_at_utc": "2026-08-28T03:33:17Z",
+  "outcome_access_authorized": true,
+  "seal_blocker": null
 }

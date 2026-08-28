@@ -2,8 +2,8 @@
 
 **Release candidate:** `coupling-fields-v1`
 **Snapshot date:** 28 August 2026
-**Distribution status:** public, tag-addressed candidate freeze; Lawlor v2 and
-Hao v1 remain frozen with outcome access disabled
+**Distribution status:** public, tag-addressed candidate freeze with
+fresh-clone verification complete and outcome access authorized
 
 ## Scope
 
@@ -36,9 +36,9 @@ candidates. Candidate A is Lawlor HCA PBMC CITE-seq version 2, bound in
 `LAWLOR_CANDIDATE_DESIGNATION.json`. Candidate B is Hao GSE164378 version 1,
 bound in `HAO_CANDIDATE_DESIGNATION.json`. Both must be executed and reported;
 a pass cannot stop the family. The packaged files are frozen publicly, but both
-designations still state `OUTCOME_ACCESS_DISABLED`, false outcome-access
-authorization, and null public-freeze fields. No Lawlor or Hao outcome is
-included or claimed.
+designations now state `SEALED`, authorize outcome access, and bind public
+freeze commit `51752b40610579375624115ed189e3789d8e8916`. No Lawlor or Hao
+outcome is included or claimed in this authorization snapshot.
 
 PoKI-seq is outside this two-candidate scoreable family. Its earlier frozen run
 failed the state-occupancy support gate before prediction and scoring. The
@@ -90,10 +90,9 @@ endpoints, pass criteria, exclusions, link controls, and multiplicity before
 outcome access. Lawlor v2 fixes a six-development/four-held donor split and six
 biological contrasts. Hao v1 fixes four development donors, three held donors,
 and day-3/day-7 absolute tables. The family applies Bonferroni over these two
-fixed candidates. Neither designation is yet `SEALED`: independent fresh-clone
-verification of the immutable public candidate freeze and a later
-authorization commit are still required. No result produced from an unsealed
-candidate is confirmatory.
+fixed candidates. Both designations are `SEALED` after independent fresh-clone
+verification of the immutable public candidate freeze. Prediction publication
+and its separate scoring authorization remain mandatory for each candidate.
 
 ## Classical interaction baseline
 
@@ -128,12 +127,13 @@ Validate the package with:
 python3 scripts/package_public_coupling_benchmark.py --check
 ```
 
-The release-candidate entry point `./reproduce.sh` checks every distributed
-hash, committed aggregate result, and both candidate lock suites. In the
-disabled phase, sealed operations refuse before loading the omitted scGPT
-embedding. Authorized prediction and full public-data reruns require locally
-acquired checksum-matched source objects, the checksum-matched embedding, or
-prepared caches as specified by each command.
+The release entry point `./reproduce.sh` checks every distributed hash,
+committed aggregate result, and both candidate suites. It deselects two exact
+assertions that certify the earlier disabled phase; their preserved bytes and
+successful execution are recorded in the public-freeze verification record.
+Authorized prediction and full public-data reruns require locally acquired
+checksum-matched source objects, the checksum-matched embedding, or prepared
+caches as specified by each command.
 
 Candidate A preflight is read-only:
 
@@ -147,10 +147,9 @@ Candidate B preflight is also read-only when run without `--require-sealed`:
 python3 -m experiments.confirm_hao_gse164378 preflight
 ```
 
-Neither candidate's `prepare` or `predict` command is authorized by this
-freeze. They require the later public candidate seal and explicit
-outcome-access authorization. Scoring additionally requires each exact public
-prediction and its authorization/release chain.
+Both candidates' acquisition and prediction commands are now authorized by the
+verified public seal. Scoring still requires each exact public prediction and
+its authorization/release chain.
 
 The packaged runners expose separated prediction and scoring commands. They
 refuse to form held joint pairings until the exact prediction SHA-256 and byte

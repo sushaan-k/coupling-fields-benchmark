@@ -3,7 +3,7 @@
   "designation": "data/confirmation/hao_gse164378/candidate_designation_v1.json",
   "protocol": "docs/GSE164378_HAO_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
   "protocol_sha256": "acb47fb17bdca84a9dc99c4ec9628ef7d8b3292a78c670e52004773bac6912fc",
-  "status": "OUTCOME_ACCESS_DISABLED",
+  "status": "SEALED",
   "designated_at_utc": "2026-08-28T02:05:00Z",
   "accession": "GSE164378",
   "study_doi": "10.1016/j.cell.2021.04.048",
@@ -175,10 +175,10 @@
   },
   "test": "tests/test_hao_gse164378_confirmation.py",
   "test_sha256": "9b023689042a387b568c4b8c8c41806192a451498a0c63c9dfd558ed511143a9",
-  "public_freeze_commit": null,
-  "public_freeze_url": null,
-  "sealed_at_utc": null,
-  "outcome_access_authorized": false,
+  "public_freeze_commit": "51752b40610579375624115ed189e3789d8e8916",
+  "public_freeze_url": "https://github.com/sushaan-k/coupling-fields-benchmark/commit/51752b40610579375624115ed189e3789d8e8916",
+  "sealed_at_utc": "2026-08-28T03:33:17Z",
+  "outcome_access_authorized": true,
   "public_verification_requirement": "Before access, independently fresh-clone the candidate-freeze commit and verify the exact disabled designation and every bound artifact byte-for-byte. Before scoring, fresh-clone and verify the prediction and authorization artifacts and confirm that the authorization commit descends from the prediction commit. Release the verification record.",
-  "seal_blocker": "Publish this unchanged protocol, source and metadata manifests, exact aliases, runner, reducer, authorization template, and disabled designation at an immutable public commit. Independently verify all bound bytes from a fresh clone, release that record, then update only the public freeze fields and rebind the designation before prepare."
+  "seal_blocker": null
 }
