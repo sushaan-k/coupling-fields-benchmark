@@ -180,7 +180,10 @@ input hashes, official source URLs, and derivation script are supplied in
 
 The active GSE299043 plan is published at
 `https://github.com/sushaan-k/coupling-fields-benchmark` under tag
-`gse299043-mln-v1-protocol`. The terminal GSE279451 plan remains under tag
+`gse299043-mln-v1-protocol`. The immutable release and a fresh clone both
+verified at commit `87c15787f734b20d06c7b8cb0c66680b2fe5c1b0`; the record is
+`docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json`. The terminal
+GSE279451 plan remains under tag
 `gse279451-sepsis-v1-protocol`; its verification record is
 `docs/GSE279451_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json`, and the later
 terminal development refusal is retained under `results/development/`. The prior Kotliarov

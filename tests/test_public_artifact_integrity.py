@@ -338,11 +338,12 @@ def test_benchmark_manifest_binds_active_gse299043_release():
     assert protocol["held_inference_status"].startswith("confirmatory")
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 153
+    assert len(artifacts) == 154
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 153
+    assert len(by_path) == 154
     for relative in (
         "docs/GSE299043_MLN_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
+        "docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
         "data/confirmation/gse299043_mln/candidate_designation_v1.json",
         "data/confirmation/gse299043_mln/source_manifest_template_v1.json",
         "data/confirmation/gse299043_mln/score_authorization_template_v1.json",

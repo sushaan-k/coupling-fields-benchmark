@@ -1,10 +1,10 @@
 {
   "schema": "coupling-fields-public-benchmark/1.0",
   "release_name": "coupling-fields-v1",
-  "assembled_at_utc": "2026-08-28T15:29:56Z",
+  "assembled_at_utc": "2026-08-28T15:35:42Z",
   "status": "PUBLIC_GSE299043_MLN_OUTCOME_ACCESS_DISABLED",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
-  "public_freeze_commit": null,
+  "public_freeze_commit": "87c15787f734b20d06c7b8cb0c66680b2fe5c1b0",
   "immutable_release_tag": "gse299043-mln-v1-protocol",
   "archive_doi": null,
   "code_license": null,
@@ -647,8 +647,8 @@
     {
       "path": "tests/test_public_artifact_integrity.py",
       "source_path": "tests/test_public_artifact_integrity.py",
-      "sha256": "2e0b8d82feeb460ed36a86211128c8465053cd4190eea6f594ca72acca0727eb",
-      "bytes": 33482,
+      "sha256": "4553256dc11175b5a059060da271e78cf8090c33dc55ffa4072cc2959dac411c",
+      "bytes": 33551,
       "role": "artifact integrity tests"
     },
     {
@@ -1133,6 +1133,13 @@
       "sha256": "19c829e5bf546aa2ba3a6e25c2657e119100a4048c80da7dc50e5d32eedac811",
       "bytes": 36293,
       "role": "GSE299043 held confirmation and authorization tests"
+    },
+    {
+      "path": "docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+      "source_path": "docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+      "sha256": "26bf151214312ebcc0cd83220e41cb252d592e1c574c32b509860064455f84cc",
+      "bytes": 1221,
+      "role": "fresh-clone verification of the outcome-disabled GSE299043 freeze"
     }
   ],
   "release_blockers": [
@@ -1141,5 +1148,11 @@
   ],
   "bmmc_outcome_status": "TERMINAL_NUMERICAL_DEVELOPMENT_REFUSAL",
   "gse279451_outcome_status": "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
-  "gse299043_outcome_status": "OUTCOME_ACCESS_DISABLED"
+  "gse299043_outcome_status": "OUTCOME_ACCESS_DISABLED",
+  "public_freeze_verification": {
+    "path": "docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+    "sha256": "26bf151214312ebcc0cd83220e41cb252d592e1c574c32b509860064455f84cc",
+    "status": "PASS",
+    "release_immutable": true
+  }
 }

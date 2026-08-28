@@ -243,6 +243,8 @@ The following fields state the distribution boundary of this snapshot:
 | Prior immutable candidate-freeze tag | `confirmatory-family-v3` |
 | GSE279451 candidate-freeze tag | `gse279451-sepsis-v1-protocol` |
 | GSE299043 candidate-freeze tag | `gse299043-mln-v1-protocol` |
+| GSE299043 frozen commit | `87c15787f734b20d06c7b8cb0c66680b2fe5c1b0` |
+| GSE299043 release verification | immutable release and fresh-clone checks passed |
 | Archive DOI | not assigned |
 | Repository code license | none granted |
 | scGPT-derived embedding | omitted; checksum and derivation manifest supplied |
