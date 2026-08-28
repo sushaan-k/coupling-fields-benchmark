@@ -1,0 +1,45 @@
+{
+  "accession": "GSE314416",
+  "baseline_assay": {
+    "antibody_panel": "one dataset-wide TotalSeq-C feature reference",
+    "chemistry": "10X 5-prime Next GEM v1.1",
+    "pools": [
+      "XHLT2-POOL-DB1",
+      "XHLT2-POOL-DB2",
+      "XHLT2-POOL-DB3",
+      "XHLT2-POOL-DB4",
+      "XHLT2-POOL-DB5",
+      "XHLT2-POOL-DB6",
+      "XHLT2-POOL-DB7"
+    ],
+    "reported_antibodies": 140,
+    "reported_population": "healthy participants"
+  },
+  "files": {
+    "baseline_metadata": {
+      "bytes": 4379944,
+      "path": "data/confirmation/gse314416_immunomicrobiome/GSE314416_cell_metadata_baseline.rds",
+      "sha256": "b3bcc09be7ad3b96c52fec54133fd39e00482da66efc9e51da60bca9d666036c",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE314nnn/GSE314416/suppl/GSE314416_cell_metadata_baseline.rds"
+    },
+    "feature_reference": {
+      "bytes": 3681,
+      "path": "data/confirmation/gse314416_immunomicrobiome/GSE314416_TotalSeqC_feature_ref.csv.gz",
+      "sha256": "f19dff57a5cf3ce0a25e0082318e0f0bdb3425a7e984c1bf37c08df5034ee020",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE314nnn/GSE314416/suppl/GSE314416_TotalSeqC_feature_ref.csv.gz"
+    },
+    "file_list": {
+      "bytes": 8108,
+      "path": "data/confirmation/gse314416_immunomicrobiome/GSE314416_filelist.txt",
+      "sha256": "d599554157d172dfd8b37a0f675c210099e681b5e3637536f7666d940b9e0a36",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE314nnn/GSE314416/suppl/filelist.txt"
+    },
+    "raw_archive": {
+      "bytes": 1251246080,
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE314nnn/GSE314416/suppl/GSE314416_RAW.tar"
+    }
+  },
+  "geo_last_update": "2026-03-26",
+  "schema": "gse314416-source-manifest/1.0",
+  "source_page": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE314416"
+}

@@ -14,6 +14,7 @@ data/**/*.mtx
 data/**/*.mtx.gz
 data/**/*.h5
 data/**/*.h5ad
+data/confirmation/gse314416_immunomicrobiome/baseline_cell_manifest.tsv
 data/scgpt_gene_embeddings.npz
 data/development/lawlor_hca_pbmc/reduced_v1/
 data/development/kotliarov_pbmc/prediction_bundle_v1/

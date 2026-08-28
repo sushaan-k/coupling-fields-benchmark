@@ -1,0 +1,1638 @@
+{
+  "access_audit": {
+    "adt_numeric_values_read": 0,
+    "gex_numeric_values_read": 0,
+    "h5_files_opened": 0
+  },
+  "accession": "GSE314416",
+  "assay": {
+    "chemistry": "10X 5-prime Next GEM v1.1",
+    "included_pools": [
+      "XHLT2-POOL-DB1",
+      "XHLT2-POOL-DB2",
+      "XHLT2-POOL-DB3",
+      "XHLT2-POOL-DB4",
+      "XHLT2-POOL-DB5",
+      "XHLT2-POOL-DB6",
+      "XHLT2-POOL-DB7"
+    ],
+    "pool_is_prediction_outcome": false,
+    "population": "healthy baseline participants",
+    "single_dataset_wide_antibody_reference": true
+  },
+  "created_at_utc": "2026-08-28T23:02:12Z",
+  "donors": [
+    {
+      "donor": "XHLT2-HS1-BLE1",
+      "metadata_cells": 4384,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "calibration",
+      "selected_cell_axis_sha256": "0b86e942faeaead468d4b262e9d5231e5e9d61456d0683e6fed7f5ceaf60def7",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS10-BLE1",
+      "metadata_cells": 4115,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "0ba40595ad72cf65e96129a4f9e2b688405144869e422cd992a3aff14966e1c2",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS100-BLE1",
+      "metadata_cells": 1838,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "355778473089e7273da33c5bf5df6a95180f26f1f62a4e270a4c67bb5bf39ca5",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS101-BLE1",
+      "metadata_cells": 6549,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "514af71de865710e25c2c30a3b8f58b5f460e297b0ac66c450f3c22ba79f9287",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS102-BLE1",
+      "metadata_cells": 1983,
+      "pool": "XHLT2-POOL-DB7",
+      "role": "held",
+      "selected_cell_axis_sha256": "346ed355429d2172bec0ed97a474ea4c06fbc0b21650b063650544ef3c63eb8a",
+      "wells": [
+        "XHLT2-POOL-DB7-SCG1",
+        "XHLT2-POOL-DB7-SCG2",
+        "XHLT2-POOL-DB7-SCG3",
+        "XHLT2-POOL-DB7-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS103-BLE1",
+      "metadata_cells": 2442,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "5a58cea48b65d086bd82bbaf1c5206b83d065d6605586b2cdc17319c612542df",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS104-BLE1",
+      "metadata_cells": 4870,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "adbe7fdc551bc8cace099fbad0b625e4127e85b32ffd73fca6c46438723291ae",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS105-BLE1",
+      "metadata_cells": 4489,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "53fe1237d7944ec1aad81fead7757fb83fa7b586cba42dba5d03e8c9c22feeec",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS106-BLE1",
+      "metadata_cells": 3951,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "b0c68104ea6f104507cc6f2b21c0be33b1851c86b51e9bf2296425492dce7553",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS107-BLE1",
+      "metadata_cells": 4445,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "calibration",
+      "selected_cell_axis_sha256": "f3383b21715bf28fb5a404b4f336372dcecc8469b609dbaa75909f1366f5def8",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS108-BLE1",
+      "metadata_cells": 1868,
+      "pool": "XHLT2-POOL-DB7",
+      "role": "held",
+      "selected_cell_axis_sha256": "43ecddd04390ced26560965ec81ff28c890d21f65fb568d549e9c6c2e988240b",
+      "wells": [
+        "XHLT2-POOL-DB7-SCG1",
+        "XHLT2-POOL-DB7-SCG2",
+        "XHLT2-POOL-DB7-SCG3",
+        "XHLT2-POOL-DB7-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS109-BLE1",
+      "metadata_cells": 4265,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "902a6d0f8ea3b767b01718106c3bf8d05ec4fb37411fdde2cec2b11654932d97",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS11-BLE1",
+      "metadata_cells": 2886,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "8bdb2427e06c63d340568c14372f1c7a567b16c4dde84277cbb5b1a925ddf63b",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS110-BLE1",
+      "metadata_cells": 4176,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "calibration",
+      "selected_cell_axis_sha256": "0dc572c54433858cc7fee68cbd902ab3864f70f6dddb1b46be135206c68cb79e",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS111-BLE1",
+      "metadata_cells": 4787,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "1cca0bbc5935294c21b990d498a2055e26cd2b30c275053bd47f49c70c14ac00",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS12-BLE1",
+      "metadata_cells": 5036,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "678bf3e562768f69809b3ff6dfe75ff20dd0c0dc0adda9d32ee97badf97fd72a",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS13-BLE1",
+      "metadata_cells": 4792,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "bd1ae370ecfdf44388020897b204ced2c5ceee8c69b2771f9bed5fd9f1384a2e",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS14-BLE1",
+      "metadata_cells": 4235,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "9b7afa201e005969f4ea84a95b31fcbf685af47a5f5fdef065c86e1fb81cfc0e",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS15-BLE1",
+      "metadata_cells": 4592,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "addd0dc7d3ff485b0f40d3c38a421171601783bf84407a8ede4d2b78926043bd",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS16-BLE1",
+      "metadata_cells": 4842,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "f50421991698b3f3088df2c98a5f153c65a4feafeb1564df5eed41c8305e4618",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS17-BLE1",
+      "metadata_cells": 1753,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "a8972eb18dad601a389774a945280019908d66cb5a87809412ce0025a2557136",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS18-BLE1",
+      "metadata_cells": 3348,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "efd02c830bfb02a847e2f4edd4c6d8669468f9a09b890cd8a787486d83ad0248",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS19-BLE1",
+      "metadata_cells": 4133,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "d7d6b02cb5d7e011270d5e22153a205c94f8c55629a8f32f69db987bcb285196",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS2-BLE1",
+      "metadata_cells": 5151,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "3403d9ed0a28f7d8c1a1c9dbbb4b3d9c950d61dfa3e5ef0f8340a7b5b24e4c0c",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS20-BLE1",
+      "metadata_cells": 1366,
+      "pool": "XHLT2-POOL-DB7",
+      "role": "held",
+      "selected_cell_axis_sha256": "f86cb87176b393a09567547a68728f792c0c26467c5bdf5809c5eb504dc024c8",
+      "wells": [
+        "XHLT2-POOL-DB7-SCG1",
+        "XHLT2-POOL-DB7-SCG2",
+        "XHLT2-POOL-DB7-SCG3",
+        "XHLT2-POOL-DB7-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS21-BLE1",
+      "metadata_cells": 4748,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "ac980db4354abc5952c69e153faee3911bcb1c99ef4b052321355a489ab11789",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS22-BLE1",
+      "metadata_cells": 4517,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "2550e5cee99faddaf83cfb2412eb82fd8be7882bc20ec26584b2fedd09d406b7",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS23-BLE1",
+      "metadata_cells": 1680,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "663f79c0887d20797e49567ea8ab7de817999345beb3f6598afcc5ef9a47a207",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS24-BLE1",
+      "metadata_cells": 1670,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "9b611393d09bf632f4bd9789f53579f4fb1e9825a5be7854f2ab2d42a57ead96",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS25-BLE1",
+      "metadata_cells": 1800,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "924722defe907042b8067fa92f564198806fd817b8e52aa31d429e522cb67fe9",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS26-BLE1",
+      "metadata_cells": 3611,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "2a1ebcf15477f78cd3b2359e4a0d2ec3b9393173e8e679e6c9abd7fead799549",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS27-BLE1",
+      "metadata_cells": 4033,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "afada60cf9f42370a49b98110d8b1b223fb0c1662150647834018df13eeec039",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS28-BLE1",
+      "metadata_cells": 4446,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "1dd65c816221bb30fada151c17b33ad7e055f062adffe2a3006fa5332c3bbe59",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS29-BLE1",
+      "metadata_cells": 4285,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "1ce940684ef580ed971d20b871e949b6b3ccf3ca05412218aaaedae5d0aa3b31",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS3-BLE1",
+      "metadata_cells": 4617,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "8406a99fb0e51b2752862775f1774be7836833bb85107ef056ab0c7e73aa29c1",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS30-BLE1",
+      "metadata_cells": 6447,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "60a701dc295c18108bac3bfd389996f7e7b486b24f4c3ad7159083ba4a8ae8f9",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS31-BLE1",
+      "metadata_cells": 4830,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "763403a24364e76042167208dbcfa231db90f51ee53d179d47da1c276af32947",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS32-BLE1",
+      "metadata_cells": 1818,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "25659446ec19f377ea1e5e142e48e67a811b990f0fd11ab05761b95359c9758b",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS33-BLE1",
+      "metadata_cells": 34,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "excluded",
+      "selected_cell_axis_sha256": "872cb3f1bf96cabf71a8aeb0fd3311732f6291a917b876e9e955a2c15ce11bca",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS34-BLE1",
+      "metadata_cells": 4363,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "0a684df5627f0af541606dd039f9c935c18d0b27626086084b9d8d16da53c5ca",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS35-BLE1",
+      "metadata_cells": 1658,
+      "pool": "XHLT2-POOL-DB7",
+      "role": "held",
+      "selected_cell_axis_sha256": "1b08fcc55bd6c82bf788bf9e236b4fc938fcd0472b5c01fc8be1407315cd178d",
+      "wells": [
+        "XHLT2-POOL-DB7-SCG1",
+        "XHLT2-POOL-DB7-SCG2",
+        "XHLT2-POOL-DB7-SCG3",
+        "XHLT2-POOL-DB7-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS36-BLE1",
+      "metadata_cells": 4213,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "e6fc28cfffaee2239b5e0ade1552ab04587da0dcf99fa5f4acaecfc5259ddb10",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS37-BLE1",
+      "metadata_cells": 2127,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "ccf3778d0dac6bd4da9895b89dabe4963818a69776debdec1ab72aad71afd266",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS38-BLE1",
+      "metadata_cells": 3955,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "23b7d1ad350c4de9602146ab0aa500d08cdb8b6a56cb62340cd0c073fe8534ba",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS39-BLE1",
+      "metadata_cells": 2056,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "80dbb40a1d415e4a28fcd3d807af1aa989094b2e82f742d539547e3e90594164",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS4-BLE1",
+      "metadata_cells": 4167,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "4c3fd28db604e03f266ab748fd2f168539276ab21ff98c66ff3193b2a5504853",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS40-BLE1",
+      "metadata_cells": 3868,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "f9250af1df2662ca415e8d366a1b104ade9bbed5d7354976977d968da740001c",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS41-BLE1",
+      "metadata_cells": 1392,
+      "pool": "XHLT2-POOL-DB7",
+      "role": "held",
+      "selected_cell_axis_sha256": "df01f532e970a9c40ae3b48d5b073601c8fcb6bde870433dd8885c36a8d54809",
+      "wells": [
+        "XHLT2-POOL-DB7-SCG1",
+        "XHLT2-POOL-DB7-SCG2",
+        "XHLT2-POOL-DB7-SCG3",
+        "XHLT2-POOL-DB7-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS42-BLE1",
+      "metadata_cells": 4312,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "calibration",
+      "selected_cell_axis_sha256": "ccfad0b8d84c9b538116a2bea461761548c43918eba30e7d6d949692fedcef4d",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS43-BLE1",
+      "metadata_cells": 4357,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "0c1e3023c69b05059ed34e0a00d0045c00aa1ae8d4ac93c8af7e220908841c13",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS44-BLE1",
+      "metadata_cells": 3849,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "440c47990870dbec9fbca8d7b7db07d38be2814b0199819b88777cab9a159478",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS45-BLE1",
+      "metadata_cells": 1980,
+      "pool": "XHLT2-POOL-DB7",
+      "role": "held",
+      "selected_cell_axis_sha256": "67757cfea25b59890cc2b27c97c24961e1e1e90bad0cd0f98d9fa7a87828d5ce",
+      "wells": [
+        "XHLT2-POOL-DB7-SCG1",
+        "XHLT2-POOL-DB7-SCG2",
+        "XHLT2-POOL-DB7-SCG3",
+        "XHLT2-POOL-DB7-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS46-BLE1",
+      "metadata_cells": 4117,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "calibration",
+      "selected_cell_axis_sha256": "37d90822829ea14c38c941789cccfa77a0e19631c2084f697164283ef827d68d",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS47-BLE1",
+      "metadata_cells": 4401,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "1d7ed89ff722d442e8e0df92fb7704b02c7b206925ee10c10faf56581809532d",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS48-BLE1",
+      "metadata_cells": 3855,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "b1455f70d9ba59b73b18dbc7fc0ccc4424b5190194f9a23497fb545a64835895",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS49-BLE1",
+      "metadata_cells": 3893,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "f336df1b2fd10b3dc0c14c2e17a833218b3785ea841adae3e39dd34356f7c187",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS50-BLE1",
+      "metadata_cells": 4299,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "1dc37bb96d7092afd5b967b916f70f6e6a1dc8777938bf2b4be130618e7069a9",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS51-BLE1",
+      "metadata_cells": 3803,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "a57c439a951250b438d953f03db5c9a3ab4faff4797cef6736296cd724f315cb",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS52-BLE1",
+      "metadata_cells": 4286,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "calibration",
+      "selected_cell_axis_sha256": "399a15481254b8aaac0ce52c6b3bdf15b28689371945663f24d9f29b3ff12443",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS53-BLE1",
+      "metadata_cells": 1544,
+      "pool": "XHLT2-POOL-DB7",
+      "role": "held",
+      "selected_cell_axis_sha256": "9c2c9fb814a3bee052c5d5c5fc38fa03aa69a2c500afb10c594cda636fa5f410",
+      "wells": [
+        "XHLT2-POOL-DB7-SCG1",
+        "XHLT2-POOL-DB7-SCG2",
+        "XHLT2-POOL-DB7-SCG3",
+        "XHLT2-POOL-DB7-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS54-BLE1",
+      "metadata_cells": 5391,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "59470caa4586907f99fff302144c319aff378a9df257c27375c4a67f1bd7e48d",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS55-BLE1",
+      "metadata_cells": 4574,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "calibration",
+      "selected_cell_axis_sha256": "add262a4ee717bff62c9c34fc290489900d619f37c1c9b2d27dde77ed439a235",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS56-BLE1",
+      "metadata_cells": 4121,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "calibration",
+      "selected_cell_axis_sha256": "a1ee58077d7f1cc93c22a86cfc3dc6b19ad4f4127f2670fe59bfedc763a472ff",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS57-BLE1",
+      "metadata_cells": 3935,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "5f96734cb395f5af48462e292dfbaf4a1d5cba9382ad0f99d50c2c4152eba4b3",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS58-BLE1",
+      "metadata_cells": 1299,
+      "pool": "XHLT2-POOL-DB7",
+      "role": "held",
+      "selected_cell_axis_sha256": "ebf9192339d441ad2c96b4d5855f1a146ad8d91ed04c483493c039093a4e76a3",
+      "wells": [
+        "XHLT2-POOL-DB7-SCG1",
+        "XHLT2-POOL-DB7-SCG2",
+        "XHLT2-POOL-DB7-SCG3",
+        "XHLT2-POOL-DB7-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS59-BLE1",
+      "metadata_cells": 4268,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "3cd6adc74dc94ecde1b6737f89b88aeac860ad69ca7846b400223cff2d18ea67",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS6-BLE1",
+      "metadata_cells": 4222,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "45ad0aae5637c28a074eeddfdb4a4c66f58e4b46eda08bf5019dbab0ae32fb64",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS60-BLE1",
+      "metadata_cells": 2659,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "088eb18f91de2b27d590a6c97225bbbb03b1039bc52037e210ed6b36f4cfdab0",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS61-BLE1",
+      "metadata_cells": 1607,
+      "pool": "XHLT2-POOL-DB7",
+      "role": "held",
+      "selected_cell_axis_sha256": "511d54c57905988f9aa97453d092bbb9913a18d3b72df6f0c69d31aae6a59520",
+      "wells": [
+        "XHLT2-POOL-DB7-SCG1",
+        "XHLT2-POOL-DB7-SCG2",
+        "XHLT2-POOL-DB7-SCG3",
+        "XHLT2-POOL-DB7-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS62-BLE1",
+      "metadata_cells": 4121,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "1ebfde045aa7fd2720ca533d6a2e3d18dc6e5924d891e354c59c1add1d613f01",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS63-BLE1",
+      "metadata_cells": 4391,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "7216c7ce3e038177baf928d8d7dd2ff1a6fdf1a31ebcc96a4ad0e63daab7647a",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS64-BLE1",
+      "metadata_cells": 3895,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "29929c5375abdd8ca93f93f7a40475a1a9d6975f198681659a0308529959ae1a",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS65-BLE1",
+      "metadata_cells": 4396,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "8801e2652552e623232ee653293f758742f5f65ae8a915efb959d32ac3b4d01f",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS66-BLE1",
+      "metadata_cells": 4857,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "c5b2f7381bc36bd0db4feaaf7f9f7ecefa1b1f8dff355ff599cf656a0bd7502e",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS67-BLE1",
+      "metadata_cells": 3978,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "17cc5b2fb7553fb99664f109eaeb24d1bc5e65f827807368d156ec802044eadf",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS68-BLE1",
+      "metadata_cells": 2659,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "8227069703a4c9718b5c8ba81725cf9da06c14417beade8f18b1d532029e6b01",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS69-BLE1",
+      "metadata_cells": 1765,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "e0fc996b6f49f73cd3b7a3eaf38ce3fac4877e1512ae3d69d3fa9fdbe9e7653c",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS7-BLE1",
+      "metadata_cells": 4271,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "calibration",
+      "selected_cell_axis_sha256": "2113e7d041b3c206f5f4891c350dbf064408a6aa941a26fd3b8d685aa2c00e10",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS70-BLE1",
+      "metadata_cells": 4513,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "9e668f0e15892f87e05ab607275c77e090927a8fed31d2f1173c3b6d2f8ac4f0",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS71-BLE1",
+      "metadata_cells": 4400,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "2371379a4a3820295202cda3891f813180fd2c0420cc39a217eca00358b19fde",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS72-BLE1",
+      "metadata_cells": 4520,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "4790ce852590e12624755b3120b061cb95479ed430523aa6d0bec34db5a97d0a",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS73-BLE1",
+      "metadata_cells": 4213,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "7049fd92f9c69d2daba1beff9e99a7b1aa16a4abd86108c00f282ca48ad723f3",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS74-BLE1",
+      "metadata_cells": 4719,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "d9f3c5a16754540e59ff81ce3009d470bcd941a13553f78885bbdf4f224a2a6d",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS75-BLE1",
+      "metadata_cells": 2126,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "86120b968508a97317aa4b03f934c13382782f07ce1901667acd31657803d147",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS76-BLE1",
+      "metadata_cells": 3892,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "fb7c25fd59da1f55e4cdc07d3a52e3be45d864f3f139c365c5f8c3998764edbf",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS77-BLE1",
+      "metadata_cells": 3665,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "0ff195dcfa4fe798490e065a7935baf7267923030d0822302f9f8ca70a78e134",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS78-BLE1",
+      "metadata_cells": 4299,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "calibration",
+      "selected_cell_axis_sha256": "e25a8ddbfa4f9b072cf0ebcd1b6b6c24bc2d39b2feaa01958561b95886ff21fe",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS79-BLE1",
+      "metadata_cells": 4239,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "2ac55a52e35749d38875a964971f543f211600c0e0718991f1817b73e880d847",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS8-BLE1",
+      "metadata_cells": 3652,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "calibration",
+      "selected_cell_axis_sha256": "f71f5a7cd6a0e189442a1c3759116bd1e644fc0046c38643f83ef14229486fb5",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS80-BLE1",
+      "metadata_cells": 4301,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "448e3c28ab64bb5d16f5b6755d07224ea971c09914b1101152918f4cf7789fb1",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS81-BLE1",
+      "metadata_cells": 1638,
+      "pool": "XHLT2-POOL-DB7",
+      "role": "held",
+      "selected_cell_axis_sha256": "90e1395d5ab8c6113c2407483103e02055dc36b17010997a66f0e5475ceb757b",
+      "wells": [
+        "XHLT2-POOL-DB7-SCG1",
+        "XHLT2-POOL-DB7-SCG2",
+        "XHLT2-POOL-DB7-SCG3",
+        "XHLT2-POOL-DB7-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS82-BLE1",
+      "metadata_cells": 4206,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "b81f87da0de29441f8a9049d9c64ac3ed63197f1d8b4bbbf45605241000b61f2",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS83-BLE1",
+      "metadata_cells": 2410,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "921aba1ceb75958c6e8925a08e5fc518addebc48c20b82d1f95d109521305b9c",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS84-BLE1",
+      "metadata_cells": 3090,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "2fef03f11d92dc8aff66a5b44e5ac0185e8d79c122d6cd8743989844e50b15d1",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS85-BLE1",
+      "metadata_cells": 4216,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "8a02012e522d796c83a8b2f684c3569c611239c987ea13ad0c98431ab30c2d75",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS86-BLE1",
+      "metadata_cells": 1111,
+      "pool": "XHLT2-POOL-DB7",
+      "role": "held",
+      "selected_cell_axis_sha256": "f27a931e962ea71623d09a72cb2ae58d221d56ddd0d6ceb091d89548c151b955",
+      "wells": [
+        "XHLT2-POOL-DB7-SCG1",
+        "XHLT2-POOL-DB7-SCG2",
+        "XHLT2-POOL-DB7-SCG3",
+        "XHLT2-POOL-DB7-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS87-BLE1",
+      "metadata_cells": 4067,
+      "pool": "XHLT2-POOL-DB5",
+      "role": "held",
+      "selected_cell_axis_sha256": "d3300d2d36252d3df7aecec7b8ef23b98419e97cb7b9a44e233a9a76ab74818d",
+      "wells": [
+        "XHLT2-POOL-DB5-SCG1",
+        "XHLT2-POOL-DB5-SCG2",
+        "XHLT2-POOL-DB5-SCG3",
+        "XHLT2-POOL-DB5-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS88-BLE1",
+      "metadata_cells": 5093,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "74c17b4c6b868dd0e063b2004354166ac1c8a315ec07328d27e6a905878592d2",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS89-BLE1",
+      "metadata_cells": 3801,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "e917047f44c26ede6f543b38874f8b3b85b5e41535afdd990e690aa4277f0a5c",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS9-BLE1",
+      "metadata_cells": 3942,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "6536c216a999525f385e39609e836f73b4091b276fa947720a6e8b74a87023a6",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS90-BLE1",
+      "metadata_cells": 1291,
+      "pool": "XHLT2-POOL-DB7",
+      "role": "held",
+      "selected_cell_axis_sha256": "d1d84555015546519b86134f1362fcb4aa7512f0f5c988a3c4bb94b02b53734f",
+      "wells": [
+        "XHLT2-POOL-DB7-SCG1",
+        "XHLT2-POOL-DB7-SCG2",
+        "XHLT2-POOL-DB7-SCG3",
+        "XHLT2-POOL-DB7-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS91-BLE1",
+      "metadata_cells": 2568,
+      "pool": "XHLT2-POOL-DB6",
+      "role": "held",
+      "selected_cell_axis_sha256": "0e13a15b9888f067c3c16e73267eaff08b7630836e89e24008d650be88abcb50",
+      "wells": [
+        "XHLT2-POOL-DB6-SCG1",
+        "XHLT2-POOL-DB6-SCG2",
+        "XHLT2-POOL-DB6-SCG3",
+        "XHLT2-POOL-DB6-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS92-BLE1",
+      "metadata_cells": 2115,
+      "pool": "XHLT2-POOL-DB7",
+      "role": "held",
+      "selected_cell_axis_sha256": "0c87152c1ff4bd97f2884a7bde1715208098f53e82d09b7b2ac504c8a9b30c0d",
+      "wells": [
+        "XHLT2-POOL-DB7-SCG1",
+        "XHLT2-POOL-DB7-SCG2",
+        "XHLT2-POOL-DB7-SCG3",
+        "XHLT2-POOL-DB7-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS93-BLE1",
+      "metadata_cells": 5125,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "c805c82d670a28d9ec3f519cb2346394ebf8a09d9cc778a5375ea2578e4d9d9f",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS94-BLE1",
+      "metadata_cells": 4273,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "fa8121d8c4fac2bafdcd8ca34eb36c9bab46a1e83549abf2770bb60acb534115",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS95-BLE1",
+      "metadata_cells": 4264,
+      "pool": "XHLT2-POOL-DB1",
+      "role": "calibration",
+      "selected_cell_axis_sha256": "ef347f147202d3d557e86d93cdde186d7b2a28e5fc857b633a0f594666300b9e",
+      "wells": [
+        "XHLT2-POOL-DB1-SCG1",
+        "XHLT2-POOL-DB1-SCG2",
+        "XHLT2-POOL-DB1-SCG3",
+        "XHLT2-POOL-DB1-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS96-BLE1",
+      "metadata_cells": 1801,
+      "pool": "XHLT2-POOL-DB7",
+      "role": "held",
+      "selected_cell_axis_sha256": "2e5cf1b2721aa55c0f5f7794e1adbbe25e92b13a7d59e55ce9199725e47978e4",
+      "wells": [
+        "XHLT2-POOL-DB7-SCG1",
+        "XHLT2-POOL-DB7-SCG2",
+        "XHLT2-POOL-DB7-SCG3",
+        "XHLT2-POOL-DB7-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS97-BLE1",
+      "metadata_cells": 4609,
+      "pool": "XHLT2-POOL-DB4",
+      "role": "held",
+      "selected_cell_axis_sha256": "aeea3d4090880da71e40680349b8ec02685453fea7b20b7d307c86b4db0240e9",
+      "wells": [
+        "XHLT2-POOL-DB4-SCG1",
+        "XHLT2-POOL-DB4-SCG2",
+        "XHLT2-POOL-DB4-SCG3",
+        "XHLT2-POOL-DB4-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS98-BLE1",
+      "metadata_cells": 4964,
+      "pool": "XHLT2-POOL-DB2",
+      "role": "pilot",
+      "selected_cell_axis_sha256": "04e8962ff5f12458acc110afbc2b77be204abb3b42b94bfd28d9118c24df9bd8",
+      "wells": [
+        "XHLT2-POOL-DB2-SCG1",
+        "XHLT2-POOL-DB2-SCG2",
+        "XHLT2-POOL-DB2-SCG3",
+        "XHLT2-POOL-DB2-SCG4"
+      ]
+    },
+    {
+      "donor": "XHLT2-HS99-BLE1",
+      "metadata_cells": 4466,
+      "pool": "XHLT2-POOL-DB3",
+      "role": "held",
+      "selected_cell_axis_sha256": "87e976bf8fcf5501164134f093cd292c93bba43a7964909b8b1483ef87df3f08",
+      "wells": [
+        "XHLT2-POOL-DB3-SCG1",
+        "XHLT2-POOL-DB3-SCG2",
+        "XHLT2-POOL-DB3-SCG3",
+        "XHLT2-POOL-DB3-SCG4"
+      ]
+    }
+  ],
+  "markers": [
+    {
+      "adt_feature": "C0072",
+      "marker": "CD4",
+      "rna_feature": "ENSG00000010610"
+    },
+    {
+      "adt_feature": "C0066",
+      "marker": "CD7",
+      "rna_feature": "ENSG00000173762"
+    },
+    {
+      "adt_feature": "C0081",
+      "marker": "CD14",
+      "rna_feature": "ENSG00000170458"
+    },
+    {
+      "adt_feature": "C0050",
+      "marker": "CD19",
+      "rna_feature": "ENSG00000177455"
+    },
+    {
+      "adt_feature": "C0052",
+      "marker": "CD33",
+      "rna_feature": "ENSG00000105383"
+    },
+    {
+      "adt_feature": "C0389",
+      "marker": "CD38",
+      "rna_feature": "ENSG00000004468"
+    },
+    {
+      "adt_feature": "C0073",
+      "marker": "CD44",
+      "rna_feature": "ENSG00000026508"
+    },
+    {
+      "adt_feature": "C0026",
+      "marker": "CD47",
+      "rna_feature": "ENSG00000196776"
+    },
+    {
+      "adt_feature": "C0033",
+      "marker": "CD52",
+      "rna_feature": "ENSG00000169442"
+    }
+  ],
+  "role_counts": {
+    "calibration": 12,
+    "excluded": 1,
+    "held": 77,
+    "pilot": 20
+  },
+  "schema": "gse314416-citeseq-metadata-preflight/1.0",
+  "secondary_broad_markers": [
+    {
+      "adt_feature": "C0034",
+      "marker": "CD3D",
+      "rna_feature": "ENSG00000167286"
+    },
+    {
+      "adt_feature": "C0072",
+      "marker": "CD4",
+      "rna_feature": "ENSG00000010610"
+    },
+    {
+      "adt_feature": "C0046",
+      "marker": "CD8A",
+      "rna_feature": "ENSG00000153563"
+    },
+    {
+      "adt_feature": "C0066",
+      "marker": "CD7",
+      "rna_feature": "ENSG00000173762"
+    },
+    {
+      "adt_feature": "C0081",
+      "marker": "CD14",
+      "rna_feature": "ENSG00000170458"
+    },
+    {
+      "adt_feature": "C0083",
+      "marker": "FCGR3A",
+      "rna_feature": "ENSG00000203747"
+    },
+    {
+      "adt_feature": "C0050",
+      "marker": "CD19",
+      "rna_feature": "ENSG00000177455"
+    },
+    {
+      "adt_feature": "C0100",
+      "marker": "MS4A1",
+      "rna_feature": "ENSG00000156738"
+    },
+    {
+      "adt_feature": "C0052",
+      "marker": "CD33",
+      "rna_feature": "ENSG00000105383"
+    },
+    {
+      "adt_feature": "C0053",
+      "marker": "ITGAX",
+      "rna_feature": "ENSG00000140678"
+    },
+    {
+      "adt_feature": "C0047",
+      "marker": "NCAM1",
+      "rna_feature": "ENSG00000149294"
+    },
+    {
+      "adt_feature": "C0389",
+      "marker": "CD38",
+      "rna_feature": "ENSG00000004468"
+    },
+    {
+      "adt_feature": "C0390",
+      "marker": "IL7R",
+      "rna_feature": "ENSG00000168685"
+    },
+    {
+      "adt_feature": "C0149",
+      "marker": "KLRB1",
+      "rna_feature": "ENSG00000111796"
+    },
+    {
+      "adt_feature": "C0159",
+      "marker": "HLA-DRA",
+      "rna_feature": "ENSG00000204287"
+    },
+    {
+      "adt_feature": "C0154",
+      "marker": "CD27",
+      "rna_feature": "ENSG00000139193"
+    },
+    {
+      "adt_feature": "C0073",
+      "marker": "CD44",
+      "rna_feature": "ENSG00000026508"
+    },
+    {
+      "adt_feature": "C0026",
+      "marker": "CD47",
+      "rna_feature": "ENSG00000196776"
+    },
+    {
+      "adt_feature": "C0033",
+      "marker": "CD52",
+      "rna_feature": "ENSG00000169442"
+    },
+    {
+      "adt_feature": "C0367",
+      "marker": "CD2",
+      "rna_feature": "ENSG00000116824"
+    },
+    {
+      "adt_feature": "C0146",
+      "marker": "CD69",
+      "rna_feature": "ENSG00000110848"
+    },
+    {
+      "adt_feature": "C0147",
+      "marker": "SELL",
+      "rna_feature": "ENSG00000188404"
+    },
+    {
+      "adt_feature": "C0161",
+      "marker": "ITGAM",
+      "rna_feature": "ENSG00000169896"
+    },
+    {
+      "adt_feature": "C0142",
+      "marker": "FCGR2A",
+      "rna_feature": "ENSG00000143226"
+    }
+  ],
+  "source_bindings": {
+    "designation_sha256": "8f77bcbbe9e9315e5fbbde869e972167a224b0605afd24e4428d968c9dc34001",
+    "feature_reference_sha256": "f19dff57a5cf3ce0a25e0082318e0f0bdb3425a7e984c1bf37c08df5034ee020",
+    "file_list_sha256": "d599554157d172dfd8b37a0f675c210099e681b5e3637536f7666d940b9e0a36",
+    "metadata_sha256": "b3bcc09be7ad3b96c52fec54133fd39e00482da66efc9e51da60bca9d666036c",
+    "source_manifest_sha256": "218c44d71449665c7741efde43f2026d5389771f1a7c8babe04c5ecf3846778e"
+  },
+  "status": "PASS"
+}

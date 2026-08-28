@@ -1,0 +1,165 @@
+{
+  "accession": "GSE314416",
+  "assay_scope": {
+    "chemistry": "10X 5-prime Next GEM v1.1",
+    "followup_pools_excluded": [
+      "XHLT2-POOL-DB8",
+      "XHLT2-POOL-DB9",
+      "XHLT2-POOL-DB10",
+      "XHLT2-POOL-DB11",
+      "XHLT2-POOL-DB12",
+      "XHLT2-POOL-DB13",
+      "XHLT2-POOL-DB14"
+    ],
+    "population": "healthy baseline participants",
+    "single_panel_for_all_included_pools": true
+  },
+  "cell_budget_per_donor": 512,
+  "exclusion_rule": "exclude a donor with fewer than 512 deposited baseline metadata rows",
+  "expected_counts": {
+    "calibration_donors": 12,
+    "excluded_donors": 1,
+    "held_donors": 77,
+    "pilot_donors": 20
+  },
+  "markers": [
+    {
+      "adt_feature_id": "C0072",
+      "marker": "CD4",
+      "rna_ensembl_id": "ENSG00000010610"
+    },
+    {
+      "adt_feature_id": "C0066",
+      "marker": "CD7",
+      "rna_ensembl_id": "ENSG00000173762"
+    },
+    {
+      "adt_feature_id": "C0081",
+      "marker": "CD14",
+      "rna_ensembl_id": "ENSG00000170458"
+    },
+    {
+      "adt_feature_id": "C0050",
+      "marker": "CD19",
+      "rna_ensembl_id": "ENSG00000177455"
+    },
+    {
+      "adt_feature_id": "C0052",
+      "marker": "CD33",
+      "rna_ensembl_id": "ENSG00000105383"
+    },
+    {
+      "adt_feature_id": "C0389",
+      "marker": "CD38",
+      "rna_ensembl_id": "ENSG00000004468"
+    },
+    {
+      "adt_feature_id": "C0073",
+      "marker": "CD44",
+      "rna_ensembl_id": "ENSG00000026508"
+    },
+    {
+      "adt_feature_id": "C0026",
+      "marker": "CD47",
+      "rna_ensembl_id": "ENSG00000196776"
+    },
+    {
+      "adt_feature_id": "C0033",
+      "marker": "CD52",
+      "rna_ensembl_id": "ENSG00000169442"
+    }
+  ],
+  "marker_rule": "the complete nine-marker cognate RNA/ADT panel used in the preceding COMBAT and GSE239452 benchmarks, retained only if its Ensembl target and TotalSeq-C feature ID are present in the public GSE314416 feature reference; all nine passed",
+  "nongating_common_effect_baseline": {
+    "estimator": "one unpenalized exact conditional common log odds per RNA-ADT entity across development donors",
+    "graph_penalty": 0.0,
+    "ridge_penalty": 0.0,
+    "transport_multiplier": 1.0
+  },
+  "secondary_broad_panel": {
+    "analysis_role": "secondary and non-gating",
+    "fixed_estimator": {
+      "graph_penalty": 0.0,
+      "heterogeneity_penalty": 1.0,
+      "ridge_penalty": 0.1,
+      "transport_multiplier": 1.0
+    },
+    "fixed_residual_comparator": {
+      "family": "signed-root Poisson deviance",
+      "transport_multiplier": 1.0
+    },
+    "markers": [
+      ["CD3D", "ENSG00000167286", "C0034"],
+      ["CD4", "ENSG00000010610", "C0072"],
+      ["CD8A", "ENSG00000153563", "C0046"],
+      ["CD7", "ENSG00000173762", "C0066"],
+      ["CD14", "ENSG00000170458", "C0081"],
+      ["FCGR3A", "ENSG00000203747", "C0083"],
+      ["CD19", "ENSG00000177455", "C0050"],
+      ["MS4A1", "ENSG00000156738", "C0100"],
+      ["CD33", "ENSG00000105383", "C0052"],
+      ["ITGAX", "ENSG00000140678", "C0053"],
+      ["NCAM1", "ENSG00000149294", "C0047"],
+      ["CD38", "ENSG00000004468", "C0389"],
+      ["IL7R", "ENSG00000168685", "C0390"],
+      ["KLRB1", "ENSG00000111796", "C0149"],
+      ["HLA-DRA", "ENSG00000204287", "C0159"],
+      ["CD27", "ENSG00000139193", "C0154"],
+      ["CD44", "ENSG00000026508", "C0073"],
+      ["CD47", "ENSG00000196776", "C0026"],
+      ["CD52", "ENSG00000169442", "C0033"],
+      ["CD2", "ENSG00000116824", "C0367"],
+      ["CD69", "ENSG00000110848", "C0146"],
+      ["SELL", "ENSG00000188404", "C0147"],
+      ["ITGAM", "ENSG00000169896", "C0161"],
+      ["FCGR2A", "ENSG00000143226", "C0142"]
+    ],
+    "minimum_informative_pairs_per_donor": 432,
+    "selection_rule": "the full primary panel plus 15 prespecified PBMC lineage and activation markers, each with one unambiguous TotalSeq-C feature-to-Ensembl target mapping in the public feature reference"
+  },
+  "roles": {
+    "calibration": {
+      "donors": [
+        "XHLT2-HS7-BLE1",
+        "XHLT2-HS56-BLE1",
+        "XHLT2-HS52-BLE1",
+        "XHLT2-HS1-BLE1",
+        "XHLT2-HS42-BLE1",
+        "XHLT2-HS95-BLE1",
+        "XHLT2-HS107-BLE1",
+        "XHLT2-HS78-BLE1",
+        "XHLT2-HS8-BLE1",
+        "XHLT2-HS55-BLE1",
+        "XHLT2-HS46-BLE1",
+        "XHLT2-HS110-BLE1"
+      ],
+      "pool": "XHLT2-POOL-DB1",
+      "selection": "the first 12 eligible DB1 donors ordered by SHA256(GSE314416-CALIBRATION-DONOR-v1|donor), then donor ID"
+    },
+    "held": {
+      "pools": [
+        "XHLT2-POOL-DB3",
+        "XHLT2-POOL-DB4",
+        "XHLT2-POOL-DB5",
+        "XHLT2-POOL-DB6",
+        "XHLT2-POOL-DB7"
+      ],
+      "selection": "all eligible donors in the five stated pools, sorted by donor ID"
+    },
+    "pilot": {
+      "pools": [
+        "XHLT2-POOL-DB1",
+        "XHLT2-POOL-DB2"
+      ],
+      "selection": "the four eligible DB1 donors not assigned to calibration plus every eligible DB2 donor, sorted by donor ID"
+    }
+  },
+  "salts": {
+    "adt_tie": "GSE314416-ADT-MEDIAN-v1",
+    "calibration_donor": "GSE314416-CALIBRATION-DONOR-v1",
+    "cell_selection": "GSE314416-CELL-BUDGET-v1",
+    "destroyed_link": "GSE314416-DESTROYED-LINK-v1"
+  },
+  "schema": "gse314416-candidate-designation/1.0",
+  "status": "FROZEN_BEFORE_NUMERIC_MATRIX_ACCESS"
+}
