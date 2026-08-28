@@ -145,9 +145,11 @@ designation and the no-score fields in the PoKI refusal. The distribution is
 validated directly by its checksum manifest and test entry point.
 
 The release entry point `./reproduce.sh` checks every distributed hash,
-committed aggregate result, and candidate suites. It deselects two exact
-assertions that certify the earlier disabled phase; their preserved bytes and
-successful execution are recorded in the public-freeze verification record.
+committed aggregate result, and candidate suite. Its main pass deselects four
+assertions: two that certify earlier disabled phases, one BMMC assertion whose
+deposited axis is not redistributed, and one Kotliarov assertion bound to a
+historical estimator. The script reruns the Kotliarov assertion against those
+exact historical bytes; all four tests remain checksum-bound.
 Authorized prediction and full public-data reruns require locally acquired
 checksum-matched source objects, the checksum-matched embedding, or prepared
 caches as specified by each command.

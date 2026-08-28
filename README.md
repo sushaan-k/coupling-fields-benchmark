@@ -55,8 +55,10 @@ The full `./reproduce.sh` entry point runs the estimator and candidate tests,
 except for two preserved assertions that certify the earlier disabled phase
 and one BMMC deposited-axis assertion whose source file is not redistributed.
 Those exact test bytes remain checksum-bound; the disabled-phase assertions
-passed in the fresh-clone verification record, and the BMMC axis assertion is
-retained with the terminal evaluator test. The Kotliarov disabled-preflight
+passed in
+`docs/CONFIRMATORY_FAMILY_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json`, and the
+BMMC axis assertion is retained with the terminal evaluator test. The Kotliarov
+disabled-preflight
 assertion is run separately in an isolated copy containing its checksum-bound
 historical estimator, so the current GSE dependency is never substituted for
 the code recorded by that earlier run. The scGPT embedding's expected hash and
