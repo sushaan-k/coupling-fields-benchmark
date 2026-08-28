@@ -1,9 +1,9 @@
 # Coupling-fields public benchmark data card
 
-**Release candidate:** `coupling-fields-v1`  
-**Snapshot date:** 27 August 2026  
-**Distribution status:** prospective protocol freeze prepared for a public,
-commit-addressed release
+**Release candidate:** `coupling-fields-v1`
+**Snapshot date:** 28 August 2026
+**Distribution status:** public, commit-addressed prospective protocol freeze;
+outcome acquisition authorized, scoring still prediction-gated
 
 ## Scope
 
@@ -29,14 +29,17 @@ The exact values, uncertainty intervals, controls, decisions, and provenance
 are in `results/final_public_benchmark_table.tsv`. The evidence boundary is in
 `docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md`.
 
-Two additional public-data confirmations are specified but unrun. Candidate A
+Two additional public-data confirmations are specified but unscored. Candidate A
 is the Lawlor HCA PBMC CITE-seq held-donor experiment bound in
 `LAWLOR_CANDIDATE_DESIGNATION.json`. Candidate B is the separate GSE143417
 PoKI-seq held-donor experiment, bound by its candidate designation and
 preanalysis lock exposed as `POKI_CANDIDATE_DESIGNATION.json` and
 `POKI_PREANALYSIS_LOCK.json`; the complete source chain is retained at the
-repository root. Neither is counted among the seven completed panels, and
-neither has authorized outcome access in this protocol freeze.
+repository root. Neither is counted among the seven completed panels. Their
+exact analyses were first published with outcome access disabled in commit
+`2e5f47a8676000c743be0459b9d979262e7eb147`; commit
+`044478d35d46783eba9d91e2ab17925327af0f92` authorized acquisition without
+changing the analysis bytes.
 
 ## Intended use
 
@@ -77,13 +80,12 @@ All declared panels remain in the table regardless of outcome.
 
 The second-confirmation protocol fixes eligibility, encoders, splits,
 comparators, endpoints, pass criteria, exclusions, link controls, and
-multiplicity before outcome access. Candidate A is designated
-`DESIGNATED_AWAITING_PUBLIC_FREEZE`: its source checksums, six-development/four-
-confirmation donor split, six biological contrasts, runner, reducer, and
-implementation hashes are fixed, but the outcome matrices remain inaccessible
-until an immutable public commit and URL are recorded. Candidate B has its own
-dated protocol and analysis runner and is not a replacement for Candidate A.
-No result produced from an unsealed candidate is confirmatory.
+multiplicity before outcome access. Candidate A is `SEALED`: its source
+checksums, six-development/four-confirmation donor split, six biological
+contrasts, runner, reducer, and implementation hashes are fixed and linked to
+the public freeze. Candidate B is independently `SEALED` under its dated
+protocol and runner; it is not a replacement for Candidate A. No result
+produced from an unsealed candidate is confirmatory.
 
 ## Classical interaction baseline
 
@@ -127,16 +129,15 @@ Candidate A preflight is read-only:
 python3 -m experiments.confirm_lawlor_hca_pbmc preflight
 ```
 
-The `predict` command remains blocked until the candidate designation is
-publicly sealed. The `score` command has the additional public-prediction hash
-gate described below; neither gate is authorized in this snapshot.
+The `predict` command is authorized by the public candidate seal. The `score`
+command remains blocked by the additional public-prediction hash gate described
+below.
 
 The packaged Candidate A runner exposes separate `predict` and `score`
 commands. Held stimulus RNA and ADT margins may be used to write every
 predicted table to one JSON file, but `score` refuses to form their cell pairing
 until the file's exact SHA-256 and byte count appear at an immutable public URL
-and commit in `LAWLOR_SCORE_AUTHORIZATION.json`. Candidate A's RNA and ADT
-outcome files have not been downloaded in preparing this release candidate.
+and commit in `LAWLOR_SCORE_AUTHORIZATION.json`.
 
 ## Known limits
 
@@ -161,7 +162,7 @@ The following fields state the distribution boundary of this snapshot:
 | Field | Status |
 |---|---|
 | Public repository URL | `https://github.com/sushaan-k/coupling-fields-benchmark` |
-| Immutable release tag | assigned after the first protocol commit |
+| Immutable protocol release tag | `protocol-v1.0.1` (metadata correction; `protocol-v1` preserves the same frozen analysis bytes) |
 | Archive DOI | not assigned |
 | Repository code license | none granted |
 | scGPT-derived embedding | omitted; checksum and derivation manifest supplied |

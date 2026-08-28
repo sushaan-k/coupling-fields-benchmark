@@ -37,8 +37,9 @@ artifact-consistency tests. Raw public matrices are not redistributed.
 `results/final_public_benchmark_table.tsv` is the completed-panel ledger.
 `docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md` states the corresponding claim boundary.
 The two prospective protocols, candidate designations, source manifests,
-runners, and disabled locks are committed before expression outcomes are
-opened.
+runners, and disabled locks were committed before expression outcomes were
+opened. Commit `044478d35d46783eba9d91e2ab17925327af0f92` then authorized
+outcome acquisition without changing the frozen analyses.
 
 Production scoring uses two public freezes. First, protocol and implementation
 bytes are committed before outcome acquisition. Second, every held-table

@@ -5,7 +5,7 @@
   "status": "PROSPECTIVE_PROTOCOL_FREEZE",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
   "public_freeze_commit": "2e5f47a8676000c743be0459b9d979262e7eb147",
-  "immutable_release_tag": "protocol-v1",
+  "immutable_release_tag": "protocol-v1.0.1",
   "archive_doi": null,
   "code_license": null,
   "candidate_designation_status": "SEALED",
