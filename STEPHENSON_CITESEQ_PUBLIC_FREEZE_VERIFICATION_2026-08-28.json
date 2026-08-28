@@ -19,7 +19,7 @@
     },
     "designation": {
       "path": "data/confirmation/stephenson_citeseq/candidate_designation_v1.json",
-      "sha256": "d984c95bd25e8afd3e53a3a20a2b53581aa448a968c729e533d82aa64d112f9b"
+      "sha256": "780dc02f00656c3d9d651de68e00f7b40d61057bdfdebaf5de087638dac0dd41"
     },
     "gse279451_evaluator": {
       "path": "experiments/evaluate_gse279451_sepsis_development.py",
@@ -41,17 +41,21 @@
       "path": "results/development/stephenson_citeseq_metadata_preflight.json",
       "sha256": "dfff0da339c89de44ffe503c6f8701d510401e101172c6e2771ac6dd39478346"
     },
+    "pre_access_refusal_amendment": {
+      "path": "data/confirmation/stephenson_citeseq/pre_access_refusal_amendment_v1_1.json",
+      "sha256": "fb7f921207a96b473e3938acbb9db037915b54973b548c0e4cbc7be579158234"
+    },
     "protocol": {
       "path": "docs/STEPHENSON_CITESEQ_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
-      "sha256": "c32466204e78d774d532783ad9a4b8789851a3fc3a8f7f517ca933ee7c2fdab8"
+      "sha256": "61c964ceab77d1bb6a11dda4ea40012a879570e2f7d32b29e47934c49f541144"
     },
     "runner": {
       "path": "experiments/confirm_stephenson_citeseq.py",
-      "sha256": "73c61d80a4fe9e11eb229ae77aee0c8cdad2b8de31d02e33fa6b16c0908f8213"
+      "sha256": "3708bccf52283e4f08e9fa842d7045dcc0756fa41d54476aaa1fc6ddc7197e76"
     },
     "runner_test": {
       "path": "tests/test_stephenson_citeseq_confirmation.py",
-      "sha256": "6d65a6ac01731724bb275f4d505d6c132b0cba6db748626d2a120101ceb2709e"
+      "sha256": "3d89d5269c78eaec30e6c3f03c74a964a0730d44d0212bbc241a56b7a32574d9"
     },
     "sdrf": {
       "path": "data/confirmation/stephenson_citeseq/E-MTAB-10026.sdrf.txt",
@@ -59,7 +63,7 @@
     },
     "source_manifest": {
       "path": "data/confirmation/stephenson_citeseq/source_manifest_v1.json",
-      "sha256": "c6643db4aa71e2decbdd53c530bbf791b560c8362f9375901e1dfe326dfcc117"
+      "sha256": "431e8a370bc9b08a207ab0ff8d3581f80abaf0f36b55eba4accedc5685a3d3cd"
     },
     "table_prediction": {
       "path": "mapreg/table_prediction.py",
@@ -67,11 +71,11 @@
     }
   },
   "canonical_origin": "https://github.com/sushaan-k/coupling-fields-benchmark.git",
-  "created_at_utc": "2026-08-28T19:53:52Z",
+  "created_at_utc": "2026-08-28T20:18:13Z",
   "fresh_clone": true,
   "matrix_payload_reads": 0,
-  "planned_immutable_tag": "stephenson-citeseq-v1-protocol",
-  "public_freeze_commit": "604bc82515ba36f620e4d4af6d758c440714a161",
+  "planned_immutable_tag": "stephenson-citeseq-v1.1-protocol",
+  "public_freeze_commit": "c58c198213c84d69a693ae34f28e88beb884b9a1",
   "schema": "stephenson-citeseq-public-freeze-verification/1.0",
   "status": "PASS"
 }
