@@ -2,7 +2,7 @@
 
 **Release candidate:** `coupling-fields-v1`
 **Snapshot date:** 28 August 2026
-**Distribution status:** release candidate for an outcome-disabled GSE279451
+**Distribution status:** public, tag-addressed outcome-disabled GSE279451
 held-donor analysis plan; prior terminal refusals retained
 
 ## Scope
@@ -203,7 +203,7 @@ The following fields state the distribution boundary of this snapshot:
 |---|---|
 | Public repository URL | `https://github.com/sushaan-k/coupling-fields-benchmark` |
 | Prior immutable candidate-freeze tag | `confirmatory-family-v3` |
-| GSE279451 candidate-freeze tag | pending for this release candidate |
+| GSE279451 candidate-freeze tag | `gse279451-sepsis-v1-protocol` |
 | Archive DOI | not assigned |
 | Repository code license | none granted |
 | scGPT-derived embedding | omitted; checksum and derivation manifest supplied |

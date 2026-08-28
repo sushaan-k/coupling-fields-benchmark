@@ -98,10 +98,12 @@ RNA--ADT confirmation in the GSE279451 adult sepsis CITE-seq data. It reserves
 19 development and 21 held physical donors, fixes nine markers and 81 ordered
 pairs, and compares the hierarchical exact conditional estimator directly with
 the strongest matched Pearson or Poisson-deviance residual transfer and strong
-controls. Count acquisition remains disabled: the active source manifest,
-development acquisition/evaluation attempts or refusals, reduced development
-artifact, prediction, authorization, score attempt, and held result do not
-exist. BMMC is terminally closed and cannot be revived.
+controls. The outcome-disabled plan was verified from a fresh clone at commit
+`f63c9dc760a85a1361ce75e13036eb23262b1bc7` before count access. The active
+source manifest, development acquisition/evaluation attempts or refusals,
+reduced development artifact, prediction, authorization, score attempt, and
+held result did not exist at that freeze. BMMC is terminally closed and cannot
+be revived.
 
 PoKI-seq is not a third scoreable candidate. Its frozen execution stopped at
 the state-occupancy support gate before a prediction or score was written.
@@ -137,10 +139,11 @@ input hashes, official source URLs, and derivation script are supplied in
 - `data/`: source manifests and metadata-only eligibility records.
 - `tests/`: integrity, estimator, comparator, and pairing-seal tests.
 
-The prior Kotliarov disabled-outcome analysis-plan freeze is published at
+The GSE279451 outcome-disabled analysis plan is published at
 `https://github.com/sushaan-k/coupling-fields-benchmark` under tag
-`confirmatory-family-v3`. The GSE279451 integration in this working tree has no
-commit or tag yet. The repository has no archive DOI and grants no code
-license. It must not be called open source, DOI-archived, or registry-hosted
-preregistration. Upstream datasets and model weights remain governed by their
-own terms.
+`gse279451-sepsis-v1-protocol`; the verification record is
+`docs/GSE279451_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json`. The prior Kotliarov
+freeze remains under tag `confirmatory-family-v3`. The repository has no
+archive DOI and grants no code license. It must not be called open source,
+DOI-archived, or registry-hosted preregistration. Upstream datasets and model
+weights remain governed by their own terms.

@@ -1,14 +1,14 @@
 {
   "schema": "coupling-fields-public-benchmark/1.0",
   "release_name": "coupling-fields-v1",
-  "assembled_at_utc": "2026-08-28T12:00:00Z",
-  "status": "PUBLIC_GSE279451_PLAN_OUTCOME_ACCESS_DISABLED",
+  "assembled_at_utc": "2026-08-28T12:30:31Z",
+  "status": "PUBLIC_GSE279451_PROTOCOL_FROZEN_OUTCOME_ACCESS_DISABLED",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
-  "public_freeze_commit": null,
-  "immutable_release_tag": null,
+  "public_freeze_commit": "f63c9dc760a85a1361ce75e13036eb23262b1bc7",
+  "immutable_release_tag": "gse279451-sepsis-v1-protocol",
   "archive_doi": null,
   "code_license": null,
-  "candidate_designation_status": "OUTCOME_ACCESS_DISABLED",
+  "candidate_designation_status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
   "prospective_candidate_count": 1,
   "active_candidate_count": 0,
   "prospective_candidate_artifacts": [
@@ -31,7 +31,7 @@
   "next_protocol": {
     "designation": "GSE279451_CANDIDATE_DESIGNATION.json",
     "designation_sha256": "4143b6632f1b0e9bc1cae05cd9b876d70c534914fb4a1a0f35a23f04957a0b72",
-    "status": "OUTCOME_ACCESS_DISABLED",
+    "status": "SEALED_OUTCOME_ACCESS_DISABLED",
     "development_physical_donors": 19,
     "held_physical_donors": 21,
     "primary_cells_per_donor": 1024,
@@ -128,8 +128,8 @@
     {
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
       "source_path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "38d60f080470fc05f4cfcd7c6c2d2e4e0200a28a85aed818656e787056caaf66",
-      "bytes": 20175,
+      "sha256": "c44c51581b8b4832db48fc783125f40ed414e90b6ae75bc79afc18966ff5ee3a",
+      "bytes": 20360,
       "role": "claim-evidence ledger"
     },
     {
@@ -735,6 +735,13 @@
       "role": "prospective GSE279451 held-donor protocol"
     },
     {
+      "path": "docs/GSE279451_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+      "source_path": "docs/GSE279451_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+      "sha256": "f935a4e2405d2f2ff0620a0e7f41da8899a6502f4b07889d47570cdac5ce9bbe",
+      "bytes": 2265,
+      "role": "fresh-clone verification of the outcome-disabled GSE279451 freeze"
+    },
+    {
       "path": "data/development/gse279451_sepsis/metadata_preflight_v1.json",
       "source_path": "data/development/gse279451_sepsis/metadata_preflight_v1.json",
       "sha256": "545d448621142a77274dce1385ae196a02c88adac560e6b460642747abbea5ee",
@@ -967,7 +974,6 @@
     }
   ],
   "release_blockers": [
-    "immutable terminal-result release tag or equivalent commit-addressed release",
     "author-approved code license",
     "derived-data redistribution review"
   ],
