@@ -1,0 +1,72 @@
+{
+  "schema": "combat-citeseq-public-freeze-verification/1.0",
+  "status": "PASS",
+  "fresh_clone": true,
+  "origin": "https://github.com/sushaan-k/coupling-fields-benchmark.git",
+  "immutable_tag": "combat-citeseq-v1-protocol",
+  "verified_commit": "240bded6e9980414c6dd37e28a061605c68a6822",
+  "designation_sha256": "383a32f72431f292115a7ac5af24e2ae8c512f3d41d397109581da49a0f78595",
+  "protocol_sha256": "2aafce7be9700b0d53c9047e14ba55bb4e99c001bdf6b1918cf5c0e3d36dcc7c",
+  "artifact_bindings": {
+    "classical_residuals": {
+      "path": "mapreg/classical_residuals.py",
+      "sha256": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0"
+    },
+    "coupling_fields": {
+      "path": "mapreg/coupling_fields.py",
+      "sha256": "06edd27c9cc52bcee1da1fc4a7a8fd86586d6263f9b32b2c6b0c5d16b0f01dc1"
+    },
+    "designation": {
+      "path": "data/confirmation/combat_citeseq/candidate_designation_v1.json",
+      "sha256": "383a32f72431f292115a7ac5af24e2ae8c512f3d41d397109581da49a0f78595"
+    },
+    "gse279451_evaluator": {
+      "path": "experiments/evaluate_gse279451_sepsis_development.py",
+      "sha256": "fb4d793a0df2cb5073423d27d5953992232c17a64a8adfdef3b26a105a0c7994"
+    },
+    "gse279451_reducer": {
+      "path": "experiments/reduce_gse279451_sepsis.py",
+      "sha256": "923d44d7374de8b56a1d241a73819101e0b6b5171ee01bc1dc8a71ddafeb3ac1"
+    },
+    "heterogeneity_adaptive_coupling": {
+      "path": "mapreg/heterogeneity_adaptive_coupling.py",
+      "sha256": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e"
+    },
+    "hierarchical_conditional_coupling": {
+      "path": "mapreg/hierarchical_conditional_coupling.py",
+      "sha256": "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d"
+    },
+    "metadata_preflight_result": {
+      "path": "results/development/combat_citeseq_metadata_preflight.json",
+      "sha256": "197853efd67c94188ac37265b7fd4fbb9ee2638b2389ae339a133df135c4b52f"
+    },
+    "metadata_preflight_script": {
+      "path": "experiments/preflight_combat_citeseq.py",
+      "sha256": "cf803a9baf23d65490cef5a7ee628781ad3a092bde0ec950e7ea7946d99c7509"
+    },
+    "protocol": {
+      "path": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "sha256": "2aafce7be9700b0d53c9047e14ba55bb4e99c001bdf6b1918cf5c0e3d36dcc7c"
+    },
+    "runner": {
+      "path": "experiments/confirm_combat_citeseq.py",
+      "sha256": "e5db3c56c8e83be73ce2f763372d22d068b9d8e07648bf4084ff585686e3fe85"
+    },
+    "runner_test": {
+      "path": "tests/test_combat_citeseq_confirmation.py",
+      "sha256": "c3a51efed89956ed7db2b6f57ee35c0f331703050795347909371e00e06372ad"
+    },
+    "source_manifest": {
+      "path": "data/confirmation/combat_citeseq/source_manifest_v1.json",
+      "sha256": "15ac994a868092060aa4bd36874161daa3d7e22d7fc5b4f56d10511f907422b4"
+    },
+    "table_prediction": {
+      "path": "mapreg/table_prediction.py",
+      "sha256": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e"
+    }
+  },
+  "source_h5ad_sha256": "f628a15f25b9ca2f7cdefeab271fd9d007c8d5e47eb80c4b807d5f65e86ff53d",
+  "composition_csv_sha256": "2ad7e92ab122ee52986d5748dbb23c335c02ec1f1f244943ce46fff94c585157",
+  "matrix_payload_reads": 0,
+  "all_bound_artifacts_match": true
+}
