@@ -3,7 +3,7 @@
 **Prospective status (2026-08-28):** designated with outcome access disabled.
 No RNA or ADT matrix value may be decoded until the protocol, source manifest,
 runner, tests, and imported numerical modules are present at the immutable
-public tag `stephenson-citeseq-v1-protocol`, independently fetched from the
+public tag `stephenson-citeseq-v1.1-protocol`, independently fetched from the
 public repository, and covered by a separately committed authorization.
 
 ## Question and source
