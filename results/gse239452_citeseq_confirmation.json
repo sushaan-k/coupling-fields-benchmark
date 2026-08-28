@@ -1,0 +1,260 @@
+{
+  "access_audit": {
+    "held_adt_samples_read": 9,
+    "held_gex_samples_read": 9,
+    "held_pairings_formed": 9,
+    "held_truth_tables_formed": 9,
+    "held_truth_tables_serialized": false
+  },
+  "created_at_utc": "2026-08-28T21:24:44Z",
+  "graph_vs_zero_is_diagnostic_only": true,
+  "held_donors": [
+    "OB7-CTRL",
+    "705385-SEV",
+    "803763-ASX",
+    "324058-ASX",
+    "644394-CTRL",
+    "915348-SEV",
+    "729106-CTRL",
+    "105199-ASX",
+    "101607-SEV"
+  ],
+  "held_gate": {
+    "comparisons": {
+      "best_residual": {
+        "bootstrap_unit": "physical donor",
+        "comparator_mean_loss": 0.014553776055316279,
+        "donor_differences_primary_minus_comparator": {
+          "101607-SEV": -0.005000659409678723,
+          "105199-ASX": -0.005215399831032701,
+          "324058-ASX": -0.010077844991068148,
+          "644394-CTRL": -0.008692949506761775,
+          "705385-SEV": -0.003576572575163416,
+          "729106-CTRL": -0.006427231835372689,
+          "803763-ASX": -0.008269800592313251,
+          "915348-SEV": -0.0035411985241339504,
+          "OB7-CTRL": -0.003625041790996585
+        },
+        "favorable_donors": 9,
+        "paired_bootstrap_95_ci": [
+          -0.007617797838644096,
+          -0.004603707772284061
+        ],
+        "paired_bootstrap_draws": 20000,
+        "paired_bootstrap_seed": 20260828,
+        "passes": {
+          "favorable_donor_count_reached": true,
+          "paired_bootstrap_upper_95_below_zero": true,
+          "relative_deviance_reduction_at_least_five_percent": true
+        },
+        "passes_all": true,
+        "primary_mean_loss": 0.008506365049036143,
+        "relative_deviance_reduction": 0.4155217850882834,
+        "required_favorable_donors": 8
+      },
+      "destroyed_link": {
+        "bootstrap_unit": "physical donor",
+        "comparator_mean_loss": 0.04028782097709664,
+        "donor_differences_primary_minus_comparator": {
+          "101607-SEV": -0.028426565300338946,
+          "105199-ASX": -0.029011228838679123,
+          "324058-ASX": -0.042129489675530235,
+          "644394-CTRL": -0.03736315616795329,
+          "705385-SEV": -0.025597864361154125,
+          "729106-CTRL": -0.03379553014968661,
+          "803763-ASX": -0.037245202521036705,
+          "915348-SEV": -0.028302314292679535,
+          "OB7-CTRL": -0.02416175204548589
+        },
+        "favorable_donors": 9,
+        "paired_bootstrap_95_ci": [
+          -0.03566930055361001,
+          -0.02815790030317066
+        ],
+        "paired_bootstrap_draws": 20000,
+        "paired_bootstrap_seed": 20260828,
+        "passes": {
+          "favorable_donor_count_reached": true,
+          "paired_bootstrap_upper_95_below_zero": true,
+          "relative_deviance_reduction_at_least_five_percent": true
+        },
+        "passes_all": true,
+        "primary_mean_loss": 0.008506365049036143,
+        "relative_deviance_reduction": 0.7888601358243734,
+        "required_favorable_donors": 8
+      }
+    },
+    "graph_vs_zero_diagnostic": {
+      "gated": false,
+      "graph_zero_mean_loss": 0.008506365049036143,
+      "primary_mean_loss": 0.008506365049036143,
+      "relative_reduction_vs_graph_zero": 0.0
+    },
+    "passes": true
+  },
+  "held_losses": {
+    "best_residual": {
+      "101607-SEV": 0.008794702021549076,
+      "105199-ASX": 0.011712274840477115,
+      "324058-ASX": 0.022193696319121988,
+      "644394-CTRL": 0.018295860364604562,
+      "705385-SEV": 0.010987147909465074,
+      "729106-CTRL": 0.013166439057703247,
+      "803763-ASX": 0.021686542231800006,
+      "915348-SEV": 0.013195029664875886,
+      "OB7-CTRL": 0.010952292088249568
+    },
+    "destroyed_link": {
+      "101607-SEV": 0.0322206079122093,
+      "105199-ASX": 0.035508103848123536,
+      "324058-ASX": 0.05424534100358407,
+      "644394-CTRL": 0.04696606702579608,
+      "705385-SEV": 0.033008439695455784,
+      "729106-CTRL": 0.04053473737201717,
+      "803763-ASX": 0.050661944160523456,
+      "915348-SEV": 0.03795614543342147,
+      "OB7-CTRL": 0.031489002342738874
+    },
+    "graph_zero_diagnostic": {
+      "101607-SEV": 0.003794042611870353,
+      "105199-ASX": 0.006496875009444414,
+      "324058-ASX": 0.01211585132805384,
+      "644394-CTRL": 0.009602910857842787,
+      "705385-SEV": 0.0074105753343016575,
+      "729106-CTRL": 0.006739207222330558,
+      "803763-ASX": 0.013416741639486755,
+      "915348-SEV": 0.009653831140741935,
+      "OB7-CTRL": 0.007327250297252983
+    },
+    "primary": {
+      "101607-SEV": 0.003794042611870353,
+      "105199-ASX": 0.006496875009444414,
+      "324058-ASX": 0.01211585132805384,
+      "644394-CTRL": 0.009602910857842787,
+      "705385-SEV": 0.0074105753343016575,
+      "729106-CTRL": 0.006739207222330558,
+      "803763-ASX": 0.013416741639486755,
+      "915348-SEV": 0.009653831140741935,
+      "OB7-CTRL": 0.007327250297252983
+    }
+  },
+  "held_predictions_sha256": "37a7eba3b3b514ccb9d80700f039b0442caf1d02c00a0b44d9bcef735328e020",
+  "promotion_comparators": [
+    "best_residual",
+    "destroyed_link"
+  ],
+  "runner_sha256": "a5e0d751973bd0cfe3e437dccbf7afaa61ded250eef8ef68b3bdf8e078e575e6",
+  "samples": [
+    {
+      "donor": "OB7-CTRL",
+      "losses": {
+        "best_residual": 0.010952292088249568,
+        "destroyed_link": 0.031489002342738874,
+        "graph_zero_diagnostic": 0.007327250297252983,
+        "primary": 0.007327250297252983
+      },
+      "selected_barcode_axis_sha256": "fda07a011017e38f3417007dd9e1c00ba5bbc6a688ce9158b6740092bd680c6a",
+      "severity": "Control",
+      "truth_table_sha256": "edae98995fe4590407612b2c5cc3edae81c5172dbeb81a8750d24cc835159b42"
+    },
+    {
+      "donor": "705385-SEV",
+      "losses": {
+        "best_residual": 0.010987147909465074,
+        "destroyed_link": 0.033008439695455784,
+        "graph_zero_diagnostic": 0.0074105753343016575,
+        "primary": 0.0074105753343016575
+      },
+      "selected_barcode_axis_sha256": "f0779c01a307e6c2558c34c1ad5ef6e823e1209cd12df8f5611c5310da4dc88e",
+      "severity": "Severe",
+      "truth_table_sha256": "42210a9490275080e05257d3524d8aacb029228561904974d1e9fe88eb1756de"
+    },
+    {
+      "donor": "803763-ASX",
+      "losses": {
+        "best_residual": 0.021686542231800006,
+        "destroyed_link": 0.050661944160523456,
+        "graph_zero_diagnostic": 0.013416741639486755,
+        "primary": 0.013416741639486755
+      },
+      "selected_barcode_axis_sha256": "c0014c37aba16c5aa8e20c52a2bc00cc9c12532dfc4f90abcdb90a82a0fefffc",
+      "severity": "Asymptomatic",
+      "truth_table_sha256": "d3353c1294373fdd708ccee5e582d74edfa4bf295387e319fb909fb0b7bf1644"
+    },
+    {
+      "donor": "324058-ASX",
+      "losses": {
+        "best_residual": 0.022193696319121988,
+        "destroyed_link": 0.05424534100358407,
+        "graph_zero_diagnostic": 0.01211585132805384,
+        "primary": 0.01211585132805384
+      },
+      "selected_barcode_axis_sha256": "6d822a5bf8b24ce72fb0d033ba8af594a7da4ed49d57dcc9f48522f8e66bd9fe",
+      "severity": "Asymptomatic",
+      "truth_table_sha256": "a42f4296a71c119028b2cdd6c1974bd7f385f70ae9d5c3cd20e9cd77dcbf8333"
+    },
+    {
+      "donor": "644394-CTRL",
+      "losses": {
+        "best_residual": 0.018295860364604562,
+        "destroyed_link": 0.04696606702579608,
+        "graph_zero_diagnostic": 0.009602910857842787,
+        "primary": 0.009602910857842787
+      },
+      "selected_barcode_axis_sha256": "5ff27aa423dac1e337e835741f4cd535e2c3e42adf21e2040ba4034786495bbb",
+      "severity": "Control",
+      "truth_table_sha256": "3dec60e61bff61510019b9441c0db5548b4120dd765562ca1e550b42ff3a8697"
+    },
+    {
+      "donor": "915348-SEV",
+      "losses": {
+        "best_residual": 0.013195029664875886,
+        "destroyed_link": 0.03795614543342147,
+        "graph_zero_diagnostic": 0.009653831140741935,
+        "primary": 0.009653831140741935
+      },
+      "selected_barcode_axis_sha256": "8a7c848e6ce5f753ac75d5839d07b145d2536f655ae312f79a529869ece097ab",
+      "severity": "Severe",
+      "truth_table_sha256": "fbd990f8a221510a7ee8d66b38e9afb7db8538e825e4587567599200e4b775f2"
+    },
+    {
+      "donor": "729106-CTRL",
+      "losses": {
+        "best_residual": 0.013166439057703247,
+        "destroyed_link": 0.04053473737201717,
+        "graph_zero_diagnostic": 0.006739207222330558,
+        "primary": 0.006739207222330558
+      },
+      "selected_barcode_axis_sha256": "2514dcc15969ac605492a39be9129bf00db94aae83754eaa5c0e9815898e6d6a",
+      "severity": "Control",
+      "truth_table_sha256": "d5d5eb4670a9528765a5a699c59f51e10bb273c54bae4cf1f7827a76b0db8d3a"
+    },
+    {
+      "donor": "105199-ASX",
+      "losses": {
+        "best_residual": 0.011712274840477115,
+        "destroyed_link": 0.035508103848123536,
+        "graph_zero_diagnostic": 0.006496875009444414,
+        "primary": 0.006496875009444414
+      },
+      "selected_barcode_axis_sha256": "01848532a5475ac7933e7bb998a5b17be00bd29ea4c420c441b02f753b1bdd7d",
+      "severity": "Asymptomatic",
+      "truth_table_sha256": "da2cad0b5227965fe0b424db20324026233305bac0bec1ab9273eafb223bdd9f"
+    },
+    {
+      "donor": "101607-SEV",
+      "losses": {
+        "best_residual": 0.008794702021549076,
+        "destroyed_link": 0.0322206079122093,
+        "graph_zero_diagnostic": 0.003794042611870353,
+        "primary": 0.003794042611870353
+      },
+      "selected_barcode_axis_sha256": "3cfeda31fc8a5580d57f3661525001b571e4d44115eb7dc7b8d18d0af66e6826",
+      "severity": "Severe",
+      "truth_table_sha256": "e598f2ce173a09b140bc60db08583594268695da31da5eb76eac0799ebdfd2fc"
+    }
+  ],
+  "schema": "gse239452-held-confirmation/1.0",
+  "score_authorization_sha256": "f738b1d205d4469fdd401ec4e66cd1de931b2d7ec1707106697182a2ba625f00",
+  "status": "HELD_PASS"
+}

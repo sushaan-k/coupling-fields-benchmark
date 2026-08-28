@@ -1,0 +1,9 @@
+{
+  "authorization_sha256": "f738b1d205d4469fdd401ec4e66cd1de931b2d7ec1707106697182a2ba625f00",
+  "created_at_utc": "2026-08-28T21:24:37Z",
+  "held_adt_numeric_access_begins_after_this_record": true,
+  "held_predictions_sha256": "37a7eba3b3b514ccb9d80700f039b0442caf1d02c00a0b44d9bcef735328e020",
+  "public_authorization_commit": "557c9c8456a809caf430e7a18b3c7a389f3af816",
+  "schema": "gse239452-score-attempt/1.0",
+  "status": "TERMINAL_ATTEMPT_STARTED"
+}
