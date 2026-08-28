@@ -3,7 +3,7 @@
 This repository is a public, source-visible benchmark for
 perturbation-specific dependence in linked single-cell assays. It preserves
 positive, negative, and refused panels under one fixed evaluation contract.
-It contains seven scored public-data panels and five transparent procedural
+It contains seven scored public-data panels and six transparent procedural
 refusals. PoKI-seq stopped at its state-occupancy preflight, Lawlor stopped when
 the frozen reducer rejected the deposited ADT object type, and Hao stopped when
 fewer than 12 markers passed its frozen marginal-support rule. None of those
@@ -16,11 +16,13 @@ The BMMC candidate ended in a terminal numerical development refusal after
 three recorded attempts. It produced no prediction or held score and cannot be
 revived. Its freeze-era runner is retained under `experiments/historical/`,
 while the terminal-attempt runner, evaluator, and exact test occupy their
-current public paths and match the hashes recorded by attempt 3. GSE279451 is
-the next and only outcome-disabled candidate: its public
-analysis plan, 19/21 physical-donor split, metadata/feature-axis preflight,
-1,024-cell budget, estimator, controls, gates, acquisition/reducer/evaluator,
-and one-shot scorer are checksum-bound here before any count acquisition.
+current public paths and match the hashes recorded by attempt 3. The subsequent
+GSE279451 candidate was frozen publicly before count access. Its 19 development
+donors were reduced under the fixed 1,024-cell budget, but the terminal
+development evaluation could not instantiate either prespecified common-effect
+control. The evaluator therefore refused without writing a development result.
+No prediction or held score was formed, all 21 held-donor matrix members
+remained unopened, and the candidate cannot be rerun.
 
 The method represents each finite joint table by its double-centered
 log-linear interaction, centers finite-sample estimates with fixed-margin
@@ -35,7 +37,7 @@ The seven scored panels and earlier procedural refusals retain their exact
 historical estimator at `mapreg/historical/coupling_fields_29a3875.py`. The
 current `mapreg/coupling_fields.py` contains the deterministic einsum update
 and is separately bound, with the hierarchical estimator and its transitive
-dependencies, by the outcome-disabled GSE279451 plan. Historical result hashes
+dependencies, by the terminal GSE279451 attempt. Historical result hashes
 have not been relabeled as if they were produced by the current implementation.
 
 ## Verify the snapshot
@@ -93,19 +95,25 @@ stream for integrity verification; its HDF5 count dataset was never opened.
 No held RNA-ADT pairing, joint table, prediction, score, or performance
 estimate was formed, and the candidate was not rerun.
 
-## Next held-donor protocol
+## GSE279451 held-donor protocol
 
-`GSE279451_CANDIDATE_DESIGNATION.json` prospectively fixes a donor-disjoint
+`GSE279451_CANDIDATE_DESIGNATION.json` fixed a donor-disjoint
 RNA--ADT confirmation in the GSE279451 adult sepsis CITE-seq data. It reserves
 19 development and 21 held physical donors, fixes nine markers and 81 ordered
 pairs, and compares the hierarchical exact conditional estimator directly with
 the strongest matched Pearson or Poisson-deviance residual transfer and strong
 controls. The outcome-disabled plan was verified from a fresh clone at commit
-`f63c9dc760a85a1361ce75e13036eb23262b1bc7` before count access. The active
-source manifest, development acquisition/evaluation attempts or refusals,
-reduced development artifact, prediction, authorization, score attempt, and
-held result did not exist at that freeze. BMMC is terminally closed and cannot
-be revived.
+`f63c9dc760a85a1361ce75e13036eb23262b1bc7` before count access. One authorized
+development acquisition decoded 19 development matrices and no held matrix.
+The terminal evaluation then refused because `common_effect_graph` and
+`common_effect_ridge_only` were unavailable across the declared candidate
+family. The frozen gate consequently produced no comparison decision against
+the classical residual transfer. The refusal is recorded in
+`results/development/gse279451_sepsis_evaluation_refusal.json`, SHA-256
+`af6d1f26eb7ea3f566612e167843bd51c03cf961a595b434e55ae7ca4d20496b`.
+No prediction, authorization, held pairing, or held score exists; no held matrix
+member was opened, and `rerun_permitted` is false. BMMC is likewise terminally
+closed and cannot be revived.
 
 PoKI-seq is not a third scoreable candidate. Its frozen execution stopped at
 the state-occupancy support gate before a prediction or score was written.
@@ -141,10 +149,11 @@ input hashes, official source URLs, and derivation script are supplied in
 - `data/`: source manifests and metadata-only eligibility records.
 - `tests/`: integrity, estimator, comparator, and pairing-seal tests.
 
-The GSE279451 outcome-disabled analysis plan is published at
+The prospectively frozen GSE279451 analysis plan is published at
 `https://github.com/sushaan-k/coupling-fields-benchmark` under tag
 `gse279451-sepsis-v1-protocol`; the verification record is
-`docs/GSE279451_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json`. The prior Kotliarov
+`docs/GSE279451_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json`, and the later
+terminal development refusal is retained under `results/development/`. The prior Kotliarov
 freeze remains under tag `confirmatory-family-v3`. The repository has no
 archive DOI and grants no code license. It must not be called open source,
 DOI-archived, or registry-hosted preregistration. Upstream datasets and model

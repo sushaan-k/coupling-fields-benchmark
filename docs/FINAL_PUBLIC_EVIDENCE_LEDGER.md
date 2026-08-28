@@ -35,15 +35,19 @@ dataset was never opened. No held RNA-ADT pairing, joint table, prediction,
 score, or performance estimate was formed, and the candidate was not rerun.
 The subsequent BMMC candidate ended in a terminal numerical development
 refusal after three recorded attempts; no prediction or held score was formed,
-and all six held-donor count slices remained unopened. The current GSE279451
-plan fixes 19 development and 21 held physical donors, nine RNA--ADT markers,
+and all six held-donor count slices remained unopened. The subsequent GSE279451
+plan fixed 19 development and 21 held physical donors, nine RNA--ADT markers,
 81 ordered interactions, a donor-level gate, and a direct comparison with the
 strongest matched signed Pearson or Poisson-deviance residual transfer. It is
-outcome-disabled in this snapshot: no count acquisition, source manifest,
-development attempt, reduced table, prediction, authorization, or score exists.
-The plan was verified from a fresh clone at commit
+now terminal. The plan was verified from a fresh clone at commit
 `f63c9dc760a85a1361ce75e13036eb23262b1bc7` and is published under tag
-`gse279451-sepsis-v1-protocol` before development count access.
+`gse279451-sepsis-v1-protocol` before development count access. One authorized
+attempt then acquired and reduced the 19 development matrices. The terminal
+evaluation refused because `common_effect_graph` and
+`common_effect_ridge_only` were unavailable, so the complete gate and its
+classical-residual comparison produced no decision. No prediction,
+authorization, held pairing, or held score was formed. All 21 held-donor matrix
+members remained unopened, and the candidate was not rerun.
 
 The defensible methods-paper claim is therefore narrower than state-of-the-art
 prediction: the framework separates pairing-dependent structure from marginal
@@ -67,7 +71,7 @@ reproduce across public paired assays.
 | Hao GSE164378 | Four development donors; three held donors | Predeclared aliases | Not scored; fewer than 12 markers passed frozen marginal support | Not evaluated | Not reached | **REFUSE support** |
 | Kotliarov PBMC | Ten batch-1 development donors; nine disjoint batch-2 held donors | 71 predeclared cognate markers | Not scored; fewer than four prespecified RNA-only lineages met the frozen 50-cell minimum in all 19 donors | Full Pearson and signed-deviance residual transfer not reached | Not reached | **REFUSE support** |
 | NeurIPS 2021 BMMC CITE-seq | Two fit donors, one development donor, six held donors | 100 ordered RNA--ADT pairs | Not scored; exact conditional optimizer failed the final common-effect development refit after the frozen numerical-equivalence retry | Strongest signed Pearson or Poisson-deviance residual transfer not reached | Held pairing not opened | **REFUSE numerical development** |
-| GSE279451 adult sepsis CITE-seq | Nineteen development donors; 21 held donors | 81 ordered RNA--ADT pairs | Outcome access disabled; no count matrix or prediction exists | Strongest raw or exact-null-centered signed Pearson or Poisson-deviance residual transfer prespecified | Held pairing sealed | **PROSPECTIVE PLAN** |
+| GSE279451 adult sepsis CITE-seq | Nineteen development donors; 21 held donors | 81 ordered RNA--ADT pairs | Not scored; terminal evaluation refusal after development reduction because both common-effect control families were unavailable | Prespecified raw or exact-null-centered signed Pearson or Poisson-deviance residual transfer; no comparison decision produced | All 21 held matrices unopened | **REFUSE development evaluation** |
 
 Metric intervals for the first five predictive panels and Arce resample
 targets. ReSisTrace intervals resample barcode-defined lineages conditional on
@@ -87,7 +91,7 @@ exact values and provenance fields are in the TSV.
 | The structured primary improves matched baselines. | The predeclared three-panel gate records 0 wins; MultiPerturb and PerturbFate also fail. | **REFUSE** | The structural estimator is a fixed denoiser evaluated beside simpler baselines, not a superior predictor. |
 | The scGPT hypergraph contributes specific biological information. | The shuffled graph matches or exceeds the primary in PerturbSci and PerturbFate; no positive panel isolates a graph-specific gain. | **REFUSE** | scGPT supplies a frozen structural prior; its specific benefit was not established. |
 | Guide/observation-error correction is validated on public data. | `fit_factorial_coupling` is tested and stress-tested synthetically, but the completed public scripts use conditional empirical tables, not the guide-aware likelihood. | **REFUSE real-data claim** | Guide-aware identification and refusal are implemented and assessed in simulation. |
-| The public benchmark establishes a positive held biological replicate. | ReSisTrace refuses treatment-contrast replication. Arce donor B has positive correlation, but the fixed primary has RMSE 1.093 versus 0.993 for linear cross-covariance; primary-minus-covariance target MSE is 0.199 [0.038, 0.352], and its primary-minus-destroyed interval includes zero. PoKI-seq, Lawlor, Hao, Kotliarov, and BMMC stopped before held scoring. GSE279451 remains outcome-disabled. | **REFUSE** | No completed panel supplies a positive held biological-replicate result under its full decision gate. |
+| The public benchmark establishes a positive held biological replicate. | ReSisTrace refuses treatment-contrast replication. Arce donor B has positive correlation, but the fixed primary has RMSE 1.093 versus 0.993 for linear cross-covariance; primary-minus-covariance target MSE is 0.199 [0.038, 0.352], and its primary-minus-destroyed interval includes zero. PoKI-seq, Lawlor, Hao, Kotliarov, BMMC, and GSE279451 stopped before held scoring. | **REFUSE** | No completed panel supplies a positive held biological-replicate result under its full decision gate. |
 | Corrected pathway/complex recovery validates the primary. | The strict PerturbSci rerun required high field norm in every held truth and prediction and exclusion under matched destroyed links. It selected no target; no Reactome or CORUM module could pass. | **REFUSE as confirmatory biology** | The earlier averaged-unit enrichments are exploratory; the strict replicated module analysis was negative. |
 | Predicted local neighborhoods recover biological relations. | Mean top-5 neighbor recovery was 0.064 [0.050, 0.079] versus 0.051 [0.041, 0.063] after link destruction; the difference interval included zero and the random-label permutation p-value was 0.283. Reactome edge enrichment refused. CORUM was nominal against random, p=0.0269, but not significant after family correction, q=0.0538. | **REFUSE** | No corrected local-neighborhood claim survives the predeclared controls. |
 | The method is state of the art for perturbation prediction. | No completed comparison establishes this, and the task is association-field reproducibility rather than standard unseen-perturbation response prediction. | **REFUSE** | Do not make a state-of-the-art or direct-superiority claim. |
@@ -111,13 +115,14 @@ effective arm support, expected joint-cell support, impossible categories, and
 optimization convergence. This likelihood is not invoked by the completed
 public benchmark scripts and must not be presented as their estimator.
 
-The prospective GSE279451 estimator is
+The GSE279451 estimator is
 `mapreg/hierarchical_conditional_coupling.py`. It fits donor-varying 2-by-2
 log-odds by exact fixed-margin conditional likelihood and regularizes the 81
 RNA--ADT interactions over marginal-only marker graphs. Its development and
 held contracts require a direct win over the strongest matched classical
-residual transfer; this interface is frozen but has not yet produced an
-empirical result.
+residual transfer. The terminal development evaluator could not instantiate
+the two common-effect control families required by the full gate, so it refused
+without a result or comparator decision.
 
 ## Synthetic and sensitivity evidence
 
@@ -167,7 +172,7 @@ met the replicated reporting rule. All three secondary decisions are
 
 ## Provenance and consistency
 
-Result artifact hashes at this snapshot:
+Result and terminal-attempt artifact hashes at this snapshot:
 
 | Artifact | SHA-256 |
 |---|---|
@@ -181,6 +186,11 @@ Result artifact hashes at this snapshot:
 | `results/gse143417_pokiseq_preflight_refusal.json` | `24f7ad70fbbfd4e7482809db58bd94d1156c1e22c2dd94fa77d66b1d6acdcf24` |
 | `results/kotliarov_pbmc_public_refusal.json` | `34d59fcbdcceeefb449a430bca7a0f502611d343a2ebd19fc44a7f5fd26a1324` |
 | `results/development/scmmib_bmmc_exact_development_attempt_3_terminal_refusal.json` | `caf920719694487ba228dc64ac14ed4a6579619349f496f7154372920f3e128c` |
+| `data/confirmation/gse279451_sepsis/source_manifest_v1.json` | `c15fdc13c68cff14c45cfc16153cdbc309f6c2252457634fda8abdca677e4603` |
+| `data/development/gse279451_sepsis/development_attempt_v1.json` | `b8d7e745997e7b7ccd9a3bc8a7a7c3c7670b9e47c8b5d51e3d12fb70a5a8938d` |
+| `data/development/gse279451_sepsis/evaluation_attempt_v1.json` | `a072d3340388afa60a33ef220b06e9e8d920a590d6b6894f66f02b999e1ef5a3` |
+| `data/development/gse279451_sepsis/reduced_development_v1.json` | `2fab0353c44d65f6cf3d58ca19a214967c94fdccaeda89ed56c7398fb8f4185b` |
+| `results/development/gse279451_sepsis_evaluation_refusal.json` | `af6d1f26eb7ea3f566612e167843bd51c03cf961a595b434e55ae7ca4d20496b` |
 
 The structured consistency check parsed every audited JSON with non-finite JSON
 constants rejected; verified embedded hashes for the v4 runner, estimator, and
@@ -226,8 +236,7 @@ Lead with the estimand, fixed-margin correction, linked-assay input contract,
 and transparent refusal. Present PerturbSci as the positive held-guide result
 and ReSisTrace as positive arm-level linkage but negative treatment replication.
 Keep every RNA-protein/RNA-ATAC/PerturbFate refusal, including the terminal
-BMMC development refusal, in the main benchmark table. Treat GSE279451 as a
-prospective plan until its frozen sequence yields a terminal artifact.
+BMMC and GSE279451 development refusals, in the main benchmark table.
 Do not claim structural-prior superiority, confirmatory pathway recovery,
 local-neighborhood recovery, real-data validation of guide-error correction,
 positive biological replication, or state-of-the-art perturbation prediction

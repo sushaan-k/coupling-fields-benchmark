@@ -181,7 +181,7 @@ def test_bmmc_protocol_snapshot_is_terminal_and_donor_disjoint():
     )
 
 
-def test_gse279451_public_plan_is_outcome_disabled_and_aliases_match():
+def test_gse279451_public_plan_is_frozen_and_terminal_refusal_is_complete():
     designation_path = (
         ROOT / "data/confirmation/gse279451_sepsis/candidate_designation_v1.json"
     )
@@ -201,18 +201,33 @@ def test_gse279451_public_plan_is_outcome_disabled_and_aliases_match():
     assert (
         ROOT / "GSE279451_SCORE_AUTHORIZATION_TEMPLATE.json"
     ).read_bytes() == authorization_path.read_bytes()
-    forbidden = [
+    terminal = {
         ROOT / "data/confirmation/gse279451_sepsis/source_manifest_v1.json",
         ROOT / "data/development/gse279451_sepsis/reduced_development_v1.json",
         ROOT / "data/development/gse279451_sepsis/development_attempt_v1.json",
         ROOT / "data/development/gse279451_sepsis/evaluation_attempt_v1.json",
+        ROOT / "results/development/gse279451_sepsis_evaluation_refusal.json",
+    }
+    assert all(path.is_file() for path in terminal)
+    refusal = _load(
+        ROOT / "results/development/gse279451_sepsis_evaluation_refusal.json"
+    )
+    assert refusal["status"] == "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL"
+    assert refusal["evaluation_detail"]["unavailable_candidate_families"] == [
+        "common_effect_graph",
+        "common_effect_ridge_only",
+    ]
+    assert refusal["held_matrix_members_opened"] == 0
+    assert refusal["rerun_permitted"] is False
+    forbidden = [
         ROOT
         / "results/development/gse279451_sepsis_development_acquisition_refusal.json",
-        ROOT / "results/development/gse279451_sepsis_evaluation_refusal.json",
         ROOT / "results/development/gse279451_sepsis_exact_development.json",
         ROOT / "results/gse279451_sepsis_exact_predictions.json",
+        ROOT / "data/confirmation/gse279451_sepsis/score_authorization_v1.json",
         ROOT / "data/confirmation/gse279451_sepsis/score_attempt_v1.json",
         ROOT / "results/gse279451_sepsis_exact_confirmation.json",
+        ROOT / "results/gse279451_sepsis_exact_score_refusal.json",
     ]
     assert not any(path.exists() for path in forbidden)
 
@@ -252,7 +267,9 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
     }
     runner_by_panel = {
         "NeurIPS 2021 BMMC CITE-seq": "experiments/confirm_scmmib_bmmc.py",
-        "GSE279451 adult sepsis CITE-seq": ("experiments/confirm_gse279451_sepsis.py"),
+        "GSE279451 adult sepsis CITE-seq": (
+            "experiments/evaluate_gse279451_sepsis_development.py"
+        ),
         "PerturbSci-Kinetics": "experiments/benchmark_public_coupling_fields.py",
         "Frangieh Perturb-CITE-seq": "experiments/benchmark_public_coupling_fields.py",
         "Papalexi ECCITE-seq": "experiments/benchmark_public_coupling_fields.py",

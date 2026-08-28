@@ -1,0 +1,31 @@
+{
+  "artifact_bindings": {
+    "acquisition_sha256": "03b2ceeeb764fd163e3342e76d3444999d52af0817a3cdad5bd013594178fafa",
+    "candidate_designation_sha256": "4143b6632f1b0e9bc1cae05cd9b876d70c534914fb4a1a0f35a23f04957a0b72",
+    "classical_residuals_sha256": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
+    "classical_residuals_tests_sha256": "76e532a90a7c393ca95837fdd9ebbee8988b278b27c5aa027326abb936bca218",
+    "coupling_fields_sha256": "06edd27c9cc52bcee1da1fc4a7a8fd86586d6263f9b32b2c6b0c5d16b0f01dc1",
+    "coupling_fields_tests_sha256": "79fa3eb735d22a8675fb3ec471f1669c813bc9ba4f7b8ed63ccf029b4b214eb8",
+    "development_evaluator_sha256": "fb4d793a0df2cb5073423d27d5953992232c17a64a8adfdef3b26a105a0c7994",
+    "development_evaluator_tests_sha256": "0627818abc26b2bf39a27aaf46e0e41fbdd3d8a177225bf81232e29027646b43",
+    "family_policy_sha256": "abdad0cf002c653b591c52b419daf86682b138e78693babc262bf8ead7cb4a48",
+    "heterogeneity_estimator_sha256": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e",
+    "heterogeneity_estimator_tests_sha256": "207bc2a10ff0a7c31b7b36122d8754c0014584174f305d7dc7a4170577768eca",
+    "hierarchical_estimator_sha256": "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d",
+    "hierarchical_estimator_tests_sha256": "2219d4e141b8183392080031722cee861c99f9237c177f2158e5de4dc8c79b5c",
+    "metadata_preflight_sha256": "545d448621142a77274dce1385ae196a02c88adac560e6b460642747abbea5ee",
+    "protocol_sha256": "bbcbd1dbbdc62a0cf31acb22611812b440ba1f55d35bb859525a77d59d2d19e1",
+    "reducer_sha256": "923d44d7374de8b56a1d241a73819101e0b6b5171ee01bc1dc8a71ddafeb3ac1",
+    "runner_sha256": "9b50950f07b78b73857f07c8f9d11e0191f00580c24cb723c59e116749d08d5d",
+    "source_template_sha256": "71b9b6ffb0a97b1dcd50ba0ea48b34633f2535aec67fa45ba0c730d0fc0d3e6c",
+    "table_prediction_sha256": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e",
+    "table_prediction_tests_sha256": "bf34b51291516246e803a6df6c166c959fa083fd47d3bf115ef35b5bd0b305a4",
+    "tests_sha256": "0ee9a6aa35b644cc351c2b8da104180dd23c2e80d9fc432c966aa56f5591efb7"
+  },
+  "axis_members_sha256": "84cb93ab39048fc1531c5e678e55f43073fcc9e8e74b785db64845f559435a93",
+  "first_development_matrix_acquisition_starts_after_this_write": true,
+  "held_matrix_members_acquired": 0,
+  "schema": "gse279451-sepsis-development-attempt/1.0",
+  "source_template_sha256": "71b9b6ffb0a97b1dcd50ba0ea48b34633f2535aec67fa45ba0c730d0fc0d3e6c",
+  "status": "TERMINAL_DEVELOPMENT_ATTEMPT_STARTED"
+}

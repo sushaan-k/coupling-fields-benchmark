@@ -1,15 +1,15 @@
 {
   "schema": "coupling-fields-public-benchmark/1.0",
   "release_name": "coupling-fields-v1",
-  "assembled_at_utc": "2026-08-28T12:30:31Z",
-  "status": "PUBLIC_GSE279451_PROTOCOL_FROZEN_OUTCOME_ACCESS_DISABLED",
+  "assembled_at_utc": "2026-08-28T13:56:23Z",
+  "status": "PUBLIC_GSE279451_TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
   "public_freeze_commit": "f63c9dc760a85a1361ce75e13036eb23262b1bc7",
   "immutable_release_tag": "gse279451-sepsis-v1-protocol",
   "archive_doi": null,
   "code_license": null,
-  "candidate_designation_status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
-  "prospective_candidate_count": 1,
+  "candidate_designation_status": "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
+  "prospective_candidate_count": 0,
   "active_candidate_count": 0,
   "prospective_candidate_artifacts": [
     {
@@ -26,19 +26,31 @@
     }
   ],
   "completed_public_panels": 7,
-  "procedural_refusal_count": 5,
+  "procedural_refusal_count": 6,
   "kotliarov_outcome_status": "TERMINAL_REFUSAL",
   "next_protocol": {
     "designation": "GSE279451_CANDIDATE_DESIGNATION.json",
     "designation_sha256": "4143b6632f1b0e9bc1cae05cd9b876d70c534914fb4a1a0f35a23f04957a0b72",
-    "status": "SEALED_OUTCOME_ACCESS_DISABLED",
+    "status": "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
     "development_physical_donors": 19,
     "held_physical_donors": 21,
     "primary_cells_per_donor": 1024,
-    "count_acquisition_started": false,
-    "matrix_entries_decoded": false,
+    "count_acquisition_started": true,
+    "matrix_entries_decoded": true,
+    "development_matrix_members_decoded": 19,
+    "held_matrix_members_opened": 0,
     "prediction_written": false,
-    "held_score_attempted": false
+    "held_score_attempted": false,
+    "rerun_permitted": false,
+    "unavailable_candidate_families": [
+      "common_effect_graph",
+      "common_effect_ridge_only"
+    ],
+    "source_manifest_sha256": "c15fdc13c68cff14c45cfc16153cdbc309f6c2252457634fda8abdca677e4603",
+    "development_attempt_sha256": "b8d7e745997e7b7ccd9a3bc8a7a7c3c7670b9e47c8b5d51e3d12fb70a5a8938d",
+    "evaluation_attempt_sha256": "a072d3340388afa60a33ef220b06e9e8d920a590d6b6894f66f02b999e1ef5a3",
+    "reduced_development_sha256": "2fab0353c44d65f6cf3d58ca19a214967c94fdccaeda89ed56c7398fb8f4185b",
+    "evaluation_refusal_sha256": "af6d1f26eb7ea3f566612e167843bd51c03cf961a595b434e55ae7ca4d20496b"
   },
   "artifacts": [
     {
@@ -128,15 +140,15 @@
     {
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
       "source_path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "c44c51581b8b4832db48fc783125f40ed414e90b6ae75bc79afc18966ff5ee3a",
-      "bytes": 20360,
+      "sha256": "5a9cb193e456e38ccc3507d0d0b2eaa1dd89cf783fba57721156d100b5b70743",
+      "bytes": 21455,
       "role": "claim-evidence ledger"
     },
     {
       "path": "results/final_public_benchmark_table.tsv",
       "source_path": "results/final_public_benchmark_table.tsv",
-      "sha256": "121a9c1dc60428aad77791e15e708db23ae4cb483ae880ca12ecf9b77bfe1969",
-      "bytes": 13658,
+      "sha256": "29e55a744aab524f2b2339227be183750d8f10ba2892be14f56702ff813798ad",
+      "bytes": 13806,
       "role": "panel-level benchmark table"
     },
     {
@@ -625,8 +637,8 @@
     {
       "path": "tests/test_public_artifact_integrity.py",
       "source_path": "tests/test_public_artifact_integrity.py",
-      "sha256": "459014d09f6719f859913fc49978797272c1292d82c45fb3d07a899f7d2f2983",
-      "bytes": 27229,
+      "sha256": "80494bf1a47b12184516466cb29936803e80ec19b6ddc5e12e951645575aa71a",
+      "bytes": 27925,
       "role": "artifact integrity tests"
     },
     {
@@ -777,6 +789,41 @@
       "role": "disabled size/hash-bound GSE279451 source template"
     },
     {
+      "path": "data/confirmation/gse279451_sepsis/source_manifest_v1.json",
+      "source_path": "data/confirmation/gse279451_sepsis/source_manifest_v1.json",
+      "sha256": "c15fdc13c68cff14c45cfc16153cdbc309f6c2252457634fda8abdca677e4603",
+      "bytes": 62227,
+      "role": "nonheld-only GSE279451 source manifest"
+    },
+    {
+      "path": "data/development/gse279451_sepsis/development_attempt_v1.json",
+      "source_path": "data/development/gse279451_sepsis/development_attempt_v1.json",
+      "sha256": "b8d7e745997e7b7ccd9a3bc8a7a7c3c7670b9e47c8b5d51e3d12fb70a5a8938d",
+      "bytes": 2553,
+      "role": "terminal GSE279451 development-acquisition attempt"
+    },
+    {
+      "path": "data/development/gse279451_sepsis/evaluation_attempt_v1.json",
+      "source_path": "data/development/gse279451_sepsis/evaluation_attempt_v1.json",
+      "sha256": "a072d3340388afa60a33ef220b06e9e8d920a590d6b6894f66f02b999e1ef5a3",
+      "bytes": 1860,
+      "role": "terminal GSE279451 development-evaluation attempt"
+    },
+    {
+      "path": "data/development/gse279451_sepsis/reduced_development_v1.json",
+      "source_path": "data/development/gse279451_sepsis/reduced_development_v1.json",
+      "sha256": "2fab0353c44d65f6cf3d58ca19a214967c94fdccaeda89ed56c7398fb8f4185b",
+      "bytes": 290833,
+      "role": "nonheld GSE279451 reduced development tables"
+    },
+    {
+      "path": "results/development/gse279451_sepsis_evaluation_refusal.json",
+      "source_path": "results/development/gse279451_sepsis_evaluation_refusal.json",
+      "sha256": "af6d1f26eb7ea3f566612e167843bd51c03cf961a595b434e55ae7ca4d20496b",
+      "bytes": 1846,
+      "role": "terminal GSE279451 development-evaluation refusal"
+    },
+    {
       "path": "experiments/acquire_gse279451_nonheld.py",
       "source_path": "experiments/acquire_gse279451_nonheld.py",
       "sha256": "03b2ceeeb764fd163e3342e76d3444999d52af0817a3cdad5bd013594178fafa",
@@ -807,8 +854,8 @@
     {
       "path": "tests/test_gse279451_sepsis_confirmation.py",
       "source_path": "tests/test_gse279451_sepsis_confirmation.py",
-      "sha256": "0ee9a6aa35b644cc351c2b8da104180dd23c2e80d9fc432c966aa56f5591efb7",
-      "bytes": 35727,
+      "sha256": "412a46b2f6d7792671a03d735d77369a15e30d67e3b3c0f6e87e47e53edcacb2",
+      "bytes": 35901,
       "role": "GSE279451 acquisition runner and poison tests"
     },
     {
@@ -977,5 +1024,6 @@
     "author-approved code license",
     "derived-data redistribution review"
   ],
-  "bmmc_outcome_status": "TERMINAL_NUMERICAL_DEVELOPMENT_REFUSAL"
+  "bmmc_outcome_status": "TERMINAL_NUMERICAL_DEVELOPMENT_REFUSAL",
+  "gse279451_outcome_status": "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL"
 }

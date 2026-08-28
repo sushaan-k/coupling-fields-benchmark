@@ -419,6 +419,8 @@ def test_acquisition_family_and_artifact_checks_precede_network(
     monkeypatch.setattr(acquisition, "ROOT", tmp_path)
     monkeypatch.setattr(acquisition, "OUTPUT", tmp_path / "source.json")
     monkeypatch.setattr(acquisition, "REDUCED_OUTPUT", tmp_path / "reduced.json")
+    monkeypatch.setattr(acquisition, "DEVELOPMENT_ATTEMPT", tmp_path / "attempt.json")
+    monkeypatch.setattr(acquisition, "DEVELOPMENT_REFUSAL", tmp_path / "refusal.json")
     monkeypatch.setattr(acquisition, "EVALUATOR", tmp_path / "missing-evaluator.py")
     monkeypatch.setattr(
         acquisition,

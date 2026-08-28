@@ -1,0 +1,30 @@
+{
+  "development_attempt_sha256": "b8d7e745997e7b7ccd9a3bc8a7a7c3c7670b9e47c8b5d51e3d12fb70a5a8938d",
+  "error_type": "DevelopmentEvaluationRefusal",
+  "evaluation_attempt_sha256": "a072d3340388afa60a33ef220b06e9e8d920a590d6b6894f66f02b999e1ef5a3",
+  "evaluation_detail": {
+    "final_refit_error": null,
+    "unavailable_candidate_families": [
+      "common_effect_graph",
+      "common_effect_ridge_only"
+    ]
+  },
+  "held_matrix_members_opened": 0,
+  "reason": "development evaluation refused after the terminal attempt",
+  "reduced_development_sha256": "2fab0353c44d65f6cf3d58ca19a214967c94fdccaeda89ed56c7398fb8f4185b",
+  "rerun_permitted": false,
+  "schema": "gse279451-sepsis-evaluation-refusal/1.0",
+  "status": "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
+  "transitive_bindings": {
+    "classical_residuals_sha256": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
+    "classical_residuals_tests_sha256": "76e532a90a7c393ca95837fdd9ebbee8988b278b27c5aa027326abb936bca218",
+    "coupling_fields_sha256": "06edd27c9cc52bcee1da1fc4a7a8fd86586d6263f9b32b2c6b0c5d16b0f01dc1",
+    "coupling_fields_tests_sha256": "79fa3eb735d22a8675fb3ec471f1669c813bc9ba4f7b8ed63ccf029b4b214eb8",
+    "heterogeneity_estimator_sha256": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e",
+    "heterogeneity_estimator_tests_sha256": "207bc2a10ff0a7c31b7b36122d8754c0014584174f305d7dc7a4170577768eca",
+    "hierarchical_estimator_sha256": "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d",
+    "hierarchical_estimator_tests_sha256": "2219d4e141b8183392080031722cee861c99f9237c177f2158e5de4dc8c79b5c",
+    "table_prediction_sha256": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e",
+    "table_prediction_tests_sha256": "bf34b51291516246e803a6df6c166c959fa083fd47d3bf115ef35b5bd0b305a4"
+  }
+}
