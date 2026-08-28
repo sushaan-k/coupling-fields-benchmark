@@ -1,0 +1,11 @@
+{
+  "authorization_sha256": "99410c8d655698bb7d2a5a5ad349ec3d623402f25e73f2e8e4c9bbe954494ac6",
+  "created_at_utc": "2026-08-28T20:57:53Z",
+  "development_reduction_and_pilot_fit_are_single_process": true,
+  "held_numeric_values_read": 0,
+  "numeric_development_access_begins_after_this_record": true,
+  "public_authorization_commit": "c084ad8d3c5fec914f17e3b36a21093cf9444628",
+  "schema": "gse239452-development-attempt/1.0",
+  "standalone_pilot_retry_permitted": false,
+  "status": "TERMINAL_ATTEMPT_STARTED"
+}
