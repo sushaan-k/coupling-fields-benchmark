@@ -1,0 +1,64 @@
+{
+  "amended_at_utc": "2026-08-28T23:41:37Z",
+  "equivalence_checks": {
+    "real_development_subset": {
+      "comparisons": {
+        "ADT": {
+          "exactly_equal": true,
+          "features": 24,
+          "file": "GSM9396036_XHLT2-POOL-DB1-SCG1_ADT.h5",
+          "new_sha256": "28e4f804146e8c4990e6a6e179147d48d607e186bdbd50fafccc609281e40e6a",
+          "old_sha256": "28e4f804146e8c4990e6a6e179147d48d607e186bdbd50fafccc609281e40e6a",
+          "shape": [32, 24]
+        },
+        "GEX": {
+          "exactly_equal": true,
+          "features": 24,
+          "file": "GSM9396035_XHLT2-POOL-DB1-SCG1_GEX.h5",
+          "new_sha256": "b1f76c26b8d192d0366b4f283fc028975a4a61abde6f7fadfff0f46bc5e09eae",
+          "old_sha256": "b1f76c26b8d192d0366b4f283fc028975a4a61abde6f7fadfff0f46bc5e09eae",
+          "shape": [32, 24]
+        }
+      },
+      "selected_axis_sha256": "24852e66f88b3446afaf83566c79c9844fe1d62b673db6974f22366dc3a1c232",
+      "selected_cells": 32,
+      "subset_rule": "first 32 lexicographically sorted frozen selected cell IDs in DB1 SCG1",
+      "well": "XHLT2-POOL-DB1-SCG1"
+    },
+    "synthetic_regression": "tests/test_gse314416_citeseq_confirmation.py::test_bulk_sparse_read_matches_column_slice_reference"
+  },
+  "partial_development_access": {
+    "adt_numeric_values_read_by_failed_v1_1_run": 0,
+    "development_file_opened": "GSM9396035_XHLT2-POOL-DB1-SCG1_GEX.h5",
+    "elapsed_before_interrupt": "approximately 20 minutes",
+    "held_adt_h5_files_opened": 0,
+    "held_gex_h5_files_opened": 0,
+    "model_fits_reached": 0,
+    "pilot_statistics_computed": 0,
+    "result_file_written": false,
+    "sparse_arrays": {
+      "barcodes": "complete axis read",
+      "data": "an unlogged prefix of selected-column slices read",
+      "features/id": "complete axis read",
+      "indices": "an unlogged prefix of selected-column slices read",
+      "indptr": "complete array read"
+    },
+    "started_at_utc": "2026-08-28T23:19:36Z"
+  },
+  "prepublication_equivalence_access": {
+    "development_adt": "DB1 SCG1 full sparse arrays plus the frozen 32-cell by 24-feature subset",
+    "development_gex": "DB1 SCG1 full sparse arrays plus the frozen 32-cell by 24-feature subset",
+    "held_adt_h5_files_opened": 0,
+    "held_gex_h5_files_opened": 0
+  },
+  "prior_protocol_commit": "0f8d2eba038662438cd2472a9c4289aea4b50865",
+  "prior_protocol_tag": "gse314416-citeseq-v1.1-protocol",
+  "schema": "gse314416-citeseq-io-amendment/1.2",
+  "scope": {
+    "change": "Read each deposited sparse data and indices array once, then select the same frozen columns and rows in memory.",
+    "estimator_or_gate_changed": false,
+    "feature_panel_changed": false,
+    "numeric_output_changed": false,
+    "split_or_cell_selection_changed": false
+  }
+}

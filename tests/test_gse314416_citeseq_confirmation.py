@@ -111,6 +111,39 @@ def test_10x_reader_uses_requested_feature_and_barcode_order(tmp_path: Path):
     np.testing.assert_array_equal(observed, [[0, 0], [5, 3]])
 
 
+def test_bulk_sparse_read_matches_column_slice_reference(tmp_path: Path):
+    rng = np.random.default_rng(20260828)
+    dense = rng.poisson(0.3, size=(11, 37)).astype(np.int32)
+    dense[rng.random(dense.shape) < 0.7] = 0
+    indices = []
+    data = []
+    indptr = [0]
+    for column in dense.T:
+        nonzero = np.flatnonzero(column)
+        indices.extend(nonzero)
+        data.extend(column[nonzero])
+        indptr.append(len(indices))
+    path = tmp_path / "matrix.h5"
+    barcodes = [f"cell-{index:02d}" for index in range(dense.shape[1])]
+    features = [f"feature-{index:02d}" for index in range(dense.shape[0])]
+    with h5py.File(path, "w") as handle:
+        matrix = handle.create_group("matrix")
+        matrix.create_dataset("barcodes", data=np.asarray(barcodes, dtype="S"))
+        matrix.create_dataset("data", data=np.asarray(data, dtype=np.int32))
+        matrix.create_dataset("indices", data=np.asarray(indices, dtype=np.int32))
+        matrix.create_dataset("indptr", data=np.asarray(indptr, dtype=np.int64))
+        matrix.create_dataset("shape", data=np.asarray(dense.shape, dtype=np.int64))
+        feature_group = matrix.create_group("features")
+        feature_group.create_dataset("id", data=np.asarray(features, dtype="S"))
+    selected_barcodes = [barcodes[index] for index in (31, 4, 19, 0)]
+    selected_features = tuple(features[index] for index in (8, 2, 10, 1))
+    observed = confirmation._read_10x_columns(
+        path, selected_barcodes, selected_features
+    )
+    expected = dense[np.ix_((8, 2, 10, 1), (31, 4, 19, 0))].T
+    np.testing.assert_array_equal(observed, expected)
+
+
 def test_selected_count_reader_preserves_deposited_well_prefixed_barcode(
     tmp_path: Path,
 ):

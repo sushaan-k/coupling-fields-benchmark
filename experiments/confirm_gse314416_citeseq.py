@@ -54,15 +54,18 @@ DEFAULT_SCORE = ROOT / "results/gse314416_citeseq_confirmation.json"
 DEFAULT_SCHEMA_AMENDMENT = (
     ROOT / "results/development/gse314416_citeseq_schema_amendment_v1_1.json"
 )
+DEFAULT_IO_AMENDMENT = (
+    ROOT / "results/development/gse314416_citeseq_io_amendment_v1_2.json"
+)
 DEFAULT_PROTOCOL = (
     ROOT
     / "docs/GSE314416_IMMUNOMICROBIOME_HELD_POOL_CONFIRMATION_PROTOCOL_2026-08-28.md"
 )
 
 PUBLIC_ORIGIN = "https://github.com/sushaan-k/coupling-fields-benchmark.git"
-PROTOCOL_TAG = "gse314416-citeseq-v1.1-protocol"
-DEVELOPMENT_TAG = "gse314416-citeseq-v1.1-development"
-PREDICTION_TAG = "gse314416-citeseq-v1.1-predictions"
+PROTOCOL_TAG = "gse314416-citeseq-v1.2-protocol"
+DEVELOPMENT_TAG = "gse314416-citeseq-v1.2-development"
+PREDICTION_TAG = "gse314416-citeseq-v1.2-predictions"
 
 MARKERS = ("CD4", "CD7", "CD14", "CD19", "CD33", "CD38", "CD44", "CD47", "CD52")
 RNA_FEATURES = (
@@ -250,6 +253,7 @@ PROTOCOL_BINDINGS = (
     "data/confirmation/gse314416_immunomicrobiome/GSE314416_filelist.txt",
     "results/development/gse314416_citeseq_metadata_preflight.json",
     "results/development/gse314416_citeseq_schema_amendment_v1_1.json",
+    "results/development/gse314416_citeseq_io_amendment_v1_2.json",
     "mapreg/heterogeneity_adaptive_coupling.py",
     "mapreg/hierarchical_conditional_coupling.py",
 )
@@ -648,17 +652,17 @@ def _read_10x_columns(
             raise ValueError(f"frozen feature panel differs in {path.name}")
         local = {by_feature[value]: index for index, value in enumerate(features)}
         indptr = np.asarray(matrix["indptr"][:], dtype=np.int64)
+        indices = np.asarray(matrix["indices"][:], dtype=np.int64)
+        values = np.asarray(matrix["data"][:])
+        if np.any(values < 0) or not np.array_equal(values, np.rint(values)):
+            raise ValueError(
+                f"raw count matrix is not nonnegative integer in {path.name}"
+            )
         output = np.zeros((len(barcodes), len(features)), dtype=np.int64)
         for out_index, barcode in enumerate(barcodes):
             column = by_barcode[barcode]
             start, stop = int(indptr[column]), int(indptr[column + 1])
-            indices = np.asarray(matrix["indices"][start:stop], dtype=np.int64)
-            values = np.asarray(matrix["data"][start:stop])
-            if np.any(values < 0) or not np.array_equal(values, np.rint(values)):
-                raise ValueError(
-                    f"raw count matrix is not nonnegative integer in {path.name}"
-                )
-            for feature_index, value in zip(indices, values):
+            for feature_index, value in zip(indices[start:stop], values[start:stop]):
                 marker = local.get(int(feature_index))
                 if marker is not None:
                     output[out_index, marker] = int(value)
