@@ -22,5 +22,7 @@ echo "Preserving, but deselecting, two disabled-phase lock assertions."
   tests/test_table_prediction.py \
   tests/test_lawlor_hca_pbmc_confirmation.py \
   tests/test_hao_gse164378_confirmation.py \
+  tests/test_kotliarov_pbmc_confirmation.py \
+  tests/test_kotliarov_pbmc_reducer.py \
   tests/test_confirm_poki_gse143417.py \
   tests/test_coupling_margin_invariance_simulation.py

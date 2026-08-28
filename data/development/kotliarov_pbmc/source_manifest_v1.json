@@ -1,0 +1,56 @@
+{
+  "schema": "kotliarov-pbmc-gypsum-source/1.0",
+  "dataset": "KotliarovPBMCData",
+  "study_doi": "10.1038/s41591-020-0769-8",
+  "gypsum_project": "scRNAseq",
+  "gypsum_asset": "kotliarov-pbmc-2020",
+  "manifest_version": "2024-04-18",
+  "matrix_version": "2023-12-20",
+  "source_documentation": "https://www.bioconductor.org/packages/release/data/experiment/manuals/scRNAseq/man/scRNAseq.pdf",
+  "preseal_access": "Artifact metadata, feature names, column metadata, file sizes, and published MD5 values were inspected. RNA and ADT count matrices were not downloaded or opened before the public freeze.",
+  "outcome_matrix_values_accessed_before_seal": false,
+  "files": [
+    {
+      "key": "rna_matrix",
+      "name": "matrix.h5",
+      "role": "RNA count matrix",
+      "bytes": 82850550,
+      "md5": "8778f578eced043bd993a474c8919139",
+      "sha256": null,
+      "url": "https://gypsum.artifactdb.com/file/scRNAseq%2Fkotliarov-pbmc-2020%2F2023-12-20%2Fassays%2F0%2Fmatrix.h5",
+      "accessed_before_seal": false
+    },
+    {
+      "key": "adt_matrix",
+      "name": "array.h5",
+      "role": "ADT count matrix",
+      "bytes": 4708920,
+      "md5": "d74235cc89e0c8edbd9637731e53c8d6",
+      "sha256": null,
+      "url": "https://gypsum.artifactdb.com/file/scRNAseq%2Fkotliarov-pbmc-2020%2F2023-12-20%2Falternative_experiments%2F0%2Fassays%2F0%2Farray.h5",
+      "accessed_before_seal": false
+    }
+  ],
+  "metadata_files": [
+    {
+      "path": "data/development/kotliarov_pbmc_metadata_v1/manifest_2024-04-18.json",
+      "sha256": "85435b19e7dbf884390070d5b93d6cdab99aa1e87a02b973be75a6e387c9d6b8"
+    },
+    {
+      "path": "data/development/kotliarov_pbmc_metadata_v1/_bioconductor.json",
+      "sha256": "2308ba57354aa3d40a8ded17a8de2dbc16ca8dc310004f098d3913bac5bb1516"
+    },
+    {
+      "path": "data/development/kotliarov_pbmc_metadata_v1/column_data/basic_columns.h5",
+      "sha256": "9de81ec194efda0a81937d7524e07de327a65a3c510909f21195e633f1af8470"
+    },
+    {
+      "path": "data/development/kotliarov_pbmc_metadata_v1/row_data/basic_columns.h5",
+      "sha256": "a59b42b01d128476b0bca8dd90c62dcd3b0533a4e9c114b457a907b5df716998"
+    },
+    {
+      "path": "data/development/kotliarov_pbmc_metadata_v1/alternative_experiments/0/row_data/basic_columns.h5",
+      "sha256": "5122b7c387908552517fa88d39e8c4edb71726aeac3bb082cf4cb1aebd5f1866"
+    }
+  ]
+}

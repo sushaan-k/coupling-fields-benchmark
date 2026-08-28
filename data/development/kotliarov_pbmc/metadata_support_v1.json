@@ -1,0 +1,37 @@
+{
+  "schema": "kotliarov-pbmc-metadata-support/1.0",
+  "outcome_matrices_accessed": false,
+  "metadata_cells": 58654,
+  "metadata_unique_donors": 20,
+  "batch_donor_blocks": 21,
+  "cross_batch_donors": [
+    "209"
+  ],
+  "excluded_donor": "209",
+  "excluded_donor_cells": {
+    "batch1": 1294,
+    "batch2": 2166,
+    "total": 3460
+  },
+  "development": {
+    "batch": "1",
+    "donors": ["200", "207", "212", "233", "237", "245", "256", "261", "273", "277"],
+    "cells_before_rna_qc": 29374,
+    "high_responders": ["207", "212", "237", "245", "256"],
+    "low_responders": ["200", "233", "261", "273", "277"]
+  },
+  "held": {
+    "batch": "2",
+    "donors": ["201", "205", "215", "229", "234", "236", "250", "268", "279"],
+    "cells_before_rna_qc": 25820,
+    "high_responders": ["205", "215", "234", "250"],
+    "low_responders": ["201", "229", "236", "268", "279"]
+  },
+  "retained_cells_before_rna_qc": 55194,
+  "all_cells_are_deposited_concordant_singlets": true,
+  "timepoints": ["d0"],
+  "adt_features": 87,
+  "non_isotype_adt_features": 83,
+  "rna_features": 32738,
+  "metadata_only_basis": "Counts derive from the deposited column metadata and feature annotations. No RNA or ADT count matrix value was opened."
+}

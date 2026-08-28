@@ -1,0 +1,10 @@
+{
+  "schema": "lawlor-hca-pbmc-refusal/2.0",
+  "status": "REFUSE_EXECUTION",
+  "stage": "PREDICT",
+  "exception_type": "CalledProcessError",
+  "exception_message": "The frozen R reducer returned non-zero exit status 1 after rejecting the deposited ADT data.frame as an unsupported object type.",
+  "protocol_sha256": "5326f8b88ea79dbb7f146fcbf0e350ac99dcfcc00bdb6e1a885374912da10df9",
+  "runner_sha256": "859b0f0e929b0807ba01ea6294456efa85373e2f08e4a4f031a782da1bfe3d77",
+  "designation_sha256": "c80954d3cf1d4709931046ab6f79cb351d6fa2983ad8e0102b3c4897b7454304"
+}

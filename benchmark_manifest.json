@@ -1,43 +1,31 @@
 {
   "schema": "coupling-fields-public-benchmark/1.0",
   "release_name": "coupling-fields-v1",
-  "assembled_at_utc": "2026-08-28T03:24:13Z",
-  "status": "PUBLIC_CONFIRMATORY_FAMILY_OUTCOME_ACCESS_AUTHORIZED",
+  "assembled_at_utc": "2026-08-28T05:00:00Z",
+  "status": "PUBLIC_CONFIRMATORY_FAMILY_V3_OUTCOME_ACCESS_DISABLED",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
-  "public_freeze_commit": "51752b40610579375624115ed189e3789d8e8916",
-  "immutable_release_tag": "confirmatory-family-v2",
+  "public_freeze_commit": null,
+  "immutable_release_tag": "confirmatory-family-v3",
   "archive_doi": null,
   "code_license": null,
-  "candidate_designation_status": "SEALED",
-  "prospective_candidate_count": 2,
+  "candidate_designation_status": "OUTCOME_ACCESS_DISABLED",
+  "prospective_candidate_count": 1,
   "prospective_candidate_artifacts": [
     {
-      "name": "LAWLOR_CANDIDATE_DESIGNATION.json",
-      "source_path": "data/confirmation/pbmc_citeseq_hca/candidate_designation_v2.json",
-      "sha256": "c80954d3cf1d4709931046ab6f79cb351d6fa2983ad8e0102b3c4897b7454304",
-      "bytes": 9608
+      "name": "KOTLIAROV_CANDIDATE_DESIGNATION.json",
+      "source_path": "data/confirmation/kotliarov_pbmc/candidate_designation_v1.json",
+      "sha256": "575d547631dc4d8538003bbecb55b112403a6ceec0a2d783b5739319829753b1",
+      "bytes": 7959
     },
     {
-      "name": "LAWLOR_SCORE_AUTHORIZATION_TEMPLATE.json",
-      "source_path": "data/confirmation/pbmc_citeseq_hca/score_authorization_template_v2.json",
-      "sha256": "091de7a96162c00384e660be3f2e8ac4ddb863c0c4dca42f4b8e963ac817bcd1",
-      "bytes": 1244
-    },
-    {
-      "name": "HAO_CANDIDATE_DESIGNATION.json",
-      "source_path": "data/confirmation/hao_gse164378/candidate_designation_v1.json",
-      "sha256": "76d89a7dafa44a2184ce6ad2306a96258d80b4690bb53ad0a8221ced78eff66e",
-      "bytes": 10957
-    },
-    {
-      "name": "HAO_SCORE_AUTHORIZATION_TEMPLATE.json",
-      "source_path": "data/confirmation/hao_gse164378/score_authorization_template_v1.json",
-      "sha256": "23f34680314cdb17bd4540e7cb8abc28015db50c9c6cf6dd6d5ffe7a37c9af81",
-      "bytes": 1346
+      "name": "KOTLIAROV_SCORE_AUTHORIZATION_TEMPLATE.json",
+      "source_path": "data/confirmation/kotliarov_pbmc/score_authorization_template_v1.json",
+      "sha256": "9a08916d0ee6267483c7e942566e7c2bd474124f892982ea580f44886103fe99",
+      "bytes": 586
     }
   ],
   "completed_public_panels": 7,
-  "preflight_refusal_count": 1,
+  "procedural_refusal_count": 3,
   "artifacts": [
     {
       "path": "pyproject.toml",
@@ -75,6 +63,13 @@
       "role": "prospective Hao GSE164378 confirmation protocol"
     },
     {
+      "path": "docs/KOTLIAROV_PBMC_HELD_BATCH_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "source_path": "docs/KOTLIAROV_PBMC_HELD_BATCH_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "sha256": "693d0c51221f7eb50e57beb42cb2748a157b9757df019010135ac10fde49e1f0",
+      "bytes": 12382,
+      "role": "prospective Kotliarov held-batch confirmation protocol"
+    },
+    {
       "path": "docs/GSE143417_POKISEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-27.md",
       "source_path": "docs/GSE143417_POKISEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-27.md",
       "sha256": "ae550d171b494b535a922a68b8f666d161c3c3b538a988909204766025843f1a",
@@ -105,15 +100,15 @@
     {
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
       "source_path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "40e99ddfb56cc10be1abd25b66815f841e3243f25feba78c00198bd9facf99fb",
-      "bytes": 16260,
+      "sha256": "aff5ab03bc07bd62d4bc1932650960bbffdde48ddeab5cd1cd43ccc0459fcb94",
+      "bytes": 17352,
       "role": "claim-evidence ledger"
     },
     {
       "path": "results/final_public_benchmark_table.tsv",
       "source_path": "results/final_public_benchmark_table.tsv",
-      "sha256": "b2875f8ca9134768d514a86ab0317129d52497c1939cdac9b36894ccce4dfaaa",
-      "bytes": 8640,
+      "sha256": "dd4f9094c32f56be2a7b785c9bbe4d2cc5c3321c11f034a0aff37c45c5796439",
+      "bytes": 11359,
       "role": "panel-level benchmark table"
     },
     {
@@ -264,6 +259,41 @@
       "role": "Hao GSE164378 frozen RNA-ADT aliases"
     },
     {
+      "path": "data/development/hao_gse164378/prepared_v1.json",
+      "source_path": "data/development/hao_gse164378/prepared_v1.json",
+      "sha256": "ad36b8687c64b669e6c1bed8c378dccb1ccaed9e4b22cc3920354e013b5a8410",
+      "bytes": 4778,
+      "role": "Hao reducer provenance before its terminal support refusal"
+    },
+    {
+      "path": "data/development/kotliarov_pbmc/source_manifest_v1.json",
+      "source_path": "data/development/kotliarov_pbmc/source_manifest_v1.json",
+      "sha256": "c0d61a23a1dc1a750941b7808d1d187e841d1bdfaacb17799fbad72602aa212c",
+      "bytes": 2374,
+      "role": "Kotliarov gypsum source manifest"
+    },
+    {
+      "path": "data/development/kotliarov_pbmc/metadata_support_v1.json",
+      "source_path": "data/development/kotliarov_pbmc/metadata_support_v1.json",
+      "sha256": "bd4fa56d46db6dc35a1f0214ffd827c0ed868d513e1e7c19e8ba553ed2156c0f",
+      "bytes": 1225,
+      "role": "Kotliarov metadata-only split and eligibility audit"
+    },
+    {
+      "path": "data/development/kotliarov_pbmc/adt_gene_aliases_v1.tsv",
+      "source_path": "data/development/kotliarov_pbmc/adt_gene_aliases_v1.tsv",
+      "sha256": "ae39551ff9a3c8e144a6dd3c1e45c1a5c6cd6d05af1c84595043899bea9e0b99",
+      "bytes": 1560,
+      "role": "Kotliarov frozen exact RNA-ADT aliases"
+    },
+    {
+      "path": "data/development/kotliarov_pbmc/lineage_markers_v1.tsv",
+      "source_path": "data/development/kotliarov_pbmc/lineage_markers_v1.tsv",
+      "sha256": "20d67de2dacc5662df255bcf24d22014e8d16878c268b978989673efa784c470",
+      "bytes": 281,
+      "role": "Kotliarov frozen RNA-only lineage markers"
+    },
+    {
       "path": "data/confirmation/pbmc_citeseq_hca/candidate_designation_v2.json",
       "source_path": "data/confirmation/pbmc_citeseq_hca/candidate_designation_v2.json",
       "sha256": "c80954d3cf1d4709931046ab6f79cb351d6fa2983ad8e0102b3c4897b7454304",
@@ -290,6 +320,20 @@
       "sha256": "23f34680314cdb17bd4540e7cb8abc28015db50c9c6cf6dd6d5ffe7a37c9af81",
       "bytes": 1346,
       "role": "Hao GSE164378 version-1 score-authorization template"
+    },
+    {
+      "path": "data/confirmation/kotliarov_pbmc/candidate_designation_v1.json",
+      "source_path": "data/confirmation/kotliarov_pbmc/candidate_designation_v1.json",
+      "sha256": "575d547631dc4d8538003bbecb55b112403a6ceec0a2d783b5739319829753b1",
+      "bytes": 7959,
+      "role": "Kotliarov disabled-outcome candidate designation"
+    },
+    {
+      "path": "data/confirmation/kotliarov_pbmc/score_authorization_template_v1.json",
+      "source_path": "data/confirmation/kotliarov_pbmc/score_authorization_template_v1.json",
+      "sha256": "9a08916d0ee6267483c7e942566e7c2bd474124f892982ea580f44886103fe99",
+      "bytes": 586,
+      "role": "Kotliarov score-authorization template"
     },
     {
       "path": "data/confirmation/gse143417_pokiseq/candidate_designation_v1.json",
@@ -418,6 +462,20 @@
       "role": "Hao GSE164378 split prepare-predict-score runner"
     },
     {
+      "path": "experiments/reduce_kotliarov_pbmc.py",
+      "source_path": "experiments/reduce_kotliarov_pbmc.py",
+      "sha256": "70adb269b47cf29a874e4f891c0c538bce2204c1b162d29fc6f0547d0106a085",
+      "bytes": 41630,
+      "role": "Kotliarov leak-separated gypsum HDF5 reducer"
+    },
+    {
+      "path": "experiments/confirm_kotliarov_pbmc.py",
+      "source_path": "experiments/confirm_kotliarov_pbmc.py",
+      "sha256": "abe16c38835f167f68215c5d759e18437a0c4619a3f9e8540419cd354d98404e",
+      "bytes": 93051,
+      "role": "Kotliarov held-batch prepare-predict-score runner"
+    },
+    {
       "path": "experiments/confirm_poki_gse143417_conditional_fields.py",
       "source_path": "experiments/confirm_poki_gse143417_conditional_fields.py",
       "sha256": "0f3f36e27bc7a0f53113d7e7456b10bf4f62070718a3b8e7b0aa99b44561c8ef",
@@ -453,6 +511,20 @@
       "role": "PoKI-seq frozen support-gate refusal"
     },
     {
+      "path": "results/lawlor_hca_pbmc_predictions.json",
+      "source_path": "results/lawlor_hca_pbmc_predictions.json",
+      "sha256": "6e1435ef5a5c326a2d4f8cd69c55bd2c0cf7568685ab192b84855e8f564ada4a",
+      "bytes": 565,
+      "role": "Lawlor frozen predict-stage reducer refusal"
+    },
+    {
+      "path": "results/hao_gse164378_prediction_refusal.json",
+      "source_path": "results/hao_gse164378_prediction_refusal.json",
+      "sha256": "bd6c0c2a5c5fae5b1b21b09627e7804ab47a4daa3a538f2035c64f739bd201a8",
+      "bytes": 517,
+      "role": "Hao frozen predict-stage support refusal"
+    },
+    {
       "path": "scripts/freeze_poki_gse143417_confirmation.py",
       "source_path": "scripts/freeze_poki_gse143417_confirmation.py",
       "sha256": "eb053cbec6e0fff8a83508ddeea879ebc0494138ae9d62dc52c58721a7b245ae",
@@ -472,6 +544,27 @@
       "sha256": "91c271aaadd72c86bb10151098ab9872d35e88e9ed4843ad04a8d41ea436ed94",
       "bytes": 3860,
       "role": "scGPT embedding derivation script"
+    },
+    {
+      "path": "scripts/freeze_kotliarov_pbmc_confirmation.py",
+      "source_path": "scripts/freeze_kotliarov_pbmc_confirmation.py",
+      "sha256": "e8340b889c6ab40e7bff4899a5280f22c4047e19bd83f9b165075adbf39f6be6",
+      "bytes": 7554,
+      "role": "Kotliarov disabled-outcome freeze generator"
+    },
+    {
+      "path": "scripts/authorize_kotliarov_pbmc_outcomes.py",
+      "source_path": "scripts/authorize_kotliarov_pbmc_outcomes.py",
+      "sha256": "114feb871ad2df5ce2b0fab2ce8e84bfedce4670292b299128aa077f70e3d2ae",
+      "bytes": 4039,
+      "role": "Kotliarov post-verification outcome authorizer"
+    },
+    {
+      "path": "scripts/verify_kotliarov_public_freeze.py",
+      "source_path": "scripts/verify_kotliarov_public_freeze.py",
+      "sha256": "e5643a8130ffe6dc726d81875f4933b6966689a5deb5d14ba437a2ce5da5289c",
+      "bytes": 6494,
+      "role": "Kotliarov fresh-clone freeze verifier"
     },
     {
       "path": "experiments/validate_perturbsci_modules.py",
@@ -497,8 +590,8 @@
     {
       "path": "tests/test_public_artifact_integrity.py",
       "source_path": "tests/test_public_artifact_integrity.py",
-      "sha256": "13d04e19d173bd98c78ab0a675deb21a9d23198815f06963b131b96c5879b19d",
-      "bytes": 17957,
+      "sha256": "6011ef7fa7226c636c903a2ae7ea75ca1d293a86cb858d04fb306369c1f529ea",
+      "bytes": 20070,
       "role": "artifact integrity tests"
     },
     {
@@ -551,6 +644,20 @@
       "role": "Hao GSE164378 pairing-seal and endpoint tests"
     },
     {
+      "path": "tests/test_kotliarov_pbmc_reducer.py",
+      "source_path": "tests/test_kotliarov_pbmc_reducer.py",
+      "sha256": "52284f17c41593778cdbbe25c879e0954c549103ffd1f5641bd0d87ec95ff6a5",
+      "bytes": 15039,
+      "role": "Kotliarov reducer and pairing-separation tests"
+    },
+    {
+      "path": "tests/test_kotliarov_pbmc_confirmation.py",
+      "source_path": "tests/test_kotliarov_pbmc_confirmation.py",
+      "sha256": "89744a9abc87914e1d1ddeb11561eefcdbc128ec74cf05eca489e3e34347adec",
+      "bytes": 14147,
+      "role": "Kotliarov estimator, inference, and seal tests"
+    },
+    {
       "path": "tests/test_confirm_poki_gse143417.py",
       "source_path": "tests/test_confirm_poki_gse143417.py",
       "sha256": "2c91134fccda25de5937d72d2661f0babad29d23a6c11572de1d4b430273aa40",
@@ -573,7 +680,7 @@
     }
   ],
   "release_blockers": [
-    "prediction publication, hash authorization, scoring, and append-only result release for both scoreable candidates",
+    "public freeze verification, outcome authorization, prediction publication, hash authorization, and one-time scoring for Kotliarov",
     "immutable final result release tag or equivalent commit-addressed release",
     "author-approved code license",
     "derived-data redistribution review"

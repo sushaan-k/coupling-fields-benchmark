@@ -1,0 +1,11 @@
+{
+  "schema": "hao-gse164378-refusal/1.0",
+  "status": "REFUSED",
+  "stage": "predict",
+  "code": "DEVELOPMENT_SUPPORT_FAILURE",
+  "message": "fewer than 12 unique cognate markers pass the frozen marginal support rule",
+  "candidate": "GSE164378",
+  "runner_sha256": "5653e61e99c199a8b3e59bfe9ec2025a55e75bf1e55559966e7b4c5109bffb6c",
+  "protocol_sha256": "acb47fb17bdca84a9dc99c4ec9628ef7d8b3292a78c670e52004773bac6912fc",
+  "designation_sha256": "76d89a7dafa44a2184ce6ad2306a96258d80b4690bb53ad0a8221ced78eff66e"
+}

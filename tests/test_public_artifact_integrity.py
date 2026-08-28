@@ -122,9 +122,9 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
         rows = list(reader)
 
     assert len(reader.fieldnames or []) == 29
-    assert len(rows) == 8
+    assert len(rows) == 11
     by_panel = {row["panel"]: row for row in rows}
-    assert len(by_panel) == 8
+    assert len(by_panel) == 11
     assert all(None not in row for row in rows)
 
     estimator = ROOT / "mapreg/coupling_fields.py"
@@ -142,6 +142,11 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
         ),
         "PoKI-seq held-donor confirmation": (
             "experiments/confirm_poki_gse143417_conditional_fields.py"
+        ),
+        "Lawlor HCA PBMC confirmation": "experiments/confirm_lawlor_hca_pbmc.py",
+        "Hao held-donor confirmation": "experiments/confirm_hao_gse164378.py",
+        "Kotliarov PBMC held-batch confirmation": (
+            "experiments/confirm_kotliarov_pbmc.py"
         ),
     }
     for panel, row in by_panel.items():
@@ -275,6 +280,43 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
         "results/gse143417_pokiseq_preflight_refusal.json"
     )
 
+    lawlor = _load("results/lawlor_hca_pbmc_predictions.json")
+    lawlor_row = by_panel["Lawlor HCA PBMC confirmation"]
+    assert lawlor["schema"] == "lawlor-hca-pbmc-refusal/2.0"
+    assert lawlor["status"] == "REFUSE_EXECUTION"
+    assert lawlor["stage"] == "PREDICT"
+    assert "unsupported object type" in lawlor["exception_message"]
+    assert "/Users/" not in lawlor["exception_message"]
+    assert "~/" not in lawlor["exception_message"]
+    assert lawlor_row["primary_metric"] == "not scored"
+
+    hao = _load("results/hao_gse164378_prediction_refusal.json")
+    hao_row = by_panel["Hao held-donor confirmation"]
+    assert hao["status"] == "REFUSED"
+    assert hao["stage"] == "predict"
+    assert hao["code"] == "DEVELOPMENT_SUPPORT_FAILURE"
+    assert hao_row["primary_metric"] == "not scored"
+
+    kotliarov = _load(
+        "data/confirmation/kotliarov_pbmc/candidate_designation_v1.json"
+    )
+    kotliarov_row = by_panel["Kotliarov PBMC held-batch confirmation"]
+    assert kotliarov["status"] == "OUTCOME_ACCESS_DISABLED"
+    assert kotliarov["outcome_access_authorized"] is False
+    assert kotliarov["public_freeze_commit"] is None
+    assert kotliarov["held_donors"] == [
+        "201",
+        "205",
+        "215",
+        "229",
+        "234",
+        "236",
+        "250",
+        "268",
+        "279",
+    ]
+    assert kotliarov_row["primary_metric"] == "pending"
+
     expected_decisions = {
         "PerturbSci-Kinetics": ("PROMOTE", "REFUSE", "PROMOTE"),
         "Frangieh Perturb-CITE-seq": ("REFUSE", "REFUSE", "REFUSE"),
@@ -287,6 +329,21 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
             "NOT_EVALUATED",
             "NOT_EVALUATED",
             "REFUSE_PREFLIGHT",
+        ),
+        "Lawlor HCA PBMC confirmation": (
+            "NOT_EVALUATED",
+            "NOT_EVALUATED",
+            "REFUSE_EXECUTION",
+        ),
+        "Hao held-donor confirmation": (
+            "NOT_EVALUATED",
+            "NOT_EVALUATED",
+            "REFUSE_SUPPORT",
+        ),
+        "Kotliarov PBMC held-batch confirmation": (
+            "NOT_EVALUATED",
+            "NOT_EVALUATED",
+            "OUTCOME_ACCESS_DISABLED",
         ),
     }
     for panel, expected in expected_decisions.items():

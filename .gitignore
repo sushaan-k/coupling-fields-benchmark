@@ -3,6 +3,7 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+*.egg-info/
 
 # Upstream outcome matrices are acquired locally and never redistributed.
 data/**/*.Rds
@@ -11,5 +12,9 @@ data/**/*.tar
 data/**/*.tar.gz
 data/**/*.mtx
 data/**/*.mtx.gz
+data/**/*.h5
+data/**/*.h5ad
 data/scgpt_gene_embeddings.npz
 data/development/lawlor_hca_pbmc/reduced_v1/
+data/development/kotliarov_pbmc/prediction_bundle_v1/
+data/confirmation/kotliarov_pbmc/score_bundle_v1/

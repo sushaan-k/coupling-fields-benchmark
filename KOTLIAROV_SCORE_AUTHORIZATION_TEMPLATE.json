@@ -1,0 +1,13 @@
+{
+  "schema": "kotliarov-pbmc-score-authorization-template/1.0",
+  "status": "TEMPLATE_OUTCOME_ACCESS_DISABLED",
+  "candidate": "KotliarovPBMCData",
+  "prediction_path": "results/kotliarov_pbmc_predictions.json",
+  "prediction_sha256": null,
+  "prediction_bytes": null,
+  "prediction_public_url": null,
+  "prediction_public_commit": null,
+  "outcome_access_authorized": false,
+  "publication_required_before_score": true,
+  "note": "A later non-overwriting authorization must bind the exact publicly verified prediction bytes before the score-only held pairing bundle can be opened."
+}

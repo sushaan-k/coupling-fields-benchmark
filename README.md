@@ -3,9 +3,12 @@
 This repository is a public, source-visible benchmark for
 perturbation-specific dependence in linked single-cell assays. It preserves
 positive, negative, and refused panels under one fixed evaluation contract.
-It contains seven scored public-data panels, the unscored PoKI-seq GSE143417
-preflight refusal, and a frozen two-candidate confirmatory family: Lawlor HCA
-PBMC CITE-seq version 2 and Hao GSE164378 version 1.
+It contains seven scored public-data panels and three transparent procedural
+refusals. PoKI-seq stopped at its state-occupancy preflight, Lawlor stopped when
+the frozen reducer rejected the deposited ADT object type, and Hao stopped when
+fewer than 12 markers passed its frozen marginal-support rule. None of those
+three runs formed a held joint-table score. A new one-candidate Kotliarov PBMC
+held-batch confirmation is frozen with outcome access disabled.
 
 The method represents each finite joint table by its double-centered
 log-linear interaction, centers finite-sample estimates with fixed-margin
@@ -29,8 +32,8 @@ shasum -a 256 -c SHA256SUMS
 ```
 
 This verifies every distributed byte without acquiring candidate outcomes.
-The full `./reproduce.sh` entry point runs the estimator tests and both
-candidate suites, except for two preserved assertions that certify the earlier
+The full `./reproduce.sh` entry point runs the estimator and candidate tests,
+except for two preserved assertions that certify the earlier
 disabled phase. Those exact test bytes remain checksum-bound and passed in the
 fresh-clone verification record. The scGPT embedding's expected hash and
 derivation inputs are recorded in
@@ -40,18 +43,26 @@ redistributed.
 
 ## Evidence contract
 
-`results/final_public_benchmark_table.tsv` is the completed-panel ledger.
+`results/final_public_benchmark_table.tsv` is the complete declared-panel ledger.
 `docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md` states the corresponding claim boundary.
-The two scoreable candidates are bound in
+The closed Lawlor and Hao candidates are bound in
 `LAWLOR_CANDIDATE_DESIGNATION.json` and
-`HAO_CANDIDATE_DESIGNATION.json`. Both now have status `SEALED`, explicit
+`HAO_CANDIDATE_DESIGNATION.json`. Both have status `SEALED`, explicit
 outcome-access authorization, and public-freeze commit
 `51752b40610579375624115ed189e3789d8e8916`. Their protocols, source manifests, metadata audits, aliases,
 runners, reducers, authorization templates, and tests are checksum-bound in
 this release. Tag `confirmatory-family-v2` preserves the disabled-outcome
 candidate bytes. A fresh-clone verification of that tag passed before a later
 commit authorized acquisition of both candidates' RNA and ADT outcome
-matrices.
+matrices. Their terminal refusal JSONs are retained under `results/`.
+
+`KOTLIAROV_CANDIDATE_DESIGNATION.json` defines a separate one-candidate family.
+It excludes donor 209 from both batches, uses ten development donors and nine
+disjoint held donors, and binds a donor-level inference plan plus full Pearson
+and signed-deviance residual comparisons. Tag `confirmatory-family-v3` is the
+prospective public analysis-plan freeze. At this snapshot the designation is
+`OUTCOME_ACCESS_DISABLED`; no Kotliarov count matrix has been downloaded or
+opened.
 
 PoKI-seq is not a third scoreable candidate. Its frozen execution stopped at
 the state-occupancy support gate before a prediction or score was written.
@@ -64,13 +75,13 @@ The independent verification is recorded in
 The later authorization commit was also verified from a fresh clone, as
 recorded in
 `docs/CONFIRMATORY_FAMILY_OUTCOME_AUTHORIZATION_VERIFICATION_2026-08-28.json`.
-The remaining binding is candidate-specific: each prediction must be published
-and bound by exact
-SHA-256 and byte count before the runner can construct a held joint table.
+For Kotliarov, the disabled freeze must first pass a fresh-clone verification.
+The exact prediction must then be published and bound by SHA-256 and byte count
+before the runner can open the score-only held pairing bundle.
 This is a public code-path seal, not a blinded data enclave or a
 registry-hosted preregistration.
 
-The derived scGPT gene embedding used by the Lawlor graph prior is not bundled
+The derived scGPT gene embedding used by the graph prior is not bundled
 pending upstream model-weight redistribution review. Its expected output and
 input hashes, official source URLs, and derivation script are supplied in
 `data/scgpt_gene_embeddings_manifest.json` and
@@ -88,7 +99,7 @@ input hashes, official source URLs, and derivation script are supplied in
 
 The disabled-outcome freeze is published at
 `https://github.com/sushaan-k/coupling-fields-benchmark` under tag
-`confirmatory-family-v2`. It has no archive DOI and grants no code license. It
+`confirmatory-family-v3`. It has no archive DOI and grants no code license. It
 must not be called open source, DOI-archived, or registry-hosted
 preregistration. Upstream datasets and model weights remain governed by their
 own terms.
