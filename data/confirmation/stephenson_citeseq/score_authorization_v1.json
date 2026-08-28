@@ -1,0 +1,13 @@
+{
+  "schema": "stephenson-citeseq-score-authorization/1.0",
+  "status": "OUTCOME_ACCESS_AUTHORIZED",
+  "created_at_utc": "2026-08-28T20:43:05Z",
+  "prediction_path": "results/stephenson_citeseq_predictions.json",
+  "prediction_sha256": "7a183d4a2f55922dc07f8cbcdca904893710fe008e9169fdf618532ba06ea6e2",
+  "prediction_bytes": 3275962,
+  "runner_sha256": "3708bccf52283e4f08e9fa842d7045dcc0756fa41d54476aaa1fc6ddc7197e76",
+  "source_manifest_sha256": "431e8a370bc9b08a207ab0ff8d3581f80abaf0f36b55eba4accedc5685a3d3cd",
+  "development_sha256": "2a8b535a0581b51a2a1eff8c764038a11cac7db08b67217c9b9dae22157e3e72",
+  "public_prediction_commit": "939a499b87a947affb5852cfa159157e96e168d0",
+  "public_prediction_url": "https://github.com/sushaan-k/coupling-fields-benchmark/blob/939a499b87a947affb5852cfa159157e96e168d0/results/stephenson_citeseq_predictions.json"
+}
