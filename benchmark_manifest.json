@@ -1,40 +1,42 @@
 {
   "schema": "coupling-fields-public-benchmark/1.0",
   "release_name": "coupling-fields-v1",
-  "assembled_at_utc": "2026-08-28T15:55:16Z",
-  "status": "PUBLIC_GSE299043_TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL",
+  "assembled_at_utc": "2026-08-28T18:37:27Z",
+  "status": "PUBLIC_COMBAT_CITESEQ_PREOUTCOME_FREEZE_PENDING_VERIFICATION",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
-  "public_freeze_commit": "87c15787f734b20d06c7b8cb0c66680b2fe5c1b0",
-  "immutable_release_tag": "gse299043-mln-v1-terminal-refusal",
+  "public_freeze_commit": null,
+  "immutable_release_tag": "combat-citeseq-v1-protocol",
   "archive_doi": null,
   "code_license": null,
-  "candidate_designation_status": "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL",
-  "prospective_candidate_count": 0,
-  "active_candidate_count": 0,
-  "prospective_candidate_artifacts": [],
+  "candidate_designation_status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
+  "prospective_candidate_count": 1,
+  "active_candidate_count": 1,
+  "prospective_candidate_artifacts": [
+    "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
+    "data/confirmation/combat_citeseq/candidate_designation_v1.json",
+    "data/confirmation/combat_citeseq/source_manifest_v1.json",
+    "experiments/confirm_combat_citeseq.py",
+    "tests/test_combat_citeseq_confirmation.py"
+  ],
   "completed_public_panels": 7,
   "procedural_refusal_count": 7,
   "kotliarov_outcome_status": "TERMINAL_REFUSAL",
   "next_protocol": {
-    "designation": "data/confirmation/gse299043_mln/candidate_designation_v1.json",
-    "designation_sha256": "c8b6bd846f69567513398e2dd6faa9c661c09df930a09a7a57a273040733e26e",
-    "status": "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL",
-    "protocol_freeze_commit": "87c15787f734b20d06c7b8cb0c66680b2fe5c1b0",
-    "protocol_freeze_tag": "gse299043-mln-v1-protocol",
-    "development_physical_donors": 10,
-    "held_physical_donors": 10,
-    "development_members_planned": 56,
-    "development_members_with_completed_reductions": 21,
-    "next_member_in_frozen_order": "GSE299043_647C_001.CZI-IA10585545.v2.h5ad",
-    "failing_member_matrix_values_decoded": false,
-    "held_h5ad_members_requested": 0,
-    "held_h5ad_members_opened": 0,
+    "designation": "data/confirmation/combat_citeseq/candidate_designation_v1.json",
+    "designation_sha256": "383a32f72431f292115a7ac5af24e2ae8c512f3d41d397109581da49a0f78595",
+    "protocol": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
+    "protocol_sha256": "2aafce7be9700b0d53c9047e14ba55bb4e99c001bdf6b1918cf5c0e3d36dcc7c",
+    "status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
+    "protocol_freeze_commit": null,
+    "protocol_freeze_tag": "combat-citeseq-v1-protocol",
+    "calibration_samples": 12,
+    "adaptive_pilot_samples": 24,
+    "oxford_held_samples": 51,
+    "st_georges_held_samples": 10,
+    "matrix_payload_reads": 0,
     "prediction_written": false,
     "held_score_attempted": false,
-    "rerun_permitted": false,
-    "development_attempt_sha256": "dc6206cba4186ede6a2d9a178d6f9adb9e09e402983e32dda611b0be11ac00ad",
-    "generated_refusal_sha256": "aab390fc9701171c42267d111dfb69cbbf3282abba5d39887f30431bc1e78635",
-    "terminal_audit_sha256": "6b5ef33e765adfcd80b534113a3c59dec706b82739c2518342699019011a6475"
+    "rerun_permitted_after_terminal_attempt": false
   },
   "artifacts": [
     {
@@ -621,8 +623,8 @@
     {
       "path": "tests/test_public_artifact_integrity.py",
       "source_path": "tests/test_public_artifact_integrity.py",
-      "sha256": "07988c076b8b5b3c4389d7502287330a7267f9f80a5e91eaa9242bca8b57f5e7",
-      "bytes": 34720,
+      "sha256": "a3924ca63f98cd8c5a824dcacb7272620fbfd48902ff1858594b883758bc75cd",
+      "bytes": 35296,
       "role": "artifact integrity tests"
     },
     {
@@ -1135,6 +1137,76 @@
       "sha256": "6b5ef33e765adfcd80b534113a3c59dec706b82739c2518342699019011a6475",
       "bytes": 2325,
       "role": "aggregate audit of the terminal GSE299043 acquisition refusal"
+    },
+    {
+      "path": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "source_path": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "sha256": "2aafce7be9700b0d53c9047e14ba55bb4e99c001bdf6b1918cf5c0e3d36dcc7c",
+      "bytes": 21220,
+      "role": "outcome-disabled COMBAT CITE-seq confirmation protocol"
+    },
+    {
+      "path": "data/confirmation/combat_citeseq/candidate_designation_v1.json",
+      "source_path": "data/confirmation/combat_citeseq/candidate_designation_v1.json",
+      "sha256": "383a32f72431f292115a7ac5af24e2ae8c512f3d41d397109581da49a0f78595",
+      "bytes": 28688,
+      "role": "COMBAT CITE-seq sample allocation and frozen decision rules"
+    },
+    {
+      "path": "data/confirmation/combat_citeseq/source_manifest_v1.json",
+      "source_path": "data/confirmation/combat_citeseq/source_manifest_v1.json",
+      "sha256": "15ac994a868092060aa4bd36874161daa3d7e22d7fc5b4f56d10511f907422b4",
+      "bytes": 25465,
+      "role": "path-free COMBAT CITE-seq source and sample-universe seal"
+    },
+    {
+      "path": "results/development/combat_citeseq_metadata_preflight.json",
+      "source_path": "results/development/combat_citeseq_metadata_preflight.json",
+      "sha256": "197853efd67c94188ac37265b7fd4fbb9ee2638b2389ae339a133df135c4b52f",
+      "bytes": 145939,
+      "role": "metadata-only COMBAT CITE-seq eligibility and matrix-access audit"
+    },
+    {
+      "path": "experiments/preflight_combat_citeseq.py",
+      "source_path": "experiments/preflight_combat_citeseq.py",
+      "sha256": "cf803a9baf23d65490cef5a7ee628781ad3a092bde0ec950e7ea7946d99c7509",
+      "bytes": 34797,
+      "role": "outcome-disabled COMBAT metadata preflight"
+    },
+    {
+      "path": "experiments/confirm_combat_citeseq.py",
+      "source_path": "experiments/confirm_combat_citeseq.py",
+      "sha256": "e5db3c56c8e83be73ce2f763372d22d068b9d8e07648bf4084ff585686e3fe85",
+      "bytes": 147194,
+      "role": "fail-closed COMBAT development, prediction, and held-score runner"
+    },
+    {
+      "path": "tests/test_combat_citeseq_preflight.py",
+      "source_path": "tests/test_combat_citeseq_preflight.py",
+      "sha256": "a5ea8875ee47305be7b01bbe4f10c1b662f2f93601eb17160b0262aba4f2af80",
+      "bytes": 18927,
+      "role": "COMBAT metadata-preflight tests"
+    },
+    {
+      "path": "tests/test_combat_citeseq_confirmation.py",
+      "source_path": "tests/test_combat_citeseq_confirmation.py",
+      "sha256": "c3a51efed89956ed7db2b6f57ee35c0f331703050795347909371e00e06372ad",
+      "bytes": 66666,
+      "role": "COMBAT authorization, tamper, estimator, and held-seal tests"
+    },
+    {
+      "path": "data/confirmation/combat_citeseq/COMBAT_CITEseq_Composition-PerSample_CellType_Counts_and_PercentFrequencies_out_of_all_PBMCs.csv",
+      "source_path": "data/confirmation/combat_citeseq/COMBAT_CITEseq_Composition-PerSample_CellType_Counts_and_PercentFrequencies_out_of_all_PBMCs.csv",
+      "sha256": "2ad7e92ab122ee52986d5748dbb23c335c02ec1f1f244943ce46fff94c585157",
+      "bytes": 33391,
+      "role": "official COMBAT CITE-seq sample-composition metadata"
+    },
+    {
+      "path": "data/confirmation/combat_citeseq/README.md",
+      "source_path": "data/confirmation/combat_citeseq/README.md",
+      "sha256": "0e64ba70f3fddfa48d613503a1deba83589afc9e2d087c87b271c29f52f90045",
+      "bytes": 920,
+      "role": "COMBAT upstream attribution and redistribution notice"
     }
   ],
   "release_blockers": [
@@ -1144,6 +1216,11 @@
   "bmmc_outcome_status": "TERMINAL_NUMERICAL_DEVELOPMENT_REFUSAL",
   "gse279451_outcome_status": "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
   "gse299043_outcome_status": "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL",
+  "combat_citeseq_outcome_status": "OUTCOME_ACCESS_DISABLED",
+  "combat_public_freeze_verification": {
+    "path": "docs/COMBAT_CITESEQ_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+    "status": "PENDING_POST_COMMIT_FRESH_CLONE_VERIFICATION"
+  },
   "public_freeze_verification": {
     "path": "docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
     "sha256": "26bf151214312ebcc0cd83220e41cb252d592e1c574c32b509860064455f84cc",

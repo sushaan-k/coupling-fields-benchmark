@@ -38,6 +38,8 @@ echo "Deselecting the BMMC deposited-axis assertion because its source is not re
   tests/test_acquire_gse299043_nonheld.py \
   tests/test_evaluate_gse299043_mln_development.py \
   tests/test_gse299043_mln_confirmation.py \
+  tests/test_combat_citeseq_preflight.py \
+  tests/test_combat_citeseq_confirmation.py \
   tests/test_confirm_poki_gse143417.py \
   tests/test_coupling_margin_invariance_simulation.py
 

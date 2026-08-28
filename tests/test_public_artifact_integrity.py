@@ -337,31 +337,35 @@ def test_frozen_json_artifacts_have_expected_bytes_and_finite_numbers():
         _assert_finite(_load(relative_path))
 
 
-def test_benchmark_manifest_binds_terminal_gse299043_release():
+def test_benchmark_manifest_binds_combat_freeze_and_retains_gse299043_refusal():
     manifest = _load("benchmark_manifest.json")
     assert manifest["status"] == (
-        "PUBLIC_GSE299043_TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL"
+        "PUBLIC_COMBAT_CITESEQ_PREOUTCOME_FREEZE_PENDING_VERIFICATION"
     )
-    assert manifest["immutable_release_tag"] == (
-        "gse299043-mln-v1-terminal-refusal"
-    )
-    assert manifest["prospective_candidate_count"] == 0
-    assert manifest["active_candidate_count"] == 0
+    assert manifest["immutable_release_tag"] == "combat-citeseq-v1-protocol"
+    assert manifest["public_freeze_commit"] is None
+    assert manifest["prospective_candidate_count"] == 1
+    assert manifest["active_candidate_count"] == 1
     assert manifest["completed_public_panels"] == 7
     assert manifest["procedural_refusal_count"] == 7
+    assert (
+        manifest["gse299043_outcome_status"]
+        == "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL"
+    )
     protocol = manifest["next_protocol"]
     assert protocol["designation"] == (
-        "data/confirmation/gse299043_mln/candidate_designation_v1.json"
+        "data/confirmation/combat_citeseq/candidate_designation_v1.json"
     )
-    assert protocol["status"] == "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL"
-    assert protocol["development_members_with_completed_reductions"] == 21
-    assert protocol["held_h5ad_members_opened"] == 0
-    assert protocol["rerun_permitted"] is False
+    assert protocol["status"] == "DESIGNATED_OUTCOME_ACCESS_DISABLED"
+    assert protocol["matrix_payload_reads"] == 0
+    assert protocol["oxford_held_samples"] == 51
+    assert protocol["st_georges_held_samples"] == 10
+    assert protocol["held_score_attempted"] is False
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 157
+    assert len(artifacts) == 167
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 157
+    assert len(by_path) == 167
     for relative in (
         "docs/GSE299043_MLN_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
         "docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
@@ -377,6 +381,12 @@ def test_benchmark_manifest_binds_terminal_gse299043_release():
         "experiments/reduce_gse299043_mln.py",
         "experiments/evaluate_gse299043_mln_development.py",
         "experiments/confirm_gse299043_mln.py",
+        "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
+        "data/confirmation/combat_citeseq/candidate_designation_v1.json",
+        "data/confirmation/combat_citeseq/source_manifest_v1.json",
+        "results/development/combat_citeseq_metadata_preflight.json",
+        "experiments/confirm_combat_citeseq.py",
+        "tests/test_combat_citeseq_confirmation.py",
     ):
         assert relative in by_path
     for relative, record in by_path.items():

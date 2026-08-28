@@ -1,0 +1,958 @@
+{
+  "composition": {
+    "bytes": 33391,
+    "filename": "COMBAT_CITEseq_Composition-PerSample_CellType_Counts_and_PercentFrequencies_out_of_all_PBMCs.csv",
+    "md5": "c4e635d7f16b3f7e3e66571a3359de3b",
+    "parent_archive": {
+      "bytes": 212203,
+      "content_url": "https://zenodo.org/api/records/6120249/files/CBD-KEY-CITESEQ-GEX-COMPOSITION.tar.gz/content",
+      "filename": "CBD-KEY-CITESEQ-GEX-COMPOSITION.tar.gz",
+      "md5": "fe077fc9f314419536d6d901855c9d84",
+      "sha256": "cc6b50cb363b800f356aa79224240f96ca11046a9c2a1c5f4f78603531b3dae3"
+    },
+    "sha256": "2ad7e92ab122ee52986d5748dbb23c335c02ec1f1f244943ce46fff94c585157"
+  },
+  "created_at_utc": "2026-08-28T17:52:40Z",
+  "eligible_cell_types": [
+    "B",
+    "ERYTH",
+    "HSC",
+    "MNP",
+    "NK",
+    "PB",
+    "PLT",
+    "T"
+  ],
+  "h5ad": {
+    "bytes": 6409089483,
+    "filename": "COMBAT-CITESeq-DATA.h5ad",
+    "md5": "87c6b1a733ea1adc37c808d9a357de74",
+    "raw_matrix_path": "layers/raw",
+    "sha256": "f628a15f25b9ca2f7cdefeab271fd9d007c8d5e47eb80c4b807d5f65e86ff53d"
+  },
+  "markers": [
+    {
+      "adt_feature": "AB_CD4",
+      "marker": "CD4",
+      "rna_ensembl": "ENSG00000010610"
+    },
+    {
+      "adt_feature": "AB_CD7",
+      "marker": "CD7",
+      "rna_ensembl": "ENSG00000173762"
+    },
+    {
+      "adt_feature": "AB_CD14",
+      "marker": "CD14",
+      "rna_ensembl": "ENSG00000170458"
+    },
+    {
+      "adt_feature": "AB_CD19",
+      "marker": "CD19",
+      "rna_ensembl": "ENSG00000177455"
+    },
+    {
+      "adt_feature": "AB_CD33",
+      "marker": "CD33",
+      "rna_ensembl": "ENSG00000105383"
+    },
+    {
+      "adt_feature": "AB_CD38",
+      "marker": "CD38",
+      "rna_ensembl": "ENSG00000004468"
+    },
+    {
+      "adt_feature": "AB_humanCD44",
+      "marker": "CD44",
+      "rna_ensembl": "ENSG00000026508"
+    },
+    {
+      "adt_feature": "AB_CD47",
+      "marker": "CD47",
+      "rna_ensembl": "ENSG00000196776"
+    },
+    {
+      "adt_feature": "AB_CD52",
+      "marker": "CD52",
+      "rna_ensembl": "ENSG00000169442"
+    }
+  ],
+  "preflight_sha256": "197853efd67c94188ac37265b7fd4fbb9ee2638b2389ae339a133df135c4b52f",
+  "samples": [
+    {
+      "combat_id": "G05061",
+      "eligible_pool_cells": 6027,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6045,
+      "role": "pilot",
+      "sample": "G05061-Ja005E-PBCa",
+      "source": "COVID_HCW_MILD"
+    },
+    {
+      "combat_id": "G05064",
+      "eligible_pool_cells": 8967,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 9003,
+      "role": "held_donor",
+      "sample": "G05064-Ja005E-PBCa",
+      "source": "COVID_HCW_MILD"
+    },
+    {
+      "combat_id": "G05073",
+      "eligible_pool_cells": 8367,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 8327,
+      "role": "held_donor",
+      "sample": "G05073-Ja005E-PBCa",
+      "source": "COVID_HCW_MILD"
+    },
+    {
+      "combat_id": "G05077",
+      "eligible_pool_cells": 5380,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 5385,
+      "role": "calibration",
+      "sample": "G05077-Ja005E-PBCa",
+      "source": "COVID_HCW_MILD"
+    },
+    {
+      "combat_id": "G05078",
+      "eligible_pool_cells": 9463,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 9452,
+      "role": "held_donor",
+      "sample": "G05078-Ja005E-PBCa",
+      "source": "COVID_HCW_MILD"
+    },
+    {
+      "combat_id": "G05097",
+      "eligible_pool_cells": 8113,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 8125,
+      "role": "pilot",
+      "sample": "G05097-Ja005E-PBCa",
+      "source": "COVID_HCW_MILD"
+    },
+    {
+      "combat_id": "G05105",
+      "eligible_pool_cells": 6046,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6061,
+      "role": "held_donor",
+      "sample": "G05105-Ja005E-PBCa",
+      "source": "COVID_HCW_MILD"
+    },
+    {
+      "combat_id": "G05112",
+      "eligible_pool_cells": 4441,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 4436,
+      "role": "held_donor",
+      "sample": "G05112-Ja005E-PBCa",
+      "source": "COVID_HCW_MILD"
+    },
+    {
+      "combat_id": "G05145",
+      "eligible_pool_cells": 5943,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 5945,
+      "role": "pilot",
+      "sample": "G05145-Ja005E-PBCa",
+      "source": "COVID_HCW_MILD"
+    },
+    {
+      "combat_id": "G05153",
+      "eligible_pool_cells": 8144,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 8160,
+      "role": "held_donor",
+      "sample": "G05153-Ja005E-PBCa",
+      "source": "COVID_HCW_MILD"
+    },
+    {
+      "combat_id": "G05164",
+      "eligible_pool_cells": 6651,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6673,
+      "role": "pilot",
+      "sample": "G05164-Ja005E-PBCa",
+      "source": "COVID_HCW_MILD"
+    },
+    {
+      "combat_id": "G05171",
+      "eligible_pool_cells": 6990,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6991,
+      "role": "calibration",
+      "sample": "G05171-Ja005E-PBCa",
+      "source": "COVID_HCW_MILD"
+    },
+    {
+      "combat_id": "H00049",
+      "eligible_pool_cells": 8712,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 8706,
+      "role": "held_donor",
+      "sample": "H00049-Ha001E-PBGa",
+      "source": "HV"
+    },
+    {
+      "combat_id": "H00052",
+      "eligible_pool_cells": 7586,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 7551,
+      "role": "calibration",
+      "sample": "H00052-Ha001E-PBGa",
+      "source": "HV"
+    },
+    {
+      "combat_id": "H00053",
+      "eligible_pool_cells": 10467,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 10494,
+      "role": "held_donor",
+      "sample": "H00053-Ha001E-PBGa",
+      "source": "HV"
+    },
+    {
+      "combat_id": "H00054",
+      "eligible_pool_cells": 10946,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 11038,
+      "role": "calibration",
+      "sample": "H00054-Ha001E-PBGa",
+      "source": "HV"
+    },
+    {
+      "combat_id": "H00058",
+      "eligible_pool_cells": 8430,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 8442,
+      "role": "pilot",
+      "sample": "H00058-Ha001E-PBGa",
+      "source": "HV"
+    },
+    {
+      "combat_id": "H00064",
+      "eligible_pool_cells": 7531,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 7562,
+      "role": "pilot",
+      "sample": "H00064-Ha001E-PBGa",
+      "source": "HV"
+    },
+    {
+      "combat_id": "H00067",
+      "eligible_pool_cells": 10801,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 10833,
+      "role": "held_donor",
+      "sample": "H00067-Ha001E-PBGa",
+      "source": "HV"
+    },
+    {
+      "combat_id": "H00070",
+      "eligible_pool_cells": 8042,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 8055,
+      "role": "pilot",
+      "sample": "H00070-Ha001E-PBGa",
+      "source": "HV"
+    },
+    {
+      "combat_id": "H00072",
+      "eligible_pool_cells": 9085,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 9133,
+      "role": "pilot",
+      "sample": "H00072-Ha001E-PBGa",
+      "source": "HV"
+    },
+    {
+      "combat_id": "H00085",
+      "eligible_pool_cells": 5752,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 5748,
+      "role": "held_donor",
+      "sample": "H00085-Ha001E-PBGa",
+      "source": "HV"
+    },
+    {
+      "combat_id": "N00006",
+      "eligible_pool_cells": 5972,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6044,
+      "role": "pilot",
+      "sample": "N00006-Ja003E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "N00007",
+      "eligible_pool_cells": 6098,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6092,
+      "role": "held_donor",
+      "sample": "N00007-Ja003E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "N00012",
+      "eligible_pool_cells": 3213,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 3220,
+      "role": "held_donor",
+      "sample": "N00012-Ja003E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "N00017",
+      "eligible_pool_cells": 2158,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 2158,
+      "role": "held_donor",
+      "sample": "N00017-Ja003E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "N00021",
+      "eligible_pool_cells": 6940,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6924,
+      "role": "held_donor",
+      "sample": "N00021-Ja001E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "N00024",
+      "eligible_pool_cells": 9829,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 9869,
+      "role": "pilot",
+      "sample": "N00024-Ja001E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "N00025",
+      "eligible_pool_cells": 3737,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 3769,
+      "role": "pilot",
+      "sample": "N00025-Ja001E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "N00028",
+      "eligible_pool_cells": 7767,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 7762,
+      "role": "held_donor",
+      "sample": "N00028-Ja001E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "N00032",
+      "eligible_pool_cells": 10398,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 10386,
+      "role": "calibration",
+      "sample": "N00032-Ja001E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "N00033",
+      "eligible_pool_cells": 9520,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 9579,
+      "role": "held_donor",
+      "sample": "N00033-Ja001E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "N00038",
+      "eligible_pool_cells": 7275,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 7277,
+      "role": "held_donor",
+      "sample": "N00038-Ja001E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "N00040",
+      "eligible_pool_cells": 6041,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6182,
+      "role": "held_donor",
+      "sample": "N00040-Ja001E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "N00047",
+      "eligible_pool_cells": 4079,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 4105,
+      "role": "pilot",
+      "sample": "N00047-Ja005E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "N00049",
+      "eligible_pool_cells": 3677,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 3700,
+      "role": "held_donor",
+      "sample": "N00049-Ja005E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "N00050",
+      "eligible_pool_cells": 1746,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 1745,
+      "role": "calibration",
+      "sample": "N00050-Ja001E-PBGa",
+      "source": "Sepsis"
+    },
+    {
+      "combat_id": "S00002",
+      "eligible_pool_cells": 3092,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 3083,
+      "role": "calibration",
+      "sample": "S00002-Ja001E-PBCa",
+      "source": "COVID_MILD"
+    },
+    {
+      "combat_id": "S00005",
+      "eligible_pool_cells": 9006,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 9004,
+      "role": "held_donor",
+      "sample": "S00005-Ja005E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00006",
+      "eligible_pool_cells": 7045,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 7097,
+      "role": "held_donor",
+      "sample": "S00006-Ja005E-PBCa",
+      "source": "COVID_MILD"
+    },
+    {
+      "combat_id": "S00007",
+      "eligible_pool_cells": 3470,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 3474,
+      "role": "held_donor",
+      "sample": "S00007-Ja003E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00008",
+      "eligible_pool_cells": 1600,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 1600,
+      "role": "pilot",
+      "sample": "S00008-Ja003E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00016",
+      "eligible_pool_cells": 5705,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 5713,
+      "role": "held_donor",
+      "sample": "S00016-Ja001E-PBCa",
+      "source": "COVID_MILD"
+    },
+    {
+      "combat_id": "S00020",
+      "eligible_pool_cells": 3354,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 3353,
+      "role": "pilot",
+      "sample": "S00020-Ja003E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00024",
+      "eligible_pool_cells": 4186,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 4176,
+      "role": "calibration",
+      "sample": "S00024-Ja003E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00027",
+      "eligible_pool_cells": 2915,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 2850,
+      "role": "calibration",
+      "sample": "S00027-Ja003E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00028",
+      "eligible_pool_cells": 10444,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 10596,
+      "role": "held_donor",
+      "sample": "S00028-Ja001E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00034",
+      "eligible_pool_cells": 8294,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 8435,
+      "role": "held_donor",
+      "sample": "S00034-Ja005E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00037",
+      "eligible_pool_cells": 7364,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 7367,
+      "role": "pilot",
+      "sample": "S00037-Ja003E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00040",
+      "eligible_pool_cells": 4820,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 4801,
+      "role": "pilot",
+      "sample": "S00040-Ja005E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00041",
+      "eligible_pool_cells": 5668,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 5682,
+      "role": "held_donor",
+      "sample": "S00041-Ja001E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00042",
+      "eligible_pool_cells": 5242,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 5239,
+      "role": "pilot",
+      "sample": "S00042-Ja001E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00043",
+      "eligible_pool_cells": 5919,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 5911,
+      "role": "held_donor",
+      "sample": "S00043-Ja005E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00045",
+      "eligible_pool_cells": 6272,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6289,
+      "role": "calibration",
+      "sample": "S00045-Ja001E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00048",
+      "eligible_pool_cells": 3447,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 3442,
+      "role": "held_donor",
+      "sample": "S00048-Ja003E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00050",
+      "eligible_pool_cells": 6920,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6937,
+      "role": "held_donor",
+      "sample": "S00050-Ja001E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00052",
+      "eligible_pool_cells": 13923,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 14113,
+      "role": "pilot",
+      "sample": "S00052-Ja005E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00053",
+      "eligible_pool_cells": 3696,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 3693,
+      "role": "pilot",
+      "sample": "S00053-Ja003E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00054",
+      "eligible_pool_cells": 3951,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 3959,
+      "role": "held_donor",
+      "sample": "S00054-Ja001E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00056",
+      "eligible_pool_cells": 7609,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 8069,
+      "role": "held_donor",
+      "sample": "S00056-Ja003E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00057",
+      "eligible_pool_cells": 5676,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 5685,
+      "role": "held_donor",
+      "sample": "S00057-Ja003E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00058",
+      "eligible_pool_cells": 6835,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6846,
+      "role": "held_donor",
+      "sample": "S00058-Ja003E-PBCa",
+      "source": "COVID_MILD"
+    },
+    {
+      "combat_id": "S00059",
+      "eligible_pool_cells": 5371,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 5378,
+      "role": "held_donor",
+      "sample": "S00059-Ja001E-PBCa",
+      "source": "COVID_MILD"
+    },
+    {
+      "combat_id": "S00060",
+      "eligible_pool_cells": 5522,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 5577,
+      "role": "held_donor",
+      "sample": "S00060-Ja005E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00061",
+      "eligible_pool_cells": 4282,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 4289,
+      "role": "held_donor",
+      "sample": "S00061-Ja003E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00063",
+      "eligible_pool_cells": 6159,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6168,
+      "role": "pilot",
+      "sample": "S00063-Ja003E-PBCa",
+      "source": "COVID_MILD"
+    },
+    {
+      "combat_id": "S00064",
+      "eligible_pool_cells": 7367,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 7370,
+      "role": "held_donor",
+      "sample": "S00064-Ja005E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00065",
+      "eligible_pool_cells": 3926,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 3941,
+      "role": "held_donor",
+      "sample": "S00065-Ja003E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00067",
+      "eligible_pool_cells": 4807,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 4800,
+      "role": "held_donor",
+      "sample": "S00067-Ja001E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00068",
+      "eligible_pool_cells": 3710,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 3736,
+      "role": "held_donor",
+      "sample": "S00068-Ja005E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00069",
+      "eligible_pool_cells": 5830,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 5885,
+      "role": "held_donor",
+      "sample": "S00069-Ja005E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00076",
+      "eligible_pool_cells": 5782,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 5816,
+      "role": "pilot",
+      "sample": "S00076-Ja001E-PBCa",
+      "source": "COVID_MILD"
+    },
+    {
+      "combat_id": "S00077",
+      "eligible_pool_cells": 2848,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 2854,
+      "role": "held_donor",
+      "sample": "S00077-Ja005E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00078",
+      "eligible_pool_cells": 7681,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 7728,
+      "role": "held_donor",
+      "sample": "S00078-Ja003E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00094",
+      "eligible_pool_cells": 4923,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 4929,
+      "role": "held_donor",
+      "sample": "S00094-Ja005E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00095",
+      "eligible_pool_cells": 3085,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 3088,
+      "role": "held_donor",
+      "sample": "S00095-Ja005E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00099",
+      "eligible_pool_cells": 2386,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 2402,
+      "role": "held_donor",
+      "sample": "S00099-Ja005E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00104",
+      "eligible_pool_cells": 8113,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 8124,
+      "role": "pilot",
+      "sample": "S00104-Ja003E-PBCa",
+      "source": "COVID_MILD"
+    },
+    {
+      "combat_id": "S00106",
+      "eligible_pool_cells": 6709,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6716,
+      "role": "held_donor",
+      "sample": "S00106-Ja003E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00109",
+      "eligible_pool_cells": 3258,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 3224,
+      "role": "held_donor",
+      "sample": "S00109-Ja005E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00112",
+      "eligible_pool_cells": 7390,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 7432,
+      "role": "held_donor",
+      "sample": "S00112-Ja003E-PBCa",
+      "source": "COVID_MILD"
+    },
+    {
+      "combat_id": "S00113",
+      "eligible_pool_cells": 6114,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6152,
+      "role": "held_donor",
+      "sample": "S00113-Ja005E-PBCa",
+      "source": "COVID_MILD"
+    },
+    {
+      "combat_id": "S00114",
+      "eligible_pool_cells": 7651,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 7664,
+      "role": "pilot",
+      "sample": "S00114-Ja003E-PBCa",
+      "source": "COVID_MILD"
+    },
+    {
+      "combat_id": "S00124",
+      "eligible_pool_cells": 6358,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6384,
+      "role": "held_donor",
+      "sample": "S00124-Ja005E-PBCa",
+      "source": "COVID_CRIT"
+    },
+    {
+      "combat_id": "S00126",
+      "eligible_pool_cells": 6479,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 6495,
+      "role": "calibration",
+      "sample": "S00126-Ja003E-PBCa",
+      "source": "COVID_MILD"
+    },
+    {
+      "combat_id": "S00134",
+      "eligible_pool_cells": 5705,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 5774,
+      "role": "pilot",
+      "sample": "S00134-Ja003E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "S00148",
+      "eligible_pool_cells": 5338,
+      "institute": "Oxford",
+      "official_total_pbmc_count": 5348,
+      "role": "calibration",
+      "sample": "S00148-Ja003E-PBCa",
+      "source": "COVID_SEV"
+    },
+    {
+      "combat_id": "U00501",
+      "eligible_pool_cells": 1175,
+      "institute": "St_Georges",
+      "official_total_pbmc_count": 1171,
+      "role": "held_site",
+      "sample": "U00501-Ua005E-PBUa",
+      "source": "Flu"
+    },
+    {
+      "combat_id": "U00502",
+      "eligible_pool_cells": 3705,
+      "institute": "St_Georges",
+      "official_total_pbmc_count": 3722,
+      "role": "held_site",
+      "sample": "U00502-Ua005E-PBUa",
+      "source": "Flu"
+    },
+    {
+      "combat_id": "U00503",
+      "eligible_pool_cells": 1731,
+      "institute": "St_Georges",
+      "official_total_pbmc_count": 1731,
+      "role": "held_site",
+      "sample": "U00503-Ua005E-PBUa",
+      "source": "Flu"
+    },
+    {
+      "combat_id": "U00505",
+      "eligible_pool_cells": 3266,
+      "institute": "St_Georges",
+      "official_total_pbmc_count": 3300,
+      "role": "held_site",
+      "sample": "U00505-Ua005E-PBUa",
+      "source": "Flu"
+    },
+    {
+      "combat_id": "U00601",
+      "eligible_pool_cells": 623,
+      "institute": "St_Georges",
+      "official_total_pbmc_count": 620,
+      "role": "held_site",
+      "sample": "U00601-Ua005E-PBUa",
+      "source": "Flu"
+    },
+    {
+      "combat_id": "U00605",
+      "eligible_pool_cells": 1691,
+      "institute": "St_Georges",
+      "official_total_pbmc_count": 1700,
+      "role": "held_site",
+      "sample": "U00605-Ua005E-PBUa",
+      "source": "Flu"
+    },
+    {
+      "combat_id": "U00607",
+      "eligible_pool_cells": 1021,
+      "institute": "St_Georges",
+      "official_total_pbmc_count": 1081,
+      "role": "held_site",
+      "sample": "U00607-Ua005E-PBUa",
+      "source": "Flu"
+    },
+    {
+      "combat_id": "U00617",
+      "eligible_pool_cells": 1142,
+      "institute": "St_Georges",
+      "official_total_pbmc_count": 1138,
+      "role": "held_site",
+      "sample": "U00617-Ua005E-PBUa",
+      "source": "Flu"
+    },
+    {
+      "combat_id": "U00619",
+      "eligible_pool_cells": 2009,
+      "institute": "St_Georges",
+      "official_total_pbmc_count": 2024,
+      "role": "held_site",
+      "sample": "U00619-Ua005E-PBUa",
+      "source": "Flu"
+    },
+    {
+      "combat_id": "U00701",
+      "eligible_pool_cells": 874,
+      "institute": "St_Georges",
+      "official_total_pbmc_count": 876,
+      "role": "held_site",
+      "sample": "U00701-Ua005E-PBUa",
+      "source": "Flu"
+    }
+  ],
+  "schema": "combat-citeseq-source-manifest/1.0",
+  "status": "SOURCE_SEALED"
+}

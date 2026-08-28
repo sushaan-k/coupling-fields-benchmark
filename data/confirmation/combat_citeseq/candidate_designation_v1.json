@@ -1,0 +1,571 @@
+{
+  "schema": "combat-citeseq-candidate-designation/1.0",
+  "status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
+  "designation_date": "2026-08-28",
+  "designation": "data/confirmation/combat_citeseq/candidate_designation_v1.json",
+  "protocol": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
+  "protocol_sha256": "2aafce7be9700b0d53c9047e14ba55bb4e99c001bdf6b1918cf5c0e3d36dcc7c",
+  "dataset": {
+    "name": "COMBAT CITE-seq",
+    "zenodo_doi": "10.5281/zenodo.6120249",
+    "zenodo_record": "https://zenodo.org/records/6120249",
+    "study_doi": "10.1016/j.cell.2022.01.012",
+    "file": {
+      "name": "COMBAT-CITESeq-DATA.h5ad",
+      "bytes": 6409089483,
+      "md5": "87c6b1a733ea1adc37c808d9a357de74",
+      "sha256": "f628a15f25b9ca2f7cdefeab271fd9d007c8d5e47eb80c4b807d5f65e86ff53d",
+      "content_url": "https://zenodo.org/api/records/6120249/files/COMBAT-CITESeq-DATA.h5ad/content"
+    },
+    "composition_archive": {
+      "name": "CBD-KEY-CITESEQ-GEX-COMPOSITION.tar.gz",
+      "bytes": 212203,
+      "md5": "fe077fc9f314419536d6d901855c9d84",
+      "sha256": "cc6b50cb363b800f356aa79224240f96ca11046a9c2a1c5f4f78603531b3dae3",
+      "content_url": "https://zenodo.org/api/records/6120249/files/CBD-KEY-CITESEQ-GEX-COMPOSITION.tar.gz/content",
+      "member": {
+        "name": "COMBAT_CITEseq_Composition-PerSample_CellType_Counts_and_PercentFrequencies_out_of_all_PBMCs.csv",
+        "bytes": 33391,
+        "md5": "c4e635d7f16b3f7e3e66571a3359de3b",
+        "sha256": "2ad7e92ab122ee52986d5748dbb23c335c02ec1f1f244943ce46fff94c585157"
+      }
+    }
+  },
+  "artifacts": {
+    "runner": "experiments/confirm_combat_citeseq.py",
+    "runner_test": "tests/test_combat_citeseq_confirmation.py",
+    "metadata_preflight_script": "experiments/preflight_combat_citeseq.py",
+    "metadata_preflight": "results/development/combat_citeseq_metadata_preflight.json",
+    "composition_csv": "data/confirmation/combat_citeseq/COMBAT_CITEseq_Composition-PerSample_CellType_Counts_and_PercentFrequencies_out_of_all_PBMCs.csv",
+    "source_manifest": "data/confirmation/combat_citeseq/source_manifest_v1.json",
+    "public_freeze_verification": "docs/COMBAT_CITESEQ_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+    "development_authorization": "data/confirmation/combat_citeseq/development_authorization_v1.json",
+    "development_reduction": "data/development/combat_citeseq/reduced_v1.json",
+    "development_result": "results/development/combat_citeseq_development.json",
+    "held_rna_margin_authorization": "data/confirmation/combat_citeseq/held_rna_margin_authorization_v1.json",
+    "held_prediction_attempt": "data/confirmation/combat_citeseq/prediction_attempt_v1.json",
+    "held_predictions": "results/combat_citeseq_predictions.json",
+    "score_authorization": "data/confirmation/combat_citeseq/score_authorization_v1.json",
+    "score_attempt": "data/confirmation/combat_citeseq/score_attempt_v1.json",
+    "score_result": "results/combat_citeseq_confirmation.json",
+    "terminal_refusal": "results/combat_citeseq_terminal_refusal.json"
+  },
+  "metadata_contract": {
+    "h5ad_sample_fields": [
+      "COMBAT_ID",
+      "scRNASeq_sample_ID",
+      "Source",
+      "Institute"
+    ],
+    "cell_type_field": "Annotation_cell_type",
+    "h5ad_cell_selection_allowlist": [
+      "B",
+      "ERYTH",
+      "HSC",
+      "MNP",
+      "NK",
+      "PB",
+      "PLT",
+      "T"
+    ],
+    "composition_only_category_not_in_h5ad_allowlist": "MNP|PLT",
+    "annotation_provenance": "Annotation_cell_type is an author-derived assay annotation used only to define the cell pool; no RNA or ADT matrix value enters eligibility or cell selection",
+    "composition_eligibility": "the exact 97 unique sample IDs in the bound official composition CSV, mapped to the 97 COMBAT_ID prefixes enumerated below",
+    "sample_mapping": "select only the exact enumerated (COMBAT_ID, scRNASeq_sample_ID) pair; exclude every other H5AD pair or timepoint, including one sharing a designated COMBAT_ID",
+    "h5ad_pool_count_rule": "record, for every mapped sample, the count of cells whose non-null Annotation_cell_type is in the exact eight-label H5AD allowlist; require at least 512",
+    "total_pbmc_count_policy": "record the official composition-file TotalPBMC_Count descriptively; do not require equality to the H5AD pool count",
+    "eligible_samples": 97,
+    "institute_counts": {
+      "Oxford": 87,
+      "St_Georges": 10
+    },
+    "designated_sample_pairs": {
+      "G05061": "G05061-Ja005E-PBCa",
+      "G05064": "G05064-Ja005E-PBCa",
+      "G05073": "G05073-Ja005E-PBCa",
+      "G05077": "G05077-Ja005E-PBCa",
+      "G05078": "G05078-Ja005E-PBCa",
+      "G05097": "G05097-Ja005E-PBCa",
+      "G05105": "G05105-Ja005E-PBCa",
+      "G05112": "G05112-Ja005E-PBCa",
+      "G05145": "G05145-Ja005E-PBCa",
+      "G05153": "G05153-Ja005E-PBCa",
+      "G05164": "G05164-Ja005E-PBCa",
+      "G05171": "G05171-Ja005E-PBCa",
+      "H00049": "H00049-Ha001E-PBGa",
+      "H00052": "H00052-Ha001E-PBGa",
+      "H00053": "H00053-Ha001E-PBGa",
+      "H00054": "H00054-Ha001E-PBGa",
+      "H00058": "H00058-Ha001E-PBGa",
+      "H00064": "H00064-Ha001E-PBGa",
+      "H00067": "H00067-Ha001E-PBGa",
+      "H00070": "H00070-Ha001E-PBGa",
+      "H00072": "H00072-Ha001E-PBGa",
+      "H00085": "H00085-Ha001E-PBGa",
+      "N00006": "N00006-Ja003E-PBGa",
+      "N00007": "N00007-Ja003E-PBGa",
+      "N00012": "N00012-Ja003E-PBGa",
+      "N00017": "N00017-Ja003E-PBGa",
+      "N00021": "N00021-Ja001E-PBGa",
+      "N00024": "N00024-Ja001E-PBGa",
+      "N00025": "N00025-Ja001E-PBGa",
+      "N00028": "N00028-Ja001E-PBGa",
+      "N00032": "N00032-Ja001E-PBGa",
+      "N00033": "N00033-Ja001E-PBGa",
+      "N00038": "N00038-Ja001E-PBGa",
+      "N00040": "N00040-Ja001E-PBGa",
+      "N00047": "N00047-Ja005E-PBGa",
+      "N00049": "N00049-Ja005E-PBGa",
+      "N00050": "N00050-Ja001E-PBGa",
+      "S00002": "S00002-Ja001E-PBCa",
+      "S00005": "S00005-Ja005E-PBCa",
+      "S00006": "S00006-Ja005E-PBCa",
+      "S00007": "S00007-Ja003E-PBCa",
+      "S00008": "S00008-Ja003E-PBCa",
+      "S00016": "S00016-Ja001E-PBCa",
+      "S00020": "S00020-Ja003E-PBCa",
+      "S00024": "S00024-Ja003E-PBCa",
+      "S00027": "S00027-Ja003E-PBCa",
+      "S00028": "S00028-Ja001E-PBCa",
+      "S00034": "S00034-Ja005E-PBCa",
+      "S00037": "S00037-Ja003E-PBCa",
+      "S00040": "S00040-Ja005E-PBCa",
+      "S00041": "S00041-Ja001E-PBCa",
+      "S00042": "S00042-Ja001E-PBCa",
+      "S00043": "S00043-Ja005E-PBCa",
+      "S00045": "S00045-Ja001E-PBCa",
+      "S00048": "S00048-Ja003E-PBCa",
+      "S00050": "S00050-Ja001E-PBCa",
+      "S00052": "S00052-Ja005E-PBCa",
+      "S00053": "S00053-Ja003E-PBCa",
+      "S00054": "S00054-Ja001E-PBCa",
+      "S00056": "S00056-Ja003E-PBCa",
+      "S00057": "S00057-Ja003E-PBCa",
+      "S00058": "S00058-Ja003E-PBCa",
+      "S00059": "S00059-Ja001E-PBCa",
+      "S00060": "S00060-Ja005E-PBCa",
+      "S00061": "S00061-Ja003E-PBCa",
+      "S00063": "S00063-Ja003E-PBCa",
+      "S00064": "S00064-Ja005E-PBCa",
+      "S00065": "S00065-Ja003E-PBCa",
+      "S00067": "S00067-Ja001E-PBCa",
+      "S00068": "S00068-Ja005E-PBCa",
+      "S00069": "S00069-Ja005E-PBCa",
+      "S00076": "S00076-Ja001E-PBCa",
+      "S00077": "S00077-Ja005E-PBCa",
+      "S00078": "S00078-Ja003E-PBCa",
+      "S00094": "S00094-Ja005E-PBCa",
+      "S00095": "S00095-Ja005E-PBCa",
+      "S00099": "S00099-Ja005E-PBCa",
+      "S00104": "S00104-Ja003E-PBCa",
+      "S00106": "S00106-Ja003E-PBCa",
+      "S00109": "S00109-Ja005E-PBCa",
+      "S00112": "S00112-Ja003E-PBCa",
+      "S00113": "S00113-Ja005E-PBCa",
+      "S00114": "S00114-Ja003E-PBCa",
+      "S00124": "S00124-Ja005E-PBCa",
+      "S00126": "S00126-Ja003E-PBCa",
+      "S00134": "S00134-Ja003E-PBCa",
+      "S00148": "S00148-Ja003E-PBCa",
+      "U00501": "U00501-Ua005E-PBUa",
+      "U00502": "U00502-Ua005E-PBUa",
+      "U00503": "U00503-Ua005E-PBUa",
+      "U00505": "U00505-Ua005E-PBUa",
+      "U00601": "U00601-Ua005E-PBUa",
+      "U00605": "U00605-Ua005E-PBUa",
+      "U00607": "U00607-Ua005E-PBUa",
+      "U00617": "U00617-Ua005E-PBUa",
+      "U00619": "U00619-Ua005E-PBUa",
+      "U00701": "U00701-Ua005E-PBUa"
+    },
+    "minimum_eligible_cells_per_sample": 512,
+    "preflight_matrix_payload_reads": 0,
+    "failure_policy": "any designated-pair absence or metadata inconsistency, eligibility, allowlist, minimum-count, institute, source-stratum, support, or matrix-schema discrepancy is a terminal pre-outcome refusal; outside-universe H5AD pairs are excluded and are not discrepancies; samples are never replaced"
+  },
+  "allocation": {
+    "unit": "unique COMBAT_ID and scRNASeq_sample_ID pair",
+    "source_order": [
+      "COVID_CRIT",
+      "COVID_HCW_MILD",
+      "COVID_MILD",
+      "COVID_SEV",
+      "HV",
+      "Sepsis"
+    ],
+    "calibration_formula": "within each Oxford Source, sort ascending SHA256(UTF-8('COMBAT-OXFORD-CALIBRATION-v1') || 0x00 || UTF-8(Source) || 0x00 || UTF-8(COMBAT_ID) || 0x00 || UTF-8(scRNASeq_sample_ID)), break digest ties by scRNASeq_sample_ID, and take 2",
+    "pilot_formula": "remove calibration samples; within each Oxford Source, sort ascending SHA256(UTF-8('COMBAT-OXFORD-PILOT-v1') || 0x00 || UTF-8(Source) || 0x00 || UTF-8(COMBAT_ID) || 0x00 || UTF-8(scRNASeq_sample_ID)), break digest ties by scRNASeq_sample_ID, and take 4",
+    "locked_development_sample_order": "the declared source_order followed by lexical COMBAT_ID order within each source and role; digest order determines membership only",
+    "calibration_by_source": {
+      "COVID_CRIT": [
+        "S00024",
+        "S00027"
+      ],
+      "COVID_HCW_MILD": [
+        "G05077",
+        "G05171"
+      ],
+      "COVID_MILD": [
+        "S00002",
+        "S00126"
+      ],
+      "COVID_SEV": [
+        "S00045",
+        "S00148"
+      ],
+      "HV": [
+        "H00052",
+        "H00054"
+      ],
+      "Sepsis": [
+        "N00032",
+        "N00050"
+      ]
+    },
+    "pilot_by_source": {
+      "COVID_CRIT": [
+        "S00008",
+        "S00020",
+        "S00040",
+        "S00052"
+      ],
+      "COVID_HCW_MILD": [
+        "G05061",
+        "G05097",
+        "G05145",
+        "G05164"
+      ],
+      "COVID_MILD": [
+        "S00063",
+        "S00076",
+        "S00104",
+        "S00114"
+      ],
+      "COVID_SEV": [
+        "S00037",
+        "S00042",
+        "S00053",
+        "S00134"
+      ],
+      "HV": [
+        "H00058",
+        "H00064",
+        "H00070",
+        "H00072"
+      ],
+      "Sepsis": [
+        "N00006",
+        "N00024",
+        "N00025",
+        "N00047"
+      ]
+    },
+    "counts": {
+      "calibration": 12,
+      "pilot_adaptive_development": 24,
+      "oxford_held_confirmatory": 51,
+      "st_georges_held_confirmatory": 10
+    },
+    "oxford_held": {
+      "definition": "all 87 eligible Oxford samples in the frozen source manifest minus the exact 12 calibration and 24 pilot COMBAT_ID values",
+      "count": 51,
+      "locked_order": "ascending lexical COMBAT_ID",
+      "materialize_exact_ids_before_matrix_access": true
+    },
+    "st_georges_held": [
+      "U00501",
+      "U00502",
+      "U00503",
+      "U00505",
+      "U00601",
+      "U00605",
+      "U00607",
+      "U00617",
+      "U00619",
+      "U00701"
+    ],
+    "pilot_inference_status": "adaptive development; selection and promotion use the same 24 samples",
+    "oxford_held_inference_status": "confirmatory",
+    "st_georges_held_inference_status": "confirmatory",
+    "full_promotion_rule": "field-transfer and graph-specific gates must pass in both held panels; no pooled result can replace either panel"
+  },
+  "cell_and_state_rules": {
+    "cells_per_sample": 512,
+    "cell_selection_formula": "among exact-whitelist eligible cells, sort ascending SHA256(UTF-8('COMBAT-PBMC-CELL-BUDGET-v1') || 0x00 || UTF-8(COMBAT_ID) || 0x00 || UTF-8(scRNASeq_sample_ID) || 0x00 || UTF-8(obs_name)), break digest ties by obs_name, and take 512",
+    "rna_state": "one iff the layers/raw Gene Expression count is greater than zero",
+    "adt_state": "within sample and marker, sort by layers/raw ADT count then SHA256(UTF-8('COMBAT-PBMC-ADT-v1') || 0x00 || UTF-8(COMBAT_ID) || 0x00 || UTF-8(scRNASeq_sample_ID) || 0x00 || UTF-8(obs_name) || 0x00 || UTF-8(marker)); first 256 are lower and remaining 256 upper",
+    "informative_entity": "fixed 2x2 margins admit more than one table",
+    "minimum_informative_entities_per_sample": 64,
+    "cell_vectors_serialized": false
+  },
+  "entities": {
+    "ordered_markers": [
+      "CD4",
+      "CD7",
+      "CD14",
+      "CD19",
+      "CD33",
+      "CD38",
+      "CD44",
+      "CD47",
+      "CD52"
+    ],
+    "rna_ensembl_ids": {
+      "CD4": "ENSG00000010610",
+      "CD7": "ENSG00000173762",
+      "CD14": "ENSG00000170458",
+      "CD19": "ENSG00000177455",
+      "CD33": "ENSG00000105383",
+      "CD38": "ENSG00000004468",
+      "CD44": "ENSG00000026508",
+      "CD47": "ENSG00000196776",
+      "CD52": "ENSG00000169442"
+    },
+    "adt_exact_aliases": {
+      "CD4": "AB_CD4",
+      "CD7": "AB_CD7",
+      "CD14": "AB_CD14",
+      "CD19": "AB_CD19",
+      "CD33": "AB_CD33",
+      "CD38": "AB_CD38",
+      "CD44": "AB_humanCD44",
+      "CD47": "AB_CD47",
+      "CD52": "AB_CD52"
+    },
+    "fuzzy_feature_fallback": false,
+    "ordered_entities": 81,
+    "matrix": "layers/raw",
+    "required_feature_metadata": [
+      "gene_ids",
+      "feature_types"
+    ]
+  },
+  "estimator": {
+    "primary": "exact-null-centered Haldane/Paule-Mandel product-graph field",
+    "haldanes": {
+      "observed_coordinate": "for upper-left count a and fixed-margin cells a,b,c,d, h_M(a)=log((a+1/2)*(d+1/2)/((b+1/2)*(c+1/2))); z=h_M(a)-E_0[h_M(A)] under the exact fixed-margin hypergeometric null",
+      "within_sample_variance": "exact Var_0[h_M(A)], floored at 1e-8",
+      "recipient_family": "Fisher noncentral hypergeometric P_theta(A=a|M) proportional to P_0(A=a|M)*exp(theta*a)",
+      "recipient_equation": "solve E_theta[h_M(A)]-E_0[h_M(A)]=transferred z, then return the expected 2x2 table E_theta[T(A)]",
+      "support_rules": "enumerate exact integer support; exact attainable endpoints return flagged limiting tables; outside the closed attainable interval refuses; a one-table margin returns the flagged unique table and is excluded from informative loss",
+      "interpretation": "the pooled estimand is an expected centered Haldane coordinate, not a realized fractional upper-left count"
+    },
+    "pooling": {
+      "method": "entity-wise Paule-Mandel random-effects mean, heterogeneity, and precision",
+      "minimum_supported_donors": 2,
+      "within_sample_variance_floor": 1e-8,
+      "tau_solver": "for w_i(t)=1/(v_i+t) and mu(t)=sum(w_i(t)*z_i)/sum(w_i(t)), use t=0 when sum(w_i(0)*(z_i-mu(0))^2)<=n-1; otherwise solve the unique nonnegative root equal to n-1",
+      "precision_normalization": "divide positive PM precisions by their median",
+      "supported_precision_floor": 1e-8
+    },
+    "structured_solve": {
+      "equation": "(P + ridge*I + graph*L_product) z = P*mu",
+      "closed_form_scope": "only this graph linear solve is closed-form; PM pooling and recipient reconstruction use one-dimensional root solves",
+      "maximum_condition_number": 1000000000000.0,
+      "failure_rule": "refuse a nonfinite system, unsupported required entity, or condition number above the maximum"
+    },
+    "configuration_order": [
+      "k",
+      "ridge",
+      "graph"
+    ],
+    "configuration_grid": {
+      "k": [
+        1,
+        2
+      ],
+      "ridge": [
+        0.01,
+        0.1
+      ],
+      "graph": [
+        0.1,
+        1.0
+      ]
+    },
+    "configurations": 8,
+    "tie_break": "first lexicographic (k, ridge, graph) tuple in the declared grid",
+    "graph_construction": {
+      "cell_basis": "the selected 512 cells per fit sample only",
+      "columns": "all nonempty (fit sample, eligible Annotation_cell_type) strata in locked sample order then the exact eight-label allowlist order",
+      "rna_profile": "binary detection prevalence in each stratum",
+      "adt_profile": "stratum mean of per-cell log1p(100 * marker count / nine-marker ADT total); a zero-total cell contributes a zero vector",
+      "standardization": "center and scale each marker profile across strata with ddof=1; zero variance refuses",
+      "neighbors": "Euclidean directed k-nearest neighbors with locked-marker tie breaking, followed by undirected union and lexical edge order",
+      "incidence": "one unweighted incidence column with exactly two unit entries per undirected edge",
+      "laplacian": "L=I-D_v^(-1/2)*H*W*D_e^(-1)*H^T*D_v^(-1/2) on supported vertices, W=I, with isolated rows and columns zero",
+      "product": "Kronecker sum kron(L_RNA,I_9)+kron(I_9,L_ADT), RNA-major and ADT-minor in the declared ordered entity list",
+      "pilot_graph_source": "12 calibration samples only",
+      "refit_graph_source": "all 36 calibration and pilot samples",
+      "held_rows_used": false
+    },
+    "classical_comparators": {
+      "families": [
+        "sign(ad-bc)*sqrt(sum_ij((t_ij-e_ij)^2/e_ij)) with e_ij=r_i*c_j/N and sign(0)=0",
+        "sign(ad-bc)*sqrt(2*sum_{t_ij>0}(t_ij*log(t_ij/e_ij))) with e_ij=r_i*c_j/N and sign(0)=0"
+      ],
+      "raw_coordinate": "q_M(a)=s_M(a)/sqrt(N)",
+      "centered_coordinate": "q_M(a)=(s_M(a)-E_0[s_M(A)])/sqrt(N)",
+      "within_sample_variance": "exact Var_0[s_M(A)]/N, floored at 1e-8",
+      "pooling": "the same Paule-Mandel rules as the primary field",
+      "target_restoration": "under the Fisher noncentral-hypergeometric target family, solve E_theta[q_M(A)]=pooled q and return E_theta[T(A)]",
+      "support_rules": "enumerate full integer support and verify strict monotonicity; exact endpoints return flagged limiting tables; out-of-range targets refuse; one-table margins return the flagged unique table; zero null variance is unsupported",
+      "pilot_selection": "select the strongest of the four family-by-centering variants on the adaptive pilot"
+    },
+    "unstructured_comparator": {
+      "name": "ridge-only Paule-Mandel Haldane field",
+      "ridge_grid": [
+        0.0,
+        0.01,
+        0.1
+      ],
+      "graph_penalty": 0.0,
+      "selection": "pilot-select by sample-equal deviance with lower ridge as the tie break",
+      "matched_components": "identical Haldane coordinate, Paule-Mandel pooling, precision normalization, and recipient reconstruction; ridge=0 retains the raw PM pool"
+    },
+    "required_promotion_comparators": [
+      "pilot-selected strongest classical residual transfer",
+      "pairing-destroyed primary field"
+    ],
+    "mandatory_reported_ablations": [
+      "pilot-selected unstructured ridge-only Paule-Mandel Haldane field",
+      "label-permuted product graph",
+      "independence"
+    ],
+    "destroyed_link_rule": "within each source sample, order cells by SHA256(UTF-8('COMBAT-DESTROYED-LINK-v1') || 0x00 || UTF-8(scRNASeq_sample_ID) || 0x00 || UTF-8(obs_name)) and cyclically replace each ADT profile by the next profile; reuse the primary field's unpermuted marginal-profile graphs so only source joint tables change",
+    "label_permutation_rule": "independently order RNA and ADT markers by SHA256(UTF-8('COMBAT-LABEL-PERMUTATION-v1') || 0x00 || UTF-8(modality) || 0x00 || UTF-8(marker)) and assign them to graph positions in lexical marker order"
+  },
+  "development": {
+    "authorization": {
+      "path": "data/confirmation/combat_citeseq/development_authorization_v1.json",
+      "schema": "combat-citeseq-development-authorization/1.0",
+      "status": "OUTCOME_ACCESS_AUTHORIZED",
+      "public_freeze_commit": "must be exactly 40 lowercase hexadecimal characters",
+      "required_binding_paths": {
+        "runner": "experiments/confirm_combat_citeseq.py",
+        "runner_test": "tests/test_combat_citeseq_confirmation.py",
+        "protocol": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
+        "designation": "data/confirmation/combat_citeseq/candidate_designation_v1.json",
+        "source_manifest": "data/confirmation/combat_citeseq/source_manifest_v1.json",
+        "metadata_preflight_script": "experiments/preflight_combat_citeseq.py",
+        "metadata_preflight_result": "results/development/combat_citeseq_metadata_preflight.json",
+        "fresh_clone_verification": "docs/COMBAT_CITESEQ_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+        "gse279451_evaluator": "experiments/evaluate_gse279451_sepsis_development.py",
+        "gse279451_reducer": "experiments/reduce_gse279451_sepsis.py",
+        "heterogeneity_adaptive_coupling": "mapreg/heterogeneity_adaptive_coupling.py",
+        "hierarchical_conditional_coupling": "mapreg/hierarchical_conditional_coupling.py",
+        "coupling_fields": "mapreg/coupling_fields.py",
+        "classical_residuals": "mapreg/classical_residuals.py",
+        "table_prediction": "mapreg/table_prediction.py"
+      },
+      "binding_shape": "authorization.bindings must contain exactly the declared names; each value is an object with the exact repository-relative path and lowercase 64-hex SHA-256",
+      "transitive_import_rule": "every numerical estimator, comparator, reconstruction, loss, interval, or test module imported by the runner must be present; an added numerical import without a new preauthorization binding refuses",
+      "access_rule": "validate the committed authorization and every binding before decoding any calibration or pilot matrix outcome"
+    },
+    "reduction_replay": "before pilot selection, revalidate the public development authorization, verify the bound H5AD digest, deterministically regenerate all 36 authorized calibration and pilot records, and require canonical equality with the serialized reduction; read no held matrix row",
+    "fit": "fit every one of the eight primary configurations, every classical residual candidate, and every required control on the 12 calibration samples",
+    "select": "minimize sample-equal pilot deviance on the 24 pilot samples; apply the declared tie break",
+    "pilot_gate": {
+      "comparators": [
+        "pilot-selected strongest classical residual transfer",
+        "pairing-destroyed primary field"
+      ],
+      "minimum_relative_deviance_reduction": 0.05,
+      "paired_bootstrap_upper_95_percent_endpoint_below_zero": true,
+      "bootstrap_draws": 20000,
+      "bootstrap_seed": 20260828,
+      "bootstrap_unit": "sample, with shared resamples and linear 2.5th and 97.5th percentiles",
+      "minimum_favorable_samples": 19,
+      "samples": 24,
+      "inference_status": "adaptive promotion heuristic, not confirmatory inference"
+    },
+    "refit": "after a pilot pass, refit each selected configuration without retuning on all 36 calibration and pilot samples",
+    "failure_policy": "any pilot gate failure closes the candidate without held margin or held pairing access"
+  },
+  "held_access": {
+    "held_samples": 61,
+    "rna_margin_authorization": "data/confirmation/combat_citeseq/held_rna_margin_authorization_v1.json",
+    "prediction_phase": [
+      "validate the separate public held-RNA-margin authorization and all immutable source, code, protocol, designation, development-result, and selected-model bindings",
+      "write an exclusive terminal held-prediction attempt before the first held margin request",
+      "select cells from metadata only",
+      "launch a separate permit-bound subprocess that scans selected CSR row pointers and full feature-index slices, decodes numeric data values only at the nine RNA columns, emits only 81 aggregate row margins per sample, closes the source, and exits",
+      "record that row-CSR structural indices expose cross-modality sparsity positions inside the child, while the frozen code discards and emits none of them",
+      "use the design-implied fixed ADT margin [256,256] for every marker without decoding a held ADT numeric value or forming an empirical ADT state, margin, or RNA-ADT pairing",
+      "materialize and hash complete predictions for every method"
+    ],
+    "public_freeze_before_pairing": [
+      "publish prediction bytes at an immutable 40-hex Git commit URL",
+      "publish a separate authorization binding prediction, source, protocol, designation, code, model, and development-result hashes",
+      "fetch and verify prediction and authorization byte-for-byte"
+    ],
+    "score_phase": [
+      "write one exclusive terminal score-attempt record after public verification",
+      "only then open RNA and ADT together once to form truth tables and losses"
+    ],
+    "held_pairing_before_public_authorization": false,
+    "held_csr_row_pointers_and_full_feature_index_slices_scanned_during_prediction": true,
+    "held_adt_numeric_values_decoded_during_prediction": false,
+    "held_adt_states_margins_or_pairings_formed_during_prediction": false,
+    "prediction_seal_scope": "numeric-value and RNA-ADT-pairing seal; not information-theoretic blindness to ADT sparsity support inside the isolated row-CSR child",
+    "cell_level_count_or_state_vectors_serialized": false,
+    "predictions_after_truth_access": false,
+    "maximum_prediction_attempts": 1,
+    "maximum_score_attempts": 1,
+    "reruns_permitted": false
+  },
+  "inference": {
+    "loss": "for truth T and finite nonnegative margin-preserving prediction T_hat, D=(2/N)*sum over T_ij>0 of T_ij*log(T_ij/T_hat_ij); truth-positive/prediction-zero gives +infinity and truth-zero contributes zero; average equally across informative entities within sample and then equally across samples; nonfinite or negative predicted cells or margin mismatch refuse, whereas infinite loss from a valid limiting endpoint is a scored failure",
+    "contrast": "primary sample loss minus comparator sample loss",
+    "relative_reduction": "1 - sample-equal mean primary loss / sample-equal mean comparator loss; the comparator mean must be finite and strictly positive, and a nonfinite or undefined gate statistic cannot pass",
+    "favorable": "contrast is strictly below zero",
+    "bootstrap": {
+      "draws": 20000,
+      "seed": 20260828,
+      "unit": "sample",
+      "paired_shared_resamples": true,
+      "interval": "linear 2.5th and 97.5th percentiles"
+    },
+    "held_panel_common_gates": {
+      "comparators": [
+        "frozen strongest classical residual transfer",
+        "pairing-destroyed primary field"
+      ],
+      "minimum_relative_deviance_reduction": 0.05,
+      "paired_bootstrap_upper_95_percent_endpoint_below_zero": true
+    },
+    "sign_test": "exact one-sided binomial upper tail under favorable probability one-half; a strictly negative primary-minus-comparator loss is favorable and zero is nonfavorable; panel size remains fixed",
+    "oxford": {
+      "samples": 51,
+      "minimum_favorable_samples": 41,
+      "maximum_one_sided_sign_test_p": 0.025,
+      "sign_test": "exact Binomial(51, 0.5) upper tail"
+    },
+    "st_georges": {
+      "samples": 10,
+      "minimum_favorable_samples": 9,
+      "maximum_one_sided_sign_test_p": 0.025,
+      "sign_test": "exact Binomial(10, 0.5) upper tail"
+    },
+    "graph_specific_claim_gate": {
+      "comparator": "frozen pilot-selected unstructured ridge-only Paule-Mandel Haldane field",
+      "required_in_each_held_panel": "paired 95% bootstrap upper endpoint for primary-minus-unstructured sample loss is below zero",
+      "effect_on_failure": "retain any field-transfer result but set primary-method promotion to false",
+      "not_required": "no 5% relative-reduction, favorable-count, or sign-test gate"
+    },
+    "field_transfer_status": "both classical-residual and destroyed-link comparators must pass every gate in each panel, and both panels must pass",
+    "primary_method_promotion": "field transfer must pass and the graph-specific paired upper 95% endpoint must be below zero in both panels",
+    "multiple_candidate_scope": "candidate-specific confirmatory inference; no familywise correction is claimed across earlier public candidate searches",
+    "mandatory_reporting": "all methods, per-sample losses, paired intervals, exact sign tests, support counts, exclusions, hashes, and refusals are retained separately for Oxford and St_Georges"
+  },
+  "outcome_access": {
+    "matrix_payload_opened_at_designation": false,
+    "calibration_pairing_allowed_only_after_public_design_freeze_and_development_authorization": true,
+    "fresh_clone_verification": "docs/COMBAT_CITESEQ_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+    "pilot_is_adaptive_development": true,
+    "oxford_held_is_confirmatory": true,
+    "st_georges_held_is_confirmatory": true,
+    "held_margins_allowed_only_after_development_pass": true,
+    "held_pairing_allowed_only_after_public_prediction_and_authorization": true,
+    "terminal_first_result_or_refusal": true
+  }
+}

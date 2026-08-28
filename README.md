@@ -143,6 +143,23 @@ byte-identical public GitHub blob URLs.
 Those later stages were never reached. Tag
 `gse299043-mln-v1-terminal-refusal` preserves the terminal record.
 
+## COMBAT CITE-seq held-sample protocol
+
+`data/confirmation/combat_citeseq/candidate_designation_v1.json` fixes a staged
+RNA--ADT confirmation in the COMBAT CITE-seq cohort: 12 Oxford calibration
+samples, 24 Oxford adaptive-pilot samples, 51 untouched Oxford confirmation
+samples, and a separate panel of 10 untouched St George's samples. The primary
+method is a Haldane/Paule--Mandel product-graph field. The frozen comparison is
+against the pilot-selected matched signed Pearson or signed-root Poisson-deviance
+transfer, with a pilot-selected ridge-only Haldane/PM field as the graph-specific
+ablation.
+
+The Oxford and St George's panels must pass separately. No COMBAT outcome is
+reported here: development and held-out access remain disabled until the exact
+protocol, code, source manifest, and verification artifacts are published and
+the corresponding authorization is valid. The planned protocol tag is
+`combat-citeseq-v1-protocol`.
+
 PoKI-seq is not a third scoreable candidate. Its frozen execution stopped at
 the state-occupancy support gate before a prediction or score was written.
 `results/gse143417_pokiseq_preflight_refusal.json` records the exact failing

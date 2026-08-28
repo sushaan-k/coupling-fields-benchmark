@@ -1,0 +1,5881 @@
+{
+  "access_audit": {
+    "decoded": [
+      "HDF5 object names, attributes, shapes, and dtypes",
+      "obs/var dataframe encoding metadata",
+      "exact string or categorical metadata under obs and var",
+      "official composition CSV rows and categorical metadata"
+    ],
+    "decoded_metadata_paths": [
+      "/obs/Annotation_cell_type",
+      "/obs/COMBAT_ID",
+      "/obs/Institute",
+      "/obs/Source",
+      "/obs/__categories/Annotation_cell_type",
+      "/obs/__categories/COMBAT_ID",
+      "/obs/__categories/Institute",
+      "/obs/__categories/Source",
+      "/obs/__categories/scRNASeq_sample_ID",
+      "/obs/scRNASeq_sample_ID",
+      "/var/__categories/feature_types",
+      "/var/_index",
+      "/var/feature_types",
+      "/var/gene_ids"
+    ],
+    "matrix_payload_paths_not_read": [
+      "/X/data",
+      "/X/indices",
+      "/X/indptr",
+      "/layers/raw/data",
+      "/layers/raw/indices",
+      "/layers/raw/indptr"
+    ],
+    "matrix_payload_reads": 0,
+    "opaque_complete_file_reads": [
+      "SHA-256"
+    ]
+  },
+  "cell_type_contract": {
+    "allowed_but_unobserved_values": [],
+    "exact_allowed_values": [
+      "B",
+      "ERYTH",
+      "HSC",
+      "MNP",
+      "NK",
+      "PB",
+      "PLT",
+      "T"
+    ],
+    "field": "Annotation_cell_type",
+    "fuzzy_fallback_used": false,
+    "literal_nan_excluded": true,
+    "observed_eligible_values": [
+      "B",
+      "ERYTH",
+      "HSC",
+      "MNP",
+      "NK",
+      "PB",
+      "PLT",
+      "T"
+    ],
+    "observed_nonmissing_values": [
+      "B",
+      "ERYTH",
+      "HSC",
+      "MNP",
+      "NK",
+      "PB",
+      "PLT",
+      "T"
+    ],
+    "observed_values_are_allowed_subset": true,
+    "unexpected_values": []
+  },
+  "composition_contract": {
+    "columns": [
+      "scRNASeq_sample_ID",
+      "CellType",
+      "CellType_Count",
+      "TotalPBMC_Count",
+      "Percentage"
+    ],
+    "data_rows": 873,
+    "errors": [],
+    "frozen_csv_source": {
+      "archive_member": "CBD-KEY-CITESEQ-GEX-COMPOSITION/COMBAT_CITEseq_Composition-PerSample_CellType_Counts_and_PercentFrequencies_out_of_all_PBMCs.csv",
+      "bytes": 33391,
+      "md5": "c4e635d7f16b3f7e3e66571a3359de3b",
+      "sha256": "2ad7e92ab122ee52986d5748dbb23c335c02ec1f1f244943ce46fff94c585157"
+    },
+    "input": {
+      "bytes": 33391,
+      "filename": "COMBAT_CITEseq_Composition-PerSample_CellType_Counts_and_PercentFrequencies_out_of_all_PBMCs.csv",
+      "md5": "c4e635d7f16b3f7e3e66571a3359de3b",
+      "sha256": "2ad7e92ab122ee52986d5748dbb23c335c02ec1f1f244943ce46fff94c585157"
+    },
+    "invalid_sample_ids": [],
+    "missing_frozen_combat_ids": [],
+    "official_pairs_by_combat_id": {
+      "G05061": {
+        "scRNASeq_sample_ID": "G05061-Ja005E-PBCa",
+        "total_pbmc_count": 6045
+      },
+      "G05064": {
+        "scRNASeq_sample_ID": "G05064-Ja005E-PBCa",
+        "total_pbmc_count": 9003
+      },
+      "G05073": {
+        "scRNASeq_sample_ID": "G05073-Ja005E-PBCa",
+        "total_pbmc_count": 8327
+      },
+      "G05077": {
+        "scRNASeq_sample_ID": "G05077-Ja005E-PBCa",
+        "total_pbmc_count": 5385
+      },
+      "G05078": {
+        "scRNASeq_sample_ID": "G05078-Ja005E-PBCa",
+        "total_pbmc_count": 9452
+      },
+      "G05097": {
+        "scRNASeq_sample_ID": "G05097-Ja005E-PBCa",
+        "total_pbmc_count": 8125
+      },
+      "G05105": {
+        "scRNASeq_sample_ID": "G05105-Ja005E-PBCa",
+        "total_pbmc_count": 6061
+      },
+      "G05112": {
+        "scRNASeq_sample_ID": "G05112-Ja005E-PBCa",
+        "total_pbmc_count": 4436
+      },
+      "G05145": {
+        "scRNASeq_sample_ID": "G05145-Ja005E-PBCa",
+        "total_pbmc_count": 5945
+      },
+      "G05153": {
+        "scRNASeq_sample_ID": "G05153-Ja005E-PBCa",
+        "total_pbmc_count": 8160
+      },
+      "G05164": {
+        "scRNASeq_sample_ID": "G05164-Ja005E-PBCa",
+        "total_pbmc_count": 6673
+      },
+      "G05171": {
+        "scRNASeq_sample_ID": "G05171-Ja005E-PBCa",
+        "total_pbmc_count": 6991
+      },
+      "H00049": {
+        "scRNASeq_sample_ID": "H00049-Ha001E-PBGa",
+        "total_pbmc_count": 8706
+      },
+      "H00052": {
+        "scRNASeq_sample_ID": "H00052-Ha001E-PBGa",
+        "total_pbmc_count": 7551
+      },
+      "H00053": {
+        "scRNASeq_sample_ID": "H00053-Ha001E-PBGa",
+        "total_pbmc_count": 10494
+      },
+      "H00054": {
+        "scRNASeq_sample_ID": "H00054-Ha001E-PBGa",
+        "total_pbmc_count": 11038
+      },
+      "H00058": {
+        "scRNASeq_sample_ID": "H00058-Ha001E-PBGa",
+        "total_pbmc_count": 8442
+      },
+      "H00064": {
+        "scRNASeq_sample_ID": "H00064-Ha001E-PBGa",
+        "total_pbmc_count": 7562
+      },
+      "H00067": {
+        "scRNASeq_sample_ID": "H00067-Ha001E-PBGa",
+        "total_pbmc_count": 10833
+      },
+      "H00070": {
+        "scRNASeq_sample_ID": "H00070-Ha001E-PBGa",
+        "total_pbmc_count": 8055
+      },
+      "H00072": {
+        "scRNASeq_sample_ID": "H00072-Ha001E-PBGa",
+        "total_pbmc_count": 9133
+      },
+      "H00085": {
+        "scRNASeq_sample_ID": "H00085-Ha001E-PBGa",
+        "total_pbmc_count": 5748
+      },
+      "N00006": {
+        "scRNASeq_sample_ID": "N00006-Ja003E-PBGa",
+        "total_pbmc_count": 6044
+      },
+      "N00007": {
+        "scRNASeq_sample_ID": "N00007-Ja003E-PBGa",
+        "total_pbmc_count": 6092
+      },
+      "N00012": {
+        "scRNASeq_sample_ID": "N00012-Ja003E-PBGa",
+        "total_pbmc_count": 3220
+      },
+      "N00017": {
+        "scRNASeq_sample_ID": "N00017-Ja003E-PBGa",
+        "total_pbmc_count": 2158
+      },
+      "N00021": {
+        "scRNASeq_sample_ID": "N00021-Ja001E-PBGa",
+        "total_pbmc_count": 6924
+      },
+      "N00024": {
+        "scRNASeq_sample_ID": "N00024-Ja001E-PBGa",
+        "total_pbmc_count": 9869
+      },
+      "N00025": {
+        "scRNASeq_sample_ID": "N00025-Ja001E-PBGa",
+        "total_pbmc_count": 3769
+      },
+      "N00028": {
+        "scRNASeq_sample_ID": "N00028-Ja001E-PBGa",
+        "total_pbmc_count": 7762
+      },
+      "N00032": {
+        "scRNASeq_sample_ID": "N00032-Ja001E-PBGa",
+        "total_pbmc_count": 10386
+      },
+      "N00033": {
+        "scRNASeq_sample_ID": "N00033-Ja001E-PBGa",
+        "total_pbmc_count": 9579
+      },
+      "N00038": {
+        "scRNASeq_sample_ID": "N00038-Ja001E-PBGa",
+        "total_pbmc_count": 7277
+      },
+      "N00040": {
+        "scRNASeq_sample_ID": "N00040-Ja001E-PBGa",
+        "total_pbmc_count": 6182
+      },
+      "N00047": {
+        "scRNASeq_sample_ID": "N00047-Ja005E-PBGa",
+        "total_pbmc_count": 4105
+      },
+      "N00049": {
+        "scRNASeq_sample_ID": "N00049-Ja005E-PBGa",
+        "total_pbmc_count": 3700
+      },
+      "N00050": {
+        "scRNASeq_sample_ID": "N00050-Ja001E-PBGa",
+        "total_pbmc_count": 1745
+      },
+      "S00002": {
+        "scRNASeq_sample_ID": "S00002-Ja001E-PBCa",
+        "total_pbmc_count": 3083
+      },
+      "S00005": {
+        "scRNASeq_sample_ID": "S00005-Ja005E-PBCa",
+        "total_pbmc_count": 9004
+      },
+      "S00006": {
+        "scRNASeq_sample_ID": "S00006-Ja005E-PBCa",
+        "total_pbmc_count": 7097
+      },
+      "S00007": {
+        "scRNASeq_sample_ID": "S00007-Ja003E-PBCa",
+        "total_pbmc_count": 3474
+      },
+      "S00008": {
+        "scRNASeq_sample_ID": "S00008-Ja003E-PBCa",
+        "total_pbmc_count": 1600
+      },
+      "S00016": {
+        "scRNASeq_sample_ID": "S00016-Ja001E-PBCa",
+        "total_pbmc_count": 5713
+      },
+      "S00020": {
+        "scRNASeq_sample_ID": "S00020-Ja003E-PBCa",
+        "total_pbmc_count": 3353
+      },
+      "S00024": {
+        "scRNASeq_sample_ID": "S00024-Ja003E-PBCa",
+        "total_pbmc_count": 4176
+      },
+      "S00027": {
+        "scRNASeq_sample_ID": "S00027-Ja003E-PBCa",
+        "total_pbmc_count": 2850
+      },
+      "S00028": {
+        "scRNASeq_sample_ID": "S00028-Ja001E-PBCa",
+        "total_pbmc_count": 10596
+      },
+      "S00034": {
+        "scRNASeq_sample_ID": "S00034-Ja005E-PBCa",
+        "total_pbmc_count": 8435
+      },
+      "S00037": {
+        "scRNASeq_sample_ID": "S00037-Ja003E-PBCa",
+        "total_pbmc_count": 7367
+      },
+      "S00040": {
+        "scRNASeq_sample_ID": "S00040-Ja005E-PBCa",
+        "total_pbmc_count": 4801
+      },
+      "S00041": {
+        "scRNASeq_sample_ID": "S00041-Ja001E-PBCa",
+        "total_pbmc_count": 5682
+      },
+      "S00042": {
+        "scRNASeq_sample_ID": "S00042-Ja001E-PBCa",
+        "total_pbmc_count": 5239
+      },
+      "S00043": {
+        "scRNASeq_sample_ID": "S00043-Ja005E-PBCa",
+        "total_pbmc_count": 5911
+      },
+      "S00045": {
+        "scRNASeq_sample_ID": "S00045-Ja001E-PBCa",
+        "total_pbmc_count": 6289
+      },
+      "S00048": {
+        "scRNASeq_sample_ID": "S00048-Ja003E-PBCa",
+        "total_pbmc_count": 3442
+      },
+      "S00050": {
+        "scRNASeq_sample_ID": "S00050-Ja001E-PBCa",
+        "total_pbmc_count": 6937
+      },
+      "S00052": {
+        "scRNASeq_sample_ID": "S00052-Ja005E-PBCa",
+        "total_pbmc_count": 14113
+      },
+      "S00053": {
+        "scRNASeq_sample_ID": "S00053-Ja003E-PBCa",
+        "total_pbmc_count": 3693
+      },
+      "S00054": {
+        "scRNASeq_sample_ID": "S00054-Ja001E-PBCa",
+        "total_pbmc_count": 3959
+      },
+      "S00056": {
+        "scRNASeq_sample_ID": "S00056-Ja003E-PBCa",
+        "total_pbmc_count": 8069
+      },
+      "S00057": {
+        "scRNASeq_sample_ID": "S00057-Ja003E-PBCa",
+        "total_pbmc_count": 5685
+      },
+      "S00058": {
+        "scRNASeq_sample_ID": "S00058-Ja003E-PBCa",
+        "total_pbmc_count": 6846
+      },
+      "S00059": {
+        "scRNASeq_sample_ID": "S00059-Ja001E-PBCa",
+        "total_pbmc_count": 5378
+      },
+      "S00060": {
+        "scRNASeq_sample_ID": "S00060-Ja005E-PBCa",
+        "total_pbmc_count": 5577
+      },
+      "S00061": {
+        "scRNASeq_sample_ID": "S00061-Ja003E-PBCa",
+        "total_pbmc_count": 4289
+      },
+      "S00063": {
+        "scRNASeq_sample_ID": "S00063-Ja003E-PBCa",
+        "total_pbmc_count": 6168
+      },
+      "S00064": {
+        "scRNASeq_sample_ID": "S00064-Ja005E-PBCa",
+        "total_pbmc_count": 7370
+      },
+      "S00065": {
+        "scRNASeq_sample_ID": "S00065-Ja003E-PBCa",
+        "total_pbmc_count": 3941
+      },
+      "S00067": {
+        "scRNASeq_sample_ID": "S00067-Ja001E-PBCa",
+        "total_pbmc_count": 4800
+      },
+      "S00068": {
+        "scRNASeq_sample_ID": "S00068-Ja005E-PBCa",
+        "total_pbmc_count": 3736
+      },
+      "S00069": {
+        "scRNASeq_sample_ID": "S00069-Ja005E-PBCa",
+        "total_pbmc_count": 5885
+      },
+      "S00076": {
+        "scRNASeq_sample_ID": "S00076-Ja001E-PBCa",
+        "total_pbmc_count": 5816
+      },
+      "S00077": {
+        "scRNASeq_sample_ID": "S00077-Ja005E-PBCa",
+        "total_pbmc_count": 2854
+      },
+      "S00078": {
+        "scRNASeq_sample_ID": "S00078-Ja003E-PBCa",
+        "total_pbmc_count": 7728
+      },
+      "S00094": {
+        "scRNASeq_sample_ID": "S00094-Ja005E-PBCa",
+        "total_pbmc_count": 4929
+      },
+      "S00095": {
+        "scRNASeq_sample_ID": "S00095-Ja005E-PBCa",
+        "total_pbmc_count": 3088
+      },
+      "S00099": {
+        "scRNASeq_sample_ID": "S00099-Ja005E-PBCa",
+        "total_pbmc_count": 2402
+      },
+      "S00104": {
+        "scRNASeq_sample_ID": "S00104-Ja003E-PBCa",
+        "total_pbmc_count": 8124
+      },
+      "S00106": {
+        "scRNASeq_sample_ID": "S00106-Ja003E-PBCa",
+        "total_pbmc_count": 6716
+      },
+      "S00109": {
+        "scRNASeq_sample_ID": "S00109-Ja005E-PBCa",
+        "total_pbmc_count": 3224
+      },
+      "S00112": {
+        "scRNASeq_sample_ID": "S00112-Ja003E-PBCa",
+        "total_pbmc_count": 7432
+      },
+      "S00113": {
+        "scRNASeq_sample_ID": "S00113-Ja005E-PBCa",
+        "total_pbmc_count": 6152
+      },
+      "S00114": {
+        "scRNASeq_sample_ID": "S00114-Ja003E-PBCa",
+        "total_pbmc_count": 7664
+      },
+      "S00124": {
+        "scRNASeq_sample_ID": "S00124-Ja005E-PBCa",
+        "total_pbmc_count": 6384
+      },
+      "S00126": {
+        "scRNASeq_sample_ID": "S00126-Ja003E-PBCa",
+        "total_pbmc_count": 6495
+      },
+      "S00134": {
+        "scRNASeq_sample_ID": "S00134-Ja003E-PBCa",
+        "total_pbmc_count": 5774
+      },
+      "S00148": {
+        "scRNASeq_sample_ID": "S00148-Ja003E-PBCa",
+        "total_pbmc_count": 5348
+      },
+      "U00501": {
+        "scRNASeq_sample_ID": "U00501-Ua005E-PBUa",
+        "total_pbmc_count": 1171
+      },
+      "U00502": {
+        "scRNASeq_sample_ID": "U00502-Ua005E-PBUa",
+        "total_pbmc_count": 3722
+      },
+      "U00503": {
+        "scRNASeq_sample_ID": "U00503-Ua005E-PBUa",
+        "total_pbmc_count": 1731
+      },
+      "U00505": {
+        "scRNASeq_sample_ID": "U00505-Ua005E-PBUa",
+        "total_pbmc_count": 3300
+      },
+      "U00601": {
+        "scRNASeq_sample_ID": "U00601-Ua005E-PBUa",
+        "total_pbmc_count": 620
+      },
+      "U00605": {
+        "scRNASeq_sample_ID": "U00605-Ua005E-PBUa",
+        "total_pbmc_count": 1700
+      },
+      "U00607": {
+        "scRNASeq_sample_ID": "U00607-Ua005E-PBUa",
+        "total_pbmc_count": 1081
+      },
+      "U00617": {
+        "scRNASeq_sample_ID": "U00617-Ua005E-PBUa",
+        "total_pbmc_count": 1138
+      },
+      "U00619": {
+        "scRNASeq_sample_ID": "U00619-Ua005E-PBUa",
+        "total_pbmc_count": 2024
+      },
+      "U00701": {
+        "scRNASeq_sample_ID": "U00701-Ua005E-PBUa",
+        "total_pbmc_count": 876
+      }
+    },
+    "parent_archive": {
+      "bytes": 212203,
+      "content_url": "https://zenodo.org/api/records/6120249/files/CBD-KEY-CITESEQ-GEX-COMPOSITION.tar.gz/content",
+      "filename": "CBD-KEY-CITESEQ-GEX-COMPOSITION.tar.gz",
+      "md5": "fe077fc9f314419536d6d901855c9d84",
+      "sha256": "cc6b50cb363b800f356aa79224240f96ca11046a9c2a1c5f4f78603531b3dae3"
+    },
+    "total_pbmc_count_use": "descriptive_only_no_h5ad_equality_assertion",
+    "unexpected_combat_ids": [],
+    "unique_sample_ids": 97,
+    "valid": true
+  },
+  "dataframes": {
+    "obs": {
+      "attributes": {
+        "_index": "_index",
+        "column-order": [
+          "Annotation_cluster_id",
+          "Annotation_cluster_name",
+          "Annotation_minor_subset",
+          "Annotation_major_subset",
+          "Annotation_cell_type",
+          "GEX_region",
+          "QC_ngenes",
+          "QC_total_UMI",
+          "QC_pct_mitochondrial",
+          "QC_scrub_doublet_scores",
+          "TCR_chain_composition",
+          "TCR_clone_ID",
+          "TCR_clone_count",
+          "TCR_clone_proportion",
+          "TCR_contains_unproductive",
+          "TCR_doublet",
+          "TCR_chain_TRA",
+          "TCR_v_gene_TRA",
+          "TCR_d_gene_TRA",
+          "TCR_j_gene_TRA",
+          "TCR_c_gene_TRA",
+          "TCR_productive_TRA",
+          "TCR_cdr3_TRA",
+          "TCR_umis_TRA",
+          "TCR_chain_TRA2",
+          "TCR_v_gene_TRA2",
+          "TCR_d_gene_TRA2",
+          "TCR_j_gene_TRA2",
+          "TCR_c_gene_TRA2",
+          "TCR_productive_TRA2",
+          "TCR_cdr3_TRA2",
+          "TCR_umis_TRA2",
+          "TCR_chain_TRB",
+          "TCR_v_gene_TRB",
+          "TCR_d_gene_TRB",
+          "TCR_j_gene_TRB",
+          "TCR_c_gene_TRB",
+          "TCR_productive_TRB",
+          "TCR_chain_TRB2",
+          "TCR_v_gene_TRB2",
+          "TCR_d_gene_TRB2",
+          "TCR_j_gene_TRB2",
+          "TCR_c_gene_TRB2",
+          "TCR_productive_TRB2",
+          "TCR_cdr3_TRB2",
+          "TCR_umis_TRB2",
+          "BCR_umis_HC",
+          "BCR_contig_qc_HC",
+          "BCR_functionality_HC",
+          "BCR_v_call_HC",
+          "BCR_v_score_HC",
+          "BCR_j_call_HC",
+          "BCR_j_score_HC",
+          "BCR_junction_aa_HC",
+          "BCR_total_mut_HC",
+          "BCR_s_mut_HC",
+          "BCR_r_mut_HC",
+          "BCR_c_gene_HC",
+          "BCR_clone_per_replicate_HC",
+          "BCR_clone_global_HC",
+          "BCR_clonal_abundance_HC",
+          "BCR_locus_LC",
+          "BCR_umis_LC",
+          "BCR_contig_qc_LC",
+          "BCR_functionality_LC",
+          "BCR_v_call_LC",
+          "BCR_v_score_LC",
+          "BCR_j_call_LC",
+          "BCR_j_score_LC",
+          "BCR_junction_aa_LC",
+          "BCR_total_mut_LC",
+          "BCR_s_mut_LC",
+          "BCR_r_mut_LC",
+          "BCR_c_gene_LC",
+          "COMBAT_ID",
+          "scRNASeq_sample_ID",
+          "COMBAT_participant_timepoint_ID",
+          "Source",
+          "Age",
+          "Sex",
+          "Race",
+          "BMI",
+          "Hospitalstay",
+          "Death28",
+          "Institute",
+          "PreExistingHeartDisease",
+          "PreExistingLungDisease",
+          "PreExistingKidneyDisease",
+          "PreExistingDiabetes",
+          "PreExistingHypertension",
+          "PreExistingImmunocompromised",
+          "Smoking",
+          "Symptomatic",
+          "Requiredvasoactive",
+          "Respiratorysupport",
+          "SARSCoV2PCR",
+          "Outcome",
+          "TimeSinceOnset",
+          "Ethnicity",
+          "Tissue",
+          "DiseaseClassification",
+          "Pool_ID",
+          "Channel_ID"
+        ],
+        "encoding-type": "dataframe",
+        "encoding-version": "0.1.0"
+      },
+      "column_order": [
+        "Annotation_cluster_id",
+        "Annotation_cluster_name",
+        "Annotation_minor_subset",
+        "Annotation_major_subset",
+        "Annotation_cell_type",
+        "GEX_region",
+        "QC_ngenes",
+        "QC_total_UMI",
+        "QC_pct_mitochondrial",
+        "QC_scrub_doublet_scores",
+        "TCR_chain_composition",
+        "TCR_clone_ID",
+        "TCR_clone_count",
+        "TCR_clone_proportion",
+        "TCR_contains_unproductive",
+        "TCR_doublet",
+        "TCR_chain_TRA",
+        "TCR_v_gene_TRA",
+        "TCR_d_gene_TRA",
+        "TCR_j_gene_TRA",
+        "TCR_c_gene_TRA",
+        "TCR_productive_TRA",
+        "TCR_cdr3_TRA",
+        "TCR_umis_TRA",
+        "TCR_chain_TRA2",
+        "TCR_v_gene_TRA2",
+        "TCR_d_gene_TRA2",
+        "TCR_j_gene_TRA2",
+        "TCR_c_gene_TRA2",
+        "TCR_productive_TRA2",
+        "TCR_cdr3_TRA2",
+        "TCR_umis_TRA2",
+        "TCR_chain_TRB",
+        "TCR_v_gene_TRB",
+        "TCR_d_gene_TRB",
+        "TCR_j_gene_TRB",
+        "TCR_c_gene_TRB",
+        "TCR_productive_TRB",
+        "TCR_chain_TRB2",
+        "TCR_v_gene_TRB2",
+        "TCR_d_gene_TRB2",
+        "TCR_j_gene_TRB2",
+        "TCR_c_gene_TRB2",
+        "TCR_productive_TRB2",
+        "TCR_cdr3_TRB2",
+        "TCR_umis_TRB2",
+        "BCR_umis_HC",
+        "BCR_contig_qc_HC",
+        "BCR_functionality_HC",
+        "BCR_v_call_HC",
+        "BCR_v_score_HC",
+        "BCR_j_call_HC",
+        "BCR_j_score_HC",
+        "BCR_junction_aa_HC",
+        "BCR_total_mut_HC",
+        "BCR_s_mut_HC",
+        "BCR_r_mut_HC",
+        "BCR_c_gene_HC",
+        "BCR_clone_per_replicate_HC",
+        "BCR_clone_global_HC",
+        "BCR_clonal_abundance_HC",
+        "BCR_locus_LC",
+        "BCR_umis_LC",
+        "BCR_contig_qc_LC",
+        "BCR_functionality_LC",
+        "BCR_v_call_LC",
+        "BCR_v_score_LC",
+        "BCR_j_call_LC",
+        "BCR_j_score_LC",
+        "BCR_junction_aa_LC",
+        "BCR_total_mut_LC",
+        "BCR_s_mut_LC",
+        "BCR_r_mut_LC",
+        "BCR_c_gene_LC",
+        "COMBAT_ID",
+        "scRNASeq_sample_ID",
+        "COMBAT_participant_timepoint_ID",
+        "Source",
+        "Age",
+        "Sex",
+        "Race",
+        "BMI",
+        "Hospitalstay",
+        "Death28",
+        "Institute",
+        "PreExistingHeartDisease",
+        "PreExistingLungDisease",
+        "PreExistingKidneyDisease",
+        "PreExistingDiabetes",
+        "PreExistingHypertension",
+        "PreExistingImmunocompromised",
+        "Smoking",
+        "Symptomatic",
+        "Requiredvasoactive",
+        "Respiratorysupport",
+        "SARSCoV2PCR",
+        "Outcome",
+        "TimeSinceOnset",
+        "Ethnicity",
+        "Tissue",
+        "DiseaseClassification",
+        "Pool_ID",
+        "Channel_ID",
+        "__categories"
+      ],
+      "columns": {
+        "Age": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Annotation_cell_type": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Annotation_cluster_id": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Annotation_cluster_name": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int16",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Annotation_major_subset": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Annotation_minor_subset": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_c_gene_HC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_c_gene_LC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_clonal_abundance_HC": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_clone_global_HC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int32",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_clone_per_replicate_HC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int32",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_contig_qc_HC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_contig_qc_LC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_functionality_HC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_functionality_LC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_j_call_HC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_j_call_LC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_j_score_HC": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_j_score_LC": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_junction_aa_HC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int32",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_junction_aa_LC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int16",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_locus_LC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_r_mut_HC": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_r_mut_LC": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_s_mut_HC": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_s_mut_LC": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_total_mut_HC": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_total_mut_LC": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_umis_HC": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_umis_LC": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_v_call_HC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int16",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_v_call_LC": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int16",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_v_score_HC": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BCR_v_score_LC": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "BMI": {
+          "attributes": {},
+          "dtype": "int64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "COMBAT_ID": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "COMBAT_participant_timepoint_ID": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int16",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Channel_ID": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Death28": {
+          "attributes": {},
+          "dtype": "int64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "DiseaseClassification": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Ethnicity": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "GEX_region": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Hospitalstay": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Institute": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Outcome": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Pool_ID": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "PreExistingDiabetes": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "PreExistingHeartDisease": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "PreExistingHypertension": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "PreExistingImmunocompromised": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "PreExistingKidneyDisease": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "PreExistingLungDisease": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "QC_ngenes": {
+          "attributes": {},
+          "dtype": "int64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "QC_pct_mitochondrial": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "QC_scrub_doublet_scores": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "QC_total_UMI": {
+          "attributes": {},
+          "dtype": "int64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Race": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Requiredvasoactive": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Respiratorysupport": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "SARSCoV2PCR": {
+          "attributes": {},
+          "dtype": "int64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Sex": {
+          "attributes": {},
+          "dtype": "int64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Smoking": {
+          "attributes": {},
+          "dtype": "int64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Source": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Symptomatic": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_c_gene_TRA": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_c_gene_TRA2": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_c_gene_TRB": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_c_gene_TRB2": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_cdr3_TRA": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int32",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_cdr3_TRA2": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int16",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_cdr3_TRB2": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int16",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_chain_TRA": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_chain_TRA2": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_chain_TRB": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_chain_TRB2": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_chain_composition": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_clone_ID": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int32",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_clone_count": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_clone_proportion": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_contains_unproductive": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_d_gene_TRA": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_d_gene_TRA2": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_d_gene_TRB": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_d_gene_TRB2": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_doublet": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_j_gene_TRA": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_j_gene_TRA2": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_j_gene_TRB": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_j_gene_TRB2": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_productive_TRA": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_productive_TRA2": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_productive_TRB": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_productive_TRB2": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_umis_TRA": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_umis_TRA2": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_umis_TRB2": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_v_gene_TRA": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_v_gene_TRA2": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_v_gene_TRB": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TCR_v_gene_TRB2": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "TimeSinceOnset": {
+          "attributes": {},
+          "dtype": "float64",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "Tissue": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        },
+        "__categories": {
+          "attributes": {},
+          "kind": "group",
+          "members": {
+            "Annotation_cell_type": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                9
+              ]
+            },
+            "Annotation_cluster_name": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                347
+              ]
+            },
+            "Annotation_major_subset": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                18
+              ]
+            },
+            "Annotation_minor_subset": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                41
+              ]
+            },
+            "BCR_c_gene_HC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                17
+              ]
+            },
+            "BCR_c_gene_LC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                11
+              ]
+            },
+            "BCR_clone_global_HC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                42834
+              ]
+            },
+            "BCR_clone_per_replicate_HC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                43182
+              ]
+            },
+            "BCR_contig_qc_HC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                3
+              ]
+            },
+            "BCR_contig_qc_LC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                4
+              ]
+            },
+            "BCR_functionality_HC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                3
+              ]
+            },
+            "BCR_functionality_LC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                3
+              ]
+            },
+            "BCR_j_call_HC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                54
+              ]
+            },
+            "BCR_j_call_LC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                52
+              ]
+            },
+            "BCR_junction_aa_HC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                43023
+              ]
+            },
+            "BCR_junction_aa_LC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                16566
+              ]
+            },
+            "BCR_locus_LC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                2
+              ]
+            },
+            "BCR_v_call_HC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                790
+              ]
+            },
+            "BCR_v_call_LC": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                215
+              ]
+            },
+            "COMBAT_ID": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                124
+              ]
+            },
+            "COMBAT_participant_timepoint_ID": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                140
+              ]
+            },
+            "Channel_ID": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                70
+              ]
+            },
+            "DiseaseClassification": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                4
+              ]
+            },
+            "Ethnicity": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                1
+              ]
+            },
+            "GEX_region": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                6
+              ]
+            },
+            "Institute": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                2
+              ]
+            },
+            "Pool_ID": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                10
+              ]
+            },
+            "Race": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                1
+              ]
+            },
+            "Source": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                8
+              ]
+            },
+            "TCR_c_gene_TRA": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                3
+              ]
+            },
+            "TCR_c_gene_TRA2": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                3
+              ]
+            },
+            "TCR_c_gene_TRB": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                4
+              ]
+            },
+            "TCR_c_gene_TRB2": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                4
+              ]
+            },
+            "TCR_cdr3_TRA": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                207276
+              ]
+            },
+            "TCR_cdr3_TRA2": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                29744
+              ]
+            },
+            "TCR_cdr3_TRB2": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                10021
+              ]
+            },
+            "TCR_chain_TRA": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                2
+              ]
+            },
+            "TCR_chain_TRA2": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                2
+              ]
+            },
+            "TCR_chain_TRB": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                2
+              ]
+            },
+            "TCR_chain_TRB2": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                2
+              ]
+            },
+            "TCR_chain_composition": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                9
+              ]
+            },
+            "TCR_clone_ID": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                333910
+              ]
+            },
+            "TCR_d_gene_TRA": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                2
+              ]
+            },
+            "TCR_d_gene_TRA2": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                2
+              ]
+            },
+            "TCR_d_gene_TRB": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                2
+              ]
+            },
+            "TCR_d_gene_TRB2": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                2
+              ]
+            },
+            "TCR_j_gene_TRA": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                62
+              ]
+            },
+            "TCR_j_gene_TRA2": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                62
+              ]
+            },
+            "TCR_j_gene_TRB": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                16
+              ]
+            },
+            "TCR_j_gene_TRB2": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                16
+              ]
+            },
+            "TCR_v_gene_TRA": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                59
+              ]
+            },
+            "TCR_v_gene_TRA2": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                59
+              ]
+            },
+            "TCR_v_gene_TRB": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                67
+              ]
+            },
+            "TCR_v_gene_TRB2": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                66
+              ]
+            },
+            "Tissue": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                1
+              ]
+            },
+            "scRNASeq_sample_ID": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                140
+              ]
+            }
+          }
+        },
+        "scRNASeq_sample_ID": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int16",
+          "kind": "dataset",
+          "shape": [
+            836148
+          ]
+        }
+      },
+      "encoding_type": "dataframe",
+      "encoding_version": "0.1.0",
+      "index": {
+        "attributes": {},
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "index_key": "_index",
+      "present": true,
+      "rows": 836148
+    },
+    "raw_var": {
+      "present": false
+    },
+    "var": {
+      "attributes": {
+        "_index": "_index",
+        "column-order": [
+          "gene_ids",
+          "feature_types"
+        ],
+        "encoding-type": "dataframe",
+        "encoding-version": "0.1.0"
+      },
+      "column_order": [
+        "gene_ids",
+        "feature_types",
+        "__categories"
+      ],
+      "columns": {
+        "__categories": {
+          "attributes": {},
+          "kind": "group",
+          "members": {
+            "feature_types": {
+              "attributes": {
+                "ordered": false
+              },
+              "dtype": "object",
+              "kind": "dataset",
+              "shape": [
+                2
+              ]
+            }
+          }
+        },
+        "feature_types": {
+          "attributes": {
+            "categories": "<HDF5 object reference>"
+          },
+          "dtype": "int8",
+          "kind": "dataset",
+          "shape": [
+            20807
+          ]
+        },
+        "gene_ids": {
+          "attributes": {},
+          "dtype": "object",
+          "kind": "dataset",
+          "shape": [
+            20807
+          ]
+        }
+      },
+      "encoding_type": "dataframe",
+      "encoding_version": "0.1.0",
+      "index": {
+        "attributes": {},
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          20807
+        ]
+      },
+      "index_key": "_index",
+      "present": true,
+      "rows": 20807
+    }
+  },
+  "frozen_sample_contract": {
+    "complete_frozen_cohorts": true,
+    "decoded_row_counts": {
+      "Annotation_cell_type": 836148,
+      "COMBAT_ID": 836148,
+      "Institute": 836148,
+      "Source": 836148,
+      "scRNASeq_sample_ID": 836148
+    },
+    "designated_sample_counts": {
+      "G05061": {
+        "composition_total_pbmc_count": 6045,
+        "eligible_cells": 6027,
+        "raw_rows": 6323
+      },
+      "G05064": {
+        "composition_total_pbmc_count": 9003,
+        "eligible_cells": 8967,
+        "raw_rows": 9430
+      },
+      "G05073": {
+        "composition_total_pbmc_count": 8327,
+        "eligible_cells": 8367,
+        "raw_rows": 8780
+      },
+      "G05077": {
+        "composition_total_pbmc_count": 5385,
+        "eligible_cells": 5380,
+        "raw_rows": 5673
+      },
+      "G05078": {
+        "composition_total_pbmc_count": 9452,
+        "eligible_cells": 9463,
+        "raw_rows": 9822
+      },
+      "G05097": {
+        "composition_total_pbmc_count": 8125,
+        "eligible_cells": 8113,
+        "raw_rows": 8504
+      },
+      "G05105": {
+        "composition_total_pbmc_count": 6061,
+        "eligible_cells": 6046,
+        "raw_rows": 6446
+      },
+      "G05112": {
+        "composition_total_pbmc_count": 4436,
+        "eligible_cells": 4441,
+        "raw_rows": 4818
+      },
+      "G05145": {
+        "composition_total_pbmc_count": 5945,
+        "eligible_cells": 5943,
+        "raw_rows": 6242
+      },
+      "G05153": {
+        "composition_total_pbmc_count": 8160,
+        "eligible_cells": 8144,
+        "raw_rows": 8586
+      },
+      "G05164": {
+        "composition_total_pbmc_count": 6673,
+        "eligible_cells": 6651,
+        "raw_rows": 6923
+      },
+      "G05171": {
+        "composition_total_pbmc_count": 6991,
+        "eligible_cells": 6990,
+        "raw_rows": 7328
+      },
+      "H00049": {
+        "composition_total_pbmc_count": 8706,
+        "eligible_cells": 8712,
+        "raw_rows": 9043
+      },
+      "H00052": {
+        "composition_total_pbmc_count": 7551,
+        "eligible_cells": 7586,
+        "raw_rows": 7971
+      },
+      "H00053": {
+        "composition_total_pbmc_count": 10494,
+        "eligible_cells": 10467,
+        "raw_rows": 10987
+      },
+      "H00054": {
+        "composition_total_pbmc_count": 11038,
+        "eligible_cells": 10946,
+        "raw_rows": 11509
+      },
+      "H00058": {
+        "composition_total_pbmc_count": 8442,
+        "eligible_cells": 8430,
+        "raw_rows": 8843
+      },
+      "H00064": {
+        "composition_total_pbmc_count": 7562,
+        "eligible_cells": 7531,
+        "raw_rows": 7931
+      },
+      "H00067": {
+        "composition_total_pbmc_count": 10833,
+        "eligible_cells": 10801,
+        "raw_rows": 11717
+      },
+      "H00070": {
+        "composition_total_pbmc_count": 8055,
+        "eligible_cells": 8042,
+        "raw_rows": 8517
+      },
+      "H00072": {
+        "composition_total_pbmc_count": 9133,
+        "eligible_cells": 9085,
+        "raw_rows": 9576
+      },
+      "H00085": {
+        "composition_total_pbmc_count": 5748,
+        "eligible_cells": 5752,
+        "raw_rows": 6111
+      },
+      "N00006": {
+        "composition_total_pbmc_count": 6044,
+        "eligible_cells": 5972,
+        "raw_rows": 6266
+      },
+      "N00007": {
+        "composition_total_pbmc_count": 6092,
+        "eligible_cells": 6098,
+        "raw_rows": 6529
+      },
+      "N00012": {
+        "composition_total_pbmc_count": 3220,
+        "eligible_cells": 3213,
+        "raw_rows": 3334
+      },
+      "N00017": {
+        "composition_total_pbmc_count": 2158,
+        "eligible_cells": 2158,
+        "raw_rows": 2438
+      },
+      "N00021": {
+        "composition_total_pbmc_count": 6924,
+        "eligible_cells": 6940,
+        "raw_rows": 7287
+      },
+      "N00024": {
+        "composition_total_pbmc_count": 9869,
+        "eligible_cells": 9829,
+        "raw_rows": 10280
+      },
+      "N00025": {
+        "composition_total_pbmc_count": 3769,
+        "eligible_cells": 3737,
+        "raw_rows": 3961
+      },
+      "N00028": {
+        "composition_total_pbmc_count": 7762,
+        "eligible_cells": 7767,
+        "raw_rows": 8390
+      },
+      "N00032": {
+        "composition_total_pbmc_count": 10386,
+        "eligible_cells": 10398,
+        "raw_rows": 11566
+      },
+      "N00033": {
+        "composition_total_pbmc_count": 9579,
+        "eligible_cells": 9520,
+        "raw_rows": 10035
+      },
+      "N00038": {
+        "composition_total_pbmc_count": 7277,
+        "eligible_cells": 7275,
+        "raw_rows": 7753
+      },
+      "N00040": {
+        "composition_total_pbmc_count": 6182,
+        "eligible_cells": 6041,
+        "raw_rows": 6503
+      },
+      "N00047": {
+        "composition_total_pbmc_count": 4105,
+        "eligible_cells": 4079,
+        "raw_rows": 4243
+      },
+      "N00049": {
+        "composition_total_pbmc_count": 3700,
+        "eligible_cells": 3677,
+        "raw_rows": 3829
+      },
+      "N00050": {
+        "composition_total_pbmc_count": 1745,
+        "eligible_cells": 1746,
+        "raw_rows": 1884
+      },
+      "S00002": {
+        "composition_total_pbmc_count": 3083,
+        "eligible_cells": 3092,
+        "raw_rows": 3309
+      },
+      "S00005": {
+        "composition_total_pbmc_count": 9004,
+        "eligible_cells": 9006,
+        "raw_rows": 9471
+      },
+      "S00006": {
+        "composition_total_pbmc_count": 7097,
+        "eligible_cells": 7045,
+        "raw_rows": 7458
+      },
+      "S00007": {
+        "composition_total_pbmc_count": 3474,
+        "eligible_cells": 3470,
+        "raw_rows": 3620
+      },
+      "S00008": {
+        "composition_total_pbmc_count": 1600,
+        "eligible_cells": 1600,
+        "raw_rows": 1657
+      },
+      "S00016": {
+        "composition_total_pbmc_count": 5713,
+        "eligible_cells": 5705,
+        "raw_rows": 5991
+      },
+      "S00020": {
+        "composition_total_pbmc_count": 3353,
+        "eligible_cells": 3354,
+        "raw_rows": 3514
+      },
+      "S00024": {
+        "composition_total_pbmc_count": 4176,
+        "eligible_cells": 4186,
+        "raw_rows": 4507
+      },
+      "S00027": {
+        "composition_total_pbmc_count": 2850,
+        "eligible_cells": 2915,
+        "raw_rows": 3220
+      },
+      "S00028": {
+        "composition_total_pbmc_count": 10596,
+        "eligible_cells": 10444,
+        "raw_rows": 11714
+      },
+      "S00034": {
+        "composition_total_pbmc_count": 8435,
+        "eligible_cells": 8294,
+        "raw_rows": 8865
+      },
+      "S00037": {
+        "composition_total_pbmc_count": 7367,
+        "eligible_cells": 7364,
+        "raw_rows": 7811
+      },
+      "S00040": {
+        "composition_total_pbmc_count": 4801,
+        "eligible_cells": 4820,
+        "raw_rows": 5065
+      },
+      "S00041": {
+        "composition_total_pbmc_count": 5682,
+        "eligible_cells": 5668,
+        "raw_rows": 6009
+      },
+      "S00042": {
+        "composition_total_pbmc_count": 5239,
+        "eligible_cells": 5242,
+        "raw_rows": 5566
+      },
+      "S00043": {
+        "composition_total_pbmc_count": 5911,
+        "eligible_cells": 5919,
+        "raw_rows": 6445
+      },
+      "S00045": {
+        "composition_total_pbmc_count": 6289,
+        "eligible_cells": 6272,
+        "raw_rows": 6750
+      },
+      "S00048": {
+        "composition_total_pbmc_count": 3442,
+        "eligible_cells": 3447,
+        "raw_rows": 3677
+      },
+      "S00050": {
+        "composition_total_pbmc_count": 6937,
+        "eligible_cells": 6920,
+        "raw_rows": 7354
+      },
+      "S00052": {
+        "composition_total_pbmc_count": 14113,
+        "eligible_cells": 13923,
+        "raw_rows": 15421
+      },
+      "S00053": {
+        "composition_total_pbmc_count": 3693,
+        "eligible_cells": 3696,
+        "raw_rows": 3934
+      },
+      "S00054": {
+        "composition_total_pbmc_count": 3959,
+        "eligible_cells": 3951,
+        "raw_rows": 4339
+      },
+      "S00056": {
+        "composition_total_pbmc_count": 8069,
+        "eligible_cells": 7609,
+        "raw_rows": 8489
+      },
+      "S00057": {
+        "composition_total_pbmc_count": 5685,
+        "eligible_cells": 5676,
+        "raw_rows": 6101
+      },
+      "S00058": {
+        "composition_total_pbmc_count": 6846,
+        "eligible_cells": 6835,
+        "raw_rows": 7137
+      },
+      "S00059": {
+        "composition_total_pbmc_count": 5378,
+        "eligible_cells": 5371,
+        "raw_rows": 5738
+      },
+      "S00060": {
+        "composition_total_pbmc_count": 5577,
+        "eligible_cells": 5522,
+        "raw_rows": 5897
+      },
+      "S00061": {
+        "composition_total_pbmc_count": 4289,
+        "eligible_cells": 4282,
+        "raw_rows": 4769
+      },
+      "S00063": {
+        "composition_total_pbmc_count": 6168,
+        "eligible_cells": 6159,
+        "raw_rows": 6444
+      },
+      "S00064": {
+        "composition_total_pbmc_count": 7370,
+        "eligible_cells": 7367,
+        "raw_rows": 7685
+      },
+      "S00065": {
+        "composition_total_pbmc_count": 3941,
+        "eligible_cells": 3926,
+        "raw_rows": 4219
+      },
+      "S00067": {
+        "composition_total_pbmc_count": 4800,
+        "eligible_cells": 4807,
+        "raw_rows": 5181
+      },
+      "S00068": {
+        "composition_total_pbmc_count": 3736,
+        "eligible_cells": 3710,
+        "raw_rows": 3921
+      },
+      "S00069": {
+        "composition_total_pbmc_count": 5885,
+        "eligible_cells": 5830,
+        "raw_rows": 6301
+      },
+      "S00076": {
+        "composition_total_pbmc_count": 5816,
+        "eligible_cells": 5782,
+        "raw_rows": 6117
+      },
+      "S00077": {
+        "composition_total_pbmc_count": 2854,
+        "eligible_cells": 2848,
+        "raw_rows": 2995
+      },
+      "S00078": {
+        "composition_total_pbmc_count": 7728,
+        "eligible_cells": 7681,
+        "raw_rows": 8104
+      },
+      "S00094": {
+        "composition_total_pbmc_count": 4929,
+        "eligible_cells": 4923,
+        "raw_rows": 5185
+      },
+      "S00095": {
+        "composition_total_pbmc_count": 3088,
+        "eligible_cells": 3085,
+        "raw_rows": 3245
+      },
+      "S00099": {
+        "composition_total_pbmc_count": 2402,
+        "eligible_cells": 2386,
+        "raw_rows": 2522
+      },
+      "S00104": {
+        "composition_total_pbmc_count": 8124,
+        "eligible_cells": 8113,
+        "raw_rows": 8574
+      },
+      "S00106": {
+        "composition_total_pbmc_count": 6716,
+        "eligible_cells": 6709,
+        "raw_rows": 7121
+      },
+      "S00109": {
+        "composition_total_pbmc_count": 3224,
+        "eligible_cells": 3258,
+        "raw_rows": 3517
+      },
+      "S00112": {
+        "composition_total_pbmc_count": 7432,
+        "eligible_cells": 7390,
+        "raw_rows": 8127
+      },
+      "S00113": {
+        "composition_total_pbmc_count": 6152,
+        "eligible_cells": 6114,
+        "raw_rows": 6505
+      },
+      "S00114": {
+        "composition_total_pbmc_count": 7664,
+        "eligible_cells": 7651,
+        "raw_rows": 8139
+      },
+      "S00124": {
+        "composition_total_pbmc_count": 6384,
+        "eligible_cells": 6358,
+        "raw_rows": 6747
+      },
+      "S00126": {
+        "composition_total_pbmc_count": 6495,
+        "eligible_cells": 6479,
+        "raw_rows": 7012
+      },
+      "S00134": {
+        "composition_total_pbmc_count": 5774,
+        "eligible_cells": 5705,
+        "raw_rows": 6197
+      },
+      "S00148": {
+        "composition_total_pbmc_count": 5348,
+        "eligible_cells": 5338,
+        "raw_rows": 5683
+      },
+      "U00501": {
+        "composition_total_pbmc_count": 1171,
+        "eligible_cells": 1175,
+        "raw_rows": 1229
+      },
+      "U00502": {
+        "composition_total_pbmc_count": 3722,
+        "eligible_cells": 3705,
+        "raw_rows": 3853
+      },
+      "U00503": {
+        "composition_total_pbmc_count": 1731,
+        "eligible_cells": 1731,
+        "raw_rows": 1791
+      },
+      "U00505": {
+        "composition_total_pbmc_count": 3300,
+        "eligible_cells": 3266,
+        "raw_rows": 3431
+      },
+      "U00601": {
+        "composition_total_pbmc_count": 620,
+        "eligible_cells": 623,
+        "raw_rows": 637
+      },
+      "U00605": {
+        "composition_total_pbmc_count": 1700,
+        "eligible_cells": 1691,
+        "raw_rows": 1767
+      },
+      "U00607": {
+        "composition_total_pbmc_count": 1081,
+        "eligible_cells": 1021,
+        "raw_rows": 1114
+      },
+      "U00617": {
+        "composition_total_pbmc_count": 1138,
+        "eligible_cells": 1142,
+        "raw_rows": 1262
+      },
+      "U00619": {
+        "composition_total_pbmc_count": 2024,
+        "eligible_cells": 2009,
+        "raw_rows": 2092
+      },
+      "U00701": {
+        "composition_total_pbmc_count": 876,
+        "eligible_cells": 874,
+        "raw_rows": 892
+      }
+    },
+    "expected_metadata_by_combat_id": {
+      "G05061": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "G05061-Ja005E-PBCa",
+        "source": "COVID_HCW_MILD",
+        "total_pbmc_count": 6045
+      },
+      "G05064": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "G05064-Ja005E-PBCa",
+        "source": "COVID_HCW_MILD",
+        "total_pbmc_count": 9003
+      },
+      "G05073": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "G05073-Ja005E-PBCa",
+        "source": "COVID_HCW_MILD",
+        "total_pbmc_count": 8327
+      },
+      "G05077": {
+        "institute": "Oxford",
+        "role": "calibration",
+        "scRNASeq_sample_ID": "G05077-Ja005E-PBCa",
+        "source": "COVID_HCW_MILD",
+        "total_pbmc_count": 5385
+      },
+      "G05078": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "G05078-Ja005E-PBCa",
+        "source": "COVID_HCW_MILD",
+        "total_pbmc_count": 9452
+      },
+      "G05097": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "G05097-Ja005E-PBCa",
+        "source": "COVID_HCW_MILD",
+        "total_pbmc_count": 8125
+      },
+      "G05105": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "G05105-Ja005E-PBCa",
+        "source": "COVID_HCW_MILD",
+        "total_pbmc_count": 6061
+      },
+      "G05112": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "G05112-Ja005E-PBCa",
+        "source": "COVID_HCW_MILD",
+        "total_pbmc_count": 4436
+      },
+      "G05145": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "G05145-Ja005E-PBCa",
+        "source": "COVID_HCW_MILD",
+        "total_pbmc_count": 5945
+      },
+      "G05153": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "G05153-Ja005E-PBCa",
+        "source": "COVID_HCW_MILD",
+        "total_pbmc_count": 8160
+      },
+      "G05164": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "G05164-Ja005E-PBCa",
+        "source": "COVID_HCW_MILD",
+        "total_pbmc_count": 6673
+      },
+      "G05171": {
+        "institute": "Oxford",
+        "role": "calibration",
+        "scRNASeq_sample_ID": "G05171-Ja005E-PBCa",
+        "source": "COVID_HCW_MILD",
+        "total_pbmc_count": 6991
+      },
+      "H00049": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "H00049-Ha001E-PBGa",
+        "source": "HV",
+        "total_pbmc_count": 8706
+      },
+      "H00052": {
+        "institute": "Oxford",
+        "role": "calibration",
+        "scRNASeq_sample_ID": "H00052-Ha001E-PBGa",
+        "source": "HV",
+        "total_pbmc_count": 7551
+      },
+      "H00053": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "H00053-Ha001E-PBGa",
+        "source": "HV",
+        "total_pbmc_count": 10494
+      },
+      "H00054": {
+        "institute": "Oxford",
+        "role": "calibration",
+        "scRNASeq_sample_ID": "H00054-Ha001E-PBGa",
+        "source": "HV",
+        "total_pbmc_count": 11038
+      },
+      "H00058": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "H00058-Ha001E-PBGa",
+        "source": "HV",
+        "total_pbmc_count": 8442
+      },
+      "H00064": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "H00064-Ha001E-PBGa",
+        "source": "HV",
+        "total_pbmc_count": 7562
+      },
+      "H00067": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "H00067-Ha001E-PBGa",
+        "source": "HV",
+        "total_pbmc_count": 10833
+      },
+      "H00070": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "H00070-Ha001E-PBGa",
+        "source": "HV",
+        "total_pbmc_count": 8055
+      },
+      "H00072": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "H00072-Ha001E-PBGa",
+        "source": "HV",
+        "total_pbmc_count": 9133
+      },
+      "H00085": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "H00085-Ha001E-PBGa",
+        "source": "HV",
+        "total_pbmc_count": 5748
+      },
+      "N00006": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "N00006-Ja003E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 6044
+      },
+      "N00007": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "N00007-Ja003E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 6092
+      },
+      "N00012": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "N00012-Ja003E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 3220
+      },
+      "N00017": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "N00017-Ja003E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 2158
+      },
+      "N00021": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "N00021-Ja001E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 6924
+      },
+      "N00024": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "N00024-Ja001E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 9869
+      },
+      "N00025": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "N00025-Ja001E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 3769
+      },
+      "N00028": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "N00028-Ja001E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 7762
+      },
+      "N00032": {
+        "institute": "Oxford",
+        "role": "calibration",
+        "scRNASeq_sample_ID": "N00032-Ja001E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 10386
+      },
+      "N00033": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "N00033-Ja001E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 9579
+      },
+      "N00038": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "N00038-Ja001E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 7277
+      },
+      "N00040": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "N00040-Ja001E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 6182
+      },
+      "N00047": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "N00047-Ja005E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 4105
+      },
+      "N00049": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "N00049-Ja005E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 3700
+      },
+      "N00050": {
+        "institute": "Oxford",
+        "role": "calibration",
+        "scRNASeq_sample_ID": "N00050-Ja001E-PBGa",
+        "source": "Sepsis",
+        "total_pbmc_count": 1745
+      },
+      "S00002": {
+        "institute": "Oxford",
+        "role": "calibration",
+        "scRNASeq_sample_ID": "S00002-Ja001E-PBCa",
+        "source": "COVID_MILD",
+        "total_pbmc_count": 3083
+      },
+      "S00005": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00005-Ja005E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 9004
+      },
+      "S00006": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00006-Ja005E-PBCa",
+        "source": "COVID_MILD",
+        "total_pbmc_count": 7097
+      },
+      "S00007": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00007-Ja003E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 3474
+      },
+      "S00008": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "S00008-Ja003E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 1600
+      },
+      "S00016": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00016-Ja001E-PBCa",
+        "source": "COVID_MILD",
+        "total_pbmc_count": 5713
+      },
+      "S00020": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "S00020-Ja003E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 3353
+      },
+      "S00024": {
+        "institute": "Oxford",
+        "role": "calibration",
+        "scRNASeq_sample_ID": "S00024-Ja003E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 4176
+      },
+      "S00027": {
+        "institute": "Oxford",
+        "role": "calibration",
+        "scRNASeq_sample_ID": "S00027-Ja003E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 2850
+      },
+      "S00028": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00028-Ja001E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 10596
+      },
+      "S00034": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00034-Ja005E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 8435
+      },
+      "S00037": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "S00037-Ja003E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 7367
+      },
+      "S00040": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "S00040-Ja005E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 4801
+      },
+      "S00041": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00041-Ja001E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 5682
+      },
+      "S00042": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "S00042-Ja001E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 5239
+      },
+      "S00043": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00043-Ja005E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 5911
+      },
+      "S00045": {
+        "institute": "Oxford",
+        "role": "calibration",
+        "scRNASeq_sample_ID": "S00045-Ja001E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 6289
+      },
+      "S00048": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00048-Ja003E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 3442
+      },
+      "S00050": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00050-Ja001E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 6937
+      },
+      "S00052": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "S00052-Ja005E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 14113
+      },
+      "S00053": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "S00053-Ja003E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 3693
+      },
+      "S00054": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00054-Ja001E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 3959
+      },
+      "S00056": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00056-Ja003E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 8069
+      },
+      "S00057": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00057-Ja003E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 5685
+      },
+      "S00058": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00058-Ja003E-PBCa",
+        "source": "COVID_MILD",
+        "total_pbmc_count": 6846
+      },
+      "S00059": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00059-Ja001E-PBCa",
+        "source": "COVID_MILD",
+        "total_pbmc_count": 5378
+      },
+      "S00060": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00060-Ja005E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 5577
+      },
+      "S00061": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00061-Ja003E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 4289
+      },
+      "S00063": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "S00063-Ja003E-PBCa",
+        "source": "COVID_MILD",
+        "total_pbmc_count": 6168
+      },
+      "S00064": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00064-Ja005E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 7370
+      },
+      "S00065": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00065-Ja003E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 3941
+      },
+      "S00067": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00067-Ja001E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 4800
+      },
+      "S00068": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00068-Ja005E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 3736
+      },
+      "S00069": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00069-Ja005E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 5885
+      },
+      "S00076": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "S00076-Ja001E-PBCa",
+        "source": "COVID_MILD",
+        "total_pbmc_count": 5816
+      },
+      "S00077": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00077-Ja005E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 2854
+      },
+      "S00078": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00078-Ja003E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 7728
+      },
+      "S00094": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00094-Ja005E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 4929
+      },
+      "S00095": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00095-Ja005E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 3088
+      },
+      "S00099": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00099-Ja005E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 2402
+      },
+      "S00104": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "S00104-Ja003E-PBCa",
+        "source": "COVID_MILD",
+        "total_pbmc_count": 8124
+      },
+      "S00106": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00106-Ja003E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 6716
+      },
+      "S00109": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00109-Ja005E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 3224
+      },
+      "S00112": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00112-Ja003E-PBCa",
+        "source": "COVID_MILD",
+        "total_pbmc_count": 7432
+      },
+      "S00113": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00113-Ja005E-PBCa",
+        "source": "COVID_MILD",
+        "total_pbmc_count": 6152
+      },
+      "S00114": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "S00114-Ja003E-PBCa",
+        "source": "COVID_MILD",
+        "total_pbmc_count": 7664
+      },
+      "S00124": {
+        "institute": "Oxford",
+        "role": "oxford_held_confirmatory",
+        "scRNASeq_sample_ID": "S00124-Ja005E-PBCa",
+        "source": "COVID_CRIT",
+        "total_pbmc_count": 6384
+      },
+      "S00126": {
+        "institute": "Oxford",
+        "role": "calibration",
+        "scRNASeq_sample_ID": "S00126-Ja003E-PBCa",
+        "source": "COVID_MILD",
+        "total_pbmc_count": 6495
+      },
+      "S00134": {
+        "institute": "Oxford",
+        "role": "pilot_adaptive_development",
+        "scRNASeq_sample_ID": "S00134-Ja003E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 5774
+      },
+      "S00148": {
+        "institute": "Oxford",
+        "role": "calibration",
+        "scRNASeq_sample_ID": "S00148-Ja003E-PBCa",
+        "source": "COVID_SEV",
+        "total_pbmc_count": 5348
+      },
+      "U00501": {
+        "institute": "St_Georges",
+        "role": "st_georges_held_confirmatory",
+        "scRNASeq_sample_ID": "U00501-Ua005E-PBUa",
+        "source": "Flu",
+        "total_pbmc_count": 1171
+      },
+      "U00502": {
+        "institute": "St_Georges",
+        "role": "st_georges_held_confirmatory",
+        "scRNASeq_sample_ID": "U00502-Ua005E-PBUa",
+        "source": "Flu",
+        "total_pbmc_count": 3722
+      },
+      "U00503": {
+        "institute": "St_Georges",
+        "role": "st_georges_held_confirmatory",
+        "scRNASeq_sample_ID": "U00503-Ua005E-PBUa",
+        "source": "Flu",
+        "total_pbmc_count": 1731
+      },
+      "U00505": {
+        "institute": "St_Georges",
+        "role": "st_georges_held_confirmatory",
+        "scRNASeq_sample_ID": "U00505-Ua005E-PBUa",
+        "source": "Flu",
+        "total_pbmc_count": 3300
+      },
+      "U00601": {
+        "institute": "St_Georges",
+        "role": "st_georges_held_confirmatory",
+        "scRNASeq_sample_ID": "U00601-Ua005E-PBUa",
+        "source": "Flu",
+        "total_pbmc_count": 620
+      },
+      "U00605": {
+        "institute": "St_Georges",
+        "role": "st_georges_held_confirmatory",
+        "scRNASeq_sample_ID": "U00605-Ua005E-PBUa",
+        "source": "Flu",
+        "total_pbmc_count": 1700
+      },
+      "U00607": {
+        "institute": "St_Georges",
+        "role": "st_georges_held_confirmatory",
+        "scRNASeq_sample_ID": "U00607-Ua005E-PBUa",
+        "source": "Flu",
+        "total_pbmc_count": 1081
+      },
+      "U00617": {
+        "institute": "St_Georges",
+        "role": "st_georges_held_confirmatory",
+        "scRNASeq_sample_ID": "U00617-Ua005E-PBUa",
+        "source": "Flu",
+        "total_pbmc_count": 1138
+      },
+      "U00619": {
+        "institute": "St_Georges",
+        "role": "st_georges_held_confirmatory",
+        "scRNASeq_sample_ID": "U00619-Ua005E-PBUa",
+        "source": "Flu",
+        "total_pbmc_count": 2024
+      },
+      "U00701": {
+        "institute": "St_Georges",
+        "role": "st_georges_held_confirmatory",
+        "scRNASeq_sample_ID": "U00701-Ua005E-PBUa",
+        "source": "Flu",
+        "total_pbmc_count": 876
+      }
+    },
+    "expected_role_counts": {
+      "calibration": 12,
+      "oxford_held_confirmatory": 51,
+      "pilot_adaptive_development": 24,
+      "st_georges_held_confirmatory": 10
+    },
+    "frozen_ids_by_role": {
+      "calibration": [
+        "S00024",
+        "S00027",
+        "G05077",
+        "G05171",
+        "S00002",
+        "S00126",
+        "S00045",
+        "S00148",
+        "H00052",
+        "H00054",
+        "N00032",
+        "N00050"
+      ],
+      "oxford_held_confirmatory": [
+        "S00005",
+        "S00007",
+        "S00043",
+        "S00050",
+        "S00054",
+        "S00065",
+        "S00068",
+        "S00094",
+        "S00095",
+        "S00099",
+        "S00109",
+        "S00124",
+        "G05064",
+        "G05073",
+        "G05078",
+        "G05105",
+        "G05112",
+        "G05153",
+        "S00006",
+        "S00016",
+        "S00058",
+        "S00059",
+        "S00112",
+        "S00113",
+        "S00028",
+        "S00034",
+        "S00041",
+        "S00048",
+        "S00056",
+        "S00057",
+        "S00060",
+        "S00061",
+        "S00064",
+        "S00067",
+        "S00069",
+        "S00077",
+        "S00078",
+        "S00106",
+        "H00049",
+        "H00053",
+        "H00067",
+        "H00085",
+        "N00007",
+        "N00012",
+        "N00017",
+        "N00021",
+        "N00028",
+        "N00033",
+        "N00038",
+        "N00040",
+        "N00049"
+      ],
+      "pilot_adaptive_development": [
+        "S00008",
+        "S00020",
+        "S00040",
+        "S00052",
+        "G05061",
+        "G05097",
+        "G05145",
+        "G05164",
+        "S00063",
+        "S00076",
+        "S00104",
+        "S00114",
+        "S00037",
+        "S00042",
+        "S00053",
+        "S00134",
+        "H00058",
+        "H00064",
+        "H00070",
+        "H00072",
+        "N00006",
+        "N00024",
+        "N00025",
+        "N00047"
+      ],
+      "st_georges_held_confirmatory": [
+        "U00501",
+        "U00502",
+        "U00503",
+        "U00505",
+        "U00601",
+        "U00605",
+        "U00607",
+        "U00617",
+        "U00619",
+        "U00701"
+      ]
+    },
+    "insufficient_eligible_cells": [],
+    "minimum_eligible_cells_per_sample": 512,
+    "missing_combat_ids": [],
+    "missing_exact_pairs": [],
+    "outside_universe_rows_for_designated_combat_ids": {
+      "N00028": {
+        "rows": 5345,
+        "scRNASeq_sample_ID_values": [
+          "N00028-Ja005E-PBGa"
+        ]
+      },
+      "S00005": {
+        "rows": 6788,
+        "scRNASeq_sample_ID_values": [
+          "S00005-Ja003E-PBCa"
+        ]
+      },
+      "S00042": {
+        "rows": 9075,
+        "scRNASeq_sample_ID_values": [
+          "S00042-Ja003E-PBCa"
+        ]
+      },
+      "S00045": {
+        "rows": 10017,
+        "scRNASeq_sample_ID_values": [
+          "S00045-Ja003E-PBCa",
+          "S00045-Ja005E-PBCa"
+        ]
+      },
+      "S00048": {
+        "rows": 2392,
+        "scRNASeq_sample_ID_values": [
+          "S00048-Ja005E-PBCa"
+        ]
+      },
+      "S00052": {
+        "rows": 6233,
+        "scRNASeq_sample_ID_values": [
+          "S00052-Ja003E-PBCa"
+        ]
+      },
+      "S00056": {
+        "rows": 2744,
+        "scRNASeq_sample_ID_values": [
+          "S00056-Ja005E-PBCa"
+        ]
+      },
+      "S00109": {
+        "rows": 12673,
+        "scRNASeq_sample_ID_values": [
+          "S00109-Ja001E-PBCa",
+          "S00109-Ja003E-PBCa"
+        ]
+      },
+      "S00124": {
+        "rows": 3892,
+        "scRNASeq_sample_ID_values": [
+          "S00124-Ja003E-PBCa"
+        ]
+      }
+    },
+    "pair_selection_rule": "exact COMBAT_ID and scRNASeq_sample_ID equality",
+    "present_role_counts": {
+      "calibration": 12,
+      "oxford_held_confirmatory": 51,
+      "pilot_adaptive_development": 24,
+      "st_georges_held_confirmatory": 10
+    },
+    "required_obs_fields": [
+      "COMBAT_ID",
+      "scRNASeq_sample_ID",
+      "Source",
+      "Institute",
+      "Annotation_cell_type"
+    ],
+    "schema_errors": [],
+    "source_institute_mismatches": [],
+    "total_pbmc_count_equality_asserted": false
+  },
+  "hdf5": {
+    "object_inventory": {
+      "/": {
+        "attributes": {},
+        "kind": "group"
+      },
+      "/X": {
+        "attributes": {
+          "encoding-type": "csr_matrix",
+          "encoding-version": "0.1.0",
+          "shape": [
+            836148,
+            20807
+          ]
+        },
+        "kind": "group"
+      },
+      "/X/data": {
+        "attributes": {},
+        "dtype": "float32",
+        "kind": "dataset",
+        "shape": [
+          1273660980
+        ]
+      },
+      "/X/indices": {
+        "attributes": {},
+        "dtype": "int32",
+        "kind": "dataset",
+        "shape": [
+          1273660980
+        ]
+      },
+      "/X/indptr": {
+        "attributes": {},
+        "dtype": "int32",
+        "kind": "dataset",
+        "shape": [
+          836149
+        ]
+      },
+      "/layers": {
+        "attributes": {},
+        "kind": "group"
+      },
+      "/layers/raw": {
+        "attributes": {
+          "encoding-type": "csr_matrix",
+          "encoding-version": "0.1.0",
+          "shape": [
+            836148,
+            20807
+          ]
+        },
+        "kind": "group"
+      },
+      "/layers/raw/data": {
+        "attributes": {},
+        "dtype": "float32",
+        "kind": "dataset",
+        "shape": [
+          1255272732
+        ]
+      },
+      "/layers/raw/indices": {
+        "attributes": {},
+        "dtype": "int32",
+        "kind": "dataset",
+        "shape": [
+          1255272732
+        ]
+      },
+      "/layers/raw/indptr": {
+        "attributes": {},
+        "dtype": "int32",
+        "kind": "dataset",
+        "shape": [
+          836149
+        ]
+      },
+      "/obs": {
+        "attributes": {
+          "_index": "_index",
+          "column-order": [
+            "Annotation_cluster_id",
+            "Annotation_cluster_name",
+            "Annotation_minor_subset",
+            "Annotation_major_subset",
+            "Annotation_cell_type",
+            "GEX_region",
+            "QC_ngenes",
+            "QC_total_UMI",
+            "QC_pct_mitochondrial",
+            "QC_scrub_doublet_scores",
+            "TCR_chain_composition",
+            "TCR_clone_ID",
+            "TCR_clone_count",
+            "TCR_clone_proportion",
+            "TCR_contains_unproductive",
+            "TCR_doublet",
+            "TCR_chain_TRA",
+            "TCR_v_gene_TRA",
+            "TCR_d_gene_TRA",
+            "TCR_j_gene_TRA",
+            "TCR_c_gene_TRA",
+            "TCR_productive_TRA",
+            "TCR_cdr3_TRA",
+            "TCR_umis_TRA",
+            "TCR_chain_TRA2",
+            "TCR_v_gene_TRA2",
+            "TCR_d_gene_TRA2",
+            "TCR_j_gene_TRA2",
+            "TCR_c_gene_TRA2",
+            "TCR_productive_TRA2",
+            "TCR_cdr3_TRA2",
+            "TCR_umis_TRA2",
+            "TCR_chain_TRB",
+            "TCR_v_gene_TRB",
+            "TCR_d_gene_TRB",
+            "TCR_j_gene_TRB",
+            "TCR_c_gene_TRB",
+            "TCR_productive_TRB",
+            "TCR_chain_TRB2",
+            "TCR_v_gene_TRB2",
+            "TCR_d_gene_TRB2",
+            "TCR_j_gene_TRB2",
+            "TCR_c_gene_TRB2",
+            "TCR_productive_TRB2",
+            "TCR_cdr3_TRB2",
+            "TCR_umis_TRB2",
+            "BCR_umis_HC",
+            "BCR_contig_qc_HC",
+            "BCR_functionality_HC",
+            "BCR_v_call_HC",
+            "BCR_v_score_HC",
+            "BCR_j_call_HC",
+            "BCR_j_score_HC",
+            "BCR_junction_aa_HC",
+            "BCR_total_mut_HC",
+            "BCR_s_mut_HC",
+            "BCR_r_mut_HC",
+            "BCR_c_gene_HC",
+            "BCR_clone_per_replicate_HC",
+            "BCR_clone_global_HC",
+            "BCR_clonal_abundance_HC",
+            "BCR_locus_LC",
+            "BCR_umis_LC",
+            "BCR_contig_qc_LC",
+            "BCR_functionality_LC",
+            "BCR_v_call_LC",
+            "BCR_v_score_LC",
+            "BCR_j_call_LC",
+            "BCR_j_score_LC",
+            "BCR_junction_aa_LC",
+            "BCR_total_mut_LC",
+            "BCR_s_mut_LC",
+            "BCR_r_mut_LC",
+            "BCR_c_gene_LC",
+            "COMBAT_ID",
+            "scRNASeq_sample_ID",
+            "COMBAT_participant_timepoint_ID",
+            "Source",
+            "Age",
+            "Sex",
+            "Race",
+            "BMI",
+            "Hospitalstay",
+            "Death28",
+            "Institute",
+            "PreExistingHeartDisease",
+            "PreExistingLungDisease",
+            "PreExistingKidneyDisease",
+            "PreExistingDiabetes",
+            "PreExistingHypertension",
+            "PreExistingImmunocompromised",
+            "Smoking",
+            "Symptomatic",
+            "Requiredvasoactive",
+            "Respiratorysupport",
+            "SARSCoV2PCR",
+            "Outcome",
+            "TimeSinceOnset",
+            "Ethnicity",
+            "Tissue",
+            "DiseaseClassification",
+            "Pool_ID",
+            "Channel_ID"
+          ],
+          "encoding-type": "dataframe",
+          "encoding-version": "0.1.0"
+        },
+        "kind": "group"
+      },
+      "/obs/Age": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Annotation_cell_type": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Annotation_cluster_id": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Annotation_cluster_name": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int16",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Annotation_major_subset": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Annotation_minor_subset": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_c_gene_HC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_c_gene_LC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_clonal_abundance_HC": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_clone_global_HC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int32",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_clone_per_replicate_HC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int32",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_contig_qc_HC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_contig_qc_LC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_functionality_HC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_functionality_LC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_j_call_HC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_j_call_LC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_j_score_HC": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_j_score_LC": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_junction_aa_HC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int32",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_junction_aa_LC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int16",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_locus_LC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_r_mut_HC": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_r_mut_LC": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_s_mut_HC": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_s_mut_LC": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_total_mut_HC": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_total_mut_LC": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_umis_HC": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_umis_LC": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_v_call_HC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int16",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_v_call_LC": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int16",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_v_score_HC": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BCR_v_score_LC": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/BMI": {
+        "attributes": {},
+        "dtype": "int64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/COMBAT_ID": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/COMBAT_participant_timepoint_ID": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int16",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Channel_ID": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Death28": {
+        "attributes": {},
+        "dtype": "int64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/DiseaseClassification": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Ethnicity": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/GEX_region": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Hospitalstay": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Institute": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Outcome": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Pool_ID": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/PreExistingDiabetes": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/PreExistingHeartDisease": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/PreExistingHypertension": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/PreExistingImmunocompromised": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/PreExistingKidneyDisease": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/PreExistingLungDisease": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/QC_ngenes": {
+        "attributes": {},
+        "dtype": "int64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/QC_pct_mitochondrial": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/QC_scrub_doublet_scores": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/QC_total_UMI": {
+        "attributes": {},
+        "dtype": "int64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Race": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Requiredvasoactive": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Respiratorysupport": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/SARSCoV2PCR": {
+        "attributes": {},
+        "dtype": "int64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Sex": {
+        "attributes": {},
+        "dtype": "int64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Smoking": {
+        "attributes": {},
+        "dtype": "int64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Source": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Symptomatic": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_c_gene_TRA": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_c_gene_TRA2": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_c_gene_TRB": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_c_gene_TRB2": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_cdr3_TRA": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int32",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_cdr3_TRA2": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int16",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_cdr3_TRB2": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int16",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_chain_TRA": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_chain_TRA2": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_chain_TRB": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_chain_TRB2": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_chain_composition": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_clone_ID": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int32",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_clone_count": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_clone_proportion": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_contains_unproductive": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_d_gene_TRA": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_d_gene_TRA2": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_d_gene_TRB": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_d_gene_TRB2": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_doublet": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_j_gene_TRA": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_j_gene_TRA2": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_j_gene_TRB": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_j_gene_TRB2": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_productive_TRA": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_productive_TRA2": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_productive_TRB": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_productive_TRB2": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_umis_TRA": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_umis_TRA2": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_umis_TRB2": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_v_gene_TRA": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_v_gene_TRA2": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_v_gene_TRB": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TCR_v_gene_TRB2": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/TimeSinceOnset": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/Tissue": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/__categories": {
+        "attributes": {},
+        "kind": "group"
+      },
+      "/obs/__categories/Annotation_cell_type": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          9
+        ]
+      },
+      "/obs/__categories/Annotation_cluster_name": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          347
+        ]
+      },
+      "/obs/__categories/Annotation_major_subset": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          18
+        ]
+      },
+      "/obs/__categories/Annotation_minor_subset": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          41
+        ]
+      },
+      "/obs/__categories/BCR_c_gene_HC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          17
+        ]
+      },
+      "/obs/__categories/BCR_c_gene_LC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          11
+        ]
+      },
+      "/obs/__categories/BCR_clone_global_HC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          42834
+        ]
+      },
+      "/obs/__categories/BCR_clone_per_replicate_HC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          43182
+        ]
+      },
+      "/obs/__categories/BCR_contig_qc_HC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          3
+        ]
+      },
+      "/obs/__categories/BCR_contig_qc_LC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          4
+        ]
+      },
+      "/obs/__categories/BCR_functionality_HC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          3
+        ]
+      },
+      "/obs/__categories/BCR_functionality_LC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          3
+        ]
+      },
+      "/obs/__categories/BCR_j_call_HC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          54
+        ]
+      },
+      "/obs/__categories/BCR_j_call_LC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          52
+        ]
+      },
+      "/obs/__categories/BCR_junction_aa_HC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          43023
+        ]
+      },
+      "/obs/__categories/BCR_junction_aa_LC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          16566
+        ]
+      },
+      "/obs/__categories/BCR_locus_LC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          2
+        ]
+      },
+      "/obs/__categories/BCR_v_call_HC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          790
+        ]
+      },
+      "/obs/__categories/BCR_v_call_LC": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          215
+        ]
+      },
+      "/obs/__categories/COMBAT_ID": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          124
+        ]
+      },
+      "/obs/__categories/COMBAT_participant_timepoint_ID": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          140
+        ]
+      },
+      "/obs/__categories/Channel_ID": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          70
+        ]
+      },
+      "/obs/__categories/DiseaseClassification": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          4
+        ]
+      },
+      "/obs/__categories/Ethnicity": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          1
+        ]
+      },
+      "/obs/__categories/GEX_region": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          6
+        ]
+      },
+      "/obs/__categories/Institute": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          2
+        ]
+      },
+      "/obs/__categories/Pool_ID": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          10
+        ]
+      },
+      "/obs/__categories/Race": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          1
+        ]
+      },
+      "/obs/__categories/Source": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          8
+        ]
+      },
+      "/obs/__categories/TCR_c_gene_TRA": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          3
+        ]
+      },
+      "/obs/__categories/TCR_c_gene_TRA2": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          3
+        ]
+      },
+      "/obs/__categories/TCR_c_gene_TRB": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          4
+        ]
+      },
+      "/obs/__categories/TCR_c_gene_TRB2": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          4
+        ]
+      },
+      "/obs/__categories/TCR_cdr3_TRA": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          207276
+        ]
+      },
+      "/obs/__categories/TCR_cdr3_TRA2": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          29744
+        ]
+      },
+      "/obs/__categories/TCR_cdr3_TRB2": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          10021
+        ]
+      },
+      "/obs/__categories/TCR_chain_TRA": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          2
+        ]
+      },
+      "/obs/__categories/TCR_chain_TRA2": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          2
+        ]
+      },
+      "/obs/__categories/TCR_chain_TRB": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          2
+        ]
+      },
+      "/obs/__categories/TCR_chain_TRB2": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          2
+        ]
+      },
+      "/obs/__categories/TCR_chain_composition": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          9
+        ]
+      },
+      "/obs/__categories/TCR_clone_ID": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          333910
+        ]
+      },
+      "/obs/__categories/TCR_d_gene_TRA": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          2
+        ]
+      },
+      "/obs/__categories/TCR_d_gene_TRA2": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          2
+        ]
+      },
+      "/obs/__categories/TCR_d_gene_TRB": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          2
+        ]
+      },
+      "/obs/__categories/TCR_d_gene_TRB2": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          2
+        ]
+      },
+      "/obs/__categories/TCR_j_gene_TRA": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          62
+        ]
+      },
+      "/obs/__categories/TCR_j_gene_TRA2": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          62
+        ]
+      },
+      "/obs/__categories/TCR_j_gene_TRB": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          16
+        ]
+      },
+      "/obs/__categories/TCR_j_gene_TRB2": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          16
+        ]
+      },
+      "/obs/__categories/TCR_v_gene_TRA": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          59
+        ]
+      },
+      "/obs/__categories/TCR_v_gene_TRA2": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          59
+        ]
+      },
+      "/obs/__categories/TCR_v_gene_TRB": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          67
+        ]
+      },
+      "/obs/__categories/TCR_v_gene_TRB2": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          66
+        ]
+      },
+      "/obs/__categories/Tissue": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          1
+        ]
+      },
+      "/obs/__categories/scRNASeq_sample_ID": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          140
+        ]
+      },
+      "/obs/_index": {
+        "attributes": {},
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obs/scRNASeq_sample_ID": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int16",
+        "kind": "dataset",
+        "shape": [
+          836148
+        ]
+      },
+      "/obsm": {
+        "attributes": {},
+        "kind": "group"
+      },
+      "/obsm/X_umap": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148,
+          2
+        ]
+      },
+      "/obsm/X_umap_source": {
+        "attributes": {},
+        "dtype": "float64",
+        "kind": "dataset",
+        "shape": [
+          836148,
+          2
+        ]
+      },
+      "/uns": {
+        "attributes": {},
+        "kind": "group"
+      },
+      "/uns/Institute": {
+        "attributes": {},
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": []
+      },
+      "/uns/ObjectCreateDate": {
+        "attributes": {},
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": []
+      },
+      "/uns/Source_colors": {
+        "attributes": {},
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          8
+        ]
+      },
+      "/uns/Technology": {
+        "attributes": {},
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": []
+      },
+      "/uns/genome_annotation_version": {
+        "attributes": {},
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": []
+      },
+      "/var": {
+        "attributes": {
+          "_index": "_index",
+          "column-order": [
+            "gene_ids",
+            "feature_types"
+          ],
+          "encoding-type": "dataframe",
+          "encoding-version": "0.1.0"
+        },
+        "kind": "group"
+      },
+      "/var/__categories": {
+        "attributes": {},
+        "kind": "group"
+      },
+      "/var/__categories/feature_types": {
+        "attributes": {
+          "ordered": false
+        },
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          2
+        ]
+      },
+      "/var/_index": {
+        "attributes": {},
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          20807
+        ]
+      },
+      "/var/feature_types": {
+        "attributes": {
+          "categories": "<HDF5 object reference>"
+        },
+        "dtype": "int8",
+        "kind": "dataset",
+        "shape": [
+          20807
+        ]
+      },
+      "/var/gene_ids": {
+        "attributes": {},
+        "dtype": "object",
+        "kind": "dataset",
+        "shape": [
+          20807
+        ]
+      }
+    },
+    "root_attributes": {}
+  },
+  "input": {
+    "bytes": 6409089483,
+    "filename": "COMBAT-CITESeq-DATA.h5ad",
+    "sha256": "f628a15f25b9ca2f7cdefeab271fd9d007c8d5e47eb80c4b807d5f65e86ff53d"
+  },
+  "marker_feature_candidates": {
+    "complete_exact_panel": true,
+    "duplicate_exact_features": [],
+    "exact_sources": {
+      "feature_names": "/var/_index",
+      "feature_types": "/var/feature_types",
+      "gene_ids": "/var/gene_ids"
+    },
+    "expected_markers": [
+      "CD4",
+      "CD7",
+      "CD14",
+      "CD19",
+      "CD33",
+      "CD38",
+      "CD44",
+      "CD47",
+      "CD52"
+    ],
+    "fuzzy_fallback_used": false,
+    "markers": [
+      {
+        "adt_exact_matches": [
+          {
+            "feature_index": 20648,
+            "feature_type": "Antibody Capture",
+            "name": "AB_CD4",
+            "source": "/var"
+          }
+        ],
+        "adt_expected": {
+          "feature_type": "Antibody Capture",
+          "name": "AB_CD4"
+        },
+        "marker": "CD4",
+        "rna_exact_matches": [
+          {
+            "feature_index": 12604,
+            "feature_type": "Gene Expression",
+            "gene_id": "ENSG00000010610",
+            "source": "/var",
+            "symbol": "CD4"
+          }
+        ],
+        "rna_expected": {
+          "feature_type": "Gene Expression",
+          "symbol": "CD4",
+          "version_stripped_ensembl_id": "ENSG00000010610"
+        }
+      },
+      {
+        "adt_exact_matches": [
+          {
+            "feature_index": 20645,
+            "feature_type": "Antibody Capture",
+            "name": "AB_CD7",
+            "source": "/var"
+          }
+        ],
+        "adt_expected": {
+          "feature_type": "Antibody Capture",
+          "name": "AB_CD7"
+        },
+        "marker": "CD7",
+        "rna_exact_matches": [
+          {
+            "feature_index": 17450,
+            "feature_type": "Gene Expression",
+            "gene_id": "ENSG00000173762",
+            "source": "/var",
+            "symbol": "CD7"
+          }
+        ],
+        "rna_expected": {
+          "feature_type": "Gene Expression",
+          "symbol": "CD7",
+          "version_stripped_ensembl_id": "ENSG00000173762"
+        }
+      },
+      {
+        "adt_exact_matches": [
+          {
+            "feature_index": 20650,
+            "feature_type": "Antibody Capture",
+            "name": "AB_CD14",
+            "source": "/var"
+          }
+        ],
+        "adt_expected": {
+          "feature_type": "Antibody Capture",
+          "name": "AB_CD14"
+        },
+        "marker": "CD14",
+        "rna_exact_matches": [
+          {
+            "feature_index": 5766,
+            "feature_type": "Gene Expression",
+            "gene_id": "ENSG00000170458",
+            "source": "/var",
+            "symbol": "CD14"
+          }
+        ],
+        "rna_expected": {
+          "feature_type": "Gene Expression",
+          "symbol": "CD14",
+          "version_stripped_ensembl_id": "ENSG00000170458"
+        }
+      },
+      {
+        "adt_exact_matches": [
+          {
+            "feature_index": 20634,
+            "feature_type": "Antibody Capture",
+            "name": "AB_CD19",
+            "source": "/var"
+          }
+        ],
+        "adt_expected": {
+          "feature_type": "Antibody Capture",
+          "name": "AB_CD19"
+        },
+        "marker": "CD19",
+        "rna_exact_matches": [
+          {
+            "feature_index": 15779,
+            "feature_type": "Gene Expression",
+            "gene_id": "ENSG00000177455",
+            "source": "/var",
+            "symbol": "CD19"
+          }
+        ],
+        "rna_expected": {
+          "feature_type": "Gene Expression",
+          "symbol": "CD19",
+          "version_stripped_ensembl_id": "ENSG00000177455"
+        }
+      },
+      {
+        "adt_exact_matches": [
+          {
+            "feature_index": 20635,
+            "feature_type": "Antibody Capture",
+            "name": "AB_CD33",
+            "source": "/var"
+          }
+        ],
+        "adt_expected": {
+          "feature_type": "Antibody Capture",
+          "name": "AB_CD33"
+        },
+        "marker": "CD33",
+        "rna_exact_matches": [
+          {
+            "feature_index": 19495,
+            "feature_type": "Gene Expression",
+            "gene_id": "ENSG00000105383",
+            "source": "/var",
+            "symbol": "CD33"
+          }
+        ],
+        "rna_expected": {
+          "feature_type": "Gene Expression",
+          "symbol": "CD33",
+          "version_stripped_ensembl_id": "ENSG00000105383"
+        }
+      },
+      {
+        "adt_exact_matches": [
+          {
+            "feature_index": 20746,
+            "feature_type": "Antibody Capture",
+            "name": "AB_CD38",
+            "source": "/var"
+          }
+        ],
+        "adt_expected": {
+          "feature_type": "Antibody Capture",
+          "name": "AB_CD38"
+        },
+        "marker": "CD38",
+        "rna_exact_matches": [
+          {
+            "feature_index": 4600,
+            "feature_type": "Gene Expression",
+            "gene_id": "ENSG00000004468",
+            "source": "/var",
+            "symbol": "CD38"
+          }
+        ],
+        "rna_expected": {
+          "feature_type": "Gene Expression",
+          "symbol": "CD38",
+          "version_stripped_ensembl_id": "ENSG00000004468"
+        }
+      },
+      {
+        "adt_exact_matches": [
+          {
+            "feature_index": 20649,
+            "feature_type": "Antibody Capture",
+            "name": "AB_humanCD44",
+            "source": "/var"
+          }
+        ],
+        "adt_expected": {
+          "feature_type": "Antibody Capture",
+          "name": "AB_humanCD44"
+        },
+        "marker": "CD44",
+        "rna_exact_matches": [
+          {
+            "feature_index": 10856,
+            "feature_type": "Gene Expression",
+            "gene_id": "ENSG00000026508",
+            "source": "/var",
+            "symbol": "CD44"
+          }
+        ],
+        "rna_expected": {
+          "feature_type": "Gene Expression",
+          "symbol": "CD44",
+          "version_stripped_ensembl_id": "ENSG00000026508"
+        }
+      },
+      {
+        "adt_exact_matches": [
+          {
+            "feature_index": 20625,
+            "feature_type": "Antibody Capture",
+            "name": "AB_CD47",
+            "source": "/var"
+          }
+        ],
+        "adt_expected": {
+          "feature_type": "Antibody Capture",
+          "name": "AB_CD47"
+        },
+        "marker": "CD47",
+        "rna_exact_matches": [
+          {
+            "feature_index": 3948,
+            "feature_type": "Gene Expression",
+            "gene_id": "ENSG00000196776",
+            "source": "/var",
+            "symbol": "CD47"
+          }
+        ],
+        "rna_expected": {
+          "feature_type": "Gene Expression",
+          "symbol": "CD47",
+          "version_stripped_ensembl_id": "ENSG00000196776"
+        }
+      },
+      {
+        "adt_exact_matches": [
+          {
+            "feature_index": 20630,
+            "feature_type": "Antibody Capture",
+            "name": "AB_CD52",
+            "source": "/var"
+          }
+        ],
+        "adt_expected": {
+          "feature_type": "Antibody Capture",
+          "name": "AB_CD52"
+        },
+        "marker": "CD52",
+        "rna_exact_matches": [
+          {
+            "feature_index": 353,
+            "feature_type": "Gene Expression",
+            "gene_id": "ENSG00000169442",
+            "source": "/var",
+            "symbol": "CD52"
+          }
+        ],
+        "rna_expected": {
+          "feature_type": "Gene Expression",
+          "symbol": "CD52",
+          "version_stripped_ensembl_id": "ENSG00000169442"
+        }
+      }
+    ],
+    "metadata_errors": [],
+    "missing_exact_names": [],
+    "source_lengths": {
+      "feature_names": 20807,
+      "feature_types": 20807,
+      "gene_ids": 20807
+    }
+  },
+  "matrices": {
+    "X": {
+      "attributes": {
+        "encoding-type": "csr_matrix",
+        "encoding-version": "0.1.0",
+        "shape": [
+          836148,
+          20807
+        ]
+      },
+      "encoding_type": "csr_matrix",
+      "encoding_version": "0.1.0",
+      "kind": "group",
+      "members": {
+        "data": {
+          "attributes": {},
+          "dtype": "float32",
+          "kind": "dataset",
+          "shape": [
+            1273660980
+          ]
+        },
+        "indices": {
+          "attributes": {},
+          "dtype": "int32",
+          "kind": "dataset",
+          "shape": [
+            1273660980
+          ]
+        },
+        "indptr": {
+          "attributes": {},
+          "dtype": "int32",
+          "kind": "dataset",
+          "shape": [
+            836149
+          ]
+        }
+      },
+      "shape": [
+        836148,
+        20807
+      ]
+    },
+    "layers": {
+      "raw": {
+        "attributes": {
+          "encoding-type": "csr_matrix",
+          "encoding-version": "0.1.0",
+          "shape": [
+            836148,
+            20807
+          ]
+        },
+        "encoding_type": "csr_matrix",
+        "encoding_version": "0.1.0",
+        "kind": "group",
+        "members": {
+          "data": {
+            "attributes": {},
+            "dtype": "float32",
+            "kind": "dataset",
+            "shape": [
+              1255272732
+            ]
+          },
+          "indices": {
+            "attributes": {},
+            "dtype": "int32",
+            "kind": "dataset",
+            "shape": [
+              1255272732
+            ]
+          },
+          "indptr": {
+            "attributes": {},
+            "dtype": "int32",
+            "kind": "dataset",
+            "shape": [
+              836149
+            ]
+          }
+        },
+        "shape": [
+          836148,
+          20807
+        ]
+      }
+    },
+    "raw_X": null
+  },
+  "schema_version": "combat_citeseq_metadata_preflight_v3",
+  "status": "PREFLIGHT_METADATA_CONTRACT_PASS",
+  "warnings": []
+}
