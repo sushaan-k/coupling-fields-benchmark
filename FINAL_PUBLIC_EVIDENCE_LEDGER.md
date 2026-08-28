@@ -82,6 +82,7 @@ reproduce across public paired assays.
 | NeurIPS 2021 BMMC CITE-seq | Two fit donors, one development donor, six held donors | 100 ordered RNA--ADT pairs | Not scored; exact conditional optimizer failed the final common-effect development refit after the frozen numerical-equivalence retry | Strongest signed Pearson or Poisson-deviance residual transfer not reached | Held pairing not opened | **REFUSE numerical development** |
 | GSE279451 adult sepsis CITE-seq | Nineteen development donors; 21 held donors | 81 ordered RNA--ADT pairs | Not scored; terminal evaluation refusal after development reduction because both common-effect control families were unavailable | Prespecified raw or exact-null-centered signed Pearson or Poisson-deviance residual transfer; no comparison decision produced | All 21 held matrices unopened | **REFUSE development evaluation** |
 | GSE299043 MLN CITE-seq | Ten Cambridge development donors; ten LiveOnNY/Columbia held donors | 81 ordered RNA--ADT pairs | Not scored; terminal feature-preflight refusal after 21 development-member reductions | Prespecified residual comparison not reached | All 151 held members unopened | **REFUSE acquisition** |
+| COMBAT CITE-seq | Twelve Oxford calibration samples; 24 Oxford pilot samples; 51 Oxford and ten St George's held samples | 81 ordered RNA--ADT pairs | Not scored; two of eight primary configurations survived, but all four matched residual candidates and all three ridge-only Haldane candidates refused under the frozen attainable-margin rule | Pearson: 134 out-of-range pilot sample--entity pairs; deviance: 102 | All 61 held samples unopened | **REFUSE pilot candidate availability** |
 
 Metric intervals for the first five predictive panels and Arce resample
 targets. ReSisTrace intervals resample barcode-defined lineages conditional on
@@ -214,6 +215,7 @@ Result and terminal-attempt artifact hashes at this snapshot:
 | `data/development/gse299043_mln/development_attempt_v1.json` | `dc6206cba4186ede6a2d9a178d6f9adb9e09e402983e32dda611b0be11ac00ad` |
 | `results/development/gse299043_mln_development_acquisition_refusal.json` | `aab390fc9701171c42267d111dfb69cbbf3282abba5d39887f30431bc1e78635` |
 | `results/development/gse299043_mln_terminal_acquisition_audit.json` | `6b5ef33e765adfcd80b534113a3c59dec706b82739c2518342699019011a6475` |
+| `results/development/combat_citeseq_pilot_terminal_refusal.json` | `c41c6e46333c1dc56b460fec74a41f6d1a07a82105ca4894a273ce43dc48e2f9` |
 
 The structured consistency check parsed every audited JSON with non-finite JSON
 constants rejected; verified embedded hashes for the v4 runner, estimator, and
@@ -262,6 +264,9 @@ Keep every RNA-protein/RNA-ATAC/PerturbFate refusal, including the terminal
 BMMC and GSE279451 development refusals, in the main benchmark table.
 Retain the GSE299043 terminal feature refusal in the main table; it supplies no
 performance evidence.
+Retain the COMBAT terminal pilot refusal as well: it establishes neither field
+transfer nor graph superiority because the required comparator families were
+unavailable before the gate, and no held margin or pairing was accessed.
 Do not claim structural-prior superiority, confirmatory pathway recovery,
 local-neighborhood recovery, real-data validation of guide-error correction,
 positive biological replication, or state-of-the-art perturbation prediction
