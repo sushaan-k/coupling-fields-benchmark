@@ -1,0 +1,7 @@
+{
+  "schema": "gse239452-artifact-authorization/1.0",
+  "status": "HELD_GEX_ACCESS_AUTHORIZED",
+  "pilot_result": "results/development/gse239452_citeseq_pilot.json",
+  "pilot_result_sha256": "98537dc0801e9cfc77cf29ef2a2b87f5d19e1ca7075d285a62996d8424adc5a8",
+  "public_pilot_result_commit": "069f858031d817a30317b14063c88f868003a834"
+}
