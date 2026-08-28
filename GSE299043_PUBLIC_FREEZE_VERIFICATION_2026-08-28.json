@@ -1,0 +1,33 @@
+{
+  "schema": "gse299043-public-freeze-verification/1.0",
+  "status": "PASS",
+  "verified_at_utc": "2026-08-28T15:34:57Z",
+  "public_repository": "https://github.com/sushaan-k/coupling-fields-benchmark",
+  "release_url": "https://github.com/sushaan-k/coupling-fields-benchmark/releases/tag/gse299043-mln-v1-protocol",
+  "release_tag": "gse299043-mln-v1-protocol",
+  "release_immutable": true,
+  "annotated_tag_object": "1369eca50234e512ef7564f1c24c16da6a899bc6",
+  "frozen_commit": "87c15787f734b20d06c7b8cb0c66680b2fe5c1b0",
+  "sha256sums_sha256": "c83005853e7d498852d4558ffe6fc3013a464f2b1e9ea54be6a7049ee9ecafa6",
+  "fresh_clone": {
+    "resolved_commit": "87c15787f734b20d06c7b8cb0c66680b2fe5c1b0",
+    "checksum_manifest": "PASS",
+    "reproduce_main_tests": {
+      "passed": 320,
+      "deselected": 4,
+      "warnings": 12
+    },
+    "reproduce_historical_kotliarov_test": {
+      "passed": 1
+    },
+    "gse299043_warning_strict_tests": {
+      "passed": 83
+    },
+    "scoped_ruff": "PASS",
+    "outcome_artifacts_absent": true,
+    "h5ad_or_partial_downloads_present": false
+  },
+  "release_attestation": "PASS",
+  "outcome_access_authorized": false,
+  "gse299043_h5ad_members_opened_before_verification": 0
+}
