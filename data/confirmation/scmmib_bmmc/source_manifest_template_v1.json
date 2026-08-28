@@ -1,0 +1,36 @@
+{
+  "complete_cite_h5ad": {
+    "bytes": 624797386,
+    "etag": "15d0db3fb12efb77160e293cdeb98e11-75",
+    "local_path": null,
+    "sha256": null,
+    "s3_bucket": "openproblems-bio",
+    "s3_key": "public/phase2-private-data/common/openproblems_bmmc_complete/openproblems_bmmc_cite_complete.h5ad",
+    "version_id": "kyN5dZPIsYJ0NC8Y5ECK55TuiebegCII"
+  },
+  "internal_assays": {
+    "adt": {
+      "feature_index_hdf5_path": null,
+      "matrix_hdf5_path": null,
+      "obs_index_hdf5_path": null,
+      "matrix_is_raw_counts": true
+    },
+    "rna": {
+      "feature_index_hdf5_path": null,
+      "matrix_hdf5_path": null,
+      "obs_index_hdf5_path": null,
+      "matrix_is_raw_counts": true
+    }
+  },
+  "held_feature_rows_may_be_read": false,
+  "metadata": {
+    "local_path": "data/development/scmmib_bmmc_metadata_v1/BMMC_RNA+ADT_p10_metadata.csv.gz",
+    "sha256": "b267d4a820b062d0a05227c9cab61d389dcf924c3a6e062fb2389ce1be2f6e4f"
+  },
+  "preflight": {
+    "path": "results/development/scmmib_bmmc_metadata_preflight.json",
+    "sha256": null
+  },
+  "schema": "scmmib-bmmc-source/1.0",
+  "status": "SOURCE_UNAVAILABLE"
+}

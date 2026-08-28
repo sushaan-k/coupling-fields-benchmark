@@ -2,7 +2,7 @@
   "schema": "coupling-fields-public-benchmark/1.0",
   "release_name": "coupling-fields-v1",
   "assembled_at_utc": "2026-08-28T05:00:00Z",
-  "status": "PUBLIC_CONFIRMATORY_FAMILY_V3_TERMINAL_REFUSAL",
+  "status": "PUBLIC_BMMC_PROTOCOL_ONLY_OUTCOME_ACCESS_DISABLED",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
   "public_freeze_commit": "a034fd272ef631d70f39debc467570568ef8754a",
   "immutable_release_tag": "confirmatory-family-v3",
@@ -28,6 +28,16 @@
   "completed_public_panels": 7,
   "procedural_refusal_count": 4,
   "kotliarov_outcome_status": "TERMINAL_REFUSAL",
+  "next_protocol": {
+    "designation": "BMMC_CANDIDATE_DESIGNATION.json",
+    "designation_sha256": "5e64669d759caa06dd83f41fda7c44c593e5b9001cf0137e1401fe46532744b2",
+    "status": "PROTOCOL_ONLY_OUTCOME_ACCESS_DISABLED",
+    "held_physical_donors": 6,
+    "complete_h5ad_downloaded": false,
+    "feature_values_decoded": false,
+    "prediction_written": false,
+    "held_score_attempted": false
+  },
   "artifacts": [
     {
       "path": "pyproject.toml",

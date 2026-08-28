@@ -1,0 +1,543 @@
+{
+  "access_audit": {
+    "covid_sanger_touched": false,
+    "decoded": [
+      "SCMMIB p10 metadata CSV, including deposited per-cell QC summaries but no feature-level values",
+      "s1d1 matrix/features/name",
+      "s1d1 matrix/features/feature_type"
+    ],
+    "large_scmmib_archive_downloaded": false,
+    "not_decoded": [
+      "s1d1 matrix/data",
+      "s1d1 matrix/indices",
+      "s1d1 matrix/indptr",
+      "all site 3 feature-level RNA outcome counts",
+      "all site 3 feature-level ADT outcome counts",
+      "all donor-powered held feature-level RNA outcome counts",
+      "all donor-powered held feature-level ADT outcome counts",
+      "any held 2x2 table or held coupling statistic"
+    ],
+    "opaque_byte_reads": [
+      "complete metadata gzip for SHA-256",
+      "complete s1d1 HDF5 file for SHA-256"
+    ]
+  },
+  "dataset": {
+    "modalities": [
+      "RNA",
+      "ADT"
+    ],
+    "name": "NeurIPS 2021 BMMC CITE-seq",
+    "physical_donor_structure": "eight site-specific donors plus donor 15078 processed at all four sites",
+    "processed_cells_reported": 90261
+  },
+  "donor_powered_alternative": {
+    "all_roles_have_all_broad_lineages": true,
+    "allocation_limit": "nine physical donors cannot supply six held donors and at least two physical donors to both fit and development",
+    "allocation_rule": "reserve the sole four-site bridge donor for development; sort the eight site-specific donors by SHA-256 of 'GSE194122:SCMMIB-v2:' plus DonorID; hold the first six and fit the remaining two",
+    "development": {
+      "donors": [
+        "15078"
+      ],
+      "sites": [
+        "site1",
+        "site2",
+        "site3",
+        "site4"
+      ],
+      "summary": {
+        "batches": {
+          "s1d1": 523,
+          "s2d1": 1046,
+          "s3d1": 952,
+          "s4d1": 546
+        },
+        "cells": 3067,
+        "donors": {
+          "15078": 3067
+        },
+        "lineages": {
+          "B cell": 396,
+          "CD4 T cell": 549,
+          "CD8 T cell": 264,
+          "Dendritic Cells": 130,
+          "Erythroid Cells": 535,
+          "ILC": 23,
+          "Monocytes": 798,
+          "NK": 148,
+          "Other T cell": 60,
+          "Progenitor Cells": 164
+        },
+        "original_partition_flags": {
+          "iid_holdout": 310,
+          "test": 485,
+          "train": 2272
+        },
+        "sites": {
+          "site1": 523,
+          "site2": 1046,
+          "site3": 952,
+          "site4": 546
+        }
+      }
+    },
+    "fit": {
+      "donors": [
+        "11466",
+        "19593"
+      ],
+      "sites": [
+        "site3",
+        "site4"
+      ],
+      "summary": {
+        "batches": {
+          "s3d7": 1147,
+          "s4d8": 393
+        },
+        "cells": 1540,
+        "donors": {
+          "11466": 1147,
+          "19593": 393
+        },
+        "lineages": {
+          "B cell": 106,
+          "CD4 T cell": 86,
+          "CD8 T cell": 185,
+          "Dendritic Cells": 79,
+          "Erythroid Cells": 112,
+          "ILC": 6,
+          "Monocytes": 712,
+          "NK": 143,
+          "Other T cell": 23,
+          "Progenitor Cells": 88
+        },
+        "original_partition_flags": {
+          "iid_holdout": 167,
+          "test": 354,
+          "train": 1019
+        },
+        "sites": {
+          "site3": 1147,
+          "site4": 393
+        }
+      }
+    },
+    "hash_salt": "GSE194122:SCMMIB-v2:",
+    "held": {
+      "donors": [
+        "10886",
+        "12710",
+        "13272",
+        "16710",
+        "18303",
+        "28045"
+      ],
+      "sites": [
+        "site1",
+        "site2",
+        "site3",
+        "site4"
+      ],
+      "summary": {
+        "batches": {
+          "s1d2": 498,
+          "s1d3": 611,
+          "s2d4": 558,
+          "s2d5": 912,
+          "s3d6": 1104,
+          "s4d9": 736
+        },
+        "cells": 4419,
+        "donors": {
+          "10886": 498,
+          "12710": 558,
+          "13272": 736,
+          "16710": 912,
+          "18303": 611,
+          "28045": 1104
+        },
+        "lineages": {
+          "B cell": 468,
+          "CD4 T cell": 774,
+          "CD8 T cell": 642,
+          "Dendritic Cells": 126,
+          "Erythroid Cells": 530,
+          "ILC": 55,
+          "Monocytes": 921,
+          "NK": 437,
+          "Other T cell": 134,
+          "Progenitor Cells": 332
+        },
+        "original_partition_flags": {
+          "iid_holdout": 447,
+          "test": 664,
+          "train": 3308
+        },
+        "sites": {
+          "site1": 1109,
+          "site2": 1470,
+          "site3": 1104,
+          "site4": 736
+        }
+      }
+    },
+    "held_access": "feature-level outcome arrays for all six held donors remain unopened until a public freeze",
+    "held_physical_donors": 6,
+    "minimum_one_sided_exact_sign_p": 0.015625,
+    "minimum_two_sided_exact_sign_p": 0.03125,
+    "original_partition_flags_used": false,
+    "physical_donor_disjoint": true,
+    "selection": "fit on the two fit donors; choose every penalty and gate on bridge donor 15078; after locking, refit the three non-held donors and score the six held donors once",
+    "site_disjoint": false,
+    "site_overlap_declared": true,
+    "status": "ELIGIBLE_WITH_SINGLE_DONOR_DEVELOPMENT"
+  },
+  "inference_limit": {
+    "conclusion": "eligible as a held-site performance confirmation, but incapable of donor-level exact p <= 0.025",
+    "held_physical_donors": 3,
+    "minimum_one_sided_exact_sign_p": 0.125,
+    "minimum_two_sided_exact_sign_p": 0.25
+  },
+  "marker_preflight": {
+    "biological_antibody_features": 134,
+    "exact_matches": [
+      "CD101",
+      "CD14",
+      "CD163",
+      "CD19",
+      "CD2",
+      "CD22",
+      "CD226",
+      "CD24",
+      "CD244",
+      "CD27",
+      "CD274",
+      "CD28",
+      "CD33",
+      "CD36",
+      "CD38",
+      "CD4",
+      "CD40",
+      "CD44",
+      "CD47",
+      "CD48",
+      "CD5",
+      "CD52",
+      "CD58",
+      "CD63",
+      "CD69",
+      "CD7",
+      "CD72",
+      "CD81",
+      "CD82",
+      "CD83",
+      "CD86",
+      "CD9",
+      "CD93",
+      "CX3CR1",
+      "HLA-E",
+      "KLRG1",
+      "TIGIT"
+    ],
+    "exact_rna_adt_name_matches": 37,
+    "isotype_controls": [
+      "Mouse-IgG1",
+      "Mouse-IgG2a",
+      "Mouse-IgG2b",
+      "Rat-IgG1",
+      "Rat-IgG2a",
+      "Rat-IgG2b"
+    ],
+    "locked_biology_only_panel": [
+      "CD4",
+      "CD7",
+      "CD14",
+      "CD19",
+      "CD33",
+      "CD38",
+      "CD44",
+      "CD47",
+      "CD52",
+      "CD93"
+    ],
+    "locked_ordered_pairs": 100,
+    "raw_antibody_features": 140
+  },
+  "metadata_snapshot": {
+    "all": {
+      "batches": {
+        "s1d1": 523,
+        "s1d2": 498,
+        "s1d3": 611,
+        "s2d1": 1046,
+        "s2d4": 558,
+        "s2d5": 912,
+        "s3d1": 952,
+        "s3d6": 1104,
+        "s3d7": 1147,
+        "s4d1": 546,
+        "s4d8": 393,
+        "s4d9": 736
+      },
+      "cells": 9026,
+      "donors": {
+        "10886": 498,
+        "11466": 1147,
+        "12710": 558,
+        "13272": 736,
+        "15078": 3067,
+        "16710": 912,
+        "18303": 611,
+        "19593": 393,
+        "28045": 1104
+      },
+      "lineages": {
+        "B cell": 970,
+        "CD4 T cell": 1409,
+        "CD8 T cell": 1091,
+        "Dendritic Cells": 335,
+        "Erythroid Cells": 1177,
+        "ILC": 84,
+        "Monocytes": 2431,
+        "NK": 728,
+        "Other T cell": 217,
+        "Progenitor Cells": 584
+      },
+      "original_partition_flags": {
+        "iid_holdout": 924,
+        "test": 1503,
+        "train": 6599
+      },
+      "sites": {
+        "site1": 1632,
+        "site2": 2516,
+        "site3": 3203,
+        "site4": 1675
+      }
+    },
+    "split": {
+      "development": {
+        "batches": {
+          "s4d8": 393,
+          "s4d9": 736
+        },
+        "cells": 1129,
+        "donors": {
+          "13272": 736,
+          "19593": 393
+        },
+        "lineages": {
+          "B cell": 209,
+          "CD4 T cell": 161,
+          "CD8 T cell": 273,
+          "Dendritic Cells": 15,
+          "Erythroid Cells": 97,
+          "ILC": 12,
+          "Monocytes": 71,
+          "NK": 105,
+          "Other T cell": 56,
+          "Progenitor Cells": 130
+        },
+        "original_partition_flags": {
+          "iid_holdout": 111,
+          "test": 1018
+        },
+        "sites": {
+          "site4": 1129
+        }
+      },
+      "excluded_bridge_elsewhere": {
+        "batches": {
+          "s1d1": 523,
+          "s2d1": 1046,
+          "s4d1": 546
+        },
+        "cells": 2115,
+        "donors": {
+          "15078": 2115
+        },
+        "lineages": {
+          "B cell": 304,
+          "CD4 T cell": 403,
+          "CD8 T cell": 202,
+          "Dendritic Cells": 80,
+          "Erythroid Cells": 372,
+          "ILC": 18,
+          "Monocytes": 458,
+          "NK": 124,
+          "Other T cell": 52,
+          "Progenitor Cells": 102
+        },
+        "original_partition_flags": {
+          "iid_holdout": 199,
+          "test": 485,
+          "train": 1431
+        },
+        "sites": {
+          "site1": 523,
+          "site2": 1046,
+          "site4": 546
+        }
+      },
+      "fit": {
+        "batches": {
+          "s1d2": 498,
+          "s1d3": 611,
+          "s2d4": 558,
+          "s2d5": 912
+        },
+        "cells": 2579,
+        "donors": {
+          "10886": 498,
+          "12710": 558,
+          "16710": 912,
+          "18303": 611
+        },
+        "lineages": {
+          "B cell": 241,
+          "CD4 T cell": 532,
+          "CD8 T cell": 314,
+          "Dendritic Cells": 62,
+          "Erythroid Cells": 342,
+          "ILC": 35,
+          "Monocytes": 585,
+          "NK": 272,
+          "Other T cell": 78,
+          "Progenitor Cells": 118
+        },
+        "original_partition_flags": {
+          "iid_holdout": 267,
+          "train": 2312
+        },
+        "sites": {
+          "site1": 1109,
+          "site2": 1470
+        }
+      },
+      "held": {
+        "batches": {
+          "s3d1": 952,
+          "s3d6": 1104,
+          "s3d7": 1147
+        },
+        "cells": 3203,
+        "donors": {
+          "11466": 1147,
+          "15078": 952,
+          "28045": 1104
+        },
+        "lineages": {
+          "B cell": 216,
+          "CD4 T cell": 313,
+          "CD8 T cell": 302,
+          "Dendritic Cells": 178,
+          "Erythroid Cells": 366,
+          "ILC": 19,
+          "Monocytes": 1317,
+          "NK": 227,
+          "Other T cell": 31,
+          "Progenitor Cells": 234
+        },
+        "original_partition_flags": {
+          "iid_holdout": 347,
+          "train": 2856
+        },
+        "sites": {
+          "site3": 3203
+        }
+      }
+    }
+  },
+  "planned_analysis": {
+    "comparators": [
+      "independence",
+      "null-centered Haldane Paule-Mandel ablation",
+      "one-df Pearson coordinate",
+      "one-df signed-deviance coordinate"
+    ],
+    "held_access": "site 3 outcome arrays remain unopened until public freeze",
+    "primary_estimator": "structured noncentral-hypergeometric likelihood",
+    "primary_parameter": "exact conditional full log odds",
+    "selection": "lock the marker panel from feature metadata; choose penalties and all performance gates on site 4; refit sites 1, 2, and 4 only",
+    "target_prediction": "exact expected 2x2 table at held donor margins"
+  },
+  "prospective_split": {
+    "development": {
+      "donors": [
+        "13272",
+        "19593"
+      ],
+      "role": "select penalties and gates on site 4 only",
+      "sites": [
+        "site4"
+      ]
+    },
+    "donor_disjoint": true,
+    "excluded_bridge_elsewhere": {
+      "donors": [
+        "15078"
+      ],
+      "reason": "reserve physical donor 15078 to the held site",
+      "sites": [
+        "site1",
+        "site2",
+        "site4"
+      ]
+    },
+    "fit": {
+      "donors": [
+        "10886",
+        "12710",
+        "16710",
+        "18303"
+      ],
+      "role": "fit candidate parameters on sites 1 and 2",
+      "sites": [
+        "site1",
+        "site2"
+      ]
+    },
+    "held": {
+      "donors": [
+        "11466",
+        "15078",
+        "28045"
+      ],
+      "role": "score site 3 exactly once after public freeze",
+      "sites": [
+        "site3"
+      ]
+    },
+    "original_partition_flags_used": false,
+    "site_disjoint": true
+  },
+  "schema_version": "scmmib_bmmc_metadata_preflight_v1",
+  "sources": {
+    "feature_panel": {
+      "bytes": 22848647,
+      "figshare_article": "https://figshare.com/articles/dataset/22716739",
+      "file_url": "https://ndownloader.figshare.com/files/40347877",
+      "md5": "a99285913ea3f3d22600d3d2f8a88e34",
+      "sample": "s1d1",
+      "sha256": "322c30a7a4905f7f113472442d4aa2c81a1ad736c86651f6c0b81e5b2ff94ac8"
+    },
+    "geo_accession": "GSE194122",
+    "license": "CC BY 4.0",
+    "metadata": {
+      "bytes": 348154,
+      "decoded_rows": 9026,
+      "repository_commit": "5341740b541c9d8050fb74009c1605aa1bd1b27a",
+      "sha256": "b267d4a820b062d0a05227c9cab61d389dcf924c3a6e062fb2389ce1be2f6e4f",
+      "url": "https://raw.githubusercontent.com/bm2-lab/SCMMI_Benchmark/5341740b541c9d8050fb74009c1605aa1bd1b27a/manuscript_figure_script_and_data/stage2_res/metadata/BMMC_RNA%2BADT_p10_metadata.csv.gz"
+    },
+    "scmmib_archive": {
+      "bytes": 1771132942,
+      "downloaded": false,
+      "figshare_article": "https://figshare.com/articles/dataset/27161451/2",
+      "file_url": "https://ndownloader.figshare.com/files/49589406",
+      "md5": "e25a6ac213ddea23dbab1f5ee8caefa9"
+    }
+  },
+  "status": "PREFLIGHT_ELIGIBLE_NOT_FROZEN"
+}

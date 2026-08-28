@@ -1,0 +1,12 @@
+{
+  "development_result_sha256": null,
+  "prediction_path": "results/scmmib_bmmc_exact_predictions.json",
+  "prediction_sha256": null,
+  "protocol_sha256": null,
+  "public_prediction_commit": null,
+  "public_prediction_url": null,
+  "runner_sha256": null,
+  "schema": "scmmib-bmmc-score-authorization/1.0",
+  "source_manifest_sha256": null,
+  "status": "OUTCOME_ACCESS_DISABLED"
+}

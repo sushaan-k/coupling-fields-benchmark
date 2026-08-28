@@ -24,5 +24,9 @@ echo "Preserving, but deselecting, two disabled-phase lock assertions."
   tests/test_hao_gse164378_confirmation.py \
   tests/test_kotliarov_pbmc_confirmation.py \
   tests/test_kotliarov_pbmc_reducer.py \
+  tests/test_scmmib_bmmc_preflight.py \
+  tests/test_scmmib_bmmc_confirmation.py \
+  tests/test_heterogeneity_adaptive_coupling.py \
+  tests/test_hierarchical_conditional_coupling.py \
   tests/test_confirm_poki_gse143417.py \
   tests/test_coupling_margin_invariance_simulation.py

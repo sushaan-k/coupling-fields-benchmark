@@ -1,0 +1,36 @@
+{
+  "schema": "coupling-fields-candidate-designation/1.0",
+  "candidate": "NeurIPS 2021 BMMC CITE-seq held-donor confirmation",
+  "status": "PROTOCOL_ONLY_OUTCOME_ACCESS_DISABLED",
+  "decision_date": "2026-08-28",
+  "fit_donors": ["11466", "19593"],
+  "development_donors": ["15078"],
+  "held_donors": ["10886", "12710", "13272", "16710", "18303", "28045"],
+  "held_unit": "physical donor",
+  "panel": {
+    "markers": ["CD4", "CD7", "CD14", "CD19", "CD33", "CD38", "CD44", "CD47", "CD52", "CD93"],
+    "ordered_rna_adt_pairs": 100
+  },
+  "primary_comparator": "strongest development-selected sample-size-normalized signed Pearson or Poisson-deviance interaction residual",
+  "sanger_multiplicity_guard": "BMMC source access is disabled after any Sanger held-score attempt, result, or refusal",
+  "complete_cite_h5ad": {
+    "bucket": "openproblems-bio",
+    "key": "public/phase2-private-data/common/openproblems_bmmc_complete/openproblems_bmmc_cite_complete.h5ad",
+    "version_id": "kyN5dZPIsYJ0NC8Y5ECK55TuiebegCII",
+    "bytes": 624797386,
+    "etag": "15d0db3fb12efb77160e293cdeb98e11-75",
+    "downloaded": false,
+    "feature_values_decoded": false
+  },
+  "bindings": {
+    "protocol_sha256": "6d32fe7c94738dd225b9d8b051f56461b29d07595f03d7d209d7bec4cdac357d",
+    "runner_sha256": "75729eb8594941602d545bc974c275de7f66c3daee1e95c4597d3dc0b80681cb",
+    "hierarchical_estimator_sha256": "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d",
+    "preflight_result_sha256": "93240056910c0bb77e9377f038b5ca311212ea1d2d0b513239db6eea291ef13f",
+    "source_manifest_template_sha256": "0a4eef99c77948c9fbc6387a1d278abf70a332df6022aadab128160c83c1b61b",
+    "authorization_template_sha256": "aed2fc2c536ae93ea84e05f3d5df4b1e56502263fca5400d9b13edba56a52834"
+  },
+  "prediction_written": false,
+  "held_score_attempted": false,
+  "held_result_written": false
+}

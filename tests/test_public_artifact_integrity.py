@@ -111,6 +111,47 @@ def _stress_rate(result: dict, scenario: str, world: str) -> float:
     return record["metrics"]["unconditional_global_rejection"]["rate"]
 
 
+def test_bmmc_protocol_snapshot_is_disabled_and_donor_disjoint():
+    designation = _load("BMMC_CANDIDATE_DESIGNATION.json")
+    assert designation["status"] == "PROTOCOL_ONLY_OUTCOME_ACCESS_DISABLED"
+    roles = [
+        set(designation["fit_donors"]),
+        set(designation["development_donors"]),
+        set(designation["held_donors"]),
+    ]
+    assert len(roles[2]) == 6
+    assert all(roles[i].isdisjoint(roles[j]) for i in range(3) for j in range(i))
+    assert designation["complete_cite_h5ad"]["downloaded"] is False
+    assert designation["complete_cite_h5ad"]["feature_values_decoded"] is False
+    assert designation["prediction_written"] is False
+    assert designation["held_score_attempted"] is False
+    assert designation["held_result_written"] is False
+
+    bindings = designation["bindings"]
+    assert bindings["protocol_sha256"] == _sha256(
+        ROOT / "docs/SCMMIB_BMMC_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md"
+    )
+    assert bindings["runner_sha256"] == _sha256(
+        ROOT / "experiments/confirm_scmmib_bmmc.py"
+    )
+    assert bindings["hierarchical_estimator_sha256"] == _sha256(
+        ROOT / "mapreg/hierarchical_conditional_coupling.py"
+    )
+    assert bindings["preflight_result_sha256"] == _sha256(
+        ROOT / "results/development/scmmib_bmmc_metadata_preflight.json"
+    )
+
+    forbidden = [
+        ROOT / "data/confirmation/scmmib_bmmc/source_manifest_v1.json",
+        ROOT / "results/development/scmmib_bmmc_hierarchical_development.json",
+        ROOT / "results/scmmib_bmmc_predictions.json",
+        ROOT / "data/confirmation/scmmib_bmmc/score_attempt_v1.json",
+        ROOT / "results/scmmib_bmmc_confirmation.json",
+        ROOT / "results/scmmib_bmmc_score_refusal.json",
+    ]
+    assert not any(path.exists() for path in forbidden)
+
+
 def test_frozen_json_artifacts_have_expected_bytes_and_finite_numbers():
     for relative_path, expected_sha256 in FROZEN_JSON_SHA256.items():
         path = ROOT / relative_path
@@ -300,9 +341,7 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
     assert hao["code"] == "DEVELOPMENT_SUPPORT_FAILURE"
     assert hao_row["primary_metric"] == "not scored"
 
-    kotliarov = _load(
-        "data/confirmation/kotliarov_pbmc/candidate_designation_v1.json"
-    )
+    kotliarov = _load("data/confirmation/kotliarov_pbmc/candidate_designation_v1.json")
     kotliarov_row = by_panel["Kotliarov PBMC held-batch confirmation"]
     assert kotliarov["status"] == "SEALED"
     assert kotliarov["outcome_access_authorized"] is True

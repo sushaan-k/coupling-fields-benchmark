@@ -69,6 +69,17 @@ stream for integrity verification; its HDF5 count dataset was never opened.
 No held RNA-ADT pairing, joint table, prediction, score, or performance
 estimate was formed, and the candidate was not rerun.
 
+## Next held-donor protocol
+
+`BMMC_CANDIDATE_DESIGNATION.json` prospectively fixes a donor-disjoint RNA--ADT
+confirmation in the NeurIPS 2021 BMMC CITE-seq data. It reserves six physical
+donors, fixes ten markers and 100 ordered pairs, and requires a direct win over
+the strongest matched Pearson or Poisson-deviance interaction-residual
+transfer. The versioned complete H5AD had not been downloaded when this
+protocol snapshot was committed; no feature value, prediction, or held score
+exists. BMMC is disabled after any Sanger held-score attempt, so it cannot be
+used as a replacement after observing a Sanger result.
+
 PoKI-seq is not a third scoreable candidate. Its frozen execution stopped at
 the state-occupancy support gate before a prediction or score was written.
 `results/gse143417_pokiseq_preflight_refusal.json` records the exact failing
