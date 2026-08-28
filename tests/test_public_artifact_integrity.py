@@ -301,9 +301,11 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
         "data/confirmation/kotliarov_pbmc/candidate_designation_v1.json"
     )
     kotliarov_row = by_panel["Kotliarov PBMC held-batch confirmation"]
-    assert kotliarov["status"] == "OUTCOME_ACCESS_DISABLED"
-    assert kotliarov["outcome_access_authorized"] is False
-    assert kotliarov["public_freeze_commit"] is None
+    assert kotliarov["status"] == "SEALED"
+    assert kotliarov["outcome_access_authorized"] is True
+    assert kotliarov["public_freeze_commit"] == (
+        "a034fd272ef631d70f39debc467570568ef8754a"
+    )
     assert kotliarov["held_donors"] == [
         "201",
         "205",
@@ -343,7 +345,7 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
         "Kotliarov PBMC held-batch confirmation": (
             "NOT_EVALUATED",
             "NOT_EVALUATED",
-            "OUTCOME_ACCESS_DISABLED",
+            "OUTCOME_ACCESS_AUTHORIZED",
         ),
     }
     for panel, expected in expected_decisions.items():

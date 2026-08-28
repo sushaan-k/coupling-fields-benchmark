@@ -7,8 +7,8 @@ It contains seven scored public-data panels and three transparent procedural
 refusals. PoKI-seq stopped at its state-occupancy preflight, Lawlor stopped when
 the frozen reducer rejected the deposited ADT object type, and Hao stopped when
 fewer than 12 markers passed its frozen marginal-support rule. None of those
-three runs formed a held joint-table score. A new one-candidate Kotliarov PBMC
-held-batch confirmation is frozen with outcome access disabled.
+three runs formed a held joint-table score. A one-candidate Kotliarov PBMC
+held-batch confirmation is frozen and authorized for outcome acquisition.
 
 The method represents each finite joint table by its double-centered
 log-linear interaction, centers finite-sample estimates with fixed-margin
@@ -60,9 +60,10 @@ matrices. Their terminal refusal JSONs are retained under `results/`.
 It excludes donor 209 from both batches, uses ten development donors and nine
 disjoint held donors, and binds a donor-level inference plan plus full Pearson
 and signed-deviance residual comparisons. Tag `confirmatory-family-v3` is the
-prospective public analysis-plan freeze. At this snapshot the designation is
-`OUTCOME_ACCESS_DISABLED`; no Kotliarov count matrix has been downloaded or
-opened.
+prospective public analysis-plan freeze. Fresh-clone verification passed at
+commit `a034fd272ef631d70f39debc467570568ef8754a`; the designation is `SEALED`
+and authorizes outcome acquisition. No prediction or score is included in this
+snapshot.
 
 PoKI-seq is not a third scoreable candidate. Its frozen execution stopped at
 the state-occupancy support gate before a prediction or score was written.
@@ -75,8 +76,8 @@ The independent verification is recorded in
 The later authorization commit was also verified from a fresh clone, as
 recorded in
 `docs/CONFIRMATORY_FAMILY_OUTCOME_AUTHORIZATION_VERIFICATION_2026-08-28.json`.
-For Kotliarov, the disabled freeze must first pass a fresh-clone verification.
-The exact prediction must then be published and bound by SHA-256 and byte count
+For Kotliarov, the disabled freeze passed fresh-clone verification before
+outcome access was authorized. The exact prediction must next be published and bound by SHA-256 and byte count
 before the runner can open the score-only held pairing bundle.
 This is a public code-path seal, not a blinded data enclave or a
 registry-hosted preregistration.
@@ -97,7 +98,7 @@ input hashes, official source URLs, and derivation script are supplied in
 - `data/`: source manifests and metadata-only eligibility records.
 - `tests/`: integrity, estimator, comparator, and pairing-seal tests.
 
-The disabled-outcome freeze is published at
+The disabled-outcome analysis-plan freeze is published at
 `https://github.com/sushaan-k/coupling-fields-benchmark` under tag
 `confirmatory-family-v3`. It has no archive DOI and grants no code license. It
 must not be called open source, DOI-archived, or registry-hosted

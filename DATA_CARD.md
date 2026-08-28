@@ -3,7 +3,7 @@
 **Release candidate:** `coupling-fields-v1`
 **Snapshot date:** 28 August 2026
 **Distribution status:** public, tag-addressed Kotliarov candidate freeze;
-outcome access disabled pending fresh-clone verification
+fresh-clone verification passed and outcome access is authorized
 
 ## Scope
 
@@ -28,7 +28,7 @@ refusals, and one prospectively frozen candidate:
 | PoKI-seq, GSE143417 | RNA and chromatin accessibility | held donor | preflight refusal; not scored |
 | Lawlor HCA PBMC | RNA and surface protein | held donors | reducer refusal; not scored |
 | Hao, GSE164378 | RNA and surface protein | held donors | support refusal; not scored |
-| Kotliarov PBMC | RNA and surface protein | held batch and disjoint donors | outcome access disabled |
+| Kotliarov PBMC | RNA and surface protein | held batch and disjoint donors | outcome access authorized; not scored |
 
 The exact values, uncertainty intervals, controls, decisions, and provenance
 are in `results/final_public_benchmark_table.tsv`. The evidence boundary is in
@@ -43,9 +43,10 @@ are not predictive failures.
 The current scoreable family contains one candidate, Kotliarov PBMC CITE-seq,
 bound in `KOTLIAROV_CANDIDATE_DESIGNATION.json`. It uses ten development donors
 from batch 1 and nine disjoint held donors from batch 2, excluding donor 209
-from both because that donor occurs in both batches. The designation is
-`OUTCOME_ACCESS_DISABLED` until tag `confirmatory-family-v3` is independently
-verified from a fresh clone.
+from both because that donor occurs in both batches. Tag
+`confirmatory-family-v3` was independently verified from a fresh clone at
+commit `a034fd272ef631d70f39debc467570568ef8754a` before outcome access was
+authorized.
 
 PoKI-seq is outside the current scoreable family. Its earlier frozen run
 failed the state-occupancy support gate before prediction and scoring. The
@@ -141,8 +142,8 @@ The active Kotliarov preflight is:
 python3 -m experiments.confirm_kotliarov_pbmc preflight
 ```
 
-Lawlor and Hao are terminally closed. Kotliarov acquisition is not authorized
-until the v3 freeze passes independent fresh-clone verification.
+Lawlor and Hao are terminally closed. Kotliarov acquisition is authorized; its
+prediction must be published before the score-only held pairing is released.
 
 The packaged runners expose separated prediction and scoring commands. They
 refuse to form held joint pairings until the exact prediction SHA-256 and byte

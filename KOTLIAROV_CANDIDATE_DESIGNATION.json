@@ -1,7 +1,7 @@
 {
   "schema": "kotliarov-pbmc-coupling-candidate-designation/1.0",
   "designation": "data/confirmation/kotliarov_pbmc/candidate_designation_v1.json",
-  "status": "OUTCOME_ACCESS_DISABLED",
+  "status": "SEALED",
   "designated_at_utc": "2026-08-28T04:30:00Z",
   "dataset": "KotliarovPBMCData",
   "study_doi": "10.1038/s41591-020-0769-8",
@@ -182,10 +182,12 @@
     "mapreg/classical_residuals.py": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
     "mapreg/table_prediction.py": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e"
   },
-  "public_freeze_commit": null,
-  "public_freeze_url": null,
-  "sealed_at_utc": null,
-  "outcome_access_authorized": false,
+  "public_freeze_commit": "a034fd272ef631d70f39debc467570568ef8754a",
+  "public_freeze_url": "https://github.com/sushaan-k/coupling-fields-benchmark/commit/a034fd272ef631d70f39debc467570568ef8754a",
+  "sealed_at_utc": "2026-08-28T05:13:05Z",
+  "outcome_access_authorized": true,
   "public_verification_requirement": "Fresh-clone and byte-verify the disabled designation and every bound artifact before count-matrix acquisition; publish and independently verify predictions and score authorization before opening the score-only pairing bundle.",
-  "seal_blocker": "outcome access remains disabled until the public freeze is independently verified"
+  "seal_blocker": null,
+  "public_verification_record": "docs/KOTLIAROV_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+  "public_verification_sha256": "f012a8272351005d24f204761de1919b5247562b7463e69bdbe9d9fcb8ac68c3"
 }

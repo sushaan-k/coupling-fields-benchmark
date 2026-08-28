@@ -2,20 +2,20 @@
   "schema": "coupling-fields-public-benchmark/1.0",
   "release_name": "coupling-fields-v1",
   "assembled_at_utc": "2026-08-28T05:00:00Z",
-  "status": "PUBLIC_CONFIRMATORY_FAMILY_V3_OUTCOME_ACCESS_DISABLED",
+  "status": "PUBLIC_CONFIRMATORY_FAMILY_V3_OUTCOME_ACCESS_AUTHORIZED",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
-  "public_freeze_commit": null,
+  "public_freeze_commit": "a034fd272ef631d70f39debc467570568ef8754a",
   "immutable_release_tag": "confirmatory-family-v3",
   "archive_doi": null,
   "code_license": null,
-  "candidate_designation_status": "OUTCOME_ACCESS_DISABLED",
+  "candidate_designation_status": "SEALED",
   "prospective_candidate_count": 1,
   "prospective_candidate_artifacts": [
     {
       "name": "KOTLIAROV_CANDIDATE_DESIGNATION.json",
       "source_path": "data/confirmation/kotliarov_pbmc/candidate_designation_v1.json",
-      "sha256": "575d547631dc4d8538003bbecb55b112403a6ceec0a2d783b5739319829753b1",
-      "bytes": 7959
+      "sha256": "78bfef68db4aaf28778360427000b4ab2a4dc22cecf02cb1781601e6bf8eb70b",
+      "bytes": 8211
     },
     {
       "name": "KOTLIAROV_SCORE_AUTHORIZATION_TEMPLATE.json",
@@ -70,6 +70,13 @@
       "role": "prospective Kotliarov held-batch confirmation protocol"
     },
     {
+      "path": "docs/KOTLIAROV_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+      "source_path": "docs/KOTLIAROV_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+      "sha256": "f012a8272351005d24f204761de1919b5247562b7463e69bdbe9d9fcb8ac68c3",
+      "bytes": 1361,
+      "role": "fresh-clone verification of the disabled Kotliarov freeze"
+    },
+    {
       "path": "docs/GSE143417_POKISEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-27.md",
       "source_path": "docs/GSE143417_POKISEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-27.md",
       "sha256": "ae550d171b494b535a922a68b8f666d161c3c3b538a988909204766025843f1a",
@@ -100,15 +107,15 @@
     {
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
       "source_path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "aff5ab03bc07bd62d4bc1932650960bbffdde48ddeab5cd1cd43ccc0459fcb94",
-      "bytes": 17352,
+      "sha256": "8d896123dedd4bbcc4aae2305a33acd32ef2572b3a9fc2b2dc3419738b203520",
+      "bytes": 17528,
       "role": "claim-evidence ledger"
     },
     {
       "path": "results/final_public_benchmark_table.tsv",
       "source_path": "results/final_public_benchmark_table.tsv",
-      "sha256": "dd4f9094c32f56be2a7b785c9bbe4d2cc5c3321c11f034a0aff37c45c5796439",
-      "bytes": 11359,
+      "sha256": "251899f42dbb70295a4798becd118c9f6464064a5405afa470f91b3f4a2e3125",
+      "bytes": 11390,
       "role": "panel-level benchmark table"
     },
     {
@@ -324,8 +331,8 @@
     {
       "path": "data/confirmation/kotliarov_pbmc/candidate_designation_v1.json",
       "source_path": "data/confirmation/kotliarov_pbmc/candidate_designation_v1.json",
-      "sha256": "575d547631dc4d8538003bbecb55b112403a6ceec0a2d783b5739319829753b1",
-      "bytes": 7959,
+      "sha256": "78bfef68db4aaf28778360427000b4ab2a4dc22cecf02cb1781601e6bf8eb70b",
+      "bytes": 8211,
       "role": "Kotliarov disabled-outcome candidate designation"
     },
     {
@@ -590,8 +597,8 @@
     {
       "path": "tests/test_public_artifact_integrity.py",
       "source_path": "tests/test_public_artifact_integrity.py",
-      "sha256": "6011ef7fa7226c636c903a2ae7ea75ca1d293a86cb858d04fb306369c1f529ea",
-      "bytes": 20070,
+      "sha256": "62c2847fa6eed77f6b9887ff9a32abf7c8f48b449ee4f75c03f348a083abf139",
+      "bytes": 20108,
       "role": "artifact integrity tests"
     },
     {
@@ -680,7 +687,7 @@
     }
   ],
   "release_blockers": [
-    "public freeze verification, outcome authorization, prediction publication, hash authorization, and one-time scoring for Kotliarov",
+    "prediction publication, hash authorization, and one-time scoring for Kotliarov",
     "immutable final result release tag or equivalent commit-addressed release",
     "author-approved code license",
     "derived-data redistribution review"
