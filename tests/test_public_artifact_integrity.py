@@ -47,6 +47,9 @@ FROZEN_JSON_SHA256 = {
     "results/gse143417_pokiseq_preflight_refusal.json": (
         "24f7ad70fbbfd4e7482809db58bd94d1156c1e22c2dd94fa77d66b1d6acdcf24"
     ),
+    "results/kotliarov_pbmc_public_refusal.json": (
+        "34d59fcbdcceeefb449a430bca7a0f502611d343a2ebd19fc44a7f5fd26a1324"
+    ),
 }
 
 
@@ -317,7 +320,37 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
         "268",
         "279",
     ]
-    assert kotliarov_row["primary_metric"] == "pending"
+    kotliarov_refusal = _load("results/kotliarov_pbmc_public_refusal.json")
+    refusal_text = (ROOT / "results/kotliarov_pbmc_public_refusal.json").read_text()
+    assert "/Users/" not in refusal_text
+    assert "~/" not in refusal_text
+    assert kotliarov_refusal["status"] == "TERMINAL_REFUSAL"
+    assert kotliarov_refusal["code"] == "RNA_LINEAGE_SUPPORT_FAILURE"
+    assert kotliarov_refusal["observed"] == {
+        "retained_lineages": "<4",
+        "exact_count_recorded": False,
+    }
+    assert kotliarov_refusal["access_audit"] == {
+        "development_and_held_metadata_opened": True,
+        "rna_file_bytewise_integrity_read": True,
+        "rna_hdf5_counts_opened_for_frozen_processing": True,
+        "adt_file_bytewise_integrity_read": True,
+        "adt_hdf5_count_dataset_opened": False,
+        "held_rna_adt_pairing_opened": False,
+        "held_joint_table_formed": False,
+    }
+    assert kotliarov_refusal["outputs"] == {
+        "prediction_bundle_emitted": False,
+        "score_bundle_emitted": False,
+        "prediction_emitted": False,
+        "inferential_endpoint_evaluated": False,
+    }
+    assert kotliarov_refusal["terminal"] is True
+    assert kotliarov_refusal["rerun_under_this_frozen_candidate_permitted"] is False
+    assert kotliarov_row["primary_metric"] == "not scored"
+    assert kotliarov_row["result_artifact"] == (
+        "results/kotliarov_pbmc_public_refusal.json"
+    )
 
     expected_decisions = {
         "PerturbSci-Kinetics": ("PROMOTE", "REFUSE", "PROMOTE"),
@@ -345,7 +378,7 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
         "Kotliarov PBMC held-batch confirmation": (
             "NOT_EVALUATED",
             "NOT_EVALUATED",
-            "OUTCOME_ACCESS_AUTHORIZED",
+            "REFUSE_SUPPORT",
         ),
     }
     for panel, expected in expected_decisions.items():

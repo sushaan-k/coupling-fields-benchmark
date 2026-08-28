@@ -3,12 +3,14 @@
 This repository is a public, source-visible benchmark for
 perturbation-specific dependence in linked single-cell assays. It preserves
 positive, negative, and refused panels under one fixed evaluation contract.
-It contains seven scored public-data panels and three transparent procedural
+It contains seven scored public-data panels and four transparent procedural
 refusals. PoKI-seq stopped at its state-occupancy preflight, Lawlor stopped when
 the frozen reducer rejected the deposited ADT object type, and Hao stopped when
 fewer than 12 markers passed its frozen marginal-support rule. None of those
-three runs formed a held joint-table score. A one-candidate Kotliarov PBMC
-held-batch confirmation is frozen and authorized for outcome acquisition.
+three runs formed a held joint-table score. The prospectively frozen Kotliarov
+PBMC candidate also stopped during preparation, before estimator fitting or
+scoring, because fewer than four RNA-only lineages met its frozen donor-support
+rule.
 
 The method represents each finite joint table by its double-centered
 log-linear interaction, centers finite-sample estimates with fixed-margin
@@ -37,8 +39,7 @@ except for two preserved assertions that certify the earlier
 disabled phase. Those exact test bytes remain checksum-bound and passed in the
 fresh-clone verification record. The scGPT embedding's expected hash and
 derivation inputs are recorded in
-`data/scgpt_gene_embeddings_manifest.json`; authorized prediction still
-requires that checksum-matched local artifact. Raw public matrices are not
+`data/scgpt_gene_embeddings_manifest.json`. Raw public matrices are not
 redistributed.
 
 ## Evidence contract
@@ -62,8 +63,11 @@ disjoint held donors, and binds a donor-level inference plan plus full Pearson
 and signed-deviance residual comparisons. Tag `confirmatory-family-v3` is the
 prospective public analysis-plan freeze. Fresh-clone verification passed at
 commit `a034fd272ef631d70f39debc467570568ef8754a`; the designation is `SEALED`
-and authorizes outcome acquisition. No prediction or score is included in this
-snapshot.
+and authorized one outcome-preparation attempt. That attempt terminated at the
+frozen RNA lineage-support gate. The ADT file was read only as an opaque byte
+stream for integrity verification; its HDF5 count dataset was never opened.
+No held RNA-ADT pairing, joint table, prediction, score, or performance
+estimate was formed, and the candidate was not rerun.
 
 PoKI-seq is not a third scoreable candidate. Its frozen execution stopped at
 the state-occupancy support gate before a prediction or score was written.
@@ -77,10 +81,11 @@ The later authorization commit was also verified from a fresh clone, as
 recorded in
 `docs/CONFIRMATORY_FAMILY_OUTCOME_AUTHORIZATION_VERIFICATION_2026-08-28.json`.
 For Kotliarov, the disabled freeze passed fresh-clone verification before
-outcome access was authorized. The exact prediction must next be published and bound by SHA-256 and byte count
-before the runner can open the score-only held pairing bundle.
-This is a public code-path seal, not a blinded data enclave or a
-registry-hosted preregistration.
+outcome access was authorized. The authorization verification is recorded in
+`docs/KOTLIAROV_OUTCOME_AUTHORIZATION_VERIFICATION_2026-08-28.json`, and the
+terminal refusal is recorded in `results/kotliarov_pbmc_public_refusal.json`.
+This is a public code-path seal, not a blinded data enclave or a registry-hosted
+preregistration.
 
 The derived scGPT gene embedding used by the graph prior is not bundled
 pending upstream model-weight redistribution review. Its expected output and

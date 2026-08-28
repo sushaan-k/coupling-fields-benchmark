@@ -2,7 +2,7 @@
   "schema": "coupling-fields-public-benchmark/1.0",
   "release_name": "coupling-fields-v1",
   "assembled_at_utc": "2026-08-28T05:00:00Z",
-  "status": "PUBLIC_CONFIRMATORY_FAMILY_V3_OUTCOME_ACCESS_AUTHORIZED",
+  "status": "PUBLIC_CONFIRMATORY_FAMILY_V3_TERMINAL_REFUSAL",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
   "public_freeze_commit": "a034fd272ef631d70f39debc467570568ef8754a",
   "immutable_release_tag": "confirmatory-family-v3",
@@ -10,6 +10,7 @@
   "code_license": null,
   "candidate_designation_status": "SEALED",
   "prospective_candidate_count": 1,
+  "active_candidate_count": 0,
   "prospective_candidate_artifacts": [
     {
       "name": "KOTLIAROV_CANDIDATE_DESIGNATION.json",
@@ -25,7 +26,8 @@
     }
   ],
   "completed_public_panels": 7,
-  "procedural_refusal_count": 3,
+  "procedural_refusal_count": 4,
+  "kotliarov_outcome_status": "TERMINAL_REFUSAL",
   "artifacts": [
     {
       "path": "pyproject.toml",
@@ -77,6 +79,13 @@
       "role": "fresh-clone verification of the disabled Kotliarov freeze"
     },
     {
+      "path": "docs/KOTLIAROV_OUTCOME_AUTHORIZATION_VERIFICATION_2026-08-28.json",
+      "source_path": "docs/KOTLIAROV_OUTCOME_AUTHORIZATION_VERIFICATION_2026-08-28.json",
+      "sha256": "f4932b081f918e0793c836c22a1474efb8aa6d8fe5ec6abceba8f68c3fde6b1e",
+      "bytes": 731,
+      "role": "fresh-clone verification of Kotliarov outcome authorization"
+    },
+    {
       "path": "docs/GSE143417_POKISEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-27.md",
       "source_path": "docs/GSE143417_POKISEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-27.md",
       "sha256": "ae550d171b494b535a922a68b8f666d161c3c3b538a988909204766025843f1a",
@@ -107,15 +116,15 @@
     {
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
       "source_path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "8d896123dedd4bbcc4aae2305a33acd32ef2572b3a9fc2b2dc3419738b203520",
-      "bytes": 17528,
+      "sha256": "abc9bf5a84426b3d2f56630601ab5b0391b7f628f5911c047058f78b922ab7c8",
+      "bytes": 18062,
       "role": "claim-evidence ledger"
     },
     {
       "path": "results/final_public_benchmark_table.tsv",
       "source_path": "results/final_public_benchmark_table.tsv",
-      "sha256": "251899f42dbb70295a4798becd118c9f6464064a5405afa470f91b3f4a2e3125",
-      "bytes": 11390,
+      "sha256": "a32b7ead7c6e331a9a0db076c80e166fdf25006926538441df31b1fefdd5eb9b",
+      "bytes": 11546,
       "role": "panel-level benchmark table"
     },
     {
@@ -532,6 +541,13 @@
       "role": "Hao frozen predict-stage support refusal"
     },
     {
+      "path": "results/kotliarov_pbmc_public_refusal.json",
+      "source_path": "results/kotliarov_pbmc_public_refusal.json",
+      "sha256": "34d59fcbdcceeefb449a430bca7a0f502611d343a2ebd19fc44a7f5fd26a1324",
+      "bytes": 1914,
+      "role": "Kotliarov terminal prepare-stage support refusal"
+    },
+    {
       "path": "scripts/freeze_poki_gse143417_confirmation.py",
       "source_path": "scripts/freeze_poki_gse143417_confirmation.py",
       "sha256": "eb053cbec6e0fff8a83508ddeea879ebc0494138ae9d62dc52c58721a7b245ae",
@@ -597,8 +613,8 @@
     {
       "path": "tests/test_public_artifact_integrity.py",
       "source_path": "tests/test_public_artifact_integrity.py",
-      "sha256": "62c2847fa6eed77f6b9887ff9a32abf7c8f48b449ee4f75c03f348a083abf139",
-      "bytes": 20108,
+      "sha256": "f9126dd2db877e957890fe65f4eccb836a9e6aded5dcd2db37bc46891070356d",
+      "bytes": 21599,
       "role": "artifact integrity tests"
     },
     {
@@ -687,8 +703,7 @@
     }
   ],
   "release_blockers": [
-    "prediction publication, hash authorization, and one-time scoring for Kotliarov",
-    "immutable final result release tag or equivalent commit-addressed release",
+    "immutable terminal-result release tag or equivalent commit-addressed release",
     "author-approved code license",
     "derived-data redistribution review"
   ]

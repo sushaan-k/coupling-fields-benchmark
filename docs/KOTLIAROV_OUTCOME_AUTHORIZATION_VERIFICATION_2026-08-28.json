@@ -1,0 +1,18 @@
+{
+  "schema": "kotliarov-outcome-authorization-verification/1.0",
+  "status": "PASS",
+  "fresh_clone": true,
+  "origin": "https://github.com/sushaan-k/coupling-fields-benchmark.git",
+  "analysis_plan_tag": "confirmatory-family-v3",
+  "analysis_plan_commit": "a034fd272ef631d70f39debc467570568ef8754a",
+  "authorization_tag": "confirmatory-family-v3-authorized",
+  "authorization_commit": "42796d66491bab9f313c877caf3f88e1b42be134",
+  "analysis_plan_is_ancestor": true,
+  "designation_status": "SEALED",
+  "outcome_access_authorized": true,
+  "root_internal_designations_match": true,
+  "public_verification_hash_matches_designation": true,
+  "release_tests_passed": 132,
+  "release_tests_deselected": 2,
+  "worktree_clean": true
+}

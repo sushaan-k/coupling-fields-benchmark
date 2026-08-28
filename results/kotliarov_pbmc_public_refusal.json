@@ -1,0 +1,52 @@
+{
+  "schema": "kotliarov-pbmc-public-refusal/1.0",
+  "status": "TERMINAL_REFUSAL",
+  "stage": "prepare",
+  "code": "RNA_LINEAGE_SUPPORT_FAILURE",
+  "candidate": "KotliarovPBMCData",
+  "criterion": {
+    "retained_lineages_minimum": 4,
+    "cells_per_donor_lineage_minimum": 50,
+    "donors_required": 19
+  },
+  "observed": {
+    "retained_lineages": "<4",
+    "exact_count_recorded": false
+  },
+  "access_audit": {
+    "development_and_held_metadata_opened": true,
+    "rna_file_bytewise_integrity_read": true,
+    "rna_hdf5_counts_opened_for_frozen_processing": true,
+    "adt_file_bytewise_integrity_read": true,
+    "adt_hdf5_count_dataset_opened": false,
+    "held_rna_adt_pairing_opened": false,
+    "held_joint_table_formed": false
+  },
+  "outputs": {
+    "prediction_bundle_emitted": false,
+    "score_bundle_emitted": false,
+    "prediction_emitted": false,
+    "inferential_endpoint_evaluated": false
+  },
+  "terminal": true,
+  "rerun_under_this_frozen_candidate_permitted": false,
+  "failure_site": {
+    "file": "experiments/reduce_kotliarov_pbmc.py",
+    "line": 694,
+    "exception": "ValueError"
+  },
+  "public_freeze": {
+    "repository": "https://github.com/sushaan-k/coupling-fields-benchmark",
+    "tag": "confirmatory-family-v3",
+    "commit": "a034fd272ef631d70f39debc467570568ef8754a"
+  },
+  "outcome_authorization": {
+    "tag": "confirmatory-family-v3-authorized",
+    "commit": "42796d66491bab9f313c877caf3f88e1b42be134"
+  },
+  "runner_sha256": "abe16c38835f167f68215c5d759e18437a0c4619a3f9e8540419cd354d98404e",
+  "reducer_sha256": "70adb269b47cf29a874e4f891c0c538bce2204c1b162d29fc6f0547d0106a085",
+  "protocol_sha256": "693d0c51221f7eb50e57beb42cb2748a157b9757df019010135ac10fde49e1f0",
+  "designation_sha256": "78bfef68db4aaf28778360427000b4ab2a4dc22cecf02cb1781601e6bf8eb70b",
+  "derived_from_local_refusal_sha256": "b6b05c037c1836ef96be6c782085428fdbb4c843abb67c9e9c33cadfb1d1497d"
+}

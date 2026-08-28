@@ -2,8 +2,8 @@
 
 **Release candidate:** `coupling-fields-v1`
 **Snapshot date:** 28 August 2026
-**Distribution status:** public, tag-addressed Kotliarov candidate freeze;
-fresh-clone verification passed and outcome access is authorized
+**Distribution status:** public, tag-addressed Kotliarov candidate freeze with
+a terminal preparation refusal
 
 ## Scope
 
@@ -13,8 +13,8 @@ machine-readable aggregate results, analysis protocols, source manifests,
 deterministic runners, the reference implementation, and integrity tests.
 Failed and refused panels are part of the benchmark.
 
-The current snapshot covers seven scored public-data panels, three procedural
-refusals, and one prospectively frozen candidate:
+The current snapshot covers seven scored public-data panels and four
+procedural refusals. One refusal followed a prospectively frozen candidate:
 
 | Study | Linked measurements | Evaluation unit | Decision |
 |---|---|---|---|
@@ -28,7 +28,7 @@ refusals, and one prospectively frozen candidate:
 | PoKI-seq, GSE143417 | RNA and chromatin accessibility | held donor | preflight refusal; not scored |
 | Lawlor HCA PBMC | RNA and surface protein | held donors | reducer refusal; not scored |
 | Hao, GSE164378 | RNA and surface protein | held donors | support refusal; not scored |
-| Kotliarov PBMC | RNA and surface protein | held batch and disjoint donors | outcome access authorized; not scored |
+| Kotliarov PBMC | RNA and surface protein | held batch and disjoint donors | support refusal; not scored |
 
 The exact values, uncertainty intervals, controls, decisions, and provenance
 are in `results/final_public_benchmark_table.tsv`. The evidence boundary is in
@@ -40,13 +40,18 @@ frozen reducer's unsupported deposited-object check and Hao at the frozen
 development marginal-support gate. Their refusal artifacts are included and
 are not predictive failures.
 
-The current scoreable family contains one candidate, Kotliarov PBMC CITE-seq,
-bound in `KOTLIAROV_CANDIDATE_DESIGNATION.json`. It uses ten development donors
-from batch 1 and nine disjoint held donors from batch 2, excluding donor 209
-from both because that donor occurs in both batches. Tag
+The most recent scoreable family contained one candidate, Kotliarov PBMC
+CITE-seq, bound in `KOTLIAROV_CANDIDATE_DESIGNATION.json`. It uses ten
+development donors from batch 1 and nine disjoint held donors from batch 2,
+excluding donor 209 from both because that donor occurs in both batches. Tag
 `confirmatory-family-v3` was independently verified from a fresh clone at
 commit `a034fd272ef631d70f39debc467570568ef8754a` before outcome access was
-authorized.
+authorized. Its one authorized preparation stopped when fewer than four of the
+five prespecified RNA-only lineages met the frozen requirement of at least 50
+retained cells in every one of 19 donors. The ADT file was byte-hashed for
+integrity, but its HDF5 count dataset was never opened. No held RNA-ADT
+pairing, joint table, prediction, score, or performance estimate was formed.
+The candidate is terminal and was not rerun.
 
 PoKI-seq is outside the current scoreable family. Its earlier frozen run
 failed the state-occupancy support gate before prediction and scoring. The
@@ -94,12 +99,12 @@ squared-error differences, and link-destruction contrasts. Ninety-five percent
 intervals use 2,000 deterministic target bootstrap draws for predictive panels.
 All declared panels remain in the table regardless of outcome.
 
-The Kotliarov protocol fixes eligibility, RNA-only lineages, exact aliases,
+The Kotliarov protocol fixed eligibility, RNA-only lineages, exact aliases,
 donor split, estimator grid, complete comparators, same-margin endpoint,
 donor-cluster inference, pass criteria, and refusal rules before count access.
-The nine held donors are the biological replicates. Prediction publication and
-a later public scoring authorization are mandatory before the score-only held
-pairing bundle can be opened.
+The frozen RNA support rule stopped preparation before the ADT count dataset
+or any held pairing was opened, so the classical and structured prediction
+comparisons were not evaluated.
 
 ## Classical interaction baseline
 
@@ -136,22 +141,18 @@ The historical Lawlor and Hao runners remain checksum-bound for audit. Their
 preflights require the omitted, checksum-matched scGPT embedding and are not
 part of the zero-download verification path.
 
-The active Kotliarov preflight is:
-
-```bash
-python3 -m experiments.confirm_kotliarov_pbmc preflight
-```
-
-Lawlor and Hao are terminally closed. Kotliarov acquisition is authorized; its
-prediction must be published before the score-only held pairing is released.
+The Kotliarov runner and tests remain checksum-bound for audit. Lawlor, Hao,
+and Kotliarov are terminally closed; the frozen Kotliarov candidate permits no
+rerun. Its canonical refusal is
+`results/kotliarov_pbmc_public_refusal.json`.
 
 The packaged runners expose separated prediction and scoring commands. They
 refuse to form held joint pairings until the exact prediction SHA-256 and byte
 count are bound at an immutable public URL and commit through the candidate's
 authorization and release files. This package contains the templates
 `LAWLOR_SCORE_AUTHORIZATION_TEMPLATE.json` and
-`HAO_SCORE_AUTHORIZATION_TEMPLATE.json` for historical audit and
-`KOTLIAROV_SCORE_AUTHORIZATION_TEMPLATE.json` for the active candidate.
+`HAO_SCORE_AUTHORIZATION_TEMPLATE.json` and
+`KOTLIAROV_SCORE_AUTHORIZATION_TEMPLATE.json` for historical audit.
 
 ## Known limits
 
@@ -161,8 +162,9 @@ arm-level linkage evidence but not a replicated treatment contrast. The only
 completed held-donor panel, Arce, fails the full gate. Target-bootstrap
 intervals condition on the deposited biological units. State definitions and
 finite-sample association estimates remain representation-dependent.
-Lawlor, Hao, and PoKI-seq have no held joint-table score and add no positive or
-negative predictive evidence. They remain visible as procedural refusals.
+Lawlor, Hao, Kotliarov, and PoKI-seq have no held joint-table score and add no
+positive or negative predictive evidence. They remain visible as procedural
+refusals.
 
 The completed three-panel atlas was rerun with the current full-matrix
 classical residual implementation, SHA-256 `35516883a567...`. Coupling fields
