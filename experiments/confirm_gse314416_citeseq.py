@@ -51,15 +51,18 @@ DEFAULT_PREFLIGHT = (
 DEFAULT_DEVELOPMENT = ROOT / "results/development/gse314416_citeseq_development.json"
 DEFAULT_PREDICTION = ROOT / "results/gse314416_citeseq_predictions.json"
 DEFAULT_SCORE = ROOT / "results/gse314416_citeseq_confirmation.json"
+DEFAULT_SCHEMA_AMENDMENT = (
+    ROOT / "results/development/gse314416_citeseq_schema_amendment_v1_1.json"
+)
 DEFAULT_PROTOCOL = (
     ROOT
     / "docs/GSE314416_IMMUNOMICROBIOME_HELD_POOL_CONFIRMATION_PROTOCOL_2026-08-28.md"
 )
 
 PUBLIC_ORIGIN = "https://github.com/sushaan-k/coupling-fields-benchmark.git"
-PROTOCOL_TAG = "gse314416-citeseq-v1-protocol"
-DEVELOPMENT_TAG = "gse314416-citeseq-v1-development"
-PREDICTION_TAG = "gse314416-citeseq-v1-predictions"
+PROTOCOL_TAG = "gse314416-citeseq-v1.1-protocol"
+DEVELOPMENT_TAG = "gse314416-citeseq-v1.1-development"
+PREDICTION_TAG = "gse314416-citeseq-v1.1-predictions"
 
 MARKERS = ("CD4", "CD7", "CD14", "CD19", "CD33", "CD38", "CD44", "CD47", "CD52")
 RNA_FEATURES = (
@@ -83,6 +86,18 @@ ADT_FEATURES = (
     "C0073",
     "C0026",
     "C0033",
+)
+RNA_STORAGE_FEATURES = MARKERS
+ADT_STORAGE_FEATURES = (
+    "anti-human-CD4-TotalSeqC",
+    "anti-human-CD7-TotalSeqC",
+    "anti-human-CD14-TotalSeqC",
+    "anti-human-CD19-TotalSeqC",
+    "anti-human-CD33-TotalSeqC",
+    "anti-human-CD38-TotalSeqC",
+    "anti-mouse/human-CD44-TotalSeqC",
+    "anti-human-CD47-TotalSeqC",
+    "anti-human-CD52-TotalSeqC",
 )
 
 # Secondary, fixed before count access. It contains the full primary panel plus
@@ -165,6 +180,33 @@ BROAD_ADT_FEATURES = (
     "C0161",
     "C0142",
 )
+BROAD_RNA_STORAGE_FEATURES = BROAD_MARKERS
+BROAD_ADT_STORAGE_FEATURES = (
+    "anti-human-CD3-TotalSeqC",
+    "anti-human-CD4-TotalSeqC",
+    "anti-human-CD8-TotalSeqC",
+    "anti-human-CD7-TotalSeqC",
+    "anti-human-CD14-TotalSeqC",
+    "anti-human-CD16-TotalSeqC",
+    "anti-human-CD19-TotalSeqC",
+    "anti-human-CD20-TotalSeqC",
+    "anti-human-CD33-TotalSeqC",
+    "anti-human-CD11c-TotalSeqC",
+    "anti-human-CD56-TotalSeqC",
+    "anti-human-CD38-TotalSeqC",
+    "anti-human-CD127-(IL-7Ralpha)-TotalSeqC",
+    "anti-human-CD161-TotalSeqC",
+    "anti-human-HLA-DR-TotalSeqC",
+    "anti-human-CD27-TotalSeqC",
+    "anti-mouse/human-CD44-TotalSeqC",
+    "anti-human-CD47-TotalSeqC",
+    "anti-human-CD52-TotalSeqC",
+    "anti-human-CD2-TotalSeqC",
+    "anti-human-CD69-TotalSeqC",
+    "anti-human-CD62L-TotalSeqC",
+    "anti-human-CD11b-TotalSeqC",
+    "anti-human-CD32-TotalSeqC",
+)
 BROAD_HETEROGENEITY_PENALTY = 1.0
 BROAD_RIDGE_PENALTY = 0.1
 BROAD_TRANSPORT_MULTIPLIER = 1.0
@@ -207,6 +249,7 @@ PROTOCOL_BINDINGS = (
     "data/confirmation/gse314416_immunomicrobiome/GSE314416_TotalSeqC_feature_ref.csv.gz",
     "data/confirmation/gse314416_immunomicrobiome/GSE314416_filelist.txt",
     "results/development/gse314416_citeseq_metadata_preflight.json",
+    "results/development/gse314416_citeseq_schema_amendment_v1_1.json",
     "mapreg/heterogeneity_adaptive_coupling.py",
     "mapreg/hierarchical_conditional_coupling.py",
 )
@@ -630,8 +673,8 @@ def _read_selected_counts(
     *,
     read_gex: bool,
     read_adt: bool,
-    rna_features: tuple[str, ...] = RNA_FEATURES,
-    adt_features: tuple[str, ...] = ADT_FEATURES,
+    rna_features: tuple[str, ...] = RNA_STORAGE_FEATURES,
+    adt_features: tuple[str, ...] = ADT_STORAGE_FEATURES,
 ) -> tuple[dict[str, np.ndarray], dict[str, np.ndarray]]:
     donor_position = {
         donor: {cell: index for index, cell in enumerate(selected[donor])}
@@ -642,7 +685,7 @@ def _read_selected_counts(
         for cell in selected[donor]:
             row = cell_rows[cell]
             well = row["well"]
-            barcode = cell[len(well) + 1 :]
+            barcode = cell
             requests.setdefault(well, []).append(
                 (donor, donor_position[donor][cell], barcode)
             )
@@ -808,8 +851,8 @@ def _reduce_broad_records(
         files,
         read_gex=True,
         read_adt=True,
-        rna_features=BROAD_RNA_FEATURES,
-        adt_features=BROAD_ADT_FEATURES,
+        rna_features=BROAD_RNA_STORAGE_FEATURES,
+        adt_features=BROAD_ADT_STORAGE_FEATURES,
     )
     output: dict[str, dict[str, Any]] = {}
     for donor in donors:
@@ -1605,8 +1648,8 @@ def run_prediction(
             files,
             read_gex=True,
             read_adt=False,
-            rna_features=BROAD_RNA_FEATURES,
-            adt_features=BROAD_ADT_FEATURES,
+            rna_features=BROAD_RNA_STORAGE_FEATURES,
+            adt_features=BROAD_ADT_STORAGE_FEATURES,
         )
     samples = []
     for donor in held:

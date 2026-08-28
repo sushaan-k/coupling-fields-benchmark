@@ -1,0 +1,31 @@
+{
+  "access_boundary": {
+    "adt_feature_axis_values_read": "DB1 SCG1 only",
+    "adt_numeric_values_read": 0,
+    "count_data_dataset_read": 0,
+    "count_indices_dataset_read": 0,
+    "count_indptr_dataset_read": 0,
+    "gex_feature_axis_values_read": "DB1 SCG1 only",
+    "gex_numeric_values_read": 0,
+    "held_adt_h5_files_opened": 0,
+    "held_gex_h5_files_opened": 0
+  },
+  "amended_at_utc": "2026-08-28T23:12:12Z",
+  "failed_attempt": {
+    "attempted_at_utc": "2026-08-28T23:10:10Z",
+    "exception": "ValueError: selected barcode axis differs in GSM9396035_XHLT2-POOL-DB1-SCG1_GEX.h5",
+    "result_file_written": false,
+    "stage": "develop",
+    "stopped_at": "barcode-membership validation before sparse count-array access"
+  },
+  "prior_protocol_commit": "99570d556332d161b10c80c7f943beaed152568c",
+  "prior_protocol_tag": "gse314416-citeseq-v1-protocol",
+  "schema": "gse314416-citeseq-schema-amendment/1.1",
+  "scope": {
+    "adt_storage_axis": "Use the deposited TotalSeq-C names corresponding to the already frozen C identifiers.",
+    "barcode_axis": "Use the complete frozen well-prefixed cell ID stored by the deposited H5 matrices.",
+    "estimator_or_gate_changed": false,
+    "feature_panel_changed": false,
+    "split_or_cell_selection_changed": false
+  }
+}

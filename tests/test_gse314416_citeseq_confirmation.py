@@ -14,6 +14,10 @@ def test_frozen_panels_are_cognate_and_secondary_contains_primary():
     assert set(confirmation.MARKERS) <= set(confirmation.BROAD_MARKERS)
     assert len(set(confirmation.BROAD_RNA_FEATURES)) == 24
     assert len(set(confirmation.BROAD_ADT_FEATURES)) == 24
+    assert confirmation.RNA_STORAGE_FEATURES == confirmation.MARKERS
+    assert confirmation.BROAD_RNA_STORAGE_FEATURES == confirmation.BROAD_MARKERS
+    assert len(set(confirmation.ADT_STORAGE_FEATURES)) == 9
+    assert len(set(confirmation.BROAD_ADT_STORAGE_FEATURES)) == 24
     confirmation._feature_reference()
 
 
@@ -105,6 +109,33 @@ def test_10x_reader_uses_requested_feature_and_barcode_order(tmp_path: Path):
         features.create_dataset("id", data=np.asarray([b"f0", b"f1", b"f2"]))
     observed = confirmation._read_10x_columns(path, ["cell-b", "cell-a"], ("f2", "f0"))
     np.testing.assert_array_equal(observed, [[0, 0], [5, 3]])
+
+
+def test_selected_count_reader_preserves_deposited_well_prefixed_barcode(
+    tmp_path: Path,
+):
+    well = "XHLT2-POOL-DB1-SCG1"
+    cell = f"{well}_AAAC-1"
+    path = tmp_path / "gex.h5"
+    with h5py.File(path, "w") as handle:
+        matrix = handle.create_group("matrix")
+        matrix.create_dataset("barcodes", data=np.asarray([cell.encode()]))
+        matrix.create_dataset("data", data=np.asarray([7], dtype=np.int32))
+        matrix.create_dataset("indices", data=np.asarray([0], dtype=np.int32))
+        matrix.create_dataset("indptr", data=np.asarray([0, 1], dtype=np.int64))
+        matrix.create_dataset("shape", data=np.asarray([1, 1], dtype=np.int64))
+        features = matrix.create_group("features")
+        features.create_dataset("id", data=np.asarray([b"CD4"]))
+    gex, _ = confirmation._read_selected_counts(
+        ["donor"],
+        {"donor": [cell]},
+        {cell: {"well": well}},
+        {(well, "GEX"): path},
+        read_gex=True,
+        read_adt=False,
+        rna_features=("CD4",),
+    )
+    assert gex["donor"][0, 0] == 7
 
 
 def test_source_manifest_binds_public_metadata_files():
