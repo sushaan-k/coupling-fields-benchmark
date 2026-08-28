@@ -1,16 +1,16 @@
 {
   "schema": "coupling-fields-public-benchmark/1.0",
   "release_name": "coupling-fields-v1",
-  "assembled_at_utc": "2026-08-28T18:47:34Z",
-  "status": "PUBLIC_COMBAT_CITESEQ_PREOUTCOME_FREEZE_VERIFIED",
+  "assembled_at_utc": "2026-08-28T19:20:51Z",
+  "status": "PUBLIC_COMBAT_CITESEQ_TERMINAL_PILOT_REFUSAL",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
   "public_freeze_commit": "240bded6e9980414c6dd37e28a061605c68a6822",
   "immutable_release_tag": "combat-citeseq-v1-protocol",
   "archive_doi": null,
   "code_license": null,
-  "candidate_designation_status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
-  "prospective_candidate_count": 1,
-  "active_candidate_count": 1,
+  "candidate_designation_status": "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL",
+  "prospective_candidate_count": 0,
+  "active_candidate_count": 0,
   "prospective_candidate_artifacts": [
     "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
     "data/confirmation/combat_citeseq/candidate_designation_v1.json",
@@ -19,24 +19,31 @@
     "tests/test_combat_citeseq_confirmation.py"
   ],
   "completed_public_panels": 7,
-  "procedural_refusal_count": 7,
+  "procedural_refusal_count": 8,
   "kotliarov_outcome_status": "TERMINAL_REFUSAL",
   "next_protocol": {
     "designation": "data/confirmation/combat_citeseq/candidate_designation_v1.json",
-    "designation_sha256": "383a32f72431f292115a7ac5af24e2ae8c512f3d41d397109581da49a0f78595",
+    "designation_sha256": "1e68a0dc91e4a6f3e9dbd3b74834a5663b362e1e1d0e7375c3740e1b9b719fca",
     "protocol": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
-    "protocol_sha256": "2aafce7be9700b0d53c9047e14ba55bb4e99c001bdf6b1918cf5c0e3d36dcc7c",
-    "status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
+    "protocol_sha256": "4899751abdc1c0adf35935f7cc386c2cc2aa5fd6e8035ee2fbd870865c566a31",
+    "status": "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL",
     "protocol_freeze_commit": "240bded6e9980414c6dd37e28a061605c68a6822",
     "protocol_freeze_tag": "combat-citeseq-v1-protocol",
     "calibration_samples": 12,
     "adaptive_pilot_samples": 24,
     "oxford_held_samples": 51,
     "st_georges_held_samples": 10,
-    "matrix_payload_reads": 0,
     "prediction_written": false,
     "held_score_attempted": false,
-    "rerun_permitted_after_terminal_attempt": false
+    "rerun_permitted_after_terminal_attempt": false,
+    "authorized_reduced_development_sha256": "06ebfad44c339d763a451662462d7c9dc60684e792d5c229a42eefd232302b2f",
+    "terminal_pilot_refusal": "results/development/combat_citeseq_pilot_terminal_refusal.json",
+    "terminal_pilot_refusal_sha256": "c41c6e46333c1dc56b460fec74a41f6d1a07a82105ca4894a273ce43dc48e2f9",
+    "pilot_gate_reached": false,
+    "held_margin_accessed": false,
+    "held_outcome_accessed": false,
+    "held_access_permanently_closed": true,
+    "matrix_payload_reads_at_prospective_freeze": 0
   },
   "artifacts": [
     {
@@ -126,9 +133,9 @@
     {
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
       "source_path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "eb8b5aee9145a0bc55d102fd422b4cecb5ffeba420c37cfb39ed844b9ccf57c5",
-      "bytes": 23517,
-      "role": "claim-evidence ledger"
+      "sha256": "1a8965a29a0b3f7ce60cd304a3bad4fb2a581b514298dfc7a5d70a80976ffa79",
+      "bytes": 24373,
+      "role": "claim-evidence ledger including terminal COMBAT pilot refusal"
     },
     {
       "path": "results/final_public_benchmark_table.tsv",
@@ -623,8 +630,8 @@
     {
       "path": "tests/test_public_artifact_integrity.py",
       "source_path": "tests/test_public_artifact_integrity.py",
-      "sha256": "33ea35c6ae79da02c4b8a21dbc15e7bab0e3783fcb804775716e9c576d026f85",
-      "bytes": 35489,
+      "sha256": "c50511b8e27066791412b9e14010ed605735c0348949f111a7609863620f8c42",
+      "bytes": 36050,
       "role": "artifact integrity tests"
     },
     {
@@ -1141,16 +1148,16 @@
     {
       "path": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
       "source_path": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
-      "sha256": "2aafce7be9700b0d53c9047e14ba55bb4e99c001bdf6b1918cf5c0e3d36dcc7c",
-      "bytes": 21220,
-      "role": "outcome-disabled COMBAT CITE-seq confirmation protocol"
+      "sha256": "4899751abdc1c0adf35935f7cc386c2cc2aa5fd6e8035ee2fbd870865c566a31",
+      "bytes": 22668,
+      "role": "frozen COMBAT protocol with post-freeze terminal execution record"
     },
     {
       "path": "data/confirmation/combat_citeseq/candidate_designation_v1.json",
       "source_path": "data/confirmation/combat_citeseq/candidate_designation_v1.json",
-      "sha256": "383a32f72431f292115a7ac5af24e2ae8c512f3d41d397109581da49a0f78595",
-      "bytes": 28688,
-      "role": "COMBAT CITE-seq sample allocation and frozen decision rules"
+      "sha256": "1e68a0dc91e4a6f3e9dbd3b74834a5663b362e1e1d0e7375c3740e1b9b719fca",
+      "bytes": 29680,
+      "role": "COMBAT frozen design and terminal closure status"
     },
     {
       "path": "data/confirmation/combat_citeseq/source_manifest_v1.json",
@@ -1176,9 +1183,9 @@
     {
       "path": "experiments/confirm_combat_citeseq.py",
       "source_path": "experiments/confirm_combat_citeseq.py",
-      "sha256": "e5db3c56c8e83be73ce2f763372d22d068b9d8e07648bf4084ff585686e3fe85",
-      "bytes": 147194,
-      "role": "fail-closed COMBAT development, prediction, and held-score runner"
+      "sha256": "7873f58255eedd75a5b165d058fcd8e1b5c5f4dba24d38064cb8f747a12ff912",
+      "bytes": 160526,
+      "role": "COMBAT evaluator and fail-closed terminal pilot packager"
     },
     {
       "path": "tests/test_combat_citeseq_preflight.py",
@@ -1190,9 +1197,9 @@
     {
       "path": "tests/test_combat_citeseq_confirmation.py",
       "source_path": "tests/test_combat_citeseq_confirmation.py",
-      "sha256": "c3a51efed89956ed7db2b6f57ee35c0f331703050795347909371e00e06372ad",
-      "bytes": 66666,
-      "role": "COMBAT authorization, tamper, estimator, and held-seal tests"
+      "sha256": "c2fd814c0fc3f0008d00058393eefe69de6cbfbc2404731643061eda871e28a2",
+      "bytes": 73437,
+      "role": "COMBAT authorization, estimator, terminal closure, and held-seal tests"
     },
     {
       "path": "data/confirmation/combat_citeseq/COMBAT_CITEseq_Composition-PerSample_CellType_Counts_and_PercentFrequencies_out_of_all_PBMCs.csv",
@@ -1214,6 +1221,20 @@
       "sha256": "460d8fec1255dc7e9812c637a5a120191075c611438b61148782c9bd2467bce5",
       "bytes": 3269,
       "role": "fresh-clone verification of the outcome-disabled COMBAT freeze"
+    },
+    {
+      "path": "data/development/combat_citeseq/reduced_v1.json",
+      "source_path": "data/development/combat_citeseq/reduced_v1.json",
+      "sha256": "06ebfad44c339d763a451662462d7c9dc60684e792d5c229a42eefd232302b2f",
+      "bytes": 660849,
+      "role": "authorized nonheld COMBAT calibration and pilot reduction"
+    },
+    {
+      "path": "results/development/combat_citeseq_pilot_terminal_refusal.json",
+      "source_path": "results/development/combat_citeseq_pilot_terminal_refusal.json",
+      "sha256": "c41c6e46333c1dc56b460fec74a41f6d1a07a82105ca4894a273ce43dc48e2f9",
+      "bytes": 55578,
+      "role": "terminal COMBAT pilot candidate-availability refusal and zero-held-access audit"
     }
   ],
   "release_blockers": [
@@ -1223,7 +1244,7 @@
   "bmmc_outcome_status": "TERMINAL_NUMERICAL_DEVELOPMENT_REFUSAL",
   "gse279451_outcome_status": "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
   "gse299043_outcome_status": "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL",
-  "combat_citeseq_outcome_status": "OUTCOME_ACCESS_DISABLED",
+  "combat_citeseq_outcome_status": "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL",
   "combat_public_freeze_verification": {
     "path": "docs/COMBAT_CITESEQ_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
     "sha256": "460d8fec1255dc7e9812c637a5a120191075c611438b61148782c9bd2467bce5",
@@ -1235,5 +1256,9 @@
     "sha256": "26bf151214312ebcc0cd83220e41cb252d592e1c574c32b509860064455f84cc",
     "status": "PASS",
     "release_immutable": true
-  }
+  },
+  "terminal_candidate_artifacts": [
+    "data/development/combat_citeseq/reduced_v1.json",
+    "results/development/combat_citeseq_pilot_terminal_refusal.json"
+  ]
 }

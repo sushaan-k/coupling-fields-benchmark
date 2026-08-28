@@ -337,19 +337,22 @@ def test_frozen_json_artifacts_have_expected_bytes_and_finite_numbers():
         _assert_finite(_load(relative_path))
 
 
-def test_benchmark_manifest_binds_combat_freeze_and_retains_gse299043_refusal():
+def test_benchmark_manifest_records_combat_terminal_pilot_refusal():
     manifest = _load("benchmark_manifest.json")
     assert manifest["status"] == (
-        "PUBLIC_COMBAT_CITESEQ_PREOUTCOME_FREEZE_VERIFIED"
+        "PUBLIC_COMBAT_CITESEQ_TERMINAL_PILOT_REFUSAL"
     )
     assert manifest["immutable_release_tag"] == "combat-citeseq-v1-protocol"
     assert manifest["public_freeze_commit"] == (
         "240bded6e9980414c6dd37e28a061605c68a6822"
     )
-    assert manifest["prospective_candidate_count"] == 1
-    assert manifest["active_candidate_count"] == 1
+    assert manifest["prospective_candidate_count"] == 0
+    assert manifest["active_candidate_count"] == 0
     assert manifest["completed_public_panels"] == 7
-    assert manifest["procedural_refusal_count"] == 7
+    assert manifest["procedural_refusal_count"] == 8
+    assert manifest["combat_citeseq_outcome_status"] == (
+        "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL"
+    )
     assert (
         manifest["gse299043_outcome_status"]
         == "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL"
@@ -358,17 +361,22 @@ def test_benchmark_manifest_binds_combat_freeze_and_retains_gse299043_refusal():
     assert protocol["designation"] == (
         "data/confirmation/combat_citeseq/candidate_designation_v1.json"
     )
-    assert protocol["status"] == "DESIGNATED_OUTCOME_ACCESS_DISABLED"
-    assert protocol["matrix_payload_reads"] == 0
+    assert protocol["status"] == "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL"
+    assert protocol["matrix_payload_reads_at_prospective_freeze"] == 0
     assert protocol["oxford_held_samples"] == 51
     assert protocol["st_georges_held_samples"] == 10
     assert protocol["held_score_attempted"] is False
+    assert protocol["pilot_gate_reached"] is False
+    assert protocol["held_margin_accessed"] is False
+    assert protocol["held_outcome_accessed"] is False
+    assert protocol["held_access_permanently_closed"] is True
+    assert protocol["rerun_permitted_after_terminal_attempt"] is False
     assert manifest["combat_public_freeze_verification"]["status"] == "PASS"
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 168
+    assert len(artifacts) == 170
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 168
+    assert len(by_path) == 170
     for relative in (
         "docs/GSE299043_MLN_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
         "docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
@@ -388,7 +396,9 @@ def test_benchmark_manifest_binds_combat_freeze_and_retains_gse299043_refusal():
         "docs/COMBAT_CITESEQ_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
         "data/confirmation/combat_citeseq/candidate_designation_v1.json",
         "data/confirmation/combat_citeseq/source_manifest_v1.json",
+        "data/development/combat_citeseq/reduced_v1.json",
         "results/development/combat_citeseq_metadata_preflight.json",
+        "results/development/combat_citeseq_pilot_terminal_refusal.json",
         "experiments/confirm_combat_citeseq.py",
         "tests/test_combat_citeseq_confirmation.py",
     ):

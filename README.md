@@ -154,11 +154,14 @@ against the pilot-selected matched signed Pearson or signed-root Poisson-devianc
 transfer, with a pilot-selected ridge-only Haldane/PM field as the graph-specific
 ablation.
 
-The Oxford and St George's panels must pass separately. No COMBAT outcome is
-reported here: development and held-out access remain disabled until the exact
-protocol, code, source manifest, and verification artifacts are published and
-the corresponding authorization is valid. The planned protocol tag is
-`combat-citeseq-v1-protocol`.
+The authorized pilot ended in a terminal candidate-availability refusal before
+either held panel was opened. Two of eight primary configurations were
+evaluable, but all four matched Pearson/deviance comparators and all three
+ridge-only Haldane configurations violated the frozen attainable-margin rule
+on at least one pilot sample. The pilot gate was therefore undefined and held
+margin and outcome access are permanently closed. The structured record is
+`results/development/combat_citeseq_pilot_terminal_refusal.json`; it
+distinguishes the original authorized evaluator from the later packaging code.
 
 PoKI-seq is not a third scoreable candidate. Its frozen execution stopped at
 the state-occupancy support gate before a prediction or score was written.

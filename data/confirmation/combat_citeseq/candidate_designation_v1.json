@@ -1,6 +1,7 @@
 {
   "schema": "combat-citeseq-candidate-designation/1.0",
-  "status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
+  "status": "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL",
+  "status_at_prospective_freeze": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
   "designation_date": "2026-08-28",
   "designation": "data/confirmation/combat_citeseq/candidate_designation_v1.json",
   "protocol": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
@@ -42,6 +43,7 @@
     "development_authorization": "data/confirmation/combat_citeseq/development_authorization_v1.json",
     "development_reduction": "data/development/combat_citeseq/reduced_v1.json",
     "development_result": "results/development/combat_citeseq_development.json",
+    "pilot_terminal_refusal": "results/development/combat_citeseq_pilot_terminal_refusal.json",
     "held_rna_margin_authorization": "data/confirmation/combat_citeseq/held_rna_margin_authorization_v1.json",
     "held_prediction_attempt": "data/confirmation/combat_citeseq/prediction_attempt_v1.json",
     "held_predictions": "results/combat_citeseq_predictions.json",
@@ -49,6 +51,17 @@
     "score_attempt": "data/confirmation/combat_citeseq/score_attempt_v1.json",
     "score_result": "results/combat_citeseq_confirmation.json",
     "terminal_refusal": "results/combat_citeseq_terminal_refusal.json"
+  },
+  "terminal_closure": {
+    "authorized_reduced_development_sha256": "06ebfad44c339d763a451662462d7c9dc60684e792d5c229a42eefd232302b2f",
+    "authorized_evaluator_runner_sha256": "e5db3c56c8e83be73ce2f763372d22d068b9d8e07648bf4084ff585686e3fe85",
+    "authorized_failure": "all four matched Pearson/deviance comparator variants refused because transferred coordinates fell outside at least one pilot target's closed attainable fixed-margin interval",
+    "post_failure_diagnostic": "two of eight primary configurations were evaluable; all three ridge-only Haldane configurations also refused under the unchanged no-clipping rule",
+    "pilot_gate_reached": false,
+    "held_margin_accessed": false,
+    "held_outcome_accessed": false,
+    "held_access_permanently_closed": true,
+    "rerun_permitted": false
   },
   "metadata_contract": {
     "h5ad_sample_fields": [

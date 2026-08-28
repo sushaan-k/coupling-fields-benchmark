@@ -1,0 +1,1570 @@
+{
+  "analysis": {
+    "all_development_graph": null,
+    "classical_candidate_evaluations": [
+      {
+        "centered": false,
+        "family": "pearson",
+        "reason": "pearson coordinate is outside attainable fixed-margin range",
+        "refusal_detail": {
+          "affected_ordered_marker_pairs": [
+            {
+              "adt_marker": "CD4",
+              "rna_marker": "CD4"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD14",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD38",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD44",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD4",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD14",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD19",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD52",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD14",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD38",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD44",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD38",
+              "rna_marker": "CD38"
+            },
+            {
+              "adt_marker": "CD52",
+              "rna_marker": "CD52"
+            }
+          ],
+          "affected_pilot_samples": [
+            "S00008-Ja003E-PBCa",
+            "S00020-Ja003E-PBCa",
+            "S00040-Ja005E-PBCa",
+            "S00052-Ja005E-PBCa",
+            "G05061-Ja005E-PBCa",
+            "G05097-Ja005E-PBCa",
+            "G05145-Ja005E-PBCa",
+            "G05164-Ja005E-PBCa",
+            "S00063-Ja003E-PBCa",
+            "S00076-Ja001E-PBCa",
+            "S00104-Ja003E-PBCa",
+            "S00114-Ja003E-PBCa",
+            "S00037-Ja003E-PBCa",
+            "S00053-Ja003E-PBCa",
+            "S00134-Ja003E-PBCa",
+            "H00058-Ha001E-PBGa",
+            "H00064-Ha001E-PBGa",
+            "H00070-Ha001E-PBGa",
+            "H00072-Ha001E-PBGa",
+            "N00006-Ja003E-PBGa",
+            "N00024-Ja001E-PBGa",
+            "N00025-Ja001E-PBGa",
+            "N00047-Ja005E-PBGa"
+          ],
+          "all_violations_sha256": "9498c7c65a7f20de065febb9898051064856af69f6ecc3f3918f98dcefce8e15",
+          "coordinate_normalization": "signed statistic divided by sqrt(target cell count)",
+          "first_five_violations": [
+            {
+              "adt_marker": "CD33",
+              "attainable_lower": -0.5109635445336237,
+              "attainable_upper": 0.5109635445336237,
+              "range_excess": 0.00014721992785038385,
+              "rna_marker": "CD14",
+              "sample": "S00008-Ja003E-PBCa",
+              "transferred_coordinate": 0.5111107644614741
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -0.20680874602832577,
+              "attainable_upper": 0.20680874602832577,
+              "range_excess": 0.0029785549239489673,
+              "rna_marker": "CD19",
+              "sample": "S00008-Ja003E-PBCa",
+              "transferred_coordinate": 0.20978730095227474
+            },
+            {
+              "adt_marker": "CD33",
+              "attainable_lower": -0.3104186576877834,
+              "attainable_upper": 0.3104186576877834,
+              "range_excess": 0.023265711167159808,
+              "rna_marker": "CD33",
+              "sample": "S00008-Ja003E-PBCa",
+              "transferred_coordinate": 0.3336843688549432
+            },
+            {
+              "adt_marker": "CD7",
+              "attainable_lower": -0.33980642958316226,
+              "attainable_upper": 0.33980642958316226,
+              "range_excess": 0.06423878893089946,
+              "rna_marker": "CD14",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": -0.4040452185140617
+            },
+            {
+              "adt_marker": "CD14",
+              "attainable_lower": -0.33980642958316226,
+              "attainable_upper": 0.33980642958316226,
+              "range_excess": 0.14943510424252132,
+              "rna_marker": "CD14",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": 0.4892415338256836
+            }
+          ],
+          "maximum_range_excess": 0.17130433487831181,
+          "out_of_range_sample_entity_pairs": 134,
+          "rule": "transferred coordinate must lie in every target's closed attainable fixed-margin interval; no clipping"
+        },
+        "status": "REFUSED"
+      },
+      {
+        "centered": true,
+        "family": "pearson",
+        "reason": "pearson coordinate is outside attainable fixed-margin range",
+        "refusal_detail": {
+          "affected_ordered_marker_pairs": [
+            {
+              "adt_marker": "CD4",
+              "rna_marker": "CD4"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD14",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD38",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD44",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD4",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD14",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD19",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD52",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD14",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD38",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD44",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD38",
+              "rna_marker": "CD38"
+            },
+            {
+              "adt_marker": "CD52",
+              "rna_marker": "CD52"
+            }
+          ],
+          "affected_pilot_samples": [
+            "S00008-Ja003E-PBCa",
+            "S00020-Ja003E-PBCa",
+            "S00040-Ja005E-PBCa",
+            "S00052-Ja005E-PBCa",
+            "G05061-Ja005E-PBCa",
+            "G05097-Ja005E-PBCa",
+            "G05145-Ja005E-PBCa",
+            "G05164-Ja005E-PBCa",
+            "S00063-Ja003E-PBCa",
+            "S00076-Ja001E-PBCa",
+            "S00104-Ja003E-PBCa",
+            "S00114-Ja003E-PBCa",
+            "S00037-Ja003E-PBCa",
+            "S00053-Ja003E-PBCa",
+            "S00134-Ja003E-PBCa",
+            "H00058-Ha001E-PBGa",
+            "H00064-Ha001E-PBGa",
+            "H00070-Ha001E-PBGa",
+            "H00072-Ha001E-PBGa",
+            "N00006-Ja003E-PBGa",
+            "N00024-Ja001E-PBGa",
+            "N00025-Ja001E-PBGa",
+            "N00047-Ja005E-PBGa"
+          ],
+          "all_violations_sha256": "8e6fdc9013a400b78e9dafc2cd8b61c58e9bae1d52f7626cc3938523a1aad13e",
+          "coordinate_normalization": "signed statistic divided by sqrt(target cell count)",
+          "first_five_violations": [
+            {
+              "adt_marker": "CD33",
+              "attainable_lower": -0.5109635445336234,
+              "attainable_upper": 0.510963544533624,
+              "range_excess": 0.00014721992785005078,
+              "rna_marker": "CD14",
+              "sample": "S00008-Ja003E-PBCa",
+              "transferred_coordinate": 0.5111107644614741
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -0.20680874602832552,
+              "attainable_upper": 0.206808746028326,
+              "range_excess": 0.002978554923948745,
+              "rna_marker": "CD19",
+              "sample": "S00008-Ja003E-PBCa",
+              "transferred_coordinate": 0.20978730095227474
+            },
+            {
+              "adt_marker": "CD33",
+              "attainable_lower": -0.3104186576877838,
+              "attainable_upper": 0.3104186576877829,
+              "range_excess": 0.023265711167160308,
+              "rna_marker": "CD33",
+              "sample": "S00008-Ja003E-PBCa",
+              "transferred_coordinate": 0.3336843688549432
+            },
+            {
+              "adt_marker": "CD7",
+              "attainable_lower": -0.33980642958316254,
+              "attainable_upper": 0.339806429583162,
+              "range_excess": 0.06423878893089918,
+              "rna_marker": "CD14",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": -0.4040452185140617
+            },
+            {
+              "adt_marker": "CD14",
+              "attainable_lower": -0.33980642958316254,
+              "attainable_upper": 0.339806429583162,
+              "range_excess": 0.1494351042425216,
+              "rna_marker": "CD14",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": 0.4892415338256836
+            }
+          ],
+          "maximum_range_excess": 0.1713043348783121,
+          "out_of_range_sample_entity_pairs": 134,
+          "rule": "transferred coordinate must lie in every target's closed attainable fixed-margin interval; no clipping"
+        },
+        "status": "REFUSED"
+      },
+      {
+        "centered": false,
+        "family": "deviance",
+        "reason": "deviance coordinate is outside attainable fixed-margin range",
+        "refusal_detail": {
+          "affected_ordered_marker_pairs": [
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD14",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD38",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD4",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD19",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD52",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD14",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD38",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD44",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD52",
+              "rna_marker": "CD52"
+            }
+          ],
+          "affected_pilot_samples": [
+            "S00008-Ja003E-PBCa",
+            "S00020-Ja003E-PBCa",
+            "S00040-Ja005E-PBCa",
+            "S00052-Ja005E-PBCa",
+            "G05061-Ja005E-PBCa",
+            "G05097-Ja005E-PBCa",
+            "G05145-Ja005E-PBCa",
+            "G05164-Ja005E-PBCa",
+            "S00063-Ja003E-PBCa",
+            "S00076-Ja001E-PBCa",
+            "S00104-Ja003E-PBCa",
+            "S00114-Ja003E-PBCa",
+            "S00037-Ja003E-PBCa",
+            "S00134-Ja003E-PBCa",
+            "H00058-Ha001E-PBGa",
+            "H00064-Ha001E-PBGa",
+            "H00070-Ha001E-PBGa",
+            "H00072-Ha001E-PBGa",
+            "N00006-Ja003E-PBGa",
+            "N00024-Ja001E-PBGa",
+            "N00025-Ja001E-PBGa",
+            "N00047-Ja005E-PBGa"
+          ],
+          "all_violations_sha256": "a8388e6ab55efb18fcdb9211bf9e1eb76de397c53ea2d9917fa59f0d7f62a6cc",
+          "coordinate_normalization": "signed statistic divided by sqrt(target cell count)",
+          "first_five_violations": [
+            {
+              "adt_marker": "CD33",
+              "attainable_lower": -0.36100491830063214,
+              "attainable_upper": 0.36100491830063214,
+              "range_excess": 0.014382254875043077,
+              "rna_marker": "CD33",
+              "sample": "S00008-Ja003E-PBCa",
+              "transferred_coordinate": 0.3753871731756752
+            },
+            {
+              "adt_marker": "CD7",
+              "attainable_lower": -0.3943128395997934,
+              "attainable_upper": 0.3943128395997934,
+              "range_excess": 0.032227198411915015,
+              "rna_marker": "CD14",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": -0.4265400380117084
+            },
+            {
+              "adt_marker": "CD14",
+              "attainable_lower": -0.3943128395997934,
+              "attainable_upper": 0.3943128395997934,
+              "range_excess": 0.13046926350606775,
+              "rna_marker": "CD14",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": 0.5247821031058612
+            },
+            {
+              "adt_marker": "CD33",
+              "attainable_lower": -0.3943128395997934,
+              "attainable_upper": 0.3943128395997934,
+              "range_excess": 0.15959077848507303,
+              "rna_marker": "CD14",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": 0.5539036180848664
+            },
+            {
+              "adt_marker": "CD38",
+              "attainable_lower": -0.3943128395997934,
+              "attainable_upper": 0.3943128395997934,
+              "range_excess": 0.06328225721740693,
+              "rna_marker": "CD14",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": 0.45759509681720034
+            }
+          ],
+          "maximum_range_excess": 0.17872683777495074,
+          "out_of_range_sample_entity_pairs": 102,
+          "rule": "transferred coordinate must lie in every target's closed attainable fixed-margin interval; no clipping"
+        },
+        "status": "REFUSED"
+      },
+      {
+        "centered": true,
+        "family": "deviance",
+        "reason": "deviance coordinate is outside attainable fixed-margin range",
+        "refusal_detail": {
+          "affected_ordered_marker_pairs": [
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD14",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD38",
+              "rna_marker": "CD14"
+            },
+            {
+              "adt_marker": "CD4",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD19",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD52",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD14",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD38",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD44",
+              "rna_marker": "CD33"
+            },
+            {
+              "adt_marker": "CD52",
+              "rna_marker": "CD52"
+            }
+          ],
+          "affected_pilot_samples": [
+            "S00008-Ja003E-PBCa",
+            "S00020-Ja003E-PBCa",
+            "S00040-Ja005E-PBCa",
+            "S00052-Ja005E-PBCa",
+            "G05061-Ja005E-PBCa",
+            "G05097-Ja005E-PBCa",
+            "G05145-Ja005E-PBCa",
+            "G05164-Ja005E-PBCa",
+            "S00063-Ja003E-PBCa",
+            "S00076-Ja001E-PBCa",
+            "S00104-Ja003E-PBCa",
+            "S00114-Ja003E-PBCa",
+            "S00037-Ja003E-PBCa",
+            "S00134-Ja003E-PBCa",
+            "H00058-Ha001E-PBGa",
+            "H00064-Ha001E-PBGa",
+            "H00070-Ha001E-PBGa",
+            "H00072-Ha001E-PBGa",
+            "N00006-Ja003E-PBGa",
+            "N00024-Ja001E-PBGa",
+            "N00025-Ja001E-PBGa",
+            "N00047-Ja005E-PBGa"
+          ],
+          "all_violations_sha256": "7339d9a80a9555ea2ce0dd81ef59cba71ba3ad80e579bc5ec20edaaeb3c4a846",
+          "coordinate_normalization": "signed statistic divided by sqrt(target cell count)",
+          "first_five_violations": [
+            {
+              "adt_marker": "CD33",
+              "attainable_lower": -0.3610049183006326,
+              "attainable_upper": 0.36100491830063164,
+              "range_excess": 0.014382254875043576,
+              "rna_marker": "CD33",
+              "sample": "S00008-Ja003E-PBCa",
+              "transferred_coordinate": 0.3753871731756752
+            },
+            {
+              "adt_marker": "CD7",
+              "attainable_lower": -0.3943128395997937,
+              "attainable_upper": 0.3943128395997931,
+              "range_excess": 0.03222719841191474,
+              "rna_marker": "CD14",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": -0.4265400380117084
+            },
+            {
+              "adt_marker": "CD14",
+              "attainable_lower": -0.3943128395997937,
+              "attainable_upper": 0.3943128395997931,
+              "range_excess": 0.13046926350606808,
+              "rna_marker": "CD14",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": 0.5247821031058612
+            },
+            {
+              "adt_marker": "CD33",
+              "attainable_lower": -0.3943128395997937,
+              "attainable_upper": 0.3943128395997931,
+              "range_excess": 0.15959077848507336,
+              "rna_marker": "CD14",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": 0.5539036180848664
+            },
+            {
+              "adt_marker": "CD38",
+              "attainable_lower": -0.3943128395997937,
+              "attainable_upper": 0.3943128395997931,
+              "range_excess": 0.06328225721740727,
+              "rna_marker": "CD14",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": 0.45759509681720034
+            }
+          ],
+          "maximum_range_excess": 0.17872683777495108,
+          "out_of_range_sample_entity_pairs": 102,
+          "rule": "transferred coordinate must lie in every target's closed attainable fixed-margin interval; no clipping"
+        },
+        "status": "REFUSED"
+      }
+    ],
+    "configuration_grid": [
+      {
+        "graph_neighbors": 1,
+        "graph_penalty": 0.1,
+        "maximum_condition_number": 1000000000000.0,
+        "minimum_donors": 2,
+        "precision_floor": 1e-08,
+        "ridge_penalty": 0.01,
+        "variance_floor": 1e-08
+      },
+      {
+        "graph_neighbors": 1,
+        "graph_penalty": 1.0,
+        "maximum_condition_number": 1000000000000.0,
+        "minimum_donors": 2,
+        "precision_floor": 1e-08,
+        "ridge_penalty": 0.01,
+        "variance_floor": 1e-08
+      },
+      {
+        "graph_neighbors": 1,
+        "graph_penalty": 0.1,
+        "maximum_condition_number": 1000000000000.0,
+        "minimum_donors": 2,
+        "precision_floor": 1e-08,
+        "ridge_penalty": 0.1,
+        "variance_floor": 1e-08
+      },
+      {
+        "graph_neighbors": 1,
+        "graph_penalty": 1.0,
+        "maximum_condition_number": 1000000000000.0,
+        "minimum_donors": 2,
+        "precision_floor": 1e-08,
+        "ridge_penalty": 0.1,
+        "variance_floor": 1e-08
+      },
+      {
+        "graph_neighbors": 2,
+        "graph_penalty": 0.1,
+        "maximum_condition_number": 1000000000000.0,
+        "minimum_donors": 2,
+        "precision_floor": 1e-08,
+        "ridge_penalty": 0.01,
+        "variance_floor": 1e-08
+      },
+      {
+        "graph_neighbors": 2,
+        "graph_penalty": 1.0,
+        "maximum_condition_number": 1000000000000.0,
+        "minimum_donors": 2,
+        "precision_floor": 1e-08,
+        "ridge_penalty": 0.01,
+        "variance_floor": 1e-08
+      },
+      {
+        "graph_neighbors": 2,
+        "graph_penalty": 0.1,
+        "maximum_condition_number": 1000000000000.0,
+        "minimum_donors": 2,
+        "precision_floor": 1e-08,
+        "ridge_penalty": 0.1,
+        "variance_floor": 1e-08
+      },
+      {
+        "graph_neighbors": 2,
+        "graph_penalty": 1.0,
+        "maximum_condition_number": 1000000000000.0,
+        "minimum_donors": 2,
+        "precision_floor": 1e-08,
+        "ridge_penalty": 0.1,
+        "variance_floor": 1e-08
+      }
+    ],
+    "frozen_source_models": null,
+    "passes_pilot_gate": false,
+    "pilot_comparisons": {},
+    "pilot_losses": {},
+    "pilot_prediction_flags": {},
+    "primary_candidate_evaluations": [
+      {
+        "configuration": {
+          "graph_neighbors": 1,
+          "graph_penalty": 0.1,
+          "maximum_condition_number": 1000000000000.0,
+          "minimum_donors": 2,
+          "precision_floor": 1e-08,
+          "ridge_penalty": 0.01,
+          "variance_floor": 1e-08
+        },
+        "reason": "haldane coordinate is outside attainable fixed-margin range",
+        "refusal_detail": {
+          "affected_ordered_marker_pairs": [
+            {
+              "adt_marker": "CD4",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD19",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD33"
+            }
+          ],
+          "affected_pilot_samples": [
+            "S00020-Ja003E-PBCa",
+            "S00040-Ja005E-PBCa",
+            "G05164-Ja005E-PBCa",
+            "S00063-Ja003E-PBCa",
+            "H00064-Ha001E-PBGa",
+            "H00070-Ha001E-PBGa",
+            "H00072-Ha001E-PBGa",
+            "N00006-Ja003E-PBGa",
+            "N00024-Ja001E-PBGa",
+            "N00025-Ja001E-PBGa",
+            "N00047-Ja005E-PBGa"
+          ],
+          "all_violations_sha256": "9b4cf9f15b1020aa36fb2f6137e7935fac6263ca0d479223fe42d59b4a87f8a2",
+          "coordinate_normalization": "Haldane coordinate",
+          "first_five_violations": [
+            {
+              "adt_marker": "CD33",
+              "attainable_lower": -3.5609161365314934,
+              "attainable_upper": 3.560916136531483,
+              "range_excess": 0.07441091749773854,
+              "rna_marker": "CD33",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": 3.6353270540292217
+            },
+            {
+              "adt_marker": "CD33",
+              "attainable_lower": -3.4234227842197646,
+              "attainable_upper": 3.423422784219756,
+              "range_excess": 0.21190426980946553,
+              "rna_marker": "CD33",
+              "sample": "S00040-Ja005E-PBCa",
+              "transferred_coordinate": 3.6353270540292217
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.5886191015474416,
+              "attainable_upper": 2.588619101547441,
+              "range_excess": 0.5020106789905272,
+              "rna_marker": "CD19",
+              "sample": "G05164-Ja005E-PBCa",
+              "transferred_coordinate": 3.0906297805379683
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.5886191015474416,
+              "attainable_upper": 2.588619101547441,
+              "range_excess": 0.5020106789905272,
+              "rna_marker": "CD19",
+              "sample": "S00063-Ja003E-PBCa",
+              "transferred_coordinate": 3.0906297805379683
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.980157061768531,
+              "attainable_upper": 2.9801570617685083,
+              "range_excess": 0.11047271876946008,
+              "rna_marker": "CD19",
+              "sample": "H00064-Ha001E-PBGa",
+              "transferred_coordinate": 3.0906297805379683
+            }
+          ],
+          "maximum_range_excess": 1.4733640394835987,
+          "out_of_range_sample_entity_pairs": 14,
+          "rule": "transferred coordinate must lie in every target's closed attainable fixed-margin interval; no clipping"
+        },
+        "status": "REFUSED"
+      },
+      {
+        "configuration": {
+          "graph_neighbors": 1,
+          "graph_penalty": 1.0,
+          "maximum_condition_number": 1000000000000.0,
+          "minimum_donors": 2,
+          "precision_floor": 1e-08,
+          "ridge_penalty": 0.01,
+          "variance_floor": 1e-08
+        },
+        "reason": "haldane coordinate is outside attainable fixed-margin range",
+        "refusal_detail": {
+          "affected_ordered_marker_pairs": [
+            {
+              "adt_marker": "CD19",
+              "rna_marker": "CD19"
+            }
+          ],
+          "affected_pilot_samples": [
+            "N00025-Ja001E-PBGa"
+          ],
+          "all_violations_sha256": "c01d876d798cf75c76d7262d1ac477203ae88e8f6029caed831ae8452e86a509",
+          "coordinate_normalization": "Haldane coordinate",
+          "first_five_violations": [
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -1.6172657410543252,
+              "attainable_upper": 1.6172657410543696,
+              "range_excess": 0.32066102453294953,
+              "rna_marker": "CD19",
+              "sample": "N00025-Ja001E-PBGa",
+              "transferred_coordinate": 1.9379267655873191
+            }
+          ],
+          "maximum_range_excess": 0.32066102453294953,
+          "out_of_range_sample_entity_pairs": 1,
+          "rule": "transferred coordinate must lie in every target's closed attainable fixed-margin interval; no clipping"
+        },
+        "status": "REFUSED"
+      },
+      {
+        "configuration": {
+          "graph_neighbors": 1,
+          "graph_penalty": 0.1,
+          "maximum_condition_number": 1000000000000.0,
+          "minimum_donors": 2,
+          "precision_floor": 1e-08,
+          "ridge_penalty": 0.1,
+          "variance_floor": 1e-08
+        },
+        "reason": "haldane coordinate is outside attainable fixed-margin range",
+        "refusal_detail": {
+          "affected_ordered_marker_pairs": [
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD19",
+              "rna_marker": "CD19"
+            }
+          ],
+          "affected_pilot_samples": [
+            "G05164-Ja005E-PBCa",
+            "S00063-Ja003E-PBCa",
+            "H00072-Ha001E-PBGa",
+            "N00006-Ja003E-PBGa",
+            "N00024-Ja001E-PBGa",
+            "N00025-Ja001E-PBGa",
+            "N00047-Ja005E-PBGa"
+          ],
+          "all_violations_sha256": "b87e766a303b29800a8c0297a3b91d05f47679d2b5803a9db9e6619e14b926f7",
+          "coordinate_normalization": "Haldane coordinate",
+          "first_five_violations": [
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.5886191015474416,
+              "attainable_upper": 2.588619101547441,
+              "range_excess": 0.1800980716187488,
+              "rna_marker": "CD19",
+              "sample": "G05164-Ja005E-PBCa",
+              "transferred_coordinate": 2.76871717316619
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.5886191015474416,
+              "attainable_upper": 2.588619101547441,
+              "range_excess": 0.1800980716187488,
+              "rna_marker": "CD19",
+              "sample": "S00063-Ja003E-PBCa",
+              "transferred_coordinate": 2.76871717316619
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.4175809478693915,
+              "attainable_upper": 2.41758094786941,
+              "range_excess": 0.3511362252967798,
+              "rna_marker": "CD19",
+              "sample": "H00072-Ha001E-PBGa",
+              "transferred_coordinate": 2.76871717316619
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -1.9576749906348887,
+              "attainable_upper": 1.95767499063491,
+              "range_excess": 0.8110421825312799,
+              "rna_marker": "CD19",
+              "sample": "N00006-Ja003E-PBGa",
+              "transferred_coordinate": 2.76871717316619
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.4175809478693915,
+              "attainable_upper": 2.41758094786941,
+              "range_excess": 0.3511362252967798,
+              "rna_marker": "CD19",
+              "sample": "N00024-Ja001E-PBGa",
+              "transferred_coordinate": 2.76871717316619
+            }
+          ],
+          "maximum_range_excess": 1.1514514321118203,
+          "out_of_range_sample_entity_pairs": 8,
+          "rule": "transferred coordinate must lie in every target's closed attainable fixed-margin interval; no clipping"
+        },
+        "status": "REFUSED"
+      },
+      {
+        "configuration": {
+          "graph_neighbors": 1,
+          "graph_penalty": 1.0,
+          "maximum_condition_number": 1000000000000.0,
+          "minimum_donors": 2,
+          "precision_floor": 1e-08,
+          "ridge_penalty": 0.1,
+          "variance_floor": 1e-08
+        },
+        "reason": "haldane coordinate is outside attainable fixed-margin range",
+        "refusal_detail": {
+          "affected_ordered_marker_pairs": [
+            {
+              "adt_marker": "CD19",
+              "rna_marker": "CD19"
+            }
+          ],
+          "affected_pilot_samples": [
+            "N00025-Ja001E-PBGa"
+          ],
+          "all_violations_sha256": "6a518daedbab50634e2527197983a58f86518644b9426a6473636b37410f5d41",
+          "coordinate_normalization": "Haldane coordinate",
+          "first_five_violations": [
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -1.6172657410543252,
+              "attainable_upper": 1.6172657410543696,
+              "range_excess": 0.16788456518494987,
+              "rna_marker": "CD19",
+              "sample": "N00025-Ja001E-PBGa",
+              "transferred_coordinate": 1.7851503062393195
+            }
+          ],
+          "maximum_range_excess": 0.16788456518494987,
+          "out_of_range_sample_entity_pairs": 1,
+          "rule": "transferred coordinate must lie in every target's closed attainable fixed-margin interval; no clipping"
+        },
+        "status": "REFUSED"
+      },
+      {
+        "configuration": {
+          "graph_neighbors": 2,
+          "graph_penalty": 0.1,
+          "maximum_condition_number": 1000000000000.0,
+          "minimum_donors": 2,
+          "precision_floor": 1e-08,
+          "ridge_penalty": 0.01,
+          "variance_floor": 1e-08
+        },
+        "reason": "haldane coordinate is outside attainable fixed-margin range",
+        "refusal_detail": {
+          "affected_ordered_marker_pairs": [
+            {
+              "adt_marker": "CD4",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD19",
+              "rna_marker": "CD19"
+            }
+          ],
+          "affected_pilot_samples": [
+            "G05164-Ja005E-PBCa",
+            "S00063-Ja003E-PBCa",
+            "H00064-Ha001E-PBGa",
+            "H00070-Ha001E-PBGa",
+            "H00072-Ha001E-PBGa",
+            "N00006-Ja003E-PBGa",
+            "N00024-Ja001E-PBGa",
+            "N00025-Ja001E-PBGa",
+            "N00047-Ja005E-PBGa"
+          ],
+          "all_violations_sha256": "bcaa368653e0cdb8167d12d04b60ac51940d944c949561fc282fdc7b49298f82",
+          "coordinate_normalization": "Haldane coordinate",
+          "first_five_violations": [
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.5886191015474416,
+              "attainable_upper": 2.588619101547441,
+              "range_excess": 0.4456095014181778,
+              "rna_marker": "CD19",
+              "sample": "G05164-Ja005E-PBCa",
+              "transferred_coordinate": 3.034228602965619
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.5886191015474416,
+              "attainable_upper": 2.588619101547441,
+              "range_excess": 0.4456095014181778,
+              "rna_marker": "CD19",
+              "sample": "S00063-Ja003E-PBCa",
+              "transferred_coordinate": 3.034228602965619
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.980157061768531,
+              "attainable_upper": 2.9801570617685083,
+              "range_excess": 0.05407154119711066,
+              "rna_marker": "CD19",
+              "sample": "H00064-Ha001E-PBGa",
+              "transferred_coordinate": 3.034228602965619
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.8648991631303686,
+              "attainable_upper": 2.8648991631303447,
+              "range_excess": 0.16932943983527426,
+              "rna_marker": "CD19",
+              "sample": "H00070-Ha001E-PBGa",
+              "transferred_coordinate": 3.034228602965619
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.4175809478693915,
+              "attainable_upper": 2.41758094786941,
+              "range_excess": 0.6166476550962088,
+              "rna_marker": "CD19",
+              "sample": "H00072-Ha001E-PBGa",
+              "transferred_coordinate": 3.034228602965619
+            }
+          ],
+          "maximum_range_excess": 1.4169628619112493,
+          "out_of_range_sample_entity_pairs": 13,
+          "rule": "transferred coordinate must lie in every target's closed attainable fixed-margin interval; no clipping"
+        },
+        "status": "REFUSED"
+      },
+      {
+        "configuration": {
+          "graph_neighbors": 2,
+          "graph_penalty": 1.0,
+          "maximum_condition_number": 1000000000000.0,
+          "minimum_donors": 2,
+          "precision_floor": 1e-08,
+          "ridge_penalty": 0.01,
+          "variance_floor": 1e-08
+        },
+        "mean_pilot_deviance_per_cell": 0.019510718620444945,
+        "pilot_losses": {
+          "G05061-Ja005E-PBCa": 0.010023898770967642,
+          "G05097-Ja005E-PBCa": 0.01122312318637654,
+          "G05145-Ja005E-PBCa": 0.027320540699682903,
+          "G05164-Ja005E-PBCa": 0.01380545707969677,
+          "H00058-Ha001E-PBGa": 0.010332431505760969,
+          "H00064-Ha001E-PBGa": 0.010867608476078601,
+          "H00070-Ha001E-PBGa": 0.009744692695736926,
+          "H00072-Ha001E-PBGa": 0.017919215471979152,
+          "N00006-Ja003E-PBGa": 0.014339443240930541,
+          "N00024-Ja001E-PBGa": 0.04960787336615148,
+          "N00025-Ja001E-PBGa": 0.0370199957183541,
+          "N00047-Ja005E-PBGa": 0.021428582583842195,
+          "S00008-Ja003E-PBCa": 0.0279987971582451,
+          "S00020-Ja003E-PBCa": 0.008980415840059871,
+          "S00037-Ja003E-PBCa": 0.028593316360201976,
+          "S00040-Ja005E-PBCa": 0.015123807224539607,
+          "S00042-Ja001E-PBCa": 0.01418673390995646,
+          "S00052-Ja005E-PBCa": 0.016706044659033147,
+          "S00053-Ja003E-PBCa": 0.034280154242000954,
+          "S00063-Ja003E-PBCa": 0.014191185423443789,
+          "S00076-Ja001E-PBCa": 0.0313158236949196,
+          "S00104-Ja003E-PBCa": 0.01897356213272778,
+          "S00114-Ja003E-PBCa": 0.007114700799184776,
+          "S00134-Ja003E-PBCa": 0.017159842650807826
+        },
+        "prediction_flags": [],
+        "status": "EVALUATED"
+      },
+      {
+        "configuration": {
+          "graph_neighbors": 2,
+          "graph_penalty": 0.1,
+          "maximum_condition_number": 1000000000000.0,
+          "minimum_donors": 2,
+          "precision_floor": 1e-08,
+          "ridge_penalty": 0.1,
+          "variance_floor": 1e-08
+        },
+        "reason": "haldane coordinate is outside attainable fixed-margin range",
+        "refusal_detail": {
+          "affected_ordered_marker_pairs": [
+            {
+              "adt_marker": "CD4",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD19",
+              "rna_marker": "CD19"
+            }
+          ],
+          "affected_pilot_samples": [
+            "G05164-Ja005E-PBCa",
+            "S00063-Ja003E-PBCa",
+            "H00072-Ha001E-PBGa",
+            "N00006-Ja003E-PBGa",
+            "N00024-Ja001E-PBGa",
+            "N00025-Ja001E-PBGa",
+            "N00047-Ja005E-PBGa"
+          ],
+          "all_violations_sha256": "910dd3471cbaf76829459825cbba8fe7a8cc56db52e73000146b4825e6642b55",
+          "coordinate_normalization": "Haldane coordinate",
+          "first_five_violations": [
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.5886191015474416,
+              "attainable_upper": 2.588619101547441,
+              "range_excess": 0.14361317236457882,
+              "rna_marker": "CD19",
+              "sample": "G05164-Ja005E-PBCa",
+              "transferred_coordinate": 2.73223227391202
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.5886191015474416,
+              "attainable_upper": 2.588619101547441,
+              "range_excess": 0.14361317236457882,
+              "rna_marker": "CD19",
+              "sample": "S00063-Ja003E-PBCa",
+              "transferred_coordinate": 2.73223227391202
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.4175809478693915,
+              "attainable_upper": 2.41758094786941,
+              "range_excess": 0.3146513260426098,
+              "rna_marker": "CD19",
+              "sample": "H00072-Ha001E-PBGa",
+              "transferred_coordinate": 2.73223227391202
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -1.9576749906348887,
+              "attainable_upper": 1.95767499063491,
+              "range_excess": 0.7745572832771099,
+              "rna_marker": "CD19",
+              "sample": "N00006-Ja003E-PBGa",
+              "transferred_coordinate": 2.73223227391202
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.4175809478693915,
+              "attainable_upper": 2.41758094786941,
+              "range_excess": 0.3146513260426098,
+              "rna_marker": "CD19",
+              "sample": "N00024-Ja001E-PBGa",
+              "transferred_coordinate": 2.73223227391202
+            }
+          ],
+          "maximum_range_excess": 1.1149665328576503,
+          "out_of_range_sample_entity_pairs": 9,
+          "rule": "transferred coordinate must lie in every target's closed attainable fixed-margin interval; no clipping"
+        },
+        "status": "REFUSED"
+      },
+      {
+        "configuration": {
+          "graph_neighbors": 2,
+          "graph_penalty": 1.0,
+          "maximum_condition_number": 1000000000000.0,
+          "minimum_donors": 2,
+          "precision_floor": 1e-08,
+          "ridge_penalty": 0.1,
+          "variance_floor": 1e-08
+        },
+        "mean_pilot_deviance_per_cell": 0.01970670711242071,
+        "pilot_losses": {
+          "G05061-Ja005E-PBCa": 0.010400595517471552,
+          "G05097-Ja005E-PBCa": 0.012210503514574474,
+          "G05145-Ja005E-PBCa": 0.027318850397556473,
+          "G05164-Ja005E-PBCa": 0.013617540850120957,
+          "H00058-Ha001E-PBGa": 0.009914729510049135,
+          "H00064-Ha001E-PBGa": 0.010525966119075603,
+          "H00070-Ha001E-PBGa": 0.01026293348804997,
+          "H00072-Ha001E-PBGa": 0.018301810092534634,
+          "N00006-Ja003E-PBGa": 0.01478243650132763,
+          "N00024-Ja001E-PBGa": 0.04946708559941405,
+          "N00025-Ja001E-PBGa": 0.03851293541736586,
+          "N00047-Ja005E-PBGa": 0.02238056248373795,
+          "S00008-Ja003E-PBCa": 0.02736293383276475,
+          "S00020-Ja003E-PBCa": 0.008954307736996589,
+          "S00037-Ja003E-PBCa": 0.028326629052158242,
+          "S00040-Ja005E-PBCa": 0.015323887686066476,
+          "S00042-Ja001E-PBCa": 0.015026020131989596,
+          "S00052-Ja005E-PBCa": 0.017194033293300513,
+          "S00053-Ja003E-PBCa": 0.034170966828909306,
+          "S00063-Ja003E-PBCa": 0.013582506996114057,
+          "S00076-Ja001E-PBCa": 0.03210221913408976,
+          "S00104-Ja003E-PBCa": 0.018610714741698255,
+          "S00114-Ja003E-PBCa": 0.006636662400709799,
+          "S00134-Ja003E-PBCa": 0.017974139372021355
+        },
+        "prediction_flags": [],
+        "status": "EVALUATED"
+      }
+    ],
+    "promotion_comparators": [
+      "best_residual",
+      "destroyed_link"
+    ],
+    "selection": null,
+    "status": "PILOT_FAIL",
+    "terminal_failure": {
+      "candidate_counts": {
+        "best_residual": {
+          "evaluated": 0,
+          "refused": 4
+        },
+        "primary": {
+          "evaluated": 2,
+          "refused": 6
+        },
+        "unstructured_centered_pm": {
+          "evaluated": 0,
+          "refused": 3
+        }
+      },
+      "held_margin_access_authorized": false,
+      "held_outcome_access_authorized": false,
+      "pilot_gate_reached": false,
+      "reason": "one or more frozen candidate families had no configuration that survived exact pilot reconstruction",
+      "stage": "candidate_availability",
+      "unavailable_candidate_families": [
+        "best_residual",
+        "unstructured_centered_pm"
+      ]
+    },
+    "unstructured_candidate_evaluations": [
+      {
+        "reason": "haldane coordinate is outside attainable fixed-margin range",
+        "refusal_detail": {
+          "affected_ordered_marker_pairs": [
+            {
+              "adt_marker": "CD4",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD19",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD33"
+            }
+          ],
+          "affected_pilot_samples": [
+            "S00020-Ja003E-PBCa",
+            "S00040-Ja005E-PBCa",
+            "G05061-Ja005E-PBCa",
+            "G05097-Ja005E-PBCa",
+            "G05164-Ja005E-PBCa",
+            "S00063-Ja003E-PBCa",
+            "S00114-Ja003E-PBCa",
+            "S00037-Ja003E-PBCa",
+            "H00058-Ha001E-PBGa",
+            "H00064-Ha001E-PBGa",
+            "H00070-Ha001E-PBGa",
+            "H00072-Ha001E-PBGa",
+            "N00006-Ja003E-PBGa",
+            "N00024-Ja001E-PBGa",
+            "N00025-Ja001E-PBGa",
+            "N00047-Ja005E-PBGa"
+          ],
+          "all_violations_sha256": "cd2bd91506fb9e620e6905648d3510c1cffe4489faf20b3f3f20b53f9c15f03c",
+          "coordinate_normalization": "Haldane coordinate",
+          "first_five_violations": [
+            {
+              "adt_marker": "CD33",
+              "attainable_lower": -3.5609161365314934,
+              "attainable_upper": 3.560916136531483,
+              "range_excess": 0.32291838094800296,
+              "rna_marker": "CD33",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": 3.883834517479486
+            },
+            {
+              "adt_marker": "CD33",
+              "attainable_lower": -3.4234227842197646,
+              "attainable_upper": 3.423422784219756,
+              "range_excess": 0.46041173325972995,
+              "rna_marker": "CD33",
+              "sample": "S00040-Ja005E-PBCa",
+              "transferred_coordinate": 3.883834517479486
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -3.1793259333054045,
+              "attainable_upper": 3.179325933305393,
+              "range_excess": 0.2588407757911457,
+              "rna_marker": "CD19",
+              "sample": "G05061-Ja005E-PBCa",
+              "transferred_coordinate": 3.4381667090965387
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -3.266789180564102,
+              "attainable_upper": 3.266789180564094,
+              "range_excess": 0.1713775285324446,
+              "rna_marker": "CD19",
+              "sample": "G05097-Ja005E-PBCa",
+              "transferred_coordinate": 3.4381667090965387
+            },
+            {
+              "adt_marker": "CD7",
+              "attainable_lower": -2.5886191015474416,
+              "attainable_upper": 2.588619101547441,
+              "range_excess": 0.02277054562255687,
+              "rna_marker": "CD19",
+              "sample": "G05164-Ja005E-PBCa",
+              "transferred_coordinate": -2.6113896471699984
+            }
+          ],
+          "maximum_range_excess": 1.820900968042169,
+          "out_of_range_sample_entity_pairs": 27,
+          "rule": "transferred coordinate must lie in every target's closed attainable fixed-margin interval; no clipping"
+        },
+        "ridge_penalty": 0.0,
+        "status": "REFUSED"
+      },
+      {
+        "reason": "haldane coordinate is outside attainable fixed-margin range",
+        "refusal_detail": {
+          "affected_ordered_marker_pairs": [
+            {
+              "adt_marker": "CD4",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD19",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD33",
+              "rna_marker": "CD33"
+            }
+          ],
+          "affected_pilot_samples": [
+            "S00020-Ja003E-PBCa",
+            "S00040-Ja005E-PBCa",
+            "G05061-Ja005E-PBCa",
+            "G05097-Ja005E-PBCa",
+            "G05164-Ja005E-PBCa",
+            "S00063-Ja003E-PBCa",
+            "S00114-Ja003E-PBCa",
+            "S00037-Ja003E-PBCa",
+            "H00058-Ha001E-PBGa",
+            "H00064-Ha001E-PBGa",
+            "H00070-Ha001E-PBGa",
+            "H00072-Ha001E-PBGa",
+            "N00006-Ja003E-PBGa",
+            "N00024-Ja001E-PBGa",
+            "N00025-Ja001E-PBGa",
+            "N00047-Ja005E-PBGa"
+          ],
+          "all_violations_sha256": "e8f56063b8fa294ae136332bc8ffe2f70316718cbee67eb511d8421d4f302748",
+          "coordinate_normalization": "Haldane coordinate",
+          "first_five_violations": [
+            {
+              "adt_marker": "CD33",
+              "attainable_lower": -3.5609161365314934,
+              "attainable_upper": 3.560916136531483,
+              "range_excess": 0.2138474121477847,
+              "rna_marker": "CD33",
+              "sample": "S00020-Ja003E-PBCa",
+              "transferred_coordinate": 3.774763548679268
+            },
+            {
+              "adt_marker": "CD33",
+              "attainable_lower": -3.4234227842197646,
+              "attainable_upper": 3.423422784219756,
+              "range_excess": 0.3513407644595117,
+              "rna_marker": "CD33",
+              "sample": "S00040-Ja005E-PBCa",
+              "transferred_coordinate": 3.774763548679268
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -3.1793259333054045,
+              "attainable_upper": 3.179325933305393,
+              "range_excess": 0.21224338571922807,
+              "rna_marker": "CD19",
+              "sample": "G05061-Ja005E-PBCa",
+              "transferred_coordinate": 3.391569319024621
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -3.266789180564102,
+              "attainable_upper": 3.266789180564094,
+              "range_excess": 0.12478013846052693,
+              "rna_marker": "CD19",
+              "sample": "G05097-Ja005E-PBCa",
+              "transferred_coordinate": 3.391569319024621
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.5886191015474416,
+              "attainable_upper": 2.588619101547441,
+              "range_excess": 0.8029502174771799,
+              "rna_marker": "CD19",
+              "sample": "G05164-Ja005E-PBCa",
+              "transferred_coordinate": 3.391569319024621
+            }
+          ],
+          "maximum_range_excess": 1.7743035779702514,
+          "out_of_range_sample_entity_pairs": 24,
+          "rule": "transferred coordinate must lie in every target's closed attainable fixed-margin interval; no clipping"
+        },
+        "ridge_penalty": 0.01,
+        "status": "REFUSED"
+      },
+      {
+        "reason": "haldane coordinate is outside attainable fixed-margin range",
+        "refusal_detail": {
+          "affected_ordered_marker_pairs": [
+            {
+              "adt_marker": "CD4",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD7",
+              "rna_marker": "CD19"
+            },
+            {
+              "adt_marker": "CD19",
+              "rna_marker": "CD19"
+            }
+          ],
+          "affected_pilot_samples": [
+            "G05164-Ja005E-PBCa",
+            "S00063-Ja003E-PBCa",
+            "H00064-Ha001E-PBGa",
+            "H00070-Ha001E-PBGa",
+            "H00072-Ha001E-PBGa",
+            "N00006-Ja003E-PBGa",
+            "N00024-Ja001E-PBGa",
+            "N00025-Ja001E-PBGa",
+            "N00047-Ja005E-PBGa"
+          ],
+          "all_violations_sha256": "683f85ee649f8adec1e28f1d6bc6fcd9373ac3410c3ffb8a7a00b068a83d62ef",
+          "coordinate_normalization": "Haldane coordinate",
+          "first_five_violations": [
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.5886191015474416,
+              "attainable_upper": 2.588619101547441,
+              "range_excess": 0.4342325063311461,
+              "rna_marker": "CD19",
+              "sample": "G05164-Ja005E-PBCa",
+              "transferred_coordinate": 3.022851607878587
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.5886191015474416,
+              "attainable_upper": 2.588619101547441,
+              "range_excess": 0.4342325063311461,
+              "rna_marker": "CD19",
+              "sample": "S00063-Ja003E-PBCa",
+              "transferred_coordinate": 3.022851607878587
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.980157061768531,
+              "attainable_upper": 2.9801570617685083,
+              "range_excess": 0.042694546110078946,
+              "rna_marker": "CD19",
+              "sample": "H00064-Ha001E-PBGa",
+              "transferred_coordinate": 3.022851607878587
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.8648991631303686,
+              "attainable_upper": 2.8648991631303447,
+              "range_excess": 0.15795244474824255,
+              "rna_marker": "CD19",
+              "sample": "H00070-Ha001E-PBGa",
+              "transferred_coordinate": 3.022851607878587
+            },
+            {
+              "adt_marker": "CD19",
+              "attainable_lower": -2.4175809478693915,
+              "attainable_upper": 2.41758094786941,
+              "range_excess": 0.6052706600091771,
+              "rna_marker": "CD19",
+              "sample": "H00072-Ha001E-PBGa",
+              "transferred_coordinate": 3.022851607878587
+            }
+          ],
+          "maximum_range_excess": 1.4055858668242176,
+          "out_of_range_sample_entity_pairs": 13,
+          "rule": "transferred coordinate must lie in every target's closed attainable fixed-margin interval; no clipping"
+        },
+        "ridge_penalty": 0.1,
+        "status": "REFUSED"
+      }
+    ]
+  },
+  "authorized_evaluation": {
+    "designation_sha256": "383a32f72431f292115a7ac5af24e2ae8c512f3d41d397109581da49a0f78595",
+    "error": "all matched Pearson/deviance comparators refused on pilot",
+    "error_type": "RuntimeError",
+    "protocol_sha256": "2aafce7be9700b0d53c9047e14ba55bb4e99c001bdf6b1918cf5c0e3d36dcc7c",
+    "runner_sha256": "e5db3c56c8e83be73ce2f763372d22d068b9d8e07648bf4084ff585686e3fe85",
+    "stopped_before_unstructured_candidate_evaluation": true
+  },
+  "created_at_utc": "2026-08-28T19:16:21Z",
+  "development_authorization_sha256": "d27834f19cecd2f650e2f042fcf0640706070f7e4c24b07e6cfe822016c0908b",
+  "development_result_written": false,
+  "held_access": {
+    "held_adt_numeric_values_read": 0,
+    "held_pairings_formed": 0,
+    "held_rna_margin_authorized": false,
+    "held_rna_margins_read": 0,
+    "held_truth_tables_formed": 0,
+    "permanently_closed": true
+  },
+  "post_failure_packaging": {
+    "estimator_or_gate_changed": false,
+    "held_data_accessed": false,
+    "matrix_reopened": false,
+    "purpose": "serialize the frozen failure and complete candidate-availability diagnostics from the already-authorized reduction",
+    "runner_sha256": "7873f58255eedd75a5b165d058fcd8e1b5c5f4dba24d38064cb8f747a12ff912"
+  },
+  "reduced_development_sha256": "06ebfad44c339d763a451662462d7c9dc60684e792d5c229a42eefd232302b2f",
+  "rerun_permitted": false,
+  "schema": "combat-citeseq-pilot-terminal-refusal/1.0",
+  "source_manifest_sha256": "15ac994a868092060aa4bd36874161daa3d7e22d7fc5b4f56d10511f907422b4",
+  "status": "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL"
+}

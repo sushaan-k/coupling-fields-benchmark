@@ -132,6 +132,9 @@ def _patch_designated_paths(root: Path, monkeypatch) -> dict[str, Path]:
         ),
         "DEFAULT_REDUCED": "data/development/combat_citeseq/reduced_v1.json",
         "DEFAULT_PILOT": "results/development/combat_citeseq_development.json",
+        "DEFAULT_PILOT_TERMINAL_REFUSAL": (
+            "results/development/combat_citeseq_pilot_terminal_refusal.json"
+        ),
         "DEFAULT_PREDICTION": "results/combat_citeseq_predictions.json",
         "DEFAULT_DEVELOPMENT_AUTHORIZATION": (
             "data/confirmation/combat_citeseq/development_authorization_v1.json"
@@ -470,6 +473,10 @@ def test_default_public_artifact_paths_match_the_designation():
     )["artifacts"]
     assert combat.DEFAULT_PILOT == combat.ROOT / designation["development_result"]
     assert (
+        combat.DEFAULT_PILOT_TERMINAL_REFUSAL
+        == combat.ROOT / designation["pilot_terminal_refusal"]
+    )
+    assert (
         combat.DEFAULT_PREDICTION_ATTEMPT
         == combat.ROOT / designation["held_prediction_attempt"]
     )
@@ -479,6 +486,55 @@ def test_default_public_artifact_paths_match_the_designation():
     assert (
         combat.DEFAULT_TERMINAL_REFUSAL == combat.ROOT / designation["terminal_refusal"]
     )
+
+
+def test_public_terminal_pilot_refusal_records_exact_failure_and_closure():
+    payload = combat._read_json(combat.DEFAULT_PILOT_TERMINAL_REFUSAL)
+
+    assert payload["status"] == "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL"
+    assert payload["authorized_evaluation"]["runner_sha256"] == (
+        combat.AUTHORIZED_PILOT_EVALUATOR_SHA256
+    )
+    assert payload["post_failure_packaging"]["runner_sha256"] == combat._sha256(
+        Path(combat.__file__)
+    )
+    assert payload["post_failure_packaging"]["matrix_reopened"] is False
+    assert payload["analysis"]["terminal_failure"]["candidate_counts"] == {
+        "primary": {"evaluated": 2, "refused": 6},
+        "best_residual": {"evaluated": 0, "refused": 4},
+        "unstructured_centered_pm": {"evaluated": 0, "refused": 3},
+    }
+    classical = {
+        (row["family"], row["centered"]): row["refusal_detail"]
+        for row in payload["analysis"]["classical_candidate_evaluations"]
+    }
+    assert {
+        key: (
+            value["out_of_range_sample_entity_pairs"],
+            len(value["affected_pilot_samples"]),
+            len(value["affected_ordered_marker_pairs"]),
+        )
+        for key, value in classical.items()
+    } == {
+        ("pearson", False): (134, 23, 19),
+        ("pearson", True): (134, 23, 19),
+        ("deviance", False): (102, 22, 15),
+        ("deviance", True): (102, 22, 15),
+    }
+    unstructured = {
+        row["ridge_penalty"]: row["refusal_detail"]["out_of_range_sample_entity_pairs"]
+        for row in payload["analysis"]["unstructured_candidate_evaluations"]
+    }
+    assert unstructured == {0.0: 27, 0.01: 24, 0.1: 13}
+    assert payload["held_access"] == {
+        "held_rna_margin_authorized": False,
+        "held_rna_margins_read": 0,
+        "held_adt_numeric_values_read": 0,
+        "held_pairings_formed": 0,
+        "held_truth_tables_formed": 0,
+        "permanently_closed": True,
+    }
+    assert payload["rerun_permitted"] is False
 
 
 def test_post_attempt_failure_writes_one_sanitized_terminal_refusal_and_blocks_rerun(
@@ -639,6 +695,7 @@ def test_pilot_validation_reconstructs_frozen_sample_order_after_json_round_trip
     }
     analysis = {
         "status": "PILOT_PASS",
+        "terminal_failure": None,
         "configuration_grid": [
             combat._configuration(config) for config in combat.CONFIG_GRID
         ],
@@ -828,6 +885,132 @@ def test_fit_pilot_refuses_singular_zero_ridge_and_continues_positive_ridges(
         (0.01, "EVALUATED"),
         (0.1, "EVALUATED"),
     ]
+
+
+def test_fit_pilot_serializes_required_candidate_unavailability(tmp_path, monkeypatch):
+    defaults = _patch_designated_paths(tmp_path, monkeypatch)
+    defaults["DEFAULT_REDUCED"].parent.mkdir(parents=True)
+    defaults["DEFAULT_REDUCED"].write_text("reduced\n")
+    calibration = tuple(f"cal-{index:02d}" for index in range(12))
+    pilot = tuple(f"pilot-{index:02d}" for index in range(24))
+    monkeypatch.setattr(
+        combat,
+        "_validated_reduced",
+        lambda *args: {
+            "by_sample": {},
+            "calibration_samples": calibration,
+            "pilot_samples": pilot,
+            "source": {"source_manifest_sha256": "a" * 64},
+            "payload": {
+                "development_authorization": {
+                    "authorization_sha256": "b" * 64,
+                    "binding_sha256": {
+                        "protocol": "c" * 64,
+                        "designation": "d" * 64,
+                    },
+                }
+            },
+        },
+    )
+    monkeypatch.setattr(
+        combat,
+        "_tables",
+        lambda records, samples, key: np.zeros(
+            (len(samples), len(combat.MARKERS), len(combat.MARKERS), 2, 2)
+        ),
+    )
+    incidence = np.eye(len(combat.MARKERS))
+    monkeypatch.setattr(
+        combat, "_graphs", lambda *args: (incidence, incidence, {"graph": "test"})
+    )
+    monkeypatch.setattr(
+        combat, "_field_model", lambda *args, **kwargs: {"kind": "primary-test"}
+    )
+    monkeypatch.setattr(
+        combat,
+        "_classical_model",
+        lambda tables, family, centered: {
+            "kind": "classical-test",
+            "family": family,
+            "centered": centered,
+        },
+    )
+    monkeypatch.setattr(
+        combat,
+        "_unstructured_model",
+        lambda tables, ridge: {"kind": "unstructured-test", "ridge": ridge},
+    )
+
+    def losses(model, values, flags):
+        if model["kind"] == "classical-test":
+            raise ValueError(
+                f"{model['family']} coordinate is outside attainable fixed-margin range"
+            )
+        if model["kind"] == "unstructured-test":
+            raise ValueError(
+                "haldane coordinate is outside attainable fixed-margin range"
+            )
+        return np.ones(len(values), dtype=float)
+
+    monkeypatch.setattr(combat, "_model_losses", losses)
+    monkeypatch.setattr(
+        combat,
+        "_fit_method_panel",
+        lambda *args: pytest.fail("candidate-unavailable pilot must not fit a panel"),
+    )
+
+    payload = combat.fit_pilot(
+        defaults["DEFAULT_SOURCE_MANIFEST"],
+        defaults["DEFAULT_REDUCED"],
+        defaults["DEFAULT_PILOT"],
+    )
+
+    assert payload["status"] == "PILOT_FAIL"
+    assert payload["passes_pilot_gate"] is False
+    assert payload["selection"] is None
+    assert payload["frozen_source_models"] is None
+    assert payload["terminal_failure"]["pilot_gate_reached"] is False
+    assert payload["terminal_failure"]["unavailable_candidate_families"] == [
+        "best_residual",
+        "unstructured_centered_pm",
+    ]
+    assert payload["terminal_failure"]["candidate_counts"] == {
+        "primary": {"evaluated": 8, "refused": 0},
+        "best_residual": {"evaluated": 0, "refused": 4},
+        "unstructured_centered_pm": {"evaluated": 0, "refused": 3},
+    }
+    assert combat._read_json(defaults["DEFAULT_PILOT"])["status"] == "PILOT_FAIL"
+
+
+def test_terminal_pilot_refusal_blocks_margin_and_outcome_authorization(
+    tmp_path, monkeypatch
+):
+    defaults = _patch_designated_paths(tmp_path, monkeypatch)
+    refusal = defaults["DEFAULT_PILOT_TERMINAL_REFUSAL"]
+    refusal.parent.mkdir(parents=True)
+    refusal.write_text("{}\n")
+    monkeypatch.setattr(
+        combat,
+        "_read_json",
+        lambda path: pytest.fail("authorization bytes were read after terminal pilot"),
+    )
+
+    with pytest.raises(PermissionError, match="permanently closes"):
+        combat._validated_margin_authorization(
+            defaults["DEFAULT_MARGIN_AUTHORIZATION"],
+            defaults["DEFAULT_SOURCE_MANIFEST"],
+            defaults["DEFAULT_PILOT"],
+            "a" * 40,
+        )
+    with pytest.raises(PermissionError, match="permanently closes"):
+        combat._validated_score_authorization(
+            defaults["DEFAULT_AUTHORIZATION"],
+            defaults["DEFAULT_PREDICTION"],
+            defaults["DEFAULT_SOURCE_MANIFEST"],
+            defaults["DEFAULT_PILOT"],
+            "a" * 40,
+            defaults["DEFAULT_REDUCED"],
+        )
 
 
 def test_exact_sample_pair_selection_never_pools_an_extra_timepoint(tmp_path):

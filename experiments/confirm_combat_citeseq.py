@@ -45,6 +45,9 @@ DEFAULT_SOURCE_MANIFEST = (
 )
 DEFAULT_REDUCED = ROOT / "data/development/combat_citeseq/reduced_v1.json"
 DEFAULT_PILOT = ROOT / "results/development/combat_citeseq_development.json"
+DEFAULT_PILOT_TERMINAL_REFUSAL = (
+    ROOT / "results/development/combat_citeseq_pilot_terminal_refusal.json"
+)
 DEFAULT_PREDICTION = ROOT / "results/combat_citeseq_predictions.json"
 DEFAULT_DEVELOPMENT_AUTHORIZATION = (
     ROOT / "data/confirmation/combat_citeseq/development_authorization_v1.json"
@@ -161,6 +164,15 @@ OFFICIAL_H5AD_SHA256 = (
 OFFICIAL_COMPOSITION_SHA256 = (
     "2ad7e92ab122ee52986d5748dbb23c335c02ec1f1f244943ce46fff94c585157"
 )
+AUTHORIZED_REDUCED_SHA256 = (
+    "06ebfad44c339d763a451662462d7c9dc60684e792d5c229a42eefd232302b2f"
+)
+AUTHORIZED_PILOT_EVALUATOR_SHA256 = (
+    "e5db3c56c8e83be73ce2f763372d22d068b9d8e07648bf4084ff585686e3fe85"
+)
+AUTHORIZED_DEVELOPMENT_AUTHORIZATION_SHA256 = (
+    "d27834f19cecd2f650e2f042fcf0640706070f7e4c24b07e6cfe822016c0908b"
+)
 PUBLIC_GITHUB_OWNER = "sushaan-k"
 PUBLIC_GITHUB_REPOSITORY = "coupling-fields-benchmark"
 PUBLIC_GITHUB_ORIGIN = (
@@ -273,6 +285,13 @@ def _require_designated_paths(
     for label, observed, expected in paths:
         if observed.resolve() != expected.resolve():
             raise PermissionError(f"{phase} {label} path differs from designation")
+
+
+def _require_pilot_not_terminal() -> None:
+    if DEFAULT_PILOT_TERMINAL_REFUSAL.is_file():
+        raise PermissionError(
+            "terminal pilot refusal permanently closes held margin and outcome access"
+        )
 
 
 def _sanitized_error(phase: str, error: Exception) -> str:
@@ -2255,6 +2274,92 @@ def _model_losses(
     return losses
 
 
+def _target_range_diagnostic(
+    model: dict[str, Any],
+    target_tables: np.ndarray,
+    samples: tuple[str, ...],
+) -> dict[str, Any] | None:
+    kind = model.get("kind")
+    if kind in {"centered_haldane", "raw_haldane"}:
+        family = "haldane"
+        centered = kind == "centered_haldane"
+        normalization = "Haldane coordinate"
+    elif kind == "classical_residual":
+        family = model.get("family")
+        if family not in {"pearson", "deviance"}:
+            return None
+        centered = model.get("centered") is True
+        normalization = "signed statistic divided by sqrt(target cell count)"
+    else:
+        return None
+    coordinate = np.asarray(model.get("source_coordinate"), dtype=float)
+    if coordinate.shape != (len(MARKERS) ** 2,) or not np.isfinite(coordinate).all():
+        return None
+    coordinate = coordinate.reshape(len(MARKERS), len(MARKERS))
+    values = np.asarray(target_tables)
+    violations = []
+    for sample_index, sample in enumerate(samples):
+        rows, columns = _sample_margins(values[sample_index])
+        for first in range(len(MARKERS)):
+            for second in range(len(MARKERS)):
+                r, c = _integer_margins(rows[first], columns[second])
+                support, statistic, _, null_mean = _moment_support(
+                    family, int(r[0]), int(r[1]), int(c[0]), int(c[1])
+                )
+                if len(support) == 1:
+                    continue
+                offset = null_mean if centered else 0.0
+                lower = float(statistic[0] - offset)
+                upper = float(statistic[-1] - offset)
+                transferred = float(coordinate[first, second])
+                if kind == "classical_residual":
+                    scale = math.sqrt(float(r.sum()))
+                    lower /= scale
+                    upper /= scale
+                if lower <= transferred <= upper:
+                    continue
+                excess = (
+                    lower - transferred if transferred < lower else transferred - upper
+                )
+                violations.append(
+                    {
+                        "sample": sample,
+                        "rna_marker": MARKERS[first],
+                        "adt_marker": MARKERS[second],
+                        "transferred_coordinate": transferred,
+                        "attainable_lower": lower,
+                        "attainable_upper": upper,
+                        "range_excess": float(excess),
+                    }
+                )
+    if not violations:
+        return None
+    affected_samples = [
+        sample
+        for sample in samples
+        if any(row["sample"] == sample for row in violations)
+    ]
+    affected_pairs = [
+        {"rna_marker": first, "adt_marker": second}
+        for first in MARKERS
+        for second in MARKERS
+        if any(
+            row["rna_marker"] == first and row["adt_marker"] == second
+            for row in violations
+        )
+    ]
+    return {
+        "rule": "transferred coordinate must lie in every target's closed attainable fixed-margin interval; no clipping",
+        "coordinate_normalization": normalization,
+        "out_of_range_sample_entity_pairs": len(violations),
+        "affected_pilot_samples": affected_samples,
+        "affected_ordered_marker_pairs": affected_pairs,
+        "maximum_range_excess": max(row["range_excess"] for row in violations),
+        "first_five_violations": violations[:5],
+        "all_violations_sha256": _canonical_json_sha256(violations),
+    }
+
+
 def _named_prediction_flags(
     records: list[dict[str, Any]], samples: tuple[str, ...]
 ) -> list[dict[str, Any]]:
@@ -2412,6 +2517,7 @@ def _pilot_analysis(
     for config in CONFIG_GRID:
         neighbors, ridge, graph_penalty = config
         first, second, graph = _graphs(records, calibration_samples, neighbors)
+        model = None
         try:
             model = _attach_graph(
                 _field_model(
@@ -2440,46 +2546,37 @@ def _pilot_analysis(
                 }
             )
         except (ValueError, FloatingPointError, np.linalg.LinAlgError) as error:
-            candidate_rows.append(
-                {
-                    "configuration": _configuration(config),
-                    "status": "REFUSED",
-                    "reason": str(error),
-                }
-            )
+            row = {
+                "configuration": _configuration(config),
+                "status": "REFUSED",
+                "reason": str(error),
+            }
+            if model is not None:
+                detail = _target_range_diagnostic(model, pilot_tables, pilot_samples)
+                if detail is not None:
+                    row["refusal_detail"] = detail
+            candidate_rows.append(row)
     successful = [row for row in candidate_rows if row["status"] == "EVALUATED"]
-    if not successful:
-        raise RuntimeError("all eight primary configurations refused on pilot")
-    selected_row = min(
-        successful,
-        key=lambda row: (
-            row["mean_pilot_deviance_per_cell"],
-            row["configuration"]["graph_neighbors"],
-            row["configuration"]["ridge_penalty"],
-            row["configuration"]["graph_penalty"],
-        ),
-    )
-    selected_config = (
-        int(selected_row["configuration"]["graph_neighbors"]),
-        float(selected_row["configuration"]["ridge_penalty"]),
-        float(selected_row["configuration"]["graph_penalty"]),
-    )
 
     classical_rows = []
     for family, centered in CLASSICAL_GRID:
+        model = None
         try:
             model = _classical_model(calibration_tables, family, centered)
             flags = []
             losses = _model_losses(model, pilot_tables, flags)
         except (ValueError, FloatingPointError, np.linalg.LinAlgError) as error:
-            classical_rows.append(
-                {
-                    "family": family,
-                    "centered": centered,
-                    "status": "REFUSED",
-                    "reason": str(error),
-                }
-            )
+            row = {
+                "family": family,
+                "centered": centered,
+                "status": "REFUSED",
+                "reason": str(error),
+            }
+            if model is not None:
+                detail = _target_range_diagnostic(model, pilot_tables, pilot_samples)
+                if detail is not None:
+                    row["refusal_detail"] = detail
+            classical_rows.append(row)
             continue
         classical_rows.append(
             {
@@ -2496,31 +2593,25 @@ def _pilot_analysis(
     successful_classical = [
         row for row in classical_rows if row["status"] == "EVALUATED"
     ]
-    if not successful_classical:
-        raise RuntimeError("all matched Pearson/deviance comparators refused on pilot")
-    selected_classical = min(
-        successful_classical,
-        key=lambda row: (
-            row["mean_pilot_deviance_per_cell"],
-            row["family"],
-            row["centered"],
-        ),
-    )
-    residual_choice = (
-        str(selected_classical["family"]),
-        bool(selected_classical["centered"]),
-    )
 
     unstructured_rows = []
     for ridge in (0.0, 0.01, 0.1):
+        model = None
         try:
             model = _unstructured_model(calibration_tables, ridge)
             flags = []
             losses = _model_losses(model, pilot_tables, flags)
         except (ValueError, FloatingPointError, np.linalg.LinAlgError) as error:
-            unstructured_rows.append(
-                {"ridge_penalty": ridge, "status": "REFUSED", "reason": str(error)}
-            )
+            row = {
+                "ridge_penalty": ridge,
+                "status": "REFUSED",
+                "reason": str(error),
+            }
+            if model is not None:
+                detail = _target_range_diagnostic(model, pilot_tables, pilot_samples)
+                if detail is not None:
+                    row["refusal_detail"] = detail
+            unstructured_rows.append(row)
             continue
         unstructured_rows.append(
             {
@@ -2536,8 +2627,80 @@ def _pilot_analysis(
     successful_unstructured = [
         row for row in unstructured_rows if row["status"] == "EVALUATED"
     ]
-    if not successful_unstructured:
-        raise RuntimeError("all ridge-only PM Haldane ablations refused on pilot")
+    unavailable = []
+    for name, rows in (
+        ("primary", successful),
+        ("best_residual", successful_classical),
+        ("unstructured_centered_pm", successful_unstructured),
+    ):
+        if not rows:
+            unavailable.append(name)
+    if unavailable:
+        candidate_counts = {
+            "primary": {
+                "evaluated": len(successful),
+                "refused": len(candidate_rows) - len(successful),
+            },
+            "best_residual": {
+                "evaluated": len(successful_classical),
+                "refused": len(classical_rows) - len(successful_classical),
+            },
+            "unstructured_centered_pm": {
+                "evaluated": len(successful_unstructured),
+                "refused": len(unstructured_rows) - len(successful_unstructured),
+            },
+        }
+        return {
+            "status": "PILOT_FAIL",
+            "terminal_failure": {
+                "stage": "candidate_availability",
+                "reason": "one or more frozen candidate families had no configuration that survived exact pilot reconstruction",
+                "unavailable_candidate_families": unavailable,
+                "candidate_counts": candidate_counts,
+                "pilot_gate_reached": False,
+                "held_margin_access_authorized": False,
+                "held_outcome_access_authorized": False,
+            },
+            "configuration_grid": [_configuration(config) for config in CONFIG_GRID],
+            "primary_candidate_evaluations": candidate_rows,
+            "classical_candidate_evaluations": classical_rows,
+            "unstructured_candidate_evaluations": unstructured_rows,
+            "selection": None,
+            "pilot_losses": {},
+            "pilot_prediction_flags": {},
+            "pilot_comparisons": {},
+            "promotion_comparators": list(PROMOTION_COMPARATORS),
+            "passes_pilot_gate": False,
+            "frozen_source_models": None,
+            "all_development_graph": None,
+        }
+
+    selected_row = min(
+        successful,
+        key=lambda row: (
+            row["mean_pilot_deviance_per_cell"],
+            row["configuration"]["graph_neighbors"],
+            row["configuration"]["ridge_penalty"],
+            row["configuration"]["graph_penalty"],
+        ),
+    )
+    selected_config = (
+        int(selected_row["configuration"]["graph_neighbors"]),
+        float(selected_row["configuration"]["ridge_penalty"]),
+        float(selected_row["configuration"]["graph_penalty"]),
+    )
+    selected_classical = min(
+        successful_classical,
+        key=lambda row: (
+            row["mean_pilot_deviance_per_cell"],
+            row["family"],
+            row["centered"],
+        ),
+    )
+    residual_choice = (
+        str(selected_classical["family"]),
+        bool(selected_classical["centered"]),
+    )
     selected_unstructured_ridge = float(
         min(
             successful_unstructured,
@@ -2582,6 +2745,7 @@ def _pilot_analysis(
         all_graph = frozen_models["primary"]["graph"]
     return {
         "status": "PILOT_PASS" if passes else "PILOT_FAIL",
+        "terminal_failure": None,
         "configuration_grid": [_configuration(config) for config in CONFIG_GRID],
         "primary_candidate_evaluations": candidate_rows,
         "classical_candidate_evaluations": classical_rows,
@@ -2618,6 +2782,7 @@ def fit_pilot(
 ) -> dict[str, Any]:
     """Select on 24 pilot samples, gate, then refit once on all 36."""
 
+    _require_pilot_not_terminal()
     _require_designated_paths(
         "fit-pilot",
         (
@@ -2659,6 +2824,144 @@ def fit_pilot(
     return payload
 
 
+def package_terminal_pilot_failure(
+    source_path: Path,
+    reduced_path: Path,
+    output_path: Path,
+) -> dict[str, Any]:
+    """Package the authorized pilot exception without reopening any matrix."""
+
+    _require_designated_paths(
+        "package-pilot-failure",
+        (
+            ("source manifest", source_path, DEFAULT_SOURCE_MANIFEST),
+            ("reduced development", reduced_path, DEFAULT_REDUCED),
+            ("terminal refusal", output_path, DEFAULT_PILOT_TERMINAL_REFUSAL),
+        ),
+    )
+    if output_path.exists():
+        raise FileExistsError("terminal pilot refusal already exists")
+    if any(
+        path.exists()
+        for path in (
+            DEFAULT_PILOT,
+            DEFAULT_PREDICTION_ATTEMPT,
+            DEFAULT_PREDICTION,
+            DEFAULT_SCORE_ATTEMPT,
+            DEFAULT_SCORE,
+            DEFAULT_TERMINAL_REFUSAL,
+        )
+    ):
+        raise PermissionError(
+            "pilot closure requires no pilot result or held-access artifact"
+        )
+    if _sha256(reduced_path) != AUTHORIZED_REDUCED_SHA256:
+        raise PermissionError("authorized reduced-development bytes differ")
+    reduced = _read_json(reduced_path)
+    authorization = reduced.get("development_authorization")
+    if (
+        reduced.get("schema") != "combat-citeseq-reduced-development/1.0"
+        or reduced.get("status") != "DEVELOPMENT_REDUCTION_COMPLETE"
+        or reduced.get("source_manifest_sha256") != _sha256(source_path)
+        or not isinstance(authorization, dict)
+        or authorization.get("authorization_sha256")
+        != AUTHORIZED_DEVELOPMENT_AUTHORIZATION_SHA256
+        or authorization.get("binding_sha256", {}).get("runner")
+        != AUTHORIZED_PILOT_EVALUATOR_SHA256
+        or reduced.get("access_audit", {}).get("held_donor_matrix_rows_read") != 0
+        or reduced.get("access_audit", {}).get("held_site_matrix_rows_read") != 0
+    ):
+        raise PermissionError("authorized pilot reduction provenance differs")
+    source = _read_json(source_path)
+    source_records = _sample_records(source)
+    roles = assign_roles(source_records)
+    calibration_samples = _samples_for_ids(source_records, CALIBRATION_IDS)
+    pilot_samples = _samples_for_ids(source_records, PILOT_IDS)
+    records = reduced.get("samples")
+    if not isinstance(records, list) or len(records) != 36:
+        raise PermissionError("authorized pilot reduction has the wrong sample count")
+    by_sample = {
+        record.get("sample"): record for record in records if isinstance(record, dict)
+    }
+    expected = set(calibration_samples) | set(pilot_samples)
+    if (
+        set(by_sample) != expected
+        or any(by_sample[sample].get("role") != roles[sample] for sample in expected)
+        or any(
+            by_sample[sample].get("role") not in {"calibration", "pilot"}
+            for sample in expected
+        )
+    ):
+        raise PermissionError("authorized pilot reduction sample set differs")
+
+    analysis = _pilot_analysis(by_sample, calibration_samples, pilot_samples)
+    terminal = analysis.get("terminal_failure")
+    expected_counts = {
+        "primary": {"evaluated": 2, "refused": 6},
+        "best_residual": {"evaluated": 0, "refused": 4},
+        "unstructured_centered_pm": {"evaluated": 0, "refused": 3},
+    }
+    if (
+        analysis.get("status") != "PILOT_FAIL"
+        or not isinstance(terminal, dict)
+        or terminal.get("stage") != "candidate_availability"
+        or terminal.get("unavailable_candidate_families")
+        != ["best_residual", "unstructured_centered_pm"]
+        or terminal.get("candidate_counts") != expected_counts
+        or any(
+            row.get("reason")
+            not in {
+                "pearson coordinate is outside attainable fixed-margin range",
+                "deviance coordinate is outside attainable fixed-margin range",
+            }
+            for row in analysis["classical_candidate_evaluations"]
+        )
+        or any(
+            row.get("reason")
+            != "haldane coordinate is outside attainable fixed-margin range"
+            for row in analysis["unstructured_candidate_evaluations"]
+        )
+    ):
+        raise RuntimeError("post-failure pilot diagnostics differ from observation")
+
+    payload = {
+        "schema": "combat-citeseq-pilot-terminal-refusal/1.0",
+        "status": "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL",
+        "created_at_utc": _timestamp(),
+        "source_manifest_sha256": _sha256(source_path),
+        "reduced_development_sha256": _sha256(reduced_path),
+        "development_authorization_sha256": (authorization["authorization_sha256"]),
+        "authorized_evaluation": {
+            "runner_sha256": AUTHORIZED_PILOT_EVALUATOR_SHA256,
+            "protocol_sha256": authorization["binding_sha256"]["protocol"],
+            "designation_sha256": authorization["binding_sha256"]["designation"],
+            "error_type": "RuntimeError",
+            "error": "all matched Pearson/deviance comparators refused on pilot",
+            "stopped_before_unstructured_candidate_evaluation": True,
+        },
+        "post_failure_packaging": {
+            "runner_sha256": _sha256(Path(__file__)),
+            "purpose": "serialize the frozen failure and complete candidate-availability diagnostics from the already-authorized reduction",
+            "estimator_or_gate_changed": False,
+            "matrix_reopened": False,
+            "held_data_accessed": False,
+        },
+        "analysis": analysis,
+        "held_access": {
+            "held_rna_margin_authorized": False,
+            "held_rna_margins_read": 0,
+            "held_adt_numeric_values_read": 0,
+            "held_pairings_formed": 0,
+            "held_truth_tables_formed": 0,
+            "permanently_closed": True,
+        },
+        "development_result_written": False,
+        "rerun_permitted": False,
+    }
+    _write_json(output_path, payload, exclusive=True)
+    return payload
+
+
 def _validated_pilot(
     pilot_path: Path,
     source_path: Path,
@@ -2683,6 +2986,7 @@ def _validated_pilot(
         "designation_sha256",
         "runner_sha256",
         "status",
+        "terminal_failure",
         "configuration_grid",
         "primary_candidate_evaluations",
         "classical_candidate_evaluations",
@@ -2747,6 +3051,7 @@ def _validated_margin_authorization(
     pilot_path: Path,
     authorization_commit: str,
 ) -> dict[str, Any]:
+    _require_pilot_not_terminal()
     payload = _read_json(path)
     if (
         payload.get("schema") != "combat-citeseq-held-rna-margin-authorization/1.0"
@@ -2921,6 +3226,7 @@ def predict_held_margins(
 ) -> dict[str, Any]:
     """Seal held predictions after aggregate RNA-margin extraction."""
 
+    _require_pilot_not_terminal()
     reduced_path = DEFAULT_REDUCED if reduced_path is None else reduced_path
     _require_designated_paths(
         "predict-held-margins",
@@ -3068,6 +3374,7 @@ def _validated_prediction(
     pilot_path: Path,
     reduced_path: Path | None = None,
 ) -> dict[str, Any]:
+    _require_pilot_not_terminal()
     reduced_path = DEFAULT_REDUCED if reduced_path is None else reduced_path
     prediction = _read_json(prediction_path)
     source = _validated_source(source_path, verify_hash=False)
@@ -3275,6 +3582,7 @@ def _validated_score_authorization(
     authorization_commit: str,
     reduced_path: Path | None = None,
 ) -> dict[str, Any]:
+    _require_pilot_not_terminal()
     reduced_path = DEFAULT_REDUCED if reduced_path is None else reduced_path
     authorization = _read_json(authorization_path)
     if (
@@ -3473,6 +3781,7 @@ def score_held(
 ) -> dict[str, Any]:
     """Access held linkage once, after public prediction authorization."""
 
+    _require_pilot_not_terminal()
     reduced_path = DEFAULT_REDUCED if reduced_path is None else reduced_path
     _require_designated_paths(
         "score-held",
@@ -3669,6 +3978,15 @@ def main() -> None:
     fit_parser.add_argument("--reduced", type=Path, default=DEFAULT_REDUCED)
     fit_parser.add_argument("--output", type=Path, default=DEFAULT_PILOT)
 
+    package_parser = subparsers.add_parser("package-pilot-failure")
+    package_parser.add_argument(
+        "--source-manifest", type=Path, default=DEFAULT_SOURCE_MANIFEST
+    )
+    package_parser.add_argument("--reduced", type=Path, default=DEFAULT_REDUCED)
+    package_parser.add_argument(
+        "--output", type=Path, default=DEFAULT_PILOT_TERMINAL_REFUSAL
+    )
+
     predict_parser = subparsers.add_parser("predict-held-margins")
     _add_runtime_source_arguments(predict_parser)
     predict_parser.add_argument("--pilot", type=Path, default=DEFAULT_PILOT)
@@ -3724,6 +4042,10 @@ def main() -> None:
         )
     elif args.phase == "fit-pilot":
         payload = fit_pilot(args.source_manifest, args.reduced, args.output)
+    elif args.phase == "package-pilot-failure":
+        payload = package_terminal_pilot_failure(
+            args.source_manifest, args.reduced, args.output
+        )
     elif args.phase == "predict-held-margins":
         payload = _run_terminal_phase(
             "held_prediction",

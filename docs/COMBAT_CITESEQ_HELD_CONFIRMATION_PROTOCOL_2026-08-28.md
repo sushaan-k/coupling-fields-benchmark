@@ -383,3 +383,26 @@ field-transfer result but sets primary-method promotion to false. These are
 candidate-specific confirmatory tests and are not a
 familywise correction across earlier public candidate searches. The first
 terminal score or refusal is final.
+
+## Terminal execution record
+
+This section records the outcome after the prospective specification above was
+frozen. The authorized evaluator stopped during pilot candidate selection with
+`RuntimeError: all matched Pearson/deviance comparators refused on pilot`.
+This is the specified fixed-margin refusal, not an optimizer or normalization
+failure. The raw and exact-null-centered Pearson variants each had 134
+out-of-range sample--entity pairs spanning 23 of 24 pilot samples and 19 ordered
+marker pairs. The corresponding deviance variants each had 102 violations
+spanning 22 samples and 15 marker pairs. Two of eight primary configurations
+were evaluable, so the primary family itself was not degenerate.
+
+A deterministic post-failure diagnostic on the same authorized reduction,
+without reopening a matrix, found that all three ridge-only Haldane candidates
+also violated the unchanged no-clipping rule: ridge `0`, `0.01`, and `0.1` had
+27, 24, and 13 out-of-range sample--entity pairs, respectively. This diagnostic
+did not select a model, alter an estimator, or repair a gate. No matched
+classical comparator or graph-specific ablation remained, so the pilot gate was
+not reached. No held RNA margin, held ADT value, RNA--ADT pairing, or held truth
+table was accessed. Held access is permanently closed, and the candidate may
+not be rerun. The structured terminal record is
+`results/development/combat_citeseq_pilot_terminal_refusal.json`.
