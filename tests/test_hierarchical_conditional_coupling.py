@@ -488,11 +488,6 @@ def test_warning_free_convergence_on_39_by_100_product_graph():
     incidence = _chain_incidence(side)
     with warnings.catch_warnings():
         warnings.simplefilter("error")
-        warnings.filterwarnings(
-            "ignore",
-            message=".*encountered in matmul",
-            category=RuntimeWarning,
-        )
         fit = fit_hierarchical_conditional_log_odds(
             tables,
             incidence,

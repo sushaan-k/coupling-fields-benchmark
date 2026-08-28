@@ -3,7 +3,7 @@
 This repository is a public, source-visible benchmark for
 perturbation-specific dependence in linked single-cell assays. It preserves
 positive, negative, and refused panels under one fixed evaluation contract.
-It contains seven scored public-data panels and four transparent procedural
+It contains seven scored public-data panels and five transparent procedural
 refusals. PoKI-seq stopped at its state-occupancy preflight, Lawlor stopped when
 the frozen reducer rejected the deposited ADT object type, and Hao stopped when
 fewer than 12 markers passed its frozen marginal-support rule. None of those
@@ -11,6 +11,16 @@ three runs formed a held joint-table score. The prospectively frozen Kotliarov
 PBMC candidate also stopped during preparation, before estimator fitting or
 scoring, because fewer than four RNA-only lineages met its frozen donor-support
 rule.
+
+The BMMC candidate ended in a terminal numerical development refusal after
+three recorded attempts. It produced no prediction or held score and cannot be
+revived. Its freeze-era runner is retained under `experiments/historical/`,
+while the terminal-attempt runner, evaluator, and exact test occupy their
+current public paths and match the hashes recorded by attempt 3. GSE279451 is
+the next and only outcome-disabled candidate: its public
+analysis plan, 19/21 physical-donor split, metadata/feature-axis preflight,
+1,024-cell budget, estimator, controls, gates, acquisition/reducer/evaluator,
+and one-shot scorer are checksum-bound here before any count acquisition.
 
 The method represents each finite joint table by its double-centered
 log-linear interaction, centers finite-sample estimates with fixed-margin
@@ -20,6 +30,13 @@ saturated log-linear interaction; it is not claimed to be a different
 classical estimand. Every prospective confirmation compares the complete
 pipeline against full Pearson and signed Poisson-deviance residual matrices
 from the independence model on the same predicted held tables.
+
+The seven scored panels and earlier procedural refusals retain their exact
+historical estimator at `mapreg/historical/coupling_fields_29a3875.py`. The
+current `mapreg/coupling_fields.py` contains the deterministic einsum update
+and is separately bound, with the hierarchical estimator and its transitive
+dependencies, by the outcome-disabled GSE279451 plan. Historical result hashes
+have not been relabeled as if they were produced by the current implementation.
 
 ## Verify the snapshot
 
@@ -35,9 +52,14 @@ shasum -a 256 -c SHA256SUMS
 
 This verifies every distributed byte without acquiring candidate outcomes.
 The full `./reproduce.sh` entry point runs the estimator and candidate tests,
-except for two preserved assertions that certify the earlier
-disabled phase. Those exact test bytes remain checksum-bound and passed in the
-fresh-clone verification record. The scGPT embedding's expected hash and
+except for two preserved assertions that certify the earlier disabled phase
+and one BMMC deposited-axis assertion whose source file is not redistributed.
+Those exact test bytes remain checksum-bound; the disabled-phase assertions
+passed in the fresh-clone verification record, and the BMMC axis assertion is
+retained with the terminal evaluator test. The Kotliarov disabled-preflight
+assertion is run separately in an isolated copy containing its checksum-bound
+historical estimator, so the current GSE dependency is never substituted for
+the code recorded by that earlier run. The scGPT embedding's expected hash and
 derivation inputs are recorded in
 `data/scgpt_gene_embeddings_manifest.json`. Raw public matrices are not
 redistributed.
@@ -71,14 +93,15 @@ estimate was formed, and the candidate was not rerun.
 
 ## Next held-donor protocol
 
-`BMMC_CANDIDATE_DESIGNATION.json` prospectively fixes a donor-disjoint RNA--ADT
-confirmation in the NeurIPS 2021 BMMC CITE-seq data. It reserves six physical
-donors, fixes ten markers and 100 ordered pairs, and requires a direct win over
-the strongest matched Pearson or Poisson-deviance interaction-residual
-transfer. The versioned complete H5AD had not been downloaded when this
-protocol snapshot was committed; no feature value, prediction, or held score
-exists. BMMC is disabled after any Sanger held-score attempt, so it cannot be
-used as a replacement after observing a Sanger result.
+`GSE279451_CANDIDATE_DESIGNATION.json` prospectively fixes a donor-disjoint
+RNA--ADT confirmation in the GSE279451 adult sepsis CITE-seq data. It reserves
+19 development and 21 held physical donors, fixes nine markers and 81 ordered
+pairs, and compares the hierarchical exact conditional estimator directly with
+the strongest matched Pearson or Poisson-deviance residual transfer and strong
+controls. Count acquisition remains disabled: the active source manifest,
+development acquisition/evaluation attempts or refusals, reduced development
+artifact, prediction, authorization, score attempt, and held result do not
+exist. BMMC is terminally closed and cannot be revived.
 
 PoKI-seq is not a third scoreable candidate. Its frozen execution stopped at
 the state-occupancy support gate before a prediction or score was written.
@@ -95,8 +118,8 @@ For Kotliarov, the disabled freeze passed fresh-clone verification before
 outcome access was authorized. The authorization verification is recorded in
 `docs/KOTLIAROV_OUTCOME_AUTHORIZATION_VERIFICATION_2026-08-28.json`, and the
 terminal refusal is recorded in `results/kotliarov_pbmc_public_refusal.json`.
-This is a public code-path seal, not a blinded data enclave or a registry-hosted
-preregistration.
+This is a source-visible public analysis plan and code-path seal, not a blinded
+data enclave, registry-hosted preregistration, or open-source licensing claim.
 
 The derived scGPT gene embedding used by the graph prior is not bundled
 pending upstream model-weight redistribution review. Its expected output and
@@ -114,9 +137,10 @@ input hashes, official source URLs, and derivation script are supplied in
 - `data/`: source manifests and metadata-only eligibility records.
 - `tests/`: integrity, estimator, comparator, and pairing-seal tests.
 
-The disabled-outcome analysis-plan freeze is published at
+The prior Kotliarov disabled-outcome analysis-plan freeze is published at
 `https://github.com/sushaan-k/coupling-fields-benchmark` under tag
-`confirmatory-family-v3`. It has no archive DOI and grants no code license. It
-must not be called open source, DOI-archived, or registry-hosted
+`confirmatory-family-v3`. The GSE279451 integration in this working tree has no
+commit or tag yet. The repository has no archive DOI and grants no code
+license. It must not be called open source, DOI-archived, or registry-hosted
 preregistration. Upstream datasets and model weights remain governed by their
 own terms.

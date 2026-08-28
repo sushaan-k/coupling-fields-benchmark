@@ -1,0 +1,26 @@
+{
+  "access_audit": {
+    "allowed_count_rows_read": 4607,
+    "held_csr_data_slices": 0,
+    "held_csr_indices_slices": 0,
+    "held_feature_rows_forbidden": 4419,
+    "raw_x_opened": false,
+    "sanger_path_or_content_accessed": false,
+    "x_opened": false
+  },
+  "attempt": 2,
+  "command": "python3 -W error -m experiments.evaluate_scmmib_bmmc_exact_development > tmp/scmmib_bmmc_development_stdout_retry.json",
+  "execution": {
+    "development_result_written": false,
+    "development_metrics_inspected": false,
+    "interrupted_by": "KeyboardInterrupt issued immediately after learning that an independent mechanical formatter changed the evaluator bytes during execution",
+    "redirected_stdout_bytes": 0,
+    "stage_at_interruption": "hierarchical ridge-only development candidate fitting"
+  },
+  "formatted_evaluator_sha256_required_for_completed_retry": "614710340ee9ae043a591c0c9b5c6123762f921dd2e572e67c40a404b90fa929",
+  "reason": "The in-memory evaluator was loaded from the pre-format byte freeze. The execution was stopped so the only completed numerical-equivalence retry would use the independently formatted and verified bytes.",
+  "schema": "scmmib-bmmc-development-aborted-byte-transition/1.0",
+  "source_manifest_sha256": "0869c3db2a5c22d7e211f31b75d66ee85c63de6bce74782934a17ec090d83e37",
+  "status": "ABORTED_BYTE_FREEZE_TRANSITION",
+  "unformatted_evaluator_sha256": "ae041d39ff53c25352e16fbd78ad7176178a9cd5af5fad769b65934aed922ea2"
+}

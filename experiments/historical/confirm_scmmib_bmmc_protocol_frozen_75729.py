@@ -152,12 +152,12 @@ def _validated_source() -> tuple[dict[str, object], dict[str, Path]]:
     if source.get("held_feature_rows_may_be_read") is not False:
         raise PermissionError("source manifest does not forbid held feature rows")
     complete_record = source.get("complete_cite_h5ad")
-    assay = source.get("combined_assay")
+    assays = source.get("internal_assays")
     metadata_record = source.get("metadata")
     preflight_record = source.get("preflight")
     if not all(
         isinstance(value, dict)
-        for value in (complete_record, assay, metadata_record, preflight_record)
+        for value in (complete_record, assays, metadata_record, preflight_record)
     ):
         raise PermissionError("source manifest records are incomplete")
     complete = _bound_path(complete_record.get("local_path"), "complete CITE H5AD")
@@ -174,18 +174,20 @@ def _validated_source() -> tuple[dict[str, object], dict[str, Path]]:
         raise PermissionError("complete CITE H5AD object identity differs")
     _validate_hash(complete, complete_record.get("sha256"), "complete CITE H5AD")
     paths = {"complete_cite_h5ad": complete}
-    if assay.get("matrix_is_raw_counts") is not True:
-        raise PermissionError("combined matrix is not certified as raw counts")
-    internal = (
-        assay.get("obs_index_hdf5_path"),
-        assay.get("feature_index_hdf5_path"),
-        assay.get("feature_type_codes_hdf5_path"),
-        assay.get("matrix_hdf5_path"),
-    )
-    if any(not isinstance(value, str) or not value for value in internal):
-        raise PermissionError("combined-assay internal HDF5 paths are not bound")
-    if assay.get("feature_type_categories") != ["ADT", "GEX"]:
-        raise PermissionError("combined-assay feature categories differ")
+    for modality in ("rna", "adt"):
+        record = assays.get(modality)
+        if (
+            not isinstance(record, dict)
+            or record.get("matrix_is_raw_counts") is not True
+        ):
+            raise PermissionError(f"{modality} is not certified as raw counts")
+        internal = (
+            record.get("obs_index_hdf5_path"),
+            record.get("feature_index_hdf5_path"),
+            record.get("matrix_hdf5_path"),
+        )
+        if any(not isinstance(value, str) or not value for value in internal):
+            raise PermissionError(f"{modality} internal HDF5 paths are not bound")
     metadata = _bound_path(metadata_record.get("local_path"), "metadata")
     if metadata_record.get("sha256") != METADATA_SHA256:
         raise PermissionError("metadata is not bound to the preflight source")
@@ -238,45 +240,20 @@ def _decode(values: np.ndarray) -> list[str]:
 def _axis(path: Path, assay: dict[str, object]) -> dict[str, object]:
     obs_path = str(assay["obs_index_hdf5_path"])
     feature_path = str(assay["feature_index_hdf5_path"])
-    feature_type_path = str(assay["feature_type_codes_hdf5_path"])
     matrix_path = str(assay["matrix_hdf5_path"])
     with h5py.File(path, "r") as handle:
         barcodes = _decode(handle[obs_path][:])
         features = _decode(handle[feature_path][:])
-        feature_type_codes = np.asarray(handle[feature_type_path][:], dtype=int)
-        categories = _decode(handle[handle[feature_type_path].attrs["categories"]][:])
         matrix = handle[matrix_path]
         if matrix.attrs.get("encoding-type") != "csr_matrix":
             raise ValueError("top-level H5AD X must be CSR")
         shape = tuple(int(value) for value in matrix.attrs["shape"])
     if shape != (len(barcodes), len(features)) or len(set(barcodes)) != len(barcodes):
         raise ValueError("H5AD axes and X shape are inconsistent")
-    if categories != assay["feature_type_categories"]:
-        raise ValueError("H5AD feature-type categories differ")
-    if feature_type_codes.shape != (len(features),):
-        raise ValueError("H5AD feature-type axis is inconsistent")
-    marker_indices: dict[str, list[int]] = {"rna": [], "adt": []}
-    for marker in MARKERS:
-        for modality, category in (("rna", "GEX"), ("adt", "ADT")):
-            code = categories.index(category)
-            matches = [
-                index
-                for index, name in enumerate(features)
-                if name == marker and feature_type_codes[index] == code
-            ]
-            if len(matches) != 1:
-                raise ValueError(
-                    f"locked marker {marker} has {len(matches)} {category} matches"
-                )
-            marker_indices[modality].append(matches[0])
-    return {
-        "barcodes": barcodes,
-        "features": features,
-        "feature_type_codes": feature_type_codes,
-        "feature_type_categories": categories,
-        "marker_indices": marker_indices,
-        "shape": shape,
-    }
+    missing = sorted(set(MARKERS) - set(features))
+    if missing:
+        raise ValueError(f"locked markers are absent: {missing}")
+    return {"barcodes": barcodes, "features": features, "shape": shape}
 
 
 def _row_vectors(
@@ -409,11 +386,15 @@ def predict() -> dict[str, object]:
     source, paths = _validated_source()
     rows, roles = _metadata_roles(paths["metadata"])
     complete = paths["complete_cite_h5ad"]
-    axis = _axis(complete, source["combined_assay"])
-    role_rows = _row_vectors(axis, roles)
-    if np.intersect1d(
-        role_rows["held"], np.r_[role_rows["fit"], role_rows["development"]]
-    ).size:
+    axes = {
+        name: _axis(complete, source["internal_assays"][name])
+        for name in ("rna", "adt")
+    }
+    role_rows = {name: _row_vectors(axis, roles) for name, axis in axes.items()}
+    if any(
+        np.intersect1d(value["held"], np.r_[value["fit"], value["development"]]).size
+        for value in role_rows.values()
+    ):
         raise PermissionError("held and non-held H5AD rows overlap")
     source_hash = _sha256(SOURCE_MANIFEST)
     development = _validated_development(source_hash)
@@ -441,9 +422,8 @@ def predict() -> dict[str, object]:
         "source_summary": {
             "complete_cite_h5ad_sha256": source["complete_cite_h5ad"]["sha256"],
             "metadata_rows": len(rows),
-            "combined_shape": axis["shape"],
-            "rna_marker_columns": axis["marker_indices"]["rna"],
-            "adt_marker_columns": axis["marker_indices"]["adt"],
+            "rna_shape": axes["rna"]["shape"],
+            "adt_shape": axes["adt"]["shape"],
         },
         "frozen_source_model": development["frozen_source_model"],
         "development_gate": development["gate"],
@@ -452,7 +432,9 @@ def predict() -> dict[str, object]:
             "held_modality_margins_computed": 0,
             "held_tables_formed": 0,
             "raw_x_opened": False,
-            "held_row_count": len(role_rows["held"]),
+            "held_row_counts": {
+                name: len(value["held"]) for name, value in role_rows.items()
+            },
         },
     }
     _write_json_exclusive(PREDICTION, payload)

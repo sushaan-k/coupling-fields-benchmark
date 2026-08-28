@@ -2,8 +2,8 @@
 
 **Release candidate:** `coupling-fields-v1`
 **Snapshot date:** 28 August 2026
-**Distribution status:** public, tag-addressed Kotliarov candidate freeze with
-a terminal preparation refusal
+**Distribution status:** release candidate for an outcome-disabled GSE279451
+held-donor analysis plan; prior terminal refusals retained
 
 ## Scope
 
@@ -13,8 +13,8 @@ machine-readable aggregate results, analysis protocols, source manifests,
 deterministic runners, the reference implementation, and integrity tests.
 Failed and refused panels are part of the benchmark.
 
-The current snapshot covers seven scored public-data panels and four
-procedural refusals. One refusal followed a prospectively frozen candidate:
+The current snapshot covers seven scored public-data panels, five procedural
+refusals, and one outcome-disabled prospective candidate:
 
 | Study | Linked measurements | Evaluation unit | Decision |
 |---|---|---|---|
@@ -29,6 +29,8 @@ procedural refusals. One refusal followed a prospectively frozen candidate:
 | Lawlor HCA PBMC | RNA and surface protein | held donors | reducer refusal; not scored |
 | Hao, GSE164378 | RNA and surface protein | held donors | support refusal; not scored |
 | Kotliarov PBMC | RNA and surface protein | held batch and disjoint donors | support refusal; not scored |
+| NeurIPS 2021 BMMC CITE-seq | RNA and surface protein | held donors | terminal numerical development refusal; not scored |
+| GSE279451 adult sepsis CITE-seq | RNA and surface protein | 19 development and 21 held donors | outcome access disabled |
 
 The exact values, uncertainty intervals, controls, decisions, and provenance
 are in `results/final_public_benchmark_table.tsv`. The evidence boundary is in
@@ -40,7 +42,7 @@ frozen reducer's unsupported deposited-object check and Hao at the frozen
 development marginal-support gate. Their refusal artifacts are included and
 are not predictive failures.
 
-The most recent scoreable family contained one candidate, Kotliarov PBMC
+The preceding scoreable family contained one candidate, Kotliarov PBMC
 CITE-seq, bound in `KOTLIAROV_CANDIDATE_DESIGNATION.json`. It uses ten
 development donors from batch 1 and nine disjoint held donors from batch 2,
 excluding donor 209 from both because that donor occurs in both batches. Tag
@@ -52,6 +54,21 @@ retained cells in every one of 19 donors. The ADT file was byte-hashed for
 integrity, but its HDF5 count dataset was never opened. No held RNA-ADT
 pairing, joint table, prediction, score, or performance estimate was formed.
 The candidate is terminal and was not rerun.
+
+The subsequent BMMC candidate ended after three recorded development attempts.
+The frozen exact conditional optimizer failed its final common-effect refit
+after the permitted numerical-equivalence repair. No prediction or held score
+was formed, all six held-donor count slices remained unopened, and BMMC cannot
+be revived.
+
+`GSE279451_CANDIDATE_DESIGNATION.json` defines the current prospective
+candidate. It fixes 19 development donors, 21 disjoint held donors, nine
+RNA--ADT markers, 81 ordered interactions, and 1,024 deterministically selected
+cells per donor. The development gate and held gate compare the hierarchical
+exact conditional estimator directly with the strongest matched signed Pearson
+or Poisson-deviance residual transfer. At this snapshot, the source manifest,
+development attempt, reduced tables, prediction, authorization, and score do
+not exist; no count matrix has been acquired.
 
 PoKI-seq is outside the current scoreable family. Its earlier frozen run
 failed the state-occupancy support gate before prediction and scoring. The
@@ -99,26 +116,24 @@ squared-error differences, and link-destruction contrasts. Ninety-five percent
 intervals use 2,000 deterministic target bootstrap draws for predictive panels.
 All declared panels remain in the table regardless of outcome.
 
-The Kotliarov protocol fixed eligibility, RNA-only lineages, exact aliases,
-donor split, estimator grid, complete comparators, same-margin endpoint,
-donor-cluster inference, pass criteria, and refusal rules before count access.
-The frozen RNA support rule stopped preparation before the ADT count dataset
-or any held pairing was opened, so the classical and structured prediction
-comparisons were not evaluated.
+The GSE279451 protocol fixes the donor split, marker panel, cell budget, state
+rules, graph construction, estimator grid, classical comparators, donor-equal
+loss, inference, one-shot seals, and refusal rules before count access. Every
+development configuration is selected by leave-one-donor-out prediction. Held
+truth cannot be paired until a prediction artifact is committed publicly and
+its exact bytes are authorized from an immutable commit.
 
 ## Classical interaction baseline
 
-The prospective protocols retain the full 3-by-3 signed Poisson-deviance and
-Pearson residual matrices from the independence model under the same state
-tables and held-unit split. A four-coordinate projection is not used for the
-primary classical comparison because it discards residual entries. Every
-method predicts the same held joint table from a common observed baseline
-anchor and held margins, and all tables are written before held pairing is
-opened. The coupling field is a log-linear interaction coordinate; it is not
-claimed to be distinct from a saturated log-linear interaction
-parameterization. The residual comparison tests whether conditional centering
-and structured field estimation add predictive value over the classical
-independence-residual construction.
+The completed multi-state panels retain full signed Poisson-deviance and
+Pearson residual matrices from the independence model. The GSE279451
+head-to-head uses the one-degree-of-freedom signed square-root Pearson statistic
+and signed square-root Poisson deviance for each 2-by-2 table, with raw and
+exact-null-centered variants selected on the same development folds. Every
+method predicts the same held table from the same margins before held pairing
+is opened. The coupling field is a log-linear interaction coordinate; the
+comparison asks whether exact conditional estimation and cross-entity
+regularization improve prediction over the classical residual construction.
 
 ## Integrity and reproducibility
 
@@ -146,13 +161,21 @@ and Kotliarov are terminally closed; the frozen Kotliarov candidate permits no
 rerun. Its canonical refusal is
 `results/kotliarov_pbmc_public_refusal.json`.
 
+The three BMMC development records are checksum-bound and close that candidate
+without a held score. The GSE279451 protocol, disabled source and authorization
+templates, acquisition/reducer/evaluator, one-shot scorer, and poison tests are
+also checksum-bound. They permit development access only after a public freeze
+and held access only after a passing development result and a second immutable
+prediction authorization.
+
 The packaged runners expose separated prediction and scoring commands. They
 refuse to form held joint pairings until the exact prediction SHA-256 and byte
 count are bound at an immutable public URL and commit through the candidate's
 authorization and release files. This package contains the templates
 `LAWLOR_SCORE_AUTHORIZATION_TEMPLATE.json` and
 `HAO_SCORE_AUTHORIZATION_TEMPLATE.json` and
-`KOTLIAROV_SCORE_AUTHORIZATION_TEMPLATE.json` for historical audit.
+`KOTLIAROV_SCORE_AUTHORIZATION_TEMPLATE.json` for historical audit, plus
+`GSE279451_SCORE_AUTHORIZATION_TEMPLATE.json` for the current disabled plan.
 
 ## Known limits
 
@@ -162,9 +185,10 @@ arm-level linkage evidence but not a replicated treatment contrast. The only
 completed held-donor panel, Arce, fails the full gate. Target-bootstrap
 intervals condition on the deposited biological units. State definitions and
 finite-sample association estimates remain representation-dependent.
-Lawlor, Hao, Kotliarov, and PoKI-seq have no held joint-table score and add no
-positive or negative predictive evidence. They remain visible as procedural
-refusals.
+Lawlor, Hao, Kotliarov, PoKI-seq, and BMMC have no held joint-table score and
+add no positive or negative held predictive evidence. They remain visible as
+procedural refusals. GSE279451 is a prospective protocol only and contributes
+no performance evidence until its locked sequence completes.
 
 The completed three-panel atlas was rerun with the current full-matrix
 classical residual implementation, SHA-256 `35516883a567...`. Coupling fields
@@ -178,12 +202,13 @@ The following fields state the distribution boundary of this snapshot:
 | Field | Status |
 |---|---|
 | Public repository URL | `https://github.com/sushaan-k/coupling-fields-benchmark` |
-| Immutable candidate-freeze tag | `confirmatory-family-v3` |
+| Prior immutable candidate-freeze tag | `confirmatory-family-v3` |
+| GSE279451 candidate-freeze tag | pending for this release candidate |
 | Archive DOI | not assigned |
 | Repository code license | none granted |
 | scGPT-derived embedding | omitted; checksum and derivation manifest supplied |
 | Raw public matrices | omitted; upstream URLs and checksums supplied |
-| Completed-result implementation provenance | current and checksum-bound |
+| Completed-result implementation provenance | historical run bytes archived and checksum-bound |
 
 This package is public and source-visible. It must not be described as open
 source, DOI-archived, or registry-hosted preregistration. A public

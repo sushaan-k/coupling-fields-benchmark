@@ -1,0 +1,38 @@
+{
+  "schema": "gse279451-confirmation-family-policy/1.0",
+  "status": "OUTCOME_ACCESS_DISABLED",
+  "candidate": "GSE279451",
+  "candidate_may_run_only_if_no_sanger_terminal_artifact_exists": true,
+  "development_attempt_policy": {
+    "attempt_marker": "data/development/gse279451_sepsis/development_attempt_v1.json",
+    "terminal_refusal": "results/development/gse279451_sepsis_development_acquisition_refusal.json",
+    "marker_precedes_first_development_matrix_acquisition": true,
+    "rerun_after_marker": false
+  },
+  "development_evaluation_policy": {
+    "attempt_marker": "data/development/gse279451_sepsis/evaluation_attempt_v1.json",
+    "terminal_refusal": "results/development/gse279451_sepsis_evaluation_refusal.json",
+    "marker_precedes_numerical_evaluation": true,
+    "rerun_after_marker": false
+  },
+  "sanger_terminal_artifacts": [
+    "data/confirmation/scmmib_sanger/score_attempt_v1.json",
+    "results/scmmib_sanger_exact_confirmation.json",
+    "results/scmmib_sanger_exact_score_refusal.json"
+  ],
+  "bmmc": {
+    "status": "TERMINAL_CLOSED_CANNOT_BE_REVIVED",
+    "terminal_artifact": "results/development/scmmib_bmmc_exact_development_attempt_3_terminal_refusal.json",
+    "terminal_artifact_sha256": "caf920719694487ba228dc64ac14ed4a6579619349f496f7154372920f3e128c",
+    "terminal_status": "TERMINAL_NUMERICAL_EQUIVALENCE_RETRY_REFUSAL",
+    "may_be_repaired_or_rescored": false,
+    "may_be_used_as_an_unadjusted_backup": false
+  },
+  "multiplicity": {
+    "family_members_attempted_before_gse279451": [
+      "SCMMIB BMMC development"
+    ],
+    "sanger_attempted": false,
+    "policy": "GSE279451 is the next candidate after the terminal BMMC development refusal; any Sanger held-score attempt permanently disables GSE279451"
+  }
+}

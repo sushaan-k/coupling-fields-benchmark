@@ -1,0 +1,212 @@
+{
+  "schema": "gse279451-sepsis-metadata-preflight/1.0",
+  "created_utc": "2026-08-28T10:15:00Z",
+  "status": "VIABLE_OUTCOME_DISABLED",
+  "accession": "GSE279451",
+  "study": {
+    "title": "Single-cell multi-omic landscape reveals anatomical-specific immune features in adult and pediatric sepsis",
+    "doi": "10.1038/s41590-025-02345-x",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE279451",
+    "raw_tar_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE279nnn/GSE279451/suppl/GSE279451_RAW.tar",
+    "miniml_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE279nnn/GSE279451/miniml/GSE279451_family.xml.tgz"
+  },
+  "outcome_access": {
+    "matrix_files_downloaded": 0,
+    "matrix_entries_decoded": 0,
+    "permitted_inputs_opened": [
+      "GEO series and sample metadata",
+      "GSE279451_family.xml.tgz",
+      "all 40 barcode axes",
+      "all 40 feature axes",
+      "HTTP and FTP headers"
+    ],
+    "forbidden_until_public_freeze": [
+      "any matrix.mtx.gz byte range",
+      "any RNA or ADT feature value",
+      "any held marginal or paired table",
+      "any author-derived outcome summary used for method selection"
+    ]
+  },
+  "deposited_design": {
+    "samples": 40,
+    "donor_identity_rule": "one separately deposited adult sample accession is one donor, verified by exact set equality to 40 unique adult CITE-seq Donor IDs in Nature Supplementary Table 1",
+    "groups": {
+      "adult_healthy_control": 3,
+      "adult_icu_control": 5,
+      "adult_sepsis_abdominal": 14,
+      "adult_sepsis_respiratory": 14,
+      "adult_sepsis_urinary": 4
+    },
+    "barcode_axis_cells": 330112,
+    "minimum_cells_per_donor": 5570,
+    "maximum_cells_per_donor": 11922
+  },
+  "feature_axis": {
+    "rows": 37695,
+    "gene_expression_rows": 37487,
+    "antibody_capture_rows": 208,
+    "identical_uncompressed_axis_sha256_across_all_40_samples": "ff6a914dd33b3a3c2dd913ed439ed4b150fd8ab210595dec2447a283eb9b417b",
+    "locked_bmmc_panel": [
+      "CD4",
+      "CD7",
+      "CD14",
+      "CD19",
+      "CD33",
+      "CD38",
+      "CD44",
+      "CD47",
+      "CD52",
+      "CD93"
+    ],
+    "exact_rna_and_adt_overlap": [
+      "CD4",
+      "CD7",
+      "CD14",
+      "CD19",
+      "CD33",
+      "CD38",
+      "CD44",
+      "CD47",
+      "CD52"
+    ],
+    "missing_adt": [
+      "CD93"
+    ],
+    "ordered_rna_by_adt_entities": 81
+  },
+  "split": {
+    "seed": "gse279451-hierarchical-v1",
+    "rule": "within each of healthy, ICU, abdominal, respiratory, and urinary strata, sort ascending SHA256(seed + GSM accession); first floor(n/2) are development and the remainder are held",
+    "development": {
+      "donors": 19,
+      "barcode_axis_cells": 159540,
+      "compressed_matrix_bytes": 1092558347,
+      "strata": {
+        "healthy": 1,
+        "icu": 2,
+        "abdominal": 7,
+        "respiratory": 7,
+        "urinary": 2
+      },
+      "accessions": [
+        "GSM8571043",
+        "GSM8571044",
+        "GSM8571047",
+        "GSM8571048",
+        "GSM8571049",
+        "GSM8571052",
+        "GSM8571055",
+        "GSM8571056",
+        "GSM8571060",
+        "GSM8571061",
+        "GSM8571065",
+        "GSM8571068",
+        "GSM8571072",
+        "GSM8571073",
+        "GSM8571074",
+        "GSM8571075",
+        "GSM8571077",
+        "GSM8571079",
+        "GSM8571081"
+      ]
+    },
+    "held": {
+      "donors": 21,
+      "barcode_axis_cells": 170572,
+      "compressed_matrix_bytes": 1226518852,
+      "strata": {
+        "healthy": 2,
+        "icu": 3,
+        "abdominal": 7,
+        "respiratory": 7,
+        "urinary": 2
+      },
+      "accessions": [
+        "GSM8571042",
+        "GSM8571045",
+        "GSM8571046",
+        "GSM8571050",
+        "GSM8571051",
+        "GSM8571053",
+        "GSM8571054",
+        "GSM8571057",
+        "GSM8571058",
+        "GSM8571059",
+        "GSM8571062",
+        "GSM8571063",
+        "GSM8571064",
+        "GSM8571066",
+        "GSM8571067",
+        "GSM8571069",
+        "GSM8571070",
+        "GSM8571071",
+        "GSM8571076",
+        "GSM8571078",
+        "GSM8571080"
+      ]
+    }
+  },
+  "download_feasibility": {
+    "raw_tar_bytes": 2334412800,
+    "sum_of_40_matrix_gzip_bytes": 2319077199,
+    "sum_of_40_barcode_and_feature_gzip_bytes": 15230404,
+    "largest_single_matrix_gzip_bytes": 85929901,
+    "workspace_free_bytes_at_preflight": 3750584320,
+    "full_raw_tar_fits_at_preflight": true,
+    "required_strategy": "stream one sample at a time and discard source MTX after integrity-checked reduction; do not retain the tar and an extracted copy together"
+  },
+  "held_donor_power": {
+    "biological_replicates": 21,
+    "minimum_favorable_donors_gate": 16,
+    "exact_test": "exhaustive one-sided sign-flip test of mean(primary minus comparator donor loss), inclusive lower tail over all 2^21 sign vectors",
+    "maximum_exact_one_sided_sign_flip_p": 0.025,
+    "gate_comparators": [
+      "strongest classical residual",
+      "destroyed-link hierarchical graph"
+    ],
+    "limitation": "sign-flip power and paired-loss effect-size power cannot be estimated without prohibited donor loss differences; no binomial sign-test power claim is made"
+  },
+  "prospective_gate": {
+    "candidate_is_viable": true,
+    "confirmation_is_frozen": true,
+    "held_gate": {
+      "comparators": [
+        "strongest classical residual",
+        "destroyed-link hierarchical graph"
+      ],
+      "minimum_relative_deviance_reduction": 0.05,
+      "paired_bootstrap_upper_95_percent_endpoint_below_zero": true,
+      "minimum_favorable_donors": 16,
+      "maximum_exact_one_sided_sign_flip_p": 0.025
+    },
+    "primary_cell_budget": {
+      "cells_per_donor": 1024,
+      "selection_salt": "GSE279451-CELL-BUDGET-v1",
+      "selection_rule": "ascending SHA256(salt + accession + sample + barcode), first 1,024",
+      "uses_feature_values": false,
+      "all_cells_analysis": "secondary sensitivity only after the held decision"
+    },
+    "next_required_public_artifacts": [],
+    "next_required_action": "publish the checksum-bound outcome-disabled plan before nonheld count acquisition",
+    "terminal_refusal_conditions": [
+      "a repeated person occurs across sample accessions",
+      "any feature axis differs after decompression",
+      "fewer than 64 of 81 fixed entities are margin-informative in any held donor",
+      "the fixed deposited barcode axis or locked marker mapping fails integrity validation",
+      "held pairing is accessed before prediction and public score authorization"
+    ]
+  },
+  "metadata_integrity": {
+    "miniml_bytes": 5283,
+    "miniml_sha256": "77678a220cd77f89d7115e64d0b581e13002871040d779d88f6a7dbe8d6dffd6",
+    "donor_identity_source": {
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41590-025-02345-x/MediaObjects/41590_2025_2345_MOESM4_ESM.xlsx",
+      "bytes": 69665,
+      "sha256": "bb25e5dd6b51c8e13e904dcb6a7448d29fa0de9b3ca90c03f6a8df0ead81d0e4",
+      "sheet": "Sheet 1_Adult",
+      "columns_read": ["Donor ID", "CITE-seq"],
+      "unique_adult_cite_seq_donor_ids": 40,
+      "geo_sample_name_set_equal": true
+    }
+  }
+}

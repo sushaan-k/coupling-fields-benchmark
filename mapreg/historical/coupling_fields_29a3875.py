@@ -256,21 +256,12 @@ def normalized_hypergraph_laplacian(
             raise ValueError("hyperedge_weight must be finite and positive")
 
     edge_degree = membership.sum(axis=0)
-    # ``matmul`` in the system Accelerate build can emit spurious floating-
-    # point warnings for these finite nonnegative operands.  The equivalent
-    # contractions avoid that backend without changing the calculation.
-    vertex_degree = np.einsum("ij,j->i", membership, weights, optimize=False)
+    vertex_degree = membership @ weights
     inverse_vertex = np.zeros_like(vertex_degree)
     supported = vertex_degree > 0.0
     inverse_vertex[supported] = 1.0 / np.sqrt(vertex_degree[supported])
     scaled = inverse_vertex[:, None] * membership
-    adjacency = np.einsum(
-        "ie,je,e->ij",
-        scaled,
-        scaled,
-        weights / edge_degree,
-        optimize=False,
-    )
+    adjacency = (scaled * (weights / edge_degree)[None, :]) @ scaled.T
     laplacian = -adjacency
     diagonal = np.arange(membership.shape[0])
     laplacian[diagonal[supported], diagonal[supported]] += 1.0

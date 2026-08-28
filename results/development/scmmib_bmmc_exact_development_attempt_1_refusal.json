@@ -1,0 +1,32 @@
+{
+  "access_audit": {
+    "allowed_count_rows_read": 4607,
+    "allowed_csr_data_slices": 4088,
+    "held_csr_data_slices": 0,
+    "held_csr_indices_slices": 0,
+    "held_feature_rows_forbidden": 4419,
+    "held_row_index_sha256": "ca6b282037d2c269b06daa0db92dd16fc2c6e7ec48b022aec07745a7d6b52fc4",
+    "raw_x_opened": false,
+    "selected_row_index_sha256": "f1a840d156925e53e00f2a4149adba79cf669ec4e4e5d6571ba15766ebc58f07",
+    "x_opened": false
+  },
+  "attempt": 1,
+  "command": "python3 -m experiments.evaluate_scmmib_bmmc_exact_development > tmp/scmmib_bmmc_development_stdout.json",
+  "exception": {
+    "message": "conditional-likelihood optimizer did not converge",
+    "stage": "three-donor final common_effect_ridge_only refit",
+    "type": "CouplingEstimationRefusal"
+  },
+  "metric_access": {
+    "development_metrics_inspected_after_failure": false,
+    "development_result_written": false,
+    "redirected_stdout_bytes": 0
+  },
+  "repair_class": "NUMERICAL_EQUIVALENCE_ONLY",
+  "repair_constraint": "Replace the unstable Haldane initializer with the zero vector for the unchanged convex common-effect objective; preserve split, panel, tables, grid, objective, gates, and comparators.",
+  "schema": "scmmib-bmmc-development-attempt-refusal/1.0",
+  "software_audit_sha256": "f4a445a39ae65b0dbd18790536e43331ebe826811c865163400abfa4a9593583",
+  "source_manifest_sha256": "0869c3db2a5c22d7e211f31b75d66ee85c63de6bce74782934a17ec090d83e37",
+  "status": "TERMINAL_ATTEMPT_REFUSAL_NUMERICAL",
+  "unrepaired_evaluator_sha256": "52bd8058f4c70de68819746aa5eb68a106f66d30c4aaf36a413e735a31af50df"
+}

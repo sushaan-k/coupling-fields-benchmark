@@ -1,0 +1,123 @@
+{
+  "schema": "gse279451-sepsis-candidate-designation/1.0",
+  "status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
+  "accession": "GSE279451",
+  "study_doi": "10.1038/s41590-025-02345-x",
+  "protocol": "docs/GSE279451_SEPSIS_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
+  "metadata_preflight": "data/development/gse279451_sepsis/metadata_preflight_v1.json",
+  "source_manifest_template": "data/confirmation/gse279451_sepsis/source_manifest_template_v1.json",
+  "source_manifest": "data/confirmation/gse279451_sepsis/source_manifest_v1.json",
+  "family_policy": "data/confirmation/gse279451_sepsis/family_policy_v1.json",
+  "authorization_template": "data/confirmation/gse279451_sepsis/score_authorization_template_v1.json",
+  "authorization": "data/confirmation/gse279451_sepsis/score_authorization_v1.json",
+  "acquisition": "experiments/acquire_gse279451_nonheld.py",
+  "development_attempt": "data/development/gse279451_sepsis/development_attempt_v1.json",
+  "development_terminal_refusal": "results/development/gse279451_sepsis_development_acquisition_refusal.json",
+  "evaluation_attempt": "data/development/gse279451_sepsis/evaluation_attempt_v1.json",
+  "evaluation_terminal_refusal": "results/development/gse279451_sepsis_evaluation_refusal.json",
+  "reducer": "experiments/reduce_gse279451_sepsis.py",
+  "development_evaluator": "experiments/evaluate_gse279451_sepsis_development.py",
+  "runner": "experiments/confirm_gse279451_sepsis.py",
+  "tests": "tests/test_gse279451_sepsis_confirmation.py",
+  "development_result": "results/development/gse279451_sepsis_exact_development.json",
+  "prediction": "results/gse279451_sepsis_exact_predictions.json",
+  "score_attempt": "data/confirmation/gse279451_sepsis/score_attempt_v1.json",
+  "score_output": "results/gse279451_sepsis_exact_confirmation.json",
+  "score_refusal": "results/gse279451_sepsis_exact_score_refusal.json",
+  "design": {
+    "biological_unit": "one physical donor represented by one GSM accession, verified by the unique adult CITE-seq Donor IDs in Nature Supplementary Table 1",
+    "development_donors": 19,
+    "held_donors": 21,
+    "split_rule": "within each deposited clinical stratum, ascending SHA256('gse279451-hierarchical-v1' + GSM accession); first floor(n/2) development, remainder held",
+    "development_accessions": [
+      "GSM8571043", "GSM8571044", "GSM8571047", "GSM8571048",
+      "GSM8571049", "GSM8571052", "GSM8571055", "GSM8571056",
+      "GSM8571060", "GSM8571061", "GSM8571065", "GSM8571068",
+      "GSM8571072", "GSM8571073", "GSM8571074", "GSM8571075",
+      "GSM8571077", "GSM8571079", "GSM8571081"
+    ],
+    "held_accessions": [
+      "GSM8571042", "GSM8571045", "GSM8571046", "GSM8571050",
+      "GSM8571051", "GSM8571053", "GSM8571054", "GSM8571057",
+      "GSM8571058", "GSM8571059", "GSM8571062", "GSM8571063",
+      "GSM8571064", "GSM8571066", "GSM8571067", "GSM8571069",
+      "GSM8571070", "GSM8571071", "GSM8571076", "GSM8571078",
+      "GSM8571080"
+    ],
+    "markers": [
+      "CD4", "CD7", "CD14", "CD19", "CD33", "CD38", "CD44",
+      "CD47", "CD52"
+    ],
+    "ordered_entities": 81,
+    "primary_cell_budget_per_donor": 1024,
+    "cell_selection_rule": "retain the first 1,024 barcodes after ascending SHA256('GSE279451-CELL-BUDGET-v1' + accession + sample + barcode)",
+    "rna_state": "raw UMI count greater than zero",
+    "adt_state": "per-donor deterministic lower/upper midrank with exactly 512 lower cells and SHA256 tie breaking",
+    "primary_cell_qc": "none; malformed or source-inconsistent axes are terminal refusals",
+    "rna_graph_profile": "per-marker donor vector of binary detection prevalence, centered and scaled within each development training fold",
+    "adt_graph_profile": "per-marker donor vector of mean per-cell log1p(100 * marker count / nine-marker ADT total), centered and scaled within each development training fold",
+    "graph_pairing_access": false,
+    "primary_support_gate": "every donor must have at least 64 of 81 margin-informative entities on its fixed 1,024-cell axis",
+    "all_cells_analysis": "secondary sensitivity only after the held decision; it cannot reselect or alter the primary decision"
+  },
+  "selection": {
+    "rule": "all hyperparameters and the strongest classical residual are selected by donor-level leave-one-out CV over the 19 development donors; every fold refits preprocessing, graphs, and estimators on 18 donors",
+    "final_refit": "one refit on all 19 development donors",
+    "bootstrap": "20,000 donor resamples from NumPy default_rng(20260828), shared within phase; linear 0.025/0.975 quantiles",
+    "relative_reduction": "(donor-equal comparator mean deviance - donor-equal primary mean deviance) / donor-equal comparator mean deviance",
+    "held_sign_flip": "exhaustive 2^21 sign vectors on donor loss differences; inclusive lower tail of the donor-equal mean; zero ties duplicated in denominator",
+    "primary": "donor-heterogeneity-aware exact fixed-margin hierarchical conditional log odds",
+    "classical_candidates": [
+      "sqrt(n)-normalized signed Pearson residual, raw",
+      "sqrt(n)-normalized signed Pearson residual, exact-null-centered",
+      "sqrt(n)-normalized signed Poisson-deviance residual, raw",
+      "sqrt(n)-normalized signed Poisson-deviance residual, exact-null-centered"
+    ],
+    "controls": [
+      "hierarchical ridge-only",
+      "common-effect graph",
+      "common-effect ridge-only",
+      "destroyed-link hierarchical graph",
+      "label-permuted hierarchical graph",
+      "independence"
+    ]
+  },
+  "gates": {
+    "development": {
+      "comparators": [
+        "strongest classical residual",
+        "destroyed-link hierarchical graph",
+        "hierarchical ridge-only",
+        "common-effect graph"
+      ],
+      "minimum_relative_deviance_reduction": 0.05,
+      "paired_bootstrap_upper_95_percent_endpoint_below_zero": true,
+      "minimum_favorable_donors": 15,
+      "donors": 19
+    },
+    "held": {
+      "gate_comparators": [
+        "strongest classical residual",
+        "destroyed-link hierarchical graph"
+      ],
+      "minimum_relative_deviance_reduction": 0.05,
+      "paired_bootstrap_upper_95_percent_endpoint_below_zero": true,
+      "minimum_favorable_donors": 16,
+      "donors": 21,
+      "maximum_exact_one_sided_sign_flip_p": 0.025
+    }
+  },
+  "family": {
+    "gse279451_disabled_after_any_sanger_held_score_attempt": true,
+    "bmmc_status": "TERMINAL_CLOSED_CANNOT_BE_REVIVED"
+  },
+  "outcome_access": {
+    "matrix_entries_read_at_designation": 0,
+    "development_attempt_marker_required_before_first_development_matrix_acquisition": true,
+    "any_post_marker_acquisition_or_reduction_failure_is_terminal": true,
+    "evaluation_attempt_marker_required_before_numerical_development_evaluation": true,
+    "any_post_evaluation_marker_numerical_or_output_failure_is_terminal": true,
+    "held_matrix_reads_permitted_before_public_prediction_authorization": false,
+    "maximum_score_runs": 1
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "access_audit": {
+    "allowed_count_rows_read": 4607,
+    "full_indptr_read": false,
+    "held_csr_data_slices": 0,
+    "held_csr_indices_slices": 0,
+    "held_feature_rows_forbidden": 4419,
+    "raw_x_opened": false,
+    "sanger_path_or_content_accessed": false,
+    "x_opened": false
+  },
+  "attempt": 3,
+  "command": "python3 -W error -m experiments.evaluate_scmmib_bmmc_exact_development > tmp/scmmib_bmmc_development_stdout_completed_retry.json",
+  "evaluator_sha256": "614710340ee9ae043a591c0c9b5c6123762f921dd2e572e67c40a404b90fa929",
+  "exception": {
+    "message": "conditional-likelihood optimizer did not converge",
+    "stage": "three-donor final common_effect_ridge_only refit",
+    "type": "CouplingEstimationRefusal"
+  },
+  "metric_access": {
+    "development_metrics_inspected_after_failure": false,
+    "development_result_written": false,
+    "redirected_stdout_bytes": 0
+  },
+  "numerical_repair": {
+    "objective_changed": false,
+    "repair": "zero initialization for the unchanged convex common-effect conditional-likelihood objective",
+    "statistical_grid_or_gate_changed": false
+  },
+  "runner_sha256": "a676cb7fff631818c052121c3739c462ae96d86df9075deb2f06bda075d85dcb",
+  "schema": "scmmib-bmmc-development-terminal-refusal/1.0",
+  "source_manifest_sha256": "0869c3db2a5c22d7e211f31b75d66ee85c63de6bce74782934a17ec090d83e37",
+  "status": "TERMINAL_NUMERICAL_EQUIVALENCE_RETRY_REFUSAL",
+  "test_sha256": "27b723d64f54ee4e99f898ebd291fd24d7c68003839873ca454abde05e502d50",
+  "verification": {
+    "ruff_check_and_format_green": true,
+    "warning_strict_tests_passed": 55
+  }
+}

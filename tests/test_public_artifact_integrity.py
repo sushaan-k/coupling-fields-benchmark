@@ -111,7 +111,7 @@ def _stress_rate(result: dict, scenario: str, world: str) -> float:
     return record["metrics"]["unconditional_global_rejection"]["rate"]
 
 
-def test_bmmc_protocol_snapshot_is_disabled_and_donor_disjoint():
+def test_bmmc_protocol_snapshot_is_terminal_and_donor_disjoint():
     designation = _load("BMMC_CANDIDATE_DESIGNATION.json")
     assert designation["status"] == "PROTOCOL_ONLY_OUTCOME_ACCESS_DISABLED"
     roles = [
@@ -127,12 +127,30 @@ def test_bmmc_protocol_snapshot_is_disabled_and_donor_disjoint():
     assert designation["held_score_attempted"] is False
     assert designation["held_result_written"] is False
 
+    attempts = [
+        _load(
+            "results/development/scmmib_bmmc_exact_development_attempt_1_refusal.json"
+        ),
+        _load(
+            "results/development/scmmib_bmmc_exact_development_attempt_2_aborted.json"
+        ),
+        _load(
+            "results/development/scmmib_bmmc_exact_development_attempt_3_terminal_refusal.json"
+        ),
+    ]
+    assert attempts[-1]["status"] == "TERMINAL_NUMERICAL_EQUIVALENCE_RETRY_REFUSAL"
+    assert all(
+        record["access_audit"]["held_csr_data_slices"] == 0
+        and record["access_audit"]["held_csr_indices_slices"] == 0
+        for record in attempts
+    )
+
     bindings = designation["bindings"]
     assert bindings["protocol_sha256"] == _sha256(
         ROOT / "docs/SCMMIB_BMMC_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md"
     )
     assert bindings["runner_sha256"] == _sha256(
-        ROOT / "experiments/confirm_scmmib_bmmc.py"
+        ROOT / "experiments/historical/confirm_scmmib_bmmc_protocol_frozen_75729.py"
     )
     assert bindings["hierarchical_estimator_sha256"] == _sha256(
         ROOT / "mapreg/hierarchical_conditional_coupling.py"
@@ -151,6 +169,53 @@ def test_bmmc_protocol_snapshot_is_disabled_and_donor_disjoint():
     ]
     assert not any(path.exists() for path in forbidden)
 
+    terminal = attempts[-1]
+    assert terminal["evaluator_sha256"] == _sha256(
+        ROOT / "experiments/evaluate_scmmib_bmmc_exact_development.py"
+    )
+    assert terminal["runner_sha256"] == _sha256(
+        ROOT / "experiments/confirm_scmmib_bmmc.py"
+    )
+    assert terminal["test_sha256"] == _sha256(
+        ROOT / "tests/test_scmmib_bmmc_exact_development.py"
+    )
+
+
+def test_gse279451_public_plan_is_outcome_disabled_and_aliases_match():
+    designation_path = (
+        ROOT / "data/confirmation/gse279451_sepsis/candidate_designation_v1.json"
+    )
+    authorization_path = (
+        ROOT / "data/confirmation/gse279451_sepsis/score_authorization_template_v1.json"
+    )
+    designation = _load(designation_path)
+    authorization = _load(authorization_path)
+    assert designation["status"] == "DESIGNATED_OUTCOME_ACCESS_DISABLED"
+    assert len(designation["design"]["development_accessions"]) == 19
+    assert len(designation["design"]["held_accessions"]) == 21
+    assert designation["design"]["primary_cell_budget_per_donor"] == 1024
+    assert authorization["status"] == "OUTCOME_ACCESS_DISABLED"
+    assert (
+        ROOT / "GSE279451_CANDIDATE_DESIGNATION.json"
+    ).read_bytes() == designation_path.read_bytes()
+    assert (
+        ROOT / "GSE279451_SCORE_AUTHORIZATION_TEMPLATE.json"
+    ).read_bytes() == authorization_path.read_bytes()
+    forbidden = [
+        ROOT / "data/confirmation/gse279451_sepsis/source_manifest_v1.json",
+        ROOT / "data/development/gse279451_sepsis/reduced_development_v1.json",
+        ROOT / "data/development/gse279451_sepsis/development_attempt_v1.json",
+        ROOT / "data/development/gse279451_sepsis/evaluation_attempt_v1.json",
+        ROOT
+        / "results/development/gse279451_sepsis_development_acquisition_refusal.json",
+        ROOT / "results/development/gse279451_sepsis_evaluation_refusal.json",
+        ROOT / "results/development/gse279451_sepsis_exact_development.json",
+        ROOT / "results/gse279451_sepsis_exact_predictions.json",
+        ROOT / "data/confirmation/gse279451_sepsis/score_attempt_v1.json",
+        ROOT / "results/gse279451_sepsis_exact_confirmation.json",
+    ]
+    assert not any(path.exists() for path in forbidden)
+
 
 def test_frozen_json_artifacts_have_expected_bytes_and_finite_numbers():
     for relative_path, expected_sha256 in FROZEN_JSON_SHA256.items():
@@ -166,13 +231,28 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
         rows = list(reader)
 
     assert len(reader.fieldnames or []) == 29
-    assert len(rows) == 11
+    assert len(rows) == 13
     by_panel = {row["panel"]: row for row in rows}
-    assert len(by_panel) == 11
+    assert len(by_panel) == 13
     assert all(None not in row for row in rows)
 
-    estimator = ROOT / "mapreg/coupling_fields.py"
+    estimator_by_sha256 = {
+        _sha256(ROOT / "mapreg/historical/coupling_fields_29a3875.py"): (
+            ROOT / "mapreg/historical/coupling_fields_29a3875.py"
+        ),
+        _sha256(ROOT / "mapreg/coupling_fields.py"): ROOT / "mapreg/coupling_fields.py",
+        _sha256(ROOT / "mapreg/hierarchical_conditional_coupling.py"): (
+            ROOT / "mapreg/hierarchical_conditional_coupling.py"
+        ),
+    }
+    assert set(estimator_by_sha256) == {
+        "29a3875fa43572ead6c53cd7dea60bb9bdf07c35b417d79d8a97f30cbb230912",
+        "06edd27c9cc52bcee1da1fc4a7a8fd86586d6263f9b32b2c6b0c5d16b0f01dc1",
+        "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d",
+    }
     runner_by_panel = {
+        "NeurIPS 2021 BMMC CITE-seq": "experiments/confirm_scmmib_bmmc.py",
+        "GSE279451 adult sepsis CITE-seq": ("experiments/confirm_gse279451_sepsis.py"),
         "PerturbSci-Kinetics": "experiments/benchmark_public_coupling_fields.py",
         "Frangieh Perturb-CITE-seq": "experiments/benchmark_public_coupling_fields.py",
         "Papalexi ECCITE-seq": "experiments/benchmark_public_coupling_fields.py",
@@ -195,7 +275,11 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
     }
     for panel, row in by_panel.items():
         assert _sha256(ROOT / row["result_artifact"]) == row["result_sha256"]
-        assert _sha256(estimator) == row["estimator_sha256"]
+        assert row["estimator_sha256"] in estimator_by_sha256
+        assert (
+            _sha256(estimator_by_sha256[row["estimator_sha256"]])
+            == row["estimator_sha256"]
+        )
         assert _sha256(ROOT / runner_by_panel[panel]) == row["benchmark_sha256"]
         if row["input_sha256"] not in {"NA", "MULTIPLE"}:
             input_artifact = ROOT / row["input_artifact"]

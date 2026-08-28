@@ -194,7 +194,7 @@ def test_predict_packages_only_audited_nonheld_model(
         lambda: (
             {
                 "complete_cite_h5ad": {"sha256": "a" * 64},
-                "internal_assays": {"rna": {}, "adt": {}},
+                "combined_assay": {},
             },
             {
                 "metadata": metadata,
@@ -208,6 +208,10 @@ def test_predict_packages_only_audited_nonheld_model(
     axis = {
         "barcodes": barcodes,
         "features": list(candidate.MARKERS),
+        "marker_indices": {
+            "rna": list(range(10)),
+            "adt": list(range(10)),
+        },
         "shape": (len(rows), 10),
     }
     monkeypatch.setattr(candidate, "_axis", lambda path, assay: axis)

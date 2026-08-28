@@ -1,0 +1,146 @@
+{
+  "schema": "gse279451-sepsis-source/1.0",
+  "status": "SOURCE_UNAVAILABLE",
+  "accession": "GSE279451",
+  "raw_tar": {
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE279nnn/GSE279451/suppl/GSE279451_RAW.tar",
+    "bytes": 2334412800,
+    "local_path": null,
+    "sha256": null,
+    "retain_after_member_verification": false
+  },
+  "member_rule": {
+    "files_per_donor": 3,
+    "filename_templates": [
+      "{accession}_{sample}.barcodes.tsv.gz",
+      "{accession}_{sample}.features.tsv.gz",
+      "{accession}_{sample}.matrix.mtx.gz"
+    ],
+    "url_template": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8571nnn/{accession}/suppl/{filename}",
+    "active_manifest_fields_per_member": [
+      "accession",
+      "kind",
+      "url",
+      "bytes",
+      "local_path",
+      "sha256",
+      "retained"
+    ],
+    "every_acquired_member_must_be_byte_and_sha256_verified": true,
+    "development_authorization_may_bind": [
+      "all barcode axes",
+      "all feature axes",
+      "development matrix members"
+    ],
+    "development_authorization_must_not_bind_or_open": [
+      "held matrix members"
+    ],
+    "held_matrix_hashing_and_decode_requires_public_prediction_authorization": true
+  },
+  "axis_contract": {
+    "samples": 40,
+    "feature_rows": 37695,
+    "gene_expression_rows": 37487,
+    "antibody_capture_rows": 208,
+    "uncompressed_feature_axis_sha256": "ff6a914dd33b3a3c2dd913ed439ed4b150fd8ab210595dec2447a283eb9b417b",
+    "barcode_axis_cells": 330112,
+    "barcode_and_feature_gzip_bytes": 15230404
+  },
+  "primary_cell_budget": {
+    "cells_per_donor": 1024,
+    "selection_salt": "GSE279451-CELL-BUDGET-v1",
+    "selection_rule": "ascending SHA256(salt + accession + sample + barcode), first 1,024",
+    "selection_uses_matrix_values": false,
+    "all_40_donors_have_more_than_1024_deposited_barcodes": true,
+    "all_cells_secondary_sensitivity_only_after_held_decision": true
+  },
+  "matrix_contract": {
+    "format": "10x feature-by-cell Matrix Market coordinate integer",
+    "gzip_members": 40,
+    "total_gzip_bytes": 2319077199,
+    "largest_gzip_bytes": 85929901,
+    "stream_one_donor_at_a_time": true,
+    "retain_cell_level_reduced_vectors": false
+  },
+  "donor_identity_contract": {
+    "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41590-025-02345-x/MediaObjects/41590_2025_2345_MOESM4_ESM.xlsx",
+    "bytes": 69665,
+    "sha256": "bb25e5dd6b51c8e13e904dcb6a7448d29fa0de9b3ca90c03f6a8df0ead81d0e4",
+    "sheet": "Sheet 1_Adult",
+    "columns_read": ["Donor ID", "CITE-seq"],
+    "cite_seq_value": 1,
+    "unique_adult_cite_seq_donor_ids": 40,
+    "donor_id_set_equals_geo_sample_name_set": true
+  },
+  "donors": [
+    {"accession": "GSM8571042", "sample": "Abd-S111", "role": "held", "matrix_bytes": 58520675, "barcode_bytes": 37428, "barcode_sha256": "ede58aa38b4edab00cf3029190b9f0511528250fdbbf1a30aaa40630e92d44e7", "barcode_cells": 7514, "feature_bytes": 339977, "feature_sha256": "f6f24f5364f7849ee985d87d69073c8fa8675034ecc30c3504615c76aefbdb86"},
+    {"accession": "GSM8571043", "sample": "Abd-S23", "role": "development", "matrix_bytes": 47600829, "barcode_bytes": 33792, "barcode_sha256": "93dff89b5449b6872789eafeb998940e964e7f1ce1bc3f03235a42d9a7823e19", "barcode_cells": 6731, "feature_bytes": 339977, "feature_sha256": "f36115015c9d313ff4b9645215287d5852fd95fbd66d8171fd01acff349a5aec"},
+    {"accession": "GSM8571044", "sample": "Abd-S42", "role": "development", "matrix_bytes": 46828596, "barcode_bytes": 33726, "barcode_sha256": "ece69a4cfced2d5da2de08ee25aff61a5c9180259c2582ead7e7f22d8a49b2d6", "barcode_cells": 6737, "feature_bytes": 339977, "feature_sha256": "1ab1da0329b6712e09cc5976e748bc2e35e4e8d19fd55af36b2ae0e712fdd84d"},
+    {"accession": "GSM8571045", "sample": "Abd-S45", "role": "held", "matrix_bytes": 52214272, "barcode_bytes": 32288, "barcode_sha256": "c0dc33227b200b0f1eb82d96116f74d77ec152a991b832e2b7e1dca3397d83ca", "barcode_cells": 6402, "feature_bytes": 339977, "feature_sha256": "57e897a8e92c1aeb539ce00a0e7b4888a4f95af2be0221e7a6785ac2538ad144"},
+    {"accession": "GSM8571046", "sample": "Abd-S49", "role": "held", "matrix_bytes": 55958409, "barcode_bytes": 34588, "barcode_sha256": "7aa1d62e715b813d490db8a3c0200b59ba1afec9a0f8106f62e87da4027a0563", "barcode_cells": 6897, "feature_bytes": 339977, "feature_sha256": "4b947129fa3c184019c069bcb4c3994ddf11f33487cff050fb0150f05c02f414"},
+    {"accession": "GSM8571047", "sample": "Abd-S51", "role": "development", "matrix_bytes": 66030848, "barcode_bytes": 48519, "barcode_sha256": "21b542bfba6dc4b8813c88f28debc37c48c7abaad54fc4b3ed6f11a42d06117e", "barcode_cells": 9945, "feature_bytes": 339977, "feature_sha256": "fd3a51b6b159981a06f62c3e57265ec4fcb2dc1a95e04eeefd4149cc71406494"},
+    {"accession": "GSM8571048", "sample": "Abd-S55", "role": "development", "matrix_bytes": 50961662, "barcode_bytes": 37690, "barcode_sha256": "b28877844e7e4c39130906e74cc3089b247465a88a3d517161026ede006e5cf2", "barcode_cells": 7571, "feature_bytes": 339977, "feature_sha256": "0cae19fa7e1dbde006783ac2f529ce19f21b8d84a40ba9c91ac661c0563f0120"},
+    {"accession": "GSM8571049", "sample": "Abd-S66", "role": "development", "matrix_bytes": 66006990, "barcode_bytes": 38914, "barcode_sha256": "4ee100209de9c1fdc60071b4b46b8086bd3e2b642acb0c5784510954799c6345", "barcode_cells": 7866, "feature_bytes": 339977, "feature_sha256": "651a6cc3d893b995ecf2e9a773b8ebe1af197a7753e56aca205bc215814457f3"},
+    {"accession": "GSM8571050", "sample": "Abd-S67", "role": "held", "matrix_bytes": 53249277, "barcode_bytes": 36605, "barcode_sha256": "83cd3ba8552d15be607eb14e4fb34fc1facbe8d059dd4170ddc08774d40e288d", "barcode_cells": 7333, "feature_bytes": 339977, "feature_sha256": "feac838f757e1e5fcf71c3180c606446abb560aada32d7d852fb1680138ae890"},
+    {"accession": "GSM8571051", "sample": "Abd-S75", "role": "held", "matrix_bytes": 54351873, "barcode_bytes": 36777, "barcode_sha256": "30ab3df79a72406ad806538d269519036ebfe5b20a5964ba0f15d7f725e9d149", "barcode_cells": 7387, "feature_bytes": 339977, "feature_sha256": "21d01b4d8ca181b8d43580c0688ceb1db2fc92bb0cb838dce6f806802fae6bbc"},
+    {"accession": "GSM8571052", "sample": "Abd-S80", "role": "development", "matrix_bytes": 45184848, "barcode_bytes": 39969, "barcode_sha256": "5e0c5a889fc85d7de3bb501c18f484c9f5e281c7d8fd2aee4e40d74fe1e84a4b", "barcode_cells": 8077, "feature_bytes": 339977, "feature_sha256": "822b2cbb3d6e3427f4fc384812601a1a33fc1dfe9b20aa66ab6fe1289fd4bef4"},
+    {"accession": "GSM8571053", "sample": "Abd-S81", "role": "held", "matrix_bytes": 43623532, "barcode_bytes": 44173, "barcode_sha256": "3ff16ec6440d8a293712efaf15b45bc5cc17907bb5090fd1806602afa3f48e44", "barcode_cells": 8988, "feature_bytes": 339977, "feature_sha256": "b11858dff1d8f8a2a0888cf8451d1c5d5a3c767ec217afd19ac534d72e640d85"},
+    {"accession": "GSM8571054", "sample": "Abd-S9", "role": "held", "matrix_bytes": 63365867, "barcode_bytes": 42169, "barcode_sha256": "b7cf41956f91ea0b252f3642ef5677ce7589443d0664dd13afb19843dbac0208", "barcode_cells": 8526, "feature_bytes": 339977, "feature_sha256": "195fe6152ac01a2f195867785dc367f55e74fb21e05da155f00e5588ae6373dd"},
+    {"accession": "GSM8571055", "sample": "Abd-S91", "role": "development", "matrix_bytes": 72022425, "barcode_bytes": 53214, "barcode_sha256": "fbeb9e110f472524c815df768370b5d9ea5bea7a24fbb32b5d0cbdfb18dac22e", "barcode_cells": 10958, "feature_bytes": 339977, "feature_sha256": "de0e9bfea48a008276ba80e6756f63be0e843e2f2b0388132efc12ec22cdda80"},
+    {"accession": "GSM8571056", "sample": "HC01", "role": "development", "matrix_bytes": 81357711, "barcode_bytes": 48858, "barcode_sha256": "9c91323e5358a37728bab1ca2364f7ecde0a9d77e813b9ca73d5b225b622a657", "barcode_cells": 10003, "feature_bytes": 339977, "feature_sha256": "2a79eaf531b8acb5d9635f88b4cfb0a8450d903fd7b6604e780540bc454a0019"},
+    {"accession": "GSM8571057", "sample": "HC05", "role": "held", "matrix_bytes": 64986729, "barcode_bytes": 41057, "barcode_sha256": "b2294c40ee87006dd655f4749606042e4f143a992275c676e5819972071ccbcf", "barcode_cells": 8287, "feature_bytes": 339977, "feature_sha256": "da078e9f994492107b1f929a5e062026cfcc12f9b40adca0f8e23230540f0d47"},
+    {"accession": "GSM8571058", "sample": "HC13", "role": "held", "matrix_bytes": 62804878, "barcode_bytes": 39934, "barcode_sha256": "b7fe2883e9dc1bb4af32b236c34aaf8d37a93ab2e7a8f4871143e05e3d69c8eb", "barcode_cells": 8073, "feature_bytes": 339977, "feature_sha256": "887c926676b87c7925bc19cd5322df6d11cc589881411197f14405649681b41f"},
+    {"accession": "GSM8571059", "sample": "IC08", "role": "held", "matrix_bytes": 40339471, "barcode_bytes": 31679, "barcode_sha256": "a1eb45470f31356d8df03c260d92fe307489f1e2b0944790561a221c6b8211e4", "barcode_cells": 6275, "feature_bytes": 339977, "feature_sha256": "1b9fb5342007fa73f35ed523816e187fe5bd7c0b880c600e99b9efb7f12089d1"},
+    {"accession": "GSM8571060", "sample": "IC09", "role": "development", "matrix_bytes": 54311202, "barcode_bytes": 44332, "barcode_sha256": "93dccd964ac4fb9e6b7a484e3a871b29a99d41c092f950df47b7367e89c2ebc3", "barcode_cells": 9017, "feature_bytes": 339977, "feature_sha256": "d428e5a44e4110f42cbe24354bfb57280ee018310dda1ba223bf4b68d7e9d179"},
+    {"accession": "GSM8571061", "sample": "IC10", "role": "development", "matrix_bytes": 56454532, "barcode_bytes": 48906, "barcode_sha256": "b65f6800192305dc9b772870647b2a7ec6e2bb8c3561e0c841b59bb929048688", "barcode_cells": 10009, "feature_bytes": 339977, "feature_sha256": "2d67fe0bb3dd0f9d986ae878931b9ffa87d7e05d6b4566e7c6f5cea733b88d2f"},
+    {"accession": "GSM8571062", "sample": "IC19", "role": "held", "matrix_bytes": 72731332, "barcode_bytes": 57506, "barcode_sha256": "4edea7a2895558bed192c4cf4cb48e3c0f2774a59373989285bc9a7052cae304", "barcode_cells": 11922, "feature_bytes": 339977, "feature_sha256": "6c498ec9259d8f72cc0f036b89ae9c0a07829b4fbb797ccda665d139bb45d1f5"},
+    {"accession": "GSM8571063", "sample": "IC23", "role": "held", "matrix_bytes": 61724853, "barcode_bytes": 52930, "barcode_sha256": "cf2b7a477c74d1c79f44050e63f6ca0f961b07d9938b973f95cdcec8665044d4", "barcode_cells": 10914, "feature_bytes": 339977, "feature_sha256": "1634946884852f021b3b33215484326404d8b97f5d3c95d4997c3687715df30b"},
+    {"accession": "GSM8571064", "sample": "Res-S10", "role": "held", "matrix_bytes": 59215028, "barcode_bytes": 41643, "barcode_sha256": "75cdb48ba7eacf6a4f9d76461bee32be9589afec063c95f2994346a9857cfe72", "barcode_cells": 8441, "feature_bytes": 339977, "feature_sha256": "a209e6cdb97a044a23213f5b05832de654342cdd0a2a2469d2daf91e43084170"},
+    {"accession": "GSM8571065", "sample": "Res-S100", "role": "development", "matrix_bytes": 54092843, "barcode_bytes": 39784, "barcode_sha256": "4520c894d9b8249b19f866384feecb17014a5a0c297cfa6264a34255bf42b547", "barcode_cells": 8029, "feature_bytes": 339977, "feature_sha256": "100e56a916d74c1be48f6745416d971b0a279719d408dbca39604506bf9dad7c"},
+    {"accession": "GSM8571066", "sample": "Res-S118", "role": "held", "matrix_bytes": 58048448, "barcode_bytes": 39894, "barcode_sha256": "c9d5d67a64ad1688cc269f31021f1daae63659ce105b0537af23895aa98feb2e", "barcode_cells": 8046, "feature_bytes": 339977, "feature_sha256": "7dd28e8120af4fb50cb33f430932b7df28933b339828525b38e55a26a79b1aa3"},
+    {"accession": "GSM8571067", "sample": "Res-S146", "role": "held", "matrix_bytes": 63578807, "barcode_bytes": 47704, "barcode_sha256": "6495a7d71bd85a1f6111d23f595857cde107fada48c7830fe6abaa5775455f86", "barcode_cells": 9746, "feature_bytes": 339977, "feature_sha256": "35aff4e0a712c3828543a7750f50858ecc85ebb1712d3cbc8b29076225d69164"},
+    {"accession": "GSM8571068", "sample": "Res-S149", "role": "development", "matrix_bytes": 61156107, "barcode_bytes": 40758, "barcode_sha256": "436db073c804b22b711da99d9f1d1655b4b92e8da2cea6c3d2e818199dd9ade8", "barcode_cells": 8232, "feature_bytes": 339977, "feature_sha256": "2f368d269ce9006428bc91f1b551b929945b1f2c63dc65d8ba92b30df55d775d"},
+    {"accession": "GSM8571069", "sample": "Res-S164", "role": "held", "matrix_bytes": 66729727, "barcode_bytes": 47696, "barcode_sha256": "a5d4f99c7d2db59d91be8265017b3af5b66f30084b4a1ff1edde5054b612b631", "barcode_cells": 9756, "feature_bytes": 339977, "feature_sha256": "761054e95a2e4b391a1b6bd489accbbe76837bfc2601dda0738c9d2f2c3046ec"},
+    {"accession": "GSM8571070", "sample": "Res-S166", "role": "held", "matrix_bytes": 42163621, "barcode_bytes": 30926, "barcode_sha256": "dac2426cf2e66fa83ffb802529d69f16611d33273702a996c2875614dc14df3e", "barcode_cells": 6132, "feature_bytes": 339977, "feature_sha256": "a8131063aa32c2e56622542edd4cc7c578504e4b5bb6e737577c2eb825260dd9"},
+    {"accession": "GSM8571071", "sample": "Res-S170", "role": "held", "matrix_bytes": 65977875, "barcode_bytes": 40358, "barcode_sha256": "7639b3879d268842b9f14b76f9dbb85e589dfa9d7854130304c88a8f02f2806c", "barcode_cells": 8152, "feature_bytes": 339977, "feature_sha256": "0be8c9ac13f3f2a339cde7ceeb808f22167ccc45ac07bd14f45ee885020e0882"},
+    {"accession": "GSM8571072", "sample": "Res-S183", "role": "development", "matrix_bytes": 68048501, "barcode_bytes": 39268, "barcode_sha256": "d82cd491fe022999d22ba83c40dd417d5af2a281134b3de24c84ef284527e2ae", "barcode_cells": 7911, "feature_bytes": 339977, "feature_sha256": "e46237e3ec8c3629bd78105325b3d8e4d63e9b4a1be35041d30f99dd7e924bc5"},
+    {"accession": "GSM8571073", "sample": "Res-S19", "role": "development", "matrix_bytes": 41065717, "barcode_bytes": 35209, "barcode_sha256": "bce74d5194650946bd25a4ff89314659320ef69e68f22a908db62d2902bd1ea4", "barcode_cells": 7033, "feature_bytes": 339977, "feature_sha256": "ebead110a952b1dec15299d0bee584b796717010ba6eed1db22b56b2ac88e6a1"},
+    {"accession": "GSM8571074", "sample": "Res-S22", "role": "development", "matrix_bytes": 61588236, "barcode_bytes": 52070, "barcode_sha256": "9787af3c3a3a479c5b50bd1a1938f83c5439ca3a6bfdf8a84a3dceac83f19d9b", "barcode_cells": 10731, "feature_bytes": 339977, "feature_sha256": "fbf84891c8315a8ac1c4fd38266855354ffc44182d85628f27a97b98bb3c400e"},
+    {"accession": "GSM8571075", "sample": "Res-S40", "role": "development", "matrix_bytes": 48414098, "barcode_bytes": 40586, "barcode_sha256": "d853478c74e984ba2527c9815e27867f319c2be1dd435febb3627a45781e0bbf", "barcode_cells": 8200, "feature_bytes": 339977, "feature_sha256": "bdf08e8843d5e15760622267a02388ba25f7ecc6dbf4a1e7063e5c0fbcdee75a"},
+    {"accession": "GSM8571076", "sample": "Res-S41", "role": "held", "matrix_bytes": 38976324, "barcode_bytes": 32701, "barcode_sha256": "485286b3c4fe7dc667f8ed26173d86835451bd3e9108b5bf154b26227ed40d62", "barcode_cells": 6519, "feature_bytes": 339977, "feature_sha256": "5903747466b0f41f5f70df7d0d9437868e1ed58c4a8622467bad17523ab48bf2"},
+    {"accession": "GSM8571077", "sample": "Res-S70", "role": "development", "matrix_bytes": 40855760, "barcode_bytes": 28328, "barcode_sha256": "4094cc0c6591f1b7e200cbcd679481ac9ba9841143374a870e875860e48c89c4", "barcode_cells": 5570, "feature_bytes": 339977, "feature_sha256": "f9494ecd2e82e6a23193cdeea5d4133cf3b8b0df7d5bc867ce93f399d78d387c"},
+    {"accession": "GSM8571078", "sample": "Uri-S134", "role": "held", "matrix_bytes": 85929901, "barcode_bytes": 41596, "barcode_sha256": "cdaa534eed54e69103a5cbe3e7720e61aa0c61b651551ef11d1045e671f7abc0", "barcode_cells": 8448, "feature_bytes": 339977, "feature_sha256": "d8bc9e847a7b90b323fa81e8432e844d99679ab9bfa8712f1c3d4dbd5bcfe321"},
+    {"accession": "GSM8571079", "sample": "Uri-S157", "role": "development", "matrix_bytes": 71576890, "barcode_bytes": 43727, "barcode_sha256": "91b3055166722dca183713a761069a15c055be21c51bc2d9443c6715555644cb", "barcode_cells": 8874, "feature_bytes": 339977, "feature_sha256": "48c271f7f5eadc33f557d316c2cedb3b0428d18cddaa368d8b5526d05ca74ed2"},
+    {"accession": "GSM8571080", "sample": "Uri-S85", "role": "held", "matrix_bytes": 62027953, "barcode_bytes": 34149, "barcode_sha256": "3fd5fa7090c2942fafcd2f417d66192d8c5d277b21840792b519ea8d26265905", "barcode_cells": 6814, "feature_bytes": 339977, "feature_sha256": "6a251f6b51e63839d235afe962bbb1c220c4e3d8eb42add2291b72f6bb1184ee"},
+    {"accession": "GSM8571081", "sample": "Uri-S88", "role": "development", "matrix_bytes": 59000552, "barcode_bytes": 39873, "barcode_sha256": "270b5a5bad35b4f16d94a1d45c4584f654f60665500ce4d64cff77d07e9fa829", "barcode_cells": 8046, "feature_bytes": 339977, "feature_sha256": "40ac509b12b456879c60d8bfb048387677b428b500ee8535bf741e9305a68a6b"}
+  ],
+  "members": [],
+  "bindings": {
+    "source_template_sha256": null,
+    "candidate_designation_sha256": null,
+    "family_policy_sha256": null,
+    "protocol_sha256": null,
+    "metadata_preflight_sha256": null,
+    "acquisition_sha256": null,
+    "reducer_sha256": null,
+    "development_evaluator_sha256": null,
+    "runner_sha256": null,
+    "tests_sha256": null,
+    "development_evaluator_tests_sha256": null,
+    "hierarchical_estimator_sha256": null,
+    "heterogeneity_estimator_sha256": null,
+    "classical_residuals_sha256": null,
+    "coupling_fields_sha256": null,
+    "table_prediction_sha256": null,
+    "hierarchical_estimator_tests_sha256": null,
+    "heterogeneity_estimator_tests_sha256": null,
+    "classical_residuals_tests_sha256": null,
+    "coupling_fields_tests_sha256": null,
+    "table_prediction_tests_sha256": null
+  },
+  "access_audit": {
+    "matrix_entries_decoded_before_template_freeze": 0,
+    "held_matrix_bytes_read_before_public_prediction_authorization": 0,
+    "sanger_path_or_content_accessed": false
+  }
+}
