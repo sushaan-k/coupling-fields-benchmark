@@ -1,0 +1,5132 @@
+{
+  "analysis_cells": 108114,
+  "attrition": [
+    {
+      "date_by_treatment_cells": [
+        40,
+        20,
+        114,
+        96,
+        139,
+        92,
+        164,
+        134
+      ],
+      "retained": true,
+      "target": "ACTN4"
+    },
+    {
+      "date_by_treatment_cells": [
+        25,
+        27,
+        157,
+        111,
+        156,
+        125,
+        211,
+        128
+      ],
+      "retained": true,
+      "target": "AHNAK"
+    },
+    {
+      "date_by_treatment_cells": [
+        38,
+        31,
+        229,
+        156,
+        194,
+        149,
+        240,
+        148
+      ],
+      "retained": true,
+      "target": "ALG3"
+    },
+    {
+      "date_by_treatment_cells": [
+        45,
+        33,
+        200,
+        153,
+        236,
+        135,
+        280,
+        161
+      ],
+      "retained": true,
+      "target": "AMOTL2"
+    },
+    {
+      "date_by_treatment_cells": [
+        27,
+        22,
+        118,
+        109,
+        125,
+        96,
+        163,
+        120
+      ],
+      "retained": true,
+      "target": "ANAPC11"
+    },
+    {
+      "date_by_treatment_cells": [
+        15,
+        15,
+        81,
+        83,
+        71,
+        70,
+        78,
+        96
+      ],
+      "retained": false,
+      "target": "ANP32B"
+    },
+    {
+      "date_by_treatment_cells": [
+        26,
+        20,
+        146,
+        112,
+        153,
+        77,
+        180,
+        104
+      ],
+      "retained": true,
+      "target": "ARHGAP12"
+    },
+    {
+      "date_by_treatment_cells": [
+        10,
+        8,
+        79,
+        65,
+        79,
+        71,
+        90,
+        77
+      ],
+      "retained": false,
+      "target": "ARHGAP35"
+    },
+    {
+      "date_by_treatment_cells": [
+        19,
+        6,
+        67,
+        64,
+        83,
+        70,
+        94,
+        77
+      ],
+      "retained": false,
+      "target": "ARID1A"
+    },
+    {
+      "date_by_treatment_cells": [
+        18,
+        10,
+        85,
+        77,
+        102,
+        62,
+        109,
+        74
+      ],
+      "retained": false,
+      "target": "ARIH2"
+    },
+    {
+      "date_by_treatment_cells": [
+        15,
+        9,
+        52,
+        61,
+        58,
+        63,
+        79,
+        62
+      ],
+      "retained": false,
+      "target": "ARRDC3"
+    },
+    {
+      "date_by_treatment_cells": [
+        44,
+        33,
+        272,
+        185,
+        278,
+        183,
+        319,
+        188
+      ],
+      "retained": true,
+      "target": "ASAH1"
+    },
+    {
+      "date_by_treatment_cells": [
+        19,
+        13,
+        91,
+        99,
+        81,
+        101,
+        97,
+        99
+      ],
+      "retained": false,
+      "target": "ATP5G3"
+    },
+    {
+      "date_by_treatment_cells": [
+        16,
+        22,
+        59,
+        96,
+        72,
+        76,
+        88,
+        117
+      ],
+      "retained": false,
+      "target": "C7orf26"
+    },
+    {
+      "date_by_treatment_cells": [
+        24,
+        11,
+        109,
+        63,
+        102,
+        58,
+        125,
+        55
+      ],
+      "retained": false,
+      "target": "CAND1"
+    },
+    {
+      "date_by_treatment_cells": [
+        10,
+        9,
+        59,
+        45,
+        67,
+        46,
+        74,
+        60
+      ],
+      "retained": false,
+      "target": "CASC10"
+    },
+    {
+      "date_by_treatment_cells": [
+        15,
+        23,
+        70,
+        110,
+        71,
+        88,
+        82,
+        144
+      ],
+      "retained": false,
+      "target": "CCDC101"
+    },
+    {
+      "date_by_treatment_cells": [
+        16,
+        11,
+        123,
+        92,
+        115,
+        90,
+        109,
+        108
+      ],
+      "retained": false,
+      "target": "CCDC117"
+    },
+    {
+      "date_by_treatment_cells": [
+        5,
+        9,
+        33,
+        43,
+        51,
+        36,
+        36,
+        48
+      ],
+      "retained": false,
+      "target": "CCDC122"
+    },
+    {
+      "date_by_treatment_cells": [
+        19,
+        12,
+        97,
+        77,
+        100,
+        70,
+        119,
+        74
+      ],
+      "retained": false,
+      "target": "CCDC173"
+    },
+    {
+      "date_by_treatment_cells": [
+        14,
+        11,
+        69,
+        62,
+        70,
+        60,
+        87,
+        66
+      ],
+      "retained": false,
+      "target": "CCM2"
+    },
+    {
+      "date_by_treatment_cells": [
+        18,
+        9,
+        93,
+        81,
+        83,
+        77,
+        106,
+        73
+      ],
+      "retained": false,
+      "target": "CCNC"
+    },
+    {
+      "date_by_treatment_cells": [
+        11,
+        9,
+        58,
+        57,
+        41,
+        44,
+        56,
+        79
+      ],
+      "retained": false,
+      "target": "CDH13"
+    },
+    {
+      "date_by_treatment_cells": [
+        24,
+        14,
+        101,
+        83,
+        103,
+        74,
+        108,
+        62
+      ],
+      "retained": false,
+      "target": "CDK8"
+    },
+    {
+      "date_by_treatment_cells": [
+        14,
+        15,
+        71,
+        81,
+        112,
+        72,
+        102,
+        80
+      ],
+      "retained": false,
+      "target": "CDKN2C"
+    },
+    {
+      "date_by_treatment_cells": [
+        30,
+        25,
+        189,
+        179,
+        186,
+        162,
+        219,
+        183
+      ],
+      "retained": true,
+      "target": "CHEK2"
+    },
+    {
+      "date_by_treatment_cells": [
+        23,
+        11,
+        93,
+        73,
+        104,
+        97,
+        105,
+        96
+      ],
+      "retained": false,
+      "target": "CLTA"
+    },
+    {
+      "date_by_treatment_cells": [
+        20,
+        16,
+        108,
+        95,
+        132,
+        61,
+        129,
+        99
+      ],
+      "retained": false,
+      "target": "CREBBP"
+    },
+    {
+      "date_by_treatment_cells": [
+        54,
+        29,
+        252,
+        135,
+        261,
+        149,
+        263,
+        140
+      ],
+      "retained": true,
+      "target": "CSK"
+    },
+    {
+      "date_by_treatment_cells": [
+        6,
+        12,
+        29,
+        43,
+        41,
+        48,
+        42,
+        49
+      ],
+      "retained": false,
+      "target": "CST3"
+    },
+    {
+      "date_by_treatment_cells": [
+        23,
+        22,
+        105,
+        138,
+        117,
+        114,
+        90,
+        126
+      ],
+      "retained": true,
+      "target": "CTC1"
+    },
+    {
+      "date_by_treatment_cells": [
+        17,
+        22,
+        113,
+        88,
+        98,
+        92,
+        130,
+        93
+      ],
+      "retained": false,
+      "target": "CUL3"
+    },
+    {
+      "date_by_treatment_cells": [
+        51,
+        27,
+        274,
+        148,
+        265,
+        154,
+        282,
+        177
+      ],
+      "retained": true,
+      "target": "CUL5"
+    },
+    {
+      "date_by_treatment_cells": [
+        2,
+        5,
+        28,
+        23,
+        23,
+        28,
+        36,
+        36
+      ],
+      "retained": false,
+      "target": "CYC1"
+    },
+    {
+      "date_by_treatment_cells": [
+        20,
+        14,
+        112,
+        84,
+        93,
+        68,
+        113,
+        75
+      ],
+      "retained": false,
+      "target": "CYLD"
+    },
+    {
+      "date_by_treatment_cells": [
+        45,
+        35,
+        235,
+        219,
+        219,
+        229,
+        232,
+        236
+      ],
+      "retained": true,
+      "target": "CYP2R1"
+    },
+    {
+      "date_by_treatment_cells": [
+        20,
+        26,
+        142,
+        125,
+        163,
+        111,
+        143,
+        118
+      ],
+      "retained": true,
+      "target": "DCAF17"
+    },
+    {
+      "date_by_treatment_cells": [
+        58,
+        39,
+        348,
+        189,
+        296,
+        185,
+        358,
+        214
+      ],
+      "retained": true,
+      "target": "DCUN1D3"
+    },
+    {
+      "date_by_treatment_cells": [
+        40,
+        28,
+        154,
+        147,
+        181,
+        144,
+        204,
+        153
+      ],
+      "retained": true,
+      "target": "DGKD"
+    },
+    {
+      "date_by_treatment_cells": [
+        27,
+        24,
+        132,
+        124,
+        136,
+        155,
+        133,
+        154
+      ],
+      "retained": true,
+      "target": "DPH2"
+    },
+    {
+      "date_by_treatment_cells": [
+        21,
+        13,
+        104,
+        82,
+        121,
+        87,
+        122,
+        86
+      ],
+      "retained": false,
+      "target": "DSCR3"
+    },
+    {
+      "date_by_treatment_cells": [
+        37,
+        25,
+        191,
+        183,
+        209,
+        171,
+        227,
+        209
+      ],
+      "retained": true,
+      "target": "DUSP6"
+    },
+    {
+      "date_by_treatment_cells": [
+        14,
+        21,
+        96,
+        81,
+        75,
+        81,
+        110,
+        82
+      ],
+      "retained": false,
+      "target": "EP300"
+    },
+    {
+      "date_by_treatment_cells": [
+        23,
+        16,
+        124,
+        84,
+        116,
+        71,
+        152,
+        98
+      ],
+      "retained": false,
+      "target": "FBXO11"
+    },
+    {
+      "date_by_treatment_cells": [
+        41,
+        23,
+        197,
+        130,
+        177,
+        131,
+        210,
+        162
+      ],
+      "retained": true,
+      "target": "FHOD1"
+    },
+    {
+      "date_by_treatment_cells": [
+        14,
+        14,
+        78,
+        89,
+        84,
+        74,
+        107,
+        77
+      ],
+      "retained": false,
+      "target": "FLYWCH1"
+    },
+    {
+      "date_by_treatment_cells": [
+        9,
+        16,
+        56,
+        63,
+        56,
+        62,
+        60,
+        61
+      ],
+      "retained": false,
+      "target": "FOXD3"
+    },
+    {
+      "date_by_treatment_cells": [
+        26,
+        8,
+        121,
+        69,
+        98,
+        78,
+        143,
+        93
+      ],
+      "retained": false,
+      "target": "FRMD6"
+    },
+    {
+      "date_by_treatment_cells": [
+        19,
+        14,
+        104,
+        103,
+        123,
+        93,
+        141,
+        101
+      ],
+      "retained": false,
+      "target": "FRYL"
+    },
+    {
+      "date_by_treatment_cells": [
+        24,
+        20,
+        98,
+        82,
+        93,
+        81,
+        86,
+        96
+      ],
+      "retained": true,
+      "target": "GATA4"
+    },
+    {
+      "date_by_treatment_cells": [
+        14,
+        7,
+        58,
+        58,
+        71,
+        47,
+        66,
+        63
+      ],
+      "retained": false,
+      "target": "GATA6"
+    },
+    {
+      "date_by_treatment_cells": [
+        20,
+        15,
+        66,
+        62,
+        63,
+        66,
+        57,
+        67
+      ],
+      "retained": false,
+      "target": "GFM1"
+    },
+    {
+      "date_by_treatment_cells": [
+        8,
+        18,
+        39,
+        79,
+        53,
+        78,
+        84,
+        105
+      ],
+      "retained": false,
+      "target": "GLMN"
+    },
+    {
+      "date_by_treatment_cells": [
+        6,
+        17,
+        68,
+        41,
+        55,
+        52,
+        63,
+        48
+      ],
+      "retained": false,
+      "target": "HECA"
+    },
+    {
+      "date_by_treatment_cells": [
+        14,
+        18,
+        78,
+        98,
+        87,
+        103,
+        107,
+        124
+      ],
+      "retained": false,
+      "target": "HIRA"
+    },
+    {
+      "date_by_treatment_cells": [
+        5,
+        6,
+        28,
+        25,
+        17,
+        33,
+        32,
+        33
+      ],
+      "retained": false,
+      "target": "HOXA4"
+    },
+    {
+      "date_by_treatment_cells": [
+        9,
+        11,
+        96,
+        58,
+        114,
+        59,
+        75,
+        89
+      ],
+      "retained": false,
+      "target": "HPRT1"
+    },
+    {
+      "date_by_treatment_cells": [
+        25,
+        18,
+        153,
+        93,
+        150,
+        64,
+        171,
+        104
+      ],
+      "retained": false,
+      "target": "KCTD10"
+    },
+    {
+      "date_by_treatment_cells": [
+        40,
+        23,
+        222,
+        136,
+        221,
+        133,
+        219,
+        149
+      ],
+      "retained": true,
+      "target": "KCTD5"
+    },
+    {
+      "date_by_treatment_cells": [
+        28,
+        15,
+        169,
+        116,
+        165,
+        110,
+        217,
+        166
+      ],
+      "retained": false,
+      "target": "KEAP1"
+    },
+    {
+      "date_by_treatment_cells": [
+        36,
+        17,
+        167,
+        97,
+        193,
+        96,
+        183,
+        100
+      ],
+      "retained": false,
+      "target": "KIRREL"
+    },
+    {
+      "date_by_treatment_cells": [
+        57,
+        37,
+        306,
+        141,
+        336,
+        152,
+        271,
+        152
+      ],
+      "retained": true,
+      "target": "LATS2"
+    },
+    {
+      "date_by_treatment_cells": [
+        17,
+        9,
+        65,
+        48,
+        59,
+        54,
+        73,
+        65
+      ],
+      "retained": false,
+      "target": "LRP11"
+    },
+    {
+      "date_by_treatment_cells": [
+        13,
+        20,
+        74,
+        65,
+        81,
+        49,
+        95,
+        55
+      ],
+      "retained": false,
+      "target": "LRRFIP2"
+    },
+    {
+      "date_by_treatment_cells": [
+        48,
+        39,
+        283,
+        210,
+        289,
+        208,
+        351,
+        209
+      ],
+      "retained": true,
+      "target": "MAP4K4"
+    },
+    {
+      "date_by_treatment_cells": [
+        13,
+        9,
+        104,
+        70,
+        99,
+        80,
+        104,
+        82
+      ],
+      "retained": false,
+      "target": "MARS2"
+    },
+    {
+      "date_by_treatment_cells": [
+        11,
+        16,
+        65,
+        143,
+        62,
+        99,
+        69,
+        147
+      ],
+      "retained": false,
+      "target": "MAU2"
+    },
+    {
+      "date_by_treatment_cells": [
+        9,
+        22,
+        64,
+        121,
+        70,
+        123,
+        89,
+        141
+      ],
+      "retained": false,
+      "target": "MED10"
+    },
+    {
+      "date_by_treatment_cells": [
+        16,
+        18,
+        122,
+        114,
+        122,
+        148,
+        131,
+        136
+      ],
+      "retained": false,
+      "target": "MED12"
+    },
+    {
+      "date_by_treatment_cells": [
+        32,
+        24,
+        153,
+        119,
+        158,
+        130,
+        185,
+        124
+      ],
+      "retained": true,
+      "target": "MED13"
+    },
+    {
+      "date_by_treatment_cells": [
+        7,
+        11,
+        59,
+        95,
+        58,
+        100,
+        68,
+        108
+      ],
+      "retained": false,
+      "target": "MED15"
+    },
+    {
+      "date_by_treatment_cells": [
+        10,
+        16,
+        59,
+        67,
+        55,
+        64,
+        82,
+        65
+      ],
+      "retained": false,
+      "target": "MED16"
+    },
+    {
+      "date_by_treatment_cells": [
+        18,
+        14,
+        110,
+        111,
+        99,
+        113,
+        113,
+        131
+      ],
+      "retained": false,
+      "target": "MED19"
+    },
+    {
+      "date_by_treatment_cells": [
+        10,
+        9,
+        79,
+        58,
+        78,
+        82,
+        76,
+        82
+      ],
+      "retained": false,
+      "target": "MED23"
+    },
+    {
+      "date_by_treatment_cells": [
+        6,
+        10,
+        36,
+        63,
+        46,
+        71,
+        55,
+        76
+      ],
+      "retained": false,
+      "target": "MED24"
+    },
+    {
+      "date_by_treatment_cells": [
+        13,
+        14,
+        77,
+        76,
+        80,
+        86,
+        95,
+        83
+      ],
+      "retained": false,
+      "target": "METTL3"
+    },
+    {
+      "date_by_treatment_cells": [
+        21,
+        16,
+        111,
+        105,
+        118,
+        131,
+        135,
+        96
+      ],
+      "retained": false,
+      "target": "MICU2"
+    },
+    {
+      "date_by_treatment_cells": [
+        42,
+        32,
+        226,
+        169,
+        209,
+        210,
+        201,
+        220
+      ],
+      "retained": true,
+      "target": "MORN2"
+    },
+    {
+      "date_by_treatment_cells": [
+        21,
+        12,
+        98,
+        64,
+        104,
+        59,
+        125,
+        82
+      ],
+      "retained": false,
+      "target": "MOSPD1"
+    },
+    {
+      "date_by_treatment_cells": [
+        7,
+        15,
+        56,
+        53,
+        57,
+        49,
+        67,
+        72
+      ],
+      "retained": false,
+      "target": "MRPS12"
+    },
+    {
+      "date_by_treatment_cells": [
+        11,
+        9,
+        49,
+        70,
+        63,
+        74,
+        61,
+        89
+      ],
+      "retained": false,
+      "target": "NF1"
+    },
+    {
+      "date_by_treatment_cells": [
+        43,
+        19,
+        223,
+        123,
+        258,
+        124,
+        286,
+        117
+      ],
+      "retained": false,
+      "target": "NF2"
+    },
+    {
+      "date_by_treatment_cells": [
+        28,
+        34,
+        222,
+        167,
+        194,
+        166,
+        188,
+        193
+      ],
+      "retained": true,
+      "target": "NIPBL"
+    },
+    {
+      "date_by_treatment_cells": [
+        26,
+        20,
+        156,
+        119,
+        144,
+        117,
+        168,
+        116
+      ],
+      "retained": true,
+      "target": "NRP1"
+    },
+    {
+      "date_by_treatment_cells": [
+        31,
+        20,
+        188,
+        85,
+        171,
+        93,
+        187,
+        105
+      ],
+      "retained": true,
+      "target": "PBRM1"
+    },
+    {
+      "date_by_treatment_cells": [
+        20,
+        6,
+        126,
+        74,
+        136,
+        56,
+        131,
+        79
+      ],
+      "retained": false,
+      "target": "PDCD10"
+    },
+    {
+      "date_by_treatment_cells": [
+        4,
+        10,
+        33,
+        31,
+        48,
+        26,
+        50,
+        27
+      ],
+      "retained": false,
+      "target": "PELO"
+    },
+    {
+      "date_by_treatment_cells": [
+        4,
+        11,
+        23,
+        93,
+        18,
+        91,
+        19,
+        86
+      ],
+      "retained": false,
+      "target": "PGD"
+    },
+    {
+      "date_by_treatment_cells": [
+        25,
+        20,
+        157,
+        126,
+        152,
+        125,
+        149,
+        134
+      ],
+      "retained": true,
+      "target": "PGRMC2"
+    },
+    {
+      "date_by_treatment_cells": [
+        23,
+        12,
+        141,
+        120,
+        127,
+        101,
+        127,
+        133
+      ],
+      "retained": false,
+      "target": "PICALM"
+    },
+    {
+      "date_by_treatment_cells": [
+        39,
+        22,
+        206,
+        124,
+        203,
+        163,
+        166,
+        150
+      ],
+      "retained": true,
+      "target": "PLXND1"
+    },
+    {
+      "date_by_treatment_cells": [
+        7,
+        12,
+        28,
+        54,
+        47,
+        53,
+        33,
+        66
+      ],
+      "retained": false,
+      "target": "POLR3K"
+    },
+    {
+      "date_by_treatment_cells": [
+        25,
+        11,
+        112,
+        84,
+        107,
+        64,
+        122,
+        91
+      ],
+      "retained": false,
+      "target": "PPT1"
+    },
+    {
+      "date_by_treatment_cells": [
+        26,
+        11,
+        111,
+        73,
+        134,
+        63,
+        121,
+        84
+      ],
+      "retained": false,
+      "target": "PTEN"
+    },
+    {
+      "date_by_treatment_cells": [
+        16,
+        14,
+        53,
+        73,
+        64,
+        74,
+        86,
+        74
+      ],
+      "retained": false,
+      "target": "PTPN12"
+    },
+    {
+      "date_by_treatment_cells": [
+        42,
+        14,
+        191,
+        110,
+        224,
+        102,
+        227,
+        137
+      ],
+      "retained": false,
+      "target": "PTPN14"
+    },
+    {
+      "date_by_treatment_cells": [
+        46,
+        45,
+        239,
+        215,
+        237,
+        223,
+        220,
+        271
+      ],
+      "retained": true,
+      "target": "RAB35"
+    },
+    {
+      "date_by_treatment_cells": [
+        47,
+        25,
+        209,
+        126,
+        231,
+        138,
+        226,
+        155
+      ],
+      "retained": true,
+      "target": "RALGAPB"
+    },
+    {
+      "date_by_treatment_cells": [
+        18,
+        6,
+        76,
+        64,
+        107,
+        47,
+        96,
+        71
+      ],
+      "retained": false,
+      "target": "RB1"
+    },
+    {
+      "date_by_treatment_cells": [
+        13,
+        18,
+        150,
+        110,
+        127,
+        120,
+        148,
+        123
+      ],
+      "retained": false,
+      "target": "RNF146"
+    },
+    {
+      "date_by_treatment_cells": [
+        55,
+        39,
+        313,
+        170,
+        300,
+        197,
+        313,
+        230
+      ],
+      "retained": true,
+      "target": "RNF7"
+    },
+    {
+      "date_by_treatment_cells": [
+        8,
+        7,
+        58,
+        28,
+        49,
+        49,
+        49,
+        54
+      ],
+      "retained": false,
+      "target": "RXRA"
+    },
+    {
+      "date_by_treatment_cells": [
+        17,
+        21,
+        124,
+        90,
+        132,
+        102,
+        128,
+        126
+      ],
+      "retained": false,
+      "target": "SAV1"
+    },
+    {
+      "date_by_treatment_cells": [
+        28,
+        21,
+        142,
+        81,
+        132,
+        86,
+        169,
+        80
+      ],
+      "retained": true,
+      "target": "SBF1"
+    },
+    {
+      "date_by_treatment_cells": [
+        9,
+        3,
+        29,
+        34,
+        43,
+        18,
+        46,
+        28
+      ],
+      "retained": false,
+      "target": "SDSL"
+    },
+    {
+      "date_by_treatment_cells": [
+        11,
+        15,
+        105,
+        93,
+        105,
+        92,
+        108,
+        80
+      ],
+      "retained": false,
+      "target": "SENP8"
+    },
+    {
+      "date_by_treatment_cells": [
+        11,
+        8,
+        83,
+        45,
+        92,
+        28,
+        71,
+        57
+      ],
+      "retained": false,
+      "target": "SESN1"
+    },
+    {
+      "date_by_treatment_cells": [
+        15,
+        16,
+        82,
+        72,
+        78,
+        85,
+        98,
+        86
+      ],
+      "retained": false,
+      "target": "SGK223"
+    },
+    {
+      "date_by_treatment_cells": [
+        23,
+        22,
+        115,
+        80,
+        153,
+        96,
+        159,
+        93
+      ],
+      "retained": true,
+      "target": "SLC35A1"
+    },
+    {
+      "date_by_treatment_cells": [
+        17,
+        17,
+        97,
+        91,
+        102,
+        101,
+        107,
+        113
+      ],
+      "retained": false,
+      "target": "SMARCA4"
+    },
+    {
+      "date_by_treatment_cells": [
+        20,
+        23,
+        93,
+        91,
+        89,
+        83,
+        122,
+        85
+      ],
+      "retained": true,
+      "target": "SMARCB1"
+    },
+    {
+      "date_by_treatment_cells": [
+        24,
+        17,
+        153,
+        100,
+        170,
+        107,
+        184,
+        131
+      ],
+      "retained": false,
+      "target": "SMARCD1"
+    },
+    {
+      "date_by_treatment_cells": [
+        5,
+        22,
+        61,
+        106,
+        60,
+        113,
+        48,
+        108
+      ],
+      "retained": false,
+      "target": "SMARCE1"
+    },
+    {
+      "date_by_treatment_cells": [
+        22,
+        9,
+        115,
+        50,
+        105,
+        60,
+        105,
+        71
+      ],
+      "retained": false,
+      "target": "SOX2"
+    },
+    {
+      "date_by_treatment_cells": [
+        10,
+        11,
+        93,
+        88,
+        114,
+        85,
+        112,
+        84
+      ],
+      "retained": false,
+      "target": "SPOCK2"
+    },
+    {
+      "date_by_treatment_cells": [
+        12,
+        15,
+        57,
+        67,
+        53,
+        66,
+        49,
+        73
+      ],
+      "retained": false,
+      "target": "SPRED1"
+    },
+    {
+      "date_by_treatment_cells": [
+        6,
+        2,
+        31,
+        32,
+        44,
+        35,
+        33,
+        29
+      ],
+      "retained": false,
+      "target": "SPRED2"
+    },
+    {
+      "date_by_treatment_cells": [
+        15,
+        17,
+        91,
+        79,
+        102,
+        97,
+        111,
+        103
+      ],
+      "retained": false,
+      "target": "SPRY2"
+    },
+    {
+      "date_by_treatment_cells": [
+        49,
+        33,
+        265,
+        204,
+        221,
+        189,
+        262,
+        215
+      ],
+      "retained": true,
+      "target": "STK24"
+    },
+    {
+      "date_by_treatment_cells": [
+        21,
+        25,
+        131,
+        108,
+        135,
+        109,
+        132,
+        139
+      ],
+      "retained": true,
+      "target": "SUFU"
+    },
+    {
+      "date_by_treatment_cells": [
+        4,
+        8,
+        25,
+        40,
+        37,
+        58,
+        31,
+        61
+      ],
+      "retained": false,
+      "target": "SUPT20H"
+    },
+    {
+      "date_by_treatment_cells": [
+        29,
+        29,
+        197,
+        151,
+        165,
+        193,
+        194,
+        197
+      ],
+      "retained": true,
+      "target": "SUPT7L"
+    },
+    {
+      "date_by_treatment_cells": [
+        21,
+        29,
+        142,
+        170,
+        153,
+        173,
+        192,
+        204
+      ],
+      "retained": true,
+      "target": "TADA1"
+    },
+    {
+      "date_by_treatment_cells": [
+        29,
+        27,
+        163,
+        154,
+        173,
+        158,
+        180,
+        197
+      ],
+      "retained": true,
+      "target": "TADA2B"
+    },
+    {
+      "date_by_treatment_cells": [
+        32,
+        36,
+        98,
+        136,
+        143,
+        149,
+        138,
+        159
+      ],
+      "retained": true,
+      "target": "TADA3"
+    },
+    {
+      "date_by_treatment_cells": [
+        24,
+        27,
+        131,
+        139,
+        129,
+        139,
+        157,
+        121
+      ],
+      "retained": true,
+      "target": "TAF5L"
+    },
+    {
+      "date_by_treatment_cells": [
+        24,
+        33,
+        123,
+        185,
+        160,
+        190,
+        145,
+        232
+      ],
+      "retained": true,
+      "target": "TAF6L"
+    },
+    {
+      "date_by_treatment_cells": [
+        89,
+        43,
+        468,
+        207,
+        436,
+        196,
+        485,
+        236
+      ],
+      "retained": true,
+      "target": "TAOK1"
+    },
+    {
+      "date_by_treatment_cells": [
+        10,
+        21,
+        86,
+        87,
+        105,
+        87,
+        89,
+        77
+      ],
+      "retained": false,
+      "target": "TMEM132D"
+    },
+    {
+      "date_by_treatment_cells": [
+        78,
+        30,
+        427,
+        138,
+        406,
+        127,
+        453,
+        137
+      ],
+      "retained": true,
+      "target": "TP53"
+    },
+    {
+      "date_by_treatment_cells": [
+        6,
+        9,
+        43,
+        75,
+        56,
+        73,
+        62,
+        85
+      ],
+      "retained": false,
+      "target": "TRAF3IP1"
+    },
+    {
+      "date_by_treatment_cells": [
+        7,
+        19,
+        76,
+        70,
+        84,
+        68,
+        87,
+        54
+      ],
+      "retained": false,
+      "target": "TYSND1"
+    },
+    {
+      "date_by_treatment_cells": [
+        12,
+        5,
+        68,
+        21,
+        61,
+        26,
+        60,
+        30
+      ],
+      "retained": false,
+      "target": "UBE2F"
+    },
+    {
+      "date_by_treatment_cells": [
+        13,
+        4,
+        46,
+        19,
+        42,
+        32,
+        37,
+        39
+      ],
+      "retained": false,
+      "target": "UBE2G1"
+    },
+    {
+      "date_by_treatment_cells": [
+        37,
+        28,
+        150,
+        141,
+        118,
+        124,
+        144,
+        164
+      ],
+      "retained": true,
+      "target": "UBE2R2"
+    },
+    {
+      "date_by_treatment_cells": [
+        8,
+        17,
+        58,
+        106,
+        50,
+        116,
+        55,
+        121
+      ],
+      "retained": false,
+      "target": "VBP1"
+    },
+    {
+      "date_by_treatment_cells": [
+        43,
+        28,
+        218,
+        162,
+        191,
+        179,
+        210,
+        177
+      ],
+      "retained": true,
+      "target": "WT1"
+    },
+    {
+      "date_by_treatment_cells": [
+        23,
+        20,
+        132,
+        136,
+        140,
+        121,
+        174,
+        124
+      ],
+      "retained": true,
+      "target": "ZBTB7A"
+    },
+    {
+      "date_by_treatment_cells": [
+        26,
+        16,
+        91,
+        98,
+        109,
+        104,
+        129,
+        96
+      ],
+      "retained": false,
+      "target": "ZC3H15"
+    },
+    {
+      "date_by_treatment_cells": [
+        29,
+        21,
+        154,
+        154,
+        162,
+        148,
+        191,
+        158
+      ],
+      "retained": true,
+      "target": "ZNF592"
+    },
+    {
+      "date_by_treatment_cells": [
+        19,
+        20,
+        144,
+        123,
+        130,
+        121,
+        157,
+        133
+      ],
+      "retained": false,
+      "target": "ZNF781"
+    }
+  ],
+  "biological_replicate_unit": null,
+  "decision_rules_fixed_before_execution": {
+    "biological_replication": "requires an independently executed biological screen and therefore cannot pass on technical dates",
+    "estimator_superiority": "lower 95% target-bootstrap bound for primary correlation > 0; primary standardized RMSE and its upper 95% bound < 1; and the upper 95% bound for primary-minus-comparator target MSE < 0 for every declared comparator",
+    "pairing_specific_technical_reproducibility": "lower 95% target-bootstrap bound for direct held-date correlation > 0 and upper 95% bound for direct-minus-destroyed target MSE < 0"
+  },
+  "decisions": {
+    "biological_replication": "REFUSE",
+    "biological_replication_reason": "The four deposited dates are technical partitions; no public biological-screen label is available.",
+    "estimator_superiority": "REFUSE",
+    "pairing_specific_technical_reproducibility": "REFUSE"
+  },
+  "factorial_contrast": "(target PLX - target DMSO) - (NO-TARGET PLX - NO-TARGET DMSO)",
+  "field_coordinates": 4,
+  "fixed_settings": {
+    "endpoint_margin_ridge_alpha": 0.1,
+    "factorial_variance": "sum of the four arm permutation variances",
+    "minimum_cells_per_target_date_treatment_arm": 20,
+    "nuclear_fraction_of_leading_singular_value": 0.1,
+    "permutation_scope": "unrestricted within each target/date/treatment arm",
+    "permutations": 64,
+    "pseudocount": 0.5,
+    "scgpt_hypergraph_penalty": 5.0,
+    "scgpt_neighbors_excluding_self": 5,
+    "seed": 291147,
+    "state_labels": "frozen NTC-trained three-state labels supplied in input",
+    "target_bootstraps": 2000,
+    "training_date_mean_variance": "sum of three date variances divided by 9",
+    "weighting": "clipped median-normalized inverse permutation variance"
+  },
+  "fold_fits": [
+    {
+      "final_weighted_structured": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 5.0,
+        "iterations": 279,
+        "nuclear_penalty": 0.28996569068514116
+      },
+      "graph_only": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 5.0,
+        "iterations": 86,
+        "nuclear_penalty": 0.0
+      },
+      "held_technical_date": "240603",
+      "nuclear_only": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 0.0,
+        "iterations": 2,
+        "nuclear_penalty": 0.28996569068514116
+      },
+      "shuffled_hypergraph": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 5.0,
+        "iterations": 257,
+        "nuclear_penalty": 0.28996569068514116
+      }
+    },
+    {
+      "final_weighted_structured": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 5.0,
+        "iterations": 262,
+        "nuclear_penalty": 0.3863719718421049
+      },
+      "graph_only": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 5.0,
+        "iterations": 86,
+        "nuclear_penalty": 0.0
+      },
+      "held_technical_date": "240613",
+      "nuclear_only": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 0.0,
+        "iterations": 2,
+        "nuclear_penalty": 0.3863719718421049
+      },
+      "shuffled_hypergraph": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 5.0,
+        "iterations": 236,
+        "nuclear_penalty": 0.3863719718421049
+      }
+    },
+    {
+      "final_weighted_structured": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 5.0,
+        "iterations": 246,
+        "nuclear_penalty": 0.3677230133920648
+      },
+      "graph_only": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 5.0,
+        "iterations": 86,
+        "nuclear_penalty": 0.0
+      },
+      "held_technical_date": "240614",
+      "nuclear_only": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 0.0,
+        "iterations": 2,
+        "nuclear_penalty": 0.3677230133920648
+      },
+      "shuffled_hypergraph": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 5.0,
+        "iterations": 223,
+        "nuclear_penalty": 0.3677230133920648
+      }
+    },
+    {
+      "final_weighted_structured": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 5.0,
+        "iterations": 240,
+        "nuclear_penalty": 0.41947427427731443
+      },
+      "graph_only": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 5.0,
+        "iterations": 86,
+        "nuclear_penalty": 0.0
+      },
+      "held_technical_date": "240615",
+      "nuclear_only": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 0.0,
+        "iterations": 2,
+        "nuclear_penalty": 0.41947427427731443
+      },
+      "shuffled_hypergraph": {
+        "converged": true,
+        "effective_rank": 4,
+        "graph_penalty": 5.0,
+        "iterations": 229,
+        "nuclear_penalty": 0.41947427427731443
+      }
+    }
+  ],
+  "median_target_arm_cells": 141.5,
+  "methods": {
+    "destroyed_links": {
+      "held_date_metrics": {
+        "240603": {
+          "macro_target_cosine": 0.06442721002734754,
+          "pooled_pearson": -0.05109231523536813,
+          "standardized_rmse": 1.0237609962054124
+        },
+        "240613": {
+          "macro_target_cosine": 0.0307499635712339,
+          "pooled_pearson": 0.11128288516757733,
+          "standardized_rmse": 1.2977720412741343
+        },
+        "240614": {
+          "macro_target_cosine": 0.1950060473419176,
+          "pooled_pearson": 0.01116756566055308,
+          "standardized_rmse": 1.1220430862033033
+        },
+        "240615": {
+          "macro_target_cosine": -0.01579717783036519,
+          "pooled_pearson": -0.05759768252708533,
+          "standardized_rmse": 1.271760294219831
+        }
+      },
+      "metrics": {
+        "macro_target_cosine": 0.06859651077753347,
+        "pooled_pearson": -0.011134020286268082,
+        "standardized_rmse": 1.125333280334513
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.002081350813049205,
+          0.13649022900976132
+        ],
+        "pooled_pearson": [
+          -0.07785084508940836,
+          0.05550157603580765
+        ],
+        "standardized_rmse": [
+          1.0890245873460465,
+          1.1667058134927573
+        ]
+      }
+    },
+    "direct_mean_remaining_dates": {
+      "held_date_metrics": {
+        "240603": {
+          "macro_target_cosine": -0.0013942360580462955,
+          "pooled_pearson": -0.05138183098014831,
+          "standardized_rmse": 1.041829430402598
+        },
+        "240613": {
+          "macro_target_cosine": -0.05082621665818417,
+          "pooled_pearson": 0.05070240068458274,
+          "standardized_rmse": 1.3046366055357186
+        },
+        "240614": {
+          "macro_target_cosine": 0.1506742032618022,
+          "pooled_pearson": 0.0441051537111051,
+          "standardized_rmse": 1.1670218377298265
+        },
+        "240615": {
+          "macro_target_cosine": -0.11136243105745908,
+          "pooled_pearson": -0.13366248268095632,
+          "standardized_rmse": 1.316995297888285
+        }
+      },
+      "metrics": {
+        "macro_target_cosine": -0.0032271701279718377,
+        "pooled_pearson": -0.04880705921494567,
+        "standardized_rmse": 1.1510851207453479
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.10189202806836249,
+          0.10082382813328397
+        ],
+        "pooled_pearson": [
+          -0.16043458395870203,
+          0.05734251701341617
+        ],
+        "standardized_rmse": [
+          1.1151326352596485,
+          1.1827870376377836
+        ]
+      }
+    },
+    "endpoint_margin_ridge": {
+      "held_date_metrics": {
+        "240603": {
+          "macro_target_cosine": 0.05044755350788561,
+          "pooled_pearson": -0.011254183344872007,
+          "standardized_rmse": 1.081347589312514
+        },
+        "240613": {
+          "macro_target_cosine": 0.02520904595050032,
+          "pooled_pearson": 0.17000547974380725,
+          "standardized_rmse": 1.0721602608552483
+        },
+        "240614": {
+          "macro_target_cosine": 0.4003011101881043,
+          "pooled_pearson": 0.3085891888871331,
+          "standardized_rmse": 0.9299093307216836
+        },
+        "240615": {
+          "macro_target_cosine": -0.07609459456719259,
+          "pooled_pearson": -0.1370625285553406,
+          "standardized_rmse": 1.113526976666426
+        }
+      },
+      "metrics": {
+        "macro_target_cosine": 0.09996577876982442,
+        "pooled_pearson": -0.008161860622040473,
+        "standardized_rmse": 1.0641163820435995
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.046453648233577345,
+          0.15478273745549412
+        ],
+        "pooled_pearson": [
+          -0.09309593058438859,
+          0.07285686949005818
+        ],
+        "standardized_rmse": [
+          1.0278839768802968,
+          1.1064468739369897
+        ]
+      }
+    },
+    "graph_only": {
+      "held_date_metrics": {
+        "240603": {
+          "macro_target_cosine": 0.07300327087936077,
+          "pooled_pearson": -0.08480258231511874,
+          "standardized_rmse": 1.0003878457873374
+        },
+        "240613": {
+          "macro_target_cosine": -0.016473501220264974,
+          "pooled_pearson": 0.12447821061285658,
+          "standardized_rmse": 1.0878652358823495
+        },
+        "240614": {
+          "macro_target_cosine": 0.4232652138633999,
+          "pooled_pearson": 0.1870538648953772,
+          "standardized_rmse": 0.9299385326021601
+        },
+        "240615": {
+          "macro_target_cosine": -0.16606125429258398,
+          "pooled_pearson": -0.2525053812296049,
+          "standardized_rmse": 1.1560571271614377
+        }
+      },
+      "metrics": {
+        "macro_target_cosine": 0.0784334323074779,
+        "pooled_pearson": -0.08865230087652895,
+        "standardized_rmse": 1.0312274430028685
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.012659985731457315,
+          0.14702924957170424
+        ],
+        "pooled_pearson": [
+          -0.14868834025235675,
+          -0.030681647499309087
+        ],
+        "standardized_rmse": [
+          1.0162717819139482,
+          1.0461703634309938
+        ]
+      }
+    },
+    "linear_cross_covariance": {
+      "held_date_metrics": {
+        "240603": {
+          "macro_target_cosine": 0.06255407326051195,
+          "pooled_pearson": 0.04126945714499162,
+          "standardized_rmse": 0.998744420164009
+        },
+        "240613": {
+          "macro_target_cosine": 0.04806769398612145,
+          "pooled_pearson": 0.12564584644398444,
+          "standardized_rmse": 0.9960943610823673
+        },
+        "240614": {
+          "macro_target_cosine": 0.03890242840601163,
+          "pooled_pearson": -0.010361807647427052,
+          "standardized_rmse": 0.9988068297481559
+        },
+        "240615": {
+          "macro_target_cosine": -0.09847096171989976,
+          "pooled_pearson": -0.10196357006834493,
+          "standardized_rmse": 1.0073039080110409
+        }
+      },
+      "metrics": {
+        "macro_target_cosine": 0.01276330848318631,
+        "pooled_pearson": -0.010515495725311982,
+        "standardized_rmse": 0.9998915567091213
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.08954180086173064,
+          0.11522016165763194
+        ],
+        "pooled_pearson": [
+          -0.12203617309588558,
+          0.09243300917377213
+        ],
+        "standardized_rmse": [
+          0.9949607711285876,
+          1.0043734769102841
+        ]
+      }
+    },
+    "nuclear_only": {
+      "held_date_metrics": {
+        "240603": {
+          "macro_target_cosine": -0.0034107625669338834,
+          "pooled_pearson": -0.05087503656837039,
+          "standardized_rmse": 1.0311611595823225
+        },
+        "240613": {
+          "macro_target_cosine": -0.047111517359043675,
+          "pooled_pearson": 0.05473421611942503,
+          "standardized_rmse": 1.2385530403237075
+        },
+        "240614": {
+          "macro_target_cosine": 0.15234851785807302,
+          "pooled_pearson": 0.04330208732433382,
+          "standardized_rmse": 1.1203172381857285
+        },
+        "240615": {
+          "macro_target_cosine": -0.11530606754785087,
+          "pooled_pearson": -0.14021216081660348,
+          "standardized_rmse": 1.2569195762203718
+        }
+      },
+      "metrics": {
+        "macro_target_cosine": -0.0033699574039388522,
+        "pooled_pearson": -0.05042481027068491,
+        "standardized_rmse": 1.1166516705105327
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.10213675742262682,
+          0.1010400739476738
+        ],
+        "pooled_pearson": [
+          -0.1599782476914133,
+          0.0560208277370573
+        ],
+        "standardized_rmse": [
+          1.082783718152542,
+          1.146236772373156
+        ]
+      }
+    },
+    "shuffled_hypergraph": {
+      "held_date_metrics": {
+        "240603": {
+          "macro_target_cosine": 0.06739979434984267,
+          "pooled_pearson": -0.15469586174991745,
+          "standardized_rmse": 1.006440041947405
+        },
+        "240613": {
+          "macro_target_cosine": -0.013303096515497527,
+          "pooled_pearson": 0.13330213838980692,
+          "standardized_rmse": 1.0588720340847335
+        },
+        "240614": {
+          "macro_target_cosine": 0.4433690704456818,
+          "pooled_pearson": 0.22139147471436,
+          "standardized_rmse": 0.9311911126587256
+        },
+        "240615": {
+          "macro_target_cosine": -0.15783031925621402,
+          "pooled_pearson": -0.251008129971625,
+          "standardized_rmse": 1.1135161989098683
+        }
+      },
+      "metrics": {
+        "macro_target_cosine": 0.08490886225595323,
+        "pooled_pearson": -0.11289199895238562,
+        "standardized_rmse": 1.022239835612651
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.01989628147266872,
+          0.152811622957116
+        ],
+        "pooled_pearson": [
+          -0.1736199057971348,
+          -0.04925405778423555
+        ],
+        "standardized_rmse": [
+          1.009761728741347,
+          1.0347914917721297
+        ]
+      }
+    },
+    "variance_weighted_nuclear_scgpt_hypergraph": {
+      "held_date_metrics": {
+        "240603": {
+          "macro_target_cosine": 0.06969005636050574,
+          "pooled_pearson": -0.09888953673317823,
+          "standardized_rmse": 1.0001869516292548
+        },
+        "240613": {
+          "macro_target_cosine": -0.01783516343079741,
+          "pooled_pearson": 0.1305381003553859,
+          "standardized_rmse": 1.062624038042081
+        },
+        "240614": {
+          "macro_target_cosine": 0.41766528512847856,
+          "pooled_pearson": 0.18650134971609827,
+          "standardized_rmse": 0.9366637781229837
+        },
+        "240615": {
+          "macro_target_cosine": -0.16593059339857616,
+          "pooled_pearson": -0.2521078235654969,
+          "standardized_rmse": 1.1270289828617015
+        }
+      },
+      "metrics": {
+        "macro_target_cosine": 0.0758973961649027,
+        "pooled_pearson": -0.09239443451377019,
+        "standardized_rmse": 1.0228266917053612
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.011384072423085857,
+          0.14363332440063287
+        ],
+        "pooled_pearson": [
+          -0.1520670036275803,
+          -0.03462340476843968
+        ],
+        "standardized_rmse": [
+          1.0099544264745872,
+          1.0354380819701243
+        ]
+      }
+    },
+    "zero": {
+      "held_date_metrics": {
+        "240603": {
+          "macro_target_cosine": 0.0,
+          "pooled_pearson": null,
+          "standardized_rmse": 1.0
+        },
+        "240613": {
+          "macro_target_cosine": 0.0,
+          "pooled_pearson": null,
+          "standardized_rmse": 1.0
+        },
+        "240614": {
+          "macro_target_cosine": 0.0,
+          "pooled_pearson": null,
+          "standardized_rmse": 1.0
+        },
+        "240615": {
+          "macro_target_cosine": 0.0,
+          "pooled_pearson": null,
+          "standardized_rmse": 1.0
+        }
+      },
+      "metrics": {
+        "macro_target_cosine": 0.0,
+        "pooled_pearson": null,
+        "standardized_rmse": 1.0
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.0,
+          0.0
+        ],
+        "pooled_pearson": null,
+        "standardized_rmse": [
+          1.0,
+          1.0
+        ]
+      }
+    }
+  },
+  "minimum_control_arm_cells": 100,
+  "minimum_target_arm_cells": 20,
+  "observable": "same-cell conditional association between pre-existing and one-hour 5-EU-labelled RNA states at the common day-6 endpoint",
+  "pairing_signal_comparison": {
+    "comparison": "paired direct mean versus source destroyed links",
+    "mean_first_minus_second_target_mse": 0.027780458237146435,
+    "target_bootstrap_95_ci": [
+      -0.028002743703554774,
+      0.0793014555554835
+    ]
+  },
+  "panel": "GSE291147 PerturbFate pre-existing RNA--nascent RNA",
+  "primary": "variance_weighted_nuclear_scgpt_hypergraph",
+  "primary_minus_comparator_target_mse": {
+    "destroyed_links": {
+      "mean_first_minus_second_target_mse": -0.10435119956344494,
+      "target_bootstrap_95_ci": [
+        -0.14697519869242387,
+        -0.06479628991351424
+      ]
+    },
+    "direct_mean_remaining_dates": {
+      "mean_first_minus_second_target_mse": -0.13213165780059136,
+      "target_bootstrap_95_ci": [
+        -0.16535895464206368,
+        -0.09891261142012339
+      ]
+    },
+    "endpoint_margin_ridge": {
+      "mean_first_minus_second_target_mse": -0.04083487908650953,
+      "target_bootstrap_95_ci": [
+        -0.07492948947096209,
+        -0.007185412584341295
+      ]
+    },
+    "graph_only": {
+      "mean_first_minus_second_target_mse": -0.008177283568700695,
+      "target_bootstrap_95_ci": [
+        -0.010988752887814852,
+        -0.005612461304036141
+      ]
+    },
+    "linear_cross_covariance": {
+      "mean_first_minus_second_target_mse": 0.02198445676266671,
+      "target_bootstrap_95_ci": [
+        0.012149871368550193,
+        0.03276434240958809
+      ]
+    },
+    "nuclear_only": {
+      "mean_first_minus_second_target_mse": -0.09512735444408557,
+      "target_bootstrap_95_ci": [
+        -0.12338077808119727,
+        -0.06611846141337903
+      ]
+    },
+    "shuffled_hypergraph": {
+      "mean_first_minus_second_target_mse": 0.0005687456703535558,
+      "target_bootstrap_95_ci": [
+        -0.003947270027789742,
+        0.004830376564494536
+      ]
+    },
+    "zero": {
+      "mean_first_minus_second_target_mse": 0.021881681598149235,
+      "target_bootstrap_95_ci": [
+        0.0093680072521838,
+        0.034507441192156714
+      ]
+    }
+  },
+  "provenance": {
+    "benchmark": "experiments/benchmark_perturbfate_conditional_fields.py",
+    "benchmark_sha256": "7e287f34168b3a74328501ab0093b9dc1eed9c436dba5dae79b233b05485b45e",
+    "estimator": "mapreg/coupling_fields.py",
+    "estimator_sha256": "29a3875fa43572ead6c53cd7dea60bb9bdf07c35b417d79d8a97f30cbb230912",
+    "frozen_state_encoder": "results/development/perturbfate_ntc_frozen_state_encoder.rds",
+    "frozen_state_encoder_sha256": "5b7b852a793e781081578651ed9918d5a62420fd9b5c634654d4716f75931658",
+    "preprocessing_script": "experiments/development/prepare_perturbfate_route_states.R",
+    "preprocessing_script_sha256": "5db96642b39e232779d85b566790f7f1d26e06610204b611ba09c7016a01eecd",
+    "source_manifest": "data/development/perturbfate_gse291147/manifest.json",
+    "source_manifest_sha256": "37e03f6e942fd5392a231652b66b6d68a811b09469b2e352f16230706faa9e94",
+    "state_table": "results/development/perturbfate_paired_state_features.csv.gz",
+    "state_table_sha256": "a6f9647f3eb46c6910aab637cd8f014a8832ae70a38c32acaa1c169fdc6584e8"
+  },
+  "scgpt_hypergraph": {
+    "covered_targets": 49,
+    "embedding": "data/scgpt_gene_embeddings.npz",
+    "embedding_sha256": "baf835e05077c6ec17e7bb0f48fc30632adc24be5bb91e591f74ab2e7985c60e",
+    "hyperedges": 49,
+    "neighbors_excluding_self": 5,
+    "total_targets": 49
+  },
+  "schema": "v2p2r.perturbfate-conditional-fields/1",
+  "shuffled_hypergraph_target_order": [
+    "ALG3",
+    "DUSP6",
+    "FHOD1",
+    "PBRM1",
+    "DGKD",
+    "CSK",
+    "TADA1",
+    "UBE2R2",
+    "ZBTB7A",
+    "STK24",
+    "SUFU",
+    "WT1",
+    "TAF6L",
+    "GATA4",
+    "NRP1",
+    "ANAPC11",
+    "ZNF592",
+    "CUL5",
+    "ARHGAP12",
+    "TP53",
+    "DCUN1D3",
+    "TADA2B",
+    "RAB35",
+    "AHNAK",
+    "SMARCB1",
+    "DPH2",
+    "ASAH1",
+    "MAP4K4",
+    "TADA3",
+    "PLXND1",
+    "SBF1",
+    "CHEK2",
+    "MORN2",
+    "MED13",
+    "TAF5L",
+    "KCTD5",
+    "PGRMC2",
+    "AMOTL2",
+    "CTC1",
+    "NIPBL",
+    "SUPT7L",
+    "LATS2",
+    "SLC35A1",
+    "RNF7",
+    "TAOK1",
+    "CYP2R1",
+    "RALGAPB",
+    "ACTN4",
+    "DCAF17"
+  ],
+  "support": {
+    "control_arms": [
+      {
+        "cells": 121,
+        "condition": "DMSO_treated_cells",
+        "target": "NO-TARGET",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 100,
+        "condition": "PLX_treated_cells",
+        "target": "NO-TARGET",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 687,
+        "condition": "DMSO_treated_cells",
+        "target": "NO-TARGET",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 555,
+        "condition": "PLX_treated_cells",
+        "target": "NO-TARGET",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 705,
+        "condition": "DMSO_treated_cells",
+        "target": "NO-TARGET",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 594,
+        "condition": "PLX_treated_cells",
+        "target": "NO-TARGET",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 755,
+        "condition": "DMSO_treated_cells",
+        "target": "NO-TARGET",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 648,
+        "condition": "PLX_treated_cells",
+        "target": "NO-TARGET",
+        "technical_date": "240615"
+      }
+    ],
+    "target_arms": [
+      {
+        "cells": 40,
+        "condition": "DMSO_treated_cells",
+        "target": "ACTN4",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 20,
+        "condition": "PLX_treated_cells",
+        "target": "ACTN4",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 25,
+        "condition": "DMSO_treated_cells",
+        "target": "AHNAK",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 27,
+        "condition": "PLX_treated_cells",
+        "target": "AHNAK",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 38,
+        "condition": "DMSO_treated_cells",
+        "target": "ALG3",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 31,
+        "condition": "PLX_treated_cells",
+        "target": "ALG3",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 45,
+        "condition": "DMSO_treated_cells",
+        "target": "AMOTL2",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 33,
+        "condition": "PLX_treated_cells",
+        "target": "AMOTL2",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 27,
+        "condition": "DMSO_treated_cells",
+        "target": "ANAPC11",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 22,
+        "condition": "PLX_treated_cells",
+        "target": "ANAPC11",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 26,
+        "condition": "DMSO_treated_cells",
+        "target": "ARHGAP12",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 20,
+        "condition": "PLX_treated_cells",
+        "target": "ARHGAP12",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 44,
+        "condition": "DMSO_treated_cells",
+        "target": "ASAH1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 33,
+        "condition": "PLX_treated_cells",
+        "target": "ASAH1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 30,
+        "condition": "DMSO_treated_cells",
+        "target": "CHEK2",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 25,
+        "condition": "PLX_treated_cells",
+        "target": "CHEK2",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 54,
+        "condition": "DMSO_treated_cells",
+        "target": "CSK",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 29,
+        "condition": "PLX_treated_cells",
+        "target": "CSK",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 23,
+        "condition": "DMSO_treated_cells",
+        "target": "CTC1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 22,
+        "condition": "PLX_treated_cells",
+        "target": "CTC1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 51,
+        "condition": "DMSO_treated_cells",
+        "target": "CUL5",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 27,
+        "condition": "PLX_treated_cells",
+        "target": "CUL5",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 45,
+        "condition": "DMSO_treated_cells",
+        "target": "CYP2R1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 35,
+        "condition": "PLX_treated_cells",
+        "target": "CYP2R1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 20,
+        "condition": "DMSO_treated_cells",
+        "target": "DCAF17",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 26,
+        "condition": "PLX_treated_cells",
+        "target": "DCAF17",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 58,
+        "condition": "DMSO_treated_cells",
+        "target": "DCUN1D3",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 39,
+        "condition": "PLX_treated_cells",
+        "target": "DCUN1D3",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 40,
+        "condition": "DMSO_treated_cells",
+        "target": "DGKD",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 28,
+        "condition": "PLX_treated_cells",
+        "target": "DGKD",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 27,
+        "condition": "DMSO_treated_cells",
+        "target": "DPH2",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 24,
+        "condition": "PLX_treated_cells",
+        "target": "DPH2",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 37,
+        "condition": "DMSO_treated_cells",
+        "target": "DUSP6",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 25,
+        "condition": "PLX_treated_cells",
+        "target": "DUSP6",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 41,
+        "condition": "DMSO_treated_cells",
+        "target": "FHOD1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 23,
+        "condition": "PLX_treated_cells",
+        "target": "FHOD1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 24,
+        "condition": "DMSO_treated_cells",
+        "target": "GATA4",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 20,
+        "condition": "PLX_treated_cells",
+        "target": "GATA4",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 40,
+        "condition": "DMSO_treated_cells",
+        "target": "KCTD5",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 23,
+        "condition": "PLX_treated_cells",
+        "target": "KCTD5",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 57,
+        "condition": "DMSO_treated_cells",
+        "target": "LATS2",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 37,
+        "condition": "PLX_treated_cells",
+        "target": "LATS2",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 48,
+        "condition": "DMSO_treated_cells",
+        "target": "MAP4K4",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 39,
+        "condition": "PLX_treated_cells",
+        "target": "MAP4K4",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 32,
+        "condition": "DMSO_treated_cells",
+        "target": "MED13",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 24,
+        "condition": "PLX_treated_cells",
+        "target": "MED13",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 42,
+        "condition": "DMSO_treated_cells",
+        "target": "MORN2",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 32,
+        "condition": "PLX_treated_cells",
+        "target": "MORN2",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 28,
+        "condition": "DMSO_treated_cells",
+        "target": "NIPBL",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 34,
+        "condition": "PLX_treated_cells",
+        "target": "NIPBL",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 26,
+        "condition": "DMSO_treated_cells",
+        "target": "NRP1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 20,
+        "condition": "PLX_treated_cells",
+        "target": "NRP1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 31,
+        "condition": "DMSO_treated_cells",
+        "target": "PBRM1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 20,
+        "condition": "PLX_treated_cells",
+        "target": "PBRM1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 25,
+        "condition": "DMSO_treated_cells",
+        "target": "PGRMC2",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 20,
+        "condition": "PLX_treated_cells",
+        "target": "PGRMC2",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 39,
+        "condition": "DMSO_treated_cells",
+        "target": "PLXND1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 22,
+        "condition": "PLX_treated_cells",
+        "target": "PLXND1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 46,
+        "condition": "DMSO_treated_cells",
+        "target": "RAB35",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 45,
+        "condition": "PLX_treated_cells",
+        "target": "RAB35",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 47,
+        "condition": "DMSO_treated_cells",
+        "target": "RALGAPB",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 25,
+        "condition": "PLX_treated_cells",
+        "target": "RALGAPB",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 55,
+        "condition": "DMSO_treated_cells",
+        "target": "RNF7",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 39,
+        "condition": "PLX_treated_cells",
+        "target": "RNF7",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 28,
+        "condition": "DMSO_treated_cells",
+        "target": "SBF1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 21,
+        "condition": "PLX_treated_cells",
+        "target": "SBF1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 23,
+        "condition": "DMSO_treated_cells",
+        "target": "SLC35A1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 22,
+        "condition": "PLX_treated_cells",
+        "target": "SLC35A1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 20,
+        "condition": "DMSO_treated_cells",
+        "target": "SMARCB1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 23,
+        "condition": "PLX_treated_cells",
+        "target": "SMARCB1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 49,
+        "condition": "DMSO_treated_cells",
+        "target": "STK24",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 33,
+        "condition": "PLX_treated_cells",
+        "target": "STK24",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 21,
+        "condition": "DMSO_treated_cells",
+        "target": "SUFU",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 25,
+        "condition": "PLX_treated_cells",
+        "target": "SUFU",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 29,
+        "condition": "DMSO_treated_cells",
+        "target": "SUPT7L",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 29,
+        "condition": "PLX_treated_cells",
+        "target": "SUPT7L",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 21,
+        "condition": "DMSO_treated_cells",
+        "target": "TADA1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 29,
+        "condition": "PLX_treated_cells",
+        "target": "TADA1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 29,
+        "condition": "DMSO_treated_cells",
+        "target": "TADA2B",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 27,
+        "condition": "PLX_treated_cells",
+        "target": "TADA2B",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 32,
+        "condition": "DMSO_treated_cells",
+        "target": "TADA3",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 36,
+        "condition": "PLX_treated_cells",
+        "target": "TADA3",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 24,
+        "condition": "DMSO_treated_cells",
+        "target": "TAF5L",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 27,
+        "condition": "PLX_treated_cells",
+        "target": "TAF5L",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 24,
+        "condition": "DMSO_treated_cells",
+        "target": "TAF6L",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 33,
+        "condition": "PLX_treated_cells",
+        "target": "TAF6L",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 89,
+        "condition": "DMSO_treated_cells",
+        "target": "TAOK1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 43,
+        "condition": "PLX_treated_cells",
+        "target": "TAOK1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 78,
+        "condition": "DMSO_treated_cells",
+        "target": "TP53",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 30,
+        "condition": "PLX_treated_cells",
+        "target": "TP53",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 37,
+        "condition": "DMSO_treated_cells",
+        "target": "UBE2R2",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 28,
+        "condition": "PLX_treated_cells",
+        "target": "UBE2R2",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 43,
+        "condition": "DMSO_treated_cells",
+        "target": "WT1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 28,
+        "condition": "PLX_treated_cells",
+        "target": "WT1",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 23,
+        "condition": "DMSO_treated_cells",
+        "target": "ZBTB7A",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 20,
+        "condition": "PLX_treated_cells",
+        "target": "ZBTB7A",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 29,
+        "condition": "DMSO_treated_cells",
+        "target": "ZNF592",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 21,
+        "condition": "PLX_treated_cells",
+        "target": "ZNF592",
+        "technical_date": "240603"
+      },
+      {
+        "cells": 114,
+        "condition": "DMSO_treated_cells",
+        "target": "ACTN4",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 96,
+        "condition": "PLX_treated_cells",
+        "target": "ACTN4",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 157,
+        "condition": "DMSO_treated_cells",
+        "target": "AHNAK",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 111,
+        "condition": "PLX_treated_cells",
+        "target": "AHNAK",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 229,
+        "condition": "DMSO_treated_cells",
+        "target": "ALG3",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 156,
+        "condition": "PLX_treated_cells",
+        "target": "ALG3",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 200,
+        "condition": "DMSO_treated_cells",
+        "target": "AMOTL2",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 153,
+        "condition": "PLX_treated_cells",
+        "target": "AMOTL2",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 118,
+        "condition": "DMSO_treated_cells",
+        "target": "ANAPC11",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 109,
+        "condition": "PLX_treated_cells",
+        "target": "ANAPC11",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 146,
+        "condition": "DMSO_treated_cells",
+        "target": "ARHGAP12",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 112,
+        "condition": "PLX_treated_cells",
+        "target": "ARHGAP12",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 272,
+        "condition": "DMSO_treated_cells",
+        "target": "ASAH1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 185,
+        "condition": "PLX_treated_cells",
+        "target": "ASAH1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 189,
+        "condition": "DMSO_treated_cells",
+        "target": "CHEK2",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 179,
+        "condition": "PLX_treated_cells",
+        "target": "CHEK2",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 252,
+        "condition": "DMSO_treated_cells",
+        "target": "CSK",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 135,
+        "condition": "PLX_treated_cells",
+        "target": "CSK",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 105,
+        "condition": "DMSO_treated_cells",
+        "target": "CTC1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 138,
+        "condition": "PLX_treated_cells",
+        "target": "CTC1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 274,
+        "condition": "DMSO_treated_cells",
+        "target": "CUL5",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 148,
+        "condition": "PLX_treated_cells",
+        "target": "CUL5",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 235,
+        "condition": "DMSO_treated_cells",
+        "target": "CYP2R1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 219,
+        "condition": "PLX_treated_cells",
+        "target": "CYP2R1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 142,
+        "condition": "DMSO_treated_cells",
+        "target": "DCAF17",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 125,
+        "condition": "PLX_treated_cells",
+        "target": "DCAF17",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 348,
+        "condition": "DMSO_treated_cells",
+        "target": "DCUN1D3",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 189,
+        "condition": "PLX_treated_cells",
+        "target": "DCUN1D3",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 154,
+        "condition": "DMSO_treated_cells",
+        "target": "DGKD",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 147,
+        "condition": "PLX_treated_cells",
+        "target": "DGKD",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 132,
+        "condition": "DMSO_treated_cells",
+        "target": "DPH2",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 124,
+        "condition": "PLX_treated_cells",
+        "target": "DPH2",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 191,
+        "condition": "DMSO_treated_cells",
+        "target": "DUSP6",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 183,
+        "condition": "PLX_treated_cells",
+        "target": "DUSP6",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 197,
+        "condition": "DMSO_treated_cells",
+        "target": "FHOD1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 130,
+        "condition": "PLX_treated_cells",
+        "target": "FHOD1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 98,
+        "condition": "DMSO_treated_cells",
+        "target": "GATA4",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 82,
+        "condition": "PLX_treated_cells",
+        "target": "GATA4",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 222,
+        "condition": "DMSO_treated_cells",
+        "target": "KCTD5",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 136,
+        "condition": "PLX_treated_cells",
+        "target": "KCTD5",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 306,
+        "condition": "DMSO_treated_cells",
+        "target": "LATS2",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 141,
+        "condition": "PLX_treated_cells",
+        "target": "LATS2",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 283,
+        "condition": "DMSO_treated_cells",
+        "target": "MAP4K4",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 210,
+        "condition": "PLX_treated_cells",
+        "target": "MAP4K4",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 153,
+        "condition": "DMSO_treated_cells",
+        "target": "MED13",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 119,
+        "condition": "PLX_treated_cells",
+        "target": "MED13",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 226,
+        "condition": "DMSO_treated_cells",
+        "target": "MORN2",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 169,
+        "condition": "PLX_treated_cells",
+        "target": "MORN2",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 222,
+        "condition": "DMSO_treated_cells",
+        "target": "NIPBL",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 167,
+        "condition": "PLX_treated_cells",
+        "target": "NIPBL",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 156,
+        "condition": "DMSO_treated_cells",
+        "target": "NRP1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 119,
+        "condition": "PLX_treated_cells",
+        "target": "NRP1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 188,
+        "condition": "DMSO_treated_cells",
+        "target": "PBRM1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 85,
+        "condition": "PLX_treated_cells",
+        "target": "PBRM1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 157,
+        "condition": "DMSO_treated_cells",
+        "target": "PGRMC2",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 126,
+        "condition": "PLX_treated_cells",
+        "target": "PGRMC2",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 206,
+        "condition": "DMSO_treated_cells",
+        "target": "PLXND1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 124,
+        "condition": "PLX_treated_cells",
+        "target": "PLXND1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 239,
+        "condition": "DMSO_treated_cells",
+        "target": "RAB35",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 215,
+        "condition": "PLX_treated_cells",
+        "target": "RAB35",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 209,
+        "condition": "DMSO_treated_cells",
+        "target": "RALGAPB",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 126,
+        "condition": "PLX_treated_cells",
+        "target": "RALGAPB",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 313,
+        "condition": "DMSO_treated_cells",
+        "target": "RNF7",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 170,
+        "condition": "PLX_treated_cells",
+        "target": "RNF7",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 142,
+        "condition": "DMSO_treated_cells",
+        "target": "SBF1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 81,
+        "condition": "PLX_treated_cells",
+        "target": "SBF1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 115,
+        "condition": "DMSO_treated_cells",
+        "target": "SLC35A1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 80,
+        "condition": "PLX_treated_cells",
+        "target": "SLC35A1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 93,
+        "condition": "DMSO_treated_cells",
+        "target": "SMARCB1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 91,
+        "condition": "PLX_treated_cells",
+        "target": "SMARCB1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 265,
+        "condition": "DMSO_treated_cells",
+        "target": "STK24",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 204,
+        "condition": "PLX_treated_cells",
+        "target": "STK24",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 131,
+        "condition": "DMSO_treated_cells",
+        "target": "SUFU",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 108,
+        "condition": "PLX_treated_cells",
+        "target": "SUFU",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 197,
+        "condition": "DMSO_treated_cells",
+        "target": "SUPT7L",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 151,
+        "condition": "PLX_treated_cells",
+        "target": "SUPT7L",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 142,
+        "condition": "DMSO_treated_cells",
+        "target": "TADA1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 170,
+        "condition": "PLX_treated_cells",
+        "target": "TADA1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 163,
+        "condition": "DMSO_treated_cells",
+        "target": "TADA2B",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 154,
+        "condition": "PLX_treated_cells",
+        "target": "TADA2B",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 98,
+        "condition": "DMSO_treated_cells",
+        "target": "TADA3",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 136,
+        "condition": "PLX_treated_cells",
+        "target": "TADA3",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 131,
+        "condition": "DMSO_treated_cells",
+        "target": "TAF5L",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 139,
+        "condition": "PLX_treated_cells",
+        "target": "TAF5L",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 123,
+        "condition": "DMSO_treated_cells",
+        "target": "TAF6L",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 185,
+        "condition": "PLX_treated_cells",
+        "target": "TAF6L",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 468,
+        "condition": "DMSO_treated_cells",
+        "target": "TAOK1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 207,
+        "condition": "PLX_treated_cells",
+        "target": "TAOK1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 427,
+        "condition": "DMSO_treated_cells",
+        "target": "TP53",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 138,
+        "condition": "PLX_treated_cells",
+        "target": "TP53",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 150,
+        "condition": "DMSO_treated_cells",
+        "target": "UBE2R2",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 141,
+        "condition": "PLX_treated_cells",
+        "target": "UBE2R2",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 218,
+        "condition": "DMSO_treated_cells",
+        "target": "WT1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 162,
+        "condition": "PLX_treated_cells",
+        "target": "WT1",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 132,
+        "condition": "DMSO_treated_cells",
+        "target": "ZBTB7A",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 136,
+        "condition": "PLX_treated_cells",
+        "target": "ZBTB7A",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 154,
+        "condition": "DMSO_treated_cells",
+        "target": "ZNF592",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 154,
+        "condition": "PLX_treated_cells",
+        "target": "ZNF592",
+        "technical_date": "240613"
+      },
+      {
+        "cells": 139,
+        "condition": "DMSO_treated_cells",
+        "target": "ACTN4",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 92,
+        "condition": "PLX_treated_cells",
+        "target": "ACTN4",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 156,
+        "condition": "DMSO_treated_cells",
+        "target": "AHNAK",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 125,
+        "condition": "PLX_treated_cells",
+        "target": "AHNAK",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 194,
+        "condition": "DMSO_treated_cells",
+        "target": "ALG3",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 149,
+        "condition": "PLX_treated_cells",
+        "target": "ALG3",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 236,
+        "condition": "DMSO_treated_cells",
+        "target": "AMOTL2",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 135,
+        "condition": "PLX_treated_cells",
+        "target": "AMOTL2",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 125,
+        "condition": "DMSO_treated_cells",
+        "target": "ANAPC11",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 96,
+        "condition": "PLX_treated_cells",
+        "target": "ANAPC11",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 153,
+        "condition": "DMSO_treated_cells",
+        "target": "ARHGAP12",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 77,
+        "condition": "PLX_treated_cells",
+        "target": "ARHGAP12",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 278,
+        "condition": "DMSO_treated_cells",
+        "target": "ASAH1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 183,
+        "condition": "PLX_treated_cells",
+        "target": "ASAH1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 186,
+        "condition": "DMSO_treated_cells",
+        "target": "CHEK2",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 162,
+        "condition": "PLX_treated_cells",
+        "target": "CHEK2",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 261,
+        "condition": "DMSO_treated_cells",
+        "target": "CSK",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 149,
+        "condition": "PLX_treated_cells",
+        "target": "CSK",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 117,
+        "condition": "DMSO_treated_cells",
+        "target": "CTC1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 114,
+        "condition": "PLX_treated_cells",
+        "target": "CTC1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 265,
+        "condition": "DMSO_treated_cells",
+        "target": "CUL5",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 154,
+        "condition": "PLX_treated_cells",
+        "target": "CUL5",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 219,
+        "condition": "DMSO_treated_cells",
+        "target": "CYP2R1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 229,
+        "condition": "PLX_treated_cells",
+        "target": "CYP2R1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 163,
+        "condition": "DMSO_treated_cells",
+        "target": "DCAF17",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 111,
+        "condition": "PLX_treated_cells",
+        "target": "DCAF17",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 296,
+        "condition": "DMSO_treated_cells",
+        "target": "DCUN1D3",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 185,
+        "condition": "PLX_treated_cells",
+        "target": "DCUN1D3",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 181,
+        "condition": "DMSO_treated_cells",
+        "target": "DGKD",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 144,
+        "condition": "PLX_treated_cells",
+        "target": "DGKD",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 136,
+        "condition": "DMSO_treated_cells",
+        "target": "DPH2",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 155,
+        "condition": "PLX_treated_cells",
+        "target": "DPH2",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 209,
+        "condition": "DMSO_treated_cells",
+        "target": "DUSP6",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 171,
+        "condition": "PLX_treated_cells",
+        "target": "DUSP6",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 177,
+        "condition": "DMSO_treated_cells",
+        "target": "FHOD1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 131,
+        "condition": "PLX_treated_cells",
+        "target": "FHOD1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 93,
+        "condition": "DMSO_treated_cells",
+        "target": "GATA4",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 81,
+        "condition": "PLX_treated_cells",
+        "target": "GATA4",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 221,
+        "condition": "DMSO_treated_cells",
+        "target": "KCTD5",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 133,
+        "condition": "PLX_treated_cells",
+        "target": "KCTD5",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 336,
+        "condition": "DMSO_treated_cells",
+        "target": "LATS2",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 152,
+        "condition": "PLX_treated_cells",
+        "target": "LATS2",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 289,
+        "condition": "DMSO_treated_cells",
+        "target": "MAP4K4",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 208,
+        "condition": "PLX_treated_cells",
+        "target": "MAP4K4",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 158,
+        "condition": "DMSO_treated_cells",
+        "target": "MED13",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 130,
+        "condition": "PLX_treated_cells",
+        "target": "MED13",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 209,
+        "condition": "DMSO_treated_cells",
+        "target": "MORN2",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 210,
+        "condition": "PLX_treated_cells",
+        "target": "MORN2",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 194,
+        "condition": "DMSO_treated_cells",
+        "target": "NIPBL",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 166,
+        "condition": "PLX_treated_cells",
+        "target": "NIPBL",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 144,
+        "condition": "DMSO_treated_cells",
+        "target": "NRP1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 117,
+        "condition": "PLX_treated_cells",
+        "target": "NRP1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 171,
+        "condition": "DMSO_treated_cells",
+        "target": "PBRM1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 93,
+        "condition": "PLX_treated_cells",
+        "target": "PBRM1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 152,
+        "condition": "DMSO_treated_cells",
+        "target": "PGRMC2",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 125,
+        "condition": "PLX_treated_cells",
+        "target": "PGRMC2",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 203,
+        "condition": "DMSO_treated_cells",
+        "target": "PLXND1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 163,
+        "condition": "PLX_treated_cells",
+        "target": "PLXND1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 237,
+        "condition": "DMSO_treated_cells",
+        "target": "RAB35",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 223,
+        "condition": "PLX_treated_cells",
+        "target": "RAB35",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 231,
+        "condition": "DMSO_treated_cells",
+        "target": "RALGAPB",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 138,
+        "condition": "PLX_treated_cells",
+        "target": "RALGAPB",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 300,
+        "condition": "DMSO_treated_cells",
+        "target": "RNF7",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 197,
+        "condition": "PLX_treated_cells",
+        "target": "RNF7",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 132,
+        "condition": "DMSO_treated_cells",
+        "target": "SBF1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 86,
+        "condition": "PLX_treated_cells",
+        "target": "SBF1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 153,
+        "condition": "DMSO_treated_cells",
+        "target": "SLC35A1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 96,
+        "condition": "PLX_treated_cells",
+        "target": "SLC35A1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 89,
+        "condition": "DMSO_treated_cells",
+        "target": "SMARCB1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 83,
+        "condition": "PLX_treated_cells",
+        "target": "SMARCB1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 221,
+        "condition": "DMSO_treated_cells",
+        "target": "STK24",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 189,
+        "condition": "PLX_treated_cells",
+        "target": "STK24",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 135,
+        "condition": "DMSO_treated_cells",
+        "target": "SUFU",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 109,
+        "condition": "PLX_treated_cells",
+        "target": "SUFU",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 165,
+        "condition": "DMSO_treated_cells",
+        "target": "SUPT7L",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 193,
+        "condition": "PLX_treated_cells",
+        "target": "SUPT7L",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 153,
+        "condition": "DMSO_treated_cells",
+        "target": "TADA1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 173,
+        "condition": "PLX_treated_cells",
+        "target": "TADA1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 173,
+        "condition": "DMSO_treated_cells",
+        "target": "TADA2B",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 158,
+        "condition": "PLX_treated_cells",
+        "target": "TADA2B",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 143,
+        "condition": "DMSO_treated_cells",
+        "target": "TADA3",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 149,
+        "condition": "PLX_treated_cells",
+        "target": "TADA3",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 129,
+        "condition": "DMSO_treated_cells",
+        "target": "TAF5L",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 139,
+        "condition": "PLX_treated_cells",
+        "target": "TAF5L",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 160,
+        "condition": "DMSO_treated_cells",
+        "target": "TAF6L",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 190,
+        "condition": "PLX_treated_cells",
+        "target": "TAF6L",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 436,
+        "condition": "DMSO_treated_cells",
+        "target": "TAOK1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 196,
+        "condition": "PLX_treated_cells",
+        "target": "TAOK1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 406,
+        "condition": "DMSO_treated_cells",
+        "target": "TP53",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 127,
+        "condition": "PLX_treated_cells",
+        "target": "TP53",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 118,
+        "condition": "DMSO_treated_cells",
+        "target": "UBE2R2",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 124,
+        "condition": "PLX_treated_cells",
+        "target": "UBE2R2",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 191,
+        "condition": "DMSO_treated_cells",
+        "target": "WT1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 179,
+        "condition": "PLX_treated_cells",
+        "target": "WT1",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 140,
+        "condition": "DMSO_treated_cells",
+        "target": "ZBTB7A",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 121,
+        "condition": "PLX_treated_cells",
+        "target": "ZBTB7A",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 162,
+        "condition": "DMSO_treated_cells",
+        "target": "ZNF592",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 148,
+        "condition": "PLX_treated_cells",
+        "target": "ZNF592",
+        "technical_date": "240614"
+      },
+      {
+        "cells": 164,
+        "condition": "DMSO_treated_cells",
+        "target": "ACTN4",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 134,
+        "condition": "PLX_treated_cells",
+        "target": "ACTN4",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 211,
+        "condition": "DMSO_treated_cells",
+        "target": "AHNAK",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 128,
+        "condition": "PLX_treated_cells",
+        "target": "AHNAK",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 240,
+        "condition": "DMSO_treated_cells",
+        "target": "ALG3",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 148,
+        "condition": "PLX_treated_cells",
+        "target": "ALG3",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 280,
+        "condition": "DMSO_treated_cells",
+        "target": "AMOTL2",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 161,
+        "condition": "PLX_treated_cells",
+        "target": "AMOTL2",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 163,
+        "condition": "DMSO_treated_cells",
+        "target": "ANAPC11",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 120,
+        "condition": "PLX_treated_cells",
+        "target": "ANAPC11",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 180,
+        "condition": "DMSO_treated_cells",
+        "target": "ARHGAP12",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 104,
+        "condition": "PLX_treated_cells",
+        "target": "ARHGAP12",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 319,
+        "condition": "DMSO_treated_cells",
+        "target": "ASAH1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 188,
+        "condition": "PLX_treated_cells",
+        "target": "ASAH1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 219,
+        "condition": "DMSO_treated_cells",
+        "target": "CHEK2",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 183,
+        "condition": "PLX_treated_cells",
+        "target": "CHEK2",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 263,
+        "condition": "DMSO_treated_cells",
+        "target": "CSK",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 140,
+        "condition": "PLX_treated_cells",
+        "target": "CSK",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 90,
+        "condition": "DMSO_treated_cells",
+        "target": "CTC1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 126,
+        "condition": "PLX_treated_cells",
+        "target": "CTC1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 282,
+        "condition": "DMSO_treated_cells",
+        "target": "CUL5",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 177,
+        "condition": "PLX_treated_cells",
+        "target": "CUL5",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 232,
+        "condition": "DMSO_treated_cells",
+        "target": "CYP2R1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 236,
+        "condition": "PLX_treated_cells",
+        "target": "CYP2R1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 143,
+        "condition": "DMSO_treated_cells",
+        "target": "DCAF17",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 118,
+        "condition": "PLX_treated_cells",
+        "target": "DCAF17",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 358,
+        "condition": "DMSO_treated_cells",
+        "target": "DCUN1D3",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 214,
+        "condition": "PLX_treated_cells",
+        "target": "DCUN1D3",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 204,
+        "condition": "DMSO_treated_cells",
+        "target": "DGKD",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 153,
+        "condition": "PLX_treated_cells",
+        "target": "DGKD",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 133,
+        "condition": "DMSO_treated_cells",
+        "target": "DPH2",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 154,
+        "condition": "PLX_treated_cells",
+        "target": "DPH2",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 227,
+        "condition": "DMSO_treated_cells",
+        "target": "DUSP6",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 209,
+        "condition": "PLX_treated_cells",
+        "target": "DUSP6",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 210,
+        "condition": "DMSO_treated_cells",
+        "target": "FHOD1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 162,
+        "condition": "PLX_treated_cells",
+        "target": "FHOD1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 86,
+        "condition": "DMSO_treated_cells",
+        "target": "GATA4",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 96,
+        "condition": "PLX_treated_cells",
+        "target": "GATA4",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 219,
+        "condition": "DMSO_treated_cells",
+        "target": "KCTD5",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 149,
+        "condition": "PLX_treated_cells",
+        "target": "KCTD5",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 271,
+        "condition": "DMSO_treated_cells",
+        "target": "LATS2",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 152,
+        "condition": "PLX_treated_cells",
+        "target": "LATS2",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 351,
+        "condition": "DMSO_treated_cells",
+        "target": "MAP4K4",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 209,
+        "condition": "PLX_treated_cells",
+        "target": "MAP4K4",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 185,
+        "condition": "DMSO_treated_cells",
+        "target": "MED13",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 124,
+        "condition": "PLX_treated_cells",
+        "target": "MED13",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 201,
+        "condition": "DMSO_treated_cells",
+        "target": "MORN2",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 220,
+        "condition": "PLX_treated_cells",
+        "target": "MORN2",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 188,
+        "condition": "DMSO_treated_cells",
+        "target": "NIPBL",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 193,
+        "condition": "PLX_treated_cells",
+        "target": "NIPBL",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 168,
+        "condition": "DMSO_treated_cells",
+        "target": "NRP1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 116,
+        "condition": "PLX_treated_cells",
+        "target": "NRP1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 187,
+        "condition": "DMSO_treated_cells",
+        "target": "PBRM1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 105,
+        "condition": "PLX_treated_cells",
+        "target": "PBRM1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 149,
+        "condition": "DMSO_treated_cells",
+        "target": "PGRMC2",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 134,
+        "condition": "PLX_treated_cells",
+        "target": "PGRMC2",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 166,
+        "condition": "DMSO_treated_cells",
+        "target": "PLXND1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 150,
+        "condition": "PLX_treated_cells",
+        "target": "PLXND1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 220,
+        "condition": "DMSO_treated_cells",
+        "target": "RAB35",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 271,
+        "condition": "PLX_treated_cells",
+        "target": "RAB35",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 226,
+        "condition": "DMSO_treated_cells",
+        "target": "RALGAPB",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 155,
+        "condition": "PLX_treated_cells",
+        "target": "RALGAPB",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 313,
+        "condition": "DMSO_treated_cells",
+        "target": "RNF7",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 230,
+        "condition": "PLX_treated_cells",
+        "target": "RNF7",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 169,
+        "condition": "DMSO_treated_cells",
+        "target": "SBF1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 80,
+        "condition": "PLX_treated_cells",
+        "target": "SBF1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 159,
+        "condition": "DMSO_treated_cells",
+        "target": "SLC35A1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 93,
+        "condition": "PLX_treated_cells",
+        "target": "SLC35A1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 122,
+        "condition": "DMSO_treated_cells",
+        "target": "SMARCB1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 85,
+        "condition": "PLX_treated_cells",
+        "target": "SMARCB1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 262,
+        "condition": "DMSO_treated_cells",
+        "target": "STK24",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 215,
+        "condition": "PLX_treated_cells",
+        "target": "STK24",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 132,
+        "condition": "DMSO_treated_cells",
+        "target": "SUFU",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 139,
+        "condition": "PLX_treated_cells",
+        "target": "SUFU",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 194,
+        "condition": "DMSO_treated_cells",
+        "target": "SUPT7L",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 197,
+        "condition": "PLX_treated_cells",
+        "target": "SUPT7L",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 192,
+        "condition": "DMSO_treated_cells",
+        "target": "TADA1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 204,
+        "condition": "PLX_treated_cells",
+        "target": "TADA1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 180,
+        "condition": "DMSO_treated_cells",
+        "target": "TADA2B",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 197,
+        "condition": "PLX_treated_cells",
+        "target": "TADA2B",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 138,
+        "condition": "DMSO_treated_cells",
+        "target": "TADA3",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 159,
+        "condition": "PLX_treated_cells",
+        "target": "TADA3",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 157,
+        "condition": "DMSO_treated_cells",
+        "target": "TAF5L",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 121,
+        "condition": "PLX_treated_cells",
+        "target": "TAF5L",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 145,
+        "condition": "DMSO_treated_cells",
+        "target": "TAF6L",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 232,
+        "condition": "PLX_treated_cells",
+        "target": "TAF6L",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 485,
+        "condition": "DMSO_treated_cells",
+        "target": "TAOK1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 236,
+        "condition": "PLX_treated_cells",
+        "target": "TAOK1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 453,
+        "condition": "DMSO_treated_cells",
+        "target": "TP53",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 137,
+        "condition": "PLX_treated_cells",
+        "target": "TP53",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 144,
+        "condition": "DMSO_treated_cells",
+        "target": "UBE2R2",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 164,
+        "condition": "PLX_treated_cells",
+        "target": "UBE2R2",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 210,
+        "condition": "DMSO_treated_cells",
+        "target": "WT1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 177,
+        "condition": "PLX_treated_cells",
+        "target": "WT1",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 174,
+        "condition": "DMSO_treated_cells",
+        "target": "ZBTB7A",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 124,
+        "condition": "PLX_treated_cells",
+        "target": "ZBTB7A",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 191,
+        "condition": "DMSO_treated_cells",
+        "target": "ZNF592",
+        "technical_date": "240615"
+      },
+      {
+        "cells": 158,
+        "condition": "PLX_treated_cells",
+        "target": "ZNF592",
+        "technical_date": "240615"
+      }
+    ]
+  },
+  "target_names": [
+    "ACTN4",
+    "AHNAK",
+    "ALG3",
+    "AMOTL2",
+    "ANAPC11",
+    "ARHGAP12",
+    "ASAH1",
+    "CHEK2",
+    "CSK",
+    "CTC1",
+    "CUL5",
+    "CYP2R1",
+    "DCAF17",
+    "DCUN1D3",
+    "DGKD",
+    "DPH2",
+    "DUSP6",
+    "FHOD1",
+    "GATA4",
+    "KCTD5",
+    "LATS2",
+    "MAP4K4",
+    "MED13",
+    "MORN2",
+    "NIPBL",
+    "NRP1",
+    "PBRM1",
+    "PGRMC2",
+    "PLXND1",
+    "RAB35",
+    "RALGAPB",
+    "RNF7",
+    "SBF1",
+    "SLC35A1",
+    "SMARCB1",
+    "STK24",
+    "SUFU",
+    "SUPT7L",
+    "TADA1",
+    "TADA2B",
+    "TADA3",
+    "TAF5L",
+    "TAF6L",
+    "TAOK1",
+    "TP53",
+    "UBE2R2",
+    "WT1",
+    "ZBTB7A",
+    "ZNF592"
+  ],
+  "targets": 49,
+  "technical_dates": [
+    "240603",
+    "240613",
+    "240614",
+    "240615"
+  ],
+  "unit_type": "deposited technical date"
+}

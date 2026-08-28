@@ -1,0 +1,462 @@
+{
+  "best_matched_competitor": "zero",
+  "embedding_hypergraphs": {
+    "gene2vec": {
+      "covered_targets": 33,
+      "embedding": "data/gene2vec_embeddings.npz",
+      "embedding_sha256": "3b175b048a174e606510a774c045287ff468b05be61d1108282d4740e5bfd435",
+      "hyperedges": 33,
+      "neighbors_per_hyperedge": 5
+    },
+    "scgpt": {
+      "covered_targets": 35,
+      "embedding": "data/scgpt_gene_embeddings.npz",
+      "embedding_sha256": "baf835e05077c6ec17e7bb0f48fc30632adc24be5bb91e591f74ab2e7985c60e",
+      "hyperedges": 35,
+      "neighbors_per_hyperedge": 5
+    }
+  },
+  "field_coordinates": 4,
+  "fixed_settings": {
+    "graph_penalty": 5.0,
+    "nuclear_fraction": 0.1,
+    "permutations": 64,
+    "pseudocount": 0.5,
+    "ridge_penalty": 0.1,
+    "target_bootstraps": 2000
+  },
+  "median_guide_cells": 498.5,
+  "methods": {
+    "conditional_nuclear_gene2vec_hypergraph": {
+      "metrics": {
+        "macro_target_cosine": -0.08153921212687976,
+        "pooled_pearson": -0.1555420566488467,
+        "standardized_rmse": 1.056989564065942
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.2277236226020664,
+          0.07133941931237683
+        ],
+        "pooled_pearson": [
+          -0.2742438549413025,
+          -0.03798300061646328
+        ],
+        "standardized_rmse": [
+          0.9972414470891026,
+          1.132001555498613
+        ]
+      }
+    },
+    "conditional_nuclear_scgpt_hypergraph": {
+      "metrics": {
+        "macro_target_cosine": -0.11954474926439144,
+        "pooled_pearson": -0.23632010780515517,
+        "standardized_rmse": 1.067447475470238
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.24935601974589924,
+          0.021300893034936198
+        ],
+        "pooled_pearson": [
+          -0.3421904076774796,
+          -0.12742689289941084
+        ],
+        "standardized_rmse": [
+          1.015944352218888,
+          1.120159925039231
+        ]
+      }
+    },
+    "destroyed_links": {
+      "metrics": {
+        "macro_target_cosine": 0.06778189234555236,
+        "pooled_pearson": -0.011070987026603257,
+        "standardized_rmse": 1.2181107985356987
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.028120817282637715,
+          0.1679225830417262
+        ],
+        "pooled_pearson": [
+          -0.06454653231658307,
+          0.05853984146804671
+        ],
+        "standardized_rmse": [
+          1.1450787732061791,
+          1.2987229547339305
+        ]
+      }
+    },
+    "direct": {
+      "metrics": {
+        "macro_target_cosine": -0.05134580801078341,
+        "pooled_pearson": -0.024858887781960746,
+        "standardized_rmse": 1.399731606415007
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.23231428109083443,
+          0.12541096666983295
+        ],
+        "pooled_pearson": [
+          -0.17591916881782746,
+          0.12596514659357988
+        ],
+        "standardized_rmse": [
+          1.2628376904199645,
+          1.5183474677245372
+        ]
+      }
+    },
+    "endpoint_plus_structured_residual": {
+      "metrics": {
+        "macro_target_cosine": 0.12648924781469245,
+        "pooled_pearson": 0.1186314734297014,
+        "standardized_rmse": 1.0384081477445206
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.007831901899673805,
+          0.25906982821139973
+        ],
+        "pooled_pearson": [
+          -0.0015094468248803394,
+          0.2331063170948943
+        ],
+        "standardized_rmse": [
+          0.9637717571943812,
+          1.1164282132441117
+        ]
+      }
+    },
+    "endpoint_ridge": {
+      "metrics": {
+        "macro_target_cosine": 0.1271080730200521,
+        "pooled_pearson": 0.12047686702592594,
+        "standardized_rmse": 1.0325691335302003
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.0015018271860010356,
+          0.25115558297235896
+        ],
+        "pooled_pearson": [
+          0.0066101963390133925,
+          0.24090129195858884
+        ],
+        "standardized_rmse": [
+          0.9654426475964836,
+          1.1131724386820134
+        ]
+      }
+    },
+    "linear_cross_covariance": {
+      "metrics": {
+        "macro_target_cosine": -0.10646157489011823,
+        "pooled_pearson": -0.03556163499910282,
+        "standardized_rmse": 1.0049123197094565
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.28005906425446214,
+          0.06810121610220995
+        ],
+        "pooled_pearson": [
+          -0.17599093452600625,
+          0.09098118934278433
+        ],
+        "standardized_rmse": [
+          0.9922097433397723,
+          1.0200340132255665
+        ]
+      }
+    },
+    "nuclear": {
+      "metrics": {
+        "macro_target_cosine": -0.051671447681058344,
+        "pooled_pearson": -0.022747483471862527,
+        "standardized_rmse": 1.3103721873024348
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.2398617550871603,
+          0.1261198799327871
+        ],
+        "pooled_pearson": [
+          -0.1682086997901589,
+          0.12348465132046652
+        ],
+        "standardized_rmse": [
+          1.1910792612099013,
+          1.4175536887274582
+        ]
+      }
+    },
+    "permutation_reliability_shrinkage": {
+      "metrics": {
+        "macro_target_cosine": -0.11875878024887529,
+        "pooled_pearson": -0.06786667975275212,
+        "standardized_rmse": 1.0805458858998342
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.2887626832296252,
+          0.05151287328620753
+        ],
+        "pooled_pearson": [
+          -0.19977344702106492,
+          0.03756333658758836
+        ],
+        "standardized_rmse": [
+          1.033105822935653,
+          1.1389561359988138
+        ]
+      }
+    },
+    "scgpt_hypergraph": {
+      "metrics": {
+        "macro_target_cosine": -0.12235877632187397,
+        "pooled_pearson": -0.24181794787108182,
+        "standardized_rmse": 1.095011130491551
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.254322864849156,
+          0.018664890472928224
+        ],
+        "pooled_pearson": [
+          -0.3450639988011648,
+          -0.13846775354811242
+        ],
+        "standardized_rmse": [
+          1.0365401780635475,
+          1.1577766056326213
+        ]
+      }
+    },
+    "shuffled_hypergraph": {
+      "metrics": {
+        "macro_target_cosine": -0.12086448830261887,
+        "pooled_pearson": -0.2309133765806044,
+        "standardized_rmse": 1.0683148405807836
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.25713124220707395,
+          0.015418922827428632
+        ],
+        "pooled_pearson": [
+          -0.3525205943051327,
+          -0.10900309485574637
+        ],
+        "standardized_rmse": [
+          1.0189595005186436,
+          1.1282604920303918
+        ]
+      }
+    },
+    "variance_weighted_nuclear_scgpt_hypergraph": {
+      "metrics": {
+        "macro_target_cosine": -0.07508874325437703,
+        "pooled_pearson": -0.2242136813165245,
+        "standardized_rmse": 1.0465294181967246
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.21150072040948503,
+          0.06370382776713127
+        ],
+        "pooled_pearson": [
+          -0.33040369566724453,
+          -0.12431868418999774
+        ],
+        "standardized_rmse": [
+          1.0047646639126342,
+          1.09521603905513
+        ]
+      }
+    },
+    "zero": {
+      "metrics": {
+        "macro_target_cosine": 0.0,
+        "pooled_pearson": null,
+        "standardized_rmse": 1.0
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.0,
+          0.0
+        ],
+        "pooled_pearson": null,
+        "standardized_rmse": [
+          1.0,
+          1.0
+        ]
+      }
+    }
+  },
+  "minimum_guide_cells": 38,
+  "panel": "GSE277747 MultiPerturb-seq RNA-ATAC",
+  "primary": "variance_weighted_nuclear_scgpt_hypergraph",
+  "primary_minus_best_squared_error_bootstrap_95_ci": [
+    0.0007302306776352145,
+    0.015079768803371188
+  ],
+  "provenance": {
+    "benchmark_sha256": "8f4a0f8c2d8a59bcb6961b397909205e39de60bffff9f77dda1df04ed9977e9f",
+    "estimator_sha256": "29a3875fa43572ead6c53cd7dea60bb9bdf07c35b417d79d8a97f30cbb230912",
+    "geo_tar_sha256": "0e88218bf932f40ca1cdbb1b45f97604a41674ccd3f73946c78db3b363905314",
+    "preprocessing_sha256": "a6843c10bc7f64085e72f0cd507b8e029539852ede823651a7b221f8cab426eb",
+    "state_table": "data/development/public_coupling_atlas/multiperturb_states_v1.tsv.gz",
+    "state_table_sha256": "c00de5638999cd1cc69a9c01b82abb2f4ebc89f53f586244504355888f5e7c6f"
+  },
+  "schema": "v2p2r.multiperturb-conditional-fields/1",
+  "success": false,
+  "targets": 35,
+  "targets_and_guides": {
+    "BAZ1B": [
+      "ATRT_026",
+      "ATRT_027"
+    ],
+    "BAZ2A": [
+      "ATRT_028",
+      "ATRT_029"
+    ],
+    "BCOR": [
+      "ATRT_032",
+      "ATRT_031"
+    ],
+    "BMI1": [
+      "ATRT_035",
+      "ATRT_036"
+    ],
+    "BPTF": [
+      "ATRT_038",
+      "ATRT_039"
+    ],
+    "BRD7": [
+      "ATRT_048",
+      "ATRT_047"
+    ],
+    "BRD9": [
+      "ATRT_049",
+      "ATRT_051"
+    ],
+    "CECR2": [
+      "ATRT_057",
+      "ATRT_055"
+    ],
+    "CHD1": [
+      "ATRT_061",
+      "ATRT_063"
+    ],
+    "CTCF": [
+      "ATRT_074",
+      "ATRT_073"
+    ],
+    "EZH2": [
+      "ATRT_110",
+      "ATRT_111"
+    ],
+    "GATAD2A": [
+      "ATRT_113",
+      "ATRT_114"
+    ],
+    "HAT1": [
+      "ATRT_123",
+      "ATRT_122"
+    ],
+    "HDAC1": [
+      "ATRT_126",
+      "ATRT_124"
+    ],
+    "HDAC2": [
+      "ATRT_127",
+      "ATRT_129"
+    ],
+    "KAT2A": [
+      "ATRT_141",
+      "ATRT_139"
+    ],
+    "KDM6A": [
+      "ATRT_148",
+      "ATRT_150"
+    ],
+    "KMT2D": [
+      "ATRT_160",
+      "ATRT_162"
+    ],
+    "L3MBTL1": [
+      "ATRT_165",
+      "ATRT_164"
+    ],
+    "MBD3": [
+      "ATRT_174",
+      "ATRT_172"
+    ],
+    "MLLT1": [
+      "ATRT_186",
+      "ATRT_185"
+    ],
+    "MTA1": [
+      "ATRT_189",
+      "ATRT_187"
+    ],
+    "MTA3": [
+      "ATRT_194",
+      "ATRT_195"
+    ],
+    "PBRM1": [
+      "ATRT_200",
+      "ATRT_201"
+    ],
+    "PRMT5": [
+      "ATRT_213",
+      "ATRT_211"
+    ],
+    "SETD2": [
+      "ATRT_228",
+      "ATRT_227"
+    ],
+    "SIN3A": [
+      "ATRT_237",
+      "ATRT_235"
+    ],
+    "SMARCA1": [
+      "ATRT_246",
+      "ATRT_244"
+    ],
+    "SMARCA4": [
+      "ATRT_252",
+      "ATRT_251"
+    ],
+    "SMARCB1": [
+      "ATRT_256",
+      "ATRT_257"
+    ],
+    "SMARCE1": [
+      "ATRT_276",
+      "ATRT_274"
+    ],
+    "SSRP1": [
+      "ATRT_291",
+      "ATRT_289"
+    ],
+    "TET2": [
+      "ATRT_305",
+      "ATRT_304"
+    ],
+    "UCHL5": [
+      "ATRT_311",
+      "ATRT_310"
+    ],
+    "YBX1": [
+      "ATRT_314",
+      "ATRT_313"
+    ]
+  },
+  "units": "two sequence-distinct guides per target"
+}

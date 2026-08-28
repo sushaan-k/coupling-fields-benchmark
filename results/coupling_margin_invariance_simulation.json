@@ -1,0 +1,158 @@
+{
+  "schema_version": "coupling-margin-invariance-simulation-v1",
+  "estimand": "positive 3x3 population tables with a fixed log-linear interaction and changing row/column margins",
+  "comparison": "all methods receive exact target margins; residual comparators transfer the complete source Pearson or signed-deviance residual matrix",
+  "total_count": 100000.0,
+  "interaction_coordinates": [
+    [
+      0.66,
+      -0.30000000000000004
+    ],
+    [
+      0.24,
+      0.54
+    ]
+  ],
+  "source_row_proportions": [
+    0.34,
+    0.38,
+    0.28
+  ],
+  "source_column_proportions": [
+    0.31,
+    0.36,
+    0.33
+  ],
+  "terminal_row_proportions": [
+    0.66,
+    0.22,
+    0.12
+  ],
+  "terminal_column_proportions": [
+    0.14,
+    0.24,
+    0.62
+  ],
+  "binary_fixed_odds_ratio_witness": {
+    "odds_ratio": 9.0,
+    "balanced_margins": {
+      "row_one": 0.5,
+      "column_one": 0.5,
+      "joint_one_one": 0.375,
+      "pearson_phi": 0.5,
+      "coupling_coordinate": 1.0986122886681098
+    },
+    "shifted_margins": {
+      "row_one": 0.8,
+      "column_one": 0.3,
+      "joint_one_one": 0.28822195572317877,
+      "pearson_phi": 0.2630723360241378,
+      "coupling_coordinate": 1.0986122886681098
+    }
+  },
+  "margin_shift_sweep": [
+    {
+      "shift_fraction": 0.0,
+      "row_proportions": [
+        0.34,
+        0.38,
+        0.28
+      ],
+      "column_proportions": [
+        0.31,
+        0.36,
+        0.33
+      ],
+      "field_maximum_absolute_count_error": 0.0,
+      "field_multinomial_deviance_per_observation": 0.0,
+      "pearson_residual_multinomial_deviance_per_observation": 0.0,
+      "deviance_residual_multinomial_deviance_per_observation": 0.0
+    },
+    {
+      "shift_fraction": 0.2,
+      "row_proportions": [
+        0.404,
+        0.34800000000000003,
+        0.24800000000000003
+      ],
+      "column_proportions": [
+        0.276,
+        0.33599999999999997,
+        0.388
+      ],
+      "field_maximum_absolute_count_error": 0.0,
+      "field_multinomial_deviance_per_observation": 0.0,
+      "pearson_residual_multinomial_deviance_per_observation": 6.682998216956434e-05,
+      "deviance_residual_multinomial_deviance_per_observation": 5.5125231652361605e-05
+    },
+    {
+      "shift_fraction": 0.4,
+      "row_proportions": [
+        0.468,
+        0.316,
+        0.21600000000000003
+      ],
+      "column_proportions": [
+        0.242,
+        0.312,
+        0.446
+      ],
+      "field_maximum_absolute_count_error": 0.0,
+      "field_multinomial_deviance_per_observation": 0.0,
+      "pearson_residual_multinomial_deviance_per_observation": 0.0003850769951213306,
+      "deviance_residual_multinomial_deviance_per_observation": 0.00032973341444205405
+    },
+    {
+      "shift_fraction": 0.6000000000000001,
+      "row_proportions": [
+        0.532,
+        0.28400000000000003,
+        0.184
+      ],
+      "column_proportions": [
+        0.208,
+        0.288,
+        0.504
+      ],
+      "field_maximum_absolute_count_error": 0.0,
+      "field_multinomial_deviance_per_observation": 0.0,
+      "pearson_residual_multinomial_deviance_per_observation": 0.0012106547296263307,
+      "deviance_residual_multinomial_deviance_per_observation": 0.001044070899398338
+    },
+    {
+      "shift_fraction": 0.8,
+      "row_proportions": [
+        0.596,
+        0.252,
+        0.152
+      ],
+      "column_proportions": [
+        0.174,
+        0.264,
+        0.5619999999999999
+      ],
+      "field_maximum_absolute_count_error": 0.0,
+      "field_multinomial_deviance_per_observation": 0.0,
+      "pearson_residual_multinomial_deviance_per_observation": 0.0029036736157453174,
+      "deviance_residual_multinomial_deviance_per_observation": 0.0024473205337950687
+    },
+    {
+      "shift_fraction": 1.0,
+      "row_proportions": [
+        0.66,
+        0.22,
+        0.12
+      ],
+      "column_proportions": [
+        0.14,
+        0.24,
+        0.62
+      ],
+      "field_maximum_absolute_count_error": 0.0,
+      "field_multinomial_deviance_per_observation": 0.0,
+      "pearson_residual_multinomial_deviance_per_observation": 0.006229457564567288,
+      "deviance_residual_multinomial_deviance_per_observation": 0.004839338588234739
+    }
+  ],
+  "interpretation_boundary": "The field is the interaction term of a saturated Poisson log-linear model under centered constraints. It is not distinct from transferring that correctly parameterized classical interaction; the demonstrated advantage is only over transferring independence-model residuals."
+}

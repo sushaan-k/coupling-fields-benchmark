@@ -1,0 +1,15 @@
+numpy==2.0.2
+scipy==1.13.1
+h5py==3.14.0
+matplotlib==3.9.4
+pytest==8.4.2
+rdata==0.11.2
+pandas==2.3.3
+scikit-learn==1.6.1
+cvxpy==1.7.5
+openpyxl==3.1.5
+pyarrow==21.0.0
+requests==2.32.5
+huggingface-hub==0.36.0
+modal==1.2.6
+xlrd==2.0.2

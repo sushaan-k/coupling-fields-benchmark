@@ -1,0 +1,17 @@
+{
+  "schema": "lawlor-hca-pbmc-score-authorization/1.0",
+  "status": "AWAITING_PUBLIC_PREDICTION",
+  "outcome_access_authorized": false,
+  "candidate": "HCA:efea6426-510a-4b60-9a19-277e52bfa815",
+  "prediction_path": "results/lawlor_hca_pbmc_predictions.json",
+  "prediction_sha256": null,
+  "prediction_bytes": null,
+  "prediction_public_url": null,
+  "prediction_public_commit": null,
+  "runner": "experiments/confirm_lawlor_hca_pbmc.py",
+  "runner_sha256": "4dd4b2746ecfc448dfbd44824f0fbbe4dc53447c5a2ce97957e66c13c8d0993a",
+  "protocol": "docs/SECOND_HELD_UNIT_CONFIRMATION_PROTOCOL_2026-08-27.md",
+  "protocol_sha256": "15264be9238a8b96a55302cc69c5d73a61007e411decc9ecc01f3d93ccd5f5a6",
+  "sealed_at_utc": null,
+  "blocker": "Run predict only after the candidate designation is publicly sealed, publish the exact prediction JSON and its SHA-256 at an immutable public commit, then fill these fields in a new public commit before score."
+}

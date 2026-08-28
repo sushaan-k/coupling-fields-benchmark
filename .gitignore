@@ -1,0 +1,15 @@
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Upstream outcome matrices are acquired locally and never redistributed.
+data/**/*.Rds
+data/**/*.rds
+data/**/*.tar
+data/**/*.tar.gz
+data/**/*.mtx
+data/**/*.mtx.gz
+data/scgpt_gene_embeddings.npz
+data/development/lawlor_hca_pbmc/reduced_v1/

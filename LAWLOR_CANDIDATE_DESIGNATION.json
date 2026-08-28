@@ -1,0 +1,95 @@
+{
+  "schema": "lawlor-pbmc-coupling-candidate-designation/1.0",
+  "protocol": "docs/SECOND_HELD_UNIT_CONFIRMATION_PROTOCOL_2026-08-27.md",
+  "protocol_sha256": "15264be9238a8b96a55302cc69c5d73a61007e411decc9ecc01f3d93ccd5f5a6",
+  "status": "DESIGNATED_AWAITING_PUBLIC_FREEZE",
+  "designated_at_utc": "2026-08-28T00:35:00Z",
+  "accession": "HCA:efea6426-510a-4b60-9a19-277e52bfa815; ERP124005",
+  "study_doi": "10.3389/fimmu.2021.636720",
+  "assay_pair": "same-cell RNA and antibody-derived tags",
+  "perturbation_system": "ex vivo LPS or anti-CD3/CD28 immune stimulation; not CRISPR",
+  "design": "held_donor",
+  "biological_unit_field": "Donor_of_Origin",
+  "source_manifest": "data/development/lawlor_hca_pbmc/source_manifest_v1.json",
+  "source_manifest_sha256": "ea1b2705e6d1e1252376c1e5b0201dbed90e1197641674e1b803132abb279709",
+  "metadata_support_artifact": "data/development/lawlor_hca_pbmc/metadata_support_v1.json",
+  "metadata_support_sha256": "75ed973440e0c2ff50f01b8c7513d70e84184d40543d137586051e680f016251",
+  "source_urls": [
+    "https://explore.data.humancellatlas.org/projects/efea6426-510a-4b60-9a19-277e52bfa815",
+    "https://service.azul.data.humancellatlas.org/index/projects/efea6426-510a-4b60-9a19-277e52bfa815",
+    "https://service.azul.data.humancellatlas.org/index/files?filters=%7B%22projectId%22%3A%7B%22is%22%3A%5B%22efea6426-510a-4b60-9a19-277e52bfa815%22%5D%7D%7D&size=100"
+  ],
+  "source_checksums": [
+    {"name": "CITEseqPBMCProject_metadata_18-07-2023.xlsx", "bytes": 42700, "sha256": "b1a20a1ac14ad788f15a2c007542c6d979d35da7d045dc2eb5dfa54258728bed", "accessed": true},
+    {"name": "CZI.PBMC.cell.annotations.csv", "bytes": 26242593, "sha256": "76a6548089867687461603ed0031ba02f9203885cd8a623b7497bdceccaf7229", "accessed": true},
+    {"name": "CZI.PBMC.RNA.matrix.Rds", "bytes": 480584213, "sha256": "c6c1b29e8737085d89f2af35c23fb9ce0e189369e65061f18cfe8532bd1e80c5", "accessed": false},
+    {"name": "CZI.PBMC.ADT.matrix.Rds", "bytes": 21609958, "sha256": "bab0c4c2b43bb2c8c942491a370623b0685ef0dd10ce58aa45734371a8fb59e5", "accessed": false}
+  ],
+  "development_units": [
+    "202937150118_R01C01",
+    "202937150118_R03C01",
+    "202937150091_R01C01",
+    "202937150118_R06C01",
+    "202937150118_R04C01",
+    "202937150118_R07C01"
+  ],
+  "held_units": [
+    "202937150118_R05C01",
+    "202937150091_R02C01",
+    "202937150118_R08C01",
+    "202937150118_R02C01"
+  ],
+  "donor_split_rule": "ascending SHA256('pbmc-citeseq-coupling-v1' + canonical Donor_of_Origin); first six development, final four held",
+  "minimum_cells_per_donor_arm": 15,
+  "retained_contrasts": [
+    "CD3_CD28:B",
+    "CD3_CD28:CD4T_Naive",
+    "CD3_CD28:CD4T_Mem",
+    "CD3_CD28:CD8T_Naive",
+    "CD3_CD28:CD8T_Mem",
+    "LPS:CD14_Mono"
+  ],
+  "primary_grid": "each development-eligible matched RNA-ADT marker by six retained contrasts by four Helmert coordinates; 24 outputs per marker",
+  "marker_rule": "explicit cognate-gene lookup; observed in both assays; two distinct pooled-development-baseline tertile cuts and at least 5% pooled development-baseline occupancy in every state of each assay",
+  "state_rule": "per-marker RNA and ADT tertiles fitted only on pooled development-donor baseline cells; thresholds applied unchanged to stimulus and held cells",
+  "common_endpoint": "per-cell multinomial deviance on each held stimulus joint table; all predictions use the observed held baseline joint table as an anchor, add the margin-only stimulus-minus-baseline null-mean shift, and match the same held stimulus row and column margins before pairing is opened",
+  "classical_baselines": [
+    "full 3x3 Pearson independence-residual matrix, direct and identically structured",
+    "full 3x3 signed Poisson-deviance independence-residual matrix, direct and identically structured"
+  ],
+  "primary_gate": [
+    "pooled held coupling-field correlation marker-bootstrap 95% CI lower endpoint greater than zero",
+    "positive coupling-field correlation in every held donor",
+    "primary-minus-destroyed per-cell deviance marker-bootstrap 95% CI upper endpoint below zero",
+    "primary-minus-best-classical per-cell deviance marker-bootstrap 95% CI upper endpoint below zero",
+    "primary-minus-best-matched-field per-cell deviance marker-bootstrap 95% CI upper endpoint below zero, reselecting direct, zero, variance-scalar, nuclear, hypergraph, endpoint, covariance, and membership-permuted methods within each draw",
+    "no support, centering, IPF, or optimization refusal"
+  ],
+  "structural_exclusions": [
+    "HTO multiplets, empty droplets, and the IgM/IgG HTO condition",
+    "non-SNG Demuxlet calls",
+    "missing author broad cell labels",
+    "CD3_CD28:CD14_Mono because the stimulated arm is structurally absent",
+    "CD3_CD28:NK because one donor has seven baseline cells",
+    "non-CD14 LPS lineages because they are outside the frozen targeted-lineage grid",
+    "ambiguous RNA-ADT matches and development-only marker support failures"
+  ],
+  "runner": "experiments/confirm_lawlor_hca_pbmc.py",
+  "runner_sha256": "4dd4b2746ecfc448dfbd44824f0fbbe4dc53447c5a2ce97957e66c13c8d0993a",
+  "reducer": "experiments/reduce_lawlor_hca_pbmc.R",
+  "reducer_sha256": "59dc61dfe9a283fd00c9a31d0a6e9148aaab2052d9b651fbc1015584cf4f3bcf",
+  "alias_table": "data/development/lawlor_hca_pbmc/adt_gene_aliases_v1.tsv",
+  "alias_sha256": "d4aec23ef6aa8d54430a0cce4a94e595cfc66a2fd8b9c935b904f57449243ea5",
+  "embedding": "data/scgpt_gene_embeddings.npz",
+  "embedding_sha256": "baf835e05077c6ec17e7bb0f48fc30632adc24be5bb91e591f74ab2e7985c60e",
+  "implementation_sha256": {
+    "mapreg/coupling_fields.py": "29a3875fa43572ead6c53cd7dea60bb9bdf07c35b417d79d8a97f30cbb230912",
+    "mapreg/classical_residuals.py": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
+    "mapreg/table_prediction.py": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e"
+  },
+  "public_freeze_commit": null,
+  "public_freeze_url": null,
+  "sealed_at_utc": null,
+  "outcome_access_authorized": false,
+  "seal_blocker": "An immutable public commit and URL containing these exact protocol, runner, reducer, implementation, alias, source-manifest, and metadata-support bytes are required before RNA or ADT matrix access."
+}

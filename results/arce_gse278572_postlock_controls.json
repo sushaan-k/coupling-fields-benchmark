@@ -1,0 +1,2170 @@
+{
+  "artifacts": {
+    "coordinate_npz": "results/arce_gse278572_target_coordinates.npz",
+    "coordinate_npz_sha256": "bf143951b2c41d59c4f593a0f16998e6674c825a579427d4b709a5187195e5d7",
+    "target_tsv": "results/arce_gse278572_target_summary.tsv",
+    "target_tsv_sha256": "eeca74008ce853271891e09b0cc5b6678cd2be873c84932e63970806eb140726"
+  },
+  "created_at_utc": "2026-08-27T01:25:51.424217+00:00",
+  "exploratory_biology": {
+    "enrichment": {
+      "destroyed_links": {
+        "CORUM": {
+          "sets_with_at_least_two_eligible_targets": 18,
+          "significant_q_below_0_05": 0,
+          "tests": 72,
+          "top_results": [
+            {
+              "eligible_set_size": 3,
+              "module": 2,
+              "module_size": 1,
+              "overlap": [
+                "TAF5L"
+              ],
+              "p_value": 0.10714285714285714,
+              "q_value": 1.0,
+              "set": "SAGA complex, GCN5-linked [CORUM:6643]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 2,
+              "module_size": 1,
+              "overlap": [
+                "TAF5L"
+              ],
+              "p_value": 0.10714285714285714,
+              "q_value": 1.0,
+              "set": "STAGA complex, SPT3-linked [CORUM:6664]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED11",
+                "MED12",
+                "MED24"
+              ],
+              "p_value": 0.20757020757020758,
+              "q_value": 1.0,
+              "set": "Mediator complex [CORUM:230]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED12",
+                "MED24"
+              ],
+              "p_value": 0.35978835978835977,
+              "q_value": 1.0,
+              "set": "ARC complex [CORUM:232]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED12",
+                "MED24"
+              ],
+              "p_value": 0.35978835978835977,
+              "q_value": 1.0,
+              "set": "ARC-L complex [CORUM:287]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED12",
+                "MED24"
+              ],
+              "p_value": 0.35978835978835977,
+              "q_value": 1.0,
+              "set": "BRD4 complex [CORUM:2600]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED12",
+                "MED24"
+              ],
+              "p_value": 0.35978835978835977,
+              "q_value": 1.0,
+              "set": "DRIP complex [CORUM:548]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED12",
+                "MED24"
+              ],
+              "p_value": 0.35978835978835977,
+              "q_value": 1.0,
+              "set": "ESR1-Mediator complex [CORUM:7581]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED12",
+                "MED24"
+              ],
+              "p_value": 0.35978835978835977,
+              "q_value": 1.0,
+              "set": "ESR2-Mediator complex [CORUM:7582]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED11",
+                "MED24"
+              ],
+              "p_value": 0.35978835978835977,
+              "q_value": 1.0,
+              "set": "Mediator complex [CORUM:5450]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED12",
+                "MED24"
+              ],
+              "p_value": 0.35978835978835977,
+              "q_value": 1.0,
+              "set": "SMCC complex [CORUM:301]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED12",
+                "MED24"
+              ],
+              "p_value": 0.35978835978835977,
+              "q_value": 1.0,
+              "set": "SMCC complex [CORUM:547]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED12",
+                "MED24"
+              ],
+              "p_value": 0.35978835978835977,
+              "q_value": 1.0,
+              "set": "SOX9-TRAP complex [CORUM:8417]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED12",
+                "MED24"
+              ],
+              "p_value": 0.35978835978835977,
+              "q_value": 1.0,
+              "set": "TFTC-type histone acetyl transferase complex [CORUM:441]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED12",
+                "MED24"
+              ],
+              "p_value": 0.35978835978835977,
+              "q_value": 1.0,
+              "set": "THRA-TRAP complex [CORUM:66]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED12",
+                "MED24"
+              ],
+              "p_value": 0.35978835978835977,
+              "q_value": 1.0,
+              "set": "TRAP complex [CORUM:535]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "MED12",
+                "MED24"
+              ],
+              "p_value": 0.35978835978835977,
+              "q_value": 1.0,
+              "set": "VDR-DRIP complex [CORUM:9739]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 4,
+              "module_size": 7,
+              "overlap": [
+                "USP22"
+              ],
+              "p_value": 0.4444444444444445,
+              "q_value": 1.0,
+              "set": "USP22-SAGA complex [CORUM:6641]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 4,
+              "module_size": 7,
+              "overlap": [
+                "USP22"
+              ],
+              "p_value": 0.5940170940170941,
+              "q_value": 1.0,
+              "set": "SAGA complex, GCN5-linked [CORUM:6643]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 4,
+              "module_size": 7,
+              "overlap": [
+                "USP22"
+              ],
+              "p_value": 0.5940170940170941,
+              "q_value": 1.0,
+              "set": "STAGA complex, SPT3-linked [CORUM:6664]"
+            }
+          ]
+        },
+        "Reactome": {
+          "sets_with_at_least_two_eligible_targets": 101,
+          "significant_q_below_0_05": 0,
+          "tests": 404,
+          "top_results": [
+            {
+              "eligible_set_size": 3,
+              "module": 1,
+              "module_size": 3,
+              "overlap": [
+                "MYC",
+                "PRDM1"
+              ],
+              "p_value": 0.0231990231990232,
+              "q_value": 1.0,
+              "set": "Signaling by ALK [R-HSA-201556]"
+            },
+            {
+              "eligible_set_size": 10,
+              "module": 1,
+              "module_size": 3,
+              "overlap": [
+                "BACH2",
+                "MYC",
+                "PRDM1"
+              ],
+              "p_value": 0.03663003663003664,
+              "q_value": 1.0,
+              "set": "Adaptive Immune System [R-HSA-1280218]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 4,
+              "module_size": 7,
+              "overlap": [
+                "IRF1",
+                "LEF1",
+                "NFKB2"
+              ],
+              "p_value": 0.03760683760683761,
+              "q_value": 1.0,
+              "set": "Co-inhibition by PD-1 [R-HSA-389948]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 4,
+              "module_size": 7,
+              "overlap": [
+                "IRF1",
+                "LEF1",
+                "NFKB2"
+              ],
+              "p_value": 0.03760683760683761,
+              "q_value": 1.0,
+              "set": "Regulation of PD-L1(CD274) expression [R-HSA-9909648]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 4,
+              "module_size": 7,
+              "overlap": [
+                "IRF1",
+                "LEF1",
+                "NFKB2"
+              ],
+              "p_value": 0.03760683760683761,
+              "q_value": 1.0,
+              "set": "Regulation of PD-L1(CD274) transcription [R-HSA-9909649]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 4,
+              "module_size": 7,
+              "overlap": [
+                "IRF1",
+                "LEF1",
+                "NFKB2"
+              ],
+              "p_value": 0.03760683760683761,
+              "q_value": 1.0,
+              "set": "Regulation of T cell activation by CD28 family [R-HSA-388841]"
+            },
+            {
+              "eligible_set_size": 5,
+              "module": 1,
+              "module_size": 3,
+              "overlap": [
+                "MYC",
+                "PRDM1"
+              ],
+              "p_value": 0.07326007326007328,
+              "q_value": 1.0,
+              "set": "Signaling by Receptor Tyrosine Kinases [R-HSA-9006934]"
+            },
+            {
+              "eligible_set_size": 5,
+              "module": 1,
+              "module_size": 3,
+              "overlap": [
+                "BACH2",
+                "PRDM1"
+              ],
+              "p_value": 0.07326007326007328,
+              "q_value": 1.0,
+              "set": "Somatic hypermutation of immunoglobulin genes [R-HSA-9938024]"
+            },
+            {
+              "eligible_set_size": 5,
+              "module": 4,
+              "module_size": 7,
+              "overlap": [
+                "BATF",
+                "KLF13",
+                "STAT5B"
+              ],
+              "p_value": 0.08247863247863248,
+              "q_value": 1.0,
+              "set": "Differentiation of T cells [R-HSA-9945266]"
+            },
+            {
+              "eligible_set_size": 5,
+              "module": 4,
+              "module_size": 7,
+              "overlap": [
+                "BATF",
+                "KLF13",
+                "STAT5B"
+              ],
+              "p_value": 0.08247863247863248,
+              "q_value": 1.0,
+              "set": "Differentiation of naive CD4+ T cells to T helper 2 cells (Th2 cells) [R-HSA-9976102]"
+            },
+            {
+              "eligible_set_size": 6,
+              "module": 1,
+              "module_size": 3,
+              "overlap": [
+                "BACH2",
+                "PRDM1"
+              ],
+              "p_value": 0.10683760683760682,
+              "q_value": 1.0,
+              "set": "Affinity selection of immunoglobulins [R-HSA-9938027]"
+            },
+            {
+              "eligible_set_size": 6,
+              "module": 1,
+              "module_size": 3,
+              "overlap": [
+                "BACH2",
+                "PRDM1"
+              ],
+              "p_value": 0.10683760683760682,
+              "q_value": 1.0,
+              "set": "Immunoglobulin maturation [R-HSA-9938026]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 2,
+              "module_size": 1,
+              "overlap": [
+                "TAF5L"
+              ],
+              "p_value": 0.10714285714285714,
+              "q_value": 1.0,
+              "set": "HATs acetylate histones [R-HSA-3214847]"
+            },
+            {
+              "eligible_set_size": 14,
+              "module": 1,
+              "module_size": 3,
+              "overlap": [
+                "BACH2",
+                "MYC",
+                "PRDM1"
+              ],
+              "p_value": 0.11111111111111109,
+              "q_value": 1.0,
+              "set": "Immune System [R-HSA-168256]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 3,
+              "module_size": 17,
+              "overlap": [
+                "CBFB",
+                "IL2RA",
+                "MYB",
+                "SOCS3"
+              ],
+              "p_value": 0.11623931623931623,
+              "q_value": 1.0,
+              "set": "Transcriptional regulation by RUNX1 [R-HSA-8878171]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 2,
+              "module_size": 1,
+              "overlap": [
+                "TAF5L"
+              ],
+              "p_value": 0.14285714285714285,
+              "q_value": 1.0,
+              "set": "Chromatin modifying enzymes [R-HSA-3247509]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 2,
+              "module_size": 1,
+              "overlap": [
+                "TAF5L"
+              ],
+              "p_value": 0.14285714285714285,
+              "q_value": 1.0,
+              "set": "Chromatin organization [R-HSA-4839726]"
+            },
+            {
+              "eligible_set_size": 10,
+              "module": 4,
+              "module_size": 7,
+              "overlap": [
+                "BATF",
+                "IRF1",
+                "LEF1",
+                "NFKB2"
+              ],
+              "p_value": 0.18058173710347625,
+              "q_value": 1.0,
+              "set": "Adaptive Immune System [R-HSA-1280218]"
+            },
+            {
+              "eligible_set_size": 10,
+              "module": 4,
+              "module_size": 7,
+              "overlap": [
+                "BATF",
+                "IRF1",
+                "NFKB2",
+                "STAT5B"
+              ],
+              "p_value": 0.18058173710347625,
+              "q_value": 1.0,
+              "set": "Cytokine Signaling in Immune system [R-HSA-1280215]"
+            },
+            {
+              "eligible_set_size": 14,
+              "module": 4,
+              "module_size": 7,
+              "overlap": [
+                "BATF",
+                "IRF1",
+                "LEF1",
+                "NFKB2",
+                "STAT5B"
+              ],
+              "p_value": 0.19227053140096617,
+              "q_value": 1.0,
+              "set": "Immune System [R-HSA-168256]"
+            }
+          ]
+        }
+      },
+      "donor_b": {
+        "CORUM": {
+          "sets_with_at_least_two_eligible_targets": 18,
+          "significant_q_below_0_05": 0,
+          "tests": 72,
+          "top_results": [
+            {
+              "eligible_set_size": 2,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "USP22"
+              ],
+              "p_value": 0.07142857142857142,
+              "q_value": 0.9285714285714286,
+              "set": "USP22-SAGA complex [CORUM:6641]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "USP22"
+              ],
+              "p_value": 0.10714285714285714,
+              "q_value": 0.9285714285714286,
+              "set": "SAGA complex, GCN5-linked [CORUM:6643]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "USP22"
+              ],
+              "p_value": 0.10714285714285714,
+              "q_value": 0.9285714285714286,
+              "set": "STAGA complex, SPT3-linked [CORUM:6664]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.20634920634920637,
+              "q_value": 0.9285714285714286,
+              "set": "ARC complex [CORUM:232]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.20634920634920637,
+              "q_value": 0.9285714285714286,
+              "set": "ARC-L complex [CORUM:287]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.20634920634920637,
+              "q_value": 0.9285714285714286,
+              "set": "BRD4 complex [CORUM:2600]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.20634920634920637,
+              "q_value": 0.9285714285714286,
+              "set": "DRIP complex [CORUM:548]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.20634920634920637,
+              "q_value": 0.9285714285714286,
+              "set": "ESR1-Mediator complex [CORUM:7581]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.20634920634920637,
+              "q_value": 0.9285714285714286,
+              "set": "ESR2-Mediator complex [CORUM:7582]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.20634920634920637,
+              "q_value": 0.9285714285714286,
+              "set": "SMCC complex [CORUM:301]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.20634920634920637,
+              "q_value": 0.9285714285714286,
+              "set": "SMCC complex [CORUM:547]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.20634920634920637,
+              "q_value": 0.9285714285714286,
+              "set": "SOX9-TRAP complex [CORUM:8417]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.20634920634920637,
+              "q_value": 0.9285714285714286,
+              "set": "TFTC-type histone acetyl transferase complex [CORUM:441]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.20634920634920637,
+              "q_value": 0.9285714285714286,
+              "set": "THRA-TRAP complex [CORUM:66]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.20634920634920637,
+              "q_value": 0.9285714285714286,
+              "set": "TRAP complex [CORUM:535]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.20634920634920637,
+              "q_value": 0.9285714285714286,
+              "set": "VDR-DRIP complex [CORUM:9739]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.297924297924298,
+              "q_value": 1.0,
+              "set": "Mediator complex [CORUM:230]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 18,
+              "overlap": [
+                "MED11",
+                "MED24"
+              ],
+              "p_value": 0.40476190476190477,
+              "q_value": 1.0,
+              "set": "Mediator complex [CORUM:5450]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 3,
+              "module_size": 18,
+              "overlap": [
+                "MED11",
+                "MED24"
+              ],
+              "p_value": 0.7161172161172162,
+              "q_value": 1.0,
+              "set": "Mediator complex [CORUM:230]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 3,
+              "module_size": 18,
+              "overlap": [
+                "ATXN7L3",
+                "TAF5L"
+              ],
+              "p_value": 0.7161172161172162,
+              "q_value": 1.0,
+              "set": "SAGA complex, GCN5-linked [CORUM:6643]"
+            }
+          ]
+        },
+        "Reactome": {
+          "sets_with_at_least_two_eligible_targets": 101,
+          "significant_q_below_0_05": 0,
+          "tests": 404,
+          "top_results": [
+            {
+              "eligible_set_size": 5,
+              "module": 1,
+              "module_size": 6,
+              "overlap": [
+                "BACH2",
+                "BATF",
+                "MYB"
+              ],
+              "p_value": 0.05042735042735043,
+              "q_value": 1.0,
+              "set": "Somatic hypermutation of immunoglobulin genes [R-HSA-9938024]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "USP22"
+              ],
+              "p_value": 0.07142857142857142,
+              "q_value": 1.0,
+              "set": "Deubiquitination [R-HSA-5688426]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "USP22"
+              ],
+              "p_value": 0.07142857142857142,
+              "q_value": 1.0,
+              "set": "Ub-specific processing proteases [R-HSA-5689880]"
+            },
+            {
+              "eligible_set_size": 12,
+              "module": 3,
+              "module_size": 18,
+              "overlap": [
+                "CBFB",
+                "FOXO1",
+                "IL2RA",
+                "LEF1",
+                "MEF2D",
+                "MYC",
+                "PRDM1",
+                "SOCS3",
+                "STAT5B",
+                "ZNF217"
+              ],
+              "p_value": 0.0757981911299989,
+              "q_value": 1.0,
+              "set": "Signal Transduction [R-HSA-162582]"
+            },
+            {
+              "eligible_set_size": 6,
+              "module": 1,
+              "module_size": 6,
+              "overlap": [
+                "BACH2",
+                "BATF",
+                "MYB"
+              ],
+              "p_value": 0.09130434782608696,
+              "q_value": 1.0,
+              "set": "Affinity selection of immunoglobulins [R-HSA-9938027]"
+            },
+            {
+              "eligible_set_size": 6,
+              "module": 1,
+              "module_size": 6,
+              "overlap": [
+                "BACH2",
+                "BATF",
+                "MYB"
+              ],
+              "p_value": 0.09130434782608696,
+              "q_value": 1.0,
+              "set": "Immunoglobulin maturation [R-HSA-9938026]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "USP22"
+              ],
+              "p_value": 0.10714285714285714,
+              "q_value": 1.0,
+              "set": "HATs acetylate histones [R-HSA-3214847]"
+            },
+            {
+              "eligible_set_size": 8,
+              "module": 3,
+              "module_size": 18,
+              "overlap": [
+                "FOXO1",
+                "IL2RA",
+                "IRF4",
+                "MYC",
+                "NFKB2",
+                "SOCS3",
+                "STAT5B"
+              ],
+              "p_value": 0.11646903820816863,
+              "q_value": 1.0,
+              "set": "Signaling by Interleukins [R-HSA-449147]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "USP22"
+              ],
+              "p_value": 0.14285714285714285,
+              "q_value": 1.0,
+              "set": "Chromatin modifying enzymes [R-HSA-3247509]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "USP22"
+              ],
+              "p_value": 0.14285714285714285,
+              "q_value": 1.0,
+              "set": "Chromatin organization [R-HSA-4839726]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 3,
+              "module_size": 18,
+              "overlap": [
+                "IRF1",
+                "LEF1",
+                "MYC",
+                "NFKB2"
+              ],
+              "p_value": 0.14945054945054942,
+              "q_value": 1.0,
+              "set": "Co-inhibition by PD-1 [R-HSA-389948]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 3,
+              "module_size": 18,
+              "overlap": [
+                "IRF1",
+                "LEF1",
+                "MYC",
+                "NFKB2"
+              ],
+              "p_value": 0.14945054945054942,
+              "q_value": 1.0,
+              "set": "Regulation of PD-L1(CD274) expression [R-HSA-9909648]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 3,
+              "module_size": 18,
+              "overlap": [
+                "IRF1",
+                "LEF1",
+                "MYC",
+                "NFKB2"
+              ],
+              "p_value": 0.14945054945054942,
+              "q_value": 1.0,
+              "set": "Regulation of PD-L1(CD274) transcription [R-HSA-9909649]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 3,
+              "module_size": 18,
+              "overlap": [
+                "IRF1",
+                "LEF1",
+                "MYC",
+                "NFKB2"
+              ],
+              "p_value": 0.14945054945054942,
+              "q_value": 1.0,
+              "set": "Regulation of T cell activation by CD28 family [R-HSA-388841]"
+            },
+            {
+              "eligible_set_size": 5,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "USP22"
+              ],
+              "p_value": 0.17857142857142858,
+              "q_value": 1.0,
+              "set": "Metabolism of proteins [R-HSA-392499]"
+            },
+            {
+              "eligible_set_size": 5,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "USP22"
+              ],
+              "p_value": 0.17857142857142858,
+              "q_value": 1.0,
+              "set": "Post-translational protein modification [R-HSA-597592]"
+            },
+            {
+              "eligible_set_size": 10,
+              "module": 3,
+              "module_size": 18,
+              "overlap": [
+                "FOXO1",
+                "IL2RA",
+                "IRF1",
+                "IRF4",
+                "MYC",
+                "NFKB2",
+                "SOCS3",
+                "STAT5B"
+              ],
+              "p_value": 0.19043260324724856,
+              "q_value": 1.0,
+              "set": "Cytokine Signaling in Immune system [R-HSA-1280215]"
+            },
+            {
+              "eligible_set_size": 10,
+              "module": 3,
+              "module_size": 18,
+              "overlap": [
+                "CBFB",
+                "FOXO1",
+                "IL2RA",
+                "LEF1",
+                "MED24",
+                "MYC",
+                "PRDM1",
+                "SOCS3"
+              ],
+              "p_value": 0.19043260324724856,
+              "q_value": 1.0,
+              "set": "Generic Transcription Pathway [R-HSA-212436]"
+            },
+            {
+              "eligible_set_size": 10,
+              "module": 3,
+              "module_size": 18,
+              "overlap": [
+                "CBFB",
+                "FOXO1",
+                "IL2RA",
+                "LEF1",
+                "MED24",
+                "MYC",
+                "PRDM1",
+                "SOCS3"
+              ],
+              "p_value": 0.19043260324724856,
+              "q_value": 1.0,
+              "set": "RNA Polymerase II Transcription [R-HSA-73857]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 3,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.20634920634920637,
+              "q_value": 1.0,
+              "set": "Epigenetic regulation by WDR5-containing histone modifying complexes [R-HSA-9917777]"
+            }
+          ]
+        }
+      },
+      "primary": {
+        "CORUM": {
+          "sets_with_at_least_two_eligible_targets": 18,
+          "significant_q_below_0_05": 0,
+          "tests": 72,
+          "top_results": [
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 12,
+              "overlap": [
+                "ATXN7L3",
+                "USP22"
+              ],
+              "p_value": 0.1746031746031746,
+              "q_value": 1.0,
+              "set": "USP22-SAGA complex [CORUM:6641]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.2698412698412698,
+              "q_value": 1.0,
+              "set": "ARC complex [CORUM:232]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.2698412698412698,
+              "q_value": 1.0,
+              "set": "ARC-L complex [CORUM:287]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.2698412698412698,
+              "q_value": 1.0,
+              "set": "BRD4 complex [CORUM:2600]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.2698412698412698,
+              "q_value": 1.0,
+              "set": "DRIP complex [CORUM:548]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.2698412698412698,
+              "q_value": 1.0,
+              "set": "ESR1-Mediator complex [CORUM:7581]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.2698412698412698,
+              "q_value": 1.0,
+              "set": "ESR2-Mediator complex [CORUM:7582]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.2698412698412698,
+              "q_value": 1.0,
+              "set": "Mediator complex [CORUM:5450]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.2698412698412698,
+              "q_value": 1.0,
+              "set": "SMCC complex [CORUM:301]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.2698412698412698,
+              "q_value": 1.0,
+              "set": "SMCC complex [CORUM:547]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.2698412698412698,
+              "q_value": 1.0,
+              "set": "SOX9-TRAP complex [CORUM:8417]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.2698412698412698,
+              "q_value": 1.0,
+              "set": "TFTC-type histone acetyl transferase complex [CORUM:441]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.2698412698412698,
+              "q_value": 1.0,
+              "set": "THRA-TRAP complex [CORUM:66]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.2698412698412698,
+              "q_value": 1.0,
+              "set": "TRAP complex [CORUM:535]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.2698412698412698,
+              "q_value": 1.0,
+              "set": "VDR-DRIP complex [CORUM:9739]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "MED24"
+              ],
+              "p_value": 0.3821733821733822,
+              "q_value": 1.0,
+              "set": "Mediator complex [CORUM:230]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 3,
+              "module_size": 12,
+              "overlap": [
+                "MED11",
+                "MED12"
+              ],
+              "p_value": 0.3894993894993895,
+              "q_value": 1.0,
+              "set": "Mediator complex [CORUM:230]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 3,
+              "module_size": 12,
+              "overlap": [
+                "ATXN7L3",
+                "USP22"
+              ],
+              "p_value": 0.3894993894993895,
+              "q_value": 1.0,
+              "set": "SAGA complex, GCN5-linked [CORUM:6643]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 3,
+              "module_size": 12,
+              "overlap": [
+                "ATXN7L3",
+                "USP22"
+              ],
+              "p_value": 0.3894993894993895,
+              "q_value": 1.0,
+              "set": "STAGA complex, SPT3-linked [CORUM:6664]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 3,
+              "module_size": 12,
+              "overlap": [
+                "MED12"
+              ],
+              "p_value": 0.6825396825396826,
+              "q_value": 1.0,
+              "set": "ARC complex [CORUM:232]"
+            }
+          ]
+        },
+        "Reactome": {
+          "sets_with_at_least_two_eligible_targets": 101,
+          "significant_q_below_0_05": 0,
+          "tests": 404,
+          "top_results": [
+            {
+              "eligible_set_size": 2,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "CBFB"
+              ],
+              "p_value": 0.07142857142857142,
+              "q_value": 1.0,
+              "set": "RUNX1 and FOXP3 control the development of regulatory T lymphocytes (Tregs) [R-HSA-8877330]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "CBFB"
+              ],
+              "p_value": 0.07142857142857142,
+              "q_value": 1.0,
+              "set": "RUNX1 regulates transcription of genes involved in differentiation of HSCs [R-HSA-8939236]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "CBFB"
+              ],
+              "p_value": 0.07142857142857142,
+              "q_value": 1.0,
+              "set": "RUNX1 regulates transcription of genes involved in differentiation of keratinocytes [R-HSA-8939242]"
+            },
+            {
+              "eligible_set_size": 10,
+              "module": 1,
+              "module_size": 11,
+              "overlap": [
+                "BATF",
+                "IL2RA",
+                "IRF1",
+                "IRF2",
+                "MYC",
+                "NFKB2"
+              ],
+              "p_value": 0.1026697177726926,
+              "q_value": 1.0,
+              "set": "Cytokine Signaling in Immune system [R-HSA-1280215]"
+            },
+            {
+              "eligible_set_size": 3,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "CBFB"
+              ],
+              "p_value": 0.10714285714285714,
+              "q_value": 1.0,
+              "set": "Transcriptional regulation by RUNX3 [R-HSA-8878159]"
+            },
+            {
+              "eligible_set_size": 5,
+              "module": 2,
+              "module_size": 4,
+              "overlap": [
+                "BACH2",
+                "MYB"
+              ],
+              "p_value": 0.13504273504273506,
+              "q_value": 1.0,
+              "set": "Somatic hypermutation of immunoglobulin genes [R-HSA-9938024]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "CBFB"
+              ],
+              "p_value": 0.14285714285714285,
+              "q_value": 1.0,
+              "set": "ESR-mediated signaling [R-HSA-8939211]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "CBFB"
+              ],
+              "p_value": 0.14285714285714285,
+              "q_value": 1.0,
+              "set": "Estrogen-dependent gene expression [R-HSA-9018519]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "CBFB"
+              ],
+              "p_value": 0.14285714285714285,
+              "q_value": 1.0,
+              "set": "Signaling by Nuclear Receptors [R-HSA-9006931]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "CBFB"
+              ],
+              "p_value": 0.14285714285714285,
+              "q_value": 1.0,
+              "set": "Transcriptional regulation by RUNX1 [R-HSA-8878171]"
+            },
+            {
+              "eligible_set_size": 4,
+              "module": 4,
+              "module_size": 1,
+              "overlap": [
+                "CBFB"
+              ],
+              "p_value": 0.14285714285714285,
+              "q_value": 1.0,
+              "set": "Transcriptional regulation of granulopoiesis [R-HSA-9616222]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 1,
+              "module_size": 11,
+              "overlap": [
+                "MYC",
+                "ZNF217"
+              ],
+              "p_value": 0.1455026455026455,
+              "q_value": 1.0,
+              "set": "Adherens junctions interactions [R-HSA-418990]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 1,
+              "module_size": 11,
+              "overlap": [
+                "MYC",
+                "ZNF217"
+              ],
+              "p_value": 0.1455026455026455,
+              "q_value": 1.0,
+              "set": "Cell junction organization [R-HSA-446728]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 1,
+              "module_size": 11,
+              "overlap": [
+                "MYC",
+                "ZNF217"
+              ],
+              "p_value": 0.1455026455026455,
+              "q_value": 1.0,
+              "set": "Cell-Cell communication [R-HSA-1500931]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 1,
+              "module_size": 11,
+              "overlap": [
+                "MYC",
+                "ZNF217"
+              ],
+              "p_value": 0.1455026455026455,
+              "q_value": 1.0,
+              "set": "Cell-cell junction organization [R-HSA-421270]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 1,
+              "module_size": 11,
+              "overlap": [
+                "IRF1",
+                "IRF2"
+              ],
+              "p_value": 0.1455026455026455,
+              "q_value": 1.0,
+              "set": "Programmed Cell Death [R-HSA-5357801]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 1,
+              "module_size": 11,
+              "overlap": [
+                "IRF1",
+                "IRF2"
+              ],
+              "p_value": 0.1455026455026455,
+              "q_value": 1.0,
+              "set": "Pyroptosis [R-HSA-5620971]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 1,
+              "module_size": 11,
+              "overlap": [
+                "IRF1",
+                "IRF2"
+              ],
+              "p_value": 0.1455026455026455,
+              "q_value": 1.0,
+              "set": "Regulated Necrosis [R-HSA-5218859]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 1,
+              "module_size": 11,
+              "overlap": [
+                "MYC",
+                "ZNF217"
+              ],
+              "p_value": 0.1455026455026455,
+              "q_value": 1.0,
+              "set": "Regulation of CDH1 Expression and Function [R-HSA-9764265]"
+            },
+            {
+              "eligible_set_size": 2,
+              "module": 1,
+              "module_size": 11,
+              "overlap": [
+                "MYC",
+                "ZNF217"
+              ],
+              "p_value": 0.1455026455026455,
+              "q_value": 1.0,
+              "set": "Regulation of Expression and Function of Type I Classical Cadherins [R-HSA-9764274]"
+            }
+          ]
+        }
+      }
+    },
+    "module_agreement_adjusted_rand": {
+      "destroyed_links_vs_donor_b": -0.036307849654819736,
+      "primary_vs_donor_b": -0.00494148244473342
+    },
+    "module_definition": "average-linkage cosine clustering into four modules",
+    "modules": {
+      "destroyed_links": {
+        "ATXN7L3": 3,
+        "BACH2": 1,
+        "BATF": 4,
+        "BPTF": 3,
+        "CBFB": 3,
+        "DNMT1": 3,
+        "ETS1": 3,
+        "FOXO1": 3,
+        "IL2RA": 3,
+        "IRF1": 4,
+        "IRF2": 3,
+        "IRF4": 3,
+        "KLF13": 4,
+        "KLF2": 3,
+        "LEF1": 4,
+        "MED11": 3,
+        "MED12": 3,
+        "MED24": 3,
+        "MEF2D": 3,
+        "MYB": 3,
+        "MYC": 1,
+        "NFKB2": 4,
+        "PRDM1": 1,
+        "SOCS3": 3,
+        "STAT5B": 4,
+        "TAF5L": 2,
+        "USP22": 4,
+        "ZNF217": 3
+      },
+      "donor_b": {
+        "ATXN7L3": 3,
+        "BACH2": 1,
+        "BATF": 1,
+        "BPTF": 1,
+        "CBFB": 3,
+        "DNMT1": 1,
+        "ETS1": 1,
+        "FOXO1": 3,
+        "IL2RA": 3,
+        "IRF1": 3,
+        "IRF2": 2,
+        "IRF4": 3,
+        "KLF13": 2,
+        "KLF2": 3,
+        "LEF1": 3,
+        "MED11": 3,
+        "MED12": 2,
+        "MED24": 3,
+        "MEF2D": 3,
+        "MYB": 1,
+        "MYC": 3,
+        "NFKB2": 3,
+        "PRDM1": 3,
+        "SOCS3": 3,
+        "STAT5B": 3,
+        "TAF5L": 3,
+        "USP22": 4,
+        "ZNF217": 3
+      },
+      "primary": {
+        "ATXN7L3": 3,
+        "BACH2": 2,
+        "BATF": 1,
+        "BPTF": 1,
+        "CBFB": 4,
+        "DNMT1": 3,
+        "ETS1": 1,
+        "FOXO1": 3,
+        "IL2RA": 1,
+        "IRF1": 1,
+        "IRF2": 1,
+        "IRF4": 3,
+        "KLF13": 1,
+        "KLF2": 3,
+        "LEF1": 3,
+        "MED11": 3,
+        "MED12": 3,
+        "MED24": 2,
+        "MEF2D": 3,
+        "MYB": 2,
+        "MYC": 1,
+        "NFKB2": 1,
+        "PRDM1": 3,
+        "SOCS3": 3,
+        "STAT5B": 2,
+        "TAF5L": 1,
+        "USP22": 3,
+        "ZNF217": 1
+      }
+    },
+    "pairwise_neighborhood_spearman": {
+      "destroyed_links_vs_donor_b": {
+        "p_value_unadjusted": 0.0012936350395311288,
+        "pairs": 378,
+        "rho": -0.1648964870691738
+      },
+      "primary_vs_donor_b": {
+        "p_value_unadjusted": 0.001602989386594486,
+        "pairs": 378,
+        "rho": 0.16175994367241753
+      }
+    },
+    "status": "strictly exploratory; no estimator, penalty, or state-encoder choice was changed"
+  },
+  "fit": {
+    "gene2vec_prior": {
+      "converged": true,
+      "effective_rank": 8,
+      "graph_penalty": 5.0,
+      "iterations": 388,
+      "nuclear_penalty": 1.438226590232913
+    },
+    "graph_only": {
+      "converged": true,
+      "effective_rank": 8,
+      "graph_penalty": 5.0,
+      "iterations": 337,
+      "nuclear_penalty": 0.0
+    },
+    "nuclear_only": {
+      "converged": true,
+      "effective_rank": 8,
+      "graph_penalty": 0.0,
+      "iterations": 203,
+      "nuclear_penalty": 1.438226590232913
+    },
+    "primary_replay": {
+      "converged": true,
+      "effective_rank": 8,
+      "graph_penalty": 5.0,
+      "iterations": 360,
+      "nuclear_penalty": 1.438226590232913
+    },
+    "shuffled_scgpt_prior": {
+      "converged": true,
+      "effective_rank": 8,
+      "graph_penalty": 5.0,
+      "iterations": 358,
+      "nuclear_penalty": 1.438226590232913
+    }
+  },
+  "implementation": {
+    "bootstrap_draws": 2000,
+    "bootstrap_unit": "complete perturbation target across all eight coordinates",
+    "estimator": "mapreg/coupling_fields.py",
+    "estimator_sha256": "29a3875fa43572ead6c53cd7dea60bb9bdf07c35b417d79d8a97f30cbb230912",
+    "gene2vec": {
+      "covered_targets": 22,
+      "hyperedges": 22,
+      "missing_targets": [
+        "BACH2",
+        "BATF",
+        "IL2RA",
+        "IRF4",
+        "PRDM1",
+        "SOCS3"
+      ],
+      "neighbors_excluding_self": 5,
+      "source": "data/gene2vec_embeddings.npz",
+      "source_sha256": "3b175b048a174e606510a774c045287ff468b05be61d1108282d4740e5bfd435"
+    },
+    "primary_replay_matches_locked_prediction": true,
+    "scgpt": {
+      "covered_targets": 28,
+      "hyperedges": 28,
+      "missing_targets": [],
+      "neighbors_excluding_self": 5,
+      "source": "data/scgpt_gene_embeddings.npz",
+      "source_sha256": "baf835e05077c6ec17e7bb0f48fc30632adc24be5bb91e591f74ab2e7985c60e"
+    },
+    "seed": 20260826,
+    "shuffled_scgpt_permutation_seed": 20261326
+  },
+  "locked_confirmation": {
+    "decision": "refuse",
+    "lock": "data/development/arce_gse278572/preanalysis_lock_v1.json",
+    "lock_sha256": "6b2dcf20f3102111d89e1faad9cf0b8138f6bc8870815dd6a55c704da8a7c84b",
+    "path": "results/arce_gse278572_conditional_field_confirmation.json",
+    "sha256": "65d4bf6097a8fafee8e22f352c2c6c14fa13c1d8082073a4589d3ee693ef8b57"
+  },
+  "methods": {
+    "destroyed_links": {
+      "metrics": {
+        "macro_target_cosine": 0.13198034015280266,
+        "pooled_pearson": 0.16997870001804244,
+        "standardized_rmse": 1.194288392048425
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.007274799419720481,
+          0.269328539751313
+        ],
+        "pooled_pearson": [
+          0.04857888669771313,
+          0.29932590503608036
+        ],
+        "standardized_rmse": [
+          1.0811859443755427,
+          1.3165537922368913
+        ]
+      }
+    },
+    "direct": {
+      "metrics": {
+        "macro_target_cosine": 0.24854236013011818,
+        "pooled_pearson": 0.3536080873747269,
+        "standardized_rmse": 1.3153954129348786
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.12786263770651582,
+          0.3579070524664962
+        ],
+        "pooled_pearson": [
+          0.2715621852276643,
+          0.43318887843486925
+        ],
+        "standardized_rmse": [
+          1.191710254037668,
+          1.449532079640297
+        ]
+      }
+    },
+    "endpoint_ridge": {
+      "metrics": {
+        "macro_target_cosine": 0.2630805642802529,
+        "pooled_pearson": 0.40352650915793653,
+        "standardized_rmse": 1.1757976683958065
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.15608874533140904,
+          0.37189722552525956
+        ],
+        "pooled_pearson": [
+          0.3122522353349113,
+          0.4876667366459824
+        ],
+        "standardized_rmse": [
+          1.0826931818820134,
+          1.2895096811295812
+        ]
+      }
+    },
+    "fixed_structured": {
+      "metrics": {
+        "macro_target_cosine": 0.27376995429709494,
+        "pooled_pearson": 0.41242351283332335,
+        "standardized_rmse": 1.0927553263091991
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.17106510179745318,
+          0.37652632412705833
+        ],
+        "pooled_pearson": [
+          0.3313502810895714,
+          0.4937202844910967
+        ],
+        "standardized_rmse": [
+          1.011997070458919,
+          1.1846478544083745
+        ]
+      }
+    },
+    "gene2vec_prior": {
+      "metrics": {
+        "macro_target_cosine": 0.2544703310233486,
+        "pooled_pearson": 0.4263877176218143,
+        "standardized_rmse": 1.0795890398235737
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.13661021419371683,
+          0.3670258111755065
+        ],
+        "pooled_pearson": [
+          0.3410977960427427,
+          0.5074141455169799
+        ],
+        "standardized_rmse": [
+          1.0122924142743428,
+          1.1579732625328913
+        ]
+      }
+    },
+    "graph_only": {
+      "metrics": {
+        "macro_target_cosine": 0.27345512284673046,
+        "pooled_pearson": 0.4024577483008776,
+        "standardized_rmse": 1.1463264839647138
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.17061745774716636,
+          0.3748091045061133
+        ],
+        "pooled_pearson": [
+          0.32218463486666254,
+          0.4829658569365002
+        ],
+        "standardized_rmse": [
+          1.0542663321287986,
+          1.2523559235413049
+        ]
+      }
+    },
+    "linear_cross_covariance": {
+      "metrics": {
+        "macro_target_cosine": 0.29628538715962394,
+        "pooled_pearson": 0.3037198537342076,
+        "standardized_rmse": 0.9930244729011276
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.1604409702596462,
+          0.42564370887778924
+        ],
+        "pooled_pearson": [
+          0.19538507640262856,
+          0.4040572473208384
+        ],
+        "standardized_rmse": [
+          0.989475120886031,
+          0.996298110918145
+        ]
+      }
+    },
+    "nuclear_only": {
+      "metrics": {
+        "macro_target_cosine": 0.25488671206409635,
+        "pooled_pearson": 0.3879780447530827,
+        "standardized_rmse": 1.1703272165269778
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.14030831291514448,
+          0.3635638913789478
+        ],
+        "pooled_pearson": [
+          0.31025847060042533,
+          0.46371076185628946
+        ],
+        "standardized_rmse": [
+          1.0794498770147605,
+          1.2688758995937177
+        ]
+      }
+    },
+    "shuffled_scgpt_prior": {
+      "metrics": {
+        "macro_target_cosine": 0.2643971244485446,
+        "pooled_pearson": 0.4108139557394827,
+        "standardized_rmse": 1.0998823116489764
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.16220204409000505,
+          0.3665373997413521
+        ],
+        "pooled_pearson": [
+          0.33322840210920907,
+          0.48553770395300067
+        ],
+        "standardized_rmse": [
+          1.0212876844435619,
+          1.194298569196866
+        ]
+      }
+    },
+    "zero": {
+      "metrics": {
+        "macro_target_cosine": 0.0,
+        "pooled_pearson": null,
+        "standardized_rmse": 1.0
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.0,
+          0.0
+        ],
+        "pooled_pearson": null,
+        "standardized_rmse": [
+          1.0,
+          1.0
+        ]
+      }
+    }
+  },
+  "numerical_runtime_diagnostic": {
+    "locked_arrays_all_finite": true,
+    "note": "sklearn/NumPy emitted matmul RuntimeWarnings during state assignment; a cache replay reproduced the recorded state counts and explained-variance ratios, and no normalized state, field, variance, or prediction was non-finite"
+  },
+  "pairing_controls": {
+    "donor_a_destroyed_field_vs_donor_b_destroyed_field": {
+      "metrics": {
+        "macro_target_cosine": -0.18944548893088073,
+        "pooled_pearson": -0.1508656935732583,
+        "standardized_rmse": 1.5816076306568259
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.30717225439706625,
+          -0.06114144134791132
+        ],
+        "pooled_pearson": [
+          -0.26117851753036947,
+          -0.04962560368314634
+        ],
+        "standardized_rmse": [
+          1.4688596573272992,
+          1.7042041617860813
+        ]
+      }
+    },
+    "donor_a_destroyed_field_vs_donor_b_truth": {
+      "metrics": {
+        "macro_target_cosine": 0.13198034015280266,
+        "pooled_pearson": 0.16997870001804244,
+        "standardized_rmse": 1.194288392048425
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          0.007274799419720481,
+          0.269328539751313
+        ],
+        "pooled_pearson": [
+          0.04857888669771313,
+          0.29932590503608036
+        ],
+        "standardized_rmse": [
+          1.0811859443755427,
+          1.3165537922368913
+        ]
+      }
+    },
+    "primary_prediction_vs_donor_b_destroyed_field": {
+      "metrics": {
+        "macro_target_cosine": -0.23233217663831035,
+        "pooled_pearson": -0.24904752287134158,
+        "standardized_rmse": 1.6543002475042528
+      },
+      "target_bootstrap_95_ci": {
+        "macro_target_cosine": [
+          -0.343627549458851,
+          -0.12303037197281937
+        ],
+        "pooled_pearson": [
+          -0.372079501096276,
+          -0.13148914934338363
+        ],
+        "standardized_rmse": [
+          1.5408551071512169,
+          1.778081450550687
+        ]
+      }
+    }
+  },
+  "primary_comparisons": {
+    "destroyed_links": {
+      "mean_primary_minus_comparator_target_mse": -0.22253664796607153,
+      "metric_difference_95_ci": {
+        "macro_target_cosine": [
+          0.00608068594338456,
+          0.2776995145265555
+        ],
+        "pooled_pearson": [
+          0.08987481169207297,
+          0.3946181457960893
+        ],
+        "standardized_rmse": [
+          -0.20642449056017628,
+          0.0024767772362478866
+        ]
+      },
+      "metric_difference_definition": "primary minus comparator",
+      "target_mse_difference_95_ci": [
+        -0.4478643609045917,
+        0.005828622059522772
+      ]
+    },
+    "direct": {
+      "mean_primary_minus_comparator_target_mse": -0.5138147962778636,
+      "metric_difference_95_ci": {
+        "macro_target_cosine": [
+          -0.05278822311850268,
+          0.1047017989737542
+        ],
+        "pooled_pearson": [
+          -0.017625393896796387,
+          0.12680396040980216
+        ],
+        "standardized_rmse": [
+          -0.3353866505297133,
+          -0.1188096212309589
+        ]
+      },
+      "metric_difference_definition": "primary minus comparator",
+      "target_mse_difference_95_ci": [
+        -0.7845715359136024,
+        -0.26913339822462545
+      ]
+    },
+    "endpoint_ridge": {
+      "mean_primary_minus_comparator_target_mse": -0.18053777852235495,
+      "metric_difference_95_ci": {
+        "macro_target_cosine": [
+          -0.0151294547606385,
+          0.04106965904424351
+        ],
+        "pooled_pearson": [
+          -0.023131387608016682,
+          0.044458339715544797
+        ],
+        "standardized_rmse": [
+          -0.13352023017555098,
+          -0.04241617320892501
+        ]
+      },
+      "metric_difference_definition": "primary minus comparator",
+      "target_mse_difference_95_ci": [
+        -0.27470459399241387,
+        -0.09631104347016559
+      ]
+    },
+    "gene2vec_prior": {
+      "mean_primary_minus_comparator_target_mse": 0.027410158602995872,
+      "metric_difference_95_ci": {
+        "macro_target_cosine": [
+          -0.004647945518306068,
+          0.05211066625665313
+        ],
+        "pooled_pearson": [
+          -0.04287159832265886,
+          0.012498434652933202
+        ],
+        "standardized_rmse": [
+          -0.028152639580655447,
+          0.06387060138707053
+        ]
+      },
+      "metric_difference_definition": "primary minus comparator",
+      "target_mse_difference_95_ci": [
+        -0.05948353902784934,
+        0.12369630339804746
+      ]
+    },
+    "graph_only": {
+      "mean_primary_minus_comparator_target_mse": -0.11495306864928985,
+      "metric_difference_95_ci": {
+        "macro_target_cosine": [
+          -0.003228827173701767,
+          0.0038623759444767767
+        ],
+        "pooled_pearson": [
+          0.006476227598933464,
+          0.01345031151357914
+        ],
+        "standardized_rmse": [
+          -0.06953637965668143,
+          -0.03962260767833717
+        ]
+      },
+      "metric_difference_definition": "primary minus comparator",
+      "target_mse_difference_95_ci": [
+        -0.14073810999227898,
+        -0.08802759450947917
+      ]
+    },
+    "linear_cross_covariance": {
+      "mean_primary_minus_comparator_target_mse": 0.19935060968048582,
+      "metric_difference_95_ci": {
+        "macro_target_cosine": [
+          -0.19752010769425013,
+          0.16400999921823553
+        ],
+        "pooled_pearson": [
+          -0.030804417751754284,
+          0.26134965779034025
+        ],
+        "standardized_rmse": [
+          0.017934500583711287,
+          0.1926485107943755
+        ]
+      },
+      "metric_difference_definition": "primary minus comparator",
+      "target_mse_difference_95_ci": [
+        0.037517037928612676,
+        0.35244632700909806
+      ]
+    },
+    "nuclear_only": {
+      "mean_primary_minus_comparator_target_mse": -0.1682380959565914,
+      "metric_difference_95_ci": {
+        "macro_target_cosine": [
+          -0.037679567435270185,
+          0.07788562184731629
+        ],
+        "pooled_pearson": [
+          -0.03148966457791693,
+          0.0731777450584259
+        ],
+        "standardized_rmse": [
+          -0.15527750972644166,
+          -0.0013318380174493541
+        ]
+      },
+      "metric_difference_definition": "primary minus comparator",
+      "target_mse_difference_95_ci": [
+        -0.34549879114967524,
+        -0.002993458443271652
+      ]
+    },
+    "shuffled_scgpt_prior": {
+      "mean_primary_minus_comparator_target_mse": -0.014975878435131608,
+      "metric_difference_95_ci": {
+        "macro_target_cosine": [
+          0.005668430643321577,
+          0.012745800208261507
+        ],
+        "pooled_pearson": [
+          -0.017714072158964655,
+          0.01882485385285054
+        ],
+        "standardized_rmse": [
+          -0.03941102202112908,
+          0.0280598793099286
+        ]
+      },
+      "metric_difference_definition": "primary minus comparator",
+      "target_mse_difference_95_ci": [
+        -0.08128209404485998,
+        0.0575886463487645
+      ]
+    },
+    "zero": {
+      "mean_primary_minus_comparator_target_mse": 0.1860273885029245,
+      "metric_difference_95_ci": {
+        "macro_target_cosine": [
+          0.17106510179745318,
+          0.37652632412705833
+        ],
+        "pooled_pearson": null,
+        "standardized_rmse": [
+          0.011997070458918868,
+          0.1846478544083744
+        ]
+      },
+      "metric_difference_definition": "primary minus comparator",
+      "target_mse_difference_95_ci": [
+        0.024414457523296636,
+        0.33817951975050375
+      ]
+    }
+  },
+  "schema": "v2p2r.arce-gse278572-postlock-controls/1",
+  "status": "post-lock reporting controls; not part of the predeclared confirmation gate"
+}

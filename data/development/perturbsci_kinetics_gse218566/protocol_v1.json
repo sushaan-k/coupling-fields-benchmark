@@ -1,0 +1,99 @@
+{
+  "frozen_at": "2026-08-26T11:25:00Z",
+  "status": "frozen_before_expression_matrix_download",
+  "scope": "orthogonal same-cell molecular-age coupling development gate; not a perturbation-by-challenge or biological-replication claim",
+  "accession": "GSE218566",
+  "sample": "GSM6752591",
+  "observables": {
+    "old_rna": "whole transcriptome counts minus nascent transcriptome counts in the same cell",
+    "new_rna": "nascent transcriptome counts in the same cell",
+    "pairing": "same deposited cell barcode",
+    "perturbation": "target_genes with guide identity in target",
+    "control": "NO-TARGET"
+  },
+  "eligibility": {
+    "target_rule": "exactly three observed guide labels and at least 60 retained cells for every guide",
+    "expected_from_metadata_only": {
+      "eligible_targets": 85,
+      "eligible_target_cells": 66425,
+      "control_guides": 15,
+      "control_cells": 2758
+    },
+    "cell_cap_per_target_guide": 60,
+    "sampling_seed": 20260826,
+    "failure_reporting": "report every library target failing observed-cell, three-guide, or minimum-cell criteria"
+  },
+  "feature_freeze": {
+    "fit_cells": "all NO-TARGET cells only",
+    "normalization": "within-layer counts per 10000 followed by log1p",
+    "negative_old_count_rule": "refuse if whole minus nascent contains any negative entry",
+    "genes": "top 1000 non-mitochondrial shared genes by geometric mean of old- and new-layer variance ranks on NO-TARGET cells",
+    "pca_components_per_layer": 6,
+    "pca_solver": "full",
+    "state_partition": "separate three-cluster k-means partitions of old and new NO-TARGET PCA coordinates, n_init=50",
+    "state_seed": 20260826
+  },
+  "guide_disjoint_validation": {
+    "outer_folds": "three rotations of lexicographically sorted target guides; one guide held out per target",
+    "control_folds": "lexicographically sorted NO-TARGET guides partitioned by index modulo three; five held out and ten fitted per fold",
+    "inner_selection": "swap the two fitted target guides and minimize mean held-guide standardized field MSE; recipient outer guide is never used for selection",
+    "n_derangements": 10,
+    "pseudopair_block": "guide identity",
+    "nuclear_penalties": [0.0001, 0.0003, 0.001, 0.003, 0.01, 0.03],
+    "nuisance_penalty": 0.001,
+    "pseudocount_per_state_pair": 0.5
+  },
+  "methods": [
+    "joint nuclear-norm P-by-old-state-by-new-state coupling atlas with every lower-order term",
+    "saturated pooled hierarchical PUV fit with zero nuclear penalty",
+    "independent target-versus-control log-odds association",
+    "endpoint old/new marginal summary with independence coupling",
+    "linear old-by-new cross-covariance contrast with inner-fold scalar calibration",
+    "nuclear atlas after same-guide pair destruction"
+  ],
+  "primary_metrics": {
+    "field": [
+      "pooled Pearson correlation across target-by-route coefficients",
+      "target-macro cosine similarity",
+      "standardized root mean squared error"
+    ],
+    "target_neighborhood": [
+      "mean top-five neighbor overlap with held-guide atlas",
+      "Spearman correlation of target-pair cosine similarities"
+    ],
+    "pathway_and_module": [
+      "average precision for target pairs sharing an eligible Reactome pathway",
+      "average precision for target pairs sharing an eligible CORUM complex",
+      "top-five same-annotation neighbor precision"
+    ],
+    "uncertainty": "95% target bootstrap intervals with 1000 resamples",
+    "refusal": "refuse promotion if the selected nuclear fit does not reduce PUV parameter dimension or is more than 10% worse than saturated pooled standardized MSE in at least two outer folds"
+  },
+  "annotation_rules": {
+    "reactome": "retain pathways containing 3 to 25 eligible targets",
+    "corum": "retain complexes containing 2 to 20 eligible targets",
+    "pair_positive": "two distinct targets share at least one retained annotation"
+  },
+  "perturbfate_overlap_check": {
+    "library_shared_targets": [
+      "ARID1A",
+      "CREBBP",
+      "CYC1",
+      "EP300",
+      "MED19",
+      "METTL3",
+      "PBRM1",
+      "PELO",
+      "SMARCA4",
+      "SMARCB1",
+      "SMARCD1",
+      "SOX2"
+    ],
+    "known_metadata_attrition_before_expression_access": {
+      "EP300": "present in the PerturbSci-Kinetics library but absent from the deposited on-target cell metadata",
+      "ARID1A": "one observed guide",
+      "CYC1": "two observed guides",
+      "MED19": "one observed guide"
+    }
+  }
+}

@@ -1,0 +1,979 @@
+{
+  "claim_boundaries": [
+    "Synthetic operating characteristics are not biological validation.",
+    "Sign-flip calibration assumes independent, sign-symmetric biological blocks.",
+    "Guide and mismatch channels are treated as fixed; channel-estimation uncertainty is not propagated.",
+    "Refusals remain in unconditional calibration and power denominators as non-rejections."
+  ],
+  "factorial_estimator_sha256": "c80afa0efc70de920bdd312420c0e680df3b290528b6aefd3b0a1b98cff3b79e",
+  "field_estimator_sha256": "29a3875fa43572ead6c53cd7dea60bb9bdf07c35b417d79d8a97f30cbb230912",
+  "operating_characteristics": [
+    {
+      "metrics": {
+        "analyzable": {
+          "95_percent_wilson_interval": [
+            0.9361057075454807,
+            0.9861796856598887
+          ],
+          "rate": 0.97,
+          "successes": 194,
+          "trials": 200
+        },
+        "field_rmse_among_analyzable": {
+          "mean": 0.15395911818124236,
+          "median": 0.15092135023053857
+        },
+        "maximum_molecular_margin_ratio_among_analyzable": 20.48656060583397,
+        "refusal_counts": {
+          "effective joint-cell support is below threshold": 6
+        },
+        "repetitions": 200,
+        "unconditional_global_rejection": {
+          "95_percent_wilson_interval": [
+            0.013820314340111346,
+            0.06389429245451925
+          ],
+          "rate": 0.03,
+          "successes": 6,
+          "trials": 200
+        },
+        "unconditional_target_rejection": [
+          {
+            "95_percent_wilson_interval": [
+              0.00511423779325831,
+              0.04316572879269026
+            ],
+            "rate": 0.015,
+            "successes": 3,
+            "trials": 200
+          },
+          {
+            "95_percent_wilson_interval": [
+              0.010724719651761264,
+              0.05717834040664198
+            ],
+            "rate": 0.025,
+            "successes": 5,
+            "trials": 200
+          }
+        ]
+      },
+      "scenario": "well_specified",
+      "world": "population_null"
+    },
+    {
+      "metrics": {
+        "analyzable": {
+          "95_percent_wilson_interval": [
+            0.9497129130941735,
+            0.9921955735836505
+          ],
+          "rate": 0.98,
+          "successes": 196,
+          "trials": 200
+        },
+        "field_rmse_among_analyzable": {
+          "mean": 0.15799197903326712,
+          "median": 0.15517060594908783
+        },
+        "maximum_molecular_margin_ratio_among_analyzable": 14.002568823722793,
+        "refusal_counts": {
+          "effective joint-cell support is below threshold": 4
+        },
+        "repetitions": 200,
+        "unconditional_global_rejection": {
+          "95_percent_wilson_interval": [
+            0.9295293884777092,
+            0.9829444579914328
+          ],
+          "rate": 0.965,
+          "successes": 193,
+          "trials": 200
+        },
+        "unconditional_target_rejection": [
+          {
+            "95_percent_wilson_interval": [
+              0.9295293884777092,
+              0.9829444579914328
+            ],
+            "rate": 0.965,
+            "successes": 193,
+            "trials": 200
+          },
+          {
+            "95_percent_wilson_interval": [
+              0.0027466581335444384,
+              0.0357217617161768
+            ],
+            "rate": 0.01,
+            "successes": 2,
+            "trials": 200
+          }
+        ]
+      },
+      "scenario": "well_specified",
+      "world": "fixed_target_0_effect"
+    },
+    {
+      "metrics": {
+        "analyzable": {
+          "95_percent_wilson_interval": [
+            0.5765211307549043,
+            0.7080137245956883
+          ],
+          "rate": 0.645,
+          "successes": 129,
+          "trials": 200
+        },
+        "field_rmse_among_analyzable": {
+          "mean": 0.13552718260606328,
+          "median": 0.1275415546447569
+        },
+        "maximum_molecular_margin_ratio_among_analyzable": 138.76988895451646,
+        "refusal_counts": {
+          "effective joint-cell support is below threshold": 71
+        },
+        "repetitions": 200,
+        "unconditional_global_rejection": {
+          "95_percent_wilson_interval": [
+            0.00511423779325831,
+            0.04316572879269026
+          ],
+          "rate": 0.015,
+          "successes": 3,
+          "trials": 200
+        },
+        "unconditional_target_rejection": [
+          {
+            "95_percent_wilson_interval": [
+              0.00511423779325831,
+              0.04316572879269026
+            ],
+            "rate": 0.015,
+            "successes": 3,
+            "trials": 200
+          },
+          {
+            "95_percent_wilson_interval": [
+              0.0,
+              0.018845326377266575
+            ],
+            "rate": 0.0,
+            "successes": 0,
+            "trials": 200
+          }
+        ]
+      },
+      "scenario": "unequal_margins",
+      "world": "population_null"
+    },
+    {
+      "metrics": {
+        "analyzable": {
+          "95_percent_wilson_interval": [
+            0.5918849552683626,
+            0.7220845402909121
+          ],
+          "rate": 0.66,
+          "successes": 132,
+          "trials": 200
+        },
+        "field_rmse_among_analyzable": {
+          "mean": 0.1340813031360832,
+          "median": 0.1280897984881837
+        },
+        "maximum_molecular_margin_ratio_among_analyzable": 82.74711950135452,
+        "refusal_counts": {
+          "effective joint-cell support is below threshold": 68
+        },
+        "repetitions": 200,
+        "unconditional_global_rejection": {
+          "95_percent_wilson_interval": [
+            0.5918849552683626,
+            0.7220845402909121
+          ],
+          "rate": 0.66,
+          "successes": 132,
+          "trials": 200
+        },
+        "unconditional_target_rejection": [
+          {
+            "95_percent_wilson_interval": [
+              0.5918849552683626,
+              0.7220845402909121
+            ],
+            "rate": 0.66,
+            "successes": 132,
+            "trials": 200
+          },
+          {
+            "95_percent_wilson_interval": [
+              0.0,
+              0.018845326377266575
+            ],
+            "rate": 0.0,
+            "successes": 0,
+            "trials": 200
+          }
+        ]
+      },
+      "scenario": "unequal_margins",
+      "world": "fixed_target_0_effect"
+    },
+    {
+      "metrics": {
+        "analyzable": {
+          "95_percent_wilson_interval": [
+            0.9811546736227335,
+            1.0
+          ],
+          "rate": 1.0,
+          "successes": 200,
+          "trials": 200
+        },
+        "field_rmse_among_analyzable": {
+          "mean": 0.1619494829220206,
+          "median": 0.16069220367411657
+        },
+        "maximum_molecular_margin_ratio_among_analyzable": 16.018781426171678,
+        "refusal_counts": {},
+        "repetitions": 200,
+        "unconditional_global_rejection": {
+          "95_percent_wilson_interval": [
+            0.013820314340111346,
+            0.06389429245451925
+          ],
+          "rate": 0.03,
+          "successes": 6,
+          "trials": 200
+        },
+        "unconditional_target_rejection": [
+          {
+            "95_percent_wilson_interval": [
+              0.0027466581335444384,
+              0.0357217617161768
+            ],
+            "rate": 0.01,
+            "successes": 2,
+            "trials": 200
+          },
+          {
+            "95_percent_wilson_interval": [
+              0.0078044264163494685,
+              0.050287086905826436
+            ],
+            "rate": 0.02,
+            "successes": 4,
+            "trials": 200
+          }
+        ]
+      },
+      "scenario": "guide_channel_misspecified",
+      "world": "population_null"
+    },
+    {
+      "metrics": {
+        "analyzable": {
+          "95_percent_wilson_interval": [
+            0.9811546736227335,
+            1.0
+          ],
+          "rate": 1.0,
+          "successes": 200,
+          "trials": 200
+        },
+        "field_rmse_among_analyzable": {
+          "mean": 0.1994605501784955,
+          "median": 0.19960214129859588
+        },
+        "maximum_molecular_margin_ratio_among_analyzable": 16.150629125258536,
+        "refusal_counts": {},
+        "repetitions": 200,
+        "unconditional_global_rejection": {
+          "95_percent_wilson_interval": [
+            0.9167032959981803,
+            0.976147456998507
+          ],
+          "rate": 0.955,
+          "successes": 191,
+          "trials": 200
+        },
+        "unconditional_target_rejection": [
+          {
+            "95_percent_wilson_interval": [
+              0.9167032959981803,
+              0.976147456998507
+            ],
+            "rate": 0.955,
+            "successes": 191,
+            "trials": 200
+          },
+          {
+            "95_percent_wilson_interval": [
+              0.0008831687156009814,
+              0.02777370439789293
+            ],
+            "rate": 0.005,
+            "successes": 1,
+            "trials": 200
+          }
+        ]
+      },
+      "scenario": "guide_channel_misspecified",
+      "world": "fixed_target_0_effect"
+    },
+    {
+      "metrics": {
+        "analyzable": {
+          "95_percent_wilson_interval": [
+            0.9811546736227335,
+            1.0
+          ],
+          "rate": 1.0,
+          "successes": 200,
+          "trials": 200
+        },
+        "field_rmse_among_analyzable": {
+          "mean": 0.18356491256451096,
+          "median": 0.18394230496804942
+        },
+        "maximum_molecular_margin_ratio_among_analyzable": 18.766005909243788,
+        "refusal_counts": {},
+        "repetitions": 200,
+        "unconditional_global_rejection": {
+          "95_percent_wilson_interval": [
+            0.013820314340111346,
+            0.06389429245451925
+          ],
+          "rate": 0.03,
+          "successes": 6,
+          "trials": 200
+        },
+        "unconditional_target_rejection": [
+          {
+            "95_percent_wilson_interval": [
+              0.00511423779325831,
+              0.04316572879269026
+            ],
+            "rate": 0.015,
+            "successes": 3,
+            "trials": 200
+          },
+          {
+            "95_percent_wilson_interval": [
+              0.0078044264163494685,
+              0.050287086905826436
+            ],
+            "rate": 0.02,
+            "successes": 4,
+            "trials": 200
+          }
+        ]
+      },
+      "scenario": "observation_channel_misspecified",
+      "world": "population_null"
+    },
+    {
+      "metrics": {
+        "analyzable": {
+          "95_percent_wilson_interval": [
+            0.9811546736227335,
+            1.0
+          ],
+          "rate": 1.0,
+          "successes": 200,
+          "trials": 200
+        },
+        "field_rmse_among_analyzable": {
+          "mean": 0.2247782558745097,
+          "median": 0.22570049947593301
+        },
+        "maximum_molecular_margin_ratio_among_analyzable": 18.16498841386907,
+        "refusal_counts": {},
+        "repetitions": 200,
+        "unconditional_global_rejection": {
+          "95_percent_wilson_interval": [
+            0.8563983883518006,
+            0.9383368972826135
+          ],
+          "rate": 0.905,
+          "successes": 181,
+          "trials": 200
+        },
+        "unconditional_target_rejection": [
+          {
+            "95_percent_wilson_interval": [
+              0.8563983883518006,
+              0.9383368972826135
+            ],
+            "rate": 0.905,
+            "successes": 181,
+            "trials": 200
+          },
+          {
+            "95_percent_wilson_interval": [
+              0.0008831687156009814,
+              0.02777370439789293
+            ],
+            "rate": 0.005,
+            "successes": 1,
+            "trials": 200
+          }
+        ]
+      },
+      "scenario": "observation_channel_misspecified",
+      "world": "fixed_target_0_effect"
+    },
+    {
+      "metrics": {
+        "analyzable": {
+          "95_percent_wilson_interval": [
+            0.9722262956021069,
+            0.9991168312843989
+          ],
+          "rate": 0.995,
+          "successes": 199,
+          "trials": 200
+        },
+        "field_rmse_among_analyzable": {
+          "mean": 0.09704284723665525,
+          "median": 0.09547861309848434
+        },
+        "maximum_molecular_margin_ratio_among_analyzable": 19.03557381824226,
+        "refusal_counts": {
+          "effective joint-cell support is below threshold": 1
+        },
+        "repetitions": 200,
+        "unconditional_global_rejection": {
+          "95_percent_wilson_interval": [
+            0.03098534170345884,
+            0.0957869987723084
+          ],
+          "rate": 0.055,
+          "successes": 11,
+          "trials": 200
+        },
+        "unconditional_target_rejection": [
+          {
+            "95_percent_wilson_interval": [
+              0.00511423779325831,
+              0.04316572879269026
+            ],
+            "rate": 0.015,
+            "successes": 3,
+            "trials": 200
+          },
+          {
+            "95_percent_wilson_interval": [
+              0.020405632066152306,
+              0.07693206820093293
+            ],
+            "rate": 0.04,
+            "successes": 8,
+            "trials": 200
+          }
+        ]
+      },
+      "scenario": "heavy_tailed_blocks",
+      "world": "population_null"
+    },
+    {
+      "metrics": {
+        "analyzable": {
+          "95_percent_wilson_interval": [
+            0.9722262956021069,
+            0.9991168312843989
+          ],
+          "rate": 0.995,
+          "successes": 199,
+          "trials": 200
+        },
+        "field_rmse_among_analyzable": {
+          "mean": 0.09849657363129985,
+          "median": 0.09789780081969779
+        },
+        "maximum_molecular_margin_ratio_among_analyzable": 17.43877059114969,
+        "refusal_counts": {
+          "effective joint-cell support is below threshold": 1
+        },
+        "repetitions": 200,
+        "unconditional_global_rejection": {
+          "95_percent_wilson_interval": [
+            0.9722262956021069,
+            0.9991168312843989
+          ],
+          "rate": 0.995,
+          "successes": 199,
+          "trials": 200
+        },
+        "unconditional_target_rejection": [
+          {
+            "95_percent_wilson_interval": [
+              0.9722262956021069,
+              0.9991168312843989
+            ],
+            "rate": 0.995,
+            "successes": 199,
+            "trials": 200
+          },
+          {
+            "95_percent_wilson_interval": [
+              0.0008831687156009814,
+              0.02777370439789293
+            ],
+            "rate": 0.005,
+            "successes": 1,
+            "trials": 200
+          }
+        ]
+      },
+      "scenario": "heavy_tailed_blocks",
+      "world": "fixed_target_0_effect"
+    },
+    {
+      "metrics": {
+        "analyzable": {
+          "95_percent_wilson_interval": [
+            0.0078044264163494685,
+            0.050287086905826436
+          ],
+          "rate": 0.02,
+          "successes": 4,
+          "trials": 200
+        },
+        "field_rmse_among_analyzable": {
+          "mean": 0.27744303657363234,
+          "median": 0.27866983957641867
+        },
+        "maximum_molecular_margin_ratio_among_analyzable": 27.3643561685495,
+        "refusal_counts": {
+          "effective joint-cell support is below threshold": 196
+        },
+        "repetitions": 200,
+        "unconditional_global_rejection": {
+          "95_percent_wilson_interval": [
+            0.0,
+            0.018845326377266575
+          ],
+          "rate": 0.0,
+          "successes": 0,
+          "trials": 200
+        },
+        "unconditional_target_rejection": [
+          {
+            "95_percent_wilson_interval": [
+              0.0,
+              0.018845326377266575
+            ],
+            "rate": 0.0,
+            "successes": 0,
+            "trials": 200
+          },
+          {
+            "95_percent_wilson_interval": [
+              0.0,
+              0.018845326377266575
+            ],
+            "rate": 0.0,
+            "successes": 0,
+            "trials": 200
+          }
+        ]
+      },
+      "scenario": "sparse_support",
+      "world": "population_null"
+    },
+    {
+      "metrics": {
+        "analyzable": {
+          "95_percent_wilson_interval": [
+            0.0008831687156009814,
+            0.02777370439789293
+          ],
+          "rate": 0.005,
+          "successes": 1,
+          "trials": 200
+        },
+        "field_rmse_among_analyzable": {
+          "mean": 0.288529150259637,
+          "median": 0.288529150259637
+        },
+        "maximum_molecular_margin_ratio_among_analyzable": 18.899864062396524,
+        "refusal_counts": {
+          "effective joint-cell support is below threshold": 199
+        },
+        "repetitions": 200,
+        "unconditional_global_rejection": {
+          "95_percent_wilson_interval": [
+            0.0008831687156009814,
+            0.02777370439789293
+          ],
+          "rate": 0.005,
+          "successes": 1,
+          "trials": 200
+        },
+        "unconditional_target_rejection": [
+          {
+            "95_percent_wilson_interval": [
+              0.0008831687156009814,
+              0.02777370439789293
+            ],
+            "rate": 0.005,
+            "successes": 1,
+            "trials": 200
+          },
+          {
+            "95_percent_wilson_interval": [
+              0.0,
+              0.018845326377266575
+            ],
+            "rate": 0.0,
+            "successes": 0,
+            "trials": 200
+          }
+        ]
+      },
+      "scenario": "sparse_support",
+      "world": "fixed_target_0_effect"
+    },
+    {
+      "metrics": {
+        "analyzable": {
+          "95_percent_wilson_interval": [
+            0.9167032959981803,
+            0.976147456998507
+          ],
+          "rate": 0.955,
+          "successes": 191,
+          "trials": 200
+        },
+        "field_rmse_among_analyzable": {
+          "mean": 0.20030897768868275,
+          "median": 0.19644785590564584
+        },
+        "maximum_molecular_margin_ratio_among_analyzable": 19.054483890470472,
+        "refusal_counts": {
+          "effective joint-cell support is below threshold": 9
+        },
+        "repetitions": 200,
+        "unconditional_global_rejection": {
+          "95_percent_wilson_interval": [
+            0.0078044264163494685,
+            0.050287086905826436
+          ],
+          "rate": 0.02,
+          "successes": 4,
+          "trials": 200
+        },
+        "unconditional_target_rejection": [
+          {
+            "95_percent_wilson_interval": [
+              0.00511423779325831,
+              0.04316572879269026
+            ],
+            "rate": 0.015,
+            "successes": 3,
+            "trials": 200
+          },
+          {
+            "95_percent_wilson_interval": [
+              0.0008831687156009814,
+              0.02777370439789293
+            ],
+            "rate": 0.005,
+            "successes": 1,
+            "trials": 200
+          }
+        ]
+      },
+      "scenario": "near_linkage_threshold",
+      "world": "population_null"
+    },
+    {
+      "metrics": {
+        "analyzable": {
+          "95_percent_wilson_interval": [
+            0.8859451911438936,
+            0.9578478281716571
+          ],
+          "rate": 0.93,
+          "successes": 186,
+          "trials": 200
+        },
+        "field_rmse_among_analyzable": {
+          "mean": 0.20482349285567145,
+          "median": 0.20333361272135642
+        },
+        "maximum_molecular_margin_ratio_among_analyzable": 15.527804036077299,
+        "refusal_counts": {
+          "effective joint-cell support is below threshold": 14
+        },
+        "repetitions": 200,
+        "unconditional_global_rejection": {
+          "95_percent_wilson_interval": [
+            0.839073090026985,
+            0.926227555398747
+          ],
+          "rate": 0.89,
+          "successes": 178,
+          "trials": 200
+        },
+        "unconditional_target_rejection": [
+          {
+            "95_percent_wilson_interval": [
+              0.839073090026985,
+              0.926227555398747
+            ],
+            "rate": 0.89,
+            "successes": 178,
+            "trials": 200
+          },
+          {
+            "95_percent_wilson_interval": [
+              0.0,
+              0.018845326377266575
+            ],
+            "rate": 0.0,
+            "successes": 0,
+            "trials": 200
+          }
+        ]
+      },
+      "scenario": "near_linkage_threshold",
+      "world": "fixed_target_0_effect"
+    }
+  ],
+  "refusal_boundaries": {
+    "channel_conditioning": [
+      {
+        "minimum_channel_singular_value": 0.249,
+        "refusal": "guide_channel[0,:,:,0] is too poorly conditioned"
+      },
+      {
+        "minimum_channel_singular_value": 0.251,
+        "refusal": null
+      }
+    ],
+    "linkage": [
+      {
+        "correctly_linked_fraction": 0.51,
+        "mismatch_rate": 0.49,
+        "refusal": null
+      },
+      {
+        "correctly_linked_fraction": 0.5,
+        "mismatch_rate": 0.5,
+        "refusal": null
+      },
+      {
+        "correctly_linked_fraction": 0.49,
+        "mismatch_rate": 0.51,
+        "refusal": "correctly linked fraction is below threshold"
+      }
+    ]
+  },
+  "runner_sha256": "c6560173022cb1a3fe0c047250224ee6aaab239a8948ac3b2f1d00fd569473ed",
+  "runtime_seconds": 34.017877291,
+  "scenario_parameters": {
+    "guide_channel_misspecified": {
+      "cells_per_context": 8000,
+      "factorial_scale": 0.28,
+      "fitted_channel_singular": 0.72,
+      "fitted_channel_state_dependent": false,
+      "fitted_mismatch_rate": 0.08,
+      "fitted_observation_singular": 1.0,
+      "heavy_tailed": false,
+      "margin_scale": 0.45,
+      "true_channel_singular": 0.48,
+      "true_channel_state_dependent": true,
+      "true_mismatch_rate": 0.08,
+      "true_observation_singular": 1.0
+    },
+    "heavy_tailed_blocks": {
+      "cells_per_context": 20000,
+      "factorial_scale": 0.16,
+      "fitted_channel_singular": 0.72,
+      "fitted_channel_state_dependent": true,
+      "fitted_mismatch_rate": 0.08,
+      "fitted_observation_singular": 1.0,
+      "heavy_tailed": true,
+      "margin_scale": 0.45,
+      "true_channel_singular": 0.72,
+      "true_channel_state_dependent": true,
+      "true_mismatch_rate": 0.08,
+      "true_observation_singular": 1.0
+    },
+    "near_linkage_threshold": {
+      "cells_per_context": 16000,
+      "factorial_scale": 0.28,
+      "fitted_channel_singular": 0.72,
+      "fitted_channel_state_dependent": true,
+      "fitted_mismatch_rate": 0.49,
+      "fitted_observation_singular": 1.0,
+      "heavy_tailed": false,
+      "margin_scale": 0.45,
+      "true_channel_singular": 0.72,
+      "true_channel_state_dependent": true,
+      "true_mismatch_rate": 0.49,
+      "true_observation_singular": 1.0
+    },
+    "observation_channel_misspecified": {
+      "cells_per_context": 8000,
+      "factorial_scale": 0.28,
+      "fitted_channel_singular": 0.72,
+      "fitted_channel_state_dependent": true,
+      "fitted_mismatch_rate": 0.08,
+      "fitted_observation_singular": 0.9,
+      "heavy_tailed": false,
+      "margin_scale": 0.45,
+      "true_channel_singular": 0.72,
+      "true_channel_state_dependent": true,
+      "true_mismatch_rate": 0.08,
+      "true_observation_singular": 0.55
+    },
+    "sparse_support": {
+      "cells_per_context": 4000,
+      "factorial_scale": 0.28,
+      "fitted_channel_singular": 0.72,
+      "fitted_channel_state_dependent": true,
+      "fitted_mismatch_rate": 0.08,
+      "fitted_observation_singular": 1.0,
+      "heavy_tailed": false,
+      "margin_scale": 0.75,
+      "true_channel_singular": 0.72,
+      "true_channel_state_dependent": true,
+      "true_mismatch_rate": 0.08,
+      "true_observation_singular": 1.0
+    },
+    "unequal_margins": {
+      "cells_per_context": 40000,
+      "factorial_scale": 0.28,
+      "fitted_channel_singular": 0.72,
+      "fitted_channel_state_dependent": true,
+      "fitted_mismatch_rate": 0.08,
+      "fitted_observation_singular": 1.0,
+      "heavy_tailed": false,
+      "margin_scale": 0.8,
+      "true_channel_singular": 0.72,
+      "true_channel_state_dependent": true,
+      "true_mismatch_rate": 0.08,
+      "true_observation_singular": 1.0
+    },
+    "well_specified": {
+      "cells_per_context": 8000,
+      "factorial_scale": 0.28,
+      "fitted_channel_singular": 0.72,
+      "fitted_channel_state_dependent": true,
+      "fitted_mismatch_rate": 0.08,
+      "fitted_observation_singular": 1.0,
+      "heavy_tailed": false,
+      "margin_scale": 0.45,
+      "true_channel_singular": 0.72,
+      "true_channel_state_dependent": true,
+      "true_mismatch_rate": 0.08,
+      "true_observation_singular": 1.0
+    }
+  },
+  "schema": "v2p2r.factorial-coupling-stress/1",
+  "settings": {
+    "familywise_alpha": 0.05,
+    "independent_blocks": 6,
+    "max_t_sign_patterns": 64,
+    "outer_repetitions_per_scenario_world": 200,
+    "seed": 6203,
+    "sparse_table_repetitions_per_count": 1000
+  },
+  "sparse_table_support": [
+    {
+      "mean_expected_count_per_joint_cell": 2.0,
+      "median_minimum_observed_joint_count": 0.0,
+      "pseudocount_0_5_rmse": {
+        "mean": 0.41961997432152687,
+        "median": 0.40472870591057786
+      },
+      "raw_zero_support_refusal": {
+        "95_percent_wilson_interval": [
+          0.9290916123226243,
+          0.9575025726252315
+        ],
+        "rate": 0.945,
+        "successes": 945,
+        "trials": 1000
+      },
+      "total_count": 18
+    },
+    {
+      "mean_expected_count_per_joint_cell": 5.0,
+      "median_minimum_observed_joint_count": 1.0,
+      "pseudocount_0_5_rmse": {
+        "mean": 0.3258039115647727,
+        "median": 0.3182777676726577
+      },
+      "raw_zero_support_refusal": {
+        "95_percent_wilson_interval": [
+          0.468073488750724,
+          0.529934164766247
+        ],
+        "rate": 0.499,
+        "successes": 499,
+        "trials": 1000
+      },
+      "total_count": 45
+    },
+    {
+      "mean_expected_count_per_joint_cell": 10.0,
+      "median_minimum_observed_joint_count": 2.0,
+      "pseudocount_0_5_rmse": {
+        "mean": 0.24739040434857634,
+        "median": 0.2288809301256195
+      },
+      "raw_zero_support_refusal": {
+        "95_percent_wilson_interval": [
+          0.14140399765906392,
+          0.18717523756020027
+        ],
+        "rate": 0.163,
+        "successes": 163,
+        "trials": 1000
+      },
+      "total_count": 90
+    },
+    {
+      "mean_expected_count_per_joint_cell": 20.0,
+      "median_minimum_observed_joint_count": 4.0,
+      "pseudocount_0_5_rmse": {
+        "mean": 0.17785864427526604,
+        "median": 0.1675533592816115
+      },
+      "raw_zero_support_refusal": {
+        "95_percent_wilson_interval": [
+          0.0076128203893510256,
+          0.022114442375579666
+        ],
+        "rate": 0.013,
+        "successes": 13,
+        "trials": 1000
+      },
+      "total_count": 180
+    },
+    {
+      "mean_expected_count_per_joint_cell": 50.0,
+      "median_minimum_observed_joint_count": 10.0,
+      "pseudocount_0_5_rmse": {
+        "mean": 0.10982035969450649,
+        "median": 0.1045026023748455
+      },
+      "raw_zero_support_refusal": {
+        "95_percent_wilson_interval": [
+          0.0,
+          0.0038267584855551234
+        ],
+        "rate": 0.0,
+        "successes": 0,
+        "trials": 1000
+      },
+      "total_count": 450
+    }
+  ],
+  "status": "SYNTHETIC_STRESS_AUDIT_COMPLETE"
+}

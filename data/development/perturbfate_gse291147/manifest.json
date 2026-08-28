@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "dataset": "PerturbFate",
+  "accession": "GSE291147",
+  "bioproject": "PRJNA1231621",
+  "sra_study": "SRP567948",
+  "retrieved_utc_date": "2026-08-26",
+  "source_directory": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE291nnn/GSE291147/suppl/",
+  "integrity_note": "GEO did not expose a checksum manifest in the supplementary directory. SHA-256 digests below were computed after download; byte counts and Last-Modified values match the NCBI HTTPS response headers.",
+  "files": [
+    {
+      "name": "GSE291147_LabeledRNA_gene_count_matrix.RDS",
+      "role": "one-hour 5-EU-labelled nascent RNA counts",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE291nnn/GSE291147/suppl/GSE291147_LabeledRNA_gene_count_matrix.RDS",
+      "bytes": 422304653,
+      "last_modified_utc": "2025-03-04T01:21:57Z",
+      "sha256": "127f42b0c49c475360d61b11b95573c431ceca31f3fd1c1aec9d7548e0dd5611"
+    },
+    {
+      "name": "GSE291147_UnlabeledRNA_gene_count_matrix.RDS",
+      "role": "pre-existing RNA counts",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE291nnn/GSE291147/suppl/GSE291147_UnlabeledRNA_gene_count_matrix.RDS",
+      "bytes": 695502598,
+      "last_modified_utc": "2025-03-04T01:24:46Z",
+      "sha256": "77e1973e323f47ee10535ccbb4983d67e8732ed188cc2b55f0dab68f59bf0774"
+    },
+    {
+      "name": "GSE291147_Tri_omics_RNA_cell_metadata.csv.gz",
+      "role": "RNA cell metadata and treatment labels",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE291nnn/GSE291147/suppl/GSE291147_Tri_omics_RNA_cell_metadata.csv.gz",
+      "bytes": 6041684,
+      "last_modified_utc": "2025-03-05T16:51:59Z",
+      "sha256": "b8bec28d8309de04b790e7d0464adf6db7ce917fe0f10e4020a882dae27feb2b"
+    },
+    {
+      "name": "GSE291147_Tri_omics_sgRNA_count_matrix.RDS",
+      "role": "captured first-guide counts",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE291nnn/GSE291147/suppl/GSE291147_Tri_omics_sgRNA_count_matrix.RDS",
+      "bytes": 2976200,
+      "last_modified_utc": "2025-03-04T01:32:58Z",
+      "sha256": "9a05eab0452766853077f144ba199c7f0d3a224a6840269d0cc833fca71cfadb"
+    }
+  ]
+}

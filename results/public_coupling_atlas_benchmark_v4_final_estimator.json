@@ -1,0 +1,2505 @@
+{
+  "destroyed_link_draws": 64,
+  "implementation": {
+    "benchmark_sha256": "52552f426f236d656c92872d86c80993dae5acfe78543d0c205b9b8c7dbbc316",
+    "classical_residuals_sha256": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
+    "estimator_sha256": "29a3875fa43572ead6c53cd7dea60bb9bdf07c35b417d79d8a97f30cbb230912"
+  },
+  "panels": [
+    {
+      "biology": {
+        "corum": {
+          "bh_significant": 0,
+          "tested_annotations": 103,
+          "top_results": [
+            {
+              "annotation": "SLC29A1-SLC29A2 complex",
+              "members": 2,
+              "p_value": 0.1588235294117647,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "KAT2A-Oxoglutarate dehydrogenase complex",
+              "members": 3,
+              "p_value": 0.22976612331679655,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "ALL-1 supercomplex",
+              "members": 5,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            },
+            {
+              "annotation": "Anti-HDAC2 complex",
+              "members": 3,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            },
+            {
+              "annotation": "BAF complex",
+              "members": 3,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            },
+            {
+              "annotation": "BAF complex",
+              "members": 3,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            },
+            {
+              "annotation": "BAF complex",
+              "members": 3,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            },
+            {
+              "annotation": "BAF complex",
+              "members": 3,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            },
+            {
+              "annotation": "BAF complex",
+              "members": 2,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            },
+            {
+              "annotation": "BHC complex",
+              "members": 3,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            }
+          ]
+        },
+        "definition": "one-sided Fisher enrichment among targets in the top field-norm quintile in both held truth and primary prediction; BH correction within family",
+        "reactome": {
+          "bh_significant": 1,
+          "tested_annotations": 178,
+          "top_results": [
+            {
+              "annotation": "Mitochondrial protein degradation",
+              "members": 9,
+              "p_value": 7.405415449520024e-05,
+              "q_value": 0.013181639500145642,
+              "replicated_top_field_members": 5
+            },
+            {
+              "annotation": "Aerobic respiration and respiratory electron transport",
+              "members": 23,
+              "p_value": 0.0013176807503032734,
+              "q_value": 0.11727358677699133,
+              "replicated_top_field_members": 6
+            },
+            {
+              "annotation": "Citric acid cycle (TCA cycle)",
+              "members": 10,
+              "p_value": 0.0030178040434200464,
+              "q_value": 0.17905637324292276,
+              "replicated_top_field_members": 4
+            },
+            {
+              "annotation": "Metabolism",
+              "members": 30,
+              "p_value": 0.007028869158781031,
+              "q_value": 0.3015024805102764,
+              "replicated_top_field_members": 6
+            },
+            {
+              "annotation": "Metabolism of proteins",
+              "members": 23,
+              "p_value": 0.014209136841777353,
+              "q_value": 0.3015024805102764,
+              "replicated_top_field_members": 5
+            },
+            {
+              "annotation": "Mitochondrial protein import",
+              "members": 3,
+              "p_value": 0.01693834160170092,
+              "q_value": 0.3015024805102764,
+              "replicated_top_field_members": 2
+            },
+            {
+              "annotation": "PDH complex synthesizes acetyl-CoA from PYR",
+              "members": 3,
+              "p_value": 0.01693834160170092,
+              "q_value": 0.3015024805102764,
+              "replicated_top_field_members": 2
+            },
+            {
+              "annotation": "Protein localization",
+              "members": 3,
+              "p_value": 0.01693834160170092,
+              "q_value": 0.3015024805102764,
+              "replicated_top_field_members": 2
+            },
+            {
+              "annotation": "Regulation of pyruvate dehydrogenase (PDH) complex",
+              "members": 3,
+              "p_value": 0.01693834160170092,
+              "q_value": 0.3015024805102764,
+              "replicated_top_field_members": 2
+            },
+            {
+              "annotation": "Signaling by Retinoic Acid",
+              "members": 3,
+              "p_value": 0.01693834160170092,
+              "q_value": 0.3015024805102764,
+              "replicated_top_field_members": 2
+            }
+          ]
+        }
+      },
+      "coordinate_family_comparison": {
+        "coupling_field": {
+          "destroyed_links": {
+            "metrics": {
+              "macro_target_cosine": 0.07953568287092389,
+              "pooled_pearson": 0.07431959944764041,
+              "standardized_rmse": 1.1055245170766914
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                0.004302605568010518,
+                0.14963129120641627
+              ],
+              "pooled_pearson": [
+                0.003011959661899865,
+                0.1435957871601692
+              ],
+              "standardized_rmse": [
+                1.0713402900757896,
+                1.1407947634387308
+              ]
+            }
+          },
+          "direct": {
+            "metrics": {
+              "macro_target_cosine": 0.46595643474561427,
+              "pooled_pearson": 0.4290896122197009,
+              "standardized_rmse": 0.9745835349664767
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                0.4017724710185916,
+                0.5234259755668287
+              ],
+              "pooled_pearson": [
+                0.36987973505550326,
+                0.4824203087654318
+              ],
+              "standardized_rmse": [
+                0.9340195694280772,
+                1.015705362521161
+              ]
+            }
+          },
+          "fixed_structured": {
+            "metrics": {
+              "macro_target_cosine": 0.5541033383341933,
+              "pooled_pearson": 0.5246526894794067,
+              "standardized_rmse": 0.843645561260069
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                0.5074118399480526,
+                0.597828192541374
+              ],
+              "pooled_pearson": [
+                0.4832296670728334,
+                0.5660881429845287
+              ],
+              "standardized_rmse": [
+                0.8189777888686325,
+                0.8684325223626277
+              ]
+            }
+          }
+        },
+        "fixed_structured_coupling_minus_poisson": {
+          "pooled_pearson": -0.42059177615060295,
+          "pooled_pearson_target_bootstrap_95_ci": [
+            -0.46248298724697007,
+            -0.38258915225431545
+          ],
+          "standardized_rmse": 0.5060411323572445,
+          "standardized_rmse_target_bootstrap_95_ci": [
+            0.4800520762572996,
+            0.5341639869460479
+          ]
+        },
+        "poisson_deviance_residual": {
+          "destroyed_links": {
+            "metrics": {
+              "macro_target_cosine": 0.03571809217926709,
+              "pooled_pearson": -0.015627711388769675,
+              "standardized_rmse": 1.0100407034753844
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                -0.028532378922010895,
+                0.10126291873638889
+              ],
+              "pooled_pearson": [
+                -0.07745053612478751,
+                0.04631614450403793
+              ],
+              "standardized_rmse": [
+                1.001384521867244,
+                1.0188636318486086
+              ]
+            }
+          },
+          "direct": {
+            "metrics": {
+              "macro_target_cosine": 0.9884431768636455,
+              "pooled_pearson": 0.9633100468747228,
+              "standardized_rmse": 0.26832263084169355
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                0.9869234556787376,
+                0.9898593979602852
+              ],
+              "pooled_pearson": [
+                0.9607000566730584,
+                0.9657360693488892
+              ],
+              "standardized_rmse": [
+                0.2594522377836279,
+                0.27762085033899525
+              ]
+            }
+          },
+          "fixed_structured": {
+            "metrics": {
+              "macro_target_cosine": 0.990987246369865,
+              "pooled_pearson": 0.9452444656300096,
+              "standardized_rmse": 0.3376044289028245
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                0.9899941337891695,
+                0.9919591324268908
+              ],
+              "pooled_pearson": [
+                0.9382692830008762,
+                0.9518021897469761
+              ],
+              "standardized_rmse": [
+                0.3165194293410929,
+                0.35989088165817257
+              ]
+            }
+          }
+        },
+        "protocol": "same state tables, fixed-margin permutations, held-unit splits, target bootstraps, and fixed weighted nuclear-plus-scGPT-hypergraph estimator; each family is scored against its own held coordinates"
+      },
+      "embedding_hypergraphs": {
+        "gene2vec": {
+          "covered_targets": 79,
+          "embedding": "data/gene2vec_embeddings.npz",
+          "embedding_sha256": "3b175b048a174e606510a774c045287ff468b05be61d1108282d4740e5bfd435",
+          "hyperedges": 79,
+          "neighbors_per_hyperedge": 5
+        },
+        "scgpt": {
+          "covered_targets": 85,
+          "embedding": "data/scgpt_gene_embeddings.npz",
+          "embedding_sha256": "baf835e05077c6ec17e7bb0f48fc30632adc24be5bb91e591f74ab2e7985c60e",
+          "hyperedges": 85,
+          "neighbors_per_hyperedge": 5
+        }
+      },
+      "field_coordinates": 4,
+      "methods": {
+        "destroyed_links": {
+          "metrics": {
+            "macro_target_cosine": 0.07953568287092389,
+            "pooled_pearson": 0.07431959944764041,
+            "standardized_rmse": 1.1055245170766914
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.004302605568010518,
+              0.14963129120641627
+            ],
+            "pooled_pearson": [
+              0.003011959661899865,
+              0.1435957871601692
+            ],
+            "standardized_rmse": [
+              1.0713402900757896,
+              1.1407947634387308
+            ]
+          }
+        },
+        "direct": {
+          "metrics": {
+            "macro_target_cosine": 0.46595643474561427,
+            "pooled_pearson": 0.4290896122197009,
+            "standardized_rmse": 0.9745835349664767
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.4017724710185916,
+              0.5234259755668287
+            ],
+            "pooled_pearson": [
+              0.36987973505550326,
+              0.4824203087654318
+            ],
+            "standardized_rmse": [
+              0.9340195694280772,
+              1.015705362521161
+            ]
+          }
+        },
+        "endpoint_ridge": {
+          "metrics": {
+            "macro_target_cosine": 0.55323386340746,
+            "pooled_pearson": 0.5418336007953729,
+            "standardized_rmse": 0.8333878905639138
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.5020714429486497,
+              0.5972046065369337
+            ],
+            "pooled_pearson": [
+              0.5001674369504585,
+              0.5791675257825065
+            ],
+            "standardized_rmse": [
+              0.8050243845539922,
+              0.865849878218382
+            ]
+          }
+        },
+        "linear_cross_covariance": {
+          "metrics": {
+            "macro_target_cosine": 0.10034671592621475,
+            "pooled_pearson": 0.054345347478555676,
+            "standardized_rmse": 0.9968439088784481
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.03947145444889978,
+              0.16090393582279364
+            ],
+            "pooled_pearson": [
+              -0.00343501655510481,
+              0.10682018513262169
+            ],
+            "standardized_rmse": [
+              0.99401176994202,
+              0.9996054618929745
+            ]
+          }
+        },
+        "marginal_residual_atlas": {
+          "metrics": {
+            "macro_target_cosine": 0.5563012843013911,
+            "pooled_pearson": 0.5454309051916952,
+            "standardized_rmse": 0.8310290142640001
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.5108396701903938,
+              0.6017509417621869
+            ],
+            "pooled_pearson": [
+              0.5066987146666324,
+              0.5843025829856725
+            ],
+            "standardized_rmse": [
+              0.80058601080709,
+              0.861700848507339
+            ]
+          }
+        },
+        "nuclear": {
+          "metrics": {
+            "macro_target_cosine": 0.5095057589014391,
+            "pooled_pearson": 0.47447429640756844,
+            "standardized_rmse": 0.8995734178976794
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.4466658052282958,
+              0.571426190078424
+            ],
+            "pooled_pearson": [
+              0.42779460279799136,
+              0.5172868056947809
+            ],
+            "standardized_rmse": [
+              0.8834383370342093,
+              0.915389247860577
+            ]
+          }
+        },
+        "nuclear_gene2vec_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": 0.5465647587643641,
+            "pooled_pearson": 0.5168333046952206,
+            "standardized_rmse": 0.8489053038491803
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.49629943774534346,
+              0.5927595929326906
+            ],
+            "pooled_pearson": [
+              0.4724169234550625,
+              0.5590825424293951
+            ],
+            "standardized_rmse": [
+              0.8234493056486382,
+              0.8748603148824179
+            ]
+          }
+        },
+        "nuclear_scgpt_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": 0.5533381016250868,
+            "pooled_pearson": 0.5221832200752453,
+            "standardized_rmse": 0.8439245428607984
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.5073530300295455,
+              0.5983952022362392
+            ],
+            "pooled_pearson": [
+              0.4810070496610381,
+              0.5639619076560382
+            ],
+            "standardized_rmse": [
+              0.8174808160668185,
+              0.8700331829839504
+            ]
+          }
+        },
+        "scalar_shrinkage": {
+          "metrics": {
+            "macro_target_cosine": 0.46595643474561427,
+            "pooled_pearson": 0.41837690031050606,
+            "standardized_rmse": 0.9100720474007705
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.39927050963071736,
+              0.5287294890811471
+            ],
+            "pooled_pearson": [
+              0.35918023885770345,
+              0.476159929597792
+            ],
+            "standardized_rmse": [
+              0.8896225576656082,
+              0.9298318437010081
+            ]
+          }
+        },
+        "scgpt_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": 0.5536651145786798,
+            "pooled_pearson": 0.5216889991618094,
+            "standardized_rmse": 0.8447019921604236
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.5060152753476226,
+              0.5997000407351507
+            ],
+            "pooled_pearson": [
+              0.47901917507317593,
+              0.5640957951508717
+            ],
+            "standardized_rmse": [
+              0.8159634647297171,
+              0.8745385409627441
+            ]
+          }
+        },
+        "shuffled_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": 0.5545035352790794,
+            "pooled_pearson": 0.5253570040621764,
+            "standardized_rmse": 0.8421364003725558
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.5059318555377426,
+              0.6003536409439406
+            ],
+            "pooled_pearson": [
+              0.4823197876941798,
+              0.5668611644315278
+            ],
+            "standardized_rmse": [
+              0.81598370671076,
+              0.8695946761557442
+            ]
+          }
+        },
+        "variance_weighted_nuclear_scgpt_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": 0.5541033383341933,
+            "pooled_pearson": 0.5246526894794067,
+            "standardized_rmse": 0.843645561260069
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.5074118399480526,
+              0.597828192541374
+            ],
+            "pooled_pearson": [
+              0.4832296670728334,
+              0.5660881429845287
+            ],
+            "standardized_rmse": [
+              0.8189777888686325,
+              0.8684325223626277
+            ]
+          }
+        },
+        "zero": {
+          "metrics": {
+            "macro_target_cosine": 0.0,
+            "pooled_pearson": null,
+            "standardized_rmse": 1.0
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.0,
+              0.0
+            ],
+            "pooled_pearson": null,
+            "standardized_rmse": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "pairing_signal": {
+        "detected": true,
+        "primary_minus_destroyed_pearson_bootstrap_95_ci": [
+          0.36816547544121814,
+          0.5290559430122339
+        ]
+      },
+      "panel": "PerturbSci-Kinetics",
+      "primary_vs_best_matched_competitor": {
+        "best_competitor": "endpoint_ridge",
+        "best_competitor_standardized_rmse": 0.8333878905639138,
+        "primary_minus_best_standardized_rmse_bootstrap_95_ci": [
+          -0.0038467832104383203,
+          0.023683914807624083
+        ],
+        "primary_standardized_rmse": 0.843645561260069,
+        "primary_wins": false,
+        "relative_rmse_reduction": -0.012308399020790011
+      },
+      "selection": [
+        {
+          "endpoint_ridge": {
+            "development_mse": 0.26916394475749794,
+            "ridge_penalty": 0.1
+          },
+          "held_unit": 0,
+          "marginal_residual_atlas": {
+            "endpoint": {
+              "development_mse": 0.26916394475749794,
+              "ridge_penalty": 0.1
+            },
+            "residual": {
+              "development_mse": 0.19334424920531101,
+              "effective_rank": 2,
+              "graph_penalty": 1.0,
+              "iterations": 27,
+              "nuclear_fraction": 0.6
+            },
+            "residual_to_field_norm": 0.095926264281488
+          },
+          "nuclear": {
+            "development_mse": 0.2955874317322241,
+            "effective_rank": 1,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 0.6
+          },
+          "nuclear_gene2vec_hypergraph": {
+            "development_mse": 0.27461313321114955,
+            "effective_rank": 3,
+            "graph_penalty": 1.0,
+            "iterations": 68,
+            "nuclear_fraction": 0.3
+          },
+          "nuclear_scgpt_hypergraph": {
+            "development_mse": 0.2683395455029065,
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 191,
+            "nuclear_fraction": 0.1
+          },
+          "poisson_deviance_fixed_structured": {
+            "effective_rank": 1,
+            "graph_penalty": 5.0,
+            "iterations": 210,
+            "maximum_weight": 1.3168758077955178,
+            "minimum_weight": 0.7834361821236218,
+            "nuclear_fraction": 0.1
+          },
+          "scgpt_hypergraph": {
+            "development_mse": 0.27192582600998033,
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 83,
+            "nuclear_fraction": 0.0
+          },
+          "shuffled_hypergraph": {
+            "development_mse": 0.26614910736011127,
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 191,
+            "nuclear_fraction": 0.1
+          },
+          "variance_weighted_nuclear_scgpt_hypergraph": {
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 251,
+            "maximum_weight": 1.8960991596990988,
+            "minimum_weight": 0.48493714892434664,
+            "nuclear_fraction": 0.1
+          }
+        },
+        {
+          "endpoint_ridge": {
+            "development_mse": 0.23174007632880878,
+            "ridge_penalty": 0.1
+          },
+          "held_unit": 1,
+          "marginal_residual_atlas": {
+            "endpoint": {
+              "development_mse": 0.23174007632880878,
+              "ridge_penalty": 0.1
+            },
+            "residual": {
+              "development_mse": 0.2050820555189947,
+              "effective_rank": 0,
+              "graph_penalty": 0.0,
+              "iterations": 2,
+              "nuclear_fraction": 1.0
+            },
+            "residual_to_field_norm": 0.0
+          },
+          "nuclear": {
+            "development_mse": 0.2839097212692076,
+            "effective_rank": 1,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 0.6
+          },
+          "nuclear_gene2vec_hypergraph": {
+            "development_mse": 0.24661640567941662,
+            "effective_rank": 4,
+            "graph_penalty": 20.0,
+            "iterations": 734,
+            "nuclear_fraction": 0.1
+          },
+          "nuclear_scgpt_hypergraph": {
+            "development_mse": 0.24424084580327052,
+            "effective_rank": 4,
+            "graph_penalty": 20.0,
+            "iterations": 574,
+            "nuclear_fraction": 0.03
+          },
+          "poisson_deviance_fixed_structured": {
+            "effective_rank": 1,
+            "graph_penalty": 5.0,
+            "iterations": 217,
+            "maximum_weight": 1.2399397506178405,
+            "minimum_weight": 0.8128171993446259,
+            "nuclear_fraction": 0.1
+          },
+          "scgpt_hypergraph": {
+            "development_mse": 0.2446157837706553,
+            "effective_rank": 4,
+            "graph_penalty": 20.0,
+            "iterations": 111,
+            "nuclear_fraction": 0.0
+          },
+          "shuffled_hypergraph": {
+            "development_mse": 0.23979616720555214,
+            "effective_rank": 4,
+            "graph_penalty": 20.0,
+            "iterations": 574,
+            "nuclear_fraction": 0.03
+          },
+          "variance_weighted_nuclear_scgpt_hypergraph": {
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 213,
+            "maximum_weight": 1.6345378729062099,
+            "minimum_weight": 0.46390936602603305,
+            "nuclear_fraction": 0.1
+          }
+        },
+        {
+          "endpoint_ridge": {
+            "development_mse": 0.26625596325804307,
+            "ridge_penalty": 10.0
+          },
+          "held_unit": 2,
+          "marginal_residual_atlas": {
+            "endpoint": {
+              "development_mse": 0.26625596325804307,
+              "ridge_penalty": 10.0
+            },
+            "residual": {
+              "development_mse": 0.23428951856992192,
+              "effective_rank": 3,
+              "graph_penalty": 1.0,
+              "iterations": 27,
+              "nuclear_fraction": 0.6
+            },
+            "residual_to_field_norm": 0.12907344321282135
+          },
+          "nuclear": {
+            "development_mse": 0.30598617480578383,
+            "effective_rank": 1,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 0.6
+          },
+          "nuclear_gene2vec_hypergraph": {
+            "development_mse": 0.2743806774026498,
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 191,
+            "nuclear_fraction": 0.1
+          },
+          "nuclear_scgpt_hypergraph": {
+            "development_mse": 0.2665678215646702,
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 191,
+            "nuclear_fraction": 0.1
+          },
+          "poisson_deviance_fixed_structured": {
+            "effective_rank": 1,
+            "graph_penalty": 5.0,
+            "iterations": 206,
+            "maximum_weight": 1.2673527627805454,
+            "minimum_weight": 0.8253575505548562,
+            "nuclear_fraction": 0.1
+          },
+          "scgpt_hypergraph": {
+            "development_mse": 0.2675624500591195,
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 83,
+            "nuclear_fraction": 0.0
+          },
+          "shuffled_hypergraph": {
+            "development_mse": 0.27199209482282066,
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 191,
+            "nuclear_fraction": 0.1
+          },
+          "variance_weighted_nuclear_scgpt_hypergraph": {
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 247,
+            "maximum_weight": 1.621700756825823,
+            "minimum_weight": 0.5839212639634255,
+            "nuclear_fraction": 0.1
+          }
+        }
+      ],
+      "targets": 85
+    },
+    {
+      "biology": {
+        "corum": {
+          "bh_significant": 0,
+          "tested_annotations": 44,
+          "top_results": [
+            {
+              "annotation": "Spliceosome, A complex",
+              "members": 2,
+              "p_value": 0.08762789529847467,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "GBA1-GRN-HSPA1A-SCARB2 complex",
+              "members": 3,
+              "p_value": 0.12886505257311992,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "NG2-galectin-3-alpha3beta1-integrin complex",
+              "members": 3,
+              "p_value": 0.12886505257311992,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "Spliceosome, E complex",
+              "members": 3,
+              "p_value": 0.12886505257311992,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "ACTB-ANP32A-C1QBP-PSMA1-PTMA-PSMA1 complex",
+              "members": 2,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            },
+            {
+              "annotation": "CCND2-CDK4 complex",
+              "members": 2,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            },
+            {
+              "annotation": "CD274-STAT3 complex",
+              "members": 2,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            },
+            {
+              "annotation": "CD63-PDCD6IP-SDCBP complex",
+              "members": 2,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            },
+            {
+              "annotation": "CD63-syntenin-1 complex",
+              "members": 2,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            },
+            {
+              "annotation": "CDKN1A-TP53-CDK1-PCNA complex",
+              "members": 2,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            }
+          ]
+        },
+        "definition": "one-sided Fisher enrichment among targets in the top field-norm quintile in both held truth and primary prediction; BH correction within family",
+        "reactome": {
+          "bh_significant": 0,
+          "tested_annotations": 248,
+          "top_results": [
+            {
+              "annotation": "Diseases associated with glycosaminoglycan metabolism",
+              "members": 3,
+              "p_value": 0.12886505257311992,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "Signaling by MET",
+              "members": 3,
+              "p_value": 0.12886505257311992,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "Diseases of glycosylation",
+              "members": 5,
+              "p_value": 0.2064752569802419,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "Glycosaminoglycan metabolism",
+              "members": 5,
+              "p_value": 0.2064752569802419,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "SUMO E3 ligases SUMOylate target proteins",
+              "members": 5,
+              "p_value": 0.2064752569802419,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "SUMOylation",
+              "members": 5,
+              "p_value": 0.2064752569802419,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "Diseases of metabolism",
+              "members": 7,
+              "p_value": 0.2779668224267102,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "Metabolism of carbohydrates and carbohydrate derivatives",
+              "members": 7,
+              "p_value": 0.2779668224267102,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "Signaling by Receptor Tyrosine Kinases",
+              "members": 14,
+              "p_value": 0.485826527312442,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            },
+            {
+              "annotation": "Post-translational protein modification",
+              "members": 24,
+              "p_value": 0.6916934059818673,
+              "q_value": 1.0,
+              "replicated_top_field_members": 1
+            }
+          ]
+        }
+      },
+      "coordinate_family_comparison": {
+        "coupling_field": {
+          "destroyed_links": {
+            "metrics": {
+              "macro_target_cosine": 0.14497140948573217,
+              "pooled_pearson": 0.09215499061463175,
+              "standardized_rmse": 1.187494200008034
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                0.11684546206298134,
+                0.1743056050542
+              ],
+              "pooled_pearson": [
+                0.06374165348692176,
+                0.1215619537549951
+              ],
+              "standardized_rmse": [
+                1.164208996473829,
+                1.209614926501383
+              ]
+            }
+          },
+          "direct": {
+            "metrics": {
+              "macro_target_cosine": 0.09575996161556967,
+              "pooled_pearson": 0.047402187978987376,
+              "standardized_rmse": 1.1904534845117856
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                0.05323334679760454,
+                0.13679166762314962
+              ],
+              "pooled_pearson": [
+                0.00587866719105981,
+                0.08741939093808251
+              ],
+              "standardized_rmse": [
+                1.1713627058710714,
+                1.208975323152568
+              ]
+            }
+          },
+          "fixed_structured": {
+            "metrics": {
+              "macro_target_cosine": 0.14935274972655552,
+              "pooled_pearson": 0.03965211200614662,
+              "standardized_rmse": 1.0093615022619027
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                0.11996023778409946,
+                0.1783374253076419
+              ],
+              "pooled_pearson": [
+                0.012949797950171047,
+                0.06633749599571749
+              ],
+              "standardized_rmse": [
+                1.0021704356576198,
+                1.0166468777316515
+              ]
+            }
+          }
+        },
+        "fixed_structured_coupling_minus_poisson": {
+          "pooled_pearson": -0.13150315383036884,
+          "pooled_pearson_target_bootstrap_95_ci": [
+            -0.16022413705702185,
+            -0.10457136462963917
+          ],
+          "standardized_rmse": -0.016381237747935984,
+          "standardized_rmse_target_bootstrap_95_ci": [
+            -0.027860207930308696,
+            -0.0056509489316992475
+          ]
+        },
+        "poisson_deviance_residual": {
+          "destroyed_links": {
+            "metrics": {
+              "macro_target_cosine": 0.04985567612734425,
+              "pooled_pearson": 0.008545985319750149,
+              "standardized_rmse": 1.1386357187628764
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                0.019957296318007918,
+                0.07967812504238352
+              ],
+              "pooled_pearson": [
+                -0.02180132139371674,
+                0.03706305332616243
+              ],
+              "standardized_rmse": [
+                1.1228939489524548,
+                1.1553027895954147
+              ]
+            }
+          },
+          "direct": {
+            "metrics": {
+              "macro_target_cosine": 0.22402828666496943,
+              "pooled_pearson": 0.1640874367024411,
+              "standardized_rmse": 1.128628936219945
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                0.18991317290322907,
+                0.2570197811202402
+              ],
+              "pooled_pearson": [
+                0.13045047393372608,
+                0.1976017761448947
+              ],
+              "standardized_rmse": [
+                1.1101991190193,
+                1.1459458585086026
+              ]
+            }
+          },
+          "fixed_structured": {
+            "metrics": {
+              "macro_target_cosine": 0.2500171294222164,
+              "pooled_pearson": 0.17115526583651547,
+              "standardized_rmse": 1.0257427400098387
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                0.22574541733152284,
+                0.2743651288881155
+              ],
+              "pooled_pearson": [
+                0.14781641843391422,
+                0.19510015414886916
+              ],
+              "standardized_rmse": [
+                1.0126508411164994,
+                1.038465678075812
+              ]
+            }
+          }
+        },
+        "protocol": "same state tables, fixed-margin permutations, held-unit splits, target bootstraps, and fixed weighted nuclear-plus-scGPT-hypergraph estimator; each family is scored against its own held coordinates"
+      },
+      "embedding_hypergraphs": {
+        "gene2vec": {
+          "covered_targets": 132,
+          "embedding": "data/gene2vec_embeddings.npz",
+          "embedding_sha256": "3b175b048a174e606510a774c045287ff468b05be61d1108282d4740e5bfd435",
+          "hyperedges": 132,
+          "neighbors_per_hyperedge": 5
+        },
+        "scgpt": {
+          "covered_targets": 172,
+          "embedding": "data/scgpt_gene_embeddings.npz",
+          "embedding_sha256": "baf835e05077c6ec17e7bb0f48fc30632adc24be5bb91e591f74ab2e7985c60e",
+          "hyperedges": 172,
+          "neighbors_per_hyperedge": 5
+        }
+      },
+      "field_coordinates": 8,
+      "methods": {
+        "destroyed_links": {
+          "metrics": {
+            "macro_target_cosine": 0.14497140948573217,
+            "pooled_pearson": 0.09215499061463175,
+            "standardized_rmse": 1.187494200008034
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.11684546206298134,
+              0.1743056050542
+            ],
+            "pooled_pearson": [
+              0.06374165348692176,
+              0.1215619537549951
+            ],
+            "standardized_rmse": [
+              1.164208996473829,
+              1.209614926501383
+            ]
+          }
+        },
+        "direct": {
+          "metrics": {
+            "macro_target_cosine": 0.09575996161556967,
+            "pooled_pearson": 0.047402187978987376,
+            "standardized_rmse": 1.1904534845117856
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.05323334679760454,
+              0.13679166762314962
+            ],
+            "pooled_pearson": [
+              0.00587866719105981,
+              0.08741939093808251
+            ],
+            "standardized_rmse": [
+              1.1713627058710714,
+              1.208975323152568
+            ]
+          }
+        },
+        "endpoint_ridge": {
+          "metrics": {
+            "macro_target_cosine": 0.15441607922492717,
+            "pooled_pearson": 0.04479673495740151,
+            "standardized_rmse": 1.014292705686496
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.12960377399100587,
+              0.17843720157948262
+            ],
+            "pooled_pearson": [
+              0.02171769270593808,
+              0.06823640358718924
+            ],
+            "standardized_rmse": [
+              1.0065550994958345,
+              1.0219004255177029
+            ]
+          }
+        },
+        "linear_cross_covariance": {
+          "metrics": {
+            "macro_target_cosine": 0.03608711407153829,
+            "pooled_pearson": 0.034831799759989006,
+            "standardized_rmse": 0.9996566085433204
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.005498265412553718,
+              0.07332275876342446
+            ],
+            "pooled_pearson": [
+              -0.005921290189244069,
+              0.0702767937038799
+            ],
+            "standardized_rmse": [
+              0.9976551608842278,
+              1.0018860535794798
+            ]
+          }
+        },
+        "marginal_residual_atlas": {
+          "metrics": {
+            "macro_target_cosine": 0.15411304664292685,
+            "pooled_pearson": 0.04607135907904582,
+            "standardized_rmse": 1.014474115988256
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.12868401404614227,
+              0.17811585443617733
+            ],
+            "pooled_pearson": [
+              0.023579171376085162,
+              0.06696345515118009
+            ],
+            "standardized_rmse": [
+              1.0072736846668264,
+              1.0222913704290442
+            ]
+          }
+        },
+        "nuclear": {
+          "metrics": {
+            "macro_target_cosine": 0.01057071474704357,
+            "pooled_pearson": -0.041062227241653135,
+            "standardized_rmse": 1.0
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.006412991541346751,
+              0.02785875164384779
+            ],
+            "pooled_pearson": [
+              -0.06662326849922906,
+              -0.01530923099872621
+            ],
+            "standardized_rmse": [
+              0.9999999999999999,
+              1.0
+            ]
+          }
+        },
+        "nuclear_gene2vec_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": 0.008529450405648372,
+            "pooled_pearson": -0.04888393649194366,
+            "standardized_rmse": 1.0021029320603498
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.007242927803806314,
+              0.02385260448265259
+            ],
+            "pooled_pearson": [
+              -0.07398204017780308,
+              -0.02299413398746542
+            ],
+            "standardized_rmse": [
+              1.0000438068369324,
+              1.0042317388546078
+            ]
+          }
+        },
+        "nuclear_scgpt_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": 0.010628884332576477,
+            "pooled_pearson": -0.04913132334463053,
+            "standardized_rmse": 1.0016346673262018
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.0038920123940304717,
+              0.025134855507703828
+            ],
+            "pooled_pearson": [
+              -0.07132965788651181,
+              -0.02781447861680791
+            ],
+            "standardized_rmse": [
+              1.0000974883943772,
+              1.003244181297134
+            ]
+          }
+        },
+        "scalar_shrinkage": {
+          "metrics": {
+            "macro_target_cosine": 0.05307868850428677,
+            "pooled_pearson": 0.007398000847844829,
+            "standardized_rmse": 0.9992222292565529
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.02453251487023272,
+              0.08162842125249813
+            ],
+            "pooled_pearson": [
+              -0.025623298847345405,
+              0.040822009314318765
+            ],
+            "standardized_rmse": [
+              0.9976187200949115,
+              1.0007842067314687
+            ]
+          }
+        },
+        "scgpt_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": 0.14950996347691642,
+            "pooled_pearson": 0.04235377358145993,
+            "standardized_rmse": 1.0199466286074614
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.12364311366205225,
+              0.17285762958522413
+            ],
+            "pooled_pearson": [
+              0.017454700387544535,
+              0.06642487437967581
+            ],
+            "standardized_rmse": [
+              1.0120554977118728,
+              1.0285648886406853
+            ]
+          }
+        },
+        "shuffled_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": 0.009513201551998092,
+            "pooled_pearson": -0.04694302121682105,
+            "standardized_rmse": 1.0013529025184953
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.005433748828210308,
+              0.023813285359116258
+            ],
+            "pooled_pearson": [
+              -0.07150682871566795,
+              -0.02457545700505249
+            ],
+            "standardized_rmse": [
+              0.9997814918778313,
+              1.0029763170001067
+            ]
+          }
+        },
+        "variance_weighted_nuclear_scgpt_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": 0.14935274972655552,
+            "pooled_pearson": 0.03965211200614662,
+            "standardized_rmse": 1.0093615022619027
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.11996023778409946,
+              0.1783374253076419
+            ],
+            "pooled_pearson": [
+              0.012949797950171047,
+              0.06633749599571749
+            ],
+            "standardized_rmse": [
+              1.0021704356576198,
+              1.0166468777316515
+            ]
+          }
+        },
+        "zero": {
+          "metrics": {
+            "macro_target_cosine": 0.0,
+            "pooled_pearson": null,
+            "standardized_rmse": 1.0
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.0,
+              0.0
+            ],
+            "pooled_pearson": null,
+            "standardized_rmse": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "pairing_signal": {
+        "detected": false,
+        "primary_minus_destroyed_pearson_bootstrap_95_ci": [
+          -0.09174503932705444,
+          -0.013469115905458897
+        ]
+      },
+      "panel": "Frangieh Perturb-CITE-seq",
+      "primary_vs_best_matched_competitor": {
+        "best_competitor": "scalar_shrinkage",
+        "best_competitor_standardized_rmse": 0.9992222292565529,
+        "primary_minus_best_standardized_rmse_bootstrap_95_ci": [
+          0.003629561614887636,
+          0.016884898796868268
+        ],
+        "primary_standardized_rmse": 1.0093615022619027,
+        "primary_wins": false,
+        "relative_rmse_reduction": -0.010147165173550693
+      },
+      "selection": [
+        {
+          "endpoint_ridge": {
+            "development_mse": 0.43538090392473894,
+            "ridge_penalty": 10.0
+          },
+          "held_unit": 0,
+          "marginal_residual_atlas": {
+            "endpoint": {
+              "development_mse": 0.43538090392473894,
+              "ridge_penalty": 10.0
+            },
+            "residual": {
+              "development_mse": 0.39235124337084426,
+              "effective_rank": 0,
+              "graph_penalty": 0.0,
+              "iterations": 2,
+              "nuclear_fraction": 1.0
+            },
+            "residual_to_field_norm": 3.8787209704066577e-16
+          },
+          "nuclear": {
+            "development_mse": 0.42147731957177514,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "nuclear_gene2vec_hypergraph": {
+            "development_mse": 0.42147731957177514,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "nuclear_scgpt_hypergraph": {
+            "development_mse": 0.42147731957177514,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "poisson_deviance_fixed_structured": {
+            "effective_rank": 8,
+            "graph_penalty": 5.0,
+            "iterations": 256,
+            "maximum_weight": 1.7891694675050736,
+            "minimum_weight": 0.7963285481618804,
+            "nuclear_fraction": 0.1
+          },
+          "scgpt_hypergraph": {
+            "development_mse": 0.44969801017025246,
+            "effective_rank": 8,
+            "graph_penalty": 20.0,
+            "iterations": 130,
+            "nuclear_fraction": 0.0
+          },
+          "shuffled_hypergraph": {
+            "development_mse": 0.42147731957177514,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "variance_weighted_nuclear_scgpt_hypergraph": {
+            "effective_rank": 8,
+            "graph_penalty": 5.0,
+            "iterations": 350,
+            "maximum_weight": 4.489532536398929,
+            "minimum_weight": 0.5295148893615683,
+            "nuclear_fraction": 0.1
+          }
+        },
+        {
+          "endpoint_ridge": {
+            "development_mse": 0.588880155130378,
+            "ridge_penalty": 10.0
+          },
+          "held_unit": 1,
+          "marginal_residual_atlas": {
+            "endpoint": {
+              "development_mse": 0.588880155130378,
+              "ridge_penalty": 10.0
+            },
+            "residual": {
+              "development_mse": 0.39730903284002805,
+              "effective_rank": 7,
+              "graph_penalty": 5.0,
+              "iterations": 139,
+              "nuclear_fraction": 0.3
+            },
+            "residual_to_field_norm": 0.18137630081877523
+          },
+          "nuclear": {
+            "development_mse": 0.5012368311710551,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "nuclear_gene2vec_hypergraph": {
+            "development_mse": 0.5012368311710551,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "nuclear_scgpt_hypergraph": {
+            "development_mse": 0.5012368311710551,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "poisson_deviance_fixed_structured": {
+            "effective_rank": 8,
+            "graph_penalty": 5.0,
+            "iterations": 228,
+            "maximum_weight": 1.7401995583256018,
+            "minimum_weight": 0.7718718254970275,
+            "nuclear_fraction": 0.1
+          },
+          "scgpt_hypergraph": {
+            "development_mse": 0.596365194373307,
+            "effective_rank": 8,
+            "graph_penalty": 20.0,
+            "iterations": 123,
+            "nuclear_fraction": 0.0
+          },
+          "shuffled_hypergraph": {
+            "development_mse": 0.5012368311710551,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "variance_weighted_nuclear_scgpt_hypergraph": {
+            "effective_rank": 8,
+            "graph_penalty": 5.0,
+            "iterations": 344,
+            "maximum_weight": 3.6754960581649563,
+            "minimum_weight": 0.5311793989313502,
+            "nuclear_fraction": 0.1
+          }
+        },
+        {
+          "endpoint_ridge": {
+            "development_mse": 0.5356876759581441,
+            "ridge_penalty": 10.0
+          },
+          "held_unit": 2,
+          "marginal_residual_atlas": {
+            "endpoint": {
+              "development_mse": 0.5356876759581441,
+              "ridge_penalty": 10.0
+            },
+            "residual": {
+              "development_mse": 0.390529235658812,
+              "effective_rank": 4,
+              "graph_penalty": 5.0,
+              "iterations": 48,
+              "nuclear_fraction": 0.6
+            },
+            "residual_to_field_norm": 0.055404143966725265
+          },
+          "nuclear": {
+            "development_mse": 0.5039513841238915,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "nuclear_gene2vec_hypergraph": {
+            "development_mse": 0.5011928798122725,
+            "effective_rank": 3,
+            "graph_penalty": 20.0,
+            "iterations": 834,
+            "nuclear_fraction": 0.6
+          },
+          "nuclear_scgpt_hypergraph": {
+            "development_mse": 0.5003513603048476,
+            "effective_rank": 3,
+            "graph_penalty": 20.0,
+            "iterations": 653,
+            "nuclear_fraction": 0.6
+          },
+          "poisson_deviance_fixed_structured": {
+            "effective_rank": 8,
+            "graph_penalty": 5.0,
+            "iterations": 228,
+            "maximum_weight": 1.7457983944061068,
+            "minimum_weight": 0.7904838502916087,
+            "nuclear_fraction": 0.1
+          },
+          "scgpt_hypergraph": {
+            "development_mse": 0.5422198938367464,
+            "effective_rank": 8,
+            "graph_penalty": 20.0,
+            "iterations": 116,
+            "nuclear_fraction": 0.0
+          },
+          "shuffled_hypergraph": {
+            "development_mse": 0.5006539054278935,
+            "effective_rank": 3,
+            "graph_penalty": 20.0,
+            "iterations": 792,
+            "nuclear_fraction": 0.6
+          },
+          "variance_weighted_nuclear_scgpt_hypergraph": {
+            "effective_rank": 8,
+            "graph_penalty": 5.0,
+            "iterations": 337,
+            "maximum_weight": 4.438081869283829,
+            "minimum_weight": 0.5130101844197507,
+            "nuclear_fraction": 0.1
+          }
+        }
+      ],
+      "targets": 179
+    },
+    {
+      "biology": {
+        "corum": {
+          "bh_significant": 1,
+          "tested_annotations": 4,
+          "top_results": [
+            {
+              "annotation": "IFNG-IFNGR1-IFNGR2 complex",
+              "members": 2,
+              "p_value": 0.0036231884057971015,
+              "q_value": 0.014492753623188406,
+              "replicated_top_field_members": 2
+            },
+            {
+              "annotation": "IRF1-STAT1 complex",
+              "members": 2,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            },
+            {
+              "annotation": "ISGF3 complex",
+              "members": 2,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            },
+            {
+              "annotation": "STAT1-STAT3 complex",
+              "members": 2,
+              "p_value": 1.0,
+              "q_value": 1.0,
+              "replicated_top_field_members": 0
+            }
+          ]
+        },
+        "definition": "one-sided Fisher enrichment among targets in the top field-norm quintile in both held truth and primary prediction; BH correction within family",
+        "reactome": {
+          "bh_significant": 0,
+          "tested_annotations": 88,
+          "top_results": [
+            {
+              "annotation": "IFNG signaling activates MAPKs",
+              "members": 3,
+              "p_value": 0.010869565217391304,
+              "q_value": 0.9565217391304348,
+              "replicated_top_field_members": 2
+            },
+            {
+              "annotation": "Regulation of IFNG signaling",
+              "members": 4,
+              "p_value": 0.021739130434782608,
+              "q_value": 0.9565217391304348,
+              "replicated_top_field_members": 2
+            },
+            {
+              "annotation": "Interferon gamma signaling",
+              "members": 6,
+              "p_value": 0.05434782608695651,
+              "q_value": 1.0,
+              "replicated_top_field_members": 2
+            },
+            {
+              "annotation": "Potential therapeutics for SARS",
+              "members": 6,
+              "p_value": 0.05434782608695651,
+              "q_value": 1.0,
+              "replicated_top_field_members": 2
+            },
+            {
+              "annotation": "Interferon Signaling",
+              "members": 9,
+              "p_value": 0.13043478260869565,
+              "q_value": 1.0,
+              "replicated_top_field_members": 2
+            },
+            {
+              "annotation": "SARS-CoV Infections",
+              "members": 11,
+              "p_value": 0.1992753623188406,
+              "q_value": 1.0,
+              "replicated_top_field_members": 2
+            },
+            {
+              "annotation": "Infectious disease",
+              "members": 12,
+              "p_value": 0.23913043478260868,
+              "q_value": 1.0,
+              "replicated_top_field_members": 2
+            },
+            {
+              "annotation": "Viral Infection Pathways",
+              "members": 12,
+              "p_value": 0.23913043478260868,
+              "q_value": 1.0,
+              "replicated_top_field_members": 2
+            },
+            {
+              "annotation": "Cytokine Signaling in Immune system",
+              "members": 15,
+              "p_value": 0.38043478260869573,
+              "q_value": 1.0,
+              "replicated_top_field_members": 2
+            },
+            {
+              "annotation": "Disease",
+              "members": 16,
+              "p_value": 0.43478260869565216,
+              "q_value": 1.0,
+              "replicated_top_field_members": 2
+            }
+          ]
+        }
+      },
+      "coordinate_family_comparison": {
+        "coupling_field": {
+          "destroyed_links": {
+            "metrics": {
+              "macro_target_cosine": -0.057847284433052856,
+              "pooled_pearson": -0.04442628448011247,
+              "standardized_rmse": 1.2226717184280842
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                -0.19151661767816766,
+                0.06763469889360722
+              ],
+              "pooled_pearson": [
+                -0.15798141650708486,
+                0.058233036812435225
+              ],
+              "standardized_rmse": [
+                1.1388534904063459,
+                1.3171058088955736
+              ]
+            }
+          },
+          "direct": {
+            "metrics": {
+              "macro_target_cosine": 0.023921737202358184,
+              "pooled_pearson": 0.02344895451336742,
+              "standardized_rmse": 1.2068455314186852
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                -0.14952933630173804,
+                0.18698358631138606
+              ],
+              "pooled_pearson": [
+                -0.14714519675327278,
+                0.18867346446731043
+              ],
+              "standardized_rmse": [
+                1.1246436548933552,
+                1.2745499627022177
+              ]
+            }
+          },
+          "fixed_structured": {
+            "metrics": {
+              "macro_target_cosine": 0.00382778793303814,
+              "pooled_pearson": -0.02459041608584304,
+              "standardized_rmse": 1.0369894042160561
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                -0.11938405031485375,
+                0.11554548591553009
+              ],
+              "pooled_pearson": [
+                -0.14974596096256548,
+                0.09551655824830164
+              ],
+              "standardized_rmse": [
+                1.0059427486270855,
+                1.0759829851486924
+              ]
+            }
+          }
+        },
+        "fixed_structured_coupling_minus_poisson": {
+          "pooled_pearson": -0.4021386548406652,
+          "pooled_pearson_target_bootstrap_95_ci": [
+            -0.5068230363675115,
+            -0.30408746021257965
+          ],
+          "standardized_rmse": 0.25258770144038223,
+          "standardized_rmse_target_bootstrap_95_ci": [
+            0.2151661277341675,
+            0.2921103771534232
+          ]
+        },
+        "poisson_deviance_residual": {
+          "destroyed_links": {
+            "metrics": {
+              "macro_target_cosine": -0.00433801109818319,
+              "pooled_pearson": 0.1458434605266544,
+              "standardized_rmse": 1.053769638827246
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                -0.11485622263331663,
+                0.10291748253713787
+              ],
+              "pooled_pearson": [
+                0.038027627036127186,
+                0.2536720279562379
+              ],
+              "standardized_rmse": [
+                1.0069710412036808,
+                1.1023438555546186
+              ]
+            }
+          },
+          "direct": {
+            "metrics": {
+              "macro_target_cosine": 0.662945798752124,
+              "pooled_pearson": 0.3935345198145273,
+              "standardized_rmse": 0.8268138077184385
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                0.5857681973543575,
+                0.7278348851220402
+              ],
+              "pooled_pearson": [
+                0.3061214599001122,
+                0.4555278113657995
+              ],
+              "standardized_rmse": [
+                0.7804030055167291,
+                0.8837920954571018
+              ]
+            }
+          },
+          "fixed_structured": {
+            "metrics": {
+              "macro_target_cosine": 0.7032820095441055,
+              "pooled_pearson": 0.37754823875482213,
+              "standardized_rmse": 0.7844017027756739
+            },
+            "target_bootstrap_95_ci": {
+              "macro_target_cosine": [
+                0.6531677845859147,
+                0.748823296157747
+              ],
+              "pooled_pearson": [
+                0.316246173955719,
+                0.4324104486840902
+              ],
+              "standardized_rmse": [
+                0.748946743513054,
+                0.826603806319212
+              ]
+            }
+          }
+        },
+        "protocol": "same state tables, fixed-margin permutations, held-unit splits, target bootstraps, and fixed weighted nuclear-plus-scGPT-hypergraph estimator; each family is scored against its own held coordinates"
+      },
+      "embedding_hypergraphs": {
+        "gene2vec": {
+          "covered_targets": 17,
+          "embedding": "data/gene2vec_embeddings.npz",
+          "embedding_sha256": "3b175b048a174e606510a774c045287ff468b05be61d1108282d4740e5bfd435",
+          "hyperedges": 17,
+          "neighbors_per_hyperedge": 5
+        },
+        "scgpt": {
+          "covered_targets": 23,
+          "embedding": "data/scgpt_gene_embeddings.npz",
+          "embedding_sha256": "baf835e05077c6ec17e7bb0f48fc30632adc24be5bb91e591f74ab2e7985c60e",
+          "hyperedges": 23,
+          "neighbors_per_hyperedge": 5
+        }
+      },
+      "field_coordinates": 4,
+      "methods": {
+        "destroyed_links": {
+          "metrics": {
+            "macro_target_cosine": -0.057847284433052856,
+            "pooled_pearson": -0.04442628448011247,
+            "standardized_rmse": 1.2226717184280842
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.19151661767816766,
+              0.06763469889360722
+            ],
+            "pooled_pearson": [
+              -0.15798141650708486,
+              0.058233036812435225
+            ],
+            "standardized_rmse": [
+              1.1388534904063459,
+              1.3171058088955736
+            ]
+          }
+        },
+        "direct": {
+          "metrics": {
+            "macro_target_cosine": 0.023921737202358184,
+            "pooled_pearson": 0.02344895451336742,
+            "standardized_rmse": 1.2068455314186852
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.14952933630173804,
+              0.18698358631138606
+            ],
+            "pooled_pearson": [
+              -0.14714519675327278,
+              0.18867346446731043
+            ],
+            "standardized_rmse": [
+              1.1246436548933552,
+              1.2745499627022177
+            ]
+          }
+        },
+        "endpoint_ridge": {
+          "metrics": {
+            "macro_target_cosine": 0.04617802497019939,
+            "pooled_pearson": -0.01616738560855198,
+            "standardized_rmse": 1.0624587625110522
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.05766562392817538,
+              0.14442808193495718
+            ],
+            "pooled_pearson": [
+              -0.13506686972024382,
+              0.10992754292106494
+            ],
+            "standardized_rmse": [
+              1.0229459185710683,
+              1.1039495122122172
+            ]
+          }
+        },
+        "linear_cross_covariance": {
+          "metrics": {
+            "macro_target_cosine": -0.06155829194348989,
+            "pooled_pearson": -0.1206395708211334,
+            "standardized_rmse": 1.0050856686625436
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.18925611083071525,
+              0.06630445151723864
+            ],
+            "pooled_pearson": [
+              -0.23186794228419247,
+              -0.00037364712182823555
+            ],
+            "standardized_rmse": [
+              0.9994579420421259,
+              1.009814509630559
+            ]
+          }
+        },
+        "marginal_residual_atlas": {
+          "metrics": {
+            "macro_target_cosine": 0.04825625875769757,
+            "pooled_pearson": -0.03090098858445524,
+            "standardized_rmse": 1.07255996567365
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.056865843710878765,
+              0.1404368474900972
+            ],
+            "pooled_pearson": [
+              -0.16416943560757127,
+              0.1064998858167647
+            ],
+            "standardized_rmse": [
+              1.029570927665469,
+              1.1106620393887534
+            ]
+          }
+        },
+        "nuclear": {
+          "metrics": {
+            "macro_target_cosine": -0.030283836870495923,
+            "pooled_pearson": -0.11896052681601406,
+            "standardized_rmse": 1.0231623406400132
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.08987330424798601,
+              0.032769809182392806
+            ],
+            "pooled_pearson": [
+              -0.2253827895866546,
+              0.024186531697737833
+            ],
+            "standardized_rmse": [
+              1.002260954010899,
+              1.0429033865093305
+            ]
+          }
+        },
+        "nuclear_gene2vec_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": -0.03415239457927729,
+            "pooled_pearson": -0.11202741136673208,
+            "standardized_rmse": 1.0189134044068766
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.09948456781100197,
+              0.02810511526056571
+            ],
+            "pooled_pearson": [
+              -0.22050936514485517,
+              0.02199945277548623
+            ],
+            "standardized_rmse": [
+              1.0015112465226963,
+              1.0348915393678613
+            ]
+          }
+        },
+        "nuclear_scgpt_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": -0.037748206732187886,
+            "pooled_pearson": -0.11785357660705897,
+            "standardized_rmse": 1.0185210542314511
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.10027692427210538,
+              0.027921265082868824
+            ],
+            "pooled_pearson": [
+              -0.217445040345529,
+              0.011071995021092828
+            ],
+            "standardized_rmse": [
+              1.0020691684907062,
+              1.0331727787345768
+            ]
+          }
+        },
+        "scalar_shrinkage": {
+          "metrics": {
+            "macro_target_cosine": -0.01621653671226194,
+            "pooled_pearson": -0.08482656097352895,
+            "standardized_rmse": 1.0146931999236208
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.09013721512573512,
+              0.06000996069137524
+            ],
+            "pooled_pearson": [
+              -0.22436622087089544,
+              0.07232414159632822
+            ],
+            "standardized_rmse": [
+              0.9963461554289611,
+              1.0308749161016113
+            ]
+          }
+        },
+        "scgpt_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": 0.03724802902350171,
+            "pooled_pearson": -0.015986293823890278,
+            "standardized_rmse": 1.0607110369863058
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.06804322089046248,
+              0.14279244140233982
+            ],
+            "pooled_pearson": [
+              -0.13447700484238337,
+              0.09933516156291206
+            ],
+            "standardized_rmse": [
+              1.0225653115466145,
+              1.1087351299772288
+            ]
+          }
+        },
+        "shuffled_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": -0.038925371241797416,
+            "pooled_pearson": -0.11933029919570488,
+            "standardized_rmse": 1.0185648775964753
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.1045670778382905,
+              0.0258139679293362
+            ],
+            "pooled_pearson": [
+              -0.21874450087773398,
+              0.013860365108213452
+            ],
+            "standardized_rmse": [
+              1.0023035398422955,
+              1.0331675634141464
+            ]
+          }
+        },
+        "variance_weighted_nuclear_scgpt_hypergraph": {
+          "metrics": {
+            "macro_target_cosine": 0.00382778793303814,
+            "pooled_pearson": -0.02459041608584304,
+            "standardized_rmse": 1.0369894042160561
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              -0.11938405031485375,
+              0.11554548591553009
+            ],
+            "pooled_pearson": [
+              -0.14974596096256548,
+              0.09551655824830164
+            ],
+            "standardized_rmse": [
+              1.0059427486270855,
+              1.0759829851486924
+            ]
+          }
+        },
+        "zero": {
+          "metrics": {
+            "macro_target_cosine": 0.0,
+            "pooled_pearson": null,
+            "standardized_rmse": 1.0
+          },
+          "target_bootstrap_95_ci": {
+            "macro_target_cosine": [
+              0.0,
+              0.0
+            ],
+            "pooled_pearson": null,
+            "standardized_rmse": [
+              1.0,
+              1.0
+            ]
+          }
+        }
+      },
+      "pairing_signal": {
+        "detected": false,
+        "primary_minus_destroyed_pearson_bootstrap_95_ci": [
+          -0.16073939041918886,
+          0.21606683504563975
+        ]
+      },
+      "panel": "Papalexi ECCITE-seq",
+      "primary_vs_best_matched_competitor": {
+        "best_competitor": "zero",
+        "best_competitor_standardized_rmse": 1.0,
+        "primary_minus_best_standardized_rmse_bootstrap_95_ci": [
+          0.005465332601155304,
+          0.07569040371461207
+        ],
+        "primary_standardized_rmse": 1.0369894042160561,
+        "primary_wins": false,
+        "relative_rmse_reduction": -0.03698940421605612
+      },
+      "selection": [
+        {
+          "endpoint_ridge": {
+            "development_mse": 0.2547440646696457,
+            "ridge_penalty": 100.0
+          },
+          "held_unit": 0,
+          "marginal_residual_atlas": {
+            "endpoint": {
+              "development_mse": 0.2547440646696457,
+              "ridge_penalty": 100.0
+            },
+            "residual": {
+              "development_mse": 0.13748072974384368,
+              "effective_rank": 0,
+              "graph_penalty": 0.0,
+              "iterations": 2,
+              "nuclear_fraction": 1.0
+            },
+            "residual_to_field_norm": 2.1871198386570274e-16
+          },
+          "nuclear": {
+            "development_mse": 0.17767683059251077,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "nuclear_gene2vec_hypergraph": {
+            "development_mse": 0.17767683059251077,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "nuclear_scgpt_hypergraph": {
+            "development_mse": 0.17767683059251077,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "poisson_deviance_fixed_structured": {
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 218,
+            "maximum_weight": 1.1832849191936126,
+            "minimum_weight": 0.8107916967417579,
+            "nuclear_fraction": 0.1
+          },
+          "scgpt_hypergraph": {
+            "development_mse": 0.2530359183419953,
+            "effective_rank": 4,
+            "graph_penalty": 20.0,
+            "iterations": 74,
+            "nuclear_fraction": 0.0
+          },
+          "shuffled_hypergraph": {
+            "development_mse": 0.17767683059251077,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "variance_weighted_nuclear_scgpt_hypergraph": {
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 264,
+            "maximum_weight": 3.455860807015964,
+            "minimum_weight": 0.21373550410393996,
+            "nuclear_fraction": 0.1
+          }
+        },
+        {
+          "endpoint_ridge": {
+            "development_mse": 0.21745578748453848,
+            "ridge_penalty": 1.0
+          },
+          "held_unit": 1,
+          "marginal_residual_atlas": {
+            "endpoint": {
+              "development_mse": 0.21745578748453848,
+              "ridge_penalty": 1.0
+            },
+            "residual": {
+              "development_mse": 0.12204436066029656,
+              "effective_rank": 2,
+              "graph_penalty": 0.2,
+              "iterations": 14,
+              "nuclear_fraction": 0.6
+            },
+            "residual_to_field_norm": 0.2672731404691996
+          },
+          "nuclear": {
+            "development_mse": 0.1872099524797508,
+            "effective_rank": 2,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 0.6
+          },
+          "nuclear_gene2vec_hypergraph": {
+            "development_mse": 0.1865934193986416,
+            "effective_rank": 2,
+            "graph_penalty": 0.2,
+            "iterations": 23,
+            "nuclear_fraction": 0.6
+          },
+          "nuclear_scgpt_hypergraph": {
+            "development_mse": 0.18671735604921547,
+            "effective_rank": 2,
+            "graph_penalty": 0.2,
+            "iterations": 25,
+            "nuclear_fraction": 0.6
+          },
+          "poisson_deviance_fixed_structured": {
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 225,
+            "maximum_weight": 1.2257918288273313,
+            "minimum_weight": 0.8255157787079929,
+            "nuclear_fraction": 0.1
+          },
+          "scgpt_hypergraph": {
+            "development_mse": 0.2156278779487973,
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 51,
+            "nuclear_fraction": 0.0
+          },
+          "shuffled_hypergraph": {
+            "development_mse": 0.1865807137957181,
+            "effective_rank": 2,
+            "graph_penalty": 0.2,
+            "iterations": 24,
+            "nuclear_fraction": 0.6
+          },
+          "variance_weighted_nuclear_scgpt_hypergraph": {
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 316,
+            "maximum_weight": 2.9615462357722415,
+            "minimum_weight": 0.22589297796272853,
+            "nuclear_fraction": 0.1
+          }
+        },
+        {
+          "endpoint_ridge": {
+            "development_mse": 0.19435326303281608,
+            "ridge_penalty": 100.0
+          },
+          "held_unit": 2,
+          "marginal_residual_atlas": {
+            "endpoint": {
+              "development_mse": 0.19435326303281608,
+              "ridge_penalty": 100.0
+            },
+            "residual": {
+              "development_mse": 0.11928691801369679,
+              "effective_rank": 0,
+              "graph_penalty": 0.0,
+              "iterations": 2,
+              "nuclear_fraction": 1.0
+            },
+            "residual_to_field_norm": 0.0
+          },
+          "nuclear": {
+            "development_mse": 0.15633696395241006,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "nuclear_gene2vec_hypergraph": {
+            "development_mse": 0.15633696395241006,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "nuclear_scgpt_hypergraph": {
+            "development_mse": 0.15633696395241006,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "poisson_deviance_fixed_structured": {
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 203,
+            "maximum_weight": 1.1721067574282429,
+            "minimum_weight": 0.8403756286412178,
+            "nuclear_fraction": 0.1
+          },
+          "scgpt_hypergraph": {
+            "development_mse": 0.1939432197663889,
+            "effective_rank": 4,
+            "graph_penalty": 20.0,
+            "iterations": 74,
+            "nuclear_fraction": 0.0
+          },
+          "shuffled_hypergraph": {
+            "development_mse": 0.15633696395241006,
+            "effective_rank": 0,
+            "graph_penalty": 0.0,
+            "iterations": 2,
+            "nuclear_fraction": 1.0
+          },
+          "variance_weighted_nuclear_scgpt_hypergraph": {
+            "effective_rank": 4,
+            "graph_penalty": 5.0,
+            "iterations": 279,
+            "maximum_weight": 3.0778187997105837,
+            "minimum_weight": 0.25956797521584696,
+            "nuclear_fraction": 0.1
+          }
+        }
+      ],
+      "targets": 24
+    }
+  ],
+  "preanalysis_contract": "docs/PUBLIC_COUPLING_ATLAS_BENCHMARK_FREEZE_2026-08-26.md",
+  "preanalysis_contract_sha256": "34facaeec5c4742decaa127a87ad9a7928bc6435fbd073bb00d13226929a2547",
+  "preparation": {
+    "frangieh": {
+      "cache": "data/development/public_coupling_atlas/frangieh_states_v1.npz",
+      "cache_sha256": "8a043ab68f557533e26235cdc0a9e31a35f798b174002f28defea1a7a007fd4c"
+    },
+    "papalexi": {
+      "cache": "data/development/public_coupling_atlas/papalexi_states_v1.npz",
+      "cache_sha256": "5e756074883fec735145a613946c9cda441ee242427f73f68d7ae35891357847"
+    }
+  },
+  "promotion_gate": {
+    "observed_primary_wins": 0,
+    "passed": false,
+    "required_primary_wins": 2
+  },
+  "pseudocount": 0.5,
+  "schema": "v2p2r.public-coupling-atlas-benchmark/1",
+  "seed": 20260826,
+  "sources": {
+    "Frangieh Perturb-CITE-seq": {
+      "contexts": [
+        "Control",
+        "IFN\u03b3",
+        "Co-culture"
+      ],
+      "minimum_target_context_unit_cells": 20,
+      "source": "data/development/public_coupling_atlas/frangieh_states_v1.npz",
+      "source_sha256": "8a043ab68f557533e26235cdc0a9e31a35f798b174002f28defea1a7a007fd4c",
+      "units": "three sequence-distinct guides per target"
+    },
+    "Papalexi ECCITE-seq": {
+      "minimum_target_replicate_cells": 34,
+      "source": "data/development/public_coupling_atlas/papalexi_states_v1.npz",
+      "source_sha256": "5e756074883fec735145a613946c9cda441ee242427f73f68d7ae35891357847",
+      "units": [
+        "rep1-tx",
+        "rep3-tx",
+        "rep4-tx"
+      ]
+    },
+    "PerturbSci-Kinetics": {
+      "minimum_target_unit_cells": 60,
+      "source": "data/development/perturbsci_kinetics_gse218566/frozen_states_v1.npz",
+      "source_sha256": "6e728189d9637c2d393bc7e28f406161f820e1c5ddc36f7d3c489e06f528d44b",
+      "units": "three sequence-distinct guide rotations"
+    }
+  },
+  "target_bootstrap_draws": 2000
+}

@@ -1,0 +1,2708 @@
+{
+  "accession": "GSE218566",
+  "cache_summary": {
+    "cache_sha256": "6e728189d9637c2d393bc7e28f406161f820e1c5ddc36f7d3c489e06f528d44b",
+    "control_cells": 2758,
+    "eligible_targets": 85,
+    "negative_old_entries": 0,
+    "selected_cells": 18058,
+    "target_audit": [
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "ACLY_1": 263,
+          "ACLY_3": 332
+        },
+        "observed_guides": 2,
+        "target": "ACLY"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "ACO2_1": 347,
+          "ACO2_2": 242,
+          "ACO2_3": 489
+        },
+        "observed_guides": 3,
+        "target": "ACO2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "AGO2_3": 409
+        },
+        "observed_guides": 1,
+        "target": "AGO2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "ALDOA_2": 27
+        },
+        "observed_guides": 1,
+        "target": "ALDOA"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "ALYREF_1": 153
+        },
+        "observed_guides": 1,
+        "target": "ALYREF"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "ARID1A_2": 311
+        },
+        "observed_guides": 1,
+        "target": "ARID1A"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "ARID1B"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "ARID2_1": 519,
+          "ARID2_2": 497,
+          "ARID2_3": 293
+        },
+        "observed_guides": 3,
+        "target": "ARID2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "ATP11A_2": 636,
+          "ATP11A_3": 531
+        },
+        "observed_guides": 2,
+        "target": "ATP11A"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "ATP12A_1": 167,
+          "ATP12A_2": 156,
+          "ATP12A_3": 219
+        },
+        "observed_guides": 3,
+        "target": "ATP12A"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "ATP6V1A_1": 47,
+          "ATP6V1A_2": 29,
+          "ATP6V1A_3": 113
+        },
+        "observed_guides": 3,
+        "target": "ATP6V1A"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "ATP6V1B2_3": 3
+        },
+        "observed_guides": 1,
+        "target": "ATP6V1B2"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "BCS1L_1": 243,
+          "BCS1L_2": 114,
+          "BCS1L_3": 274
+        },
+        "observed_guides": 3,
+        "target": "BCS1L"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "BRD4"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "BRD7_1": 191,
+          "BRD7_2": 225,
+          "BRD7_3": 417
+        },
+        "observed_guides": 3,
+        "target": "BRD7"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "CASC3_1": 171,
+          "CASC3_2": 158,
+          "CASC3_3": 332
+        },
+        "observed_guides": 3,
+        "target": "CASC3"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "CCNH_3": 98
+        },
+        "observed_guides": 1,
+        "target": "CCNH"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "CCT3_1": 135,
+          "CCT3_2": 41,
+          "CCT3_3": 55
+        },
+        "observed_guides": 3,
+        "target": "CCT3"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "CCT4_1": 39,
+          "CCT4_2": 27
+        },
+        "observed_guides": 2,
+        "target": "CCT4"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "CCT8"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "CHD1_1": 420,
+          "CHD1_2": 260,
+          "CHD1_3": 468
+        },
+        "observed_guides": 3,
+        "target": "CHD1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "CLP1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "CMPK1_1": 175,
+          "CMPK1_2": 327,
+          "CMPK1_3": 246
+        },
+        "observed_guides": 3,
+        "target": "CMPK1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "CNOT1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "CNOT2_3": 87
+        },
+        "observed_guides": 1,
+        "target": "CNOT2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "CNOT3_1": 106,
+          "CNOT3_3": 80
+        },
+        "observed_guides": 2,
+        "target": "CNOT3"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "COX6B1_1": 185,
+          "COX6B1_2": 438,
+          "COX6B1_3": 212
+        },
+        "observed_guides": 3,
+        "target": "COX6B1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "CPSF1_3": 32
+        },
+        "observed_guides": 1,
+        "target": "CPSF1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "CPSF2_1": 199,
+          "CPSF2_3": 43
+        },
+        "observed_guides": 2,
+        "target": "CPSF2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "CPSF3_1": 44
+        },
+        "observed_guides": 1,
+        "target": "CPSF3"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "CPSF6_2": 248
+        },
+        "observed_guides": 1,
+        "target": "CPSF6"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "CREBBP_1": 526,
+          "CREBBP_2": 277,
+          "CREBBP_3": 198
+        },
+        "observed_guides": 3,
+        "target": "CREBBP"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "CS_1": 329,
+          "CS_2": 251,
+          "CS_3": 258
+        },
+        "observed_guides": 3,
+        "target": "CS"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "CSTF3_1": 110,
+          "CSTF3_2": 192,
+          "CSTF3_3": 234
+        },
+        "observed_guides": 3,
+        "target": "CSTF3"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "CTCF_2": 296
+        },
+        "observed_guides": 1,
+        "target": "CTCF"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "CYC1_1": 207,
+          "CYC1_3": 271
+        },
+        "observed_guides": 2,
+        "target": "CYC1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "DDX19B_1": 223,
+          "DDX19B_2": 488,
+          "DDX19B_3": 205
+        },
+        "observed_guides": 3,
+        "target": "DDX19B"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "DDX39B_2": 162,
+          "DDX39B_3": 205
+        },
+        "observed_guides": 2,
+        "target": "DDX39B"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "DDX56_1": 17,
+          "DDX56_2": 51,
+          "DDX56_3": 53
+        },
+        "observed_guides": 3,
+        "target": "DDX56"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "DERL2_2": 40
+        },
+        "observed_guides": 1,
+        "target": "DERL2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "DHX15_1": 259,
+          "DHX15_2": 88,
+          "DHX15_3": 29
+        },
+        "observed_guides": 3,
+        "target": "DHX15"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "DHX29_1": 88,
+          "DHX29_2": 48
+        },
+        "observed_guides": 2,
+        "target": "DHX29"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "DICER1_1": 151,
+          "DICER1_2": 133,
+          "DICER1_3": 91
+        },
+        "observed_guides": 3,
+        "target": "DICER1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "DIS3_1": 142,
+          "DIS3_2": 193,
+          "DIS3_3": 246
+        },
+        "observed_guides": 3,
+        "target": "DIS3"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "DLAT_1": 234,
+          "DLAT_2": 526,
+          "DLAT_3": 496
+        },
+        "observed_guides": 3,
+        "target": "DLAT"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "DLD_1": 155,
+          "DLD_2": 137,
+          "DLD_3": 193
+        },
+        "observed_guides": 3,
+        "target": "DLD"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "DLST_1": 209,
+          "DLST_2": 218,
+          "DLST_3": 271
+        },
+        "observed_guides": 3,
+        "target": "DLST"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "DNMT1_3": 87
+        },
+        "observed_guides": 1,
+        "target": "DNMT1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "DNMT3A_1": 337,
+          "DNMT3A_2": 247,
+          "DNMT3A_3": 242
+        },
+        "observed_guides": 3,
+        "target": "DNMT3A"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "DROSHA_1": 180,
+          "DROSHA_2": 110,
+          "DROSHA_3": 284
+        },
+        "observed_guides": 3,
+        "target": "DROSHA"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "EEF1D_1": 360,
+          "EEF1D_2": 289
+        },
+        "observed_guides": 2,
+        "target": "EEF1D"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "EEF1G_1": 231,
+          "EEF1G_2": 94,
+          "EEF1G_3": 128
+        },
+        "observed_guides": 3,
+        "target": "EEF1G"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "EIF2B4_2": 32
+        },
+        "observed_guides": 1,
+        "target": "EIF2B4"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "EIF2B5_1": 20
+        },
+        "observed_guides": 1,
+        "target": "EIF2B5"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "EIF2S1_3": 35
+        },
+        "observed_guides": 1,
+        "target": "EIF2S1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "EIF2S3_3": 318
+        },
+        "observed_guides": 1,
+        "target": "EIF2S3"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "EIF3B"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "EMG1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "ENO2_1": 394,
+          "ENO2_2": 143,
+          "ENO2_3": 331
+        },
+        "observed_guides": 3,
+        "target": "ENO2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "EP300"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "ERCC2_2": 199,
+          "ERCC2_3": 267
+        },
+        "observed_guides": 2,
+        "target": "ERCC2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "ERCC3_1": 132,
+          "ERCC3_2": 54,
+          "ERCC3_3": 177
+        },
+        "observed_guides": 3,
+        "target": "ERCC3"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "ETF1_1": 212,
+          "ETF1_3": 158
+        },
+        "observed_guides": 2,
+        "target": "ETF1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "EXOSC2_1": 124,
+          "EXOSC2_2": 99,
+          "EXOSC2_3": 28
+        },
+        "observed_guides": 3,
+        "target": "EXOSC2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "EXOSC4"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "EXOSC5_1": 124,
+          "EXOSC5_3": 41
+        },
+        "observed_guides": 2,
+        "target": "EXOSC5"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "EXOSC6_1": 112,
+          "EXOSC6_2": 134,
+          "EXOSC6_3": 106
+        },
+        "observed_guides": 3,
+        "target": "EXOSC6"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "FBL_3": 25
+        },
+        "observed_guides": 1,
+        "target": "FBL"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "FH_1": 218,
+          "FH_2": 224,
+          "FH_3": 123
+        },
+        "observed_guides": 3,
+        "target": "FH"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "FOS_1": 348,
+          "FOS_2": 301,
+          "FOS_3": 304
+        },
+        "observed_guides": 3,
+        "target": "FOS"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "FOXK1_1": 256,
+          "FOXK1_2": 155,
+          "FOXK1_3": 567
+        },
+        "observed_guides": 3,
+        "target": "FOXK1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "GAPDH_1": 87,
+          "GAPDH_2": 59,
+          "GAPDH_3": 103
+        },
+        "observed_guides": 3,
+        "target": "GAPDH"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "GSPT1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "GTF2A1_1": 191,
+          "GTF2A1_3": 243
+        },
+        "observed_guides": 2,
+        "target": "GTF2A1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "GTF2A2_1": 243,
+          "GTF2A2_2": 114,
+          "GTF2A2_3": 93
+        },
+        "observed_guides": 3,
+        "target": "GTF2A2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "GTF2E1_1": 9,
+          "GTF2E1_2": 261,
+          "GTF2E1_3": 8
+        },
+        "observed_guides": 3,
+        "target": "GTF2E1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "GTF2H1_1": 11,
+          "GTF2H1_3": 248
+        },
+        "observed_guides": 2,
+        "target": "GTF2H1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "GTF2H3_1": 170,
+          "GTF2H3_2": 39,
+          "GTF2H3_3": 183
+        },
+        "observed_guides": 3,
+        "target": "GTF2H3"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "GTF2H4_1": 312
+        },
+        "observed_guides": 1,
+        "target": "GTF2H4"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "HDAC1_1": 132,
+          "HDAC1_2": 486,
+          "HDAC1_3": 219
+        },
+        "observed_guides": 3,
+        "target": "HDAC1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "HDAC2_1": 279,
+          "HDAC2_2": 526,
+          "HDAC2_3": 73
+        },
+        "observed_guides": 3,
+        "target": "HDAC2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "HEATR1_2": 9
+        },
+        "observed_guides": 1,
+        "target": "HEATR1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "HNRNPK_2": 113
+        },
+        "observed_guides": 1,
+        "target": "HNRNPK"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "IDH3A_1": 199,
+          "IDH3A_2": 232,
+          "IDH3A_3": 152
+        },
+        "observed_guides": 3,
+        "target": "IDH3A"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "IGF2BP1_1": 199,
+          "IGF2BP1_3": 396
+        },
+        "observed_guides": 2,
+        "target": "IGF2BP1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "IGF2BP2_1": 48,
+          "IGF2BP2_2": 189,
+          "IGF2BP2_3": 267
+        },
+        "observed_guides": 3,
+        "target": "IGF2BP2"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "INO80_1": 224,
+          "INO80_2": 276,
+          "INO80_3": 87
+        },
+        "observed_guides": 3,
+        "target": "INO80"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "JUN_1": 143,
+          "JUN_2": 80,
+          "JUN_3": 49
+        },
+        "observed_guides": 3,
+        "target": "JUN"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "KDM1A_1": 113,
+          "KDM1A_2": 160,
+          "KDM1A_3": 438
+        },
+        "observed_guides": 3,
+        "target": "KDM1A"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "KDM4A_1": 351,
+          "KDM4A_2": 311,
+          "KDM4A_3": 468
+        },
+        "observed_guides": 3,
+        "target": "KDM4A"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "KDM6A_3": 167
+        },
+        "observed_guides": 1,
+        "target": "KDM6A"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "KMT2A_1": 362,
+          "KMT2A_2": 414,
+          "KMT2A_3": 271
+        },
+        "observed_guides": 3,
+        "target": "KMT2A"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "LDB1_1": 738,
+          "LDB1_3": 411
+        },
+        "observed_guides": 2,
+        "target": "LDB1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "LDHA_1": 806,
+          "LDHA_2": 148,
+          "LDHA_3": 483
+        },
+        "observed_guides": 3,
+        "target": "LDHA"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "LIG1_1": 366,
+          "LIG1_2": 536,
+          "LIG1_3": 164
+        },
+        "observed_guides": 3,
+        "target": "LIG1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "LRPPRC_1": 92,
+          "LRPPRC_2": 292,
+          "LRPPRC_3": 120
+        },
+        "observed_guides": 3,
+        "target": "LRPPRC"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "LSM2_2": 11,
+          "LSM2_3": 142
+        },
+        "observed_guides": 2,
+        "target": "LSM2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "LSM4_1": 10,
+          "LSM4_2": 21,
+          "LSM4_3": 160
+        },
+        "observed_guides": 3,
+        "target": "LSM4"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "LSM6_1": 24,
+          "LSM6_3": 54
+        },
+        "observed_guides": 2,
+        "target": "LSM6"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "MCM2_2": 39,
+          "MCM2_3": 30
+        },
+        "observed_guides": 2,
+        "target": "MCM2"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "MCM3_1": 189,
+          "MCM3_2": 79,
+          "MCM3_3": 174
+        },
+        "observed_guides": 3,
+        "target": "MCM3"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "MCM6_1": 31,
+          "MCM6_2": 96
+        },
+        "observed_guides": 2,
+        "target": "MCM6"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "MED19_3": 43
+        },
+        "observed_guides": 1,
+        "target": "MED19"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "MED21_2": 38,
+          "MED21_3": 93
+        },
+        "observed_guides": 2,
+        "target": "MED21"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "METTL14_2": 69,
+          "METTL14_3": 121
+        },
+        "observed_guides": 2,
+        "target": "METTL14"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "METTL16_1": 193,
+          "METTL16_2": 153,
+          "METTL16_3": 320
+        },
+        "observed_guides": 3,
+        "target": "METTL16"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "METTL3_1": 221,
+          "METTL3_2": 165,
+          "METTL3_3": 158
+        },
+        "observed_guides": 3,
+        "target": "METTL3"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "MNAT1_1": 189,
+          "MNAT1_2": 100,
+          "MNAT1_3": 189
+        },
+        "observed_guides": 3,
+        "target": "MNAT1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "NCBP1_1": 114,
+          "NCBP1_2": 111,
+          "NCBP1_3": 24
+        },
+        "observed_guides": 3,
+        "target": "NCBP1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "NDUFA12_1": 370,
+          "NDUFA12_2": 201,
+          "NDUFA12_3": 232
+        },
+        "observed_guides": 3,
+        "target": "NDUFA12"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "NDUFAF1_1": 288,
+          "NDUFAF1_2": 325,
+          "NDUFAF1_3": 355
+        },
+        "observed_guides": 3,
+        "target": "NDUFAF1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "NDUFS1_1": 162,
+          "NDUFS1_2": 137,
+          "NDUFS1_3": 181
+        },
+        "observed_guides": 3,
+        "target": "NDUFS1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "NDUFS2_1": 259,
+          "NDUFS2_2": 181,
+          "NDUFS2_3": 328
+        },
+        "observed_guides": 3,
+        "target": "NDUFS2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "NDUFS3"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "NDUFV1_1": 194,
+          "NDUFV1_2": 215,
+          "NDUFV1_3": 227
+        },
+        "observed_guides": 3,
+        "target": "NDUFV1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "NME3_2": 167,
+          "NME3_3": 345
+        },
+        "observed_guides": 2,
+        "target": "NME3"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "NOP2_1": 208
+        },
+        "observed_guides": 1,
+        "target": "NOP2"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "NPAT_1": 181,
+          "NPAT_2": 125,
+          "NPAT_3": 159
+        },
+        "observed_guides": 3,
+        "target": "NPAT"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "NUDT21_2": 57
+        },
+        "observed_guides": 1,
+        "target": "NUDT21"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "OGDH_1": 154,
+          "OGDH_2": 401,
+          "OGDH_3": 559
+        },
+        "observed_guides": 3,
+        "target": "OGDH"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "PAPOLA_1": 144,
+          "PAPOLA_2": 216,
+          "PAPOLA_3": 198
+        },
+        "observed_guides": 3,
+        "target": "PAPOLA"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "PAPOLG_1": 210,
+          "PAPOLG_2": 133,
+          "PAPOLG_3": 174
+        },
+        "observed_guides": 3,
+        "target": "PAPOLG"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "PBRM1_1": 231,
+          "PBRM1_2": 185,
+          "PBRM1_3": 156
+        },
+        "observed_guides": 3,
+        "target": "PBRM1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "PCF11_2": 137
+        },
+        "observed_guides": 1,
+        "target": "PCF11"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "PCNA_2": 54,
+          "PCNA_3": 111
+        },
+        "observed_guides": 2,
+        "target": "PCNA"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "PDHA1_1": 314,
+          "PDHA1_2": 472,
+          "PDHA1_3": 398
+        },
+        "observed_guides": 3,
+        "target": "PDHA1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "PDIA6_1": 26,
+          "PDIA6_2": 469,
+          "PDIA6_3": 274
+        },
+        "observed_guides": 3,
+        "target": "PDIA6"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "PELO_1": 66,
+          "PELO_2": 172,
+          "PELO_3": 130
+        },
+        "observed_guides": 3,
+        "target": "PELO"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "PGK1_1": 58,
+          "PGK1_2": 75,
+          "PGK1_3": 48
+        },
+        "observed_guides": 3,
+        "target": "PGK1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "PHF10_1": 228,
+          "PHF10_2": 596,
+          "PHF10_3": 59
+        },
+        "observed_guides": 3,
+        "target": "PHF10"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "PKM_1": 106,
+          "PKM_2": 64,
+          "PKM_3": 150
+        },
+        "observed_guides": 3,
+        "target": "PKM"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "POLA1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "POLA2_1": 87,
+          "POLA2_3": 55
+        },
+        "observed_guides": 2,
+        "target": "POLA2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "POLD1_1": 32,
+          "POLD1_3": 29
+        },
+        "observed_guides": 2,
+        "target": "POLD1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "POLD2_1": 137,
+          "POLD2_2": 44
+        },
+        "observed_guides": 2,
+        "target": "POLD2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "POLD3_1": 48,
+          "POLD3_2": 45,
+          "POLD3_3": 32
+        },
+        "observed_guides": 3,
+        "target": "POLD3"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "POLE_2": 23,
+          "POLE_3": 56
+        },
+        "observed_guides": 2,
+        "target": "POLE"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "POLR1A_1": 69,
+          "POLR1A_3": 69
+        },
+        "observed_guides": 2,
+        "target": "POLR1A"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "POLR1B_1": 58,
+          "POLR1B_3": 52
+        },
+        "observed_guides": 2,
+        "target": "POLR1B"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "POLR1D_2": 111
+        },
+        "observed_guides": 1,
+        "target": "POLR1D"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "POLR2A"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "POLR2B_1": 74,
+          "POLR2B_2": 74
+        },
+        "observed_guides": 2,
+        "target": "POLR2B"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "POLR2F_1": 57,
+          "POLR2F_3": 468
+        },
+        "observed_guides": 2,
+        "target": "POLR2F"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "POLR2G"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "POLR2K_2": 73
+        },
+        "observed_guides": 1,
+        "target": "POLR2K"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "POLR3A_1": 427,
+          "POLR3A_2": 30,
+          "POLR3A_3": 195
+        },
+        "observed_guides": 3,
+        "target": "POLR3A"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "PPP1CB_1": 157,
+          "PPP1CB_2": 60,
+          "PPP1CB_3": 48
+        },
+        "observed_guides": 3,
+        "target": "PPP1CB"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "PPP1CC"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "PPP2CA_2": 423,
+          "PPP2CA_3": 498
+        },
+        "observed_guides": 2,
+        "target": "PPP2CA"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "PPP2R1A_1": 296,
+          "PPP2R1A_2": 96,
+          "PPP2R1A_3": 103
+        },
+        "observed_guides": 3,
+        "target": "PPP2R1A"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "PRDM2_1": 233,
+          "PRDM2_2": 204,
+          "PRDM2_3": 320
+        },
+        "observed_guides": 3,
+        "target": "PRDM2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "PRIM1_1": 24,
+          "PRIM1_2": 64,
+          "PRIM1_3": 295
+        },
+        "observed_guides": 3,
+        "target": "PRIM1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "PRIM2_2": 17
+        },
+        "observed_guides": 1,
+        "target": "PRIM2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "PRPF31_2": 33
+        },
+        "observed_guides": 1,
+        "target": "PRPF31"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "PRPF38A"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "PRPF38B_1": 68,
+          "PRPF38B_2": 125,
+          "PRPF38B_3": 178
+        },
+        "observed_guides": 3,
+        "target": "PRPF38B"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "PRPF4"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "RAD21_1": 337
+        },
+        "observed_guides": 1,
+        "target": "RAD21"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "RBM22_2": 22
+        },
+        "observed_guides": 1,
+        "target": "RBM22"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "RBM25_3": 34
+        },
+        "observed_guides": 1,
+        "target": "RBM25"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "RBM8A_1": 16
+        },
+        "observed_guides": 1,
+        "target": "RBM8A"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "RELA_1": 312,
+          "RELA_2": 325,
+          "RELA_3": 322
+        },
+        "observed_guides": 3,
+        "target": "RELA"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "REST_2": 380,
+          "REST_3": 112
+        },
+        "observed_guides": 2,
+        "target": "REST"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "RFC1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "RFC4_1": 141,
+          "RFC4_2": 23,
+          "RFC4_3": 12
+        },
+        "observed_guides": 3,
+        "target": "RFC4"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "RFC5_1": 87
+        },
+        "observed_guides": 1,
+        "target": "RFC5"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "RNMT_1": 119,
+          "RNMT_2": 252,
+          "RNMT_3": 185
+        },
+        "observed_guides": 3,
+        "target": "RNMT"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "RPL10_1": 9
+        },
+        "observed_guides": 1,
+        "target": "RPL10"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "RPL11_1": 38,
+          "RPL11_2": 13
+        },
+        "observed_guides": 2,
+        "target": "RPL11"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "RPL19"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "RPL30_1": 33,
+          "RPL30_2": 83
+        },
+        "observed_guides": 2,
+        "target": "RPL30"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "RPL37"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "RPL5_2": 34
+        },
+        "observed_guides": 1,
+        "target": "RPL5"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "RPL7A"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "RPS10"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "RPS12"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "RPS15A_2": 18,
+          "RPS15A_3": 113
+        },
+        "observed_guides": 2,
+        "target": "RPS15A"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "RPS2_1": 12,
+          "RPS2_2": 19,
+          "RPS2_3": 135
+        },
+        "observed_guides": 3,
+        "target": "RPS2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "RPS24"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "RPS9_1": 71,
+          "RPS9_2": 79
+        },
+        "observed_guides": 2,
+        "target": "RPS9"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "RUVBL1_1": 10
+        },
+        "observed_guides": 1,
+        "target": "RUVBL1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SCO1_1": 266,
+          "SCO1_2": 188,
+          "SCO1_3": 142
+        },
+        "observed_guides": 3,
+        "target": "SCO1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SCO2_1": 116,
+          "SCO2_2": 212,
+          "SCO2_3": 245
+        },
+        "observed_guides": 3,
+        "target": "SCO2"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SDHA_1": 317,
+          "SDHA_2": 319,
+          "SDHA_3": 430
+        },
+        "observed_guides": 3,
+        "target": "SDHA"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SDHAF1_1": 349,
+          "SDHAF1_2": 374,
+          "SDHAF1_3": 425
+        },
+        "observed_guides": 3,
+        "target": "SDHAF1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "SDHB_2": 248,
+          "SDHB_3": 167
+        },
+        "observed_guides": 2,
+        "target": "SDHB"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SDHC_1": 285,
+          "SDHC_2": 308,
+          "SDHC_3": 214
+        },
+        "observed_guides": 3,
+        "target": "SDHC"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "absent_from_deposited_on_target_metadata",
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {},
+        "observed_guides": 0,
+        "target": "SEC13"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "SEC61G_1": 82,
+          "SEC61G_3": 65
+        },
+        "observed_guides": 2,
+        "target": "SEC61G"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SEC62_1": 321,
+          "SEC62_2": 192,
+          "SEC62_3": 862
+        },
+        "observed_guides": 3,
+        "target": "SEC62"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "SETD2_1": 199,
+          "SETD2_2": 207
+        },
+        "observed_guides": 2,
+        "target": "SETD2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "SF3A3_1": 11,
+          "SF3A3_2": 19
+        },
+        "observed_guides": 2,
+        "target": "SF3A3"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SLC25A1_1": 899,
+          "SLC25A1_2": 398,
+          "SLC25A1_3": 583
+        },
+        "observed_guides": 3,
+        "target": "SLC25A1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "SLC28A1_1": 128,
+          "SLC28A1_3": 202
+        },
+        "observed_guides": 2,
+        "target": "SLC28A1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SLC28A3_1": 190,
+          "SLC28A3_2": 194,
+          "SLC28A3_3": 147
+        },
+        "observed_guides": 3,
+        "target": "SLC28A3"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SLC29A1_1": 285,
+          "SLC29A1_2": 285,
+          "SLC29A1_3": 394
+        },
+        "observed_guides": 3,
+        "target": "SLC29A1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SLC29A2_1": 231,
+          "SLC29A2_2": 341,
+          "SLC29A2_3": 321
+        },
+        "observed_guides": 3,
+        "target": "SLC29A2"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SLC29A3_1": 225,
+          "SLC29A3_2": 223,
+          "SLC29A3_3": 293
+        },
+        "observed_guides": 3,
+        "target": "SLC29A3"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SLC29A4_1": 296,
+          "SLC29A4_2": 313,
+          "SLC29A4_3": 403
+        },
+        "observed_guides": 3,
+        "target": "SLC29A4"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SLC2A1_1": 252,
+          "SLC2A1_2": 229,
+          "SLC2A1_3": 199
+        },
+        "observed_guides": 3,
+        "target": "SLC2A1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SMARCA4_1": 352,
+          "SMARCA4_2": 242,
+          "SMARCA4_3": 297
+        },
+        "observed_guides": 3,
+        "target": "SMARCA4"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SMARCB1_1": 319,
+          "SMARCB1_2": 351,
+          "SMARCB1_3": 256
+        },
+        "observed_guides": 3,
+        "target": "SMARCB1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SMARCD1_1": 326,
+          "SMARCD1_2": 605,
+          "SMARCD1_3": 1227
+        },
+        "observed_guides": 3,
+        "target": "SMARCD1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "SMC1A_1": 78,
+          "SMC1A_3": 293
+        },
+        "observed_guides": 2,
+        "target": "SMC1A"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SMC3_1": 161,
+          "SMC3_2": 224,
+          "SMC3_3": 130
+        },
+        "observed_guides": 3,
+        "target": "SMC3"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "SMG5_1": 148,
+          "SMG5_2": 66
+        },
+        "observed_guides": 2,
+        "target": "SMG5"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "SMG7_1": 155,
+          "SMG7_3": 337
+        },
+        "observed_guides": 2,
+        "target": "SMG7"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "SOX2_1": 129,
+          "SOX2_2": 316,
+          "SOX2_3": 169
+        },
+        "observed_guides": 3,
+        "target": "SOX2"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "STAG2_1": 444,
+          "STAG2_2": 280,
+          "STAG2_3": 350
+        },
+        "observed_guides": 3,
+        "target": "STAG2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "SURF1_1": 386,
+          "SURF1_2": 126
+        },
+        "observed_guides": 2,
+        "target": "SURF1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "TAF1_2": 28
+        },
+        "observed_guides": 1,
+        "target": "TAF1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "TAF12_2": 116
+        },
+        "observed_guides": 1,
+        "target": "TAF12"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "TAF2_1": 43,
+          "TAF2_2": 157,
+          "TAF2_3": 52
+        },
+        "observed_guides": 3,
+        "target": "TAF2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "TAF5_1": 191,
+          "TAF5_3": 207
+        },
+        "observed_guides": 2,
+        "target": "TAF5"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "TAF8_1": 92,
+          "TAF8_2": 113,
+          "TAF8_3": 203
+        },
+        "observed_guides": 3,
+        "target": "TAF8"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three",
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "TCP1_1": 16,
+          "TCP1_2": 11
+        },
+        "observed_guides": 2,
+        "target": "TCP1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "TIAL1_1": 246,
+          "TIAL1_2": 221,
+          "TIAL1_3": 193
+        },
+        "observed_guides": 3,
+        "target": "TIAL1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "TPI1_1": 232,
+          "TPI1_2": 169,
+          "TPI1_3": 202
+        },
+        "observed_guides": 3,
+        "target": "TPI1"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "UCK2_1": 118,
+          "UCK2_2": 183,
+          "UCK2_3": 493
+        },
+        "observed_guides": 3,
+        "target": "UCK2"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "UPF1_1": 101,
+          "UPF1_2": 141,
+          "UPF1_3": 162
+        },
+        "observed_guides": 3,
+        "target": "UPF1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "UPF2_1": 58,
+          "UPF2_2": 179,
+          "UPF2_3": 100
+        },
+        "observed_guides": 3,
+        "target": "UPF2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "UPRT_1": 267,
+          "UPRT_3": 116
+        },
+        "observed_guides": 2,
+        "target": "UPRT"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "UQCRFS1_2": 136
+        },
+        "observed_guides": 1,
+        "target": "UQCRFS1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "at_least_one_guide_below_60_cells"
+        ],
+        "guide_cell_counts": {
+          "WDR12_1": 31,
+          "WDR12_2": 69,
+          "WDR12_3": 35
+        },
+        "observed_guides": 3,
+        "target": "WDR12"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "XPO5_1": 952,
+          "XPO5_2": 329,
+          "XPO5_3": 302
+        },
+        "observed_guides": 3,
+        "target": "XPO5"
+      },
+      {
+        "eligible": true,
+        "failure_reasons": [],
+        "guide_cell_counts": {
+          "XRN2_1": 106,
+          "XRN2_2": 62,
+          "XRN2_3": 70
+        },
+        "observed_guides": 3,
+        "target": "XRN2"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "YY1_3": 360
+        },
+        "observed_guides": 1,
+        "target": "YY1"
+      },
+      {
+        "eligible": false,
+        "failure_reasons": [
+          "observed_guide_count_not_three"
+        ],
+        "guide_cell_counts": {
+          "ZC3H13_1": 572,
+          "ZC3H13_3": 117
+        },
+        "observed_guides": 2,
+        "target": "ZC3H13"
+      }
+    ]
+  },
+  "downloaded_release": "minimal processed GSM6752591 supplementary files",
+  "files": [
+    {
+      "bytes": 5822620,
+      "name": "GSM6752591_on_target_cell_metadata.csv.gz",
+      "sha256": "9f63da4cfa6c10bc4a67e77a3f640c3bceba861bc77e1b69d6d5540d1e2ddbec",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6752nnn/GSM6752591/suppl/GSM6752591_on_target_cell_metadata.csv.gz"
+    },
+    {
+      "bytes": 486850,
+      "name": "GSM6752591_on_target_nascent_tx.Barcodes.tsv.gz",
+      "sha256": "25c553c8242ea1daa4de4fa428fa4d92d139f4f030815f6d29ce204584b54168",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6752nnn/GSM6752591/suppl/GSM6752591_on_target_nascent_tx.Barcodes.tsv.gz"
+    },
+    {
+      "bytes": 231286,
+      "name": "GSM6752591_on_target_nascent_tx.Genes.tsv.gz",
+      "sha256": "f48aa160977fb4596466126fa38e807fa2bdebc4de1465772011d8c6ab4a304a",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6752nnn/GSM6752591/suppl/GSM6752591_on_target_nascent_tx.Genes.tsv.gz"
+    },
+    {
+      "bytes": 123112446,
+      "name": "GSM6752591_on_target_nascent_tx_count_matrix.mtx.gz",
+      "sha256": "65187786589a13286001e156791cfdfedd108d2851f4e8c71ea95f4263e4954d",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6752nnn/GSM6752591/suppl/GSM6752591_on_target_nascent_tx_count_matrix.mtx.gz"
+    },
+    {
+      "bytes": 486845,
+      "name": "GSM6752591_on_target_sgRNA.Barcodes.tsv.gz",
+      "sha256": "9de45abe8511685ce40b24051b878514df7ec8feb7898a39f1efb4bc8c961e24",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6752nnn/GSM6752591/suppl/GSM6752591_on_target_sgRNA.Barcodes.tsv.gz"
+    },
+    {
+      "bytes": 1853,
+      "name": "GSM6752591_on_target_sgRNA.Genes.tsv.gz",
+      "sha256": "d1e7f8191f1a1aca07cf9ce349ad41c2f499c380b5a4beea2270c4ef84d7b256",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6752nnn/GSM6752591/suppl/GSM6752591_on_target_sgRNA.Genes.tsv.gz"
+    },
+    {
+      "bytes": 1212343,
+      "name": "GSM6752591_on_target_sgRNA_count_matrix.mtx.gz",
+      "sha256": "34cf71f2486fc269adc7f0a0e88855a2cfba2432b1c5529d4ea426c998e23945",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6752nnn/GSM6752591/suppl/GSM6752591_on_target_sgRNA_count_matrix.mtx.gz"
+    },
+    {
+      "bytes": 486848,
+      "name": "GSM6752591_on_target_whole_tx.Barcodes.tsv.gz",
+      "sha256": "0f936ca489139835353ee926703a47b8f9cc45453efb453bf27249d30dfc458e",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6752nnn/GSM6752591/suppl/GSM6752591_on_target_whole_tx.Barcodes.tsv.gz"
+    },
+    {
+      "bytes": 231284,
+      "name": "GSM6752591_on_target_whole_tx.Genes.tsv.gz",
+      "sha256": "ee3b3e25983aa78f07b07b3c6f5fced396d3d3eeff4feede41b3be8121156837",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6752nnn/GSM6752591/suppl/GSM6752591_on_target_whole_tx.Genes.tsv.gz"
+    },
+    {
+      "bytes": 408865784,
+      "name": "GSM6752591_on_target_whole_tx_count_matrix.mtx.gz",
+      "sha256": "92443129e0180c438ef0ffd84cb7001e50593d859ea63ecb4665c027495d1114",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6752nnn/GSM6752591/suppl/GSM6752591_on_target_whole_tx_count_matrix.mtx.gz"
+    },
+    {
+      "bytes": 1387,
+      "name": "GSM6752591_whole_txome_sgRNA_sample_name_barcode_table.csv.gz",
+      "sha256": "09fa7f705aed0ff4634a775389512ca7d99ededa3035272cf770a230818de6c0",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6752nnn/GSM6752591/suppl/GSM6752591_whole_txome_sgRNA_sample_name_barcode_table.csv.gz"
+    }
+  ]
+}

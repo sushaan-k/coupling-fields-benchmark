@@ -1,0 +1,68 @@
+{
+  "schema": "lawlor-hca-pbmc-source/1.0",
+  "project_id": "efea6426-510a-4b60-9a19-277e52bfa815",
+  "project_title": "Dissecting the protein and transcriptional responses of human immune cells to T cell and monocyte specific activation",
+  "study_doi": "10.3389/fimmu.2021.636720",
+  "project_url": "https://explore.data.humancellatlas.org/projects/efea6426-510a-4b60-9a19-277e52bfa815",
+  "api_project_url": "https://service.azul.data.humancellatlas.org/index/projects/efea6426-510a-4b60-9a19-277e52bfa815",
+  "api_file_query": "https://service.azul.data.humancellatlas.org/index/files?filters=%7B%22projectId%22%3A%7B%22is%22%3A%5B%22efea6426-510a-4b60-9a19-277e52bfa815%22%5D%7D%7D&size=100",
+  "api_file_query_response": {
+    "retrieved_at_utc": "2026-08-28T00:09:30Z",
+    "bytes": 215360,
+    "sha256": "f6d0b40ec2af35ef450a52e906ae2d4b394514b8a0903eb8084ad9119135d009",
+    "hits": 65
+  },
+  "data_license": "CC BY 4.0 under the HCA Data Release Policy and Data Use Agreement",
+  "files": [
+    {
+      "name": "CITEseqPBMCProject_metadata_18-07-2023.xlsx",
+      "role": "metadata",
+      "uuid": "68d7b6a1-1760-50be-90e7-4252dd18b86e",
+      "version": "2023-07-18T08:32:12.677000Z",
+      "bytes": 42700,
+      "sha256": "b1a20a1ac14ad788f15a2c007542c6d979d35da7d045dc2eb5dfa54258728bed",
+      "url": "https://service.azul.data.humancellatlas.org/repository/files/68d7b6a1-1760-50be-90e7-4252dd18b86e?catalog=dcp60&version=2023-07-18T08%3A32%3A12.677000Z",
+      "accessed_before_seal": true
+    },
+    {
+      "name": "CZI.PBMC.cell.annotations.csv",
+      "role": "cell annotations",
+      "uuid": "773e8edd-48af-599a-8726-3f368823dc22",
+      "version": "2021-02-22T16:08:23.715288Z",
+      "bytes": 26242593,
+      "sha256": "76a6548089867687461603ed0031ba02f9203885cd8a623b7497bdceccaf7229",
+      "url": "https://service.azul.data.humancellatlas.org/repository/files/773e8edd-48af-599a-8726-3f368823dc22?catalog=dcp60&version=2021-02-22T16%3A08%3A23.715288Z",
+      "accessed_before_seal": true
+    },
+    {
+      "name": "CZI.PBMC.RNA.matrix.Rds",
+      "role": "RNA outcome matrix",
+      "uuid": "347257fa-4174-5741-9a9d-99ef21fa3707",
+      "version": "2021-02-22T16:08:23.715288Z",
+      "bytes": 480584213,
+      "sha256": "c6c1b29e8737085d89f2af35c23fb9ce0e189369e65061f18cfe8532bd1e80c5",
+      "url": "https://service.azul.data.humancellatlas.org/repository/files/347257fa-4174-5741-9a9d-99ef21fa3707?catalog=dcp60&version=2021-02-22T16%3A08%3A23.715288Z",
+      "accessed_before_seal": false
+    },
+    {
+      "name": "CZI.PBMC.ADT.matrix.Rds",
+      "role": "ADT outcome matrix",
+      "uuid": "d3b085d0-4d42-5e0f-bf11-da491031d4b8",
+      "version": "2021-02-22T16:08:23.715288Z",
+      "bytes": 21609958,
+      "sha256": "bab0c4c2b43bb2c8c942491a370623b0685ef0dd10ce58aa45734371a8fb59e5",
+      "url": "https://service.azul.data.humancellatlas.org/repository/files/d3b085d0-4d42-5e0f-bf11-da491031d4b8?catalog=dcp60&version=2021-02-22T16%3A08%3A23.715288Z",
+      "accessed_before_seal": false
+    },
+    {
+      "name": "CZI.PBMC.HTO.matrix.Rds",
+      "role": "HTO matrix; not needed by the primary analysis",
+      "uuid": "a0e51be5-f1e2-54bc-9b92-56b025d0601d",
+      "version": "2021-02-22T16:08:23.715288Z",
+      "bytes": 4759210,
+      "sha256": "e7a4fd0fba9d9b092ca79b4e18b2d4a0763d303c10e150f2807c3e9ccb50f0dc",
+      "url": "https://service.azul.data.humancellatlas.org/repository/files/a0e51be5-f1e2-54bc-9b92-56b025d0601d?catalog=dcp60&version=2021-02-22T16%3A08%3A23.715288Z",
+      "accessed_before_seal": false
+    }
+  ]
+}

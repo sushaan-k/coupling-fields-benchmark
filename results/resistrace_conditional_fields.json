@@ -1,0 +1,1126 @@
+{
+  "schema": "resistrace-conditional-fields-v1",
+  "status": "REFUSE_TREATMENT_CONTRAST_NOT_REPRODUCED",
+  "claim_boundary": {
+    "paired_unit": "barcode-defined lineage of related cells",
+    "not_observed": "the same physical cell before and after treatment",
+    "biological_replicates": 2,
+    "lineage_ci_scope": "conditional on the two deposited replicates; lineage resampling does not create additional biological replicates",
+    "contrast": "condition-minus-handling-control association field within each deposited replicate"
+  },
+  "estimator": {
+    "field": "3x3 marginal-invariant log association in Helmert coordinates",
+    "pseudocount": 0.5,
+    "conditional_centering": "mean of exact within-arm post-state permutations preserving both empirical state margins",
+    "fixed_margin_reference_permutations": 64,
+    "fixed_margin_test_permutations": 64,
+    "link_test": "observed and disjoint test permutations centered against the same independent reference-permutation mean",
+    "state_encoder": "eight lineage-level PCA coordinates standardized on pooled Control pre lineages, then 3-state k-means (100 starts) fitted on those same Control pre lineages and applied unchanged to all endpoints",
+    "minimum_lineages_per_endpoint_state": 10
+  },
+  "feature_freeze": {
+    "fit_data": "all eight pre-treatment cell libraries only",
+    "normalization": "log1p(10000 * UMI / deposited nCount_RNA)",
+    "selection": "highest pooled pre-treatment log-expression variance",
+    "n_features": 128,
+    "selected_genes": [
+      "ENSG00000149591.16",
+      "ENSG00000197061.4",
+      "ENSG00000124107.5",
+      "ENSG00000118523.5",
+      "ENSG00000175063.16",
+      "ENSG00000117724.12",
+      "ENSG00000138061.11",
+      "ENSG00000251562.7",
+      "ENSG00000245532.6",
+      "ENSG00000196754.10",
+      "ENSG00000131747.14",
+      "ENSG00000143631.10",
+      "ENSG00000227507.2",
+      "ENSG00000105974.11",
+      "ENSG00000165949.12",
+      "ENSG00000088325.15",
+      "ENSG00000118785.13",
+      "ENSG00000125148.6",
+      "ENSG00000111057.10",
+      "ENSG00000236824.2",
+      "ENSG00000148677.6",
+      "ENSG00000164104.11",
+      "ENSG00000164611.12",
+      "ENSG00000101335.9",
+      "ENSG00000060982.14",
+      "ENSG00000117318.8",
+      "ENSG00000115414.18",
+      "ENSG00000134057.14",
+      "ENSG00000148773.13",
+      "ENSG00000101443.17",
+      "ENSG00000108106.13",
+      "ENSG00000125968.8",
+      "ENSG00000087586.17",
+      "ENSG00000269821.1",
+      "ENSG00000176788.8",
+      "ENSG00000196154.11",
+      "ENSG00000137804.12",
+      "ENSG00000156802.12",
+      "ENSG00000168298.6",
+      "ENSG00000026025.14",
+      "ENSG00000130203.9",
+      "ENSG00000122786.19",
+      "ENSG00000170421.12",
+      "ENSG00000140416.19",
+      "ENSG00000066279.16",
+      "ENSG00000198899.2",
+      "ENSG00000187608.8",
+      "ENSG00000072571.19",
+      "ENSG00000163453.11",
+      "ENSG00000198938.2",
+      "ENSG00000092853.13",
+      "ENSG00000198727.2",
+      "ENSG00000091986.15",
+      "ENSG00000100097.11",
+      "ENSG00000272398.5",
+      "ENSG00000113946.3",
+      "ENSG00000117399.13",
+      "ENSG00000116661.9",
+      "ENSG00000123416.15",
+      "ENSG00000114115.9",
+      "ENSG00000164736.5",
+      "ENSG00000145632.14",
+      "ENSG00000006327.13",
+      "ENSG00000198804.2",
+      "ENSG00000117632.21",
+      "ENSG00000110492.15",
+      "ENSG00000170312.15",
+      "ENSG00000242265.5",
+      "ENSG00000137962.12",
+      "ENSG00000188229.5",
+      "ENSG00000102804.14",
+      "ENSG00000196230.12",
+      "ENSG00000160678.11",
+      "ENSG00000197747.8",
+      "ENSG00000131016.16",
+      "ENSG00000102760.12",
+      "ENSG00000187837.3",
+      "ENSG00000123975.4",
+      "ENSG00000142871.16",
+      "ENSG00000198886.2",
+      "ENSG00000198830.10",
+      "ENSG00000100906.10",
+      "ENSG00000108561.8",
+      "ENSG00000087086.14",
+      "ENSG00000167553.14",
+      "ENSG00000135205.14",
+      "ENSG00000113361.12",
+      "ENSG00000171345.13",
+      "ENSG00000131773.13",
+      "ENSG00000008517.16",
+      "ENSG00000176890.15",
+      "ENSG00000092820.17",
+      "ENSG00000188643.10",
+      "ENSG00000024526.16",
+      "ENSG00000198695.2",
+      "ENSG00000137331.11",
+      "ENSG00000164687.10",
+      "ENSG00000120885.20",
+      "ENSG00000198888.2",
+      "ENSG00000198786.2",
+      "ENSG00000135046.13",
+      "ENSG00000108518.7",
+      "ENSG00000132507.17",
+      "ENSG00000210082.2",
+      "ENSG00000198901.13",
+      "ENSG00000167996.15",
+      "ENSG00000129235.10",
+      "ENSG00000123095.5",
+      "ENSG00000198712.1",
+      "ENSG00000131711.14",
+      "ENSG00000197956.9",
+      "ENSG00000198840.2",
+      "ENSG00000143320.8",
+      "ENSG00000168497.4",
+      "ENSG00000126709.14",
+      "ENSG00000277443.2",
+      "ENSG00000146038.11",
+      "ENSG00000181019.12",
+      "ENSG00000104738.16",
+      "ENSG00000187244.10",
+      "ENSG00000123094.15",
+      "ENSG00000044574.7",
+      "ENSG00000124766.6",
+      "ENSG00000126787.12",
+      "ENSG00000234741.7",
+      "ENSG00000156427.7",
+      "ENSG00000211459.2",
+      "ENSG00000182718.16"
+    ],
+    "selected_gene_detection_fraction": {
+      "ENSG00000149591.16": 0.9247250817324579,
+      "ENSG00000197061.4": 0.9841128313204183,
+      "ENSG00000124107.5": 0.9984599173218773,
+      "ENSG00000118523.5": 0.9625246548323472,
+      "ENSG00000175063.16": 0.8954364918537732,
+      "ENSG00000117724.12": 0.9733862905622652,
+      "ENSG00000138061.11": 0.8617167869011916,
+      "ENSG00000251562.7": 0.9998649050282349,
+      "ENSG00000245532.6": 0.9976223284969333,
+      "ENSG00000196754.10": 0.9944070681689228,
+      "ENSG00000131747.14": 0.8911404717516413,
+      "ENSG00000143631.10": 0.40533895328415875,
+      "ENSG00000227507.2": 0.5207370781659507,
+      "ENSG00000105974.11": 0.925670746534814,
+      "ENSG00000165949.12": 0.9419361811353382,
+      "ENSG00000088325.15": 0.9590121855664532,
+      "ENSG00000118785.13": 0.9956499419091621,
+      "ENSG00000125148.6": 0.998270784361406,
+      "ENSG00000111057.10": 0.9997838480451757,
+      "ENSG00000236824.2": 0.8520169679284537,
+      "ENSG00000148677.6": 0.9118910594147686,
+      "ENSG00000164104.11": 0.9155116046580746,
+      "ENSG00000164611.12": 0.9917592067223258,
+      "ENSG00000101335.9": 0.9965685877171652,
+      "ENSG00000060982.14": 0.9978925184404637,
+      "ENSG00000117318.8": 0.9947312961011591,
+      "ENSG00000115414.18": 0.5554024479208883,
+      "ENSG00000134057.14": 0.9257788225122261,
+      "ENSG00000148773.13": 0.8229175110102402,
+      "ENSG00000101443.17": 0.9890302882926697,
+      "ENSG00000108106.13": 0.9880305855016076,
+      "ENSG00000125968.8": 0.9980546324065819,
+      "ENSG00000087586.17": 0.8405879333171219,
+      "ENSG00000269821.1": 0.9920023776715031,
+      "ENSG00000176788.8": 0.9275080381508201,
+      "ENSG00000196154.11": 0.999972981005647,
+      "ENSG00000137804.12": 0.8583123936127097,
+      "ENSG00000156802.12": 0.97949258328605,
+      "ENSG00000168298.6": 0.9039204560806247,
+      "ENSG00000026025.14": 0.99910837318635,
+      "ENSG00000130203.9": 0.9897598011402016,
+      "ENSG00000122786.19": 0.9998108670395288,
+      "ENSG00000170421.12": 0.9997838480451757,
+      "ENSG00000140416.19": 0.9987571262597607,
+      "ENSG00000066279.16": 0.8981924292777823,
+      "ENSG00000198899.2": 0.99910837318635,
+      "ENSG00000187608.8": 0.9897327821458485,
+      "ENSG00000072571.19": 0.8877630974575126,
+      "ENSG00000163453.11": 0.9993785631298803,
+      "ENSG00000198938.2": 0.9993785631298803,
+      "ENSG00000092853.13": 0.8857366728810354,
+      "ENSG00000198727.2": 0.9995947150847045,
+      "ENSG00000091986.15": 0.9532031017805517,
+      "ENSG00000100097.11": 0.9993515441355273,
+      "ENSG00000272398.5": 0.7716354597281889,
+      "ENSG00000113946.3": 0.8975709924076626,
+      "ENSG00000117399.13": 0.9291561968063549,
+      "ENSG00000116661.9": 0.936451325281673,
+      "ENSG00000123416.15": 0.9992164491637622,
+      "ENSG00000114115.9": 0.9907865229256168,
+      "ENSG00000164736.5": 0.9405852314176867,
+      "ENSG00000145632.14": 0.8898435600226959,
+      "ENSG00000006327.13": 0.9966226257058712,
+      "ENSG00000198804.2": 0.9994866391072924,
+      "ENSG00000117632.21": 0.9983788603388182,
+      "ENSG00000110492.15": 0.9961633028018697,
+      "ENSG00000170312.15": 0.7534246575342466,
+      "ENSG00000242265.5": 0.9498257274864229,
+      "ENSG00000137962.12": 0.9996757720677636,
+      "ENSG00000188229.5": 0.9984869363162303,
+      "ENSG00000102804.14": 0.9906514279538515,
+      "ENSG00000196230.12": 0.9988111642484667,
+      "ENSG00000160678.11": 0.9958120558752803,
+      "ENSG00000197747.8": 0.999972981005647,
+      "ENSG00000131016.16": 0.997244062575991,
+      "ENSG00000102760.12": 0.7124908810894058,
+      "ENSG00000187837.3": 0.8713895868795763,
+      "ENSG00000123975.4": 0.9786549944611062,
+      "ENSG00000142871.16": 0.9208883845343276,
+      "ENSG00000198886.2": 0.9994055821242334,
+      "ENSG00000198830.10": 0.999918943016941,
+      "ENSG00000100906.10": 0.9747642592742698,
+      "ENSG00000108561.8": 0.9976223284969333,
+      "ENSG00000087086.14": 0.999972981005647,
+      "ENSG00000167553.14": 0.9968657966550485,
+      "ENSG00000135205.14": 0.9786009564724001,
+      "ENSG00000113361.12": 0.9957580178865743,
+      "ENSG00000171345.13": 0.6079814109318851,
+      "ENSG00000131773.13": 0.9558779822215017,
+      "ENSG00000008517.16": 0.6641539001918348,
+      "ENSG00000176890.15": 0.9082705141714625,
+      "ENSG00000092820.17": 0.9990002972089379,
+      "ENSG00000188643.10": 0.996406473751047,
+      "ENSG00000024526.16": 0.7780659803842102,
+      "ENSG00000198695.2": 0.9840047553430061,
+      "ENSG00000137331.11": 0.8671205857717976,
+      "ENSG00000164687.10": 0.7166518062197725,
+      "ENSG00000120885.20": 0.9851125341114804,
+      "ENSG00000198888.2": 0.9987841452541136,
+      "ENSG00000198786.2": 0.9983788603388182,
+      "ENSG00000135046.13": 0.9989462592202318,
+      "ENSG00000108518.7": 0.9996217340790575,
+      "ENSG00000132507.17": 0.9993515441355273,
+      "ENSG00000210082.2": 0.9998919240225879,
+      "ENSG00000198901.13": 0.8807651779200778,
+      "ENSG00000167996.15": 1.0,
+      "ENSG00000129235.10": 0.9979735754235227,
+      "ENSG00000123095.5": 0.8279430439599038,
+      "ENSG00000198712.1": 0.9996757720677636,
+      "ENSG00000131711.14": 0.6789332901029423,
+      "ENSG00000197956.9": 0.9998108670395288,
+      "ENSG00000198840.2": 0.9987030882710546,
+      "ENSG00000143320.8": 0.9985950122936424,
+      "ENSG00000168497.4": 0.9383156358920322,
+      "ENSG00000126709.14": 0.9190240739239686,
+      "ENSG00000277443.2": 0.992839966496447,
+      "ENSG00000146038.11": 0.9897057631514955,
+      "ENSG00000181019.12": 0.9873010726540759,
+      "ENSG00000104738.16": 0.932020210207776,
+      "ENSG00000187244.10": 0.9978654994461106,
+      "ENSG00000123094.15": 0.993704574315744,
+      "ENSG00000044574.7": 0.9988381832428197,
+      "ENSG00000124766.6": 0.9396125476209776,
+      "ENSG00000126787.12": 0.8536110885952825,
+      "ENSG00000234741.7": 0.9997838480451757,
+      "ENSG00000156427.7": 0.936505363270379,
+      "ENSG00000211459.2": 0.9994866391072924,
+      "ENSG00000182718.16": 0.9999459620112939
+    },
+    "pca_components": 8,
+    "pca_explained_variance_ratio": [
+      0.14006758782466952,
+      0.08274625973151861,
+      0.06582625226050108,
+      0.053388597530620654,
+      0.04897917604818777,
+      0.04174274014091061,
+      0.03451052564736154,
+      0.031245152655589983
+    ],
+    "control_pre_calibration_lineages": 507,
+    "control_pre_kmeans_inertia": 3120.7250150279133
+  },
+  "linkage": {
+    "Carboplatin:replicate-1": {
+      "namespace": "Carboplatin:replicate-1",
+      "pre_cells": 5057,
+      "post_cells": 1508,
+      "numbered_pre_cells": 353,
+      "numbered_post_cells": 308,
+      "numbered_pre_lineages": 310,
+      "numbered_post_lineages": 186,
+      "paired_lineages": 186,
+      "pre_only_lineages": 124,
+      "post_only_lineages": 0,
+      "paired_pre_cells": 212,
+      "paired_post_cells": 308,
+      "one_pre_one_post_lineages": 102,
+      "max_pre_cells_per_lineage": 3,
+      "max_post_cells_per_lineage": 8,
+      "post_detection_fraction_among_numbered_pre_lineages": 0.6
+    },
+    "Carboplatin:replicate-2": {
+      "namespace": "Carboplatin:replicate-2",
+      "pre_cells": 4882,
+      "post_cells": 1852,
+      "numbered_pre_cells": 382,
+      "numbered_post_cells": 373,
+      "numbered_pre_lineages": 328,
+      "numbered_post_lineages": 214,
+      "paired_lineages": 214,
+      "pre_only_lineages": 114,
+      "post_only_lineages": 0,
+      "paired_pre_cells": 248,
+      "paired_post_cells": 373,
+      "one_pre_one_post_lineages": 115,
+      "max_pre_cells_per_lineage": 3,
+      "max_post_cells_per_lineage": 9,
+      "post_detection_fraction_among_numbered_pre_lineages": 0.6524390243902439
+    },
+    "Olaparib:replicate-1": {
+      "namespace": "Olaparib:replicate-1",
+      "pre_cells": 5239,
+      "post_cells": 8753,
+      "numbered_pre_cells": 528,
+      "numbered_post_cells": 1604,
+      "numbered_pre_lineages": 447,
+      "numbered_post_lineages": 401,
+      "paired_lineages": 401,
+      "pre_only_lineages": 46,
+      "post_only_lineages": 0,
+      "paired_pre_cells": 476,
+      "paired_post_cells": 1604,
+      "one_pre_one_post_lineages": 80,
+      "max_pre_cells_per_lineage": 3,
+      "max_post_cells_per_lineage": 39,
+      "post_detection_fraction_among_numbered_pre_lineages": 0.8970917225950783
+    },
+    "Olaparib:replicate-2": {
+      "namespace": "Olaparib:replicate-2",
+      "pre_cells": 5218,
+      "post_cells": 1297,
+      "numbered_pre_cells": 376,
+      "numbered_post_cells": 275,
+      "numbered_pre_lineages": 329,
+      "numbered_post_lineages": 190,
+      "paired_lineages": 190,
+      "pre_only_lineages": 139,
+      "post_only_lineages": 0,
+      "paired_pre_cells": 220,
+      "paired_post_cells": 275,
+      "one_pre_one_post_lineages": 116,
+      "max_pre_cells_per_lineage": 3,
+      "max_post_cells_per_lineage": 6,
+      "post_detection_fraction_among_numbered_pre_lineages": 0.5775075987841946
+    },
+    "NK:replicate-1": {
+      "namespace": "NK:replicate-1",
+      "pre_cells": 4929,
+      "post_cells": 5449,
+      "numbered_pre_cells": 329,
+      "numbered_post_cells": 883,
+      "numbered_pre_lineages": 294,
+      "numbered_post_lineages": 268,
+      "paired_lineages": 268,
+      "pre_only_lineages": 26,
+      "post_only_lineages": 0,
+      "paired_pre_cells": 300,
+      "paired_post_cells": 883,
+      "one_pre_one_post_lineages": 69,
+      "max_pre_cells_per_lineage": 4,
+      "max_post_cells_per_lineage": 16,
+      "post_detection_fraction_among_numbered_pre_lineages": 0.9115646258503401
+    },
+    "NK:replicate-2": {
+      "namespace": "NK:replicate-2",
+      "pre_cells": 6947,
+      "post_cells": 5527,
+      "numbered_pre_cells": 516,
+      "numbered_post_cells": 1367,
+      "numbered_pre_lineages": 446,
+      "numbered_post_lineages": 420,
+      "paired_lineages": 420,
+      "pre_only_lineages": 26,
+      "post_only_lineages": 0,
+      "paired_pre_cells": 487,
+      "paired_post_cells": 1367,
+      "one_pre_one_post_lineages": 126,
+      "max_pre_cells_per_lineage": 3,
+      "max_post_cells_per_lineage": 21,
+      "post_detection_fraction_among_numbered_pre_lineages": 0.9417040358744395
+    },
+    "Control:replicate-1": {
+      "namespace": "Control:replicate-1",
+      "pre_cells": 2738,
+      "post_cells": 8910,
+      "numbered_pre_cells": 360,
+      "numbered_post_cells": 757,
+      "numbered_pre_lineages": 321,
+      "numbered_post_lineages": 296,
+      "paired_lineages": 296,
+      "pre_only_lineages": 25,
+      "post_only_lineages": 0,
+      "paired_pre_cells": 332,
+      "paired_post_cells": 757,
+      "one_pre_one_post_lineages": 107,
+      "max_pre_cells_per_lineage": 3,
+      "max_post_cells_per_lineage": 19,
+      "post_detection_fraction_among_numbered_pre_lineages": 0.9221183800623053
+    },
+    "Control:replicate-2": {
+      "namespace": "Control:replicate-2",
+      "pre_cells": 2001,
+      "post_cells": 7417,
+      "numbered_pre_cells": 258,
+      "numbered_post_cells": 526,
+      "numbered_pre_lineages": 233,
+      "numbered_post_lineages": 211,
+      "paired_lineages": 211,
+      "pre_only_lineages": 22,
+      "post_only_lineages": 0,
+      "paired_pre_cells": 232,
+      "paired_post_cells": 526,
+      "one_pre_one_post_lineages": 91,
+      "max_pre_cells_per_lineage": 3,
+      "max_post_cells_per_lineage": 32,
+      "post_detection_fraction_among_numbered_pre_lineages": 0.9055793991416309
+    }
+  },
+  "state_support": {
+    "Carboplatin:replicate-1": {
+      "pre": [
+        21,
+        42,
+        123
+      ],
+      "post": [
+        19,
+        27,
+        140
+      ]
+    },
+    "Carboplatin:replicate-2": {
+      "pre": [
+        28,
+        41,
+        145
+      ],
+      "post": [
+        23,
+        37,
+        154
+      ]
+    },
+    "Olaparib:replicate-1": {
+      "pre": [
+        31,
+        107,
+        263
+      ],
+      "post": [
+        26,
+        31,
+        344
+      ]
+    },
+    "Olaparib:replicate-2": {
+      "pre": [
+        15,
+        50,
+        125
+      ],
+      "post": [
+        15,
+        19,
+        156
+      ]
+    },
+    "NK:replicate-1": {
+      "pre": [
+        33,
+        66,
+        169
+      ],
+      "post": [
+        36,
+        73,
+        159
+      ]
+    },
+    "NK:replicate-2": {
+      "pre": [
+        71,
+        99,
+        250
+      ],
+      "post": [
+        64,
+        104,
+        252
+      ]
+    },
+    "Control:replicate-1": {
+      "pre": [
+        51,
+        94,
+        151
+      ],
+      "post": [
+        45,
+        29,
+        222
+      ]
+    },
+    "Control:replicate-2": {
+      "pre": [
+        43,
+        60,
+        108
+      ],
+      "post": [
+        35,
+        23,
+        153
+      ]
+    }
+  },
+  "arm_fields": {
+    "Carboplatin:replicate-1": {
+      "paired_lineages": 186,
+      "field_coordinates": [
+        1.395313106019858,
+        1.2178531870266571,
+        1.5342317985827483,
+        1.5354725061719618
+      ],
+      "field_frobenius": 2.8533503251395946,
+      "held_destroyed_field_coordinates": [
+        -0.1324989070575286,
+        0.28434620905809116,
+        -0.8056279897185605,
+        -0.14031417007260888
+      ],
+      "held_destroyed_field_frobenius": 0.8758614337429644,
+      "destroyed_null_median": 0.7105219140092315,
+      "destroyed_null_p95": 1.2617818631139375,
+      "destroyed_link_p_value": 0.015384615384615385,
+      "destroyed_link_bh_q_value": 0.015384615384615385
+    },
+    "Carboplatin:replicate-2": {
+      "paired_lineages": 214,
+      "field_coordinates": [
+        2.1052135489954447,
+        1.6138953258773254,
+        0.48681728702306,
+        0.4400396035650106
+      ],
+      "field_frobenius": 2.732619280729172,
+      "held_destroyed_field_coordinates": [
+        -0.258014377102393,
+        -0.31412718276302737,
+        -0.1256882888010295,
+        0.16895872451828853
+      ],
+      "held_destroyed_field_frobenius": 0.45781208183571365,
+      "destroyed_null_median": 0.6392630548322019,
+      "destroyed_null_p95": 1.113144071851887,
+      "destroyed_link_p_value": 0.015384615384615385,
+      "destroyed_link_bh_q_value": 0.015384615384615385
+    },
+    "Control:replicate-1": {
+      "paired_lineages": 296,
+      "field_coordinates": [
+        2.2634709061753986,
+        1.1355899920886199,
+        1.2495889334017027,
+        0.8753008830090209
+      ],
+      "field_frobenius": 2.9564318547043644,
+      "held_destroyed_field_coordinates": [
+        -0.08753791638025235,
+        -0.04139710679736792,
+        0.38045598755545873,
+        -0.28535188451830107
+      ],
+      "held_destroyed_field_frobenius": 0.4853339713231848,
+      "destroyed_null_median": 0.47771628312807496,
+      "destroyed_null_p95": 0.8566428784064095,
+      "destroyed_link_p_value": 0.015384615384615385,
+      "destroyed_link_bh_q_value": 0.015384615384615385
+    },
+    "Control:replicate-2": {
+      "paired_lineages": 211,
+      "field_coordinates": [
+        1.6372174292043764,
+        1.1923056317454501,
+        1.5361364915277347,
+        0.9594373343558328
+      ],
+      "field_frobenius": 2.7170404761691476,
+      "held_destroyed_field_coordinates": [
+        0.02967660228062835,
+        -0.17935876928406294,
+        0.2218933373015317,
+        -0.17796273947484662
+      ],
+      "held_destroyed_field_frobenius": 0.3375761523304331,
+      "destroyed_null_median": 0.4556976586572066,
+      "destroyed_null_p95": 0.8837870343441662,
+      "destroyed_link_p_value": 0.015384615384615385,
+      "destroyed_link_bh_q_value": 0.015384615384615385
+    },
+    "NK:replicate-1": {
+      "paired_lineages": 268,
+      "field_coordinates": [
+        2.4252565392264187,
+        1.0732264699365546,
+        1.8984092135739405,
+        1.3429960503442233
+      ],
+      "field_frobenius": 3.5272199067049383,
+      "held_destroyed_field_coordinates": [
+        0.24677540890745517,
+        0.01908688819905973,
+        0.08552962880092209,
+        0.035741670112093414
+      ],
+      "held_destroyed_field_frobenius": 0.2643013358418575,
+      "destroyed_null_median": 0.5260055947319431,
+      "destroyed_null_p95": 0.9204593609858234,
+      "destroyed_link_p_value": 0.015384615384615385,
+      "destroyed_link_bh_q_value": 0.015384615384615385
+    },
+    "NK:replicate-2": {
+      "paired_lineages": 420,
+      "field_coordinates": [
+        2.0583115393294062,
+        1.0610408377092686,
+        2.204398511131884,
+        1.365563457472798
+      ],
+      "field_frobenius": 3.476577398029405,
+      "held_destroyed_field_coordinates": [
+        -0.39318982927454255,
+        -0.058710888179262885,
+        0.012927011186381086,
+        -0.1890633387444872
+      ],
+      "held_destroyed_field_frobenius": 0.4404057945930859,
+      "destroyed_null_median": 0.35187889359617736,
+      "destroyed_null_p95": 0.6014781734668233,
+      "destroyed_link_p_value": 0.015384615384615385,
+      "destroyed_link_bh_q_value": 0.015384615384615385
+    },
+    "Olaparib:replicate-1": {
+      "paired_lineages": 401,
+      "field_coordinates": [
+        2.454034775615889,
+        1.140354835625535,
+        2.1374646505530386,
+        0.8716692839204233
+      ],
+      "field_frobenius": 3.5568607372176992,
+      "held_destroyed_field_coordinates": [
+        0.2151193938101445,
+        -0.14042842248229023,
+        -0.4670994307907674,
+        -0.14863032936484516
+      ],
+      "held_destroyed_field_frobenius": 0.5534160717636143,
+      "destroyed_null_median": 0.6347491529958438,
+      "destroyed_null_p95": 1.3632730203018482,
+      "destroyed_link_p_value": 0.015384615384615385,
+      "destroyed_link_bh_q_value": 0.015384615384615385
+    },
+    "Olaparib:replicate-2": {
+      "paired_lineages": 190,
+      "field_coordinates": [
+        2.189717581089408,
+        1.3698242346927032,
+        1.5494536018480154,
+        0.8892785745022106
+      ],
+      "field_frobenius": 3.1405261288885926,
+      "held_destroyed_field_coordinates": [
+        0.18605098847317292,
+        0.20165157561195887,
+        0.3720143106295238,
+        0.055762859189008605
+      ],
+      "held_destroyed_field_frobenius": 0.4655990464302126,
+      "destroyed_null_median": 0.8472519320058542,
+      "destroyed_null_p95": 1.2777408348593835,
+      "destroyed_link_p_value": 0.015384615384615385,
+      "destroyed_link_bh_q_value": 0.015384615384615385
+    }
+  },
+  "treatment_minus_control_reproducibility": {
+    "Carboplatin": {
+      "replicate_1_coordinates": [
+        -0.8681578001555406,
+        0.08226319493803724,
+        0.28464286518104553,
+        0.660171623162941
+      ],
+      "replicate_2_coordinates": [
+        0.46799611979106825,
+        0.4215896941318753,
+        -1.0493192045046746,
+        -0.5193977307908222
+      ],
+      "replicate_contrast_cosine": -0.6742921492180469,
+      "lineage_bootstrap_cosine_ci95": [
+        -0.9648284832325313,
+        0.7288670795570233
+      ],
+      "lineage_bootstrap_probability_positive": 0.186,
+      "destroyed_link_cosine_null_median": 0.0854589676400329,
+      "destroyed_link_cosine_null_ci95": [
+        -0.8488699095828738,
+        0.7289792686235645
+      ],
+      "destroyed_link_reproducibility_p_value": 0.8769230769230769,
+      "destroyed_link_reproducibility_bh_q_value": 0.8769230769230769
+    },
+    "Olaparib": {
+      "replicate_1_coordinates": [
+        0.1905638694404903,
+        0.004764843536915198,
+        0.8878757171513358,
+        -0.003631599088597559
+      ],
+      "replicate_2_coordinates": [
+        0.5525001518850317,
+        0.17751860294725308,
+        0.013317110320280712,
+        -0.07015875985362219
+      ],
+      "replicate_contrast_cosine": 0.22263197886740732,
+      "lineage_bootstrap_cosine_ci95": [
+        -0.8763396795928181,
+        0.9250384733824166
+      ],
+      "lineage_bootstrap_probability_positive": 0.513,
+      "destroyed_link_cosine_null_median": -0.1687717389464404,
+      "destroyed_link_cosine_null_ci95": [
+        -0.9437816590423389,
+        0.7665725894530713
+      ],
+      "destroyed_link_reproducibility_p_value": 0.35384615384615387,
+      "destroyed_link_reproducibility_bh_q_value": 0.5307692307692308
+    },
+    "NK": {
+      "replicate_1_coordinates": [
+        0.16178563305102012,
+        -0.06236352215206531,
+        0.6488202801722378,
+        0.46769516733520244
+      ],
+      "replicate_2_coordinates": [
+        0.42109411012502984,
+        -0.13126479403618152,
+        0.6682620196041491,
+        0.40612612311696517
+      ],
+      "replicate_contrast_cosine": 0.9524675472346087,
+      "lineage_bootstrap_cosine_ci95": [
+        -0.8014158127425614,
+        0.9679759700443841
+      ],
+      "lineage_bootstrap_probability_positive": 0.722,
+      "destroyed_link_cosine_null_median": 0.009985306587305499,
+      "destroyed_link_cosine_null_ci95": [
+        -0.7383745645024925,
+        0.8238011145351751
+      ],
+      "destroyed_link_reproducibility_p_value": 0.015384615384615385,
+      "destroyed_link_reproducibility_bh_q_value": 0.046153846153846156
+    }
+  },
+  "gate": {
+    "support_pass_all_arms": true,
+    "reproducible_treatment_contrasts": [],
+    "criterion": "positive lineage-bootstrap 95% CI and one-sided exact link-destruction p <= 0.05"
+  },
+  "lineage_bootstraps": 2000,
+  "random_seed": 223003,
+  "provenance": [
+    {
+      "gsm": "GSM6938163",
+      "condition": "Carboplatin",
+      "replicate": 1,
+      "timepoint": "pre",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938163_ReSisTrace_Carboplatin_1_pre_treatment_cell_info.tsv.gz",
+      "bytes": 102771,
+      "sha256": "0be5d19cafb4fd7f47c81363d760a892f001eaf1c429c281ee17c1a53c9177a8"
+    },
+    {
+      "gsm": "GSM6938164",
+      "condition": "Carboplatin",
+      "replicate": 1,
+      "timepoint": "post",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938164_ReSisTrace_Carboplatin_1_post_treatment_cell_info.tsv.gz",
+      "bytes": 31447,
+      "sha256": "c8b0144697a1d187bb9971270f843e23b24612fe0c05cbcaddd65a9ebe237f7e"
+    },
+    {
+      "gsm": "GSM6938165",
+      "condition": "Carboplatin",
+      "replicate": 2,
+      "timepoint": "pre",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938165_ReSisTrace_Carboplatin_2_pre_treatment_cell_info.tsv.gz",
+      "bytes": 99298,
+      "sha256": "9a197f9c99a6c5603531db83b50dc6a6fa5fdb55eedcc18d56cd38c2a6f56563"
+    },
+    {
+      "gsm": "GSM6938166",
+      "condition": "Carboplatin",
+      "replicate": 2,
+      "timepoint": "post",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938166_ReSisTrace_Carboplatin_2_post_treatment_cell_info.tsv.gz",
+      "bytes": 38337,
+      "sha256": "4ff3d1734e23b12234f9b52408371209762a73ea518afa189c0adf938e1787c7"
+    },
+    {
+      "gsm": "GSM6938167",
+      "condition": "Olaparib",
+      "replicate": 1,
+      "timepoint": "pre",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938167_ReSisTrace_Olaparib_1_pre_treatment_cell_info.tsv.gz",
+      "bytes": 106561,
+      "sha256": "9539521f033bd1c857d29d3095ebbb8f7dfdad2edb1c2bfc862a0d37079201ed"
+    },
+    {
+      "gsm": "GSM6938168",
+      "condition": "Olaparib",
+      "replicate": 1,
+      "timepoint": "post",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938168_ReSisTrace_Olaparib_1_post_treatment_cell_info.tsv.gz",
+      "bytes": 170224,
+      "sha256": "c39a3e6ddd1e44757eb41e85c4235d6483e56784c147bddecccf595782b76870"
+    },
+    {
+      "gsm": "GSM6938169",
+      "condition": "Olaparib",
+      "replicate": 2,
+      "timepoint": "pre",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938169_ReSisTrace_Olaparib_2_pre_treatment_cell_info.tsv.gz",
+      "bytes": 106291,
+      "sha256": "f8ec56ccb23778ac4e7869c2f11410cd148d49f801c5ed12da6e6f9ec8bc436e"
+    },
+    {
+      "gsm": "GSM6938170",
+      "condition": "Olaparib",
+      "replicate": 2,
+      "timepoint": "post",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938170_ReSisTrace_Olaparib_2_post_treatment_cell_info.tsv.gz",
+      "bytes": 27294,
+      "sha256": "12d79a6513da519680abfc4177a15d9939c733e10c58e89c385f048d4963d30a"
+    },
+    {
+      "gsm": "GSM6938171",
+      "condition": "NK",
+      "replicate": 1,
+      "timepoint": "pre",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938171_ReSisTrace_NK_1_pre_treatment_cell_info.tsv.gz",
+      "bytes": 99607,
+      "sha256": "d60c9d48f4d39f5681acc1d17366ff8e9c774342bef0457a57ab3c7c06bd747b"
+    },
+    {
+      "gsm": "GSM6938172",
+      "condition": "NK",
+      "replicate": 1,
+      "timepoint": "post",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938172_ReSisTrace_NK_1_post_treatment_cell_info.tsv.gz",
+      "bytes": 106283,
+      "sha256": "b4b183034b59859ed4fbb1c111e1e986a800fec5fe448ef1a723ee7d4b68b8d5"
+    },
+    {
+      "gsm": "GSM6938173",
+      "condition": "NK",
+      "replicate": 2,
+      "timepoint": "pre",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938173_ReSisTrace_NK_2_pre_treatment_cell_info.tsv.gz",
+      "bytes": 140295,
+      "sha256": "15ec77cb8a4a63168fe6abe00d875ca65918718a022c8ec0d0ba372de7a079d1"
+    },
+    {
+      "gsm": "GSM6938174",
+      "condition": "NK",
+      "replicate": 2,
+      "timepoint": "post",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938174_ReSisTrace_NK_2_post_treatment_cell_info.tsv.gz",
+      "bytes": 109730,
+      "sha256": "e1814afa7e461ea59d630f95713ad5f8a6e6b2b06c8963535e1c19f668e088a3"
+    },
+    {
+      "gsm": "GSM6938175",
+      "condition": "Control",
+      "replicate": 1,
+      "timepoint": "pre",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938175_ReSisTrace_Control_1_pre_treatment_cell_info.tsv.gz",
+      "bytes": 56958,
+      "sha256": "3443bd474232a7430d50c0a6a85d2af22c0ecda8c4e0ed18c954e337a958e68c"
+    },
+    {
+      "gsm": "GSM6938176",
+      "condition": "Control",
+      "replicate": 1,
+      "timepoint": "post",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938176_ReSisTrace_Control_1_post_treatment_cell_info.tsv.gz",
+      "bytes": 170096,
+      "sha256": "49e0bec4fc74b8cdac052cd9dfd22b46a94b67a44e5c6f88964116a739e4ff4c"
+    },
+    {
+      "gsm": "GSM6938177",
+      "condition": "Control",
+      "replicate": 2,
+      "timepoint": "pre",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938177_ReSisTrace_Control_2_pre_treatment_cell_info.tsv.gz",
+      "bytes": 43589,
+      "sha256": "1ad9b5ae5f416dd240885ee4cf77e10a66cd72f2bb0c396d3e2f7ea898257db4"
+    },
+    {
+      "gsm": "GSM6938178",
+      "condition": "Control",
+      "replicate": 2,
+      "timepoint": "post",
+      "kind": "cell_info",
+      "path": "cell_info/GSM6938178_ReSisTrace_Control_2_post_treatment_cell_info.tsv.gz",
+      "bytes": 141981,
+      "sha256": "9d16282fc35ca03d67d22dec81e618933853f966e4bdaa647018602dbb00a946"
+    },
+    {
+      "gsm": "GSM6938163",
+      "condition": "Carboplatin",
+      "replicate": 1,
+      "timepoint": "pre",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938163_ReSisTrace_Carboplatin_1_pre_treatment_UMIcounts.tsv.gz",
+      "bytes": 33803624,
+      "sha256": "2b4d3e0ba073ac4473fe03969616f3cd223cb26b87418d2a56f60d089a02ad3c"
+    },
+    {
+      "gsm": "GSM6938164",
+      "condition": "Carboplatin",
+      "replicate": 1,
+      "timepoint": "post",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938164_ReSisTrace_Carboplatin_1_post_treatment_UMIcounts.tsv.gz",
+      "bytes": 12037423,
+      "sha256": "448e756284c0b3a469115ad06f8002aa2ae03ead882b18fdaac0d59f59bb5160"
+    },
+    {
+      "gsm": "GSM6938165",
+      "condition": "Carboplatin",
+      "replicate": 2,
+      "timepoint": "pre",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938165_ReSisTrace_Carboplatin_2_pre_treatment_UMIcounts.tsv.gz",
+      "bytes": 33795922,
+      "sha256": "1b53fe5a9c3d8e97c89efb1397d4a1195fc226acc8925e9e9a4981af0e8e3f9d"
+    },
+    {
+      "gsm": "GSM6938166",
+      "condition": "Carboplatin",
+      "replicate": 2,
+      "timepoint": "post",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938166_ReSisTrace_Carboplatin_2_post_treatment_UMIcounts.tsv.gz",
+      "bytes": 13580188,
+      "sha256": "1b946203b5d76b35bb692ef3dc81bdbc20eb242542d0c8acb4b9a4737591dbd7"
+    },
+    {
+      "gsm": "GSM6938167",
+      "condition": "Olaparib",
+      "replicate": 1,
+      "timepoint": "pre",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938167_ReSisTrace_Olaparib_1_pre_treatment_UMIcounts.tsv.gz",
+      "bytes": 35280010,
+      "sha256": "af63484be71c69ce03995062a65c7fd4ce865c7ff8c4e69c1b532fded5b373e3"
+    },
+    {
+      "gsm": "GSM6938168",
+      "condition": "Olaparib",
+      "replicate": 1,
+      "timepoint": "post",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938168_ReSisTrace_Olaparib_1_post_treatment_UMIcounts.tsv.gz",
+      "bytes": 44415927,
+      "sha256": "a3e6907faedcebc0c669699cbdf8953d0e2e737ac5648eaca7964be01049b30f"
+    },
+    {
+      "gsm": "GSM6938169",
+      "condition": "Olaparib",
+      "replicate": 2,
+      "timepoint": "pre",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938169_ReSisTrace_Olaparib_2_pre_treatment_UMIcounts.tsv.gz",
+      "bytes": 35987885,
+      "sha256": "0d9db40b1909d0bca21adbca948bf9280282b128cfe6b7c5c35220d21466f054"
+    },
+    {
+      "gsm": "GSM6938170",
+      "condition": "Olaparib",
+      "replicate": 2,
+      "timepoint": "post",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938170_ReSisTrace_Olaparib_2_post_treatment_UMIcounts.tsv.gz",
+      "bytes": 10444000,
+      "sha256": "f64a492bfcd5965ddcfdca0c5b891f6601f63db74eb2bd9895f4b184846bd91c"
+    },
+    {
+      "gsm": "GSM6938171",
+      "condition": "NK",
+      "replicate": 1,
+      "timepoint": "pre",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938171_ReSisTrace_NK_1_pre_treatment_UMIcounts.tsv.gz",
+      "bytes": 32375433,
+      "sha256": "e28723fe2988e0ad9f9f69262a092dad9f3a8b5a5319c3663c3f929b48531ce3"
+    },
+    {
+      "gsm": "GSM6938172",
+      "condition": "NK",
+      "replicate": 1,
+      "timepoint": "post",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938172_ReSisTrace_NK_1_post_treatment_UMIcounts.tsv.gz",
+      "bytes": 32529860,
+      "sha256": "d75c522d675b614e7f1c0f93fadb59b0f24d2543c6f309b101aae6c37b7443c8"
+    },
+    {
+      "gsm": "GSM6938173",
+      "condition": "NK",
+      "replicate": 2,
+      "timepoint": "pre",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938173_ReSisTrace_NK_2_pre_treatment_UMIcounts.tsv.gz",
+      "bytes": 44096960,
+      "sha256": "cb526e0f462e6946965bd860d9470b9a885ec3491be7c53273fe0b9ee1612b4b"
+    },
+    {
+      "gsm": "GSM6938174",
+      "condition": "NK",
+      "replicate": 2,
+      "timepoint": "post",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938174_ReSisTrace_NK_2_post_treatment_UMIcounts.tsv.gz",
+      "bytes": 32751138,
+      "sha256": "fed2c6ffc8dc8602e7c794c11fceae91a20db239925bdbaf8dff2ed0717ef8d1"
+    },
+    {
+      "gsm": "GSM6938175",
+      "condition": "Control",
+      "replicate": 1,
+      "timepoint": "pre",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938175_ReSisTrace_Control_1_pre_treatment_UMIcounts.tsv.gz",
+      "bytes": 20934832,
+      "sha256": "7fb5b988711bb8a3987324f15bc23d964a78a724c922d2bd9e39626af6e8380b"
+    },
+    {
+      "gsm": "GSM6938176",
+      "condition": "Control",
+      "replicate": 1,
+      "timepoint": "post",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938176_ReSisTrace_Control_1_post_treatment_UMIcounts.tsv.gz",
+      "bytes": 44310122,
+      "sha256": "4d49a3495b7f925548aba50bafb109f4b23fc76596c3395c3be83d8534de63ab"
+    },
+    {
+      "gsm": "GSM6938177",
+      "condition": "Control",
+      "replicate": 2,
+      "timepoint": "pre",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938177_ReSisTrace_Control_2_pre_treatment_UMIcounts.tsv.gz",
+      "bytes": 17260645,
+      "sha256": "29130bd959c1cdbc4d1d46eb8756a412b9b6f7e9d35442ab8d76e75ca4d62880"
+    },
+    {
+      "gsm": "GSM6938178",
+      "condition": "Control",
+      "replicate": 2,
+      "timepoint": "post",
+      "kind": "UMIcounts",
+      "path": "umi_counts/GSM6938178_ReSisTrace_Control_2_post_treatment_UMIcounts.tsv.gz",
+      "bytes": 38496375,
+      "sha256": "f2dfb7b7e2cc58aca837a7ef653e41ffed024a3468d8a2e4cd0eba512c3245cb"
+    }
+  ]
+}

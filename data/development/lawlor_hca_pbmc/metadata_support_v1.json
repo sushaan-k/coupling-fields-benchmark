@@ -1,0 +1,42 @@
+{
+  "schema": "lawlor-hca-pbmc-metadata-support/1.0",
+  "status": "METADATA_ONLY_NO_RNA_OR_ADT_VALUES_ACCESSED",
+  "generated_at_utc": "2026-08-28T00:35:00Z",
+  "annotation_sha256": "76a6548089867687461603ed0031ba02f9203885cd8a623b7497bdceccaf7229",
+  "filters": {
+    "HTO_Classification": ["Baseline", "LPS", "CD3_CD28"],
+    "Demuxlet_Classification": "SNG",
+    "Celltype_Annotation": "not NA"
+  },
+  "eligible_annotation_rows": 16382,
+  "donor_split_salt": "pbmc-citeseq-coupling-v1",
+  "donor_split_rule": "ascending SHA256(salt + canonical Donor_of_Origin); first six development, last four confirmation",
+  "donors": [
+    {"rank": 1, "canonical_label": "202937150118_R01C01", "author_alias": "Donor3", "split": "development", "sha256_rank_key": "3eb4f25da112044343bc5fe0433808aebf0ba7452f9b0a6c271992191fa6592c"},
+    {"rank": 2, "canonical_label": "202937150118_R03C01", "author_alias": "Donor5", "split": "development", "sha256_rank_key": "69926025ab9272b79db91a4479bfac55e45d5cfa6a5c42efd2446ade1d2d2f41"},
+    {"rank": 3, "canonical_label": "202937150091_R01C01", "author_alias": "Donor1", "split": "development", "sha256_rank_key": "79b4cf0a5b93c2c1420c35761bff06ff7859347efbb4ff93da2a2bca47e13926"},
+    {"rank": 4, "canonical_label": "202937150118_R06C01", "author_alias": "Donor8", "split": "development", "sha256_rank_key": "7e44450aa72061f5d8e50fb8e5407e2d6b644594b3f00fcbe33c108af8e29fea"},
+    {"rank": 5, "canonical_label": "202937150118_R04C01", "author_alias": "Donor6", "split": "development", "sha256_rank_key": "8b436e27d552d411d54039e6d6683b34de0e44d67c8a56348b5658e7541214ae"},
+    {"rank": 6, "canonical_label": "202937150118_R07C01", "author_alias": "Donor9", "split": "development", "sha256_rank_key": "acb83628c9bb86104270d45b0e53348c1077da77424acac1c080f94620f7bf09"},
+    {"rank": 7, "canonical_label": "202937150118_R05C01", "author_alias": "Donor7", "split": "confirmation", "sha256_rank_key": "c994af5b0d3d1a5cfa4ad164f2fcf4afc20abebad9781b311c8cb686fbcb4565"},
+    {"rank": 8, "canonical_label": "202937150091_R02C01", "author_alias": "Donor2", "split": "confirmation", "sha256_rank_key": "d75823d0b4058bd647a62c790803ccb3a23bc20dc82bb8550503b3d8c602690a"},
+    {"rank": 9, "canonical_label": "202937150118_R08C01", "author_alias": "Donor10", "split": "confirmation", "sha256_rank_key": "e4b89ad1cb0d6447f22f514cad04c067b7f6e7c156589a748d96e5431457b0bd"},
+    {"rank": 10, "canonical_label": "202937150118_R02C01", "author_alias": "Donor4", "split": "confirmation", "sha256_rank_key": "ebb088f058ed04a1de8409eeb970f11ec3e2b2cef8de9b9b297cc0f85fcd9be1"}
+  ],
+  "donor_count_order": ["Donor1", "Donor2", "Donor3", "Donor4", "Donor5", "Donor6", "Donor7", "Donor8", "Donor9", "Donor10"],
+  "minimum_cells_per_donor_arm": 15,
+  "retained_contrasts": [
+    {"stimulus": "CD3_CD28", "cell_type": "B", "baseline_counts": [19, 17, 28, 26, 19, 16, 26, 41, 28, 30], "stimulus_counts": [53, 31, 42, 41, 33, 32, 40, 63, 69, 86]},
+    {"stimulus": "CD3_CD28", "cell_type": "CD4T_Naive", "baseline_counts": [90, 57, 134, 127, 114, 183, 169, 195, 100, 209], "stimulus_counts": [106, 54, 154, 151, 201, 353, 187, 153, 155, 314]},
+    {"stimulus": "CD3_CD28", "cell_type": "CD4T_Mem", "baseline_counts": [59, 36, 86, 94, 111, 88, 121, 110, 117, 81], "stimulus_counts": [81, 53, 110, 104, 160, 164, 124, 120, 139, 119]},
+    {"stimulus": "CD3_CD28", "cell_type": "CD8T_Naive", "baseline_counts": [87, 32, 54, 119, 90, 115, 132, 105, 66, 108], "stimulus_counts": [74, 22, 59, 98, 80, 122, 96, 73, 85, 121]},
+    {"stimulus": "CD3_CD28", "cell_type": "CD8T_Mem", "baseline_counts": [32, 48, 64, 26, 120, 34, 49, 49, 36, 47], "stimulus_counts": [52, 64, 71, 21, 300, 39, 39, 38, 80, 53]},
+    {"stimulus": "LPS", "cell_type": "CD14_Mono", "baseline_counts": [66, 56, 62, 107, 103, 124, 71, 114, 131, 93], "stimulus_counts": [72, 67, 37, 70, 22, 55, 96, 67, 123, 108]}
+  ],
+  "structural_exclusions": [
+    {"stimulus": "CD3_CD28", "cell_type": "CD14_Mono", "reason": "stimulated arm structurally absent"},
+    {"stimulus": "CD3_CD28", "cell_type": "NK", "reason": "minimum donor baseline support is 7 cells"},
+    {"stimulus": "LPS", "cell_type": "all non-CD14 author broad labels", "reason": "outside the study-targeted monocyte contrast"}
+  ],
+  "primary_grid": "each development-eligible matched RNA-ADT marker by six retained contrasts by four Helmert coordinates; 24 outputs per marker"
+}

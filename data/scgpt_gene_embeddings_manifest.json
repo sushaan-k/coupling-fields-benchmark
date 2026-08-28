@@ -1,0 +1,27 @@
+{
+  "schema": "scgpt-gene-embedding-derivation/1.0",
+  "status": "DERIVED_FILE_NOT_REDISTRIBUTED",
+  "reason": "The derived checkpoint embedding is checksum-bound but omitted pending upstream model-weight redistribution review.",
+  "output": {
+    "path": "data/scgpt_gene_embeddings.npz",
+    "bytes": 75014630,
+    "sha256": "baf835e05077c6ec17e7bb0f48fc30632adc24be5bb91e591f74ab2e7985c60e",
+    "genes": 39244,
+    "dimensions": 512
+  },
+  "derivation_script": "scripts/prepare_scgpt_embeddings.py",
+  "inputs": {
+    "checkpoint": {
+      "url": "https://huggingface.co/wanglab/scGPT-human/resolve/main/best_model.pt",
+      "sha256": "6cb5d451ab5c4b33eb673adbe4fddc61d2389df1b89b7651a9fe2e557572b922"
+    },
+    "vocabulary": {
+      "url": "https://huggingface.co/wanglab/scGPT-human/resolve/main/vocab.json",
+      "sha256": "acca93d114ca62c3f0f50debbd23e8c87f0714f4737764454f6b2b13f2e8580f"
+    },
+    "hgnc_complete_set": {
+      "url": "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt",
+      "sha256": "4ad72ffc6bca0d0858bb7234cfb3c7b1fb10e8e693e2f8d5c0842b4cfb03e748"
+    }
+  }
+}

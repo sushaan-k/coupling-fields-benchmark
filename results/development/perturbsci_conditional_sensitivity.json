@@ -1,0 +1,141 @@
+{
+  "configurations": [
+    {
+      "destroyed_links": {
+        "macro_target_cosine": -0.12156862745098039,
+        "pooled_pearson": -0.01399041334802096,
+        "standardized_rmse": 1.1962130355690486
+      },
+      "field_coordinates": 1,
+      "permutations": 64,
+      "primary": {
+        "macro_target_cosine": 0.1843137254901961,
+        "pooled_pearson": -0.12118279460222418,
+        "standardized_rmse": 0.9925465826332083
+      },
+      "pseudocount": 0.5,
+      "states_per_assay": 2
+    },
+    {
+      "destroyed_links": {
+        "macro_target_cosine": 0.07953568287092389,
+        "pooled_pearson": 0.07431959944764041,
+        "standardized_rmse": 1.1055245170766914
+      },
+      "field_coordinates": 4,
+      "permutations": 64,
+      "primary": {
+        "macro_target_cosine": 0.5541033383341933,
+        "pooled_pearson": 0.5246526894794067,
+        "standardized_rmse": 0.843645561260069
+      },
+      "pseudocount": 0.5,
+      "states_per_assay": 3
+    },
+    {
+      "destroyed_links": {
+        "macro_target_cosine": -0.01298456826036576,
+        "pooled_pearson": -0.026688418076425847,
+        "standardized_rmse": 1.1122359395868957
+      },
+      "field_coordinates": 9,
+      "permutations": 64,
+      "primary": {
+        "macro_target_cosine": 0.6881089079910493,
+        "pooled_pearson": 0.6397831662655077,
+        "standardized_rmse": 0.7664125128997212
+      },
+      "pseudocount": 0.5,
+      "states_per_assay": 4
+    },
+    {
+      "destroyed_links": {
+        "macro_target_cosine": 0.03973871188762148,
+        "pooled_pearson": 0.040705502362915,
+        "standardized_rmse": 1.1247810174228736
+      },
+      "field_coordinates": 4,
+      "permutations": 16,
+      "primary": {
+        "macro_target_cosine": 0.5234136154931956,
+        "pooled_pearson": 0.4939717615749163,
+        "standardized_rmse": 0.8592501787075721
+      },
+      "pseudocount": 0.5,
+      "states_per_assay": 3
+    },
+    {
+      "destroyed_links": {
+        "macro_target_cosine": 0.053779785058299306,
+        "pooled_pearson": 0.05359668547272446,
+        "standardized_rmse": 1.1158221297415687
+      },
+      "field_coordinates": 4,
+      "permutations": 32,
+      "primary": {
+        "macro_target_cosine": 0.5401331177490404,
+        "pooled_pearson": 0.5082126574959712,
+        "standardized_rmse": 0.8529639442368023
+      },
+      "pseudocount": 0.5,
+      "states_per_assay": 3
+    },
+    {
+      "destroyed_links": {
+        "macro_target_cosine": 0.08413660361703068,
+        "pooled_pearson": 0.07696216964933701,
+        "standardized_rmse": 1.102227294357393
+      },
+      "field_coordinates": 4,
+      "permutations": 128,
+      "primary": {
+        "macro_target_cosine": 0.5548226180446281,
+        "pooled_pearson": 0.5231390042955856,
+        "standardized_rmse": 0.8441647336741566
+      },
+      "pseudocount": 0.5,
+      "states_per_assay": 3
+    },
+    {
+      "destroyed_links": {
+        "macro_target_cosine": 0.04950128403531136,
+        "pooled_pearson": 0.04489179603345445,
+        "standardized_rmse": 1.1198947397914096
+      },
+      "field_coordinates": 4,
+      "permutations": 64,
+      "primary": {
+        "macro_target_cosine": 0.3061311717545437,
+        "pooled_pearson": 0.33909333508241046,
+        "standardized_rmse": 0.9357099790772796
+      },
+      "pseudocount": 0.25,
+      "states_per_assay": 3
+    },
+    {
+      "destroyed_links": {
+        "macro_target_cosine": 0.09229828338029848,
+        "pooled_pearson": 0.09609726572756537,
+        "standardized_rmse": 1.0696590483204076
+      },
+      "field_coordinates": 4,
+      "permutations": 64,
+      "primary": {
+        "macro_target_cosine": 0.7628584218441139,
+        "pooled_pearson": 0.7180766991513655,
+        "standardized_rmse": 0.6901075395932208
+      },
+      "pseudocount": 1.0,
+      "states_per_assay": 3
+    }
+  ],
+  "panel": "GSE218566 PerturbSci-Kinetics",
+  "provenance": {
+    "estimator_sha256": "29a3875fa43572ead6c53cd7dea60bb9bdf07c35b417d79d8a97f30cbb230912",
+    "input": "data/development/perturbsci_kinetics_gse218566/frozen_states_v1.npz",
+    "input_sha256": "6e728189d9637c2d393bc7e28f406161f820e1c5ddc36f7d3c489e06f528d44b",
+    "runner_sha256": "e79c69ef897dc518734cda9ad7fa52b1a3bb5a2e589a0eb612d562ece44809d3"
+  },
+  "schema": "v2p2r.perturbsci-conditional-sensitivity/1",
+  "targets": 85
+}

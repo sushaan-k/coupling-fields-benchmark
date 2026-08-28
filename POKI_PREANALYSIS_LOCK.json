@@ -1,0 +1,38 @@
+{
+  "analysis_stages": [
+    "prepare cache mechanically",
+    "write pre-truth predictions from held margins and allowed anchors",
+    "form and score held target-TGFB pairing only after prediction hash exists"
+  ],
+  "candidate": "GSE143417 PoKI-seq Donor1 to held Donor2",
+  "created_utc": "2026-08-28T01:20:38.655236+00:00",
+  "implementation_sha256": {
+    "data/confirmation/gse143417_pokiseq/candidate_designation_v1.json": "4dafbfc270628ad6f0f9921757a9689dea34ceaf92a0ec3725d377545e63c8c8",
+    "docs/GSE143417_POKISEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-27.md": "ae550d171b494b535a922a68b8f666d161c3c3b538a988909204766025843f1a",
+    "experiments/confirm_poki_gse143417_conditional_fields.py": "0f3f36e27bc7a0f53113d7e7456b10bf4f62070718a3b8e7b0aa99b44561c8ef",
+    "mapreg/classical_residuals.py": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
+    "mapreg/coupling_fields.py": "29a3875fa43572ead6c53cd7dea60bb9bdf07c35b417d79d8a97f30cbb230912",
+    "mapreg/table_prediction.py": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e",
+    "scripts/authorize_poki_gse143417_scoring.py": "be7046d19ca61a263a59eda679bedaacd9893fc5ff8ffcc501d176c4ad91c871",
+    "scripts/freeze_poki_gse143417_confirmation.py": "eb053cbec6e0fff8a83508ddeea879ebc0494138ae9d62dc52c58721a7b245ae",
+    "tests/test_classical_residuals_full.py": "76e532a90a7c393ca95837fdd9ebbee8988b278b27c5aa027326abb936bca218",
+    "tests/test_confirm_poki_gse143417.py": "2c91134fccda25de5937d72d2661f0babad29d23a6c11572de1d4b430273aa40",
+    "tests/test_table_prediction.py": "bf34b51291516246e803a6df6c166c959fa083fd47d3bf115ef35b5bd0b305a4"
+  },
+  "outcome_access_authorized": false,
+  "primary_gate": [
+    "held field correlation lower 95% endpoint > 0",
+    "primary-minus-destroyed deviance upper 95% endpoint < 0",
+    "primary-minus-best-classical deviance upper 95% endpoint < 0",
+    "primary-minus-best-matched-field deviance upper 95% endpoint < 0"
+  ],
+  "protocol": "gse143417-pokiseq-held-donor/1.0",
+  "public_freeze_commit": null,
+  "public_freeze_url": null,
+  "source": {
+    "bytes": 492216320,
+    "path": "data/confirmation/gse143417_pokiseq/GSE143417_RAW.tar",
+    "sha256": "6bc8bf810fbca8f0585c337ed143d39d8bfbc3f85d623894ebadf4c6f357b632"
+  },
+  "status": "SEALED_PREOUTCOME"
+}
