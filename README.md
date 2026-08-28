@@ -3,8 +3,8 @@
 This repository is a public, source-visible benchmark for
 perturbation-specific dependence in linked single-cell assays. It preserves
 positive, negative, and refused panels under one fixed evaluation contract.
-It contains seven scored public-data panels, six transparent procedural
-refusals, and one outcome-disabled held-site candidate. PoKI-seq stopped at its
+It contains seven scored public-data panels and seven transparent procedural
+refusals. PoKI-seq stopped at its
 state-occupancy preflight, Lawlor stopped when
 the frozen reducer rejected the deposited ADT object type, and Hao stopped when
 fewer than 12 markers passed its frozen marginal-support rule. None of those
@@ -25,14 +25,13 @@ control. The evaluator therefore refused without writing a development result.
 No prediction or held score was formed, all 21 held-donor matrix members
 remained unopened, and the candidate cannot be rerun.
 
-The active GSE299043 protocol reserves ten Cambridge organ donors for
-development and ten donor-disjoint LiveOnNY/Columbia donors for a mesenteric
-lymph-node RNA--protein confirmation. It fixes 81 interactions, a 512-cell
-donor budget, exact feature identifiers, HashSolo tissue assignment, one-shot
-with one source-backed single-tissue exception, one-shot access seals, and a
-direct contest against the strongest signed Pearson or
-Poisson-deviance residual transfer. No GSE299043 H5AD member has been opened in
-this outcome-disabled snapshot.
+The later GSE299043 protocol reserved ten Cambridge organ donors and ten
+donor-disjoint LiveOnNY/Columbia donors for a mesenteric-lymph-node
+RNA--protein confirmation. Its one development attempt completed 21 of 56
+member reductions, then stopped at the next member's feature preflight because
+the file lacked an accepted MLN HTO ID. The failing member's matrix values and
+all 151 held members remained unopened. No model, prediction, authorization,
+pairing, or score was formed, and the candidate cannot be rerun.
 
 The method represents each finite joint table by its double-centered
 log-linear interaction, centers finite-sample estimates with fixed-margin
@@ -127,15 +126,13 @@ closed and cannot be revived.
 
 ## GSE299043 held-site protocol
 
-`data/confirmation/gse299043_mln/candidate_designation_v1.json` defines the
-active successor candidate. It uses one tissue and assay chemistry at both
-sites, disjoint physical donors, and marginal-profile graphs that cannot use
-paired RNA--protein outcomes. Development model selection is an adaptive
-promotion screen. Only the untouched ten-donor held-site gate is confirmatory;
-it requires at least 5% lower donor-equal deviance than both the strongest
-classical interaction residual and destroyed-link control, a paired-bootstrap
-upper endpoint below zero, at least eight favorable donors, and an exact
-one-sided sign-flip `p <= 0.025` against each comparator.
+`data/confirmation/gse299043_mln/candidate_designation_v1.json` fixed one tissue
+and assay chemistry at both sites, disjoint physical donors, and marginal-only
+graphs. The immutable protocol release preceded any H5AD access. The terminal
+attempt then refused at development-member feature preflight after 21 completed
+reductions. The canonical generated refusal and its aggregate audit are under
+`results/development/`; cell-level intermediate reductions were deleted and are
+not distributed.
 
 The protocol, source-member seal, reducer, development evaluator, held runner,
 authorization template, and adversarial tests are frozen under tag
@@ -143,6 +140,8 @@ authorization template, and adversarial tests are frozen under tag
 passing development artifact and every held prediction are committed and
 both the prediction and active score authorization are bound through
 byte-identical public GitHub blob URLs.
+Those later stages were never reached. Tag
+`gse299043-mln-v1-terminal-refusal` preserves the terminal record.
 
 PoKI-seq is not a third scoreable candidate. Its frozen execution stopped at
 the state-occupancy support gate before a prediction or score was written.
@@ -178,11 +177,12 @@ input hashes, official source URLs, and derivation script are supplied in
 - `data/`: source manifests and metadata-only eligibility records.
 - `tests/`: integrity, estimator, comparator, and pairing-seal tests.
 
-The active GSE299043 plan is published at
+The GSE299043 plan is published at
 `https://github.com/sushaan-k/coupling-fields-benchmark` under tag
 `gse299043-mln-v1-protocol`. The immutable release and a fresh clone both
 verified at commit `87c15787f734b20d06c7b8cb0c66680b2fe5c1b0`; the record is
 `docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json`. The terminal
+attempt is published under tag `gse299043-mln-v1-terminal-refusal`. The terminal
 GSE279451 plan remains under tag
 `gse279451-sepsis-v1-protocol`; its verification record is
 `docs/GSE279451_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json`, and the later

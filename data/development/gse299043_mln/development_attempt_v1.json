@@ -1,0 +1,32 @@
+{
+  "artifact_bindings": {
+    "acquisition_sha256": "6e4a40fbc3ba0c1e431593677e6bd764e68d95bbc60b0bee52ad5e2319574262",
+    "candidate_designation_sha256": "c8b6bd846f69567513398e2dd6faa9c661c09df930a09a7a57a273040733e26e",
+    "classical_residuals_sha256": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
+    "development_evaluator_sha256": "6b48ae7524a376f7d0be3fcebcd7db298a149147eb32fc2b2a8003b4946c6d54",
+    "evaluator_tests_sha256": "bb3d3230928da5bc2e6ca5710ceac3adcdba1498d2d44478a3659db24a6323fb",
+    "family_policy_sha256": "51bd22a51b6fe353a2ff95535199391ead2131396122474cc1f06f927b702fba",
+    "gse279451_numerical_core_sha256": "fb4d793a0df2cb5073423d27d5953992232c17a64a8adfdef3b26a105a0c7994",
+    "gse299043_reducer_sha256": "a5d92baf07d6e9855eed31e3d11b967a266469d77fe6b341cb50f6f19024dfd3",
+    "heterogeneity_estimator_sha256": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e",
+    "hierarchical_estimator_sha256": "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d",
+    "metadata_preflight_sha256": "dfc929364a40895620c39897a671542670f1cf1e89058cf4ff02f51d16c86933",
+    "protocol_sha256": "b648a560d2a4e268035051675e3e2b4142fd48e36c2b0e98a43373affa5ad8f2",
+    "reducer_sha256": "a5d92baf07d6e9855eed31e3d11b967a266469d77fe6b341cb50f6f19024dfd3",
+    "runner_sha256": "474b4375e3982d6650f93ad7b7ee961a4e920e777a8ef5f50fbd494f044359d0",
+    "score_authorization_publication_template_sha256": "287c85aaf4f449a1cd0b6259204632fb4636b3b24fcc527c4533284f4c4481fc",
+    "score_authorization_template_sha256": "59757603a892957aa99bc70dd7460f812ade8819516981602c59e5b687403d2e",
+    "source_template_sha256": "83a36f5eeb2641012e763652c21630c0b29d1230fbcbfd721f46a6828009c43c"
+  },
+  "axis_members_sha256": "fa3c6c3d6b53d933127c17db6e5f6daf7360b3c7d04cc4a0616ac96a5a2e239f",
+  "development_bytes_planned": 2991542178,
+  "development_member_plan_sha256": "fa3c6c3d6b53d933127c17db6e5f6daf7360b3c7d04cc4a0616ac96a5a2e239f",
+  "development_members_planned": 56,
+  "first_network_request_starts_after_this_write": true,
+  "held_h5ad_members_requested": 0,
+  "metadata_preflight_sha256": "dfc929364a40895620c39897a671542670f1cf1e89058cf4ff02f51d16c86933",
+  "rerun_permitted": false,
+  "schema": "gse299043-mln-development-attempt/1.0",
+  "source_template_sha256": "83a36f5eeb2641012e763652c21630c0b29d1230fbcbfd721f46a6828009c43c",
+  "status": "TERMINAL_DEVELOPMENT_ATTEMPT_STARTED"
+}

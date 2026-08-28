@@ -1,66 +1,40 @@
 {
   "schema": "coupling-fields-public-benchmark/1.0",
   "release_name": "coupling-fields-v1",
-  "assembled_at_utc": "2026-08-28T15:35:42Z",
-  "status": "PUBLIC_GSE299043_MLN_OUTCOME_ACCESS_DISABLED",
+  "assembled_at_utc": "2026-08-28T15:55:16Z",
+  "status": "PUBLIC_GSE299043_TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL",
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
   "public_freeze_commit": "87c15787f734b20d06c7b8cb0c66680b2fe5c1b0",
-  "immutable_release_tag": "gse299043-mln-v1-protocol",
+  "immutable_release_tag": "gse299043-mln-v1-terminal-refusal",
   "archive_doi": null,
   "code_license": null,
-  "candidate_designation_status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
-  "prospective_candidate_count": 1,
-  "active_candidate_count": 1,
-  "prospective_candidate_artifacts": [
-    {
-      "path": "data/confirmation/gse299043_mln/candidate_designation_v1.json",
-      "source_path": "data/confirmation/gse299043_mln/candidate_designation_v1.json",
-      "sha256": "c8b6bd846f69567513398e2dd6faa9c661c09df930a09a7a57a273040733e26e",
-      "bytes": 6430
-    },
-    {
-      "path": "data/confirmation/gse299043_mln/score_authorization_template_v1.json",
-      "source_path": "data/confirmation/gse299043_mln/score_authorization_template_v1.json",
-      "sha256": "59757603a892957aa99bc70dd7460f812ade8819516981602c59e5b687403d2e",
-      "bytes": 810
-    },
-    {
-      "path": "data/confirmation/gse299043_mln/score_authorization_publication_template_v1.json",
-      "source_path": "data/confirmation/gse299043_mln/score_authorization_publication_template_v1.json",
-      "sha256": "287c85aaf4f449a1cd0b6259204632fb4636b3b24fcc527c4533284f4c4481fc",
-      "bytes": 310
-    }
-  ],
+  "candidate_designation_status": "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL",
+  "prospective_candidate_count": 0,
+  "active_candidate_count": 0,
+  "prospective_candidate_artifacts": [],
   "completed_public_panels": 7,
-  "procedural_refusal_count": 6,
+  "procedural_refusal_count": 7,
   "kotliarov_outcome_status": "TERMINAL_REFUSAL",
   "next_protocol": {
     "designation": "data/confirmation/gse299043_mln/candidate_designation_v1.json",
     "designation_sha256": "c8b6bd846f69567513398e2dd6faa9c661c09df930a09a7a57a273040733e26e",
-    "status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
-    "tissue": "mesenteric lymph node",
-    "development_site": "Cambridge Biorepository for Translational Medicine",
-    "held_site": "LiveOnNY processed at Columbia University",
+    "status": "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL",
+    "protocol_freeze_commit": "87c15787f734b20d06c7b8cb0c66680b2fe5c1b0",
+    "protocol_freeze_tag": "gse299043-mln-v1-protocol",
     "development_physical_donors": 10,
     "held_physical_donors": 10,
-    "ordered_rna_adt_entities": 81,
-    "primary_cells_per_donor": 512,
-    "source_members": 207,
-    "development_source_members": 56,
-    "held_source_members": 151,
-    "count_acquisition_started": false,
-    "h5ad_members_opened": 0,
-    "matrix_entries_decoded": false,
+    "development_members_planned": 56,
+    "development_members_with_completed_reductions": 21,
+    "next_member_in_frozen_order": "GSE299043_647C_001.CZI-IA10585545.v2.h5ad",
+    "failing_member_matrix_values_decoded": false,
+    "held_h5ad_members_requested": 0,
+    "held_h5ad_members_opened": 0,
     "prediction_written": false,
     "held_score_attempted": false,
-    "development_interval_status": "adaptive promotion heuristic",
-    "held_inference_status": "confirmatory if the frozen held gate passes",
-    "source_template_sha256": "83a36f5eeb2641012e763652c21630c0b29d1230fbcbfd721f46a6828009c43c",
-    "metadata_preflight_sha256": "dfc929364a40895620c39897a671542670f1cf1e89058cf4ff02f51d16c86933",
-    "protocol_sha256": "b648a560d2a4e268035051675e3e2b4142fd48e36c2b0e98a43373affa5ad8f2",
-    "family_policy_sha256": "51bd22a51b6fe353a2ff95535199391ead2131396122474cc1f06f927b702fba",
-    "authorization_template_sha256": "59757603a892957aa99bc70dd7460f812ade8819516981602c59e5b687403d2e",
-    "authorization_publication_template_sha256": "287c85aaf4f449a1cd0b6259204632fb4636b3b24fcc527c4533284f4c4481fc"
+    "rerun_permitted": false,
+    "development_attempt_sha256": "dc6206cba4186ede6a2d9a178d6f9adb9e09e402983e32dda611b0be11ac00ad",
+    "generated_refusal_sha256": "aab390fc9701171c42267d111dfb69cbbf3282abba5d39887f30431bc1e78635",
+    "terminal_audit_sha256": "6b5ef33e765adfcd80b534113a3c59dec706b82739c2518342699019011a6475"
   },
   "artifacts": [
     {
@@ -150,15 +124,15 @@
     {
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
       "source_path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "f012c5e5cfc5084a130d0a72497ff1311acae1f2362ba7bf79342e814b26dc57",
-      "bytes": 22946,
+      "sha256": "eb8b5aee9145a0bc55d102fd422b4cecb5ffeba420c37cfb39ed844b9ccf57c5",
+      "bytes": 23517,
       "role": "claim-evidence ledger"
     },
     {
       "path": "results/final_public_benchmark_table.tsv",
       "source_path": "results/final_public_benchmark_table.tsv",
-      "sha256": "d851231e40dde426ba8b29f73314a68a3134b7eb13027c9d8dbfbbbf2420fdae",
-      "bytes": 14908,
+      "sha256": "fe8b12fc107891b382fe73ace427c4bcdb256e242d19236e11c866b1a1e4cae2",
+      "bytes": 14969,
       "role": "panel-level benchmark table"
     },
     {
@@ -647,8 +621,8 @@
     {
       "path": "tests/test_public_artifact_integrity.py",
       "source_path": "tests/test_public_artifact_integrity.py",
-      "sha256": "4553256dc11175b5a059060da271e78cf8090c33dc55ffa4072cc2959dac411c",
-      "bytes": 33551,
+      "sha256": "07988c076b8b5b3c4389d7502287330a7267f9f80a5e91eaa9242bca8b57f5e7",
+      "bytes": 34720,
       "role": "artifact integrity tests"
     },
     {
@@ -1140,6 +1114,27 @@
       "sha256": "26bf151214312ebcc0cd83220e41cb252d592e1c574c32b509860064455f84cc",
       "bytes": 1221,
       "role": "fresh-clone verification of the outcome-disabled GSE299043 freeze"
+    },
+    {
+      "path": "data/development/gse299043_mln/development_attempt_v1.json",
+      "source_path": "data/development/gse299043_mln/development_attempt_v1.json",
+      "sha256": "dc6206cba4186ede6a2d9a178d6f9adb9e09e402983e32dda611b0be11ac00ad",
+      "bytes": 2449,
+      "role": "terminal GSE299043 development-attempt seal"
+    },
+    {
+      "path": "results/development/gse299043_mln_development_acquisition_refusal.json",
+      "source_path": "results/development/gse299043_mln_development_acquisition_refusal.json",
+      "sha256": "aab390fc9701171c42267d111dfb69cbbf3282abba5d39887f30431bc1e78635",
+      "bytes": 426,
+      "role": "generated terminal GSE299043 development-acquisition refusal"
+    },
+    {
+      "path": "results/development/gse299043_mln_terminal_acquisition_audit.json",
+      "source_path": "results/development/gse299043_mln_terminal_acquisition_audit.json",
+      "sha256": "6b5ef33e765adfcd80b534113a3c59dec706b82739c2518342699019011a6475",
+      "bytes": 2325,
+      "role": "aggregate audit of the terminal GSE299043 acquisition refusal"
     }
   ],
   "release_blockers": [
@@ -1148,7 +1143,7 @@
   ],
   "bmmc_outcome_status": "TERMINAL_NUMERICAL_DEVELOPMENT_REFUSAL",
   "gse279451_outcome_status": "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
-  "gse299043_outcome_status": "OUTCOME_ACCESS_DISABLED",
+  "gse299043_outcome_status": "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL",
   "public_freeze_verification": {
     "path": "docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
     "sha256": "26bf151214312ebcc0cd83220e41cb252d592e1c574c32b509860064455f84cc",

@@ -1,0 +1,47 @@
+{
+  "schema": "gse299043-mln-terminal-acquisition-audit/1.0",
+  "status": "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL",
+  "public_freeze": {
+    "tag": "gse299043-mln-v1-protocol",
+    "commit": "87c15787f734b20d06c7b8cb0c66680b2fe5c1b0",
+    "release_immutable": true,
+    "fresh_clone_verification": "PASS"
+  },
+  "failure": {
+    "stage": "DEVELOPMENT_MEMBER_FEATURE_PREFLIGHT",
+    "error_type": "ValueError",
+    "error_message": "MLN-manifest H5AD lacks an accepted MLN HTO ID",
+    "completed_member_reductions": 21,
+    "last_completed_member": "GSE299043_647C_001.CZI-IA10585544.v2.h5ad",
+    "next_member_in_frozen_order": "GSE299043_647C_001.CZI-IA10585545.v2.h5ad",
+    "next_member_identification": "inferred from the frozen source order after the last exclusively written reduction; the generated refusal did not serialize the current filename",
+    "failing_member_matrix_values_decoded": false,
+    "reason_matrix_values_not_decoded": "the accepted-MLN-HTO check precedes selected X-column materialization"
+  },
+  "access_audit": {
+    "development_members_planned": 56,
+    "development_members_with_completed_reductions": 21,
+    "held_members_planned": 151,
+    "held_members_requested": 0,
+    "held_members_opened": 0,
+    "held_matrix_values_decoded": 0,
+    "prediction_written": false,
+    "score_authorization_written": false,
+    "held_pairing_formed": false,
+    "held_score_attempted": false
+  },
+  "intermediate_artifacts": {
+    "completed_reduction_files": 21,
+    "completed_reduction_filename_sha256_manifest": "f54dbb6842baa2358950659bccce7d1cfec4ed37daf31cf6e51439198a0925df",
+    "raw_h5ad_or_partial_files_remaining": 0,
+    "publication_policy": "cell-level reduction files are excluded from the public release and deleted after this aggregate audit"
+  },
+  "bindings": {
+    "development_attempt_sha256": "dc6206cba4186ede6a2d9a178d6f9adb9e09e402983e32dda611b0be11ac00ad",
+    "generated_refusal_sha256": "aab390fc9701171c42267d111dfb69cbbf3282abba5d39887f30431bc1e78635",
+    "source_template_sha256": "83a36f5eeb2641012e763652c21630c0b29d1230fbcbfd721f46a6828009c43c",
+    "acquisition_sha256": "6e4a40fbc3ba0c1e431593677e6bd764e68d95bbc60b0bee52ad5e2319574262",
+    "reducer_sha256": "a5d92baf07d6e9855eed31e3d11b967a266469d77fe6b341cb50f6f19024dfd3"
+  },
+  "rerun_permitted": false
+}

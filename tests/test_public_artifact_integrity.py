@@ -232,7 +232,7 @@ def test_gse279451_public_plan_is_frozen_and_terminal_refusal_is_complete():
     assert not any(path.exists() for path in forbidden)
 
 
-def test_gse299043_public_plan_is_outcome_disabled_and_complete():
+def test_gse299043_public_plan_is_frozen_and_terminal_refusal_is_complete():
     designation_path = (
         ROOT / "data/confirmation/gse299043_mln/candidate_designation_v1.json"
     )
@@ -297,10 +297,26 @@ def test_gse299043_public_plan_is_outcome_disabled_and_complete():
     ]
     assert all(path.is_file() for path in required)
 
+    attempt = _load(designation["development_attempt"])
+    refusal = _load(designation["development_acquisition_refusal"])
+    audit = _load(
+        "results/development/gse299043_mln_terminal_acquisition_audit.json"
+    )
+    assert attempt["status"] == "TERMINAL_DEVELOPMENT_ATTEMPT_STARTED"
+    assert refusal["status"] == "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL"
+    assert refusal["held_h5ad_members_opened"] == 0
+    assert refusal["rerun_permitted"] is False
+    assert audit["failure"]["completed_member_reductions"] == 21
+    assert audit["failure"]["next_member_in_frozen_order"] == (
+        "GSE299043_647C_001.CZI-IA10585545.v2.h5ad"
+    )
+    assert audit["failure"]["failing_member_matrix_values_decoded"] is False
+    assert audit["access_audit"]["held_members_opened"] == 0
+    assert audit["rerun_permitted"] is False
+    assert not (ROOT / "data/development/gse299043_mln/library_pieces").exists()
+
     forbidden = [
         ROOT / designation["source_manifest"],
-        ROOT / designation["development_attempt"],
-        ROOT / designation["development_acquisition_refusal"],
         ROOT / designation["evaluation_attempt"],
         ROOT / designation["development_evaluation_refusal"],
         ROOT / designation["development_result"],
@@ -321,26 +337,31 @@ def test_frozen_json_artifacts_have_expected_bytes_and_finite_numbers():
         _assert_finite(_load(relative_path))
 
 
-def test_benchmark_manifest_binds_active_gse299043_release():
+def test_benchmark_manifest_binds_terminal_gse299043_release():
     manifest = _load("benchmark_manifest.json")
-    assert manifest["status"] == "PUBLIC_GSE299043_MLN_OUTCOME_ACCESS_DISABLED"
-    assert manifest["immutable_release_tag"] == "gse299043-mln-v1-protocol"
-    assert manifest["prospective_candidate_count"] == 1
-    assert manifest["active_candidate_count"] == 1
+    assert manifest["status"] == (
+        "PUBLIC_GSE299043_TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL"
+    )
+    assert manifest["immutable_release_tag"] == (
+        "gse299043-mln-v1-terminal-refusal"
+    )
+    assert manifest["prospective_candidate_count"] == 0
+    assert manifest["active_candidate_count"] == 0
     assert manifest["completed_public_panels"] == 7
-    assert manifest["procedural_refusal_count"] == 6
+    assert manifest["procedural_refusal_count"] == 7
     protocol = manifest["next_protocol"]
     assert protocol["designation"] == (
         "data/confirmation/gse299043_mln/candidate_designation_v1.json"
     )
-    assert protocol["h5ad_members_opened"] == 0
-    assert protocol["count_acquisition_started"] is False
-    assert protocol["held_inference_status"].startswith("confirmatory")
+    assert protocol["status"] == "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL"
+    assert protocol["development_members_with_completed_reductions"] == 21
+    assert protocol["held_h5ad_members_opened"] == 0
+    assert protocol["rerun_permitted"] is False
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 154
+    assert len(artifacts) == 157
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 154
+    assert len(by_path) == 157
     for relative in (
         "docs/GSE299043_MLN_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
         "docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
@@ -349,6 +370,9 @@ def test_benchmark_manifest_binds_active_gse299043_release():
         "data/confirmation/gse299043_mln/score_authorization_template_v1.json",
         "data/confirmation/gse299043_mln/score_authorization_publication_template_v1.json",
         "data/development/gse299043_mln/metadata_preflight_v1.tsv",
+        "data/development/gse299043_mln/development_attempt_v1.json",
+        "results/development/gse299043_mln_development_acquisition_refusal.json",
+        "results/development/gse299043_mln_terminal_acquisition_audit.json",
         "experiments/acquire_gse299043_nonheld.py",
         "experiments/reduce_gse299043_mln.py",
         "experiments/evaluate_gse299043_mln_development.py",
@@ -393,7 +417,7 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
             "experiments/evaluate_gse279451_sepsis_development.py"
         ),
         "GSE299043 MLN held-site confirmation": (
-            "experiments/evaluate_gse299043_mln_development.py"
+            "experiments/acquire_gse299043_nonheld.py"
         ),
         "PerturbSci-Kinetics": "experiments/benchmark_public_coupling_fields.py",
         "Frangieh Perturb-CITE-seq": "experiments/benchmark_public_coupling_fields.py",
@@ -648,7 +672,7 @@ def test_public_benchmark_tsv_matches_results_and_provenance():
         "GSE299043 MLN held-site confirmation": (
             "NOT_EVALUATED",
             "NOT_EVALUATED",
-            "OUTCOME_DISABLED",
+            "REFUSE_ACQUISITION",
         ),
     }
     for panel, expected in expected_decisions.items():

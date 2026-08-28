@@ -1,0 +1,10 @@
+{
+  "development_attempt_sha256": "dc6206cba4186ede6a2d9a178d6f9adb9e09e402983e32dda611b0be11ac00ad",
+  "error_type": "ValueError",
+  "held_h5ad_members_opened": 0,
+  "held_h5ad_members_requested": 0,
+  "reason": "development acquisition or reduction refused after the terminal attempt",
+  "rerun_permitted": false,
+  "schema": "gse299043-mln-development-refusal/1.0",
+  "status": "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL"
+}

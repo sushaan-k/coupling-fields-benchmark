@@ -2,8 +2,8 @@
 
 **Release candidate:** `coupling-fields-v1`
 **Snapshot date:** 28 August 2026
-**Distribution status:** public, outcome-disabled GSE299043 held-site plan;
-prior terminal refusals retained
+**Distribution status:** public GSE299043 terminal acquisition refusal; prior
+terminal refusals retained
 
 ## Scope
 
@@ -13,8 +13,8 @@ machine-readable aggregate results, analysis protocols, source manifests,
 deterministic runners, the reference implementation, and integrity tests.
 Failed and refused panels are part of the benchmark.
 
-The current snapshot covers seven scored public-data panels, six procedural
-refusals, and one active outcome-disabled candidate:
+The current snapshot covers seven scored public-data panels and seven
+procedural refusals. No prospective candidate is active:
 
 | Study | Linked measurements | Evaluation unit | Decision |
 |---|---|---|---|
@@ -31,7 +31,7 @@ refusals, and one active outcome-disabled candidate:
 | Kotliarov PBMC | RNA and surface protein | held batch and disjoint donors | support refusal; not scored |
 | NeurIPS 2021 BMMC CITE-seq | RNA and surface protein | held donors | terminal numerical development refusal; not scored |
 | GSE279451 adult sepsis CITE-seq | RNA and surface protein | 19 development and 21 held donors | terminal development-evaluation refusal; not scored |
-| GSE299043 MLN CITE-seq | RNA and surface protein | 10 Cambridge development and 10 LiveOnNY/Columbia held donors | outcome access disabled; not scored |
+| GSE299043 MLN CITE-seq | RNA and surface protein | 10 Cambridge development and 10 LiveOnNY/Columbia held donors | terminal development-member feature refusal; not scored |
 
 The exact values, uncertainty intervals, controls, decisions, and provenance
 are in `results/final_public_benchmark_table.tsv`. The evidence boundary is in
@@ -74,14 +74,12 @@ unavailable, so it issued no head-to-head decision. No prediction,
 authorization, held pairing, or held score was formed; all 21 held-donor matrix
 members remained unopened. The refusal prohibits a rerun.
 
-The active GSE299043 candidate fixes mesenteric lymph node, 10x 5-prime v2
-TotalSeq-C, ten donors per site, nine exact RNA--ADT marker pairs, 81 ordered
-interactions, and 512 outcome-independent MLN assignments per donor. HashSolo
-defines assignments except for one exact source-backed 694B single-tissue
-member. Marginal-only marker graphs accompany the exact conditional field in a
-direct comparison with the
-strongest signed Pearson or Poisson-deviance residual transfer. No H5AD member
-has been opened in this release snapshot.
+The GSE299043 plan fixed mesenteric lymph node, 10x 5-prime v2 TotalSeq-C,
+ten donors per site, nine exact RNA--ADT marker pairs, and 81 ordered
+interactions. Its one development attempt completed 21 member reductions. The
+next file lacked an accepted MLN HTO ID, so the frozen feature gate refused
+before reading that member's matrix values. No model or comparator was fitted;
+all 151 held files remained unopened, and rerun is prohibited.
 
 PoKI-seq is outside the current scoreable family. Its earlier frozen run
 failed the state-occupancy support gate before prediction and scoring. The
@@ -99,8 +97,8 @@ confirmatory test nor evidence for or against model performance.
   deletion.
 - Add a prospectively designated held-donor or held-study confirmation under
   the frozen protocol.
-- Audit the GSE299043 one-shot development and held-site gates without changing
-  the frozen code or target universe.
+- Audit the terminal GSE299043 feature refusal without treating it as predictive
+  evidence.
 
 This package is not a benchmark for ordinary marginal-response prediction,
 zero-shot perturbation ranking, causal direction, or population-level donor
@@ -138,7 +136,7 @@ development configuration was to be selected by leave-one-donor-out prediction.
 The declared gate could not be evaluated because both common-effect control
 families were unavailable. Held truth was never opened.
 
-The GSE299043 development screen selects every family by ten-fold
+The unreached GSE299043 development screen selects every family by ten-fold
 leave-one-donor-out prediction. Because selection and promotion use the same ten
 development donors, its bootstrap interval is a promotion heuristic. The
 untouched held-site gate is confirmatory and requires wins over both the
@@ -146,6 +144,7 @@ selected classical residual and destroyed-link coupling, at least 5% relative
 deviance reduction, a paired-bootstrap upper endpoint below zero, at least
 eight favorable donors, and an exact one-sided sign-flip `p <= 0.025` for each
 comparison.
+The terminal acquisition refusal occurred before this screen.
 
 ## Classical interaction baseline
 
@@ -199,7 +198,9 @@ preflight, family policy, authorization template, reducer, acquisition runner,
 development evaluator, held scorer, and four adversarial test suites are also
 checksum-bound. A separate publication template requires the later active
 authorization itself to be fetched byte-for-byte from an immutable public
-commit. The release has no outcome artifact for this candidate.
+commit. The development-attempt seal, generated refusal, and aggregate terminal
+audit are checksum-bound. Cell-level intermediate reductions are omitted and
+deleted; no development model or held outcome artifact exists.
 
 The packaged runners expose separated prediction and scoring commands. They
 refuse to form held joint pairings until the exact prediction SHA-256 and byte
@@ -210,7 +211,8 @@ authorization and release files. This package contains the templates
 `KOTLIAROV_SCORE_AUTHORIZATION_TEMPLATE.json` for historical audit, plus
 `GSE279451_SCORE_AUTHORIZATION_TEMPLATE.json` for the terminal GSE279451 audit,
 and `data/confirmation/gse299043_mln/score_authorization_template_v1.json` for
-the active candidate, together with its authorization-publication template.
+the terminal GSE299043 audit, together with its authorization-publication
+template.
 
 ## Known limits
 
@@ -220,13 +222,13 @@ arm-level linkage evidence but not a replicated treatment contrast. The only
 completed held-donor panel, Arce, fails the full gate. Target-bootstrap
 intervals condition on the deposited biological units. State definitions and
 finite-sample association estimates remain representation-dependent.
-Lawlor, Hao, Kotliarov, PoKI-seq, BMMC, and GSE279451 have no held joint-table score and
+Lawlor, Hao, Kotliarov, PoKI-seq, BMMC, GSE279451, and GSE299043 have no held joint-table score and
 add no positive or negative held predictive evidence. They remain visible as
 procedural refusals. GSE279451 contributes no performance evidence: its
 development evaluation refused before a prediction or classical-comparator
-decision, and the held matrices remained unopened.
-GSE299043 is an outcome-disabled plan and contributes no performance evidence
-until a terminal held result is published.
+decision, and the held matrices remained unopened. GSE299043 also contributes
+no performance evidence: it stopped at development-member feature preflight
+before estimator fitting, and every held matrix remained unopened.
 
 The completed three-panel atlas was rerun with the current full-matrix
 classical residual implementation, SHA-256 `35516883a567...`. Coupling fields
@@ -245,6 +247,7 @@ The following fields state the distribution boundary of this snapshot:
 | GSE299043 candidate-freeze tag | `gse299043-mln-v1-protocol` |
 | GSE299043 frozen commit | `87c15787f734b20d06c7b8cb0c66680b2fe5c1b0` |
 | GSE299043 release verification | immutable release and fresh-clone checks passed |
+| GSE299043 terminal-refusal tag | `gse299043-mln-v1-terminal-refusal` |
 | Archive DOI | not assigned |
 | Repository code license | none granted |
 | scGPT-derived embedding | omitted; checksum and derivation manifest supplied |
