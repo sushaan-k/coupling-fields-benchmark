@@ -20,7 +20,13 @@ destroyed links under the locked gate. All seven outcome-scored public panels ar
 none establishes estimator superiority. A separately frozen PoKI-seq held-donor
 candidate stopped at its state-occupancy preflight for `Donor1:Stim:41BB`.
 No prediction or scored result was written, so this eighth benchmark entry is a
-support refusal rather than outcome-scored evidence.
+support refusal rather than outcome-scored evidence. The later Lawlor candidate
+stopped when its frozen reducer rejected the deposited ADT object type; Hao
+stopped when fewer than 12 cognate markers passed its frozen marginal-support
+rule. Neither run formed a held joint-table score. A separate Kotliarov
+held-batch candidate is now frozen with outcome access disabled: ten batch-1
+development donors, nine disjoint batch-2 held donors, and donor 209 excluded
+from both batches.
 
 The defensible methods-paper claim is therefore narrower than state-of-the-art
 prediction: the framework separates pairing-dependent structure from marginal
@@ -40,6 +46,9 @@ reproduce across public paired assays.
 | ReSisTrace | Two deposited cultures; lineages resampled | 3 treatment contrasts | No prediction RMSE; treatment cosines -0.674, 0.223, 0.952, and every interval crosses zero | Not applicable | All 8 arm fields exceed the fixed-margin Monte Carlo link control, each BH q=0.0154 | **REFUSE treatment replication** |
 | Arce T-cell RNA-protein | Donor A development; donor B held confirmation | 28 | Pearson 0.412 [0.331, 0.494]; RMSE 1.093 [1.012, 1.185] | Linear cross-covariance: Pearson 0.304; RMSE 0.993 [0.989, 0.996] | Primary-minus-destroyed target-MSE CI [-0.448, 0.006] | **REFUSE** |
 | PoKI-seq | Donor1 development; Donor2 held confirmation | 33 predeclared queries | Not scored; state-occupancy preflight failed for `Donor1:Stim:41BB` | Not evaluated | Not reached | **REFUSE preflight** |
+| Lawlor HCA PBMC | Six development donors; four held donors | Predeclared aliases | Not scored; frozen reducer rejected the deposited ADT object type | Not evaluated | Not reached | **REFUSE execution** |
+| Hao GSE164378 | Four development donors; three held donors | Predeclared aliases | Not scored; fewer than 12 markers passed frozen marginal support | Not evaluated | Not reached | **REFUSE support** |
+| Kotliarov PBMC | Ten batch-1 development donors; nine disjoint batch-2 held donors | 71 predeclared cognate markers | Outcome access disabled at public freeze | Full Pearson and signed-deviance residual transfer predeclared | Not reached | **PENDING** |
 
 Metric intervals for the first five predictive panels and Arce resample
 targets. ReSisTrace intervals resample barcode-defined lineages conditional on
