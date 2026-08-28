@@ -1,0 +1,7 @@
+{
+  "schema": "gse239452-artifact-authorization/1.0",
+  "status": "HELD_ADT_ACCESS_AUTHORIZED",
+  "held_predictions": "results/gse239452_citeseq_predictions.json",
+  "held_predictions_sha256": "37a7eba3b3b514ccb9d80700f039b0442caf1d02c00a0b44d9bcef735328e020",
+  "public_held_predictions_commit": "c6420eb80b5b6d42cb4d06794bebf20d7cad3f8a"
+}
