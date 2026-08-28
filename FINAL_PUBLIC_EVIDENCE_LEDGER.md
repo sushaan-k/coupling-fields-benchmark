@@ -41,6 +41,9 @@ plan fixes 19 development and 21 held physical donors, nine RNA--ADT markers,
 strongest matched signed Pearson or Poisson-deviance residual transfer. It is
 outcome-disabled in this snapshot: no count acquisition, source manifest,
 development attempt, reduced table, prediction, authorization, or score exists.
+The plan was verified from a fresh clone at commit
+`f63c9dc760a85a1361ce75e13036eb23262b1bc7` and is published under tag
+`gse279451-sepsis-v1-protocol` before development count access.
 
 The defensible methods-paper claim is therefore narrower than state-of-the-art
 prediction: the framework separates pairing-dependent structure from marginal

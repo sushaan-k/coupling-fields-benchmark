@@ -1,0 +1,43 @@
+{
+  "schema": "gse279451-public-freeze-verification/1.0",
+  "status": "VERIFIED_OUTCOME_ACCESS_DISABLED",
+  "verified_at_utc": "2026-08-28T12:30:31Z",
+  "repository": "https://github.com/sushaan-k/coupling-fields-benchmark",
+  "verified_commit": "f63c9dc760a85a1361ce75e13036eb23262b1bc7",
+  "planned_release_tag": "gse279451-sepsis-v1-protocol",
+  "fresh_clone": {
+    "detached_at_verified_commit": true,
+    "worktree_clean_before_verification": true,
+    "checksum_entries_verified": 144,
+    "checksum_failures": 0,
+    "full_reproduce_passed": 243,
+    "full_reproduce_deselected": 4,
+    "historical_kotliarov_test_passed": 1,
+    "focused_warning_strict_passed": 114,
+    "focused_warning_strict_deselected": 1,
+    "focused_ruff_check_passed": true
+  },
+  "sealed_artifacts": {
+    "sha256sums_sha256": "36492adcf360f09f39e8a85e3474779b556b4ac567d5b78309505a38dd6082b7",
+    "benchmark_manifest_sha256": "f7ae8f7b246d277a3e94affa59f92bff4f824cb1b682316c22bbaa7227a420c8",
+    "candidate_designation_sha256": "4143b6632f1b0e9bc1cae05cd9b876d70c534914fb4a1a0f35a23f04957a0b72",
+    "protocol_sha256": "bbcbd1dbbdc62a0cf31acb22611812b440ba1f55d35bb859525a77d59d2d19e1",
+    "acquisition_sha256": "03b2ceeeb764fd163e3342e76d3444999d52af0817a3cdad5bd013594178fafa",
+    "reducer_sha256": "923d44d7374de8b56a1d241a73819101e0b6b5171ee01bc1dc8a71ddafeb3ac1",
+    "development_evaluator_sha256": "fb4d793a0df2cb5073423d27d5953992232c17a64a8adfdef3b26a105a0c7994",
+    "held_runner_sha256": "9b50950f07b78b73857f07c8f9d11e0191f00580c24cb723c59e116749d08d5d",
+    "hierarchical_estimator_sha256": "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d"
+  },
+  "access_audit": {
+    "gse279451_matrix_files_downloaded": 0,
+    "gse279451_matrix_entries_decoded": 0,
+    "active_source_manifest_exists": false,
+    "development_attempt_exists": false,
+    "development_result_exists": false,
+    "prediction_exists": false,
+    "score_authorization_exists": false,
+    "held_score_attempt_exists": false,
+    "held_result_exists": false
+  },
+  "claim_boundary": "This verifies a source-visible prospective analysis plan and executable code-path seal. It is not a registry-hosted preregistration, blinded data enclave, archive DOI, or open-source license."
+}
