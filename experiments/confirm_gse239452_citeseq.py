@@ -1188,6 +1188,10 @@ def reduce_development(
             "public_commit": authorization_commit,
             "public_protocol_commit": permit["public_protocol_commit"],
         },
+        "development_attempt": {
+            "path": _relative(attempt_path),
+            "sha256": _sha256(attempt_path),
+        },
         "runner_sha256": _sha256(Path(__file__)),
         "calibration_donors": list(CALIBRATION),
         "pilot_donors": list(PILOT),
@@ -1205,17 +1209,87 @@ def reduce_development(
 
 def _validated_reduced(path: Path) -> dict[str, dict[str, Any]]:
     payload = _read_json(path)
+    expected_fields = {
+        "schema",
+        "status",
+        "created_at_utc",
+        "source_manifest_sha256",
+        "metadata_preflight_sha256",
+        "development_authorization",
+        "development_attempt",
+        "runner_sha256",
+        "calibration_donors",
+        "pilot_donors",
+        "samples",
+        "access_audit",
+    }
     if (
-        payload.get("schema") != "gse239452-reduced-development/1.0"
+        set(payload) != expected_fields
+        or payload.get("schema") != "gse239452-reduced-development/1.0"
         or payload.get("status") != "DEVELOPMENT_REDUCTION_COMPLETE"
         or payload.get("source_manifest_sha256") != _sha256(DEFAULT_SOURCE)
         or payload.get("metadata_preflight_sha256") != _sha256(DEFAULT_PREFLIGHT)
         or payload.get("runner_sha256") != _sha256(Path(__file__))
         or payload.get("calibration_donors") != list(CALIBRATION)
         or payload.get("pilot_donors") != list(PILOT)
-        or payload.get("access_audit", {}).get("held_adt_numeric_values_read") != 0
+        or payload.get("access_audit")
+        != {
+            "calibration_samples_read": len(CALIBRATION),
+            "pilot_samples_read": len(PILOT),
+            "held_gex_numeric_values_read": 0,
+            "held_adt_numeric_values_read": 0,
+        }
     ):
         raise PermissionError("reduced development differs from the frozen runner")
+    authorization = payload.get("development_authorization")
+    if not isinstance(authorization, dict) or set(authorization) != {
+        "path",
+        "sha256",
+        "public_commit",
+        "public_protocol_commit",
+    }:
+        raise PermissionError("reduced development authorization record differs")
+    authorization_commit = str(authorization.get("public_commit"))
+    permit = _validated_protocol_authorization(
+        DEFAULT_DEVELOPMENT_AUTHORIZATION,
+        authorization_commit,
+        "DEVELOPMENT_ACCESS_AUTHORIZED",
+    )
+    if authorization != {
+        "path": _relative(DEFAULT_DEVELOPMENT_AUTHORIZATION),
+        "sha256": _sha256(DEFAULT_DEVELOPMENT_AUTHORIZATION),
+        "public_commit": authorization_commit,
+        "public_protocol_commit": permit["public_protocol_commit"],
+    }:
+        raise PermissionError("reduced development authorization does not replay")
+    attempt_record = payload.get("development_attempt")
+    if not isinstance(attempt_record, dict) or attempt_record != {
+        "path": _relative(DEFAULT_DEVELOPMENT_ATTEMPT),
+        "sha256": _sha256(DEFAULT_DEVELOPMENT_ATTEMPT),
+    }:
+        raise PermissionError("reduced development attempt binding differs")
+    attempt = _read_json(DEFAULT_DEVELOPMENT_ATTEMPT)
+    if (
+        set(attempt)
+        != {
+            "schema",
+            "status",
+            "created_at_utc",
+            "authorization_sha256",
+            "public_authorization_commit",
+            "numeric_development_access_begins_after_this_record",
+            "held_numeric_values_read",
+        }
+        or attempt.get("schema") != "gse239452-development-attempt/1.0"
+        or attempt.get("status") != "TERMINAL_ATTEMPT_STARTED"
+        or attempt.get("authorization_sha256")
+        != _sha256(DEFAULT_DEVELOPMENT_AUTHORIZATION)
+        or attempt.get("public_authorization_commit") != authorization_commit
+        or attempt.get("numeric_development_access_begins_after_this_record")
+        is not True
+        or attempt.get("held_numeric_values_read") != 0
+    ):
+        raise PermissionError("development attempt does not replay")
     records = payload.get("samples")
     if not isinstance(records, list) or len(records) != len(CALIBRATION) + len(PILOT):
         raise PermissionError("reduced development sample count differs")
@@ -1295,8 +1369,27 @@ def fit_pilot(reduced_path: Path, output_path: Path) -> dict[str, Any]:
 
 def _validated_pilot(path: Path, *, require_pass: bool) -> dict[str, Any]:
     payload = _read_json(path)
+    expected_fields = {
+        "schema",
+        "status",
+        "created_at_utc",
+        "runner_sha256",
+        "reduced_development_sha256",
+        "calibration_donors",
+        "pilot_donors",
+        "selection",
+        "calibration_models",
+        "pilot_losses",
+        "pilot_gate",
+        "promotion_comparators",
+        "graph_vs_zero_is_diagnostic_only",
+        "all_development_models",
+        "held_gex_access_authorized",
+        "held_adt_access_authorized",
+    }
     if (
-        payload.get("schema") != "gse239452-pilot-result/1.0"
+        set(payload) != expected_fields
+        or payload.get("schema") != "gse239452-pilot-result/1.0"
         or payload.get("runner_sha256") != _sha256(Path(__file__))
         or payload.get("reduced_development_sha256") != _sha256(DEFAULT_REDUCED)
         or payload.get("calibration_donors") != list(CALIBRATION)
@@ -1420,7 +1513,15 @@ def predict_held(
         "source_manifest_sha256": _sha256(source_path),
         "metadata_preflight_sha256": _sha256(preflight_path),
         "pilot_result_sha256": _sha256(pilot_path),
-        "held_gex_authorization_sha256": _sha256(authorization_path),
+        "held_gex_authorization": {
+            "path": _relative(authorization_path),
+            "sha256": _sha256(authorization_path),
+            "public_commit": authorization_commit,
+        },
+        "prediction_attempt": {
+            "path": _relative(attempt_path),
+            "sha256": _sha256(attempt_path),
+        },
         "held_donors": list(HELD),
         "models": models,
         "samples": samples,
@@ -1440,41 +1541,166 @@ def predict_held(
 
 def _validated_prediction(path: Path) -> dict[str, Any]:
     payload = _read_json(path)
+    expected_fields = {
+        "schema",
+        "status",
+        "created_at_utc",
+        "runner_sha256",
+        "source_manifest_sha256",
+        "metadata_preflight_sha256",
+        "pilot_result_sha256",
+        "held_gex_authorization",
+        "prediction_attempt",
+        "held_donors",
+        "models",
+        "samples",
+        "reconstruction",
+        "access_audit",
+    }
+    expected_access = {
+        "held_gex_samples_read": len(HELD),
+        "held_adt_barcode_axes_read": len(HELD),
+        "held_adt_files_opaque_sha256_hashed": len(HELD),
+        "held_adt_numeric_values_read": 0,
+        "held_pairings_formed": 0,
+        "held_truth_tables_formed": 0,
+    }
     if (
-        payload.get("schema") != "gse239452-held-predictions/1.0"
+        set(payload) != expected_fields
+        or payload.get("schema") != "gse239452-held-predictions/1.0"
         or payload.get("status") != "PREDICTIONS_FROZEN"
         or payload.get("runner_sha256") != _sha256(Path(__file__))
         or payload.get("source_manifest_sha256") != _sha256(DEFAULT_SOURCE)
         or payload.get("metadata_preflight_sha256") != _sha256(DEFAULT_PREFLIGHT)
         or payload.get("pilot_result_sha256") != _sha256(DEFAULT_PILOT)
         or payload.get("held_donors") != list(HELD)
-        or payload.get("access_audit", {}).get("held_adt_numeric_values_read") != 0
-        or payload.get("access_audit", {}).get("held_pairings_formed") != 0
+        or payload.get("reconstruction")
+        != "noncentral-hypergeometric expectation at frozen finite full log odds; no clipping"
+        or payload.get("access_audit") != expected_access
     ):
         raise PermissionError("held predictions differ from the frozen runner")
+    pilot = _validated_pilot(DEFAULT_PILOT, require_pass=True)
+    models = payload.get("models")
+    if _canonical_json_sha256(models) != _canonical_json_sha256(
+        pilot["all_development_models"]
+    ):
+        raise PermissionError("held prediction models differ from the replayed pilot")
+    authorization = payload.get("held_gex_authorization")
+    if not isinstance(authorization, dict) or set(authorization) != {
+        "path",
+        "sha256",
+        "public_commit",
+    }:
+        raise PermissionError("held-GEX authorization record differs")
+    authorization_commit = str(authorization.get("public_commit"))
+    _validated_artifact_authorization(
+        DEFAULT_HELD_GEX_AUTHORIZATION,
+        authorization_commit,
+        status="HELD_GEX_ACCESS_AUTHORIZED",
+        artifact_path=DEFAULT_PILOT,
+        artifact_field="pilot_result",
+    )
+    if authorization != {
+        "path": _relative(DEFAULT_HELD_GEX_AUTHORIZATION),
+        "sha256": _sha256(DEFAULT_HELD_GEX_AUTHORIZATION),
+        "public_commit": authorization_commit,
+    }:
+        raise PermissionError("held-GEX authorization does not replay")
+    attempt_record = payload.get("prediction_attempt")
+    if not isinstance(attempt_record, dict) or attempt_record != {
+        "path": _relative(DEFAULT_PREDICTION_ATTEMPT),
+        "sha256": _sha256(DEFAULT_PREDICTION_ATTEMPT),
+    }:
+        raise PermissionError("prediction attempt binding differs")
+    attempt = _read_json(DEFAULT_PREDICTION_ATTEMPT)
+    if (
+        set(attempt)
+        != {
+            "schema",
+            "status",
+            "created_at_utc",
+            "pilot_result_sha256",
+            "authorization_sha256",
+            "public_authorization_commit",
+            "held_gex_numeric_access_begins_after_this_record",
+            "held_adt_numeric_values_read",
+        }
+        or attempt.get("schema") != "gse239452-prediction-attempt/1.0"
+        or attempt.get("status") != "TERMINAL_ATTEMPT_STARTED"
+        or attempt.get("pilot_result_sha256") != _sha256(DEFAULT_PILOT)
+        or attempt.get("authorization_sha256")
+        != _sha256(DEFAULT_HELD_GEX_AUTHORIZATION)
+        or attempt.get("public_authorization_commit") != authorization_commit
+        or attempt.get("held_gex_numeric_access_begins_after_this_record") is not True
+        or attempt.get("held_adt_numeric_values_read") != 0
+    ):
+        raise PermissionError("prediction attempt does not replay")
     samples = payload.get("samples")
     if not isinstance(samples, list) or [row.get("donor") for row in samples] != list(
         HELD
     ):
         raise PermissionError("held prediction sample order differs")
-    models = payload.get("models")
     expected_methods = {
         "primary",
         "best_residual",
         "destroyed_link",
         "graph_zero_diagnostic",
     }
+    manifest = _sample_manifest(DEFAULT_SOURCE)
+    preflight = _preflight_records(DEFAULT_PREFLIGHT)
+    expected_sample_fields = {
+        "donor",
+        "severity",
+        "cells",
+        "selected_barcode_axis_sha256",
+        "common_barcode_axis_sha256",
+        "common_barcode_count",
+        "rna_positive_counts",
+        "row_margins",
+        "column_margins",
+        "predicted_tables",
+        "gex_access",
+        "adt_numeric_values_read",
+    }
     for row in samples:
+        donor = row.get("donor")
         rows = np.asarray(row.get("row_margins"), dtype=np.int64)
         columns = np.asarray(row.get("column_margins"), dtype=np.int64)
+        expected_rows, expected_columns = _held_margin_arrays(
+            row.get("rna_positive_counts")
+        )
+        gex_access = row.get("gex_access")
+        valid_gex_access = (
+            isinstance(gex_access, dict)
+            and set(gex_access)
+            == {
+                "raw_data_values_decoded",
+                "raw_indices_values_decoded",
+                "raw_indptr_values_read",
+            }
+            and all(type(value) is int and value >= 0 for value in gex_access.values())
+            and gex_access["raw_data_values_decoded"]
+            == gex_access["raw_indices_values_decoded"]
+            and gex_access["raw_indptr_values_read"] == 2 * CELL_BUDGET
+        )
         if (
-            rows.shape != (len(MARKERS), len(MARKERS), 2)
+            set(row) != expected_sample_fields
+            or row.get("severity") != manifest[donor]["severity"]
+            or row.get("cells") != CELL_BUDGET
+            or row.get("common_barcode_axis_sha256")
+            != preflight[donor]["common_barcode_axis_sha256"]
+            or row.get("common_barcode_count")
+            != preflight[donor]["common_barcode_count"]
+            or rows.shape != (len(MARKERS), len(MARKERS), 2)
             or columns.shape != rows.shape
             or np.any(rows < 0)
             or np.any(columns < 0)
             or not np.all(rows.sum(axis=-1) == CELL_BUDGET)
             or not np.all(columns == CELL_BUDGET // 2)
+            or not np.array_equal(rows, expected_rows)
+            or not np.array_equal(columns, expected_columns)
             or row.get("adt_numeric_values_read") != 0
+            or not valid_gex_access
             or not re.fullmatch(
                 r"[0-9a-f]{64}", str(row.get("selected_barcode_axis_sha256"))
             )
@@ -1622,6 +1848,17 @@ def score_held(
 
 
 def _terminal_wrapper(phase: str, attempt_path: Path, operation: Any) -> dict[str, Any]:
+    expected_attempts = {
+        "development_reduction": DEFAULT_DEVELOPMENT_ATTEMPT,
+        "pilot_evaluation": DEFAULT_DEVELOPMENT_ATTEMPT,
+        "held_prediction": DEFAULT_PREDICTION_ATTEMPT,
+        "held_score": DEFAULT_SCORE_ATTEMPT,
+    }
+    if phase not in expected_attempts:
+        raise ValueError("unknown terminal phase")
+    _require_designated(
+        attempt_path, expected_attempts[phase], f"{phase} terminal attempt"
+    )
     try:
         return operation()
     except Exception as error:

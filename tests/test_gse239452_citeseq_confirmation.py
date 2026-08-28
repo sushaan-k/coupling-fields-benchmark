@@ -293,17 +293,113 @@ def test_development_attempt_follows_authorization_and_precedes_numeric_access(
     assert first_numeric > events.index("attempt_record")
 
 
+def test_reduced_validator_replays_authorization_and_attempt_and_refuses_tampering(
+    tmp_path, monkeypatch
+):
+    source = tmp_path / "source.json"
+    preflight = tmp_path / "preflight.json"
+    authorization = tmp_path / "authorization.json"
+    attempt = tmp_path / "attempt.json"
+    reduced = tmp_path / "reduced.json"
+    for path in (source, preflight, authorization):
+        path.write_text("{}\n")
+    monkeypatch.setattr(confirmation, "ROOT", tmp_path)
+    monkeypatch.setattr(confirmation, "DEFAULT_SOURCE", source)
+    monkeypatch.setattr(confirmation, "DEFAULT_PREFLIGHT", preflight)
+    monkeypatch.setattr(
+        confirmation, "DEFAULT_DEVELOPMENT_AUTHORIZATION", authorization
+    )
+    monkeypatch.setattr(confirmation, "DEFAULT_DEVELOPMENT_ATTEMPT", attempt)
+
+    authorization_commit = "d" * 40
+    protocol_commit = "e" * 40
+    attempt_payload = {
+        "schema": "gse239452-development-attempt/1.0",
+        "status": "TERMINAL_ATTEMPT_STARTED",
+        "created_at_utc": "2026-08-28T00:00:00Z",
+        "authorization_sha256": confirmation._sha256(authorization),
+        "public_authorization_commit": authorization_commit,
+        "numeric_development_access_begins_after_this_record": True,
+        "held_numeric_values_read": 0,
+    }
+    attempt.write_text(json.dumps(attempt_payload))
+    table = np.full((9, 9, 2, 2), 128, dtype=np.int64)
+    records = []
+    manifest = {}
+    for donor in (*confirmation.CALIBRATION, *confirmation.PILOT):
+        role = "calibration" if donor in confirmation.CALIBRATION else "pilot"
+        manifest[donor] = {"role": role}
+        records.append(
+            {
+                "donor": donor,
+                "role": role,
+                "cells": confirmation.CELL_BUDGET,
+                "tables": table.tolist(),
+                "destroyed_tables": table.tolist(),
+                "table_sha256": confirmation._array_sha256(table),
+                "destroyed_table_sha256": confirmation._array_sha256(table),
+                "adt_high_counts": [256] * 9,
+                "selected_barcode_axis_sha256": "a" * 64,
+            }
+        )
+    payload = {
+        "schema": "gse239452-reduced-development/1.0",
+        "status": "DEVELOPMENT_REDUCTION_COMPLETE",
+        "created_at_utc": "2026-08-28T00:00:01Z",
+        "source_manifest_sha256": confirmation._sha256(source),
+        "metadata_preflight_sha256": confirmation._sha256(preflight),
+        "development_authorization": {
+            "path": confirmation._relative(authorization),
+            "sha256": confirmation._sha256(authorization),
+            "public_commit": authorization_commit,
+            "public_protocol_commit": protocol_commit,
+        },
+        "development_attempt": {
+            "path": confirmation._relative(attempt),
+            "sha256": confirmation._sha256(attempt),
+        },
+        "runner_sha256": confirmation._sha256(Path(confirmation.__file__)),
+        "calibration_donors": list(confirmation.CALIBRATION),
+        "pilot_donors": list(confirmation.PILOT),
+        "samples": records,
+        "access_audit": {
+            "calibration_samples_read": len(confirmation.CALIBRATION),
+            "pilot_samples_read": len(confirmation.PILOT),
+            "held_gex_numeric_values_read": 0,
+            "held_adt_numeric_values_read": 0,
+        },
+    }
+    monkeypatch.setattr(confirmation, "_sample_manifest", lambda *_args: manifest)
+    monkeypatch.setattr(
+        confirmation,
+        "_validated_protocol_authorization",
+        lambda *_args, **_kwargs: {"public_protocol_commit": protocol_commit},
+    )
+    reduced.write_text(json.dumps(payload))
+    assert set(confirmation._validated_reduced(reduced)) == set(manifest)
+
+    payload["development_authorization"]["path"] = "alternate/auth.json"
+    reduced.write_text(json.dumps(payload))
+    with pytest.raises(PermissionError, match="does not replay"):
+        confirmation._validated_reduced(reduced)
+
+
 def test_prediction_validator_recomputes_tables_and_refuses_tampering(
     tmp_path, monkeypatch
 ):
     source = tmp_path / "source.json"
     preflight = tmp_path / "preflight.json"
     pilot = tmp_path / "pilot.json"
-    for path in (source, preflight, pilot):
+    authorization = tmp_path / "held_gex_authorization.json"
+    attempt = tmp_path / "prediction_attempt.json"
+    for path in (source, preflight, pilot, authorization):
         path.write_text("{}\n")
+    monkeypatch.setattr(confirmation, "ROOT", tmp_path)
     monkeypatch.setattr(confirmation, "DEFAULT_SOURCE", source)
     monkeypatch.setattr(confirmation, "DEFAULT_PREFLIGHT", preflight)
     monkeypatch.setattr(confirmation, "DEFAULT_PILOT", pilot)
+    monkeypatch.setattr(confirmation, "DEFAULT_HELD_GEX_AUTHORIZATION", authorization)
+    monkeypatch.setattr(confirmation, "DEFAULT_PREDICTION_ATTEMPT", attempt)
     config = confirmation.PrimaryConfig(1, 1.0, 0.1, 0.0, 1.0)
     residual = confirmation.ResidualConfig("deviance", 1.0)
     zeros = np.zeros((9, 9))
@@ -328,15 +424,27 @@ def test_prediction_validator_recomputes_tables_and_refuses_tampering(
             "fit_certificate": {},
         },
     }
+    pilot_models = json.loads(json.dumps(models))
     rows, columns = confirmation._held_margin_arrays([100] * 9)
     predicted = confirmation._predict_panel(models, rows, columns)
+    common_axis_sha256 = "b" * 64
     sample = {
         "donor": None,
+        "severity": "Control",
+        "cells": confirmation.CELL_BUDGET,
         "selected_barcode_axis_sha256": "a" * 64,
+        "common_barcode_axis_sha256": common_axis_sha256,
+        "common_barcode_count": 600,
+        "rna_positive_counts": [100] * 9,
         "row_margins": rows.tolist(),
         "column_margins": columns.tolist(),
         "predicted_tables": {
             method: value.tolist() for method, value in predicted.items()
+        },
+        "gex_access": {
+            "raw_data_values_decoded": 10,
+            "raw_indices_values_decoded": 10,
+            "raw_indptr_values_read": 1024,
         },
         "adt_numeric_values_read": 0,
     }
@@ -345,24 +453,84 @@ def test_prediction_validator_recomputes_tables_and_refuses_tampering(
         row = dict(sample)
         row["donor"] = donor
         samples.append(row)
+    commit = "c" * 40
+    attempt_payload = {
+        "schema": "gse239452-prediction-attempt/1.0",
+        "status": "TERMINAL_ATTEMPT_STARTED",
+        "created_at_utc": "2026-08-28T00:00:00Z",
+        "pilot_result_sha256": confirmation._sha256(pilot),
+        "authorization_sha256": confirmation._sha256(authorization),
+        "public_authorization_commit": commit,
+        "held_gex_numeric_access_begins_after_this_record": True,
+        "held_adt_numeric_values_read": 0,
+    }
+    attempt.write_text(json.dumps(attempt_payload))
     payload = {
         "schema": "gse239452-held-predictions/1.0",
         "status": "PREDICTIONS_FROZEN",
+        "created_at_utc": "2026-08-28T00:00:01Z",
         "runner_sha256": confirmation._sha256(Path(confirmation.__file__)),
         "source_manifest_sha256": confirmation._sha256(source),
         "metadata_preflight_sha256": confirmation._sha256(preflight),
         "pilot_result_sha256": confirmation._sha256(pilot),
+        "held_gex_authorization": {
+            "path": confirmation._relative(authorization),
+            "sha256": confirmation._sha256(authorization),
+            "public_commit": commit,
+        },
+        "prediction_attempt": {
+            "path": confirmation._relative(attempt),
+            "sha256": confirmation._sha256(attempt),
+        },
         "held_donors": list(confirmation.HELD),
         "models": models,
         "samples": samples,
+        "reconstruction": "noncentral-hypergeometric expectation at frozen finite full log odds; no clipping",
         "access_audit": {
+            "held_gex_samples_read": len(confirmation.HELD),
+            "held_adt_barcode_axes_read": len(confirmation.HELD),
+            "held_adt_files_opaque_sha256_hashed": len(confirmation.HELD),
             "held_adt_numeric_values_read": 0,
             "held_pairings_formed": 0,
+            "held_truth_tables_formed": 0,
         },
     }
+    manifest = {donor: {"severity": "Control"} for donor in confirmation.HELD}
+    preflight_records = {
+        donor: {
+            "common_barcode_axis_sha256": common_axis_sha256,
+            "common_barcode_count": 600,
+        }
+        for donor in confirmation.HELD
+    }
+    monkeypatch.setattr(
+        confirmation,
+        "_validated_pilot",
+        lambda *_args, **_kwargs: {"all_development_models": pilot_models},
+    )
+    monkeypatch.setattr(
+        confirmation, "_validated_artifact_authorization", lambda *_args, **_kwargs: {}
+    )
+    monkeypatch.setattr(confirmation, "_sample_manifest", lambda *_args: manifest)
+    monkeypatch.setattr(
+        confirmation, "_preflight_records", lambda *_args: preflight_records
+    )
     prediction_path = tmp_path / "predictions.json"
     prediction_path.write_text(json.dumps(payload))
     confirmation._validated_prediction(prediction_path)
+
+    payload["models"]["primary"]["population_log_odds"][0][0] = 0.5
+    prediction_path.write_text(json.dumps(payload))
+    with pytest.raises(PermissionError, match="models differ"):
+        confirmation._validated_prediction(prediction_path)
+    payload["models"] = json.loads(json.dumps(pilot_models))
+
+    payload["undeclared_held_truth"] = [[1, 2], [3, 4]]
+    prediction_path.write_text(json.dumps(payload))
+    with pytest.raises(PermissionError, match="frozen runner"):
+        confirmation._validated_prediction(prediction_path)
+    del payload["undeclared_held_truth"]
+
     payload["samples"][0]["predicted_tables"]["primary"][0][0][0][0] += 1.0
     prediction_path.write_text(json.dumps(payload))
     with pytest.raises(PermissionError, match="does not recompute exactly"):
@@ -375,3 +543,22 @@ def test_terminal_artifact_blocks_all_later_phases(tmp_path, monkeypatch):
     monkeypatch.setattr(confirmation, "DEFAULT_TERMINAL_REFUSAL", terminal)
     with pytest.raises(PermissionError, match="permanently closes"):
         confirmation._require_open()
+
+
+def test_terminal_wrapper_refuses_noncanonical_attempt_before_operation(
+    tmp_path, monkeypatch
+):
+    canonical = tmp_path / "canonical_attempt.json"
+    monkeypatch.setattr(confirmation, "DEFAULT_PREDICTION_ATTEMPT", canonical)
+    called = False
+
+    def operation():
+        nonlocal called
+        called = True
+        return {}
+
+    with pytest.raises(PermissionError, match="path differs"):
+        confirmation._terminal_wrapper(
+            "held_prediction", tmp_path / "alternate_attempt.json", operation
+        )
+    assert called is False
