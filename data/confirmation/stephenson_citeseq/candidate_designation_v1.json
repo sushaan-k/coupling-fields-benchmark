@@ -1,0 +1,291 @@
+{
+  "schema": "stephenson-citeseq-candidate-designation/1.0",
+  "status": "DESIGNATED_OUTCOME_ACCESS_DISABLED",
+  "designation_date": "2026-08-28",
+  "planned_immutable_tag": "stephenson-citeseq-v1-protocol",
+  "protocol": {
+    "path": "docs/STEPHENSON_CITESEQ_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
+    "sha256": "c32466204e78d774d532783ad9a4b8789851a3fc3a8f7f517ca933ee7c2fdab8"
+  },
+  "dataset": {
+    "accession": "E-MTAB-10026",
+    "study_doi": "10.1038/s41591-021-01329-2",
+    "h5ad": {
+      "name": "covid_portal_210320_with_raw.h5ad",
+      "bytes": 7187322881,
+      "md5": "add2501947c585ea6b6ef7429e4bd9f2",
+      "sha256": "ec48f328f2e884c23376c8aa1f26041e11625762be5c30b0bd0869aa8bb1a334",
+      "url": "https://www.ebi.ac.uk/biostudies/files/E-MTAB-10026/covid_portal_210320_with_raw.h5ad",
+      "redistributed": false
+    },
+    "sdrf": {
+      "name": "E-MTAB-10026.sdrf.txt",
+      "bytes": 155174,
+      "sha256": "68a27790e45b025f71f445c5ab6dbdc15d5fd74312f8d5366390759ff0580dc5",
+      "url": "https://www.ebi.ac.uk/biostudies/files/E-MTAB-10026/E-MTAB-10026.sdrf.txt"
+    }
+  },
+  "artifacts": {
+    "runner": "experiments/confirm_stephenson_citeseq.py",
+    "runner_test": "tests/test_stephenson_citeseq_confirmation.py",
+    "source_manifest": {
+      "path": "data/confirmation/stephenson_citeseq/source_manifest_v1.json",
+      "sha256": "c6643db4aa71e2decbdd53c530bbf791b560c8362f9375901e1dfe326dfcc117"
+    },
+    "metadata_preflight": {
+      "path": "results/development/stephenson_citeseq_metadata_preflight.json",
+      "sha256": "dfff0da339c89de44ffe503c6f8701d510401e101172c6e2771ac6dd39478346",
+      "matrix_payload_reads": 0
+    },
+    "public_freeze_verification": "docs/STEPHENSON_CITESEQ_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
+    "development_authorization": "data/confirmation/stephenson_citeseq/development_authorization_v1.json",
+    "development_result": "results/development/stephenson_citeseq_development.json",
+    "held_rna_margin_authorization": "data/confirmation/stephenson_citeseq/held_rna_margin_authorization_v1.json",
+    "held_predictions": "results/stephenson_citeseq_predictions.json",
+    "score_authorization": "data/confirmation/stephenson_citeseq/score_authorization_v1.json",
+    "score_result": "results/stephenson_citeseq_confirmation.json"
+  },
+  "metadata_contract": {
+    "biological_donor_key": "SDRF Characteristics[individual]",
+    "h5ad_sample_key": "obs/sample_id",
+    "sdrf_sample_key": "Source Name",
+    "exact_sdrf_to_h5ad_corrections": {
+      "BGCV06_CV0326": "BGCV13_CV0326",
+      "BGCV13_CV0201": "BGCV06_CV0201"
+    },
+    "other_fuzzy_sample_join_permitted": false,
+    "h5ad_patient_id_used_for_allocation": false,
+    "source_sites": [
+      "Cambridge",
+      "Ncl"
+    ],
+    "excluded_site": "Sanger",
+    "excluded_site_reason": "different custom TotalSeq-C panel 99814",
+    "excluded_ncl_stimulated_donors": [
+      "IVLPS-1",
+      "IVLPS-2",
+      "IVLPS-3",
+      "IVLPS-4",
+      "IVLPS-6",
+      "IVLPS-12"
+    ],
+    "matrix": "layers/raw",
+    "feature_match": "exact symbol and exact feature_types value; deposited var has no gene_ids column",
+    "fuzzy_feature_fallback": false
+  },
+  "allocation": {
+    "unit": "one metadata-selected sample per SDRF biological donor",
+    "cell_budget": 512,
+    "counts": {
+      "cambridge_eligible": 47,
+      "calibration": 12,
+      "pilot_adaptive_development": 24,
+      "cambridge_unused": 11,
+      "newcastle_held_confirmatory": 56
+    },
+    "calibration": [
+      "CV0052:BGCV02_CV0052",
+      "CV0062:BGCV12_CV0062",
+      "CV0084:BGCV03_CV0084",
+      "CV0171:BGCV13_CV0171",
+      "CV0231:BGCV10_CV0231",
+      "CV0262:BGCV04_CV0262",
+      "CV0279:BGCV09_CV0279",
+      "CV0284:BGCV14_CV0284",
+      "CV0326:BGCV13_CV0326",
+      "CV0902:BGCV01_CV0902",
+      "CV0926:BGCV12_CV0926",
+      "CV0934:BGCV13_CV0934"
+    ],
+    "pilot": [
+      "CV0025:BGCV01_CV0025",
+      "CV0037:BGCV06_CV0037",
+      "CV0050:BGCV11_CV0050",
+      "CV0058:BGCV11_CV0058",
+      "CV0059:BGCV02_CV0059",
+      "CV0068:BGCV02_CV0068",
+      "CV0074:BGCV03_CV0074",
+      "CV0104:BGCV07_CV0104",
+      "CV0120:BGCV05_CV0120",
+      "CV0128:BGCV05_CV0128",
+      "CV0137:BGCV07_CV0137",
+      "CV0144:BGCV01_CV0144",
+      "CV0155:BGCV08_CV0155",
+      "CV0160:BGCV10_CV0160",
+      "CV0164:BGCV04_CV0164",
+      "CV0178:BGCV06_CV0178",
+      "CV0198:BGCV10_CV0198",
+      "CV0234:BGCV06_CV0234",
+      "CV0904:BGCV01_CV0904",
+      "CV0915:BGCV08_CV0915",
+      "CV0917:BGCV09_CV0917",
+      "CV0929:BGCV05_CV0929",
+      "CV0939:BGCV10_CV0939",
+      "CV0944:BGCV15_CV0944"
+    ],
+    "unused_cambridge": [
+      "CV0073:BGCV08_CV0073",
+      "CV0094:BGCV07_CV0094",
+      "CV0100:BGCV04_CV0100",
+      "CV0134:BGCV07_CV0134",
+      "CV0176:BGCV15_CV0176",
+      "CV0180:BGCV11_CV0180",
+      "CV0200:BGCV03_CV0200",
+      "CV0201:BGCV06_CV0201",
+      "CV0257:BGCV11_CV0257",
+      "CV0911:BGCV04_CV0911",
+      "CV0940:BGCV14_CV0940"
+    ],
+    "held_newcastle": [
+      "C-8816:MH9143270",
+      "C-8820:MH9143320",
+      "C-8821:MH9179821",
+      "C-8822:MH9179822",
+      "C-8823:MH8919326",
+      "C-8825:MH9143321",
+      "C-8826:MH9143420",
+      "C-8827:MH9143271",
+      "C-8828:MH9179823",
+      "C-8829:MH9179824",
+      "C-8882:MH9143322",
+      "C-8883:newcastle20",
+      "C-8884:newcastle21",
+      "C-8885:MH9143421",
+      "C-8886:MH9143272",
+      "C-8887:MH9179826",
+      "C-8890:MH9143323",
+      "C-8892:MH9143370",
+      "C-8893:MH9143324",
+      "C-8895:MH9179825",
+      "C-8896:MH8919327",
+      "C-8897:MH9143422",
+      "C-8898:MH9143371",
+      "C-8899:MH9143325",
+      "C-8902:MH9143423",
+      "C-8903:MH9143274",
+      "C-8905:MH9143424",
+      "C-8909:MH9143426",
+      "C-8910:newcastle49",
+      "C-8912:MH8919329",
+      "C-8913:MH9179827",
+      "C-8914:MH8919226",
+      "C-8915:MH8919330",
+      "C-8918:MH9143275",
+      "C-8921:MH9143427",
+      "C-8922:MH9143425",
+      "C-8923:MH9179828",
+      "C-8926:MH8919331",
+      "C-8927:MH9143372",
+      "C-8928:MH8919178",
+      "C-8929:MH9143276",
+      "C-8930:MH8919179",
+      "C-8931:newcastle59",
+      "C-8933:MH9143373",
+      "C-8934:MH9143326",
+      "C-8935:MH9143327",
+      "C-8936:newcastle74",
+      "C-8937:newcastle65",
+      "C-8938:MH8919176",
+      "C-8939:MH8919227",
+      "C-8940:MH8919332",
+      "C-8941:MH8919177",
+      "C-8942:MH8919282",
+      "C-8943:MH8919283",
+      "C-8944:MH9143277",
+      "C-8946:MH8919333"
+    ],
+    "membership_formula_bound_in_protocol": true,
+    "sample_replacement_permitted": false
+  },
+  "entities": {
+    "markers": [
+      "CD4",
+      "CD7",
+      "CD14",
+      "CD19",
+      "CD33",
+      "CD38",
+      "CD44",
+      "CD47",
+      "CD52"
+    ],
+    "ordered_rna_adt_pairs": 81,
+    "rna_state": "raw count greater than zero",
+    "adt_state": "within-sample exact midrank split with hash tie breaking",
+    "minimum_informative_pairs": 64
+  },
+  "estimator": {
+    "primary": "donor-heterogeneity-aware exact conditional full-log-odds field",
+    "recipient_prediction": "Fisher noncentral-hypergeometric expected table at recipient margins",
+    "configuration_grid": {
+      "graph_neighbors": [
+        1,
+        2
+      ],
+      "heterogeneity_penalty": [
+        0.1,
+        1.0,
+        10.0
+      ],
+      "ridge_penalty": [
+        0.01,
+        0.1
+      ],
+      "graph_penalty": [
+        0.0,
+        0.1,
+        1.0
+      ],
+      "transport_alpha": [
+        0.5,
+        0.75,
+        1.0,
+        1.25
+      ]
+    },
+    "structural_fits": 36,
+    "predictive_configurations": 144,
+    "required_comparators": [
+      "pilot-selected strongest raw or exact-null-centered signed Pearson or signed-root Poisson-deviance residual transfer",
+      "pairing-destroyed exact conditional field"
+    ],
+    "reported_diagnostics": [
+      "pilot-selected graph-zero exact conditional field",
+      "fixed-margin independence"
+    ],
+    "graph_specific_superiority_is_promotion_gate": false
+  },
+  "gates": {
+    "pilot": {
+      "required_relative_reduction": 0.05,
+      "paired_bootstrap_upper_95_below_zero": true,
+      "required_favorable": 19,
+      "donors": 24
+    },
+    "held_newcastle": {
+      "required_relative_reduction": 0.05,
+      "paired_bootstrap_upper_95_below_zero": true,
+      "required_favorable": 45,
+      "donors": 56,
+      "exact_one_sided_binomial_p_max": 0.025
+    },
+    "both_required_comparators_must_pass": true,
+    "candidate_specific_not_familywise_across_prior_searches": true
+  },
+  "access_order": [
+    "public protocol freeze and fresh-clone verification",
+    "separately committed development authorization",
+    "Cambridge calibration and pilot numeric access",
+    "public passing pilot and separately committed held-RNA-margin authorization",
+    "Newcastle RNA margins only and public frozen predictions",
+    "separately committed score authorization",
+    "one Newcastle paired-truth score attempt"
+  ],
+  "outcome_access": {
+    "development_authorized": false,
+    "held_rna_margins_authorized": false,
+    "held_rna_adt_pairing_authorized": false,
+    "held_outcomes_seen": false,
+    "rerun_permitted": false
+  }
+}

@@ -1,0 +1,1375 @@
+{
+  "cluster_to_cell_type": {
+    "B_cell": "B",
+    "CD14": "MNP",
+    "CD16": "MNP",
+    "CD4": "T",
+    "CD8": "T",
+    "DCs": "MNP",
+    "HSC": "HSC",
+    "Lymph_prolif": "T",
+    "MAIT": "T",
+    "Mono_prolif": "MNP",
+    "NK_16hi": "NK",
+    "NK_56hi": "NK",
+    "Plasmablast": "PB",
+    "Platelets": "PLT",
+    "RBC": "ERYTH",
+    "Treg": "T",
+    "gdT": "T",
+    "pDC": "MNP"
+  },
+  "created_at_utc": "2026-08-28T19:45:03Z",
+  "h5ad": {
+    "bytes": 7187322881,
+    "filename": "covid_portal_210320_with_raw.h5ad",
+    "md5": "add2501947c585ea6b6ef7429e4bd9f2",
+    "official_url": "https://www.ebi.ac.uk/biostudies/files/E-MTAB-10026/covid_portal_210320_with_raw.h5ad",
+    "raw_matrix_path": "layers/raw",
+    "sha256": "ec48f328f2e884c23376c8aa1f26041e11625762be5c30b0bd0869aa8bb1a334"
+  },
+  "markers": [
+    {
+      "adt_feature": "AB_CD4",
+      "adt_feature_type": "Antibody Capture",
+      "canonical_reference_ensembl": "ENSG00000010610",
+      "marker": "CD4",
+      "rna_feature": "CD4",
+      "rna_feature_type": "Gene Expression"
+    },
+    {
+      "adt_feature": "AB_CD7",
+      "adt_feature_type": "Antibody Capture",
+      "canonical_reference_ensembl": "ENSG00000173762",
+      "marker": "CD7",
+      "rna_feature": "CD7",
+      "rna_feature_type": "Gene Expression"
+    },
+    {
+      "adt_feature": "AB_CD14",
+      "adt_feature_type": "Antibody Capture",
+      "canonical_reference_ensembl": "ENSG00000170458",
+      "marker": "CD14",
+      "rna_feature": "CD14",
+      "rna_feature_type": "Gene Expression"
+    },
+    {
+      "adt_feature": "AB_CD19",
+      "adt_feature_type": "Antibody Capture",
+      "canonical_reference_ensembl": "ENSG00000177455",
+      "marker": "CD19",
+      "rna_feature": "CD19",
+      "rna_feature_type": "Gene Expression"
+    },
+    {
+      "adt_feature": "AB_CD33",
+      "adt_feature_type": "Antibody Capture",
+      "canonical_reference_ensembl": "ENSG00000105383",
+      "marker": "CD33",
+      "rna_feature": "CD33",
+      "rna_feature_type": "Gene Expression"
+    },
+    {
+      "adt_feature": "AB_CD38",
+      "adt_feature_type": "Antibody Capture",
+      "canonical_reference_ensembl": "ENSG00000004468",
+      "marker": "CD38",
+      "rna_feature": "CD38",
+      "rna_feature_type": "Gene Expression"
+    },
+    {
+      "adt_feature": "AB_CD44",
+      "adt_feature_type": "Antibody Capture",
+      "canonical_reference_ensembl": "ENSG00000026508",
+      "marker": "CD44",
+      "rna_feature": "CD44",
+      "rna_feature_type": "Gene Expression"
+    },
+    {
+      "adt_feature": "AB_CD47",
+      "adt_feature_type": "Antibody Capture",
+      "canonical_reference_ensembl": "ENSG00000196776",
+      "marker": "CD47",
+      "rna_feature": "CD47",
+      "rna_feature_type": "Gene Expression"
+    },
+    {
+      "adt_feature": "AB_CD52",
+      "adt_feature_type": "Antibody Capture",
+      "canonical_reference_ensembl": "ENSG00000169442",
+      "marker": "CD52",
+      "rna_feature": "CD52",
+      "rna_feature_type": "Gene Expression"
+    }
+  ],
+  "preflight_sha256": "dfff0da339c89de44ffe503c6f8701d510401e101172c6e2771ac6dd39478346",
+  "salts": {
+    "adt_tie": "STEPHENSON-CITESEQ-ADT-v1",
+    "calibration": "STEPHENSON-CAMBRIDGE-CALIBRATION-v1",
+    "cell_selection": "STEPHENSON-CITESEQ-CELL-BUDGET-v1",
+    "destroyed_link": "STEPHENSON-CITESEQ-DESTROYED-LINK-v1",
+    "pilot": "STEPHENSON-CAMBRIDGE-PILOT-v1",
+    "sample_selection": "STEPHENSON-CITESEQ-SAMPLE-v1"
+  },
+  "samples": [
+    {
+      "disease": "COVID-19",
+      "donor": "CV0025",
+      "eligible_pool_cells": 2727,
+      "eligible_sample_candidates": [
+        "BGCV01_CV0025"
+      ],
+      "role": "pilot",
+      "sample": "BGCV01_CV0025",
+      "sdrf_sample": "BGCV01_CV0025",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0037",
+      "eligible_pool_cells": 2576,
+      "eligible_sample_candidates": [
+        "BGCV06_CV0037"
+      ],
+      "role": "pilot",
+      "sample": "BGCV06_CV0037",
+      "sdrf_sample": "BGCV06_CV0037",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0050",
+      "eligible_pool_cells": 759,
+      "eligible_sample_candidates": [
+        "BGCV11_CV0050",
+        "BGCV14_CV0050"
+      ],
+      "role": "pilot",
+      "sample": "BGCV11_CV0050",
+      "sdrf_sample": "BGCV11_CV0050",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0052",
+      "eligible_pool_cells": 2626,
+      "eligible_sample_candidates": [
+        "BGCV02_CV0052"
+      ],
+      "role": "calibration",
+      "sample": "BGCV02_CV0052",
+      "sdrf_sample": "BGCV02_CV0052",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0058",
+      "eligible_pool_cells": 1941,
+      "eligible_sample_candidates": [
+        "BGCV11_CV0058"
+      ],
+      "role": "pilot",
+      "sample": "BGCV11_CV0058",
+      "sdrf_sample": "BGCV11_CV0058",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0059",
+      "eligible_pool_cells": 3219,
+      "eligible_sample_candidates": [
+        "BGCV02_CV0059"
+      ],
+      "role": "pilot",
+      "sample": "BGCV02_CV0059",
+      "sdrf_sample": "BGCV02_CV0059",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0062",
+      "eligible_pool_cells": 2192,
+      "eligible_sample_candidates": [
+        "BGCV09_CV0062",
+        "BGCV12_CV0062"
+      ],
+      "role": "calibration",
+      "sample": "BGCV12_CV0062",
+      "sdrf_sample": "BGCV12_CV0062",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0068",
+      "eligible_pool_cells": 2701,
+      "eligible_sample_candidates": [
+        "BGCV02_CV0068",
+        "BGCV12_CV0068"
+      ],
+      "role": "pilot",
+      "sample": "BGCV02_CV0068",
+      "sdrf_sample": "BGCV02_CV0068",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0073",
+      "eligible_pool_cells": 1998,
+      "eligible_sample_candidates": [
+        "BGCV08_CV0073",
+        "BGCV13_CV0073"
+      ],
+      "role": "unused_source",
+      "sample": "BGCV08_CV0073",
+      "sdrf_sample": "BGCV08_CV0073",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0074",
+      "eligible_pool_cells": 5731,
+      "eligible_sample_candidates": [
+        "BGCV03_CV0074"
+      ],
+      "role": "pilot",
+      "sample": "BGCV03_CV0074",
+      "sdrf_sample": "BGCV03_CV0074",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0084",
+      "eligible_pool_cells": 1522,
+      "eligible_sample_candidates": [
+        "BGCV03_CV0084"
+      ],
+      "role": "calibration",
+      "sample": "BGCV03_CV0084",
+      "sdrf_sample": "BGCV03_CV0084",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0094",
+      "eligible_pool_cells": 2647,
+      "eligible_sample_candidates": [
+        "BGCV07_CV0094"
+      ],
+      "role": "unused_source",
+      "sample": "BGCV07_CV0094",
+      "sdrf_sample": "BGCV07_CV0094",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0100",
+      "eligible_pool_cells": 3431,
+      "eligible_sample_candidates": [
+        "BGCV04_CV0100"
+      ],
+      "role": "unused_source",
+      "sample": "BGCV04_CV0100",
+      "sdrf_sample": "BGCV04_CV0100",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0104",
+      "eligible_pool_cells": 1361,
+      "eligible_sample_candidates": [
+        "BGCV07_CV0104"
+      ],
+      "role": "pilot",
+      "sample": "BGCV07_CV0104",
+      "sdrf_sample": "BGCV07_CV0104",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0120",
+      "eligible_pool_cells": 2040,
+      "eligible_sample_candidates": [
+        "BGCV05_CV0120"
+      ],
+      "role": "pilot",
+      "sample": "BGCV05_CV0120",
+      "sdrf_sample": "BGCV05_CV0120",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0128",
+      "eligible_pool_cells": 2614,
+      "eligible_sample_candidates": [
+        "BGCV05_CV0128"
+      ],
+      "role": "pilot",
+      "sample": "BGCV05_CV0128",
+      "sdrf_sample": "BGCV05_CV0128",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0134",
+      "eligible_pool_cells": 1431,
+      "eligible_sample_candidates": [
+        "BGCV07_CV0134"
+      ],
+      "role": "unused_source",
+      "sample": "BGCV07_CV0134",
+      "sdrf_sample": "BGCV07_CV0134",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0137",
+      "eligible_pool_cells": 1552,
+      "eligible_sample_candidates": [
+        "BGCV07_CV0137",
+        "BGCV14_CV0137"
+      ],
+      "role": "pilot",
+      "sample": "BGCV07_CV0137",
+      "sdrf_sample": "BGCV07_CV0137",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0144",
+      "eligible_pool_cells": 767,
+      "eligible_sample_candidates": [
+        "BGCV01_CV0144"
+      ],
+      "role": "pilot",
+      "sample": "BGCV01_CV0144",
+      "sdrf_sample": "BGCV01_CV0144",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0155",
+      "eligible_pool_cells": 2674,
+      "eligible_sample_candidates": [
+        "BGCV08_CV0155"
+      ],
+      "role": "pilot",
+      "sample": "BGCV08_CV0155",
+      "sdrf_sample": "BGCV08_CV0155",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0160",
+      "eligible_pool_cells": 1661,
+      "eligible_sample_candidates": [
+        "BGCV10_CV0160"
+      ],
+      "role": "pilot",
+      "sample": "BGCV10_CV0160",
+      "sdrf_sample": "BGCV10_CV0160",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0164",
+      "eligible_pool_cells": 3038,
+      "eligible_sample_candidates": [
+        "BGCV04_CV0164"
+      ],
+      "role": "pilot",
+      "sample": "BGCV04_CV0164",
+      "sdrf_sample": "BGCV04_CV0164",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0171",
+      "eligible_pool_cells": 2218,
+      "eligible_sample_candidates": [
+        "BGCV09_CV0171",
+        "BGCV13_CV0171"
+      ],
+      "role": "calibration",
+      "sample": "BGCV13_CV0171",
+      "sdrf_sample": "BGCV13_CV0171",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0176",
+      "eligible_pool_cells": 546,
+      "eligible_sample_candidates": [
+        "BGCV03_CV0176",
+        "BGCV15_CV0176"
+      ],
+      "role": "unused_source",
+      "sample": "BGCV15_CV0176",
+      "sdrf_sample": "BGCV15_CV0176",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0178",
+      "eligible_pool_cells": 1155,
+      "eligible_sample_candidates": [
+        "BGCV06_CV0178",
+        "BGCV12_CV0178"
+      ],
+      "role": "pilot",
+      "sample": "BGCV06_CV0178",
+      "sdrf_sample": "BGCV06_CV0178",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0180",
+      "eligible_pool_cells": 1168,
+      "eligible_sample_candidates": [
+        "BGCV11_CV0180"
+      ],
+      "role": "unused_source",
+      "sample": "BGCV11_CV0180",
+      "sdrf_sample": "BGCV11_CV0180",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0198",
+      "eligible_pool_cells": 2348,
+      "eligible_sample_candidates": [
+        "BGCV10_CV0198"
+      ],
+      "role": "pilot",
+      "sample": "BGCV10_CV0198",
+      "sdrf_sample": "BGCV10_CV0198",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0200",
+      "eligible_pool_cells": 1184,
+      "eligible_sample_candidates": [
+        "BGCV03_CV0200"
+      ],
+      "role": "unused_source",
+      "sample": "BGCV03_CV0200",
+      "sdrf_sample": "BGCV03_CV0200",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0201",
+      "eligible_pool_cells": 933,
+      "eligible_sample_candidates": [
+        "BGCV06_CV0201",
+        "BGCV08_CV0201"
+      ],
+      "role": "unused_source",
+      "sample": "BGCV06_CV0201",
+      "sdrf_sample": "BGCV13_CV0201",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0231",
+      "eligible_pool_cells": 2089,
+      "eligible_sample_candidates": [
+        "BGCV10_CV0231"
+      ],
+      "role": "calibration",
+      "sample": "BGCV10_CV0231",
+      "sdrf_sample": "BGCV10_CV0231",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0234",
+      "eligible_pool_cells": 2497,
+      "eligible_sample_candidates": [
+        "BGCV06_CV0234"
+      ],
+      "role": "pilot",
+      "sample": "BGCV06_CV0234",
+      "sdrf_sample": "BGCV06_CV0234",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0257",
+      "eligible_pool_cells": 3047,
+      "eligible_sample_candidates": [
+        "BGCV11_CV0257"
+      ],
+      "role": "unused_source",
+      "sample": "BGCV11_CV0257",
+      "sdrf_sample": "BGCV11_CV0257",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0262",
+      "eligible_pool_cells": 2812,
+      "eligible_sample_candidates": [
+        "BGCV04_CV0262"
+      ],
+      "role": "calibration",
+      "sample": "BGCV04_CV0262",
+      "sdrf_sample": "BGCV04_CV0262",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0279",
+      "eligible_pool_cells": 2720,
+      "eligible_sample_candidates": [
+        "BGCV09_CV0279"
+      ],
+      "role": "calibration",
+      "sample": "BGCV09_CV0279",
+      "sdrf_sample": "BGCV09_CV0279",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0284",
+      "eligible_pool_cells": 3177,
+      "eligible_sample_candidates": [
+        "BGCV05_CV0284",
+        "BGCV14_CV0284"
+      ],
+      "role": "calibration",
+      "sample": "BGCV14_CV0284",
+      "sdrf_sample": "BGCV14_CV0284",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "CV0326",
+      "eligible_pool_cells": 784,
+      "eligible_sample_candidates": [
+        "BGCV13_CV0326"
+      ],
+      "role": "calibration",
+      "sample": "BGCV13_CV0326",
+      "sdrf_sample": "BGCV06_CV0326",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "normal",
+      "donor": "CV0902",
+      "eligible_pool_cells": 1285,
+      "eligible_sample_candidates": [
+        "BGCV01_CV0902",
+        "BGCV02_CV0902"
+      ],
+      "role": "calibration",
+      "sample": "BGCV01_CV0902",
+      "sdrf_sample": "BGCV01_CV0902",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "normal",
+      "donor": "CV0904",
+      "eligible_pool_cells": 6853,
+      "eligible_sample_candidates": [
+        "BGCV01_CV0904"
+      ],
+      "role": "pilot",
+      "sample": "BGCV01_CV0904",
+      "sdrf_sample": "BGCV01_CV0904",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "normal",
+      "donor": "CV0911",
+      "eligible_pool_cells": 1905,
+      "eligible_sample_candidates": [
+        "BGCV04_CV0911"
+      ],
+      "role": "unused_source",
+      "sample": "BGCV04_CV0911",
+      "sdrf_sample": "BGCV04_CV0911",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "normal",
+      "donor": "CV0915",
+      "eligible_pool_cells": 1940,
+      "eligible_sample_candidates": [
+        "BGCV08_CV0915"
+      ],
+      "role": "pilot",
+      "sample": "BGCV08_CV0915",
+      "sdrf_sample": "BGCV08_CV0915",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "normal",
+      "donor": "CV0917",
+      "eligible_pool_cells": 2924,
+      "eligible_sample_candidates": [
+        "BGCV09_CV0917"
+      ],
+      "role": "pilot",
+      "sample": "BGCV09_CV0917",
+      "sdrf_sample": "BGCV09_CV0917",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "normal",
+      "donor": "CV0926",
+      "eligible_pool_cells": 2622,
+      "eligible_sample_candidates": [
+        "BGCV12_CV0926"
+      ],
+      "role": "calibration",
+      "sample": "BGCV12_CV0926",
+      "sdrf_sample": "BGCV12_CV0926",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "normal",
+      "donor": "CV0929",
+      "eligible_pool_cells": 1466,
+      "eligible_sample_candidates": [
+        "BGCV05_CV0929"
+      ],
+      "role": "pilot",
+      "sample": "BGCV05_CV0929",
+      "sdrf_sample": "BGCV05_CV0929",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "normal",
+      "donor": "CV0934",
+      "eligible_pool_cells": 3408,
+      "eligible_sample_candidates": [
+        "BGCV13_CV0934"
+      ],
+      "role": "calibration",
+      "sample": "BGCV13_CV0934",
+      "sdrf_sample": "BGCV13_CV0934",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "normal",
+      "donor": "CV0939",
+      "eligible_pool_cells": 1719,
+      "eligible_sample_candidates": [
+        "BGCV10_CV0939"
+      ],
+      "role": "pilot",
+      "sample": "BGCV10_CV0939",
+      "sdrf_sample": "BGCV10_CV0939",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "normal",
+      "donor": "CV0940",
+      "eligible_pool_cells": 2958,
+      "eligible_sample_candidates": [
+        "BGCV14_CV0940"
+      ],
+      "role": "unused_source",
+      "sample": "BGCV14_CV0940",
+      "sdrf_sample": "BGCV14_CV0940",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "normal",
+      "donor": "CV0944",
+      "eligible_pool_cells": 634,
+      "eligible_sample_candidates": [
+        "BGCV15_CV0944"
+      ],
+      "role": "pilot",
+      "sample": "BGCV15_CV0944",
+      "sdrf_sample": "BGCV15_CV0944",
+      "site": "Cambridge"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8816",
+      "eligible_pool_cells": 10084,
+      "eligible_sample_candidates": [
+        "MH9143270"
+      ],
+      "role": "held_site",
+      "sample": "MH9143270",
+      "sdrf_sample": "MH9143270",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8820",
+      "eligible_pool_cells": 7128,
+      "eligible_sample_candidates": [
+        "MH9143320"
+      ],
+      "role": "held_site",
+      "sample": "MH9143320",
+      "sdrf_sample": "MH9143320",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8821",
+      "eligible_pool_cells": 6149,
+      "eligible_sample_candidates": [
+        "MH9179821",
+        "newcastle004v2"
+      ],
+      "role": "held_site",
+      "sample": "MH9179821",
+      "sdrf_sample": "MH9179821",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8822",
+      "eligible_pool_cells": 6614,
+      "eligible_sample_candidates": [
+        "MH9179822"
+      ],
+      "role": "held_site",
+      "sample": "MH9179822",
+      "sdrf_sample": "MH9179822",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8823",
+      "eligible_pool_cells": 7816,
+      "eligible_sample_candidates": [
+        "MH8919326"
+      ],
+      "role": "held_site",
+      "sample": "MH8919326",
+      "sdrf_sample": "MH8919326",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8825",
+      "eligible_pool_cells": 8639,
+      "eligible_sample_candidates": [
+        "MH9143321"
+      ],
+      "role": "held_site",
+      "sample": "MH9143321",
+      "sdrf_sample": "MH9143321",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8826",
+      "eligible_pool_cells": 7985,
+      "eligible_sample_candidates": [
+        "MH9143420"
+      ],
+      "role": "held_site",
+      "sample": "MH9143420",
+      "sdrf_sample": "MH9143420",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8827",
+      "eligible_pool_cells": 9542,
+      "eligible_sample_candidates": [
+        "MH9143271"
+      ],
+      "role": "held_site",
+      "sample": "MH9143271",
+      "sdrf_sample": "MH9143271",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8828",
+      "eligible_pool_cells": 6029,
+      "eligible_sample_candidates": [
+        "MH9179823"
+      ],
+      "role": "held_site",
+      "sample": "MH9179823",
+      "sdrf_sample": "MH9179823",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8829",
+      "eligible_pool_cells": 8205,
+      "eligible_sample_candidates": [
+        "MH9179824"
+      ],
+      "role": "held_site",
+      "sample": "MH9179824",
+      "sdrf_sample": "MH9179824",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8882",
+      "eligible_pool_cells": 8244,
+      "eligible_sample_candidates": [
+        "MH9143322"
+      ],
+      "role": "held_site",
+      "sample": "MH9143322",
+      "sdrf_sample": "MH9143322",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8883",
+      "eligible_pool_cells": 3261,
+      "eligible_sample_candidates": [
+        "newcastle20"
+      ],
+      "role": "held_site",
+      "sample": "newcastle20",
+      "sdrf_sample": "newcastle20",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8884",
+      "eligible_pool_cells": 5505,
+      "eligible_sample_candidates": [
+        "newcastle21",
+        "newcastle21v2"
+      ],
+      "role": "held_site",
+      "sample": "newcastle21",
+      "sdrf_sample": "newcastle21",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8885",
+      "eligible_pool_cells": 8111,
+      "eligible_sample_candidates": [
+        "MH9143421"
+      ],
+      "role": "held_site",
+      "sample": "MH9143421",
+      "sdrf_sample": "MH9143421",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8886",
+      "eligible_pool_cells": 9458,
+      "eligible_sample_candidates": [
+        "MH9143272"
+      ],
+      "role": "held_site",
+      "sample": "MH9143272",
+      "sdrf_sample": "MH9143272",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8887",
+      "eligible_pool_cells": 5848,
+      "eligible_sample_candidates": [
+        "MH9179826"
+      ],
+      "role": "held_site",
+      "sample": "MH9179826",
+      "sdrf_sample": "MH9179826",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8890",
+      "eligible_pool_cells": 10082,
+      "eligible_sample_candidates": [
+        "MH9143323"
+      ],
+      "role": "held_site",
+      "sample": "MH9143323",
+      "sdrf_sample": "MH9143323",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8892",
+      "eligible_pool_cells": 1843,
+      "eligible_sample_candidates": [
+        "MH9143370"
+      ],
+      "role": "held_site",
+      "sample": "MH9143370",
+      "sdrf_sample": "MH9143370",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8893",
+      "eligible_pool_cells": 10014,
+      "eligible_sample_candidates": [
+        "MH9143324"
+      ],
+      "role": "held_site",
+      "sample": "MH9143324",
+      "sdrf_sample": "MH9143324",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8895",
+      "eligible_pool_cells": 8919,
+      "eligible_sample_candidates": [
+        "MH9179825"
+      ],
+      "role": "held_site",
+      "sample": "MH9179825",
+      "sdrf_sample": "MH9179825",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8896",
+      "eligible_pool_cells": 8819,
+      "eligible_sample_candidates": [
+        "MH8919327",
+        "MH8919328",
+        "MH9143273"
+      ],
+      "role": "held_site",
+      "sample": "MH8919327",
+      "sdrf_sample": "MH8919327",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8897",
+      "eligible_pool_cells": 9608,
+      "eligible_sample_candidates": [
+        "MH9143422"
+      ],
+      "role": "held_site",
+      "sample": "MH9143422",
+      "sdrf_sample": "MH9143422",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8898",
+      "eligible_pool_cells": 6808,
+      "eligible_sample_candidates": [
+        "MH9143371"
+      ],
+      "role": "held_site",
+      "sample": "MH9143371",
+      "sdrf_sample": "MH9143371",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8899",
+      "eligible_pool_cells": 9019,
+      "eligible_sample_candidates": [
+        "MH9143325"
+      ],
+      "role": "held_site",
+      "sample": "MH9143325",
+      "sdrf_sample": "MH9143325",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8902",
+      "eligible_pool_cells": 9083,
+      "eligible_sample_candidates": [
+        "MH9143423"
+      ],
+      "role": "held_site",
+      "sample": "MH9143423",
+      "sdrf_sample": "MH9143423",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8903",
+      "eligible_pool_cells": 6847,
+      "eligible_sample_candidates": [
+        "MH9143274"
+      ],
+      "role": "held_site",
+      "sample": "MH9143274",
+      "sdrf_sample": "MH9143274",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8905",
+      "eligible_pool_cells": 8530,
+      "eligible_sample_candidates": [
+        "MH9143424"
+      ],
+      "role": "held_site",
+      "sample": "MH9143424",
+      "sdrf_sample": "MH9143424",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8909",
+      "eligible_pool_cells": 7953,
+      "eligible_sample_candidates": [
+        "MH9143426"
+      ],
+      "role": "held_site",
+      "sample": "MH9143426",
+      "sdrf_sample": "MH9143426",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8910",
+      "eligible_pool_cells": 8232,
+      "eligible_sample_candidates": [
+        "newcastle49"
+      ],
+      "role": "held_site",
+      "sample": "newcastle49",
+      "sdrf_sample": "newcastle49",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8912",
+      "eligible_pool_cells": 6388,
+      "eligible_sample_candidates": [
+        "MH8919329"
+      ],
+      "role": "held_site",
+      "sample": "MH8919329",
+      "sdrf_sample": "MH8919329",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8913",
+      "eligible_pool_cells": 4289,
+      "eligible_sample_candidates": [
+        "MH9179827"
+      ],
+      "role": "held_site",
+      "sample": "MH9179827",
+      "sdrf_sample": "MH9179827",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8914",
+      "eligible_pool_cells": 1190,
+      "eligible_sample_candidates": [
+        "MH8919226"
+      ],
+      "role": "held_site",
+      "sample": "MH8919226",
+      "sdrf_sample": "MH8919226",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8915",
+      "eligible_pool_cells": 7605,
+      "eligible_sample_candidates": [
+        "MH8919330"
+      ],
+      "role": "held_site",
+      "sample": "MH8919330",
+      "sdrf_sample": "MH8919330",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8918",
+      "eligible_pool_cells": 8371,
+      "eligible_sample_candidates": [
+        "MH9143275"
+      ],
+      "role": "held_site",
+      "sample": "MH9143275",
+      "sdrf_sample": "MH9143275",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8921",
+      "eligible_pool_cells": 14317,
+      "eligible_sample_candidates": [
+        "MH9143427"
+      ],
+      "role": "held_site",
+      "sample": "MH9143427",
+      "sdrf_sample": "MH9143427",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8922",
+      "eligible_pool_cells": 7011,
+      "eligible_sample_candidates": [
+        "MH9143425"
+      ],
+      "role": "held_site",
+      "sample": "MH9143425",
+      "sdrf_sample": "MH9143425",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8923",
+      "eligible_pool_cells": 3993,
+      "eligible_sample_candidates": [
+        "MH9179828"
+      ],
+      "role": "held_site",
+      "sample": "MH9179828",
+      "sdrf_sample": "MH9179828",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8926",
+      "eligible_pool_cells": 7585,
+      "eligible_sample_candidates": [
+        "MH8919331"
+      ],
+      "role": "held_site",
+      "sample": "MH8919331",
+      "sdrf_sample": "MH8919331",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8927",
+      "eligible_pool_cells": 3391,
+      "eligible_sample_candidates": [
+        "MH9143372"
+      ],
+      "role": "held_site",
+      "sample": "MH9143372",
+      "sdrf_sample": "MH9143372",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8928",
+      "eligible_pool_cells": 7016,
+      "eligible_sample_candidates": [
+        "MH8919178"
+      ],
+      "role": "held_site",
+      "sample": "MH8919178",
+      "sdrf_sample": "MH8919178",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8929",
+      "eligible_pool_cells": 10207,
+      "eligible_sample_candidates": [
+        "MH9143276"
+      ],
+      "role": "held_site",
+      "sample": "MH9143276",
+      "sdrf_sample": "MH9143276",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8930",
+      "eligible_pool_cells": 4316,
+      "eligible_sample_candidates": [
+        "MH8919179"
+      ],
+      "role": "held_site",
+      "sample": "MH8919179",
+      "sdrf_sample": "MH8919179",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8931",
+      "eligible_pool_cells": 5096,
+      "eligible_sample_candidates": [
+        "newcastle59"
+      ],
+      "role": "held_site",
+      "sample": "newcastle59",
+      "sdrf_sample": "newcastle59",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8933",
+      "eligible_pool_cells": 1641,
+      "eligible_sample_candidates": [
+        "MH9143373"
+      ],
+      "role": "held_site",
+      "sample": "MH9143373",
+      "sdrf_sample": "MH9143373",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8934",
+      "eligible_pool_cells": 10446,
+      "eligible_sample_candidates": [
+        "MH9143326"
+      ],
+      "role": "held_site",
+      "sample": "MH9143326",
+      "sdrf_sample": "MH9143326",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8935",
+      "eligible_pool_cells": 10295,
+      "eligible_sample_candidates": [
+        "MH9143327"
+      ],
+      "role": "held_site",
+      "sample": "MH9143327",
+      "sdrf_sample": "MH9143327",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8936",
+      "eligible_pool_cells": 6932,
+      "eligible_sample_candidates": [
+        "newcastle74"
+      ],
+      "role": "held_site",
+      "sample": "newcastle74",
+      "sdrf_sample": "newcastle74",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8937",
+      "eligible_pool_cells": 5655,
+      "eligible_sample_candidates": [
+        "newcastle65"
+      ],
+      "role": "held_site",
+      "sample": "newcastle65",
+      "sdrf_sample": "newcastle65",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8938",
+      "eligible_pool_cells": 3217,
+      "eligible_sample_candidates": [
+        "MH8919176"
+      ],
+      "role": "held_site",
+      "sample": "MH8919176",
+      "sdrf_sample": "MH8919176",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8939",
+      "eligible_pool_cells": 2096,
+      "eligible_sample_candidates": [
+        "MH8919227"
+      ],
+      "role": "held_site",
+      "sample": "MH8919227",
+      "sdrf_sample": "MH8919227",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8940",
+      "eligible_pool_cells": 8004,
+      "eligible_sample_candidates": [
+        "MH8919332"
+      ],
+      "role": "held_site",
+      "sample": "MH8919332",
+      "sdrf_sample": "MH8919332",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8941",
+      "eligible_pool_cells": 2223,
+      "eligible_sample_candidates": [
+        "MH8919177"
+      ],
+      "role": "held_site",
+      "sample": "MH8919177",
+      "sdrf_sample": "MH8919177",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8942",
+      "eligible_pool_cells": 6896,
+      "eligible_sample_candidates": [
+        "MH8919282"
+      ],
+      "role": "held_site",
+      "sample": "MH8919282",
+      "sdrf_sample": "MH8919282",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8943",
+      "eligible_pool_cells": 7100,
+      "eligible_sample_candidates": [
+        "MH8919283"
+      ],
+      "role": "held_site",
+      "sample": "MH8919283",
+      "sdrf_sample": "MH8919283",
+      "site": "Ncl"
+    },
+    {
+      "disease": "COVID-19",
+      "donor": "C-8944",
+      "eligible_pool_cells": 11710,
+      "eligible_sample_candidates": [
+        "MH9143277"
+      ],
+      "role": "held_site",
+      "sample": "MH9143277",
+      "sdrf_sample": "MH9143277",
+      "site": "Ncl"
+    },
+    {
+      "disease": "normal",
+      "donor": "C-8946",
+      "eligible_pool_cells": 12081,
+      "eligible_sample_candidates": [
+        "MH8919333"
+      ],
+      "role": "held_site",
+      "sample": "MH8919333",
+      "sdrf_sample": "MH8919333",
+      "site": "Ncl"
+    }
+  ],
+  "schema": "stephenson-citeseq-source-manifest/1.0",
+  "sdrf": {
+    "bytes": 155174,
+    "filename": "E-MTAB-10026.sdrf.txt",
+    "official_url": "https://www.ebi.ac.uk/biostudies/files/E-MTAB-10026/E-MTAB-10026.sdrf.txt",
+    "sha256": "68a27790e45b025f71f445c5ab6dbdc15d5fd74312f8d5366390759ff0580dc5"
+  },
+  "status": "SOURCE_SEALED_OUTCOME_ACCESS_DISABLED"
+}
