@@ -23,12 +23,16 @@ No prediction or scored result was written, so this eighth benchmark entry is a
 support refusal rather than outcome-scored evidence. The later Lawlor candidate
 stopped when its frozen reducer rejected the deposited ADT object type; Hao
 stopped when fewer than 12 cognate markers passed its frozen marginal-support
-rule. Neither run formed a held joint-table score. A separate Kotliarov
+rule. Neither run formed a held joint-table score. The separate Kotliarov
 held-batch candidate was frozen publicly before outcome access: ten batch-1
 development donors, nine disjoint batch-2 held donors, and donor 209 excluded
 from both batches. Fresh-clone verification passed at commit
-`a034fd272ef631d70f39debc467570568ef8754a`, authorizing outcome acquisition;
-no prediction or score has yet been formed.
+`a034fd272ef631d70f39debc467570568ef8754a`. Its one authorized preparation
+stopped because fewer than four prespecified RNA-only lineages met the frozen
+minimum of 50 retained cells in every one of 19 donors. The ADT file was read
+only as an opaque byte stream for integrity verification; its HDF5 count
+dataset was never opened. No held RNA-ADT pairing, joint table, prediction,
+score, or performance estimate was formed, and the candidate was not rerun.
 
 The defensible methods-paper claim is therefore narrower than state-of-the-art
 prediction: the framework separates pairing-dependent structure from marginal
@@ -50,7 +54,7 @@ reproduce across public paired assays.
 | PoKI-seq | Donor1 development; Donor2 held confirmation | 33 predeclared queries | Not scored; state-occupancy preflight failed for `Donor1:Stim:41BB` | Not evaluated | Not reached | **REFUSE preflight** |
 | Lawlor HCA PBMC | Six development donors; four held donors | Predeclared aliases | Not scored; frozen reducer rejected the deposited ADT object type | Not evaluated | Not reached | **REFUSE execution** |
 | Hao GSE164378 | Four development donors; three held donors | Predeclared aliases | Not scored; fewer than 12 markers passed frozen marginal support | Not evaluated | Not reached | **REFUSE support** |
-| Kotliarov PBMC | Ten batch-1 development donors; nine disjoint batch-2 held donors | 71 predeclared cognate markers | Freeze verified; outcome access authorized; not scored | Full Pearson and signed-deviance residual transfer predeclared | Not reached | **PENDING** |
+| Kotliarov PBMC | Ten batch-1 development donors; nine disjoint batch-2 held donors | 71 predeclared cognate markers | Not scored; fewer than four prespecified RNA-only lineages met the frozen 50-cell minimum in all 19 donors | Full Pearson and signed-deviance residual transfer not reached | Not reached | **REFUSE support** |
 
 Metric intervals for the first five predictive panels and Arce resample
 targets. ReSisTrace intervals resample barcode-defined lineages conditional on
@@ -70,7 +74,7 @@ exact values and provenance fields are in the TSV.
 | The structured primary improves matched baselines. | The predeclared three-panel gate records 0 wins; MultiPerturb and PerturbFate also fail. | **REFUSE** | The structural estimator is a fixed denoiser evaluated beside simpler baselines, not a superior predictor. |
 | The scGPT hypergraph contributes specific biological information. | The shuffled graph matches or exceeds the primary in PerturbSci and PerturbFate; no positive panel isolates a graph-specific gain. | **REFUSE** | scGPT supplies a frozen structural prior; its specific benefit was not established. |
 | Guide/observation-error correction is validated on public data. | `fit_factorial_coupling` is tested and stress-tested synthetically, but the completed public scripts use conditional empirical tables, not the guide-aware likelihood. | **REFUSE real-data claim** | Guide-aware identification and refusal are implemented and assessed in simulation. |
-| The public benchmark establishes a positive held biological replicate. | ReSisTrace refuses treatment-contrast replication. Arce donor B has positive correlation, but the fixed primary has RMSE 1.093 versus 0.993 for linear cross-covariance; primary-minus-covariance target MSE is 0.199 [0.038, 0.352], and its primary-minus-destroyed interval includes zero. The frozen PoKI-seq candidate refused at the state-occupancy preflight before prediction or scoring. | **REFUSE** | No panel supplies a positive held biological-replicate result under its full decision gate. |
+| The public benchmark establishes a positive held biological replicate. | ReSisTrace refuses treatment-contrast replication. Arce donor B has positive correlation, but the fixed primary has RMSE 1.093 versus 0.993 for linear cross-covariance; primary-minus-covariance target MSE is 0.199 [0.038, 0.352], and its primary-minus-destroyed interval includes zero. PoKI-seq, Lawlor, Hao, and Kotliarov stopped before prediction or scoring under their frozen support or execution rules. | **REFUSE** | No panel supplies a positive held biological-replicate result under its full decision gate. |
 | Corrected pathway/complex recovery validates the primary. | The strict PerturbSci rerun required high field norm in every held truth and prediction and exclusion under matched destroyed links. It selected no target; no Reactome or CORUM module could pass. | **REFUSE as confirmatory biology** | The earlier averaged-unit enrichments are exploratory; the strict replicated module analysis was negative. |
 | Predicted local neighborhoods recover biological relations. | Mean top-5 neighbor recovery was 0.064 [0.050, 0.079] versus 0.051 [0.041, 0.063] after link destruction; the difference interval included zero and the random-label permutation p-value was 0.283. Reactome edge enrichment refused. CORUM was nominal against random, p=0.0269, but not significant after family correction, q=0.0538. | **REFUSE** | No corrected local-neighborhood claim survives the predeclared controls. |
 | The method is state of the art for perturbation prediction. | No completed comparison establishes this, and the task is association-field reproducibility rather than standard unseen-perturbation response prediction. | **REFUSE** | Do not make a state-of-the-art or direct-superiority claim. |
@@ -153,6 +157,7 @@ Result artifact hashes at this snapshot:
 | `results/arce_gse278572_postlock_controls.json` | `66d3343db745ad338091397226a9b93ca222df759107fbe46eddfcbee4c1a612` |
 | `results/perturbsci_module_validation.json` | `68032c3bc05fe0702edd8600cf91c86d0850b1db44857e67a42845e0fc164fc2` |
 | `results/gse143417_pokiseq_preflight_refusal.json` | `24f7ad70fbbfd4e7482809db58bd94d1156c1e22c2dd94fa77d66b1d6acdcf24` |
+| `results/kotliarov_pbmc_public_refusal.json` | `34d59fcbdcceeefb449a430bca7a0f502611d343a2ebd19fc44a7f5fd26a1324` |
 
 The structured consistency check parsed every audited JSON with non-finite JSON
 constants rejected; verified embedded hashes for the v4 runner, estimator, and
