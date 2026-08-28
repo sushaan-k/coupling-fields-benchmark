@@ -1,0 +1,1012 @@
+{
+  "access_audit": {
+    "cell_vectors_serialized": false,
+    "held_donors_scored": 56,
+    "paired_truth_access_after_public_prediction": true,
+    "rerun_permitted": false,
+    "terminal_attempt_preceded_first_truth_request": true
+  },
+  "comparisons": {
+    "best_residual": {
+      "bootstrap_draws": 20000,
+      "bootstrap_seed": 20260828,
+      "bootstrap_unit": "physical sample",
+      "comparator_mean_deviance_per_cell": 0.014776980497627514,
+      "favorable_samples": 50,
+      "paired_difference_95_ci": [
+        -0.004129651754585729,
+        -0.0008001539547376106
+      ],
+      "passes": true,
+      "primary_mean_deviance_per_cell": 0.012196845982760404,
+      "relative_reduction": 0.17460498883932063,
+      "required_favorable_samples": 45,
+      "sample_differences_primary_minus_comparator": {
+        "MH8919176": -0.0028519714735595033,
+        "MH8919177": -0.00223574998838625,
+        "MH8919178": -0.000837020101556625,
+        "MH8919179": -9.780189163103963e-05,
+        "MH8919226": 0.02486222862283311,
+        "MH8919227": 0.021648444488264453,
+        "MH8919282": -0.0031314006075994095,
+        "MH8919283": 0.002411067901416674,
+        "MH8919326": -0.00737176038314738,
+        "MH8919327": -0.012984001432625542,
+        "MH8919329": -0.0038154883381558745,
+        "MH8919330": -0.006525378584507427,
+        "MH8919331": -0.009161642807207488,
+        "MH8919332": -0.003796406429794696,
+        "MH8919333": -0.002358997239402371,
+        "MH9143270": -0.015330019058464497,
+        "MH9143271": -0.01390597954240208,
+        "MH9143272": -0.000185254517779029,
+        "MH9143274": -0.003452686514931228,
+        "MH9143275": 0.0064403764137678215,
+        "MH9143276": -0.006886531644610713,
+        "MH9143277": 0.003767468693165424,
+        "MH9143320": -0.0038858928174844137,
+        "MH9143321": 0.00025471104672995445,
+        "MH9143322": -0.002052374400946442,
+        "MH9143323": -0.0012295124360059643,
+        "MH9143324": -0.0029652947997696397,
+        "MH9143325": -0.0003711389919748478,
+        "MH9143326": -0.0007493938005334808,
+        "MH9143327": -0.009427673464421915,
+        "MH9143370": -0.007886853078543605,
+        "MH9143371": -0.009797201247859669,
+        "MH9143372": -0.004858764719683128,
+        "MH9143373": -0.0015813903501439722,
+        "MH9143420": -0.002031387852048013,
+        "MH9143421": -0.0001647973551619792,
+        "MH9143422": -0.002270120281807909,
+        "MH9143423": -0.0032631648552551573,
+        "MH9143424": -0.00013695934957618557,
+        "MH9143425": -0.0007032477700164332,
+        "MH9143426": -0.00515093954454132,
+        "MH9143427": -0.0054630988102245676,
+        "MH9179821": -0.002928730756018176,
+        "MH9179822": -0.0012496035351221109,
+        "MH9179823": -0.003133173938606351,
+        "MH9179824": -0.006894619935790091,
+        "MH9179825": -0.006319142882363401,
+        "MH9179826": -0.0006313692699836809,
+        "MH9179827": -0.004605761068942452,
+        "MH9179828": -0.00015679325700918186,
+        "newcastle20": -0.0045647722760460835,
+        "newcastle21": -0.00440361308367461,
+        "newcastle49": -0.004216897505842277,
+        "newcastle59": -0.0022051200401121303,
+        "newcastle65": -0.0020331950937831442,
+        "newcastle74": -0.001611740873681945
+      },
+      "sign_test": {
+        "donors": 56,
+        "favorable_donors": 50,
+        "null": "independent favorable probability equals one half",
+        "one_sided_p": 5.091046889615924e-10,
+        "zeros_are_nonfavorable": true
+      }
+    },
+    "destroyed_link": {
+      "bootstrap_draws": 20000,
+      "bootstrap_seed": 20260828,
+      "bootstrap_unit": "physical sample",
+      "comparator_mean_deviance_per_cell": 0.022738222911067096,
+      "favorable_samples": 51,
+      "paired_difference_95_ci": [
+        -0.01322869477008328,
+        -0.007487603617768282
+      ],
+      "passes": true,
+      "primary_mean_deviance_per_cell": 0.012196845982760404,
+      "relative_reduction": 0.46359721995583114,
+      "required_favorable_samples": 45,
+      "sample_differences_primary_minus_comparator": {
+        "MH8919176": -0.003722551752443264,
+        "MH8919177": -0.004478560121765654,
+        "MH8919178": -0.013745917585005565,
+        "MH8919179": -0.0030000824550914656,
+        "MH8919226": 0.03314919456321858,
+        "MH8919227": 0.030055812104631516,
+        "MH8919282": -0.009337003116996525,
+        "MH8919283": -0.0015392471604794896,
+        "MH8919326": -0.02206585839297168,
+        "MH8919327": -0.003301324860046112,
+        "MH8919329": -0.003921648871134318,
+        "MH8919330": -0.022439031019411346,
+        "MH8919331": -0.012380113001666705,
+        "MH8919332": -0.011893317573478824,
+        "MH8919333": -0.01610264775593654,
+        "MH9143270": -0.030431989908225633,
+        "MH9143271": -0.03162280803840676,
+        "MH9143272": -0.009907966649251924,
+        "MH9143274": -0.00864832118649395,
+        "MH9143275": 0.0017131429328050563,
+        "MH9143276": -0.021161187669955284,
+        "MH9143277": 0.0009736773294173624,
+        "MH9143320": -0.012687103736911898,
+        "MH9143321": -0.008424577364254181,
+        "MH9143322": -0.012643200262847067,
+        "MH9143323": -0.011166645225140381,
+        "MH9143324": -0.01586695992660979,
+        "MH9143325": -0.008414484478556397,
+        "MH9143326": -0.00969905324215305,
+        "MH9143327": -0.01941256886957568,
+        "MH9143370": -0.007161389930541746,
+        "MH9143371": -0.0193357259985754,
+        "MH9143372": -0.008460306470367222,
+        "MH9143373": -0.01095525756261534,
+        "MH9143420": -0.015581001577348756,
+        "MH9143421": -0.009122278417217907,
+        "MH9143422": -0.01711907898716132,
+        "MH9143423": -0.012278866547009867,
+        "MH9143424": -0.011322760069113924,
+        "MH9143425": -0.010018272519729185,
+        "MH9143426": -0.023256940635221657,
+        "MH9143427": -0.009946083243010904,
+        "MH9179821": -0.01736038362054531,
+        "MH9179822": -0.014915442012871287,
+        "MH9179823": -0.016964481906365708,
+        "MH9179824": -0.02463871436572066,
+        "MH9179825": -0.018697685104802828,
+        "MH9179826": -0.013154633449847662,
+        "MH9179827": 0.004447842831488976,
+        "MH9179828": -0.00030214119238313256,
+        "newcastle20": -0.0195137744237927,
+        "newcastle21": -0.013397902790851754,
+        "newcastle49": -0.005314895079080598,
+        "newcastle59": -0.009483222903188954,
+        "newcastle65": -0.012105512395436065,
+        "newcastle74": -0.012235856319126845
+      },
+      "sign_test": {
+        "donors": 56,
+        "favorable_donors": 51,
+        "null": "independent favorable probability equals one half",
+        "one_sided_p": 5.851462370198846e-11,
+        "zeros_are_nonfavorable": true
+      }
+    },
+    "hierarchical_graph_zero": {
+      "bootstrap_draws": 20000,
+      "bootstrap_seed": 20260828,
+      "bootstrap_unit": "physical sample",
+      "comparator_mean_deviance_per_cell": 0.012196845982760404,
+      "favorable_samples": 0,
+      "paired_difference_95_ci": [
+        0.0,
+        0.0
+      ],
+      "passes": null,
+      "primary_mean_deviance_per_cell": 0.012196845982760404,
+      "relative_reduction": 0.0,
+      "required_favorable_samples": null,
+      "sample_differences_primary_minus_comparator": {
+        "MH8919176": 0.0,
+        "MH8919177": 0.0,
+        "MH8919178": 0.0,
+        "MH8919179": 0.0,
+        "MH8919226": 0.0,
+        "MH8919227": 0.0,
+        "MH8919282": 0.0,
+        "MH8919283": 0.0,
+        "MH8919326": 0.0,
+        "MH8919327": 0.0,
+        "MH8919329": 0.0,
+        "MH8919330": 0.0,
+        "MH8919331": 0.0,
+        "MH8919332": 0.0,
+        "MH8919333": 0.0,
+        "MH9143270": 0.0,
+        "MH9143271": 0.0,
+        "MH9143272": 0.0,
+        "MH9143274": 0.0,
+        "MH9143275": 0.0,
+        "MH9143276": 0.0,
+        "MH9143277": 0.0,
+        "MH9143320": 0.0,
+        "MH9143321": 0.0,
+        "MH9143322": 0.0,
+        "MH9143323": 0.0,
+        "MH9143324": 0.0,
+        "MH9143325": 0.0,
+        "MH9143326": 0.0,
+        "MH9143327": 0.0,
+        "MH9143370": 0.0,
+        "MH9143371": 0.0,
+        "MH9143372": 0.0,
+        "MH9143373": 0.0,
+        "MH9143420": 0.0,
+        "MH9143421": 0.0,
+        "MH9143422": 0.0,
+        "MH9143423": 0.0,
+        "MH9143424": 0.0,
+        "MH9143425": 0.0,
+        "MH9143426": 0.0,
+        "MH9143427": 0.0,
+        "MH9179821": 0.0,
+        "MH9179822": 0.0,
+        "MH9179823": 0.0,
+        "MH9179824": 0.0,
+        "MH9179825": 0.0,
+        "MH9179826": 0.0,
+        "MH9179827": 0.0,
+        "MH9179828": 0.0,
+        "newcastle20": 0.0,
+        "newcastle21": 0.0,
+        "newcastle49": 0.0,
+        "newcastle59": 0.0,
+        "newcastle65": 0.0,
+        "newcastle74": 0.0
+      }
+    },
+    "independence": {
+      "bootstrap_draws": 20000,
+      "bootstrap_seed": 20260828,
+      "bootstrap_unit": "physical sample",
+      "comparator_mean_deviance_per_cell": 0.023029064198882288,
+      "favorable_samples": 51,
+      "paired_difference_95_ci": [
+        -0.013541724825840719,
+        -0.007754893420012203
+      ],
+      "passes": null,
+      "primary_mean_deviance_per_cell": 0.012196845982760404,
+      "relative_reduction": 0.47037161921011206,
+      "required_favorable_samples": null,
+      "sample_differences_primary_minus_comparator": {
+        "MH8919176": -0.0036268865599096032,
+        "MH8919177": -0.004857841147765458,
+        "MH8919178": -0.014177368509878031,
+        "MH8919179": -0.0028883062187573007,
+        "MH8919226": 0.03319008392893164,
+        "MH8919227": 0.02998009684822704,
+        "MH8919282": -0.009474546883222836,
+        "MH8919283": -0.0017010156679728838,
+        "MH8919326": -0.022138408091109837,
+        "MH8919327": -0.003249992555596286,
+        "MH8919329": -0.00416055906443726,
+        "MH8919330": -0.022951177750307215,
+        "MH8919331": -0.012821779967943809,
+        "MH8919332": -0.01204904265395618,
+        "MH8919333": -0.016395075516019847,
+        "MH9143270": -0.031062552067863798,
+        "MH9143271": -0.03206287482112614,
+        "MH9143272": -0.010090895136167132,
+        "MH9143274": -0.008990507433527573,
+        "MH9143275": 0.0012839221965526525,
+        "MH9143276": -0.021719074290937758,
+        "MH9143277": 0.000639974353340721,
+        "MH9143320": -0.01317194837389489,
+        "MH9143321": -0.008665059008334974,
+        "MH9143322": -0.013059738860254896,
+        "MH9143323": -0.011646070478752896,
+        "MH9143324": -0.016083610183131043,
+        "MH9143325": -0.008752422375132385,
+        "MH9143326": -0.010090165611766178,
+        "MH9143327": -0.019688688035551904,
+        "MH9143370": -0.0071924166036338106,
+        "MH9143371": -0.019472287325848124,
+        "MH9143372": -0.008445615626231789,
+        "MH9143373": -0.01109953721647083,
+        "MH9143420": -0.016058837151715855,
+        "MH9143421": -0.009625462492363138,
+        "MH9143422": -0.01742321274831988,
+        "MH9143423": -0.01290858305697859,
+        "MH9143424": -0.011611785569638947,
+        "MH9143425": -0.01019270190938645,
+        "MH9143426": -0.023690193598148945,
+        "MH9143427": -0.010220605875398452,
+        "MH9179821": -0.017725715037053433,
+        "MH9179822": -0.015426824019923265,
+        "MH9179823": -0.017478584927584008,
+        "MH9179824": -0.024993411561512115,
+        "MH9179825": -0.019118248969539075,
+        "MH9179826": -0.013461779470173494,
+        "MH9179827": 0.004404461225170726,
+        "MH9179828": -0.000534275851066128,
+        "newcastle20": -0.019870957383272214,
+        "newcastle21": -0.013745570242593813,
+        "newcastle49": -0.006015356617379045,
+        "newcastle59": -0.009641435794909014,
+        "newcastle65": -0.012188173298688671,
+        "newcastle74": -0.012385579043900826
+      }
+    }
+  },
+  "created_at_utc": "2026-08-28T20:54:40Z",
+  "development_sha256": "2a8b535a0581b51a2a1eff8c764038a11cac7db08b67217c9b9dae22157e3e72",
+  "donor_results": [
+    {
+      "donor": "C-8816",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.03602575579339429,
+        "destroyed_link": 0.05112772664315542,
+        "hierarchical_graph_zero": 0.02069573673492979,
+        "independence": 0.05175828880279359,
+        "primary": 0.02069573673492979
+      },
+      "sample": "MH9143270"
+    },
+    {
+      "donor": "C-8820",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.014929994000263997,
+        "destroyed_link": 0.02373120491969148,
+        "hierarchical_graph_zero": 0.011044101182779584,
+        "independence": 0.024216049556674474,
+        "primary": 0.011044101182779584
+      },
+      "sample": "MH9143320"
+    },
+    {
+      "donor": "C-8821",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.00802716324925071,
+        "destroyed_link": 0.022458816113777844,
+        "hierarchical_graph_zero": 0.005098432493232535,
+        "independence": 0.022824147530285967,
+        "primary": 0.005098432493232535
+      },
+      "sample": "MH9179821"
+    },
+    {
+      "donor": "C-8822",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.0070333838431282806,
+        "destroyed_link": 0.020699222320877456,
+        "hierarchical_graph_zero": 0.00578378030800617,
+        "independence": 0.021210604327929435,
+        "primary": 0.00578378030800617
+      },
+      "sample": "MH9179822"
+    },
+    {
+      "donor": "C-8823",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.02463739092605186,
+        "destroyed_link": 0.03933148893587616,
+        "hierarchical_graph_zero": 0.01726563054290448,
+        "independence": 0.039404038634014316,
+        "primary": 0.01726563054290448
+      },
+      "sample": "MH8919326"
+    },
+    {
+      "donor": "C-8825",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.011213529815390037,
+        "destroyed_link": 0.019892818226374172,
+        "hierarchical_graph_zero": 0.011468240862119991,
+        "independence": 0.020133299870454965,
+        "primary": 0.011468240862119991
+      },
+      "sample": "MH9143321"
+    },
+    {
+      "donor": "C-8826",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.0069544951125019416,
+        "destroyed_link": 0.020504108837802685,
+        "hierarchical_graph_zero": 0.004923107260453929,
+        "independence": 0.020981944412169783,
+        "primary": 0.004923107260453929
+      },
+      "sample": "MH9143420"
+    },
+    {
+      "donor": "C-8827",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.03530471349165669,
+        "destroyed_link": 0.05302154198766137,
+        "hierarchical_graph_zero": 0.02139873394925461,
+        "independence": 0.053461608770380746,
+        "primary": 0.02139873394925461
+      },
+      "sample": "MH9143271"
+    },
+    {
+      "donor": "C-8828",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.00840925347133898,
+        "destroyed_link": 0.022240561439098337,
+        "hierarchical_graph_zero": 0.005276079532732629,
+        "independence": 0.022754664460316636,
+        "primary": 0.005276079532732629
+      },
+      "sample": "MH9179823"
+    },
+    {
+      "donor": "C-8829",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.015837875360733222,
+        "destroyed_link": 0.033581969790663795,
+        "hierarchical_graph_zero": 0.008943255424943132,
+        "independence": 0.03393666698645525,
+        "primary": 0.008943255424943132
+      },
+      "sample": "MH9179824"
+    },
+    {
+      "donor": "C-8882",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.012311772949629665,
+        "destroyed_link": 0.02290259881153029,
+        "hierarchical_graph_zero": 0.010259398548683223,
+        "independence": 0.02331913740893812,
+        "primary": 0.010259398548683223
+      },
+      "sample": "MH9143322"
+    },
+    {
+      "donor": "C-8883",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.013303111247863236,
+        "destroyed_link": 0.028252113395609853,
+        "hierarchical_graph_zero": 0.008738338971817153,
+        "independence": 0.028609296355089367,
+        "primary": 0.008738338971817153
+      },
+      "sample": "newcastle20"
+    },
+    {
+      "donor": "C-8884",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.00873662100076548,
+        "destroyed_link": 0.017730910707942624,
+        "hierarchical_graph_zero": 0.00433300791709087,
+        "independence": 0.018078578159684684,
+        "primary": 0.00433300791709087
+      },
+      "sample": "newcastle21"
+    },
+    {
+      "donor": "C-8885",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.01177723502342371,
+        "destroyed_link": 0.020734716085479638,
+        "hierarchical_graph_zero": 0.01161243766826173,
+        "independence": 0.021237900160624868,
+        "primary": 0.01161243766826173
+      },
+      "sample": "MH9143421"
+    },
+    {
+      "donor": "C-8886",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.005653781008767776,
+        "destroyed_link": 0.01537649314024067,
+        "hierarchical_graph_zero": 0.005468526490988747,
+        "independence": 0.01555942162715588,
+        "primary": 0.005468526490988747
+      },
+      "sample": "MH9143272"
+    },
+    {
+      "donor": "C-8887",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.016889434698699426,
+        "destroyed_link": 0.029412698878563407,
+        "hierarchical_graph_zero": 0.016258065428715746,
+        "independence": 0.02971984489888924,
+        "primary": 0.016258065428715746
+      },
+      "sample": "MH9179826"
+    },
+    {
+      "donor": "C-8890",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.012349618463363991,
+        "destroyed_link": 0.022286751252498408,
+        "hierarchical_graph_zero": 0.011120106027358027,
+        "independence": 0.022766176506110923,
+        "primary": 0.011120106027358027
+      },
+      "sample": "MH9143323"
+    },
+    {
+      "donor": "C-8892",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.013000133694903389,
+        "destroyed_link": 0.01227467054690153,
+        "hierarchical_graph_zero": 0.005113280616359785,
+        "independence": 0.012305697219993595,
+        "primary": 0.005113280616359785
+      },
+      "sample": "MH9143370"
+    },
+    {
+      "donor": "C-8893",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.02870013617579275,
+        "destroyed_link": 0.0416018013026329,
+        "hierarchical_graph_zero": 0.02573484137602311,
+        "independence": 0.04181845155915415,
+        "primary": 0.02573484137602311
+      },
+      "sample": "MH9143324"
+    },
+    {
+      "donor": "C-8895",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.01836963667040957,
+        "destroyed_link": 0.030748178892848997,
+        "hierarchical_graph_zero": 0.012050493788046169,
+        "independence": 0.031168742757585244,
+        "primary": 0.012050493788046169
+      },
+      "sample": "MH9179825"
+    },
+    {
+      "donor": "C-8896",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.021101289736261797,
+        "destroyed_link": 0.011418613163682367,
+        "hierarchical_graph_zero": 0.008117288303636255,
+        "independence": 0.011367280859232541,
+        "primary": 0.008117288303636255
+      },
+      "sample": "MH8919327"
+    },
+    {
+      "donor": "C-8897",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.015413062288266326,
+        "destroyed_link": 0.030262020993619736,
+        "hierarchical_graph_zero": 0.013142942006458417,
+        "independence": 0.030566154754778294,
+        "primary": 0.013142942006458417
+      },
+      "sample": "MH9143422"
+    },
+    {
+      "donor": "C-8898",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.033843610335958924,
+        "destroyed_link": 0.043382135086674656,
+        "hierarchical_graph_zero": 0.024046409088099255,
+        "independence": 0.04351869641394738,
+        "primary": 0.024046409088099255
+      },
+      "sample": "MH9143371"
+    },
+    {
+      "donor": "C-8899",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.010204053263945079,
+        "destroyed_link": 0.01824739875052663,
+        "hierarchical_graph_zero": 0.009832914271970231,
+        "independence": 0.018585336647102615,
+        "primary": 0.009832914271970231
+      },
+      "sample": "MH9143325"
+    },
+    {
+      "donor": "C-8902",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.02499965138739018,
+        "destroyed_link": 0.03401535307914489,
+        "hierarchical_graph_zero": 0.021736486532135023,
+        "independence": 0.03464506958911361,
+        "primary": 0.021736486532135023
+      },
+      "sample": "MH9143423"
+    },
+    {
+      "donor": "C-8903",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.012423405021541224,
+        "destroyed_link": 0.017619039693103945,
+        "hierarchical_graph_zero": 0.008970718506609996,
+        "independence": 0.01796122594013757,
+        "primary": 0.008970718506609996
+      },
+      "sample": "MH9143274"
+    },
+    {
+      "donor": "C-8905",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.006193775415558755,
+        "destroyed_link": 0.017379576135096494,
+        "hierarchical_graph_zero": 0.00605681606598257,
+        "independence": 0.017668601635621516,
+        "primary": 0.00605681606598257
+      },
+      "sample": "MH9143424"
+    },
+    {
+      "donor": "C-8909",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.018141391854141875,
+        "destroyed_link": 0.03624739294482221,
+        "hierarchical_graph_zero": 0.012990452309600555,
+        "independence": 0.0366806459077495,
+        "primary": 0.012990452309600555
+      },
+      "sample": "MH9143426"
+    },
+    {
+      "donor": "C-8910",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.015814501782265414,
+        "destroyed_link": 0.016912499355503735,
+        "hierarchical_graph_zero": 0.011597604276423137,
+        "independence": 0.017612960893802182,
+        "primary": 0.011597604276423137
+      },
+      "sample": "newcastle49"
+    },
+    {
+      "donor": "C-8912",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.008623643333332202,
+        "destroyed_link": 0.008729803866310646,
+        "hierarchical_graph_zero": 0.004808154995176328,
+        "independence": 0.008968714059613588,
+        "primary": 0.004808154995176328
+      },
+      "sample": "MH8919329"
+    },
+    {
+      "donor": "C-8913",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.01211274917886064,
+        "destroyed_link": 0.003059145278429212,
+        "hierarchical_graph_zero": 0.007506988109918188,
+        "independence": 0.0031025268847474623,
+        "primary": 0.007506988109918188
+      },
+      "sample": "MH9179827"
+    },
+    {
+      "donor": "C-8914",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.010610992165558634,
+        "destroyed_link": 0.0023240262251731617,
+        "hierarchical_graph_zero": 0.03547322078839175,
+        "independence": 0.0022831368594601075,
+        "primary": 0.03547322078839175
+      },
+      "sample": "MH8919226"
+    },
+    {
+      "donor": "C-8915",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.015964995264435962,
+        "destroyed_link": 0.03187864769933988,
+        "hierarchical_graph_zero": 0.009439616679928535,
+        "independence": 0.03239079443023575,
+        "primary": 0.009439616679928535
+      },
+      "sample": "MH8919330"
+    },
+    {
+      "donor": "C-8918",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.009123162597123223,
+        "destroyed_link": 0.013850396078085988,
+        "hierarchical_graph_zero": 0.015563539010891045,
+        "independence": 0.014279616814338392,
+        "primary": 0.015563539010891045
+      },
+      "sample": "MH9143275"
+    },
+    {
+      "donor": "C-8921",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.021360709472098123,
+        "destroyed_link": 0.02584369390488446,
+        "hierarchical_graph_zero": 0.015897610661873555,
+        "independence": 0.026118216537272008,
+        "primary": 0.015897610661873555
+      },
+      "sample": "MH9143427"
+    },
+    {
+      "donor": "C-8922",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.0197233285923726,
+        "destroyed_link": 0.029038353342085352,
+        "hierarchical_graph_zero": 0.019020080822356168,
+        "independence": 0.029212782731742618,
+        "primary": 0.019020080822356168
+      },
+      "sample": "MH9143425"
+    },
+    {
+      "donor": "C-8923",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.008288638688520642,
+        "destroyed_link": 0.008433986623894593,
+        "hierarchical_graph_zero": 0.00813184543151146,
+        "independence": 0.008666121282577589,
+        "primary": 0.00813184543151146
+      },
+      "sample": "MH9179828"
+    },
+    {
+      "donor": "C-8926",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.019356380557973202,
+        "destroyed_link": 0.02257485075243242,
+        "hierarchical_graph_zero": 0.010194737750765714,
+        "independence": 0.023016517718709523,
+        "primary": 0.010194737750765714
+      },
+      "sample": "MH8919331"
+    },
+    {
+      "donor": "C-8927",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.00918294857056859,
+        "destroyed_link": 0.012784490321252683,
+        "hierarchical_graph_zero": 0.0043241838508854625,
+        "independence": 0.012769799477117252,
+        "primary": 0.0043241838508854625
+      },
+      "sample": "MH9143372"
+    },
+    {
+      "donor": "C-8928",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.015627562194280867,
+        "destroyed_link": 0.028536459677729806,
+        "hierarchical_graph_zero": 0.014790542092724242,
+        "independence": 0.028967910602602273,
+        "primary": 0.014790542092724242
+      },
+      "sample": "MH8919178"
+    },
+    {
+      "donor": "C-8929",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.016302286072883015,
+        "destroyed_link": 0.030576942098227585,
+        "hierarchical_graph_zero": 0.009415754428272301,
+        "independence": 0.03113482871921006,
+        "primary": 0.009415754428272301
+      },
+      "sample": "MH9143276"
+    },
+    {
+      "donor": "C-8930",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.012421708160923136,
+        "destroyed_link": 0.015323988724383562,
+        "hierarchical_graph_zero": 0.012323906269292096,
+        "independence": 0.015212212488049397,
+        "primary": 0.012323906269292096
+      },
+      "sample": "MH8919179"
+    },
+    {
+      "donor": "C-8931",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.015963635039999077,
+        "destroyed_link": 0.0232417379030759,
+        "hierarchical_graph_zero": 0.013758514999886947,
+        "independence": 0.02339995079479596,
+        "primary": 0.013758514999886947
+      },
+      "sample": "newcastle59"
+    },
+    {
+      "donor": "C-8933",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.008931186204812038,
+        "destroyed_link": 0.018305053417283404,
+        "hierarchical_graph_zero": 0.007349795854668066,
+        "independence": 0.018449333071138895,
+        "primary": 0.007349795854668066
+      },
+      "sample": "MH9143373"
+    },
+    {
+      "donor": "C-8934",
+      "informative_pairs": 72,
+      "losses": {
+        "best_residual": 0.02191516536038144,
+        "destroyed_link": 0.03086482480200101,
+        "hierarchical_graph_zero": 0.02116577155984796,
+        "independence": 0.03125593717161414,
+        "primary": 0.02116577155984796
+      },
+      "sample": "MH9143326"
+    },
+    {
+      "donor": "C-8935",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.034829879938482626,
+        "destroyed_link": 0.04481477534363639,
+        "hierarchical_graph_zero": 0.02540220647406071,
+        "independence": 0.045090894509612615,
+        "primary": 0.02540220647406071
+      },
+      "sample": "MH9143327"
+    },
+    {
+      "donor": "C-8936",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.010881219566312203,
+        "destroyed_link": 0.021505335011757103,
+        "hierarchical_graph_zero": 0.009269478692630258,
+        "independence": 0.021655057736531085,
+        "primary": 0.009269478692630258
+      },
+      "sample": "newcastle74"
+    },
+    {
+      "donor": "C-8937",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.0052716436304534,
+        "destroyed_link": 0.01534396093210632,
+        "hierarchical_graph_zero": 0.0032384485366702557,
+        "independence": 0.015426621835358928,
+        "primary": 0.0032384485366702557
+      },
+      "sample": "newcastle65"
+    },
+    {
+      "donor": "C-8938",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.008242607433374608,
+        "destroyed_link": 0.009113187712258369,
+        "hierarchical_graph_zero": 0.0053906359598151045,
+        "independence": 0.009017522519724708,
+        "primary": 0.0053906359598151045
+      },
+      "sample": "MH8919176"
+    },
+    {
+      "donor": "C-8939",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.010662498430504945,
+        "destroyed_link": 0.002255130814137879,
+        "hierarchical_graph_zero": 0.032310942918769396,
+        "independence": 0.0023308460705423564,
+        "primary": 0.032310942918769396
+      },
+      "sample": "MH8919227"
+    },
+    {
+      "donor": "C-8940",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.011255181309604519,
+        "destroyed_link": 0.019352092453288647,
+        "hierarchical_graph_zero": 0.007458774879809823,
+        "independence": 0.019507817533766004,
+        "primary": 0.007458774879809823
+      },
+      "sample": "MH8919332"
+    },
+    {
+      "donor": "C-8941",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.013335158751583545,
+        "destroyed_link": 0.01557796888496295,
+        "hierarchical_graph_zero": 0.011099408763197295,
+        "independence": 0.015957249910962753,
+        "primary": 0.011099408763197295
+      },
+      "sample": "MH8919177"
+    },
+    {
+      "donor": "C-8942",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.009346431477809737,
+        "destroyed_link": 0.015552033987206853,
+        "hierarchical_graph_zero": 0.006215030870210327,
+        "independence": 0.015689577753433163,
+        "primary": 0.006215030870210327
+      },
+      "sample": "MH8919282"
+    },
+    {
+      "donor": "C-8943",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.006341441270366747,
+        "destroyed_link": 0.01029175633226291,
+        "hierarchical_graph_zero": 0.008752509171783421,
+        "independence": 0.010453524839756305,
+        "primary": 0.008752509171783421
+      },
+      "sample": "MH8919283"
+    },
+    {
+      "donor": "C-8944",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.012095139155066548,
+        "destroyed_link": 0.01488893051881461,
+        "hierarchical_graph_zero": 0.01586260784823197,
+        "independence": 0.01522263349489125,
+        "primary": 0.01586260784823197
+      },
+      "sample": "MH9143277"
+    },
+    {
+      "donor": "C-8946",
+      "informative_pairs": 81,
+      "losses": {
+        "best_residual": 0.012140838366799854,
+        "destroyed_link": 0.025884488883334025,
+        "hierarchical_graph_zero": 0.009781841127397483,
+        "independence": 0.026176916643417328,
+        "primary": 0.009781841127397483
+      },
+      "sample": "MH8919333"
+    }
+  ],
+  "donors": 56,
+  "panel": "Newcastle held site",
+  "passes_field_transfer": true,
+  "passes_primary_method": true,
+  "prediction_sha256": "7a183d4a2f55922dc07f8cbcdca904893710fe008e9169fdf618532ba06ea6e2",
+  "runner_sha256": "3708bccf52283e4f08e9fa842d7045dcc0756fa41d54476aaa1fc6ddc7197e76",
+  "schema": "stephenson-citeseq-held-confirmation/1.0",
+  "score_attempt": {
+    "path": "data/confirmation/stephenson_citeseq/score_attempt_v1.json",
+    "sha256": "6a33da3faec79a1a9f6c834c01e086aba857a84ff024e8fa82f40b6e33584004"
+  },
+  "score_authorization": {
+    "authorization_sha256": "6e5552208757b65dce1c7c47ca5851d2e7b9a239514d329db415ea88ee064c6c",
+    "public_authorization_commit": "8ea151c675860e5d464b60aca5cacae6037a7657",
+    "public_prediction_commit": "939a499b87a947affb5852cfa159157e96e168d0"
+  },
+  "source_manifest_sha256": "431e8a370bc9b08a207ab0ff8d3581f80abaf0f36b55eba4accedc5685a3d3cd",
+  "status": "CONFIRMATION_PASS",
+  "supports_graph_specific_superiority": false
+}
