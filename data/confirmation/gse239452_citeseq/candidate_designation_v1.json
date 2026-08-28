@@ -1,0 +1,73 @@
+{
+  "schema": "gse239452-citeseq-candidate-designation/1.0",
+  "status": "READY_FOR_PUBLIC_PREOUTCOME_FREEZE",
+  "candidate": "GSE239452 pregnancy-stratified CITE-seq coupling-field confirmation",
+  "frozen_design": {
+    "calibration_donors": ["47", "31", "223", "77", "191", "321", "213"],
+    "pilot_donors": ["94", "103", "350", "182", "1", "325", "382", "50"],
+    "held_donors": ["OB7-CTRL", "705385-SEV", "803763-ASX", "324058-ASX", "644394-CTRL", "915348-SEV", "729106-CTRL", "105199-ASX", "101607-SEV"],
+    "prospective_metadata_exclusions": {
+      "100": "378 ADT rows and 378 canonical paired barcodes, below the fixed 512-cell budget",
+      "78": "no paired ADT accession in GSE239449"
+    },
+    "cell_budget": 512,
+    "rna_state": "raw UMI count > 0",
+    "adt_state": "exactly 256 low and 256 high cells per marker by raw-count order with frozen SHA-256 tie breaking",
+    "entity_count": 81,
+    "primary_estimator": "donor-heterogeneity-aware exact conditional full-log-odds field with calibration-selected product-hypergraph penalty, including graph penalty zero",
+    "recipient_reconstruction": "exact noncentral-hypergeometric expected table at the frozen finite full log odds and recipient margins",
+    "primary_grid": {
+      "graph_neighbors": [1, 2],
+      "heterogeneity_penalty": [0.1, 1.0, 10.0],
+      "ridge_penalty": [0.01, 0.1],
+      "graph_penalty": [0.0, 0.1, 0.3, 1.0],
+      "transport_multiplier": [0.5, 0.75, 1.0, 1.25]
+    },
+    "residual_comparator_grid": {
+      "family": ["pearson", "deviance"],
+      "transport_multiplier": [0.5, 0.75, 1.0, 1.25]
+    },
+    "promotion_comparators": ["best_residual", "destroyed_link"],
+    "graph_vs_zero": "diagnostic only; graph superiority is not a gate"
+  },
+  "gates": {
+    "pilot": {
+      "donors": 8,
+      "required_favorable_donors": 7,
+      "minimum_relative_deviance_reduction": 0.05,
+      "paired_bootstrap_draws": 20000,
+      "paired_bootstrap_upper_95_must_be_below_zero": true
+    },
+    "held": {
+      "donors": 9,
+      "required_favorable_donors": 8,
+      "minimum_relative_deviance_reduction": 0.05,
+      "paired_bootstrap_draws": 20000,
+      "paired_bootstrap_upper_95_must_be_below_zero": true
+    }
+  },
+  "artifacts": {
+    "source_manifest": "data/confirmation/gse239452_citeseq/source_manifest_v1.json",
+    "metadata_preflight": "results/development/gse239452_citeseq_metadata_preflight.json",
+    "development_authorization": "data/confirmation/gse239452_citeseq/development_authorization_v1.json",
+    "development_attempt": "data/confirmation/gse239452_citeseq/development_attempt_v1.json",
+    "reduced_development": "data/development/gse239452_citeseq/reduced_v1.json",
+    "pilot_result": "results/development/gse239452_citeseq_pilot.json",
+    "held_gex_authorization": "data/confirmation/gse239452_citeseq/held_gex_authorization_v1.json",
+    "prediction_attempt": "data/confirmation/gse239452_citeseq/prediction_attempt_v1.json",
+    "held_predictions": "results/gse239452_citeseq_predictions.json",
+    "score_authorization": "data/confirmation/gse239452_citeseq/score_authorization_v1.json",
+    "score_attempt": "data/confirmation/gse239452_citeseq/score_attempt_v1.json",
+    "score_result": "results/gse239452_citeseq_confirmation.json",
+    "terminal_refusal": "results/development/gse239452_citeseq_terminal_refusal.json"
+  },
+  "access_order": [
+    "public protocol and metadata preflight",
+    "authorized calibration and pilot count reduction",
+    "calibration-only selection and pilot gate",
+    "public pilot result and held-GEX authorization",
+    "held GEX margins and public frozen predictions",
+    "public score authorization",
+    "single held ADT linkage access and score"
+  ]
+}

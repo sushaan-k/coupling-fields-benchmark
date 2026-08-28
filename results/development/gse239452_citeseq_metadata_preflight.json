@@ -1,0 +1,1827 @@
+{
+  "access_audit": {
+    "layers_values_read": 0,
+    "normalized_X_values_read": 0,
+    "numeric_matrix_payload_values_read": 0,
+    "raw_X_data_values_read": 0,
+    "raw_X_indices_values_read": 0,
+    "raw_X_indptr_values_read": 0,
+    "raw_matrix_structural_metadata_read": true,
+    "text_or_metadata_paths_read": [
+      "obs/_index",
+      "obs/barcodekey",
+      "raw/var/Featurekey",
+      "raw/var/NameInData",
+      "raw/var/featurekey",
+      "raw/var/target-1"
+    ]
+  },
+  "created_at_utc": "2026-08-28T19:50:42Z",
+  "panel_workbook_sha256": "a55d147acc02842e496923cb4fb504fdbd151b9a9ba7a90741aeb88d718e1733",
+  "preflight_content_sha256": "b5db8d14cb4f0e8ed67bca1533d2eacbe4c3f58d8b8a80ed061a8a0fcf3a3401",
+  "prospective_exclusions": [
+    {
+      "donor": "100",
+      "reason": "ADT has 378 rows and 378 canonical GEX-ADT barcode matches, below the frozen 512-cell budget"
+    },
+    {
+      "donor": "78",
+      "reason": "GSE239449 deposits no paired ADT sample"
+    }
+  ],
+  "role_counts": {
+    "calibration": 7,
+    "excluded_metadata": 2,
+    "held": 9,
+    "pilot": 8
+  },
+  "samples": [
+    {
+      "adt": {
+        "accession": "GSM7665266",
+        "archive_bytes": 1291839,
+        "archive_sha256": "f6ca2af3fdf21fa291f33f6f0fe0fa7bda9ff2453362b110abe3043e57e98952",
+        "filename": "GSM7665266_47_ADT.h5ad.tar.gz",
+        "h5ad": "47_ADT.h5ad",
+        "h5ad_bytes": 6351589,
+        "h5ad_sha256": "12c74ef507695da39070ac570d9d4342f6024112bb513a82e34147189bdfff74",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665266/suppl/GSM7665266_47_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "f2ab9368b07643967e82776e5baac22818d7b368a5372e5a059de151063189cb",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        2151,
+        197
+      ],
+      "common_barcode_axis_sha256": "f2ab9368b07643967e82776e5baac22818d7b368a5372e5a059de151063189cb",
+      "common_barcode_count": 2151,
+      "donor": "47",
+      "gex": {
+        "accession": "GSM7665292",
+        "archive_bytes": 7300780,
+        "archive_sha256": "9ff3adeec05a0332566fff078368f752d142497345fc6693f329e69cb307315e",
+        "filename": "GSM7665292_47_GEX.h5ad.tar.gz",
+        "h5ad": "47_GEX.h5ad",
+        "h5ad_bytes": 28806394,
+        "h5ad_sha256": "f83cdc43d61b9986852f44e972c5dc6e47dd12e8f9221fbe39b02339e4fe407f",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665292/suppl/GSM7665292_47_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "b8517210b5c0e83476a5db75819feebd541267073485b9284849d035fcea9db2",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        2282,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "calibration",
+      "severity": "Asymptomatic",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665263",
+        "archive_bytes": 2565940,
+        "archive_sha256": "d7cc005ba3b2d387060d475924c2f8625b3a32c5bae2507edd988bd9038d5b43",
+        "filename": "GSM7665263_31_ADT.h5ad.tar.gz",
+        "h5ad": "31_ADT.h5ad",
+        "h5ad_bytes": 13391277,
+        "h5ad_sha256": "1d9a84901c2484eca79dfc3eb8bbe60a855a9ca11c2cb8999b714cb458ee7fe2",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665263/suppl/GSM7665263_31_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "f0bb6b446dad11a9c25eae6ae05923a5dfa475562565b601077ac669b575c054",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        4671,
+        197
+      ],
+      "common_barcode_axis_sha256": "f0bb6b446dad11a9c25eae6ae05923a5dfa475562565b601077ac669b575c054",
+      "common_barcode_count": 4671,
+      "donor": "31",
+      "gex": {
+        "accession": "GSM7665288",
+        "archive_bytes": 45863006,
+        "archive_sha256": "c8fdf3a8d5b4a514a01771da5e80b4751af807143db5299c9cca977f6dc3a740",
+        "filename": "GSM7665288_31_GEX.h5ad.tar.gz",
+        "h5ad": "31_GEX.h5ad",
+        "h5ad_bytes": 177705141,
+        "h5ad_sha256": "29fedf5400c03d1143a6893a169029443e5c2a5ecaf0490dc285a2cfd082d268",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665288/suppl/GSM7665288_31_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "f45fcc83cf31574fc64577d3f000951fa37be8c8131d1d44be0081611d1dc8a7",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        7617,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "calibration",
+      "severity": "Asymptomatic",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665277",
+        "archive_bytes": 949261,
+        "archive_sha256": "561d4158c381ac9a6386a1d032ee812e33076473db47ff7fd44b47d254752c64",
+        "filename": "GSM7665277_223_ADT.h5ad.tar.gz",
+        "h5ad": "223_ADT.h5ad",
+        "h5ad_bytes": 4605780,
+        "h5ad_sha256": "38a3598a8f09e241cdf37ffafbd900eb162ff5080b926f1a72f5e2b7be4c73bf",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665277/suppl/GSM7665277_223_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "7afac12b41ee08596adc83dd38869db38d18ddac4e486c7696c4cd5dcfbd0317",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        1540,
+        197
+      ],
+      "common_barcode_axis_sha256": "7afac12b41ee08596adc83dd38869db38d18ddac4e486c7696c4cd5dcfbd0317",
+      "common_barcode_count": 1540,
+      "donor": "223",
+      "gex": {
+        "accession": "GSM7665303",
+        "archive_bytes": 12843760,
+        "archive_sha256": "97cca6032e2848835fab6f4da78016e31251b9be98c47109fb10b1e9f5b85603",
+        "filename": "GSM7665303_223_GEX.h5ad.tar.gz",
+        "h5ad": "223_GEX.h5ad",
+        "h5ad_bytes": 50322053,
+        "h5ad_sha256": "005ee4b68ee748a0d86b5008f0dd1cea3ff9376554c7cd58f56c1fe622ee2267",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665303/suppl/GSM7665303_223_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "448ad8d4ab450d6974fd62683db9567c67aed51bd22702d070bef48aaa5ff30c",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        2177,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "calibration",
+      "severity": "Severe",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665272",
+        "archive_bytes": 1400911,
+        "archive_sha256": "3fa464f70d4b90087a7ed42a9cabf8f9b5158e954ccbf6637bc5a3bd9f1c182b",
+        "filename": "GSM7665272_77_ADT.h5ad.tar.gz",
+        "h5ad": "77_ADT.h5ad",
+        "h5ad_bytes": 7196640,
+        "h5ad_sha256": "24f0e68e14a39f258ba4465d26fdb022a0c485cd0fdeb9917370419e9907ad00",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665272/suppl/GSM7665272_77_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "f60e86d1773368739d1552dfcfa5d01144bdbad8ce45704386c8ea78bf9572d8",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        2480,
+        197
+      ],
+      "common_barcode_axis_sha256": "f60e86d1773368739d1552dfcfa5d01144bdbad8ce45704386c8ea78bf9572d8",
+      "common_barcode_count": 2480,
+      "donor": "77",
+      "gex": {
+        "accession": "GSM7665298",
+        "archive_bytes": 15189493,
+        "archive_sha256": "51a53964b6c3a4424068e531c32b6c0088f4bf1d815c009bdccd60b848fbf039",
+        "filename": "GSM7665298_77_GEX.h5ad.tar.gz",
+        "h5ad": "77_GEX.h5ad",
+        "h5ad_bytes": 59775797,
+        "h5ad_sha256": "321657c2ee3181048f3d4e756dc3a53060d67f129e8a8a0906eeecb64d6bdf57",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665298/suppl/GSM7665298_77_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "62062c530ef3b6dab8a587ceac02c01d1e54deb6fc261c1a35e0c57322655b96",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        2801,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "calibration",
+      "severity": "Severe",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665274",
+        "archive_bytes": 704501,
+        "archive_sha256": "55f10d0c2f6ff1e35c3b293778a172c01e6a7efb13a02bb2a7157e1b10ef1abc",
+        "filename": "GSM7665274_191_ADT.h5ad.tar.gz",
+        "h5ad": "191_ADT.h5ad",
+        "h5ad_bytes": 3543804,
+        "h5ad_sha256": "806d7ee7ff89e724eeb7807a1cbaf55deb3956776059c40b456e536a2cb199c3",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665274/suppl/GSM7665274_191_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "f8dfaf3de90334d4446dc8e04761cdfaab38c938a68829f202acea9aacd5c2c8",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        1196,
+        197
+      ],
+      "common_barcode_axis_sha256": "f8dfaf3de90334d4446dc8e04761cdfaab38c938a68829f202acea9aacd5c2c8",
+      "common_barcode_count": 1196,
+      "donor": "191",
+      "gex": {
+        "accession": "GSM7665300",
+        "archive_bytes": 8103394,
+        "archive_sha256": "2a4bf75af4fc5228ee89949846a315562e1c7cc0c730f67fcd18924d41367395",
+        "filename": "GSM7665300_191_GEX.h5ad.tar.gz",
+        "h5ad": "191_GEX.h5ad",
+        "h5ad_bytes": 31381864,
+        "h5ad_sha256": "0da30252064e54c69da70b12cc5055087dd324a9100f33223ad10aa5ebbac3ec",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665300/suppl/GSM7665300_191_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "bb1fed3478ae18faff2bbe516a8912c5ea98b8501eb19a6c0460a921ff2b2b9c",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        1316,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "calibration",
+      "severity": "Severe",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665269",
+        "archive_bytes": 1431944,
+        "archive_sha256": "c7a954397a235d60cc7c0d19945d8b800cb1db6be0e90de208ac4c259bfd1285",
+        "filename": "GSM7665269_321_ADT.h5ad.tar.gz",
+        "h5ad": "321_ADT.h5ad",
+        "h5ad_bytes": 7134496,
+        "h5ad_sha256": "4a3255612cefd760b0894ab6938c98c4625d29cafc66fa25db01aceec5f33d3c",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665269/suppl/GSM7665269_321_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "68ab2997bae1c210d91959ebd0963ff375269d9959ceaf3f317f91f193514a4e",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        2416,
+        197
+      ],
+      "common_barcode_axis_sha256": "68ab2997bae1c210d91959ebd0963ff375269d9959ceaf3f317f91f193514a4e",
+      "common_barcode_count": 2416,
+      "donor": "321",
+      "gex": {
+        "accession": "GSM7665295",
+        "archive_bytes": 21331137,
+        "archive_sha256": "b84a3f3575f3386e0db048c8539428cbbe43085c52ed46c5141c54a7cef0c3c6",
+        "filename": "GSM7665295_321_GEX.h5ad.tar.gz",
+        "h5ad": "321_GEX.h5ad",
+        "h5ad_bytes": 83030451,
+        "h5ad_sha256": "c35db6ba3dbd8a31c472355f1bfad0d0db417a9830ef4f09c2b61de0ee235fec",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665295/suppl/GSM7665295_321_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "3e238751bc556224dddec63d898984deeab2624a61c826a24f1d8dac7afc665d",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        3111,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "calibration",
+      "severity": "Severe",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665276",
+        "archive_bytes": 1123757,
+        "archive_sha256": "d2a75643f4a922c70ae7dd6cd3788740d341b078f9ae4a2c6b5f1ed264c6b9e4",
+        "filename": "GSM7665276_213_ADT.h5ad.tar.gz",
+        "h5ad": "213_ADT.h5ad",
+        "h5ad_bytes": 5571814,
+        "h5ad_sha256": "9c4f104ce583f10c6f3fe54bd351cddcdef0b4afb94e2140829a4421c3b52099",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665276/suppl/GSM7665276_213_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "3c546589d8c36ef5bd611eff7f8045320142d9387aa4003045306164222b7379",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        1878,
+        197
+      ],
+      "common_barcode_axis_sha256": "3c546589d8c36ef5bd611eff7f8045320142d9387aa4003045306164222b7379",
+      "common_barcode_count": 1878,
+      "donor": "213",
+      "gex": {
+        "accession": "GSM7665302",
+        "archive_bytes": 7554711,
+        "archive_sha256": "c92dc647c6e95ace857ba513bf7a2ec334e981c75516f7d841ca81656701ba31",
+        "filename": "GSM7665302_213_GEX.h5ad.tar.gz",
+        "h5ad": "213_GEX.h5ad",
+        "h5ad_bytes": 29391456,
+        "h5ad_sha256": "3ed33f2e2fdbe2b484eddfafce2f0b7a7ca020a5005ae389b26cc2fb85e4c42c",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665302/suppl/GSM7665302_213_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "08bf5a0fda40c2b8d1f86e2f44e88e694eaa220f2331a2e8d18bfc87ee1bc214",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        2038,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "calibration",
+      "severity": "Severe",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665264",
+        "archive_bytes": 1662888,
+        "archive_sha256": "c05b7e6a9ff9056c411e8512bffd353187778bb8b8b69e33020e907479d48929",
+        "filename": "GSM7665264_94_ADT.h5ad.tar.gz",
+        "h5ad": "94_ADT.h5ad",
+        "h5ad_bytes": 8293042,
+        "h5ad_sha256": "f82f9f462e9e69503e3b9c4b9f73a339f0f74aaa9662fbe3c12e172b73d742b5",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665264/suppl/GSM7665264_94_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "e9a54f6344319e93d48f3f2fa5f7a0eb683867e08ed6b57abd4f13a677669fe3",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        2806,
+        197
+      ],
+      "common_barcode_axis_sha256": "e9a54f6344319e93d48f3f2fa5f7a0eb683867e08ed6b57abd4f13a677669fe3",
+      "common_barcode_count": 2806,
+      "donor": "94",
+      "gex": {
+        "accession": "GSM7665289",
+        "archive_bytes": 17399781,
+        "archive_sha256": "e09603aa99e0a68f52c97cf4513480daa544c5f7f46f216ae9a79683d30c4b78",
+        "filename": "GSM7665289_94_GEX.h5ad.tar.gz",
+        "h5ad": "94_GEX.h5ad",
+        "h5ad_bytes": 68141267,
+        "h5ad_sha256": "7dac938d5999f5a59ec46b6bb17321517b95bc7bcb426a1b82accf704df73bf9",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665289/suppl/GSM7665289_94_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "6cbdb455566570f090678413725421ce1afc4b97527447d404970fa1e110c9ee",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        3015,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "pilot",
+      "severity": "Asymptomatic",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665265",
+        "archive_bytes": 2723811,
+        "archive_sha256": "9615508401235dee065e67993877c67e69e24af80c6a70b72a44c5d3ba8150d4",
+        "filename": "GSM7665265_103_ADT.h5ad.tar.gz",
+        "h5ad": "103_ADT.h5ad",
+        "h5ad_bytes": 13964864,
+        "h5ad_sha256": "2ed765dfde56077745d886f71896631b95df1fd1d684811afb67f596c4863736",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665265/suppl/GSM7665265_103_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "a85b691c4e20556df0cf661dfcc4f945f261070155649b49eab28b085ec071e8",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        4792,
+        197
+      ],
+      "common_barcode_axis_sha256": "a85b691c4e20556df0cf661dfcc4f945f261070155649b49eab28b085ec071e8",
+      "common_barcode_count": 4792,
+      "donor": "103",
+      "gex": {
+        "accession": "GSM7665290",
+        "archive_bytes": 18107412,
+        "archive_sha256": "a32ceeaefcf25a483b48f58e013714a2250c956e0289cc1befa173c8049e582b",
+        "filename": "GSM7665290_103_GEX.h5ad.tar.gz",
+        "h5ad": "103_GEX.h5ad",
+        "h5ad_bytes": 70585934,
+        "h5ad_sha256": "8ce0148555c3ddd0415af594c30792ef4ee8a235f6c4d6d076b9c290dc5d5d5a",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665290/suppl/GSM7665290_103_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "a5d1438960dfdd455d3740503da975e9cec7dad3a5d58ce321c381df279d92f9",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        5094,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "pilot",
+      "severity": "Asymptomatic",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665262",
+        "archive_bytes": 1434019,
+        "archive_sha256": "b69cad16e205fa4d27834e9471948376239d33b9b7200310c0194b968fd4b248",
+        "filename": "GSM7665262_350_ADT.h5ad.tar.gz",
+        "h5ad": "350_ADT.h5ad",
+        "h5ad_bytes": 7088460,
+        "h5ad_sha256": "159530e42e125468e0817ed160f07752e857a4b85880daf631f40e036d26152f",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665262/suppl/GSM7665262_350_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "ceae7d5770eadbac2d2ab28b1b3587ec6f3f91adc57a6f6bf3fd411c51d8d7f8",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        2388,
+        197
+      ],
+      "common_barcode_axis_sha256": "ceae7d5770eadbac2d2ab28b1b3587ec6f3f91adc57a6f6bf3fd411c51d8d7f8",
+      "common_barcode_count": 2388,
+      "donor": "350",
+      "gex": {
+        "accession": "GSM7665287",
+        "archive_bytes": 14587592,
+        "archive_sha256": "796a8898b1cf41ca2963c0842664ff1ed0b65a14630c1e49be33b9f4d7cf02ed",
+        "filename": "GSM7665287_350_GEX.h5ad.tar.gz",
+        "h5ad": "350_GEX.h5ad",
+        "h5ad_bytes": 57107774,
+        "h5ad_sha256": "a0640468f5e2aea8ced81bd1b4531c736dfe0e2dc34fa3f009bdb605a0edc9b0",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665287/suppl/GSM7665287_350_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "57e658be9f0a32f3f6fc476ed11fe54194cdcf8f9bddb359fbaeabb346fedf78",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        2494,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "pilot",
+      "severity": "Asymptomatic",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665271",
+        "archive_bytes": 1249605,
+        "archive_sha256": "03e1d81ef0e16c5d378132fbf4e76523c029a38e5518050f6fdc57cd50861d99",
+        "filename": "GSM7665271_182_ADT.h5ad.tar.gz",
+        "h5ad": "182_ADT.h5ad",
+        "h5ad_bytes": 6039976,
+        "h5ad_sha256": "d9cd8fbf1a1d259370c2a9594c406f54d5d30eca00fcbfda29b715116056ccfe",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665271/suppl/GSM7665271_182_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "136892646351eb5b2f24a0b5051f0affb1ee48355fd0929a01f1290b845d55f8",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        2008,
+        197
+      ],
+      "common_barcode_axis_sha256": "136892646351eb5b2f24a0b5051f0affb1ee48355fd0929a01f1290b845d55f8",
+      "common_barcode_count": 2008,
+      "donor": "182",
+      "gex": {
+        "accession": "GSM7665297",
+        "archive_bytes": 20367253,
+        "archive_sha256": "c7fc4e2b81cd6c7e6663d51fb29721bfd851b0f4be2d81d2a7207cf4886bfa56",
+        "filename": "GSM7665297_182_GEX.h5ad.tar.gz",
+        "h5ad": "182_GEX.h5ad",
+        "h5ad_bytes": 76621973,
+        "h5ad_sha256": "1c93ab5306d5b946d9490da2157a1901b7565fc9931a6f36da439836e02843f3",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665297/suppl/GSM7665297_182_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "4dee9527ef5760a5caea92acf2ed4d2e4c2029fc0c57ecca736e1b0eba387830",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        2513,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "pilot",
+      "severity": "Severe",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665275",
+        "archive_bytes": 1636415,
+        "archive_sha256": "12ca06966b9e609641a7df32b09b9377ffa882aff257b76ef3506a2aa9f1d1eb",
+        "filename": "GSM7665275_1_ADT.h5ad.tar.gz",
+        "h5ad": "1_ADT.h5ad",
+        "h5ad_bytes": 8518461,
+        "h5ad_sha256": "25c1f16b919a587c70457027adfab422e209272e47dd673ae6872ced738da7d2",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665275/suppl/GSM7665275_1_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "eac088a2f4f382e197b729fa80a1428b1efc9a044323c481f10c9e729e0e2c5e",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        2927,
+        197
+      ],
+      "common_barcode_axis_sha256": "eac088a2f4f382e197b729fa80a1428b1efc9a044323c481f10c9e729e0e2c5e",
+      "common_barcode_count": 2927,
+      "donor": "1",
+      "gex": {
+        "accession": "GSM7665301",
+        "archive_bytes": 11859118,
+        "archive_sha256": "196a9f55a5785f9755423d30875aefb2159de3886ddaa42f364af69d09d3f714",
+        "filename": "GSM7665301_1_GEX.h5ad.tar.gz",
+        "h5ad": "1_GEX.h5ad",
+        "h5ad_bytes": 47477534,
+        "h5ad_sha256": "5d1b13d8b219e5a9ebc2c351bc64005a516f6b3bcaf6a901589196925be2d7ad",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665301/suppl/GSM7665301_1_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "968a1040d3190a4992b474eb9e14cf40a708a1b9af0a1a8f62cefbc279ba494a",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        3318,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "pilot",
+      "severity": "Severe",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665268",
+        "archive_bytes": 1301343,
+        "archive_sha256": "968c3a22b01834ddb34e081cc1c0504875f2d4d5b1b365c35283388f797abd54",
+        "filename": "GSM7665268_325_ADT.h5ad.tar.gz",
+        "h5ad": "325_ADT.h5ad",
+        "h5ad_bytes": 6145612,
+        "h5ad_sha256": "c5da18ff31d82fae74d267c07c67b70aca142f58d34866a46beb73a8a7cfbc69",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665268/suppl/GSM7665268_325_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "d06a5122867a28a9bacacfffc125ba101de665ee8bf50f2f29b3d4915c39cf56",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        2028,
+        197
+      ],
+      "common_barcode_axis_sha256": "d06a5122867a28a9bacacfffc125ba101de665ee8bf50f2f29b3d4915c39cf56",
+      "common_barcode_count": 2028,
+      "donor": "325",
+      "gex": {
+        "accession": "GSM7665294",
+        "archive_bytes": 17496534,
+        "archive_sha256": "3758ad77cab40399e6a58579d08493086745dc10f261b5c33237059a8d31cc32",
+        "filename": "GSM7665294_325_GEX.h5ad.tar.gz",
+        "h5ad": "325_GEX.h5ad",
+        "h5ad_bytes": 68380238,
+        "h5ad_sha256": "d1ab2e55d4327cc43e9ff81f3dd3157da1bf5863939c3944415ac9cc15584b35",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665294/suppl/GSM7665294_325_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "d8d361147a573407f70c672765f6995f6727a2389dc356c6d74bb70997739293",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        2318,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "pilot",
+      "severity": "Severe",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665267",
+        "archive_bytes": 1578137,
+        "archive_sha256": "33a81d289de28bb417d9b9076463b91fcb38548b028324c7289b9bdc92fee2b3",
+        "filename": "GSM7665267_382_ADT.h5ad.tar.gz",
+        "h5ad": "382_ADT.h5ad",
+        "h5ad_bytes": 7759453,
+        "h5ad_sha256": "e789b0d8a72ae701a18dd828917f3586239249c6be748d900a6e6a3f3d3b6a46",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665267/suppl/GSM7665267_382_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "c10ca23d067cda3797601da5d2eba6b74864a33ad12c2c42befd70d798b2284f",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        2607,
+        197
+      ],
+      "common_barcode_axis_sha256": "c10ca23d067cda3797601da5d2eba6b74864a33ad12c2c42befd70d798b2284f",
+      "common_barcode_count": 2607,
+      "donor": "382",
+      "gex": {
+        "accession": "GSM7665293",
+        "archive_bytes": 46160648,
+        "archive_sha256": "b6c2fdfe212ed56f838cf17fb87288a98fd80246f508ff7bf9ccefd2694a45db",
+        "filename": "GSM7665293_382_GEX.h5ad.tar.gz",
+        "h5ad": "382_GEX.h5ad",
+        "h5ad_bytes": 180196426,
+        "h5ad_sha256": "2db125e98fc76e72f9421b729aa67d52ef1240a3108bbff9d74c9d05933daabd",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665293/suppl/GSM7665293_382_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "5f0d185712a1e2a763cf2e29a46cee9ae12699034e0ffb3febfa95448e7fc7c4",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        8002,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "pilot",
+      "severity": "Severe",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665270",
+        "archive_bytes": 2433454,
+        "archive_sha256": "1c189a475594f7fe96ad204cad964d18b177a00828800f9d1734e9dbed04e662",
+        "filename": "GSM7665270_50_ADT.h5ad.tar.gz",
+        "h5ad": "50_ADT.h5ad",
+        "h5ad_bytes": 12366184,
+        "h5ad_sha256": "4f10e7b2199c7aca9a5a4b4b51edc4489c46e47b0b2a6ee24a23da94ef77bb46",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665270/suppl/GSM7665270_50_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "887fe683360ac30de803b0a8c5b030ba151b69b8e4c4824ed49878e8994e9bf1",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        4200,
+        197
+      ],
+      "common_barcode_axis_sha256": "887fe683360ac30de803b0a8c5b030ba151b69b8e4c4824ed49878e8994e9bf1",
+      "common_barcode_count": 4200,
+      "donor": "50",
+      "gex": {
+        "accession": "GSM7665296",
+        "archive_bytes": 24165599,
+        "archive_sha256": "89e5b671206dc06a057af5f5a04cb0c291c6ba853823fb319adc42b908be8652",
+        "filename": "GSM7665296_50_GEX.h5ad.tar.gz",
+        "h5ad": "50_GEX.h5ad",
+        "h5ad_bytes": 95610821,
+        "h5ad_sha256": "c3d1f3f9192f1f8989cf2388a462a04c0660d7c9dac929db2afdd12fd4d08f1a",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665296/suppl/GSM7665296_50_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "e058d7761172d148c52af3b26fdf5610119188fbca8bed6c24313644480d321a",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        5057,
+        24648
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "NonPregnant",
+      "role": "pilot",
+      "severity": "Severe",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665253",
+        "archive_bytes": 17180302,
+        "archive_sha256": "1fb92386736ff8797df3adc83e7171777c933d2e66bc503205b89cc782beebec",
+        "filename": "GSM7665253_OB7-CTRL_ADT.h5ad.tar.gz",
+        "h5ad": "OB7-CTRL_ADT.h5ad",
+        "h5ad_bytes": 90137629,
+        "h5ad_sha256": "2b79fec9e1c13a812663a3067ceda80b18b7e753b116c9d1bc6e17e724aa7894",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665253/suppl/GSM7665253_OB7-CTRL_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "297fc42480be9fc6c76b2d2de092cc2be3f017923df574273c4b7da4d19ce31c",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        32655,
+        197
+      ],
+      "common_barcode_axis_sha256": "56abd103bf59a58c264e5a635a5abe6d111d5758187b159df449955ff7596854",
+      "common_barcode_count": 14917,
+      "donor": "OB7-CTRL",
+      "gex": {
+        "accession": "GSM7665278",
+        "archive_bytes": 132536667,
+        "archive_sha256": "7567dfaa5ce43c031de96468360a5710aa62808e3a5899cf70af5f6a2576d3ca",
+        "filename": "GSM7665278_OB7-CTRL_GEX.h5ad.tar.gz",
+        "h5ad": "OB7-CTRL_GEX.h5ad",
+        "h5ad_bytes": 483640114,
+        "h5ad_sha256": "94299a345c723f733b5bc8e7a806067917b064cf3c80e1f8e720380f9fc1b3d0",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665278/suppl/GSM7665278_OB7-CTRL_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "58edb73270c64e172d635cedd1bfe2b5e8d16f1131019dbb4e321fd234dbbe28",
+      "gex_marker_indices": [
+        14109,
+        20079,
+        6722,
+        17940,
+        22470,
+        5350,
+        12211,
+        4598,
+        414
+      ],
+      "gex_obs_index": "_index",
+      "gex_raw_shape": [
+        16236,
+        23722
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "Pregnant",
+      "role": "held",
+      "severity": "Control",
+      "text_axes_read": [
+        "obs/_index",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665254",
+        "archive_bytes": 15170283,
+        "archive_sha256": "7893d9fc8f39fe62510854669876f46d9df1495de777b51ee8552ab006bfaa53",
+        "filename": "GSM7665254_705385-SEV_ADT.h5ad.tar.gz",
+        "h5ad": "705385-SEV_ADT.h5ad",
+        "h5ad_bytes": 78633560,
+        "h5ad_sha256": "c23a0ce511861f9c29c731d1e2607b42f21b4de032853b102a2a607894f26a76",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665254/suppl/GSM7665254_705385-SEV_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "4cea07ac643145dda841aeaa77b27554fc77f7d552dbfd90417c6b1ff982486f",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        28016,
+        197
+      ],
+      "common_barcode_axis_sha256": "a69485df491ffa1fcc54f1663474ef0a0c4dff7fd2aa4da95409f5b4ccbad16f",
+      "common_barcode_count": 20694,
+      "donor": "705385-SEV",
+      "gex": {
+        "accession": "GSM7665279",
+        "archive_bytes": 181321011,
+        "archive_sha256": "4ddfcf493a888b45986bb902df246f9924a957381a1cd543eea363382293e845",
+        "filename": "GSM7665279_705385-SEV_GEX.h5ad.tar.gz",
+        "h5ad": "705385-SEV_GEX.h5ad",
+        "h5ad_bytes": 660361014,
+        "h5ad_sha256": "e63b7bd6060cd01d00d986b96b3b0ec6baf0abe15322a2e55a72f1920d987869",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665279/suppl/GSM7665279_705385-SEV_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "a174eb6c6baefcb696844e24c5a155474a3c17c26abe76dffe322a98507d31c8",
+      "gex_marker_indices": [
+        14109,
+        20079,
+        6722,
+        17940,
+        22470,
+        5350,
+        12211,
+        4598,
+        414
+      ],
+      "gex_obs_index": "_index",
+      "gex_raw_shape": [
+        22168,
+        23722
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "Pregnant",
+      "role": "held",
+      "severity": "Severe",
+      "text_axes_read": [
+        "obs/_index",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665255",
+        "archive_bytes": 17160229,
+        "archive_sha256": "46104bc2d142dcd5e5924546c238311ab2ac4be2ef485699ba47422b77736d06",
+        "filename": "GSM7665255_803763-ASX_ADT.h5ad.tar.gz",
+        "h5ad": "803763-ASX_ADT.h5ad",
+        "h5ad_bytes": 89332298,
+        "h5ad_sha256": "90d3af1f6ba07b454d8267d28194ce0ee2ae36e8b4c5355536be5f8821ecc099",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665255/suppl/GSM7665255_803763-ASX_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "439369b79b2c84e8cc38934d985635e4fbbdca862127e8d2b80d9d9cf523d3be",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        32230,
+        197
+      ],
+      "common_barcode_axis_sha256": "189f432af4d1c37fbe13ceb1a4f345044e5bf56f9dbecf3c43a7955c387cf1db",
+      "common_barcode_count": 17871,
+      "donor": "803763-ASX",
+      "gex": {
+        "accession": "GSM7665280",
+        "archive_bytes": 149349761,
+        "archive_sha256": "e2aa91b3d7e5757f46f097d5d7a15bd1f604adcbfb999511e356663cce9ded3c",
+        "filename": "GSM7665280_803763-ASX_GEX.h5ad.tar.gz",
+        "h5ad": "803763-ASX_GEX.h5ad",
+        "h5ad_bytes": 540467588,
+        "h5ad_sha256": "0ff51efaea1012719844fafbc4ddce9cd7cc38cff8f3b840318b32a9b4fc9217",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665280/suppl/GSM7665280_803763-ASX_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "9d039201a245450bad6240428a6c68ad1b71b0e68eb7fe409fd6226a016def11",
+      "gex_marker_indices": [
+        14109,
+        20079,
+        6722,
+        17940,
+        22470,
+        5350,
+        12211,
+        4598,
+        414
+      ],
+      "gex_obs_index": "_index",
+      "gex_raw_shape": [
+        18930,
+        23722
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "Pregnant",
+      "role": "held",
+      "severity": "Asymptomatic",
+      "text_axes_read": [
+        "obs/_index",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665256",
+        "archive_bytes": 6554358,
+        "archive_sha256": "bbc38bfe41cbba36f284604d95d1196b264c5642e09b2cea019a2a4830b067e7",
+        "filename": "GSM7665256_324058-ASX_ADT.h5ad.tar.gz",
+        "h5ad": "324058-ASX_ADT.h5ad",
+        "h5ad_bytes": 33709035,
+        "h5ad_sha256": "61ace1ae4e4429608cb58e7b65c99730db80d257b51bdab188d53f026a3b3f2c",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665256/suppl/GSM7665256_324058-ASX_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "85571de57571d6963321502b6bdaecf6ff26a710e1ef73ddc683bc2fbf5ade60",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        11961,
+        197
+      ],
+      "common_barcode_axis_sha256": "87adc683b2b7bfbe654c97fcfa4e7dcc94e75ed431adcd114b2bf7afb149e828",
+      "common_barcode_count": 6863,
+      "donor": "324058-ASX",
+      "gex": {
+        "accession": "GSM7665281",
+        "archive_bytes": 56240614,
+        "archive_sha256": "a033a300c4e806a3bc2dd0c3b89b5be9f158629865eb67f80b299e80d01cd92d",
+        "filename": "GSM7665281_324058-ASX_GEX.h5ad.tar.gz",
+        "h5ad": "324058-ASX_GEX.h5ad",
+        "h5ad_bytes": 203433562,
+        "h5ad_sha256": "30f3475d744d413bb69a3b5627017b1a0da96c14d79ce7a32b44d28ec5ea42ca",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665281/suppl/GSM7665281_324058-ASX_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "c6a23a43c2e5d3aa74cb0fbfa63e5c88b05bd027b9152e47da0bcf972a679199",
+      "gex_marker_indices": [
+        14109,
+        20079,
+        6722,
+        17940,
+        22470,
+        5350,
+        12211,
+        4598,
+        414
+      ],
+      "gex_obs_index": "_index",
+      "gex_raw_shape": [
+        7268,
+        23722
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "Pregnant",
+      "role": "held",
+      "severity": "Asymptomatic",
+      "text_axes_read": [
+        "obs/_index",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665257",
+        "archive_bytes": 5114574,
+        "archive_sha256": "a7129fced8bef83a87cb2b79bf935d33b571c96c290b85ceb0a396a8745d45ec",
+        "filename": "GSM7665257_644394-CTRL_ADT.h5ad.tar.gz",
+        "h5ad": "644394-CTRL_ADT.h5ad",
+        "h5ad_bytes": 26758992,
+        "h5ad_sha256": "4fb6c3b966a418f76b17462f806932cf45442971f56efa5262a6ec8e9dfae575",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665257/suppl/GSM7665257_644394-CTRL_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "4edbce28b689f279b4872c4aede605837265f49e10f8a4b4858903782d3c6135",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        9528,
+        197
+      ],
+      "common_barcode_axis_sha256": "ee7122cf0824758e0a304ccd53e3206f4efaf63e260dbb4141b944ea996273e9",
+      "common_barcode_count": 4950,
+      "donor": "644394-CTRL",
+      "gex": {
+        "accession": "GSM7665282",
+        "archive_bytes": 45137345,
+        "archive_sha256": "070d599b9d16be8d1e17d8a9b0934b266f7523e824030a444190c6cd93cd5b55",
+        "filename": "GSM7665282_644394-CTRL_GEX.h5ad.tar.gz",
+        "h5ad": "644394-CTRL_GEX.h5ad",
+        "h5ad_bytes": 163884357,
+        "h5ad_sha256": "257d278ee0a5602b56b90e4de33bf4900e94dc410edbdd7e2b905edaaa5d9f70",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665282/suppl/GSM7665282_644394-CTRL_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "f8d724ad923f6035453efb3816effbf2d6a89d9dfadb3af7eef57431476d7d36",
+      "gex_marker_indices": [
+        14109,
+        20079,
+        6722,
+        17940,
+        22470,
+        5350,
+        12211,
+        4598,
+        414
+      ],
+      "gex_obs_index": "_index",
+      "gex_raw_shape": [
+        5389,
+        23722
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "Pregnant",
+      "role": "held",
+      "severity": "Control",
+      "text_axes_read": [
+        "obs/_index",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665258",
+        "archive_bytes": 5019763,
+        "archive_sha256": "855f2e9cdad4f10edbd1834e192940a3eb3cacfeaf77e8a59b7de85ff02ad360",
+        "filename": "GSM7665258_915348-SEV_ADT.h5ad.tar.gz",
+        "h5ad": "915348-SEV_ADT.h5ad",
+        "h5ad_bytes": 25775617,
+        "h5ad_sha256": "0fe0e5ae0ab26dbb816009bbb9511acb13e1f9e45a281c02d76885101602ac74",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665258/suppl/GSM7665258_915348-SEV_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "e818c0fbe947b6a439f23ed7865c5996c41183fe4a582e6ea8ca1cf9d0e6beed",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        9051,
+        197
+      ],
+      "common_barcode_axis_sha256": "af2ad18f8e87090f2d914866a161695274097702ce941a0d56eae06e71d25014",
+      "common_barcode_count": 5560,
+      "donor": "915348-SEV",
+      "gex": {
+        "accession": "GSM7665283",
+        "archive_bytes": 50098438,
+        "archive_sha256": "cffd2ff93330bf2b3f5d6ac58c9b755b5519ff021f4663ec19d0b501e9457f55",
+        "filename": "GSM7665283_915348-SEV_GEX.h5ad.tar.gz",
+        "h5ad": "915348-SEV_GEX.h5ad",
+        "h5ad_bytes": 178654933,
+        "h5ad_sha256": "8385b27ac9b92a307897f80cf9a36d6182edd38c56a24daba15eb5b76c546a73",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665283/suppl/GSM7665283_915348-SEV_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "ec16052a80cc528557cbc618598642770f37b3e5fe4bf9a01dea2c7b70087dcc",
+      "gex_marker_indices": [
+        14109,
+        20079,
+        6722,
+        17940,
+        22470,
+        5350,
+        12211,
+        4598,
+        414
+      ],
+      "gex_obs_index": "_index",
+      "gex_raw_shape": [
+        6077,
+        23722
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "Pregnant",
+      "role": "held",
+      "severity": "Severe",
+      "text_axes_read": [
+        "obs/_index",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665259",
+        "archive_bytes": 14648208,
+        "archive_sha256": "0d9a285473be7a1818e25a647f2dd7adb64dd17a8773c3cd83929de57e26df41",
+        "filename": "GSM7665259_729106-CTRL_ADT.h5ad.tar.gz",
+        "h5ad": "729106-CTRL_ADT.h5ad",
+        "h5ad_bytes": 74751136,
+        "h5ad_sha256": "e2a0f341c0c4a710aea04ff200493426bb54e3c93874a81c2c936ff5bb79c27e",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665259/suppl/GSM7665259_729106-CTRL_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "bbedab77415df907ece5fbf79e9bb7123a8b33b9d554b2b16a485b5ca55631ca",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        25928,
+        197
+      ],
+      "common_barcode_axis_sha256": "2f9cc39eba3f97264cf039fcb6f2859f00da35b2e61ae5daba1e1609fd43b983",
+      "common_barcode_count": 16209,
+      "donor": "729106-CTRL",
+      "gex": {
+        "accession": "GSM7665284",
+        "archive_bytes": 157473364,
+        "archive_sha256": "d6b961ff2e6b950b5d23c5cf6854cdb9495c12f940231a2c93fdf4c790c2439d",
+        "filename": "GSM7665284_729106-CTRL_GEX.h5ad.tar.gz",
+        "h5ad": "729106-CTRL_GEX.h5ad",
+        "h5ad_bytes": 569235875,
+        "h5ad_sha256": "0f60b94b97687ec0f8bf0afbeabc89766ce5f3563e274954900a0daef8cd11ca",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665284/suppl/GSM7665284_729106-CTRL_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "6ad7ba66c1d17c6ce928227c0b7aafdbaea24d0fded4bc1ad0245fd3847a8469",
+      "gex_marker_indices": [
+        14109,
+        20079,
+        6722,
+        17940,
+        22470,
+        5350,
+        12211,
+        4598,
+        414
+      ],
+      "gex_obs_index": "_index",
+      "gex_raw_shape": [
+        19943,
+        23722
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "Pregnant",
+      "role": "held",
+      "severity": "Control",
+      "text_axes_read": [
+        "obs/_index",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665260",
+        "archive_bytes": 20763472,
+        "archive_sha256": "84cd195ea65bbe59035c3b57999b9836fff837d714f3debf03ce5404b4050992",
+        "filename": "GSM7665260_105199-ASX_ADT.h5ad.tar.gz",
+        "h5ad": "105199-ASX_ADT.h5ad",
+        "h5ad_bytes": 107468624,
+        "h5ad_sha256": "7df4839dbc187b86e7ec4dcef233b1297db5426abed290105054fbbd48c23b1d",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665260/suppl/GSM7665260_105199-ASX_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "3f682bea498d547a2936eca7156cb48eb9203ba6bfb88304534e6c5a934c7182",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        37592,
+        197
+      ],
+      "common_barcode_axis_sha256": "7a8333719ac9955ea8368ce45ef4193641164dca773aaf4627cedc200baad941",
+      "common_barcode_count": 18551,
+      "donor": "105199-ASX",
+      "gex": {
+        "accession": "GSM7665285",
+        "archive_bytes": 168362359,
+        "archive_sha256": "5d2e6047b132e66685a7305b78a39ed5745b64c16cda54b3056375d47d28df7f",
+        "filename": "GSM7665285_105199-ASX_GEX.h5ad.tar.gz",
+        "h5ad": "105199-ASX_GEX.h5ad",
+        "h5ad_bytes": 607168887,
+        "h5ad_sha256": "820c635b943806a6cd10625d5385028f9e0e08218ee6da0e0e27870fa3bb1249",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665285/suppl/GSM7665285_105199-ASX_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "f2c819ff228159df61efaa89888f9c64fcaa1719bc2780867e78ee15ecfb3d04",
+      "gex_marker_indices": [
+        14109,
+        20079,
+        6722,
+        17940,
+        22470,
+        5350,
+        12211,
+        4598,
+        414
+      ],
+      "gex_obs_index": "_index",
+      "gex_raw_shape": [
+        22147,
+        23722
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "Pregnant",
+      "role": "held",
+      "severity": "Asymptomatic",
+      "text_axes_read": [
+        "obs/_index",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665261",
+        "archive_bytes": 14425300,
+        "archive_sha256": "fa92fdb114933aaf08b245b9fae4c6532bfeefebdd72ba196b87f2eff799d1e4",
+        "filename": "GSM7665261_101607-SEV_ADT.h5ad.tar.gz",
+        "h5ad": "101607-SEV_ADT.h5ad",
+        "h5ad_bytes": 72158986,
+        "h5ad_sha256": "02a6b40b8d701e53f0e31a93691ce2f5aa8ec00487413829098a832feb22c92e",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665261/suppl/GSM7665261_101607-SEV_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "a11008b1ce6e86777b5488c257096236f1949d49ee6942a1fcc2ae64abb7b17e",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        25126,
+        197
+      ],
+      "common_barcode_axis_sha256": "0bbab45db61c3ad4680e4109b7b50358566ea7be54fef57fc649df1e286a0854",
+      "common_barcode_count": 987,
+      "donor": "101607-SEV",
+      "gex": {
+        "accession": "GSM7665286",
+        "archive_bytes": 20204584,
+        "archive_sha256": "974381d427778b168e2fd5a676a7d358d7ed827eb893ad23ff491ad4bacba596",
+        "filename": "GSM7665286_101607-SEV_GEX.h5ad.tar.gz",
+        "h5ad": "101607-SEV_GEX.h5ad",
+        "h5ad_bytes": 71238172,
+        "h5ad_sha256": "6e75e593ddef6ec0db0fa155ab8ff9091437ba4b5eef7bfb19e52e3d97338f67",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665286/suppl/GSM7665286_101607-SEV_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "8a09c19e6a66cbb1ec66e38e418c027fdf1b65daab63cb6c9467647f7869b8f2",
+      "gex_marker_indices": [
+        14109,
+        20079,
+        6722,
+        17940,
+        22470,
+        5350,
+        12211,
+        4598,
+        414
+      ],
+      "gex_obs_index": "_index",
+      "gex_raw_shape": [
+        2290,
+        23722
+      ],
+      "metadata_eligible": true,
+      "pregnancy": "Pregnant",
+      "role": "held",
+      "severity": "Severe",
+      "text_axes_read": [
+        "obs/_index",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": {
+        "accession": "GSM7665273",
+        "archive_bytes": 252848,
+        "archive_sha256": "11926e660a5280a233f3027018c3974f6c99ec7fd2d1cb3f9e44d6a238cae5e3",
+        "filename": "GSM7665273_100_ADT.h5ad.tar.gz",
+        "h5ad": "100_ADT.h5ad",
+        "h5ad_bytes": 1210784,
+        "h5ad_sha256": "dbe76828dc3b809074eabd9ae143687cf361dee825fdb165f03d8cbd86f05473",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665273/suppl/GSM7665273_100_ADT.h5ad.tar.gz"
+      },
+      "adt_barcode_axis_sha256": "3c5229d0058f64683c9121887977c063e757c235eedd3cf04ea3381729748cae",
+      "adt_marker_indices": [
+        34,
+        31,
+        36,
+        19,
+        20,
+        134,
+        35,
+        10,
+        15
+      ],
+      "adt_raw_shape": [
+        378,
+        197
+      ],
+      "common_barcode_axis_sha256": "3c5229d0058f64683c9121887977c063e757c235eedd3cf04ea3381729748cae",
+      "common_barcode_count": 378,
+      "donor": "100",
+      "exclusion": "ADT has 378 rows and 378 canonical GEX-ADT barcode matches, below the frozen 512-cell budget",
+      "gex": {
+        "accession": "GSM7665299",
+        "archive_bytes": 19188509,
+        "archive_sha256": "1bae6ff2a1a559ba25cb2b35708e5ef51cab040f532b28ab69ec8d88fca1da6d",
+        "filename": "GSM7665299_100_GEX.h5ad.tar.gz",
+        "h5ad": "100_GEX.h5ad",
+        "h5ad_bytes": 73955144,
+        "h5ad_sha256": "16cf7d62b421f321c7b81841409b057e2426b2789077da4e7778f6499367363c",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665299/suppl/GSM7665299_100_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "5c35425763e27e3e38ebc0addb4531c01866a4a48fcefc0de851d55028f45328",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        3688,
+        24648
+      ],
+      "metadata_eligible": false,
+      "pregnancy": "NonPregnant",
+      "role": "excluded_metadata",
+      "severity": "Severe",
+      "text_axes_read": [
+        "obs/_index",
+        "obs/barcodekey",
+        "raw/var/Featurekey",
+        "raw/var/NameInData",
+        "raw/var/featurekey",
+        "raw/var/target-1"
+      ]
+    },
+    {
+      "adt": null,
+      "common_barcode_axis_sha256": null,
+      "common_barcode_count": 0,
+      "donor": "78",
+      "exclusion": "GSE239449 deposits no paired ADT sample",
+      "gex": {
+        "accession": "GSM7665291",
+        "archive_bytes": 21206078,
+        "archive_sha256": "5faee6843077378cbc27160fadbdf00b3dd1206b56ced852c3e8318ec8d1af7f",
+        "filename": "GSM7665291_78_GEX.h5ad.tar.gz",
+        "h5ad": "78_GEX.h5ad",
+        "h5ad_bytes": 81874667,
+        "h5ad_sha256": "0dc1287b178ec93d9f43d686553089aab1eb4e720b97629deaad6364bbd3fe9c",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665291/suppl/GSM7665291_78_GEX.h5ad.tar.gz"
+      },
+      "gex_barcode_axis_sha256": "271feeedd82bd5afa05f5d3aa92a51c336bc8ee3fed025fdec366766ad14a833",
+      "gex_marker_indices": [
+        14652,
+        20854,
+        6969,
+        18641,
+        23335,
+        5524,
+        12675,
+        4742,
+        425
+      ],
+      "gex_obs_index": "barcodekey",
+      "gex_raw_shape": [
+        3823,
+        24648
+      ],
+      "metadata_eligible": false,
+      "pregnancy": "NonPregnant",
+      "role": "excluded_metadata",
+      "severity": "Asymptomatic",
+      "text_axes_read": [
+        "obs/barcodekey",
+        "raw/var/featurekey"
+      ]
+    }
+  ],
+  "schema": "gse239452-citeseq-metadata-preflight/1.0",
+  "source_manifest_sha256": "41e6a1242156354c99f2e75db8ffa398c9824a78cdc7bd56ff54cfb5b8504b23",
+  "status": "PASS"
+}

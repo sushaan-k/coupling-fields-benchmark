@@ -1,0 +1,76 @@
+{
+  "schema": "gse239452-citeseq-source-manifest/1.0",
+  "accession": "GSE239452",
+  "adt_subseries": "GSE239449",
+  "gex_subseries": "GSE239450",
+  "article_doi": "10.1016/j.celrep.2024.114933",
+  "article_pmid": "39504241",
+  "geo_sample_url_template": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/{accession}/suppl/{filename}",
+  "official_archives": {
+    "adt": {
+      "filename": "GSE239449_RAW.tar",
+      "bytes": 139806720,
+      "sha256": "ad222e3988c9d9668159b027c61db1d12a2ce34f10a3e619f5849a5205e1252f",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE239nnn/GSE239449/suppl/GSE239449_RAW.tar"
+    },
+    "gex": {
+      "filename": "GSE239450_RAW.tar",
+      "bytes": 1289472000,
+      "sha256": "295cc705cb505c3108e6d53c4baa899fb02ea804d5211f9597c9df9ecf7c9b60",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE239nnn/GSE239450/suppl/GSE239450_RAW.tar"
+    },
+    "panel": {
+      "filename": "GSE239449_TotalSeqC_Annotated.xlsx",
+      "bytes": 22895,
+      "sha256": "a55d147acc02842e496923cb4fb504fdbd151b9a9ba7a90741aeb88d718e1733",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE239nnn/GSE239449/suppl/GSE239449_TotalSeqC_Annotated.xlsx"
+    }
+  },
+  "cell_budget": 512,
+  "cell_selection_salt": "GSE239452-COMMON-CELL-v1",
+  "adt_tie_salt": "GSE239452-ADT-MEDIAN-v1",
+  "destroyed_link_salt": "GSE239452-DESTROYED-LINK-v1",
+  "split_salt": "GSE239452-NONPREG-SPLIT-v1",
+  "markers": [
+    {"marker": "CD4", "rna_feature": "CD4", "adt_feature": "ADT_C0072", "panel_id": "0072", "adt_name": "prot_CD4"},
+    {"marker": "CD7", "rna_feature": "CD7", "adt_feature": "ADT_C0066", "panel_id": "0066", "adt_name": "prot_CD7"},
+    {"marker": "CD14", "rna_feature": "CD14", "adt_feature": "ADT_C0081", "panel_id": "0081", "adt_name": "prot_CD14"},
+    {"marker": "CD19", "rna_feature": "CD19", "adt_feature": "ADT_C0050", "panel_id": "0050", "adt_name": "prot_CD19"},
+    {"marker": "CD33", "rna_feature": "CD33", "adt_feature": "ADT_C0052", "panel_id": "0052", "adt_name": "prot_CD33"},
+    {"marker": "CD38", "rna_feature": "CD38", "adt_feature": "ADT_C0389", "panel_id": "0389", "adt_name": "prot_CD38"},
+    {"marker": "CD44", "rna_feature": "CD44", "adt_feature": "ADT_C0073", "panel_id": "0073", "adt_name": "prot_CD44"},
+    {"marker": "CD47", "rna_feature": "CD47", "adt_feature": "ADT_C0026", "panel_id": "0026", "adt_name": "prot_CD47"},
+    {"marker": "CD52", "rna_feature": "CD52", "adt_feature": "ADT_C0033", "panel_id": "0033", "adt_name": "prot_CD52"}
+  ],
+  "samples": [
+    {"donor": "47", "pregnancy": "NonPregnant", "severity": "Asymptomatic", "role": "calibration", "adt": {"accession": "GSM7665266", "filename": "GSM7665266_47_ADT.h5ad.tar.gz", "h5ad": "47_ADT.h5ad", "bytes": 1291839}, "gex": {"accession": "GSM7665292", "filename": "GSM7665292_47_GEX.h5ad.tar.gz", "h5ad": "47_GEX.h5ad", "bytes": 7300780}},
+    {"donor": "31", "pregnancy": "NonPregnant", "severity": "Asymptomatic", "role": "calibration", "adt": {"accession": "GSM7665263", "filename": "GSM7665263_31_ADT.h5ad.tar.gz", "h5ad": "31_ADT.h5ad", "bytes": 2565940}, "gex": {"accession": "GSM7665288", "filename": "GSM7665288_31_GEX.h5ad.tar.gz", "h5ad": "31_GEX.h5ad", "bytes": 45863006}},
+    {"donor": "223", "pregnancy": "NonPregnant", "severity": "Severe", "role": "calibration", "adt": {"accession": "GSM7665277", "filename": "GSM7665277_223_ADT.h5ad.tar.gz", "h5ad": "223_ADT.h5ad", "bytes": 949261}, "gex": {"accession": "GSM7665303", "filename": "GSM7665303_223_GEX.h5ad.tar.gz", "h5ad": "223_GEX.h5ad", "bytes": 12843760}},
+    {"donor": "77", "pregnancy": "NonPregnant", "severity": "Severe", "role": "calibration", "adt": {"accession": "GSM7665272", "filename": "GSM7665272_77_ADT.h5ad.tar.gz", "h5ad": "77_ADT.h5ad", "bytes": 1400911}, "gex": {"accession": "GSM7665298", "filename": "GSM7665298_77_GEX.h5ad.tar.gz", "h5ad": "77_GEX.h5ad", "bytes": 15189493}},
+    {"donor": "191", "pregnancy": "NonPregnant", "severity": "Severe", "role": "calibration", "adt": {"accession": "GSM7665274", "filename": "GSM7665274_191_ADT.h5ad.tar.gz", "h5ad": "191_ADT.h5ad", "bytes": 704501}, "gex": {"accession": "GSM7665300", "filename": "GSM7665300_191_GEX.h5ad.tar.gz", "h5ad": "191_GEX.h5ad", "bytes": 8103394}},
+    {"donor": "321", "pregnancy": "NonPregnant", "severity": "Severe", "role": "calibration", "adt": {"accession": "GSM7665269", "filename": "GSM7665269_321_ADT.h5ad.tar.gz", "h5ad": "321_ADT.h5ad", "bytes": 1431944}, "gex": {"accession": "GSM7665295", "filename": "GSM7665295_321_GEX.h5ad.tar.gz", "h5ad": "321_GEX.h5ad", "bytes": 21331137}},
+    {"donor": "213", "pregnancy": "NonPregnant", "severity": "Severe", "role": "calibration", "adt": {"accession": "GSM7665276", "filename": "GSM7665276_213_ADT.h5ad.tar.gz", "h5ad": "213_ADT.h5ad", "bytes": 1123757}, "gex": {"accession": "GSM7665302", "filename": "GSM7665302_213_GEX.h5ad.tar.gz", "h5ad": "213_GEX.h5ad", "bytes": 7554711}},
+
+    {"donor": "94", "pregnancy": "NonPregnant", "severity": "Asymptomatic", "role": "pilot", "adt": {"accession": "GSM7665264", "filename": "GSM7665264_94_ADT.h5ad.tar.gz", "h5ad": "94_ADT.h5ad", "bytes": 1662888}, "gex": {"accession": "GSM7665289", "filename": "GSM7665289_94_GEX.h5ad.tar.gz", "h5ad": "94_GEX.h5ad", "bytes": 17399781}},
+    {"donor": "103", "pregnancy": "NonPregnant", "severity": "Asymptomatic", "role": "pilot", "adt": {"accession": "GSM7665265", "filename": "GSM7665265_103_ADT.h5ad.tar.gz", "h5ad": "103_ADT.h5ad", "bytes": 2723811}, "gex": {"accession": "GSM7665290", "filename": "GSM7665290_103_GEX.h5ad.tar.gz", "h5ad": "103_GEX.h5ad", "bytes": 18107412}},
+    {"donor": "350", "pregnancy": "NonPregnant", "severity": "Asymptomatic", "role": "pilot", "adt": {"accession": "GSM7665262", "filename": "GSM7665262_350_ADT.h5ad.tar.gz", "h5ad": "350_ADT.h5ad", "bytes": 1434019}, "gex": {"accession": "GSM7665287", "filename": "GSM7665287_350_GEX.h5ad.tar.gz", "h5ad": "350_GEX.h5ad", "bytes": 14587592}},
+    {"donor": "182", "pregnancy": "NonPregnant", "severity": "Severe", "role": "pilot", "adt": {"accession": "GSM7665271", "filename": "GSM7665271_182_ADT.h5ad.tar.gz", "h5ad": "182_ADT.h5ad", "bytes": 1249605}, "gex": {"accession": "GSM7665297", "filename": "GSM7665297_182_GEX.h5ad.tar.gz", "h5ad": "182_GEX.h5ad", "bytes": 20367253}},
+    {"donor": "1", "pregnancy": "NonPregnant", "severity": "Severe", "role": "pilot", "adt": {"accession": "GSM7665275", "filename": "GSM7665275_1_ADT.h5ad.tar.gz", "h5ad": "1_ADT.h5ad", "bytes": 1636415}, "gex": {"accession": "GSM7665301", "filename": "GSM7665301_1_GEX.h5ad.tar.gz", "h5ad": "1_GEX.h5ad", "bytes": 11859118}},
+    {"donor": "325", "pregnancy": "NonPregnant", "severity": "Severe", "role": "pilot", "adt": {"accession": "GSM7665268", "filename": "GSM7665268_325_ADT.h5ad.tar.gz", "h5ad": "325_ADT.h5ad", "bytes": 1301343}, "gex": {"accession": "GSM7665294", "filename": "GSM7665294_325_GEX.h5ad.tar.gz", "h5ad": "325_GEX.h5ad", "bytes": 17496534}},
+    {"donor": "382", "pregnancy": "NonPregnant", "severity": "Severe", "role": "pilot", "adt": {"accession": "GSM7665267", "filename": "GSM7665267_382_ADT.h5ad.tar.gz", "h5ad": "382_ADT.h5ad", "bytes": 1578137}, "gex": {"accession": "GSM7665293", "filename": "GSM7665293_382_GEX.h5ad.tar.gz", "h5ad": "382_GEX.h5ad", "bytes": 46160648}},
+    {"donor": "50", "pregnancy": "NonPregnant", "severity": "Severe", "role": "pilot", "adt": {"accession": "GSM7665270", "filename": "GSM7665270_50_ADT.h5ad.tar.gz", "h5ad": "50_ADT.h5ad", "bytes": 2433454}, "gex": {"accession": "GSM7665296", "filename": "GSM7665296_50_GEX.h5ad.tar.gz", "h5ad": "50_GEX.h5ad", "bytes": 24165599}},
+
+    {"donor": "OB7-CTRL", "pregnancy": "Pregnant", "severity": "Control", "role": "held", "adt": {"accession": "GSM7665253", "filename": "GSM7665253_OB7-CTRL_ADT.h5ad.tar.gz", "h5ad": "OB7-CTRL_ADT.h5ad", "bytes": 17180302}, "gex": {"accession": "GSM7665278", "filename": "GSM7665278_OB7-CTRL_GEX.h5ad.tar.gz", "h5ad": "OB7-CTRL_GEX.h5ad", "bytes": 132536667}},
+    {"donor": "705385-SEV", "pregnancy": "Pregnant", "severity": "Severe", "role": "held", "adt": {"accession": "GSM7665254", "filename": "GSM7665254_705385-SEV_ADT.h5ad.tar.gz", "h5ad": "705385-SEV_ADT.h5ad", "bytes": 15170283}, "gex": {"accession": "GSM7665279", "filename": "GSM7665279_705385-SEV_GEX.h5ad.tar.gz", "h5ad": "705385-SEV_GEX.h5ad", "bytes": 181321011}},
+    {"donor": "803763-ASX", "pregnancy": "Pregnant", "severity": "Asymptomatic", "role": "held", "adt": {"accession": "GSM7665255", "filename": "GSM7665255_803763-ASX_ADT.h5ad.tar.gz", "h5ad": "803763-ASX_ADT.h5ad", "bytes": 17160229}, "gex": {"accession": "GSM7665280", "filename": "GSM7665280_803763-ASX_GEX.h5ad.tar.gz", "h5ad": "803763-ASX_GEX.h5ad", "bytes": 149349761}},
+    {"donor": "324058-ASX", "pregnancy": "Pregnant", "severity": "Asymptomatic", "role": "held", "adt": {"accession": "GSM7665256", "filename": "GSM7665256_324058-ASX_ADT.h5ad.tar.gz", "h5ad": "324058-ASX_ADT.h5ad", "bytes": 6554358}, "gex": {"accession": "GSM7665281", "filename": "GSM7665281_324058-ASX_GEX.h5ad.tar.gz", "h5ad": "324058-ASX_GEX.h5ad", "bytes": 56240614}},
+    {"donor": "644394-CTRL", "pregnancy": "Pregnant", "severity": "Control", "role": "held", "adt": {"accession": "GSM7665257", "filename": "GSM7665257_644394-CTRL_ADT.h5ad.tar.gz", "h5ad": "644394-CTRL_ADT.h5ad", "bytes": 5114574}, "gex": {"accession": "GSM7665282", "filename": "GSM7665282_644394-CTRL_GEX.h5ad.tar.gz", "h5ad": "644394-CTRL_GEX.h5ad", "bytes": 45137345}},
+    {"donor": "915348-SEV", "pregnancy": "Pregnant", "severity": "Severe", "role": "held", "adt": {"accession": "GSM7665258", "filename": "GSM7665258_915348-SEV_ADT.h5ad.tar.gz", "h5ad": "915348-SEV_ADT.h5ad", "bytes": 5019763}, "gex": {"accession": "GSM7665283", "filename": "GSM7665283_915348-SEV_GEX.h5ad.tar.gz", "h5ad": "915348-SEV_GEX.h5ad", "bytes": 50098438}},
+    {"donor": "729106-CTRL", "pregnancy": "Pregnant", "severity": "Control", "role": "held", "adt": {"accession": "GSM7665259", "filename": "GSM7665259_729106-CTRL_ADT.h5ad.tar.gz", "h5ad": "729106-CTRL_ADT.h5ad", "bytes": 14648208}, "gex": {"accession": "GSM7665284", "filename": "GSM7665284_729106-CTRL_GEX.h5ad.tar.gz", "h5ad": "729106-CTRL_GEX.h5ad", "bytes": 157473364}},
+    {"donor": "105199-ASX", "pregnancy": "Pregnant", "severity": "Asymptomatic", "role": "held", "adt": {"accession": "GSM7665260", "filename": "GSM7665260_105199-ASX_ADT.h5ad.tar.gz", "h5ad": "105199-ASX_ADT.h5ad", "bytes": 20763472}, "gex": {"accession": "GSM7665285", "filename": "GSM7665285_105199-ASX_GEX.h5ad.tar.gz", "h5ad": "105199-ASX_GEX.h5ad", "bytes": 168362359}},
+    {"donor": "101607-SEV", "pregnancy": "Pregnant", "severity": "Severe", "role": "held", "adt": {"accession": "GSM7665261", "filename": "GSM7665261_101607-SEV_ADT.h5ad.tar.gz", "h5ad": "101607-SEV_ADT.h5ad", "bytes": 14425300}, "gex": {"accession": "GSM7665286", "filename": "GSM7665286_101607-SEV_GEX.h5ad.tar.gz", "h5ad": "101607-SEV_GEX.h5ad", "bytes": 20204584}},
+
+    {"donor": "100", "pregnancy": "NonPregnant", "severity": "Severe", "role": "excluded_metadata", "exclusion": "ADT has 378 rows and 378 canonical GEX-ADT barcode matches, below the frozen 512-cell budget", "adt": {"accession": "GSM7665273", "filename": "GSM7665273_100_ADT.h5ad.tar.gz", "h5ad": "100_ADT.h5ad", "bytes": 252848}, "gex": {"accession": "GSM7665299", "filename": "GSM7665299_100_GEX.h5ad.tar.gz", "h5ad": "100_GEX.h5ad", "bytes": 19188509}},
+    {"donor": "78", "pregnancy": "NonPregnant", "severity": "Asymptomatic", "role": "excluded_metadata", "exclusion": "GSE239449 deposits no paired ADT sample", "adt": null, "gex": {"accession": "GSM7665291", "filename": "GSM7665291_78_GEX.h5ad.tar.gz", "h5ad": "78_GEX.h5ad", "bytes": 21206078}}
+  ]
+}
