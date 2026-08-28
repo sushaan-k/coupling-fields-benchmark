@@ -1,0 +1,517 @@
+{
+  "access_audit": {
+    "bmmc": {
+      "bridge_feature_rows_decoded": 3067,
+      "complete_h5ad_opaque_hash_verified": true,
+      "complete_h5ad_sha256": "a0d193bb30f01a280c219c3ac40fd4b0a46b7c3bcb89223a1053f0f9a4cef434",
+      "contiguous_data_slices": 4088,
+      "fit_feature_rows_decoded": 1540,
+      "full_indptr_read": false,
+      "full_observation_axis_read": true,
+      "held_feature_rows_decoded": 0,
+      "held_feature_rows_forbidden": 4419,
+      "held_outcomes_used": false,
+      "held_rows_read": 0,
+      "held_tables_formed": 0,
+      "marker_columns": [
+        7990,
+        11381,
+        4039,
+        10163,
+        12442,
+        3219,
+        7345,
+        2762,
+        247,
+        12728,
+        13976,
+        13972,
+        13978,
+        13966,
+        13967,
+        14051,
+        13977,
+        13958,
+        13962,
+        14064
+      ],
+      "matrix_path": "layers/counts",
+      "metadata_sha256": "b267d4a820b062d0a05227c9cab61d389dcf924c3a6e062fb2389ce1be2f6e4f",
+      "permitted_indptr_slices": 4088,
+      "raw_x_opened": false,
+      "row_index_sha256": "f1a840d156925e53e00f2a4149adba79cf669ec4e4e5d6571ba15766ebc58f07",
+      "rows_read": 4607,
+      "source_manifest_sha256": "0869c3db2a5c22d7e211f31b75d66ee85c63de6bce74782934a17ec090d83e37",
+      "x_opened": false
+    },
+    "bmmc_held_numeric_access": 0,
+    "combat": {
+      "calibration_records_read": 12,
+      "h5ad_sha256": "f628a15f25b9ca2f7cdefeab271fd9d007c8d5e47eb80c4b807d5f65e86ff53d",
+      "held_donor_records_read": 0,
+      "held_site_records_read": 0,
+      "matrix_payload_reopened": false,
+      "pilot_records_read": 24,
+      "reduction_sha256": "06ebfad44c339d763a451662462d7c9dc60684e792d5c229a42eefd232302b2f",
+      "source_manifest_sha256": "15ac994a868092060aa4bd36874161daa3d7e22d7fc5b4f56d10511f907422b4"
+    },
+    "combat_held_access": 0,
+    "held_predictions_formed": 0
+  },
+  "bindings": {
+    "bmmc_complete_h5ad_sha256": "a0d193bb30f01a280c219c3ac40fd4b0a46b7c3bcb89223a1053f0f9a4cef434",
+    "bmmc_source_manifest_sha256": "0869c3db2a5c22d7e211f31b75d66ee85c63de6bce74782934a17ec090d83e37",
+    "classical_and_bmmc_reader_module_sha256": "614710340ee9ae043a591c0c9b5c6123762f921dd2e572e67c40a404b90fa929",
+    "combat_reduction_sha256": "06ebfad44c339d763a451662462d7c9dc60684e792d5c229a42eefd232302b2f",
+    "conditional_prediction_module_sha256": "fb4d793a0df2cb5073423d27d5953992232c17a64a8adfdef3b26a105a0c7994",
+    "evaluator_sha256": "eb5de850e276c1807a5a83785bc8ea783af8a9e57ff5637dbb01cb68a8f9c4cf",
+    "hierarchical_reference_module_sha256": "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d"
+  },
+  "comparator": "development-selected donor-equal signed Pearson or Poisson-deviance residual transfer; direct target-feasible inversion clamps boundary excess",
+  "estimator": "donor-heterogeneous exact fixed-margin conditional log-odds field with product-graph penalty",
+  "grid": {
+    "bmmc_neighbors": [
+      1,
+      2,
+      3
+    ],
+    "combat_neighbors": [
+      1,
+      2
+    ],
+    "graph": [
+      0.0,
+      0.1,
+      0.3,
+      1.0
+    ],
+    "heterogeneity": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "ridge": [
+      0.01,
+      0.1
+    ],
+    "transport_alpha": [
+      0.5,
+      0.75,
+      1.0,
+      1.25
+    ]
+  },
+  "interpretation": "descriptive nonheld development evidence; not held confirmation or prospective inference",
+  "panels": {
+    "bmmc": {
+      "comparisons": {
+        "primary_vs_best_residual": {
+          "bootstrap_draws": 20000,
+          "bootstrap_seed": 20260838,
+          "comparator_mean_deviance": 0.013147523553882618,
+          "favorable_units": 4,
+          "paired_difference_primary_minus_comparator": [
+            -0.00034878056788163747,
+            -0.0004202320092200453,
+            -0.006575119355231127,
+            -0.001843128706764955
+          ],
+          "paired_unit_bootstrap_95_ci": [
+            -0.005036397518728357,
+            -0.0003845062885508414
+          ],
+          "primary_mean_deviance": 0.010850708394108175,
+          "relative_reduction": 0.17469564898373324,
+          "total_units": 4
+        },
+        "primary_vs_destroyed_link": {
+          "bootstrap_draws": 20000,
+          "bootstrap_seed": 20260839,
+          "comparator_mean_deviance": 0.013351043295380545,
+          "favorable_units": 4,
+          "paired_difference_primary_minus_comparator": [
+            -0.005334429195255393,
+            -0.000867589805986846,
+            -0.0005591296276629071,
+            -0.00324019097618433
+          ],
+          "paired_unit_bootstrap_95_ci": [
+            -0.004287310085719862,
+            -0.0007133597168248766
+          ],
+          "primary_mean_deviance": 0.010850708394108175,
+          "relative_reduction": 0.18727636829231797,
+          "total_units": 4
+        }
+      },
+      "destroyed_link": {
+        "refit_at_selected_primary_setting": true,
+        "source": "pre-existing deterministic within-stratum pairing destruction",
+        "source_table_sha256": "cc111f9c1448853ff604411c35a3d52b819289d80fb33150fde6ffcb03285b80"
+      },
+      "entity_count": 100,
+      "graph_diagnostic": {
+        "best_graph_zero_mean_deviance": 0.010850708394108175,
+        "best_graph_zero_settings": {
+          "alpha": 1.0,
+          "graph": 0.0,
+          "heterogeneity": 0.1,
+          "neighbors": 1,
+          "ridge": 0.01
+        },
+        "best_positive_graph_mean_deviance": 0.011460368652784252,
+        "best_positive_graph_settings": {
+          "alpha": 1.0,
+          "graph": 0.1,
+          "heterogeneity": 1.0,
+          "neighbors": 1,
+          "ridge": 0.01
+        },
+        "graph_selected": false,
+        "primary_grid_included_graph_zero": true,
+        "relative_reduction_positive_graph_vs_graph_zero": -0.05618621720652972,
+        "selected_graph_penalty": 0.0
+      },
+      "grid_evaluation": {
+        "primary_candidates": 288,
+        "primary_evaluations_sha256": "9f8e02d3a61bad08e62300085a9d3b0ce1dc3b1ce6c20a84426eb4d41ac32302",
+        "primary_refused": 0,
+        "primary_valid": 288,
+        "residual_candidates": 16,
+        "residual_evaluations_sha256": "f91784bd808801c2696ba8805c1eff0c488b740dc5d8d8843a98037785cad18c"
+      },
+      "panel": "SCMMIB BMMC fit-to-bridge",
+      "selection": {
+        "best_residual": {
+          "alpha": 0.75,
+          "centered": true,
+          "family": "deviance",
+          "mean_loss": 0.013147523553882618,
+          "pool_audit": {
+            "boundary_clamp": "epsilon inside the closed feasible table interval",
+            "direct_feasible_inversion": true,
+            "donor_equal_pooling": true,
+            "sample_size_normalized": true,
+            "source_coordinate_divisor": "sqrt(source table total)",
+            "support_count_range": [
+              2,
+              2
+            ],
+            "target_coordinate_multiplier": "sqrt(target table total)"
+          }
+        },
+        "confirmatory_inference": false,
+        "primary": {
+          "alpha": 1.0,
+          "certificate": {
+            "iterations": 6,
+            "objective": -1750.957018236304,
+            "scaled_gradient_norm": 6.15844322941805e-13,
+            "schur_condition_number": 2.225745909446296,
+            "theta_condition_number": 27.22555895587445
+          },
+          "graph": 0.0,
+          "heterogeneity": 0.1,
+          "mean_loss": 0.010850708394108175,
+          "neighbors": 1,
+          "ridge": 0.01
+        },
+        "same_nonheld_units_used_for_selection_and_summary": true
+      },
+      "status": "RETROSPECTIVE_ADAPTIVE_DEVELOPMENT_ONLY",
+      "unit_count": 4,
+      "unit_labels": [
+        "s1d1",
+        "s2d1",
+        "s3d1",
+        "s4d1"
+      ],
+      "unit_losses": {
+        "best_residual": {
+          "s1d1": 0.024268306820541364,
+          "s2d1": 0.005614521029116946,
+          "s3d1": 0.011177094022305586,
+          "s4d1": 0.011530172343566574
+        },
+        "destroyed_link": {
+          "s1d1": 0.02925395544791512,
+          "s2d1": 0.0060618788258837465,
+          "s3d1": 0.005161104294737366,
+          "s4d1": 0.01292723461298595
+        },
+        "primary": {
+          "s1d1": 0.023919526252659726,
+          "s2d1": 0.0051942890198969005,
+          "s3d1": 0.004601974667074459,
+          "s4d1": 0.00968704363680162
+        }
+      }
+    },
+    "combat": {
+      "comparisons": {
+        "primary_vs_best_residual": {
+          "bootstrap_draws": 20000,
+          "bootstrap_seed": 20260828,
+          "comparator_mean_deviance": 0.015605178347566027,
+          "favorable_units": 17,
+          "paired_difference_primary_minus_comparator": [
+            0.00013808001806912482,
+            0.00017956596476323416,
+            -0.004044854424536346,
+            0.0015719762776164178,
+            0.0007426211493203631,
+            0.0010907546315839477,
+            -0.0024985418512031054,
+            -0.00288913429887621,
+            -0.0062884537743923595,
+            -0.014180600282533911,
+            -0.008501531603804673,
+            -0.011485636526751325,
+            -0.0014365969440629494,
+            -0.01374585582776924,
+            -0.007104291008152033,
+            -0.003175047736460484,
+            -0.003934725635222767,
+            -0.0038665389630722505,
+            -0.006172414319112269,
+            0.0010049415555090802,
+            -0.009673447907586069,
+            -7.664213566259404e-07,
+            0.0015379417127193932,
+            -0.004400488888810061
+          ],
+          "paired_unit_bootstrap_95_ci": [
+            -0.005966922209152191,
+            -0.0022481380759088623
+          ],
+          "primary_mean_deviance": 0.011557968134894311,
+          "relative_reduction": 0.2593504619127258,
+          "total_units": 24
+        },
+        "primary_vs_destroyed_link": {
+          "bootstrap_draws": 20000,
+          "bootstrap_seed": 20260829,
+          "comparator_mean_deviance": 0.04639482376084464,
+          "favorable_units": 24,
+          "paired_difference_primary_minus_comparator": [
+            -0.026970157690979848,
+            -0.026087846456884466,
+            -0.04293378935285494,
+            -0.02324173786671603,
+            -0.018475995627570303,
+            -0.02506545659772212,
+            -0.03417760857075665,
+            -0.03568295368502645,
+            -0.04049584803233634,
+            -0.05312902380320973,
+            -0.05540988334948923,
+            -0.05078231885488966,
+            -0.03381913677794189,
+            -0.017393048951409855,
+            -0.040324106703563636,
+            -0.025576827586485162,
+            -0.04384015467305778,
+            -0.03990474422765016,
+            -0.046035721050619614,
+            -0.01655457935955448,
+            -0.06023709826546003,
+            -0.027251453648982057,
+            -0.007679221280323063,
+            -0.045015822609324435
+          ],
+          "paired_unit_bootstrap_95_ci": [
+            -0.04012398103334443,
+            -0.029542395309718195
+          ],
+          "primary_mean_deviance": 0.011557968134894311,
+          "relative_reduction": 0.750878067896687,
+          "total_units": 24
+        }
+      },
+      "destroyed_link": {
+        "refit_at_selected_primary_setting": true,
+        "source": "pre-existing deterministic within-stratum pairing destruction",
+        "source_table_sha256": "a5b0608ff99dbdecddc8ae7c1d39c97c7cb73e0ba80ac898a43194591241bb60"
+      },
+      "entity_count": 81,
+      "graph_diagnostic": {
+        "best_graph_zero_mean_deviance": 0.011557968134894311,
+        "best_graph_zero_settings": {
+          "alpha": 1.0,
+          "graph": 0.0,
+          "heterogeneity": 10.0,
+          "neighbors": 1,
+          "ridge": 0.01
+        },
+        "best_positive_graph_mean_deviance": 0.011774099009054573,
+        "best_positive_graph_settings": {
+          "alpha": 1.0,
+          "graph": 0.1,
+          "heterogeneity": 10.0,
+          "neighbors": 2,
+          "ridge": 0.01
+        },
+        "graph_selected": false,
+        "primary_grid_included_graph_zero": true,
+        "relative_reduction_positive_graph_vs_graph_zero": -0.0186997291944202,
+        "selected_graph_penalty": 0.0
+      },
+      "grid_evaluation": {
+        "primary_candidates": 192,
+        "primary_evaluations_sha256": "19d8b9197123ba0cbfc54b666e20dfa6b9b2b1e87a17de2147b144d03ab0ca05",
+        "primary_refused": 0,
+        "primary_valid": 192,
+        "residual_candidates": 16,
+        "residual_evaluations_sha256": "238f68e9770c4ab3c0c059042ddcc183db9c5f8a72d5b8f1e6023bde642553cb"
+      },
+      "panel": "COMBAT Oxford calibration-to-pilot",
+      "selection": {
+        "best_residual": {
+          "alpha": 0.75,
+          "centered": false,
+          "family": "deviance",
+          "mean_loss": 0.015605178347566027,
+          "pool_audit": {
+            "boundary_clamp": "epsilon inside the closed feasible table interval",
+            "direct_feasible_inversion": true,
+            "donor_equal_pooling": true,
+            "sample_size_normalized": true,
+            "source_coordinate_divisor": "sqrt(source table total)",
+            "support_count_range": [
+              12,
+              12
+            ],
+            "target_coordinate_multiplier": "sqrt(target table total)"
+          }
+        },
+        "confirmatory_inference": false,
+        "primary": {
+          "alpha": 1.0,
+          "certificate": {
+            "iterations": 6,
+            "objective": -847.0400986441081,
+            "scaled_gradient_norm": 2.064906139106762e-12,
+            "schur_condition_number": 22.59239828200645,
+            "theta_condition_number": 1.1613324736883104
+          },
+          "graph": 0.0,
+          "heterogeneity": 10.0,
+          "mean_loss": 0.011557968134894311,
+          "neighbors": 1,
+          "ridge": 0.01
+        },
+        "same_nonheld_units_used_for_selection_and_summary": true
+      },
+      "status": "RETROSPECTIVE_ADAPTIVE_DEVELOPMENT_ONLY",
+      "unit_count": 24,
+      "unit_labels": [
+        "G05061-Ja005E-PBCa",
+        "G05097-Ja005E-PBCa",
+        "G05145-Ja005E-PBCa",
+        "G05164-Ja005E-PBCa",
+        "H00058-Ha001E-PBGa",
+        "H00064-Ha001E-PBGa",
+        "H00070-Ha001E-PBGa",
+        "H00072-Ha001E-PBGa",
+        "N00006-Ja003E-PBGa",
+        "N00024-Ja001E-PBGa",
+        "N00025-Ja001E-PBGa",
+        "N00047-Ja005E-PBGa",
+        "S00008-Ja003E-PBCa",
+        "S00020-Ja003E-PBCa",
+        "S00037-Ja003E-PBCa",
+        "S00040-Ja005E-PBCa",
+        "S00042-Ja001E-PBCa",
+        "S00052-Ja005E-PBCa",
+        "S00053-Ja003E-PBCa",
+        "S00063-Ja003E-PBCa",
+        "S00076-Ja001E-PBCa",
+        "S00104-Ja003E-PBCa",
+        "S00114-Ja003E-PBCa",
+        "S00134-Ja003E-PBCa"
+      ],
+      "unit_losses": {
+        "best_residual": {
+          "G05061-Ja005E-PBCa": 0.0051042148389898795,
+          "G05097-Ja005E-PBCa": 0.009252175657666244,
+          "G05145-Ja005E-PBCa": 0.016922391866361394,
+          "G05164-Ja005E-PBCa": 0.005718003320414907,
+          "H00058-Ha001E-PBGa": 0.006708713721632218,
+          "H00064-Ha001E-PBGa": 0.006834214185217851,
+          "H00070-Ha001E-PBGa": 0.008274866068119502,
+          "H00072-Ha001E-PBGa": 0.01135271305718276,
+          "N00006-Ja003E-PBGa": 0.01057508752733195,
+          "N00024-Ja001E-PBGa": 0.043889200095219114,
+          "N00025-Ja001E-PBGa": 0.038323397273226825,
+          "N00047-Ja005E-PBGa": 0.0218105356998778,
+          "S00008-Ja003E-PBCa": 0.016677703759193713,
+          "S00020-Ja003E-PBCa": 0.019627215138619432,
+          "S00037-Ja003E-PBCa": 0.025049641255608015,
+          "S00040-Ja005E-PBCa": 0.009287498895752345,
+          "S00042-Ja001E-PBCa": 0.010121319447915673,
+          "S00052-Ja005E-PBCa": 0.010535863253840152,
+          "S00053-Ja003E-PBCa": 0.028126175320561327,
+          "S00063-Ja003E-PBCa": 0.012236787519684577,
+          "S00076-Ja001E-PBCa": 0.02206769381976995,
+          "S00104-Ja003E-PBCa": 0.00997209817893985,
+          "S00114-Ja003E-PBCa": 0.00865258125704158,
+          "S00134-Ja003E-PBCa": 0.017404189183417535
+        },
+        "destroyed_link": {
+          "G05061-Ja005E-PBCa": 0.03221245254803885,
+          "G05097-Ja005E-PBCa": 0.03551958807931394,
+          "G05145-Ja005E-PBCa": 0.05581132679467999,
+          "G05164-Ja005E-PBCa": 0.030531717464747355,
+          "H00058-Ha001E-PBGa": 0.025927330498522885,
+          "H00064-Ha001E-PBGa": 0.03299042541452392,
+          "H00070-Ha001E-PBGa": 0.03995393278767304,
+          "H00072-Ha001E-PBGa": 0.044146532443333,
+          "N00006-Ja003E-PBGa": 0.044782481785275934,
+          "N00024-Ja001E-PBGa": 0.08283762361589493,
+          "N00025-Ja001E-PBGa": 0.08523174901891138,
+          "N00047-Ja005E-PBGa": 0.061107218028016136,
+          "S00008-Ja003E-PBCa": 0.04906024359307266,
+          "S00020-Ja003E-PBCa": 0.023274408262260047,
+          "S00037-Ja003E-PBCa": 0.058269456951019614,
+          "S00040-Ja005E-PBCa": 0.031689278745777025,
+          "S00042-Ja001E-PBCa": 0.05002674848575069,
+          "S00052-Ja005E-PBCa": 0.04657406851841806,
+          "S00053-Ja003E-PBCa": 0.06798948205206867,
+          "S00063-Ja003E-PBCa": 0.029796308434748137,
+          "S00076-Ja001E-PBCa": 0.07263134417764391,
+          "S00104-Ja003E-PBCa": 0.03722278540656528,
+          "S00114-Ja003E-PBCa": 0.017869744250084037,
+          "S00134-Ja003E-PBCa": 0.05801952290393191
+        },
+        "primary": {
+          "G05061-Ja005E-PBCa": 0.005242294857059004,
+          "G05097-Ja005E-PBCa": 0.009431741622429478,
+          "G05145-Ja005E-PBCa": 0.012877537441825048,
+          "G05164-Ja005E-PBCa": 0.007289979598031325,
+          "H00058-Ha001E-PBGa": 0.007451334870952581,
+          "H00064-Ha001E-PBGa": 0.007924968816801799,
+          "H00070-Ha001E-PBGa": 0.0057763242169163965,
+          "H00072-Ha001E-PBGa": 0.00846357875830655,
+          "N00006-Ja003E-PBGa": 0.00428663375293959,
+          "N00024-Ja001E-PBGa": 0.029708599812685203,
+          "N00025-Ja001E-PBGa": 0.029821865669422153,
+          "N00047-Ja005E-PBGa": 0.010324899173126475,
+          "S00008-Ja003E-PBCa": 0.015241106815130764,
+          "S00020-Ja003E-PBCa": 0.005881359310850193,
+          "S00037-Ja003E-PBCa": 0.01794535024745598,
+          "S00040-Ja005E-PBCa": 0.0061124511592918615,
+          "S00042-Ja001E-PBCa": 0.006186593812692907,
+          "S00052-Ja005E-PBCa": 0.006669324290767901,
+          "S00053-Ja003E-PBCa": 0.02195376100144906,
+          "S00063-Ja003E-PBCa": 0.013241729075193658,
+          "S00076-Ja001E-PBCa": 0.01239424591218388,
+          "S00104-Ja003E-PBCa": 0.009971331757583224,
+          "S00114-Ja003E-PBCa": 0.010190522969760973,
+          "S00134-Ja003E-PBCa": 0.013003700294607474
+        }
+      }
+    }
+  },
+  "schema": "exact-logodds-head-to-head-development/1.0",
+  "status": "RETROSPECTIVE_ADAPTIVE_DEVELOPMENT_ONLY"
+}
