@@ -1,73 +1,68 @@
 # Final public evidence ledger
 
-**Snapshot:** 28 August 2026
+**Snapshot:** 29 August 2026
 
-**Machine-readable table:** `results/final_public_benchmark_table.tsv`
+**Machine-readable ledgers:** `results/benchmark_panels_v2.tsv`,
+`results/benchmark_comparisons_v2.tsv`, and
+`results/benchmark_sequence_v2.tsv`
 
 ## Bottom line
 
-The completed public evidence supports a conditional association-field estimand,
-its fixed-margin null centering, and explicit refusal. It does not yet
-support superiority of the structured estimator. PerturbSci-Kinetics contains a
-clear held-guide pairing signal, but the fixed primary has higher error than
-endpoint ridge and the endpoint-plus-residual fit. ReSisTrace confirms that lineage links carry association in all
-eight arms, but none of the three treatment-minus-control contrasts has a
-positive lineage-bootstrap interval across the two deposited cultures. The
-three RNA-protein/RNA-ATAC development panels and PerturbFate refuse. In the
-Arce held-donor RNA-protein confirmation, correlation was positive, but the
-fixed primary lost to linear cross-covariance on RMSE and did not separate from
-destroyed links under the locked gate. All seven outcome-scored public panels are complete;
-none establishes estimator superiority. A separately frozen PoKI-seq held-donor
-candidate stopped at its state-occupancy preflight for `Donor1:Stim:41BB`.
-No prediction or scored result was written, so this eighth benchmark entry is a
-support refusal rather than outcome-scored evidence. The later Lawlor candidate
-stopped when its frozen reducer rejected the deposited ADT object type; Hao
-stopped when fewer than 12 cognate markers passed its frozen marginal-support
-rule. Neither run formed a held joint-table score. The separate Kotliarov
-held-batch candidate was frozen publicly before outcome access: ten batch-1
-development donors, nine disjoint batch-2 held donors, and donor 209 excluded
-from both batches. Fresh-clone verification passed at commit
-`a034fd272ef631d70f39debc467570568ef8754a`. Its one authorized preparation
-stopped because fewer than four prespecified RNA-only lineages met the frozen
-minimum of 50 retained cells in every one of 19 donors. The ADT file was read
-only as an opaque byte stream for integrity verification; its HDF5 count
-dataset was never opened. No held RNA-ADT pairing, joint table, prediction,
-score, or performance estimate was formed, and the candidate was not rerun.
-The subsequent BMMC candidate ended in a terminal numerical development
-refusal after three recorded attempts; no prediction or held score was formed,
-and all six held-donor count slices remained unopened. The subsequent GSE279451
-plan fixed 19 development and 21 held physical donors, nine RNA--ADT markers,
-81 ordered interactions, a donor-level gate, and a direct comparison with the
-strongest matched signed Pearson or Poisson-deviance residual transfer. It is
-now terminal. The plan was verified from a fresh clone at commit
-`f63c9dc760a85a1361ce75e13036eb23262b1bc7` and is published under tag
-`gse279451-sepsis-v1-protocol` before development count access. One authorized
-attempt then acquired and reduced the 19 development matrices. The terminal
-evaluation refused because `common_effect_graph` and
-`common_effect_ridge_only` were unavailable, so the complete gate and its
-classical-residual comparison produced no decision. No prediction,
-authorization, held pairing, or held score was formed. All 21 held-donor matrix
-members remained unopened, and the candidate was not rerun.
+The completed evidence supports the conditional association-field estimand,
+fixed-margin null centering, explicit refusal, and one prospective held-site
+transfer. In the publicly frozen Stephenson confirmation, the hierarchical
+exact-conditional primary reduced mean Poisson deviance per cell by 17.46%
+relative to the pilot-selected signed-deviance residual across 56 physical
+samples. The paired raw loss-difference interval was [-0.00413, -0.00080], 50
+of 56 samples were favorable, and the exact one-sided sign-test p-value was
+5.09e-10. The primary also reduced loss by 46.36% relative to destroyed links.
+This is the benchmark's confirmatory positive result.
 
-GSE299043 was the outcome-disabled successor. Its immutable plan reserved ten
-Cambridge development donors and ten donor-disjoint LiveOnNY/Columbia held
-donors from mesenteric lymph node, with nine exact RNA--ADT markers and 81
-ordered interactions. The one terminal development attempt completed 21 member
-reductions, then refused at feature preflight for the next frozen member because
-it lacked an accepted MLN HTO ID. That member's matrix values and all 151 held
-members remained unopened. No model, comparator decision, prediction, pairing,
-or score was formed.
+A post-hoc classical audit, executed after held outcomes had been accessed,
+found 6.18% lower Stephenson loss than the exact common-effect CMLE (relative
+95% interval [3.84%, 8.47%]) and 3.39% lower loss than pooled saturated-Poisson
+interaction transfer ([1.42%, 5.37%]). These comparisons are descriptive. The
+GSE239452 held-cohort analysis is separately labeled as a post-access
+correction: the structured primary beat the selected residual by 41.55% and
+destroyed links by 78.89% across nine donors, but the exact common-effect CMLE
+was 2.20% better than the primary. The positive panels therefore do not support
+a claim that structural regularization dominates every classical estimator.
 
-The defensible methods-paper claim is therefore narrower than state-of-the-art
-prediction: the framework separates pairing-dependent structure from marginal
-response, estimates it against a fixed-margin link control, attaches a
-support-aware refusal, and exposes where the estimand does and does not
-reproduce across public paired assays.
+The historical public panels retain their original decisions. PerturbSci has a
+reproduced pairing signal but loses to endpoint ridge. ReSisTrace has positive
+arm-level link tests but no replicated treatment contrast. Frangieh, Papalexi,
+MultiPerturb, PerturbFate, and Arce refuse their full gates. GSE314416 also
+refused at its pilot gate: its primary improved on the selected residual by
+0.49%, below the frozen five-percent threshold, and the paired interval crossed
+zero. Retrospective adaptive development analyses on BMMC and COMBAT reduced
+loss relative to matched residuals by 17.47% and 25.94%, respectively; the same
+nonheld units selected the configurations and supplied the summaries, so these
+are development evidence rather than held confirmation. Both selected graph
+penalty zero.
+
+PoKI-seq, Lawlor, Hao, Kotliarov, BMMC, GSE279451, GSE299043, and COMBAT retain
+their prior procedural refusals. Eleven subsequent public source campaigns also
+terminated before held scoring and are enumerated in the panels ledger. The
+recovery-amended unused-Cambridge run produced no prediction or score and is
+infrastructure-unevaluable. Its row contains no performance value and remains
+bound to the published terminal record; no scientific decision is assigned.
+
+The supported methods claim is precise: the framework estimates
+pairing-dependent interactions against fixed-margin and classical controls,
+can transfer those interactions in one prospectively frozen held-site panel,
+and exposes negative, corrected, development-only, and unevaluable analyses
+without recoding them as confirmations. It is not evidence for state-of-the-art
+perturbation prediction or universal structured-estimator superiority.
 
 ## Public panels
 
 | Panel | Unit | Targets | Primary result | Best declared baseline | Pairing control | Decision |
 |---|---|---:|---|---|---|---|
+| Stephenson Newcastle held site | 56 physical samples | 81 ordered RNA--ADT pairs | Mean deviance/cell 0.012197 | Selected signed-deviance residual 0.014777; 17.46% reduction; raw-difference CI [-0.00413, -0.00080] | Destroyed link 0.022738; 46.36% reduction | **CONFIRMATION PASS** |
+| GSE239452 held cohort | 9 physical donors | 81 ordered RNA--ADT pairs | Mean deviance/cell 0.008506 | Selected residual 0.014554; 41.55% reduction | Destroyed link 0.040288; 78.89% reduction | **PASS, POST-ACCESS CORRECTION** |
+| GSE314416 immunomicrobiome pilot | 20 physical donors | 81 ordered RNA--ADT pairs | Mean deviance/cell 0.001927 | Selected residual 0.001936; 0.49% reduction; raw-difference CI [-0.0000182, -0.00000113] | Destroyed link 0.001936; 0.45% reduction; CI crosses zero | **REFUSE PILOT** |
+| BMMC adaptive development | 4 nonheld units | 100 ordered RNA--ADT pairs | Mean deviance/cell 0.010851 | Selected residual 0.013148; 17.47% reduction | Destroyed link 0.013351; 18.73% reduction | **DESCRIPTIVE DEVELOPMENT ONLY** |
+| COMBAT adaptive development | 24 Oxford pilot samples | 81 ordered RNA--ADT pairs | Mean deviance/cell 0.011558 | Selected residual 0.015605; 25.94% reduction | Destroyed link 0.046395; 75.09% reduction | **DESCRIPTIVE DEVELOPMENT ONLY** |
 | PerturbSci-Kinetics | Three sequence-distinct guide rotations | 85 | Pearson 0.525 [0.483, 0.566]; RMSE 0.844 [0.819, 0.868] | Endpoint ridge RMSE 0.833 | Primary-minus-destroyed Pearson CI [0.368, 0.529] | **PROMOTE pairing signal; REFUSE estimator superiority** |
 | Frangieh Perturb-CITE-seq | Three sequence-distinct guides per target | 179 | Pearson 0.040 [0.013, 0.066]; RMSE 1.009 [1.002, 1.017] | Scalar shrinkage RMSE 0.999 | Primary-minus-destroyed Pearson CI [-0.092, -0.013] | **REFUSE** |
 | Papalexi ECCITE-seq | Three deposited treatment replicates | 24 | Pearson -0.025 [-0.150, 0.096]; RMSE 1.037 [1.006, 1.076] | Zero RMSE 1.000 | Primary-minus-destroyed Pearson CI [-0.161, 0.216] | **REFUSE** |
@@ -83,11 +78,14 @@ reproduce across public paired assays.
 | GSE279451 adult sepsis CITE-seq | Nineteen development donors; 21 held donors | 81 ordered RNA--ADT pairs | Not scored; terminal evaluation refusal after development reduction because both common-effect control families were unavailable | Prespecified raw or exact-null-centered signed Pearson or Poisson-deviance residual transfer; no comparison decision produced | All 21 held matrices unopened | **REFUSE development evaluation** |
 | GSE299043 MLN CITE-seq | Ten Cambridge development donors; ten LiveOnNY/Columbia held donors | 81 ordered RNA--ADT pairs | Not scored; terminal feature-preflight refusal after 21 development-member reductions | Prespecified residual comparison not reached | All 151 held members unopened | **REFUSE acquisition** |
 | COMBAT CITE-seq | Twelve Oxford calibration samples; 24 Oxford pilot samples; 51 Oxford and ten St George's held samples | 81 ordered RNA--ADT pairs | Not scored; two of eight primary configurations survived, but all four matched residual candidates and all three ridge-only Haldane candidates refused under the frozen attainable-margin rule | Pearson: 134 out-of-range pilot sample--entity pairs; deviance: 102 | All 61 held samples unopened | **REFUSE pilot candidate availability** |
+| Stephenson unused-Cambridge recovery | Recovery-amended single replacement | 81 ordered RNA--ADT pairs | No prediction or score; infrastructure-unevaluable | Not evaluated | Not reached | **TERMINAL INFRASTRUCTURE-UNEVALUABLE; NO SCIENTIFIC DECISION** |
 
 Metric intervals for the first five predictive panels and Arce resample
 targets. ReSisTrace intervals resample barcode-defined lineages conditional on
 two deposited cultures; they are not population-level donor intervals. The
-exact values and provenance fields are in the TSV.
+exact values and provenance fields are in the version-2 ledgers. Eleven
+additional terminal source campaigns appear only in the machine-readable panel
+and sequence ledgers because they contain no performance estimate.
 
 ## Claim/evidence ledger
 
@@ -99,10 +97,11 @@ exact values and provenance fields are in the TSV.
 | Pairing-dependent perturbation structure reproduces across guides. | PerturbSci primary-minus-destroyed Pearson CI is [0.368, 0.529]. | **SUPPORTED in one panel** | Pairing-dependent pre-existing/nascent RNA structure reproduced across sequence-distinct guides in PerturbSci. |
 | Pairing-dependent structure exists in linked lineages. | Every ReSisTrace arm rejects the fixed-margin Monte Carlo link control at BH q=0.0154. | **SUPPORTED at arm level** | Lineage links carried pre/post association in all eight deposited arms. |
 | Treatment-specific lineage fields reproduce biologically. | All three ReSisTrace lineage-bootstrap cosine intervals include zero; only two cultures are deposited. | **REFUSE** | No treatment-minus-control field met the replication criterion. |
-| The structured primary improves matched baselines. | The predeclared three-panel gate records 0 wins; MultiPerturb and PerturbFate also fail. | **REFUSE** | The structural estimator is a fixed denoiser evaluated beside simpler baselines, not a superior predictor. |
+| The structured primary improves matched baselines. | Stephenson passes its frozen residual and destroyed-link comparisons. GSE239452 passes only as a post-access correction. The historical panels and GSE314416 do not pass; BMMC and COMBAT gains are adaptive development summaries. | **SUPPORTED in one prospective held-site panel** | The hierarchical exact-conditional transfer improved the selected residual in the frozen Stephenson confirmation; general superiority is not established. |
+| Hierarchical transfer adds beyond classical common-effect interaction models. | In the post-hoc audit, Stephenson improves on exact common-effect CMLE by 6.18% and pooled saturated Poisson by 3.39%. In GSE239452, pooled Poisson loses by 14.58%, but exact CMLE beats the primary by 2.20%. | **MIXED, POST-HOC** | The donor-varying transfer can outperform common-effect controls, but the direction is study-dependent and awaits a prospectively frozen classical comparison. |
 | The scGPT hypergraph contributes specific biological information. | The shuffled graph matches or exceeds the primary in PerturbSci and PerturbFate; no positive panel isolates a graph-specific gain. | **REFUSE** | scGPT supplies a frozen structural prior; its specific benefit was not established. |
 | Guide/observation-error correction is validated on public data. | `fit_factorial_coupling` is tested and stress-tested synthetically, but the completed public scripts use conditional empirical tables, not the guide-aware likelihood. | **REFUSE real-data claim** | Guide-aware identification and refusal are implemented and assessed in simulation. |
-| The public benchmark establishes a positive held biological replicate. | ReSisTrace refuses treatment-contrast replication. Arce donor B has positive correlation, but the fixed primary has RMSE 1.093 versus 0.993 for linear cross-covariance; primary-minus-covariance target MSE is 0.199 [0.038, 0.352], and its primary-minus-destroyed interval includes zero. PoKI-seq, Lawlor, Hao, Kotliarov, BMMC, GSE279451, and GSE299043 stopped before held scoring. | **REFUSE** | No completed panel supplies a positive held biological-replicate result under its full decision gate. |
+| The public benchmark establishes a positive held biological replicate. | Stephenson passes its publicly frozen held-site gate across 56 physical samples. GSE239452 is positive but labeled post-access correction; the remaining held candidates refuse or stop before scoring. | **SUPPORTED once prospectively** | One prospectively frozen held-site confirmation passes; no second independent-study confirmation is claimed. |
 | Corrected pathway/complex recovery validates the primary. | The strict PerturbSci rerun required high field norm in every held truth and prediction and exclusion under matched destroyed links. It selected no target; no Reactome or CORUM module could pass. | **REFUSE as confirmatory biology** | The earlier averaged-unit enrichments are exploratory; the strict replicated module analysis was negative. |
 | Predicted local neighborhoods recover biological relations. | Mean top-5 neighbor recovery was 0.064 [0.050, 0.079] versus 0.051 [0.041, 0.063] after link destruction; the difference interval included zero and the random-label permutation p-value was 0.283. Reactome edge enrichment refused. CORUM was nominal against random, p=0.0269, but not significant after family correction, q=0.0538. | **REFUSE** | No corrected local-neighborhood claim survives the predeclared controls. |
 | The method is state of the art for perturbation prediction. | No completed comparison establishes this, and the task is association-field reproducibility rather than standard unseen-perturbation response prediction. | **REFUSE** | Do not make a state-of-the-art or direct-superiority claim. |
@@ -144,6 +143,18 @@ heuristic because the same ten donors select and gate the model. Confirmatory
 inference is reserved for the untouched held-site donors.
 Neither estimator selection nor the classical-residual comparison was reached:
 the frozen source-member feature gate refused first.
+
+Stephenson, GSE239452, GSE314416, and the adaptive BMMC/COMBAT audit use the
+same exact conditional interaction family. The Stephenson configuration was
+selected on 12 calibration and 24 pilot samples, refitted without retuning,
+published with held predictions, and scored once against 56 physical samples.
+Its selected graph penalty was zero, so the result validates donor-varying
+exact-conditional transfer rather than a graph-specific gain. The classical
+audit compares the frozen fields with a donor-stratified exact common-effect
+CMLE and a pooled saturated-Poisson interaction on identical held margins. It
+is post-hoc in both studies. `results/benchmark_comparisons_v2.tsv` preserves
+the raw and relative loss differences, intervals, favorable-unit counts,
+p-values, and inference roles without merging them into the prospective gate.
 
 ## Synthetic and sensitivity evidence
 
@@ -203,6 +214,11 @@ Result and terminal-attempt artifact hashes at this snapshot:
 | `results/resistrace_conditional_fields.json` | `edef0dba1d1dd94f19829088cb1fcd00f72dbacbc0695516b9c25afee6b20ffb` |
 | `results/arce_gse278572_conditional_field_confirmation.json` | `65d4bf6097a8fafee8e22f352c2c6c14fa13c1d8082073a4589d3ee693ef8b57` |
 | `results/arce_gse278572_postlock_controls.json` | `66d3343db745ad338091397226a9b93ca222df759107fbe46eddfcbee4c1a612` |
+| `results/stephenson_citeseq_confirmation.json` | `5eb5fd2b41df7f4f7d822a92765ffe69854dcbe5f572f2db35cf433d7dd0adb1` |
+| `results/gse239452_citeseq_confirmation.json` | `12c23d6502c9192b93838d27ebcae42c4ff92e1a3b68e27cc6584efb92f22e74` |
+| `results/development/gse314416_citeseq_development.json` | `6124bbbdee233e987521f004a9c409858203106eeae9d2339bbea2aa4dc35f33` |
+| `results/development/exact_logodds_head_to_head_v1.json` | `22bbad8efad2dd9b5172a33e8b2fdaf568114103fd7045a80a58eb842bb09d2a` |
+| `results/development/classical_interaction_baselines_posthoc.json` | `bc6efbb2ffe3404a294eae26b51e214054718113a8deeaf6b9f4e73ebf05f305` |
 | `results/perturbsci_module_validation.json` | `68032c3bc05fe0702edd8600cf91c86d0850b1db44857e67a42845e0fc164fc2` |
 | `results/gse143417_pokiseq_preflight_refusal.json` | `24f7ad70fbbfd4e7482809db58bd94d1156c1e22c2dd94fa77d66b1d6acdcf24` |
 | `results/kotliarov_pbmc_public_refusal.json` | `34d59fcbdcceeefb449a430bca7a0f502611d343a2ebd19fc44a7f5fd26a1324` |
@@ -216,6 +232,14 @@ Result and terminal-attempt artifact hashes at this snapshot:
 | `results/development/gse299043_mln_development_acquisition_refusal.json` | `aab390fc9701171c42267d111dfb69cbbf3282abba5d39887f30431bc1e78635` |
 | `results/development/gse299043_mln_terminal_acquisition_audit.json` | `6b5ef33e765adfcd80b534113a3c59dec706b82739c2518342699019011a6475` |
 | `results/development/combat_citeseq_pilot_terminal_refusal.json` | `c41c6e46333c1dc56b460fec74a41f6d1a07a82105ca4894a273ce43dc48e2f9` |
+
+The aggregate builder rejects non-finite JSON, verifies every source artifact
+hash before emitting a row, enforces unique panel/comparison identifiers and
+valid cross-references, and writes sorted deterministic ledgers. The standalone
+verifier rechecks row-level artifact hashes, metric finiteness, evidence counts,
+sequence order, the empty unused-Cambridge performance fields, manifest bytes,
+and `SHA256SUMS`. The release candidate contains 32 panel, 28 comparison, and
+51 sequence records.
 
 The structured consistency check parsed every audited JSON with non-finite JSON
 constants rejected; verified embedded hashes for the v4 runner, estimator, and
@@ -248,26 +272,24 @@ file has SHA-256
 `34facaeec5c4742decaa127a87ad9a7928bc6435fbd073bb00d13226929a2547`
 after later appendices; it is not byte-identical to the recorded run version.
 
-Focused estimator, inference, stress, and public-API tests passed with
-`PYTHONPATH=. pytest -q tests/test_coupling_fields.py tests/test_factorial_coupling.py tests/test_factorial_coupling_inference.py tests/test_mapreg_public_api.py tests/test_stress_factorial_coupling.py`:
-**47 passed**.
-The strict PerturbSci validation plus its adjacent field tests passed with
-`PYTHONPATH=. pytest -q tests/test_validate_perturbsci_modules.py tests/test_coupling_fields.py`:
-**29 passed**; Ruff reported no violations in the new runner or tests.
+The aggregate release, artifact-integrity, Stephenson, GSE239452, GSE314416,
+adaptive binary head-to-head, and exact common-effect suites passed together:
+**81 passed**. A second deterministic build was byte-identical, the standalone
+release verifier returned `PUBLIC_BENCHMARK_RELEASE_VERIFICATION_PASS`, and Ruff
+reported no violations in the builder, verifier, or release tests.
 
 ## Manuscript boundary
 
-Lead with the estimand, fixed-margin correction, linked-assay input contract,
-and transparent refusal. Present PerturbSci as the positive held-guide result
-and ReSisTrace as positive arm-level linkage but negative treatment replication.
-Keep every RNA-protein/RNA-ATAC/PerturbFate refusal, including the terminal
-BMMC and GSE279451 development refusals, in the main benchmark table.
-Retain the GSE299043 terminal feature refusal in the main table; it supplies no
-performance evidence.
-Retain the COMBAT terminal pilot refusal as well: it establishes neither field
-transfer nor graph superiority because the required comparator families were
-unavailable before the gate, and no held margin or pairing was accessed.
-Do not claim structural-prior superiority, confirmatory pathway recovery,
-local-neighborhood recovery, real-data validation of guide-error correction,
-positive biological replication, or state-of-the-art perturbation prediction
-unless a later artifact directly closes the corresponding row above.
+Lead with the estimand, exact conditional transfer, the Stephenson prospective
+held-site pass, and the frozen residual and destroyed-link gates. Report the
+exact-CMLE and pooled-Poisson comparisons as post-hoc. Label GSE239452 as a
+post-access correction, GSE314416 as a failed pilot, and the BMMC/COMBAT gains
+as retrospective adaptive development evidence. Retain PerturbSci's positive
+held-guide pairing signal and ReSisTrace's positive arm-level linkage beside
+their negative full decisions. Keep every procedural refusal and source-stage
+terminal record in the machine-readable benchmark. Treat unused Cambridge as
+infrastructure-unevaluable, with no scientific decision or performance value.
+Do not claim graph-prior superiority, a second independent-study confirmation,
+confirmatory pathway or neighborhood recovery, real-data validation of
+guide-error correction, universal estimator superiority, or state-of-the-art
+perturbation prediction.
