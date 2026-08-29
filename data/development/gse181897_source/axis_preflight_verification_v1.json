@@ -1,0 +1,68 @@
+{
+  "schema": "gse181897-axis-preflight-verification/1.0",
+  "status": "VERIFIED_AXES_NUMERIC_X_UNREAD",
+  "created_at_utc": "2026-08-29T20:23:53Z",
+  "accession": "GSE181897",
+  "candidate_freeze": {
+    "tag": "gse181897-control-citeseq-v1-candidate",
+    "tag_object": "d7996e8a85bca61bad919631f1fbe1890872b074",
+    "peeled_commit": "b69d19da98aeba46880dcb62082e57daa73a82c9",
+    "candidate_path": "data/confirmation/gse181897_control_citeseq/candidate_designation_v1.json",
+    "candidate_sha256": "74c9419180911fda63eba95a5520010676705366d77524a7473471207433a53d",
+    "remote_tag_and_commit_match": true
+  },
+  "axis_code_freeze": {
+    "tag": "gse181897-control-citeseq-v1-axis-code-v2",
+    "tag_object": "02c2d3a3787df42b1084b3623d88434884a633e4",
+    "peeled_commit": "4b3b3aa93e3dc86a870da15382a450fc1081c01e",
+    "candidate_is_ancestor": true,
+    "remote_tag_and_commit_match": true,
+    "reducer_path": "experiments/reduce_gse181897_source.py",
+    "reducer_sha256": "d83f4dd7cddc23b27a82307e6e825061bfdf194002b90bf2bb7740061a3f6d09",
+    "test_path": "tests/test_reduce_gse181897_source.py",
+    "test_sha256": "fab2be1862bc45b6bbb58178c0591e9fcad8dceaec53445cb6447148ad1e54af"
+  },
+  "superseded_axis_code_freeze": {
+    "tag": "gse181897-control-citeseq-v1-axis-code",
+    "tag_object": "2b0ab54c4b6af3a42e347a3c69335e2c7cc956c6",
+    "peeled_commit": "8ca5b14801647d1e6db889acfdc4dedd850be9f4",
+    "reason": "Superseded before any source numeric X access to bind exact per-donor control-cell counts. No axis artifact from this code version was committed or used to authorize source reduction."
+  },
+  "artifact": {
+    "path": "data/development/gse181897_source/axis_preflight_v1.json",
+    "sha256": "a1b13f034f46a675c2c270072cf4ce2ced983edee7d811dbf882bd078f3e5c53",
+    "schema": "gse181897-axis-preflight/1.0",
+    "status": "AXES_FROZEN_X_NUMERIC_UNREAD"
+  },
+  "input": {
+    "compressed_bytes": 1011162509,
+    "compressed_sha256": "7fe58432f2f238319e81c9218eb35b5f7fbdae6f10f3d87ce9a6044ee851675b",
+    "uncompressed_bytes": 3063713137,
+    "uncompressed_sha256": "183d7756c750fb0ca57f381512fe784df6249ec5a5478a9caf6a62df55cba56c",
+    "compressed_and_uncompressed_files_verified_in_preflight_run": true
+  },
+  "axes": {
+    "shape": [
+      136142,
+      20399
+    ],
+    "obs_index_sha256": "24560e2df6a268b11509d2ab23ae898ae17cf699080ed604e710fa266db418c5",
+    "var_index_sha256": "7c7511ba42740fe6127fac90ebe181f49122ff07014908f14be11fafdc143e1e",
+    "grch38_features": 20303,
+    "bd99abseq_features": 96,
+    "control_cells": 22732,
+    "control_donors": 64,
+    "source_donors": 39,
+    "source_selected_cells": 4992,
+    "source_selected_row_axis_sha256": "544da93b61437475e9ccc643351f8ab46d916f807927e9e5a54a21fb4f13aa38",
+    "source_selected_cell_axis_sha256": "cdbd3a387469a94fe2b9069a2ce5135229acfaf4df900dcf0ef105fdeda2a3cf"
+  },
+  "numeric_access": {
+    "decoded_X_entries": 0,
+    "matrix_datasets_indexed": [],
+    "held_batches_8_11_numeric_values_read": 0,
+    "non_control_numeric_values_read": 0,
+    "source_reduction_authorized": false,
+    "reason_source_reduction_remains_closed": "The complete model, held-stage runners, runtime, dependencies, output schemas, tests, and file hashes are not yet frozen under the implementation tag."
+  }
+}

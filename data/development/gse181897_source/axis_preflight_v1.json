@@ -1,0 +1,1495 @@
+{
+  "accession": "GSE181897",
+  "hdf5": {
+    "matrix": {
+      "datasets": {
+        "data": {
+          "chunks": [
+            35736
+          ],
+          "compression": null,
+          "dtype": "float32",
+          "path": "/X/data",
+          "shape": [
+            292741570
+          ]
+        },
+        "indices": {
+          "chunks": [
+            35736
+          ],
+          "compression": null,
+          "dtype": "int32",
+          "path": "/X/indices",
+          "shape": [
+            292741570
+          ]
+        },
+        "indptr": {
+          "chunks": [
+            4255
+          ],
+          "compression": null,
+          "dtype": "int32",
+          "path": "/X/indptr",
+          "shape": [
+            136143
+          ]
+        }
+      },
+      "encoding_type": "csr_matrix",
+      "encoding_version": "0.1.0",
+      "path": "/X",
+      "shape": [
+        136142,
+        20399
+      ]
+    },
+    "obs": {
+      "batch_counts": {
+        "0": 11744,
+        "1": 9010,
+        "10": 10758,
+        "11": 9123,
+        "2": 9945,
+        "3": 10194,
+        "4": 10958,
+        "5": 15833,
+        "6": 16023,
+        "7": 14848,
+        "8": 9383,
+        "9": 8323
+      },
+      "category_axes": {
+        "batch": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11"
+        ],
+        "cond": [
+          "0",
+          "A",
+          "B",
+          "C",
+          "G",
+          "P",
+          "R"
+        ],
+        "exp_id": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63"
+        ],
+        "free_id": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32",
+          "33",
+          "34",
+          "35",
+          "36",
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45",
+          "46",
+          "47",
+          "48",
+          "49",
+          "50",
+          "51",
+          "52",
+          "53",
+          "54",
+          "55",
+          "56",
+          "57",
+          "58",
+          "59",
+          "60",
+          "61",
+          "62",
+          "63"
+        ]
+      },
+      "category_axis_sha256": {
+        "batch": "7c9fe79048c5135091e6e2bb06b5b9e52e87ffd27818225d5a9673fc9653503d",
+        "cond": "b55ba1c09104f3c29c8708bf7e3435749cfb50544b18f304d73cda6eba595a53",
+        "exp_id": "25b2e62f9e3eb470396bc81f3a810ff24eb759c18addd3399acd0db46cb145f8",
+        "free_id": "25b2e62f9e3eb470396bc81f3a810ff24eb759c18addd3399acd0db46cb145f8"
+      },
+      "condition_counts": {
+        "0": 455,
+        "A": 21775,
+        "B": 24664,
+        "C": 22732,
+        "G": 22860,
+        "P": 17931,
+        "R": 25725
+      },
+      "control_cell_counts_by_batch_and_exp_id": {
+        "0": {
+          "34": 487,
+          "35": 516,
+          "45": 436,
+          "57": 186,
+          "58": 475
+        },
+        "1": {
+          "18": 146,
+          "22": 335,
+          "24": 330,
+          "55": 421,
+          "59": 227,
+          "61": 250
+        },
+        "10": {
+          "21": 455,
+          "28": 344,
+          "41": 227,
+          "53": 398,
+          "56": 364,
+          "8": 302
+        },
+        "11": {
+          "20": 256,
+          "26": 290,
+          "40": 228,
+          "46": 222,
+          "54": 391,
+          "6": 255
+        },
+        "2": {
+          "13": 345,
+          "29": 395,
+          "31": 398,
+          "42": 292,
+          "43": 371,
+          "62": 64
+        },
+        "3": {
+          "12": 369,
+          "30": 424,
+          "36": 431,
+          "5": 532,
+          "60": 361,
+          "63": 169
+        },
+        "4": {
+          "10": 332,
+          "14": 459,
+          "38": 280,
+          "47": 197
+        },
+        "5": {
+          "11": 569,
+          "15": 393,
+          "25": 451,
+          "39": 487,
+          "49": 726
+        },
+        "6": {
+          "1": 645,
+          "23": 2,
+          "27": 566,
+          "4": 576,
+          "7": 767
+        },
+        "7": {
+          "32": 450,
+          "37": 535,
+          "44": 332,
+          "9": 606
+        },
+        "8": {
+          "16": 325,
+          "19": 200,
+          "3": 306,
+          "48": 323,
+          "50": 168,
+          "52": 91
+        },
+        "9": {
+          "0": 353,
+          "17": 334,
+          "2": 297,
+          "33": 200,
+          "51": 70
+        }
+      },
+      "dataset_contracts": {
+        "batch": {
+          "category_dtype": "object",
+          "category_path": "/obs/__categories/batch",
+          "category_shape": [
+            12
+          ],
+          "dtype": "int8",
+          "encoding": "legacy categorical codes with HDF5 category reference",
+          "path": "/obs/batch",
+          "shape": [
+            136142
+          ]
+        },
+        "cond": {
+          "category_dtype": "object",
+          "category_path": "/obs/__categories/cond",
+          "category_shape": [
+            7
+          ],
+          "dtype": "int8",
+          "encoding": "legacy categorical codes with HDF5 category reference",
+          "path": "/obs/cond",
+          "shape": [
+            136142
+          ]
+        },
+        "exp_id": {
+          "category_dtype": "object",
+          "category_path": "/obs/__categories/exp_id",
+          "category_shape": [
+            64
+          ],
+          "dtype": "int8",
+          "encoding": "legacy categorical codes with HDF5 category reference",
+          "path": "/obs/exp_id",
+          "shape": [
+            136142
+          ]
+        },
+        "free_id": {
+          "category_dtype": "object",
+          "category_path": "/obs/__categories/free_id",
+          "category_shape": [
+            64
+          ],
+          "dtype": "int8",
+          "encoding": "legacy categorical codes with HDF5 category reference",
+          "path": "/obs/free_id",
+          "shape": [
+            136142
+          ]
+        }
+      },
+      "encoding_type": "dataframe",
+      "encoding_version": "0.1.0",
+      "exp_id_to_free_id": [
+        {
+          "exp_id": 0,
+          "free_id": 5
+        },
+        {
+          "exp_id": 1,
+          "free_id": 54
+        },
+        {
+          "exp_id": 2,
+          "free_id": 4
+        },
+        {
+          "exp_id": 3,
+          "free_id": 53
+        },
+        {
+          "exp_id": 4,
+          "free_id": 27
+        },
+        {
+          "exp_id": 5,
+          "free_id": 10
+        },
+        {
+          "exp_id": 6,
+          "free_id": 38
+        },
+        {
+          "exp_id": 7,
+          "free_id": 1
+        },
+        {
+          "exp_id": 8,
+          "free_id": 42
+        },
+        {
+          "exp_id": 9,
+          "free_id": 29
+        },
+        {
+          "exp_id": 10,
+          "free_id": 6
+        },
+        {
+          "exp_id": 11,
+          "free_id": 0
+        },
+        {
+          "exp_id": 12,
+          "free_id": 39
+        },
+        {
+          "exp_id": 13,
+          "free_id": 15
+        },
+        {
+          "exp_id": 14,
+          "free_id": 46
+        },
+        {
+          "exp_id": 15,
+          "free_id": 36
+        },
+        {
+          "exp_id": 16,
+          "free_id": 11
+        },
+        {
+          "exp_id": 17,
+          "free_id": 7
+        },
+        {
+          "exp_id": 18,
+          "free_id": 62
+        },
+        {
+          "exp_id": 19,
+          "free_id": 47
+        },
+        {
+          "exp_id": 20,
+          "free_id": 19
+        },
+        {
+          "exp_id": 21,
+          "free_id": 3
+        },
+        {
+          "exp_id": 22,
+          "free_id": 48
+        },
+        {
+          "exp_id": 23,
+          "free_id": 58
+        },
+        {
+          "exp_id": 24,
+          "free_id": 23
+        },
+        {
+          "exp_id": 25,
+          "free_id": 17
+        },
+        {
+          "exp_id": 26,
+          "free_id": 40
+        },
+        {
+          "exp_id": 27,
+          "free_id": 14
+        },
+        {
+          "exp_id": 28,
+          "free_id": 57
+        },
+        {
+          "exp_id": 29,
+          "free_id": 44
+        },
+        {
+          "exp_id": 30,
+          "free_id": 20
+        },
+        {
+          "exp_id": 31,
+          "free_id": 22
+        },
+        {
+          "exp_id": 32,
+          "free_id": 49
+        },
+        {
+          "exp_id": 33,
+          "free_id": 34
+        },
+        {
+          "exp_id": 34,
+          "free_id": 56
+        },
+        {
+          "exp_id": 35,
+          "free_id": 33
+        },
+        {
+          "exp_id": 36,
+          "free_id": 9
+        },
+        {
+          "exp_id": 37,
+          "free_id": 30
+        },
+        {
+          "exp_id": 38,
+          "free_id": 63
+        },
+        {
+          "exp_id": 39,
+          "free_id": 60
+        },
+        {
+          "exp_id": 40,
+          "free_id": 21
+        },
+        {
+          "exp_id": 41,
+          "free_id": 61
+        },
+        {
+          "exp_id": 42,
+          "free_id": 43
+        },
+        {
+          "exp_id": 43,
+          "free_id": 45
+        },
+        {
+          "exp_id": 44,
+          "free_id": 32
+        },
+        {
+          "exp_id": 45,
+          "free_id": 13
+        },
+        {
+          "exp_id": 46,
+          "free_id": 52
+        },
+        {
+          "exp_id": 47,
+          "free_id": 16
+        },
+        {
+          "exp_id": 48,
+          "free_id": 37
+        },
+        {
+          "exp_id": 49,
+          "free_id": 12
+        },
+        {
+          "exp_id": 50,
+          "free_id": 55
+        },
+        {
+          "exp_id": 51,
+          "free_id": 59
+        },
+        {
+          "exp_id": 52,
+          "free_id": 28
+        },
+        {
+          "exp_id": 53,
+          "free_id": 31
+        },
+        {
+          "exp_id": 54,
+          "free_id": 25
+        },
+        {
+          "exp_id": 55,
+          "free_id": 2
+        },
+        {
+          "exp_id": 56,
+          "free_id": 18
+        },
+        {
+          "exp_id": 57,
+          "free_id": 50
+        },
+        {
+          "exp_id": 58,
+          "free_id": 8
+        },
+        {
+          "exp_id": 59,
+          "free_id": 24
+        },
+        {
+          "exp_id": 60,
+          "free_id": 26
+        },
+        {
+          "exp_id": 61,
+          "free_id": 51
+        },
+        {
+          "exp_id": 62,
+          "free_id": 41
+        },
+        {
+          "exp_id": 63,
+          "free_id": 35
+        }
+      ],
+      "frozen_columns": [
+        "batch",
+        "cond",
+        "exp_id",
+        "free_id"
+      ],
+      "index_axis_sha256": "24560e2df6a268b11509d2ab23ae898ae17cf699080ed604e710fa266db418c5",
+      "index_path": "/obs/_index",
+      "path": "/obs",
+      "rows": 136142
+    },
+    "root_paths": [
+      "/X",
+      "/obs",
+      "/obsm",
+      "/obsp",
+      "/uns",
+      "/var"
+    ],
+    "var": {
+      "bd99abseq_axis": [
+        "CD103|ITGAE",
+        "CD137|TNFRSF9",
+        "CD274|CD274",
+        "CD11b|ITGAM",
+        "CD39|ENTPD1",
+        "CD197|CCR7",
+        "CD20|MS4A1",
+        "CD45RA|PTPRC",
+        "CD69|CD69",
+        "CD275|ICOSLG",
+        "CD278|ICOS",
+        "CD134|TNFRSF4",
+        "CD279|PDCD1",
+        "TCRgd|TRD_TRG",
+        "Tim3|HAVCR2",
+        "CD152|CTLA4",
+        "CD223|LAG3",
+        "CD56|NCAM1",
+        "CD123|IL3RA",
+        "CD81|CD81",
+        "CD38|CD38",
+        "CD95|FAS",
+        "CD28|CD28",
+        "CD27|CD27",
+        "CD25|IL2RA",
+        "CD8|CD8A",
+        "CD127|IL7R",
+        "CD2|CD2",
+        "CD183|CXCR3",
+        "CD4|CD4",
+        "CD3|CD3E",
+        "CD196|CCR6",
+        "CD45RO|PTPRC",
+        "CD14|CD14",
+        "CD194|CCR4",
+        "CD185|CXCR5",
+        "CD45|PTPRC",
+        "CD24|CD24",
+        "CD7|CD7",
+        "CD33|CD33",
+        "CD90|THY1",
+        "CD80|CD80",
+        "CD5|CD5",
+        "CD235a_b|GYPA_GYPB",
+        "CD62L|SELL",
+        "CD13|ANPEP",
+        "CD10|MME",
+        "CD272|BTLA",
+        "CD16|FCGR3A",
+        "CD11c|ITGAX",
+        "CD86|CD86",
+        "IgD|IGHD",
+        "IgG|IGHG1_2_3_4",
+        "CD184|CXCR4",
+        "CD34|CD34",
+        "CD163|CD163",
+        "CD49d|ITGA4",
+        "CD117|KIT",
+        "CD314|KLRK1",
+        "HLA-ABC|HLA-A_B_C",
+        "CD1a|CD1A",
+        "CD335|NCR1",
+        "CD61|ITGB3",
+        "CD195|CCR5",
+        "CD206|MRC1",
+        "CD32|FCGR2A_B_C",
+        "CD21|CR2",
+        "CD273|PDCD1LG2",
+        "CD54|ICAM1",
+        "CD154|CD40LG",
+        "TCRab|TRA_TRB",
+        "CD226|CD226",
+        "CD29|ITGB1",
+        "CD11a|ITGAL",
+        "CD9|CD9",
+        "CD141|THBD",
+        "CD94|KLRD1",
+        "CD1c|CD1C",
+        "CD326|EPCAM",
+        "CD336|NCR2",
+        "CD18|ITGB2",
+        "CD49b|ITGA2",
+        "CD178|FASLG",
+        "CD126|IL6R",
+        "CD124|IL4R",
+        "CD98|SLC3A2",
+        "CD49a|ITGA1",
+        "CD133|PROM",
+        "CD357|TNFRSF18",
+        "CD270|TNFRSF14",
+        "IL-21R|IL21R",
+        "B7-H4|VTCN1",
+        "CD26|DPP4",
+        "CD155|PVR",
+        "CD30|TNFRSF8",
+        "CD49E|ITGA5"
+      ],
+      "bd99abseq_axis_sha256": "0cf6ffcb189efcc83d80f75eb593d1d1744672ca9c748f39170a3b43637d5912",
+      "bd99abseq_features": 96,
+      "dataset_contracts": {
+        "batch": {
+          "category_dtype": "object",
+          "category_path": "/var/__categories/batch",
+          "category_shape": [
+            2
+          ],
+          "dtype": "int8",
+          "encoding": "legacy categorical codes with HDF5 category reference",
+          "path": "/var/batch",
+          "shape": [
+            20399
+          ]
+        },
+        "feature_types": {
+          "category_dtype": "object",
+          "category_path": "/var/__categories/feature_types",
+          "category_shape": [
+            1
+          ],
+          "dtype": "int8",
+          "encoding": "legacy categorical codes with HDF5 category reference",
+          "path": "/var/feature_types",
+          "shape": [
+            20399
+          ]
+        },
+        "gene_ids": {
+          "dtype": "object",
+          "encoding": "string dataset",
+          "path": "/var/gene_ids",
+          "shape": [
+            20399
+          ]
+        },
+        "genome": {
+          "category_dtype": "object",
+          "category_path": "/var/__categories/genome",
+          "category_shape": [
+            2
+          ],
+          "dtype": "int8",
+          "encoding": "legacy categorical codes with HDF5 category reference",
+          "path": "/var/genome",
+          "shape": [
+            20399
+          ]
+        }
+      },
+      "encoding_type": "dataframe",
+      "encoding_version": "0.1.0",
+      "feature_type_axis_sha256": "22f0ded8672e7af0dc0c38c861645caf7ae35001c9b4ec49cd3179ef18ff6fdd",
+      "gene_id_axis_sha256": "f58d29d7c290c93c854d91857b20229a49e9535246a6918837488c4c3056603b",
+      "genome_axis_sha256": "eb530b9185d43521501386fe24cd6388a8e7bb77bf4cad6ef1e3151a1625e19a",
+      "grch38_features": 20303,
+      "index_axis_sha256": "7c7511ba42740fe6127fac90ebe181f49122ff07014908f14be11fafdc143e1e",
+      "index_path": "/var/_index",
+      "modality_rule": "var/genome is GRCh38 for RNA and BD99AbSeq for protein; var/feature_types is not a modality discriminator",
+      "path": "/var",
+      "rows": 20399
+    }
+  },
+  "numeric_access": {
+    "authorized_rows": "selected cond=C cells from batches 0-7, excluding exp_id 23 and 62",
+    "condition_0_mispool_cells": 455,
+    "decoded_X_entries": 0,
+    "held_batches_8_11": "metadata only; X numeric values unopened",
+    "matrix_datasets_indexed": [],
+    "non_control_cells": "metadata only; X numeric values unopened"
+  },
+  "panel": [
+    {
+      "adt_column_zero_based": 20380,
+      "adt_feature": "CD1c|CD1C",
+      "protein_label": "CD1c",
+      "rna_column_zero_based": 1401,
+      "rna_feature_id": "ENSG00000158481",
+      "rna_gene": "CD1C"
+    },
+    {
+      "adt_column_zero_based": 20330,
+      "adt_feature": "CD2|CD2",
+      "protein_label": "CD2",
+      "rna_column_zero_based": 1084,
+      "rna_feature_id": "ENSG00000116824",
+      "rna_gene": "CD2"
+    },
+    {
+      "adt_column_zero_based": 20332,
+      "adt_feature": "CD4|CD4",
+      "protein_label": "CD4",
+      "rna_column_zero_based": 12100,
+      "rna_feature_id": "ENSG00000010610",
+      "rna_gene": "CD4"
+    },
+    {
+      "adt_column_zero_based": 20341,
+      "adt_feature": "CD7|CD7",
+      "protein_label": "CD7",
+      "rna_column_zero_based": 17177,
+      "rna_feature_id": "ENSG00000173762",
+      "rna_gene": "CD7"
+    },
+    {
+      "adt_column_zero_based": 20328,
+      "adt_feature": "CD8|CD8A",
+      "protein_label": "CD8",
+      "rna_column_zero_based": 2579,
+      "rna_feature_id": "ENSG00000153563",
+      "rna_gene": "CD8A"
+    },
+    {
+      "adt_column_zero_based": 20306,
+      "adt_feature": "CD11b|ITGAM",
+      "protein_label": "CD11b",
+      "rna_column_zero_based": 15445,
+      "rna_feature_id": "ENSG00000169896",
+      "rna_gene": "ITGAM"
+    },
+    {
+      "adt_column_zero_based": 20352,
+      "adt_feature": "CD11c|ITGAX",
+      "protein_label": "CD11c",
+      "rna_column_zero_based": 15446,
+      "rna_feature_id": "ENSG00000140678",
+      "rna_gene": "ITGAX"
+    },
+    {
+      "adt_column_zero_based": 20336,
+      "adt_feature": "CD14|CD14",
+      "protein_label": "CD14",
+      "rna_column_zero_based": 5816,
+      "rna_feature_id": "ENSG00000170458",
+      "rna_gene": "CD14"
+    },
+    {
+      "adt_column_zero_based": 20309,
+      "adt_feature": "CD20|MS4A1",
+      "protein_label": "CD20",
+      "rna_column_zero_based": 10613,
+      "rna_feature_id": "ENSG00000156738",
+      "rna_gene": "MS4A1"
+    },
+    {
+      "adt_column_zero_based": 20326,
+      "adt_feature": "CD27|CD27",
+      "protein_label": "CD27",
+      "rna_column_zero_based": 12077,
+      "rna_feature_id": "ENSG00000139193",
+      "rna_gene": "CD27"
+    },
+    {
+      "adt_column_zero_based": 20342,
+      "adt_feature": "CD33|CD33",
+      "protein_label": "CD33",
+      "rna_column_zero_based": 19234,
+      "rna_feature_id": "ENSG00000105383",
+      "rna_gene": "CD33"
+    },
+    {
+      "adt_column_zero_based": 20357,
+      "adt_feature": "CD34|CD34",
+      "protein_label": "CD34",
+      "rna_column_zero_based": 1774,
+      "rna_feature_id": "ENSG00000174059",
+      "rna_gene": "CD34"
+    },
+    {
+      "adt_column_zero_based": 20323,
+      "adt_feature": "CD38|CD38",
+      "protein_label": "CD38",
+      "rna_column_zero_based": 4636,
+      "rna_feature_id": "ENSG00000004468",
+      "rna_gene": "CD38"
+    },
+    {
+      "adt_column_zero_based": 20311,
+      "adt_feature": "CD69|CD69",
+      "protein_label": "CD69",
+      "rna_column_zero_based": 12164,
+      "rna_feature_id": "ENSG00000110848",
+      "rna_gene": "CD69"
+    },
+    {
+      "adt_column_zero_based": 20344,
+      "adt_feature": "CD80|CD80",
+      "protein_label": "CD80",
+      "rna_column_zero_based": 4048,
+      "rna_feature_id": "ENSG00000121594",
+      "rna_gene": "CD80"
+    },
+    {
+      "adt_column_zero_based": 20353,
+      "adt_feature": "CD86|CD86",
+      "protein_label": "CD86",
+      "rna_column_zero_based": 4073,
+      "rna_feature_id": "ENSG00000114013",
+      "rna_gene": "CD86"
+    },
+    {
+      "adt_column_zero_based": 20358,
+      "adt_feature": "CD163|CD163",
+      "protein_label": "CD163",
+      "rna_column_zero_based": 12128,
+      "rna_feature_id": "ENSG00000177575",
+      "rna_gene": "CD163"
+    }
+  ],
+  "reducer_sha256": "d83f4dd7cddc23b27a82307e6e825061bfdf194002b90bf2bb7740061a3f6d09",
+  "schema": "gse181897-axis-preflight/1.0",
+  "source": {
+    "acquisition": {
+      "archive_present_at_start": true,
+      "archive_removed_after_verification": true,
+      "archive_verified_in_this_run": true,
+      "h5ad_verified_in_this_run": true
+    },
+    "archive_bytes": 1011162509,
+    "archive_name": "GSE181897_concat.4.raw.h5ad.gz",
+    "archive_sha256": "7fe58432f2f238319e81c9218eb35b5f7fbdae6f10f3d87ce9a6044ee851675b",
+    "h5ad_bytes": 3063713137,
+    "h5ad_name": "GSE181897_concat.4.raw.h5ad",
+    "h5ad_sha256": "183d7756c750fb0ca57f381512fe784df6249ec5a5478a9caf6a62df55cba56c",
+    "official_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE181nnn/GSE181897/suppl/GSE181897_concat.4.raw.h5ad.gz"
+  },
+  "source_plan": {
+    "batch_axis": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      6,
+      7,
+      7,
+      7,
+      7
+    ],
+    "cell_budget_per_donor": 128,
+    "condition": "C",
+    "donor_axis": [
+      34,
+      35,
+      45,
+      57,
+      58,
+      18,
+      22,
+      24,
+      55,
+      59,
+      61,
+      13,
+      29,
+      31,
+      42,
+      43,
+      5,
+      12,
+      30,
+      36,
+      60,
+      63,
+      10,
+      14,
+      38,
+      47,
+      11,
+      15,
+      25,
+      39,
+      49,
+      1,
+      4,
+      7,
+      27,
+      9,
+      32,
+      37,
+      44
+    ],
+    "donor_count": 39,
+    "donors": [
+      {
+        "batch": 0,
+        "eligible_control_cells": 487,
+        "exp_id": 34,
+        "free_id": 56,
+        "selected_cell_axis_sha256": "89c9140769544ac4302abfc6cdbcbf47405c40981b1222c7a252266e17916862",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "a7f3b2adcb4b00882faaabc1f35024cdeee8d61d85fd8526c01cf9ae048bd497"
+      },
+      {
+        "batch": 0,
+        "eligible_control_cells": 516,
+        "exp_id": 35,
+        "free_id": 33,
+        "selected_cell_axis_sha256": "5321f8e9a91e1bc43fa6ea1285d8d9d81f26031830ff00126e1f2fa8bb0ebc45",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "3a23c52042323ec0a9222857825f84500ef9484928f189d5d7ea3a8083e5f2f4"
+      },
+      {
+        "batch": 0,
+        "eligible_control_cells": 436,
+        "exp_id": 45,
+        "free_id": 13,
+        "selected_cell_axis_sha256": "dbc0c065a418bf8751a29b5785f88388c9f802a2dbd030e0d967e3368789e088",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "cfddface9179f80b2bf96e57bd4d8f6e2ced39df0fff45d354e193d234d1fd6e"
+      },
+      {
+        "batch": 0,
+        "eligible_control_cells": 186,
+        "exp_id": 57,
+        "free_id": 50,
+        "selected_cell_axis_sha256": "cdf006057f50c9d12f02a070ff237daf814f4366572474e40fc46a3b0293d996",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "af854f8d539695437d332b40cfaa39d6aad4aa212a358ffc67da80ee87d215c1"
+      },
+      {
+        "batch": 0,
+        "eligible_control_cells": 475,
+        "exp_id": 58,
+        "free_id": 8,
+        "selected_cell_axis_sha256": "4d9be73434e53085e985d5830a3a7dd3825e5fad2fa52cd001eb4ef6c8852deb",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "f2ea06a357945b86e959d91217675d07c4322e13d080936be6d3e679cfc98e4f"
+      },
+      {
+        "batch": 1,
+        "eligible_control_cells": 146,
+        "exp_id": 18,
+        "free_id": 62,
+        "selected_cell_axis_sha256": "0a546f8c7b3eddd302801c4a61df6d8573642ec5f35f1b7649890a44c72eecd6",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "3d8b08720e52529c32f94818b6150d7c36da6d860bd69b71c54bf9af7c4bd180"
+      },
+      {
+        "batch": 1,
+        "eligible_control_cells": 335,
+        "exp_id": 22,
+        "free_id": 48,
+        "selected_cell_axis_sha256": "44f092919b07e1be94fa9d2262dba923938dbb29ebbb11e3e49202dbbf593194",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "db939737e4a93d3472b9c205abd5bae5fcb3e100201ef515805f02ebbc520f30"
+      },
+      {
+        "batch": 1,
+        "eligible_control_cells": 330,
+        "exp_id": 24,
+        "free_id": 23,
+        "selected_cell_axis_sha256": "3a5ee8b4f2b0280d21ee09bbd0b7f56120589ede0b6b10ec92915365dcde0516",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "a09bc97fd684b82439e66ede5ed22fa99ebbe04555717d4281529defe535cbf2"
+      },
+      {
+        "batch": 1,
+        "eligible_control_cells": 421,
+        "exp_id": 55,
+        "free_id": 2,
+        "selected_cell_axis_sha256": "f5af75e426fd117204c0b87419da0f1d2826af7d2876d470785072983091d741",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "f7dff0a4ac6ba0d86e6750db41b4b4ecd6da9e13d118817ac9375bf5406657a8"
+      },
+      {
+        "batch": 1,
+        "eligible_control_cells": 227,
+        "exp_id": 59,
+        "free_id": 24,
+        "selected_cell_axis_sha256": "d3165a3e6afc3c277c3046e2e69d3913b8e6b20edd803f0f3075c2fcbcf85551",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "2add2402fed8a82d04c706a9c8a2eafbd5a242ca39cc94b76a4d673f80e4e879"
+      },
+      {
+        "batch": 1,
+        "eligible_control_cells": 250,
+        "exp_id": 61,
+        "free_id": 51,
+        "selected_cell_axis_sha256": "d01dc86abad9d9bf3fe1181718e59a901b5faab588e170f3e8625658d3d3ab82",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "52be9a97a47d8c7071a76d72268c37e84051920d0265cbf53b951d98a78333cf"
+      },
+      {
+        "batch": 2,
+        "eligible_control_cells": 345,
+        "exp_id": 13,
+        "free_id": 15,
+        "selected_cell_axis_sha256": "33b628ca3c56ec56425abc1b32e277a37f8c98b1dc394a1fbf0b61cfc7645934",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "d35ede9220048ac5f839890dba6ccaafe8618eacf37403f930aec26b0b98c179"
+      },
+      {
+        "batch": 2,
+        "eligible_control_cells": 395,
+        "exp_id": 29,
+        "free_id": 44,
+        "selected_cell_axis_sha256": "2be2413c9faa6b4ab294540d4d9b819b122e9f6bd880626e2dcfae7bcda80ee8",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "a9075160d38a4b206eed2d775ce0e68394b51321b54b08e567da1d2d4b6cb5e2"
+      },
+      {
+        "batch": 2,
+        "eligible_control_cells": 398,
+        "exp_id": 31,
+        "free_id": 22,
+        "selected_cell_axis_sha256": "bebfba8f624273a4c118769e5499e973c886bfb09827d432d5bd13d69de18a48",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "651ace87bc98c6384d3c737a23d278e964061c90b8a5953e32aeada604165e0b"
+      },
+      {
+        "batch": 2,
+        "eligible_control_cells": 292,
+        "exp_id": 42,
+        "free_id": 43,
+        "selected_cell_axis_sha256": "213008257e1c7e3a2254fc34e00a3e20f8f3c29744aca190dc28f76515b30b97",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "d1a8bf67c3a6d151627fc7bd847613d9e1189f041660dc3e9ae494f77cb45281"
+      },
+      {
+        "batch": 2,
+        "eligible_control_cells": 371,
+        "exp_id": 43,
+        "free_id": 45,
+        "selected_cell_axis_sha256": "c4f6dc129499ec11ab1b27de94867d9403bb893676b12a4ababfbe1f0ad0ceec",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "8214f12852b9d725c3bd685b1e7797cf9d0f25af6a7d56018787397009d0d971"
+      },
+      {
+        "batch": 3,
+        "eligible_control_cells": 532,
+        "exp_id": 5,
+        "free_id": 10,
+        "selected_cell_axis_sha256": "72097e02d48ea529eb7896babb5d510f721ab29488349e8fdb1f0ce3a74e6f93",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "1ed9dd498e8fa135cfaf3c5d8a7b46c2cae019175f21c344736235b45b8f14cf"
+      },
+      {
+        "batch": 3,
+        "eligible_control_cells": 369,
+        "exp_id": 12,
+        "free_id": 39,
+        "selected_cell_axis_sha256": "2f1bdfc8533ebf140ce62923984634a86dec61cd3039b017c686dbdd321bc66b",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "12fe30b60dc61d17365f50ccccdf4c1c3505df435738e64a8d4adcde306a801e"
+      },
+      {
+        "batch": 3,
+        "eligible_control_cells": 424,
+        "exp_id": 30,
+        "free_id": 20,
+        "selected_cell_axis_sha256": "41de274ef0efac86a09d780677ec8269efe158f58f3a6cb7ee1ea6610018c850",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "d310b4ae6d9d30d92ae2c2f5cf6bc861c4307f9e61cbcf6d259b9905f62a21a2"
+      },
+      {
+        "batch": 3,
+        "eligible_control_cells": 431,
+        "exp_id": 36,
+        "free_id": 9,
+        "selected_cell_axis_sha256": "fab2fcd6d4f31b0263a3ef10c17f1cdb75fe893820629fde992aff6b7147bf3e",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "3744dd9ca74703ab98c15dbe06b9b24c5bf7cc4ec682a99b359c6fa9c4ef35a5"
+      },
+      {
+        "batch": 3,
+        "eligible_control_cells": 361,
+        "exp_id": 60,
+        "free_id": 26,
+        "selected_cell_axis_sha256": "94a00a78ea26aac532c7e91e664c029b754d1a99a283e63835430846c3dfcfce",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "eafc6b43884fb6a7c7ab6336157087d371386784e192198248a6d8558f81423c"
+      },
+      {
+        "batch": 3,
+        "eligible_control_cells": 169,
+        "exp_id": 63,
+        "free_id": 35,
+        "selected_cell_axis_sha256": "922f42af511970147c155fae5cbc2098e91962147c63908256564b73aee926a2",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "b6786ecae05f5e07e9eda23c04d58f35a00c01c487904c2bbbe0f3a15b45f13c"
+      },
+      {
+        "batch": 4,
+        "eligible_control_cells": 332,
+        "exp_id": 10,
+        "free_id": 6,
+        "selected_cell_axis_sha256": "827efb0e98257591fc016559bc249740591a27b20b506a4117ef2f669e0f876b",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "35b6d1e466f3e4db6533405124f4baebcb3038b442fd7fa1b34b0f95acabb802"
+      },
+      {
+        "batch": 4,
+        "eligible_control_cells": 459,
+        "exp_id": 14,
+        "free_id": 46,
+        "selected_cell_axis_sha256": "fcd654262af38bd0e5c0fde2d63d4230f5aa7f5a860aac94ed778378832fab17",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "cbaf774bde806ebc6efa4f68afdd8296752eee86519faa5d841f5e9f7d0bd97c"
+      },
+      {
+        "batch": 4,
+        "eligible_control_cells": 280,
+        "exp_id": 38,
+        "free_id": 63,
+        "selected_cell_axis_sha256": "39c0371dca707f3337edcf3350472879ff113d2b3b58af39846d63c8fd687a7a",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "9494654fee56aa0ec7aa6b362dd2d5d9bd567cf49212309b717b0ba52ed08f8d"
+      },
+      {
+        "batch": 4,
+        "eligible_control_cells": 197,
+        "exp_id": 47,
+        "free_id": 16,
+        "selected_cell_axis_sha256": "78e0d2653ebec6c6f1691f0cf83f04ed1864ba8b1dc1d6c2d02d60d6f8d0c095",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "7a415165b301c0211b5f1ac56f908e1c56350b9c824ae53def3164d07aee39f5"
+      },
+      {
+        "batch": 5,
+        "eligible_control_cells": 569,
+        "exp_id": 11,
+        "free_id": 0,
+        "selected_cell_axis_sha256": "b3bc6319d17307f0ec1f7cef35f5e1e378d478125fea3aa3e701a96c52365ded",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "125dfd24d508c44229d131b8e0e5f87d1823628962a67d7620b0156ec1383462"
+      },
+      {
+        "batch": 5,
+        "eligible_control_cells": 393,
+        "exp_id": 15,
+        "free_id": 36,
+        "selected_cell_axis_sha256": "1755bac0114f5464b6ca0a6604cc3739f43aa2f8a5f432ac1576380c472a052c",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "c620f5f89d52929f16b5ce11cc93b69ad7dfe935184a59c12b84c7814223409a"
+      },
+      {
+        "batch": 5,
+        "eligible_control_cells": 451,
+        "exp_id": 25,
+        "free_id": 17,
+        "selected_cell_axis_sha256": "7082709e0d8c11dedaa3b391ce88fc925129f59d221c0357bbc61a6a7b7d1024",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "aa65004595b78c3b4f657416e0ff1921f085b051e89325d276be7724c5da3f70"
+      },
+      {
+        "batch": 5,
+        "eligible_control_cells": 487,
+        "exp_id": 39,
+        "free_id": 60,
+        "selected_cell_axis_sha256": "5aefea836fa5b2cf9a102f71fc8b04cf7022ba721cc5e485ce1fe1ca36f43874",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "911abcf80287085ba13cb6c6ccaf5ad71428e31fbf1b6f1204773a1fac5b2add"
+      },
+      {
+        "batch": 5,
+        "eligible_control_cells": 726,
+        "exp_id": 49,
+        "free_id": 12,
+        "selected_cell_axis_sha256": "aa40bd05c40fbc2114b113f70243af0bd65221c0b4cb23a82c4b07a213c061aa",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "7733c905ea6285d2ac3dfa49ff9de2a9e9ef1134eaab90f50ea1c008b7c1cd90"
+      },
+      {
+        "batch": 6,
+        "eligible_control_cells": 645,
+        "exp_id": 1,
+        "free_id": 54,
+        "selected_cell_axis_sha256": "cca0c6379300c114423de004e428d94c4dd242507101e07d702cec04baeb5755",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "e0fd072afee7af296ac6281761a0e3867b35f10d33652d27c34e6294ca568ac9"
+      },
+      {
+        "batch": 6,
+        "eligible_control_cells": 576,
+        "exp_id": 4,
+        "free_id": 27,
+        "selected_cell_axis_sha256": "d0e099705228dd06b0f66d927d1cd6b6fe38dbbc7fe66b4cb83b7622c448fc4d",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "7c0348804c05bd6153fbdb6b2a55df8cb6f18223ecadd6e68a601cd0d457d719"
+      },
+      {
+        "batch": 6,
+        "eligible_control_cells": 767,
+        "exp_id": 7,
+        "free_id": 1,
+        "selected_cell_axis_sha256": "69a5ad59b139a6d9b8e2843adcdaa981dcedd43432c4cb210248f7e1758bdfa6",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "0a21c9fe1bc673e08ebca34178bdb9bafe0f8b4e4e19f6a56f2c7b632aecade1"
+      },
+      {
+        "batch": 6,
+        "eligible_control_cells": 566,
+        "exp_id": 27,
+        "free_id": 14,
+        "selected_cell_axis_sha256": "f7ddb798efbf3e512cb551aed1ba54128bb84dfde463901e6f7ec3d410f6ffbb",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "652d5deb92dd49b485e075488745e8170b44c7fe6bdbe20c4ed2f28c76570fcd"
+      },
+      {
+        "batch": 7,
+        "eligible_control_cells": 606,
+        "exp_id": 9,
+        "free_id": 29,
+        "selected_cell_axis_sha256": "a9db682f4d723ae323a1d6e633d207c9df176aeb737dba400951a7f17dbe741d",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "b973ce1c4502f87528451b484c1aebea553ba23dec9c597ccf4c59e36a831fd3"
+      },
+      {
+        "batch": 7,
+        "eligible_control_cells": 450,
+        "exp_id": 32,
+        "free_id": 49,
+        "selected_cell_axis_sha256": "e60e3a573a2df3872f62c134d641c632af71b0d257aaf051645d5753cd234a4e",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "9f1f9b34cf9bc621a8aded6c2794f759f397eb499d718cb9bce08eed0fd101bc"
+      },
+      {
+        "batch": 7,
+        "eligible_control_cells": 535,
+        "exp_id": 37,
+        "free_id": 30,
+        "selected_cell_axis_sha256": "abbff9166d265d98609316178f71aba449d7f09361004e99d223fbac53584110",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "bfd7db6e230b3639ace28526e10e70b1babc89518d1b835a75c8ed4d503a34f4"
+      },
+      {
+        "batch": 7,
+        "eligible_control_cells": 332,
+        "exp_id": 44,
+        "free_id": 32,
+        "selected_cell_axis_sha256": "38b01f0b01c309088595fee2b77006870406a2e0cfcd3816eb5d40d9dc6ec1df",
+        "selected_cells": 128,
+        "selected_row_indices_sha256": "a5c246b4f29ca41121dd1cc667c2a7cd7bbb0adaf6225e3ddbae4279dc4e86cc"
+      }
+    ],
+    "excluded_development_control_cells": {
+      "23": 2,
+      "62": 64
+    },
+    "excluded_development_exp_ids": [
+      23,
+      62
+    ],
+    "free_id_axis": [
+      56,
+      33,
+      13,
+      50,
+      8,
+      62,
+      48,
+      23,
+      2,
+      24,
+      51,
+      15,
+      44,
+      22,
+      43,
+      45,
+      10,
+      39,
+      20,
+      9,
+      26,
+      35,
+      6,
+      46,
+      63,
+      16,
+      0,
+      36,
+      17,
+      60,
+      12,
+      54,
+      27,
+      1,
+      14,
+      29,
+      49,
+      30,
+      32
+    ],
+    "held_batches": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "numeric_batches": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "selected_cell_axis_sha256": "cdbd3a387469a94fe2b9069a2ce5135229acfaf4df900dcf0ef105fdeda2a3cf",
+    "selected_row_axis_sha256": "544da93b61437475e9ccc643351f8ab46d916f807927e9e5a54a21fb4f13aa38",
+    "selected_rows": 4992,
+    "selection_rule": "select the 128 smallest salted hashes of metadata-eligible cells, then restore deposited obs order",
+    "selection_salt": "GSE181897-CONTROL-CELL-BUDGET-v1"
+  },
+  "status": "AXES_FROZEN_X_NUMERIC_UNREAD"
+}
