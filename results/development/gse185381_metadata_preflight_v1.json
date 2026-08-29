@@ -1,0 +1,361 @@
+{
+  "access_boundary": {
+    "adt_assay_files_opened": 0,
+    "assay_matrix_rows_opened": 0,
+    "numeric_assay_values_read": 0,
+    "rna_assay_files_opened": 0
+  },
+  "accession": "GSE185381",
+  "cohosted_file_rule": "A source-stage CSV may physically contain unselected held columns in the three listed pools. Only selected source-column indices may be converted, serialized, or used; this is disclosed co-residence, not a file-level blind.",
+  "created_at_utc": "2026-08-29T09:32:12Z",
+  "donor_design": {
+    "candidate_aml_donors_before_single_pool_minimum": 41,
+    "citeseq_donors_before_single_pool_minimum": 51,
+    "held_acquisition_clusters": 13,
+    "held_donors_excluded_for_cell_count": 2,
+    "held_donors_retained": 39,
+    "held_selected_pools": 26,
+    "minimum_retained_donor": "PAXMIJ",
+    "minimum_retained_selected_pool_cells": 431,
+    "selected_pool_candidate_cells": 113968,
+    "selected_pool_held_cells": 91707,
+    "selected_pool_source_cells": 22261,
+    "selected_pool_union": 31,
+    "source_donors": 10,
+    "source_held_selected_pool_overlap": [
+      "2019-08-29-count-1",
+      "2019-10-25-count-5",
+      "2020-03-18-count-1"
+    ],
+    "source_selected_pools": 8
+  },
+  "exclusions": {
+    "insufficient_single_pool_cells": [
+      {
+        "donor_id": "PAWWEE",
+        "gsm": "GSM5613755",
+        "largest_pool_id": "2019-09-03-count-3",
+        "publisher_filtered_cells": 184,
+        "reason": "fewer than 384 cells in every single pool"
+      },
+      {
+        "donor_id": "AML022",
+        "gsm": "GSM5613770",
+        "largest_pool_id": "2020-03-18-count-2",
+        "publisher_filtered_cells": 360,
+        "reason": "fewer than 384 cells in every single pool"
+      }
+    ],
+    "nonpaired_sample_accessions": {
+      "scRNA_seq": [
+        "GSM5613768",
+        "GSM5613791-GSM5613806"
+      ],
+      "scTCR_seq": [
+        "GSM5613807-GSM5613822"
+      ]
+    },
+    "rna_only_donor": {
+      "donor_id": "AML3266",
+      "gsm": "GSM5613768",
+      "reason": "scRNA-seq sample has no paired ADT assay"
+    }
+  },
+  "feature_schema_checks": {
+    "canonical_alias_collisions_between_frozen_markers": 0,
+    "frozen_adt_sequences_present_exactly_once_in_every_antibody_feature_reference": true,
+    "frozen_cognates": 16,
+    "frozen_rna_symbols_present_in_every_gene_feature_list": true,
+    "invariant_antibody_oligo_sequences_common_to_all_46": 49,
+    "mixed_modality_feature_name_duplicates_observed_in_five_gene_feature_exports": "CD14, CD19, CD33, CD38, and CD69 appear as both gene-expression and antibody display names in GSM5613757-5613759 and GSM5613764-5613765; the processed RNA and ADT matrices are separate files and must each resolve exactly one modality-specific row during authorized access.",
+    "public_antibody_feature_reference_files": 46,
+    "public_rna_gene_feature_lists": 46
+  },
+  "geo_inventory": {
+    "adt_assay_bytes_listed": 18184784,
+    "metadata_bytes": 7344701,
+    "metadata_files": 46,
+    "paired_citeseq_samples": 46,
+    "publisher_filtered_citeseq_cells": 211442,
+    "rna_assay_bytes_listed": 3299373766,
+    "scrna_only_samples": 17,
+    "sctcr_only_samples": 16,
+    "series_samples": 79
+  },
+  "metadata_axis_checks": {
+    "cell_prefix_pool_mismatches": 0,
+    "duplicate_cell_identifiers": 0,
+    "exactly_one_orig_ident_per_file": true,
+    "globally_unique_cell_identifiers": 211442,
+    "required_columns_present_in_every_file": true
+  },
+  "required_runner_contract_before_protocol_tag": [
+    "accept exactly 10 source and 39 held donors",
+    "select cells only from each donor selected_pool_id; never aggregate pools",
+    "hash source-selected assay files only after the source-stage claim; hash held-only files in their held modality stage; for source/held-overlap files, hash the physical file in source but defer held-column conversion to the held modality stage",
+    "apply RNA prevalence [0.05,0.95] and ADT distinct-value and 0.90 tie-fraction support; require every source and held donor to retain at least 9 valid RNA axes, 9 valid ADT axes, and 128 of 256 ordered pairs",
+    "require the campaign-level directional alpha 0.0125 thresholds in every inferential pass flag",
+    "fail closed if a processed matrix does not resolve every frozen marker exactly once"
+  ],
+  "schema": "gse185381-aml-metadata-preflight/1.0",
+  "selected_pool_cell_counts": {
+    "AML001": {
+      "cells": 466,
+      "gsm": "GSM5613783",
+      "pool_id": "2021-03-09-AML001_Dx-count3"
+    },
+    "AML0024": {
+      "cells": 6141,
+      "gsm": "GSM5613779",
+      "pool_id": "2020-09-15-AML0024"
+    },
+    "AML003": {
+      "cells": 3332,
+      "gsm": "GSM5613762",
+      "pool_id": "2019-11-26-count-1"
+    },
+    "AML0048": {
+      "cells": 2185,
+      "gsm": "GSM5613767",
+      "pool_id": "2020-03-18-AML0048-c2"
+    },
+    "AML005": {
+      "cells": 2035,
+      "gsm": "GSM5613764",
+      "pool_id": "2020-01-03-count-1"
+    },
+    "AML006": {
+      "cells": 1576,
+      "gsm": "GSM5613762",
+      "pool_id": "2019-11-26-count-1"
+    },
+    "AML008": {
+      "cells": 2198,
+      "gsm": "GSM5613760",
+      "pool_id": "2019-11-19-count-1"
+    },
+    "AML009": {
+      "cells": 3002,
+      "gsm": "GSM5613781",
+      "pool_id": "2020-10-06-count2"
+    },
+    "AML0114": {
+      "cells": 1888,
+      "gsm": "GSM5613789",
+      "pool_id": "2021-03-09-Z-1-2"
+    },
+    "AML012": {
+      "cells": 2459,
+      "gsm": "GSM5613765",
+      "pool_id": "2020-01-03-count-2"
+    },
+    "AML0160": {
+      "cells": 778,
+      "gsm": "GSM5613744",
+      "pool_id": "2019-07-01-count-1"
+    },
+    "AML025": {
+      "cells": 1884,
+      "gsm": "GSM5613763",
+      "pool_id": "2019-11-26-count-2"
+    },
+    "AML026": {
+      "cells": 1097,
+      "gsm": "GSM5613782",
+      "pool_id": "2020-10-06-count4_0.95"
+    },
+    "AML028": {
+      "cells": 2411,
+      "gsm": "GSM5613760",
+      "pool_id": "2019-11-19-count-1"
+    },
+    "AML0310": {
+      "cells": 1677,
+      "gsm": "GSM5613746",
+      "pool_id": "2019-07-01-count-3"
+    },
+    "AML0361": {
+      "cells": 1165,
+      "gsm": "GSM5613751",
+      "pool_id": "2019-08-29-count-1"
+    },
+    "AML038": {
+      "cells": 1813,
+      "gsm": "GSM5613760",
+      "pool_id": "2019-11-19-count-1"
+    },
+    "AML043": {
+      "cells": 954,
+      "gsm": "GSM5613761",
+      "pool_id": "2019-11-19-count-2"
+    },
+    "AML048": {
+      "cells": 1163,
+      "gsm": "GSM5613765",
+      "pool_id": "2020-01-03-count-2"
+    },
+    "AML051": {
+      "cells": 1679,
+      "gsm": "GSM5613782",
+      "pool_id": "2020-10-06-count4_0.95"
+    },
+    "AML052": {
+      "cells": 3265,
+      "gsm": "GSM5613769",
+      "pool_id": "2020-03-18-count-1"
+    },
+    "AML055": {
+      "cells": 2785,
+      "gsm": "GSM5613765",
+      "pool_id": "2020-01-03-count-2"
+    },
+    "AML056": {
+      "cells": 1078,
+      "gsm": "GSM5613760",
+      "pool_id": "2019-11-19-count-1"
+    },
+    "AML0612": {
+      "cells": 3476,
+      "gsm": "GSM5613745",
+      "pool_id": "2019-07-01-count-2"
+    },
+    "AML0693": {
+      "cells": 3604,
+      "gsm": "GSM5613784",
+      "pool_id": "2021-03-09-AML0693"
+    },
+    "AML073": {
+      "cells": 2732,
+      "gsm": "GSM5613762",
+      "pool_id": "2019-11-26-count-1"
+    },
+    "AML1371": {
+      "cells": 1676,
+      "gsm": "GSM5613778",
+      "pool_id": "2020-09-11-AML4340_AML1371-c2"
+    },
+    "AML2123": {
+      "cells": 674,
+      "gsm": "GSM5613773",
+      "pool_id": "2020-07-29-AML2123-c2"
+    },
+    "AML2451": {
+      "cells": 2821,
+      "gsm": "GSM5613756",
+      "pool_id": "2019-10-25-count-5"
+    },
+    "AML2910": {
+      "cells": 4358,
+      "gsm": "GSM5613751",
+      "pool_id": "2019-08-29-count-1"
+    },
+    "AML3050": {
+      "cells": 1189,
+      "gsm": "GSM5613751",
+      "pool_id": "2019-08-29-count-1"
+    },
+    "AML3133": {
+      "cells": 892,
+      "gsm": "GSM5613744",
+      "pool_id": "2019-07-01-count-1"
+    },
+    "AML3730": {
+      "cells": 5053,
+      "gsm": "GSM5613786",
+      "pool_id": "2021-03-09-AMLMS3730"
+    },
+    "AML3762": {
+      "cells": 3000,
+      "gsm": "GSM5613746",
+      "pool_id": "2019-07-01-count-3"
+    },
+    "AML3948": {
+      "cells": 8636,
+      "gsm": "GSM5613785",
+      "pool_id": "2021-03-09-AML3948"
+    },
+    "AML4340": {
+      "cells": 1512,
+      "gsm": "GSM5613777",
+      "pool_id": "2020-09-11-AML4340_AML1371-c1"
+    },
+    "AML4897": {
+      "cells": 2844,
+      "gsm": "GSM5613780",
+      "pool_id": "2020-10-06-AML4897"
+    },
+    "Control0004": {
+      "cells": 2476,
+      "gsm": "GSM5613756",
+      "pool_id": "2019-10-25-count-5"
+    },
+    "Control0005": {
+      "cells": 3545,
+      "gsm": "GSM5613787",
+      "pool_id": "2021-03-09-count1_0.95"
+    },
+    "Control0058": {
+      "cells": 2524,
+      "gsm": "GSM5613757",
+      "pool_id": "2019-11-04-count-1"
+    },
+    "Control0082": {
+      "cells": 3020,
+      "gsm": "GSM5613769",
+      "pool_id": "2020-03-18-count-1"
+    },
+    "Control1": {
+      "cells": 1058,
+      "gsm": "GSM5613748",
+      "pool_id": "2019-08-01-count-2"
+    },
+    "Control2": {
+      "cells": 859,
+      "gsm": "GSM5613750",
+      "pool_id": "2019-08-01-count-4"
+    },
+    "Control3": {
+      "cells": 1499,
+      "gsm": "GSM5613748",
+      "pool_id": "2019-08-01-count-2"
+    },
+    "Control4": {
+      "cells": 2046,
+      "gsm": "GSM5613748",
+      "pool_id": "2019-08-01-count-2"
+    },
+    "Control4003": {
+      "cells": 2973,
+      "gsm": "GSM5613775",
+      "pool_id": "2020-08-26-Control4003-c2"
+    },
+    "Control5": {
+      "cells": 2261,
+      "gsm": "GSM5613751",
+      "pool_id": "2019-08-29-count-1"
+    },
+    "PAUMTZ": {
+      "cells": 1778,
+      "gsm": "GSM5613759",
+      "pool_id": "2019-11-04-count-3"
+    },
+    "PAXMIJ": {
+      "cells": 431,
+      "gsm": "GSM5613759",
+      "pool_id": "2019-11-04-count-3"
+    }
+  },
+  "source_files_that_cohost_selected_held_donors": [
+    "2019-08-29-count-1",
+    "2019-10-25-count-5",
+    "2020-03-18-count-1"
+  ],
+  "source_split_checks": {
+    "calibration_components": 5,
+    "calibration_donors": 5,
+    "selected_pool_components_disjoint_across_roles": true,
+    "validation_components": 3,
+    "validation_donors": 5
+  },
+  "status": "PASS_METADATA_AND_FEATURE_SCHEMA_ONLY"
+}

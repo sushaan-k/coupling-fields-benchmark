@@ -1,0 +1,145 @@
+{
+  "accession": "GSE185381",
+  "bound_non_assay_artifacts": {
+    "candidate_designation": {
+      "path": "data/confirmation/gse185381_aml/candidate_designation_v1.json",
+      "sha256": "af9638d1108846b205f18d3446cf7b75aaf0dbf6afe5e269f01dd36130ce78ea"
+    },
+    "metadata_preflight": {
+      "path": "results/development/gse185381_metadata_preflight_v1.json",
+      "sha256": "2f8e641d7e15c4b98194b87ee5cf1a1a9433d2d5aa0d21e56b1fd5010e8b0063"
+    },
+    "runtime_environment": {
+      "path": "data/confirmation/gse185381_aml/runtime_environment_v1.json",
+      "sha256": "2a7b8a1b6b2e465642c54967fc0d18e05e4df2641a992038a2ab86cb01e8ed53"
+    },
+    "source_manifest": {
+      "path": "data/confirmation/gse185381_aml/source_manifest_v1.json",
+      "sha256": "d5a4e8da0dd6ffe590d5306b08214b18af23a96ba36d80eff8ceccd64e524e4c"
+    }
+  },
+  "campaign": {
+    "candidate_selection_status": "This follow-on dataset was selected from public metadata after the GSE202150 outcome was known. It is not an independent replication of the candidate-selection process.",
+    "directional_alpha": 0.0125,
+    "error_control_scope": "The 0.0125 allocation governs this single frozen GSE185381 follow-on endpoint. No error-rate claim is made for the broader historical search across datasets.",
+    "later_rescue": "A miss, refusal, interruption, or exception closes this branch. The allocated alpha cannot be reassigned to a replacement dataset."
+  },
+  "cell_and_feature_contract": {
+    "adt_axis_validity": "A donor-marker ADT axis must contain at least two distinct processed ADT values, and its largest equal-value fraction must be at most 0.90.",
+    "adt_state": "For a valid donor-marker ADT axis, the 192 highest processed ADT values among the 384 frozen cells are high; salted SHA-256 and cell identifier break ties.",
+    "cell_budget_per_donor": 384,
+    "cell_selection_salt": "GSE185381-CELL-BUDGET-v1",
+    "held_acquisition_clusters": 13,
+    "marker_cognates": 16,
+    "marker_resolution": "Each RNA and ADT processed matrix must resolve every frozen marker exactly once after exact alphanumeric canonicalization; otherwise the stage refuses.",
+    "minimum_valid_adt_axes_per_donor": 9,
+    "minimum_valid_ordered_pairs_per_donor": 128,
+    "minimum_valid_rna_axes_per_donor": 9,
+    "ordered_pair_validity": "An ordered pair is valid exactly when its RNA row and ADT column are both valid. Every source and held donor must retain at least 9 valid RNA axes, 9 valid ADT axes, and 128 of 256 valid ordered pairs before prediction or scoring; otherwise the stage terminates without attrition or rescue.",
+    "ordered_rna_by_adt_pairs": 256,
+    "rna_axis_validity": "Within-donor detection prevalence must lie in the closed interval [0.05, 0.95].",
+    "rna_state": "raw processed SoupX count greater than zero",
+    "selected_pool_rule": "Use only the donor's single frozen largest publisher-filtered CITE-seq pool. Never aggregate across pools.",
+    "support_estimand": "The donor-supported RNA-by-ADT submap; loss is averaged over each donor's informative ordered pairs without donor attrition."
+  },
+  "claim_scope": "Composition-inclusive transfer of RNA-ADT coupling from ten healthy bone-marrow control donors to 39 AML bone-marrow donors on one frozen 16-cognate panel. This is a post-GSE202150 follow-on held-donor study, not a clean independent candidate-selection replication or a cell-type-conditional causal claim.",
+  "comparators": {
+    "mandatory_classical_families": [
+      "untuned row-plus-column Poisson-independence signed-root-deviance residual at transport multiplier one",
+      "source-calibrated Poisson-independence signed-root-deviance residual",
+      "common-effect stratified conditional maximum-likelihood interaction",
+      "donor-pooled saturated 2-by-2 Poisson log-linear interaction",
+      "Paule-Mandel random-effects log-odds interaction"
+    ],
+    "lock_rule": "Before held access, select the estimable classical method with minimum component-equal source-validation deviance; retain the stated order for exact ties. The untuned residual is always reported even when another method locks.",
+    "target_margin_independence": "report as a nontransport baseline",
+    "unestimable_method": "report a deterministic method-specific numerical or support refusal code; never silently drop it from the method inventory"
+  },
+  "created_at_utc": "2026-08-29T09:32:12Z",
+  "held_inference": {
+    "acquisition_cluster_definition": "run-date prefix of the selected pool; GSM lanes from one run date are one cluster",
+    "bootstrap_draws": 20000,
+    "bootstrap_seed": 20260829,
+    "comparison": "paired donor loss for the primary estimator minus the prospectively locked strongest classical comparator",
+    "minimum_favorable_donors": 32,
+    "minimum_relative_loss_reduction": 0.05,
+    "pass_requirements": [
+      "mean primary loss is at least 5% lower",
+      "the 98.75th percentile of the acquisition-cluster-stratified paired donor bootstrap is below zero",
+      "at least 32 of 39 donors favor the primary",
+      "the one-sided exact donor sign-test p-value is at most 0.0125",
+      "the one-sided exact acquisition-cluster sign-flip p-value is at most 0.0125",
+      "every leave-one-acquisition-cluster-out mean paired difference is negative"
+    ],
+    "primary_endpoint": "donor-equal mean multinomial deviance per cell over the donor's informative ordered RNA-by-ADT pairs",
+    "raw_residual_head_to_head": "The same donor losses, paired differences, uncertainty interval, sign tests, and acquisition-cluster sensitivities are reported against the untuned Poisson residual whether or not it is the locked comparator.",
+    "serial_confirmatory_order": [
+      "primary estimator versus the source-locked strongest classical comparator",
+      "primary estimator versus the graph-zero ablation, evaluated only after the primary gate passes",
+      "primary estimator versus the destroyed-link control, evaluated only after the graph-structure gate passes"
+    ],
+    "descriptive_contrasts": "Untuned Poisson, target-margin independence, and nonlocked classical contrasts are reported outside the serial confirmatory chain."
+  },
+  "held_separation": {
+    "cohosted_source_files": [
+      "2019-08-29-count-1",
+      "2019-10-25-count-5",
+      "2020-03-18-count-1"
+    ],
+    "assay_hash_timing": "Source-selected RNA and ADT files are hashed after the public source-stage claim. Files required only by held-selected pools are first downloaded and hashed in the held RNA or ADT stage. For the three source/held-overlap pools, the physical files are downloaded and hashed in source, but only frozen source columns are converted; held columns are first converted in their held modality stage.",
+    "cohosted_source_rule": "These source-stage CSV files physically contain unselected held-donor columns. The source stage may convert and use only frozen source-column indices; co-resident held values are not selected, serialized, fitted, or scored.",
+    "prediction": "Held RNA states and fixed 192/192 ADT margins create public same-margin predictions before held ADT states may be opened together with RNA states.",
+    "private_artifacts": "cell identifiers and binary states remain outside the repository; public records contain hashes, byte counts, margins, and predictions only",
+    "assay_access_journal": "Each assay stage opens an append-only public journal before access. The attempt tag binds its empty header, every downloaded assay file is recorded immediately with observed bytes and SHA-256, and the completion tag binds the full journal even after a terminal refusal.",
+    "score": "The score stage is the first stage allowed to join held RNA and ADT states or form held joint tables."
+  },
+  "one_shot_stages": [
+    "source",
+    "rna",
+    "adt",
+    "prediction",
+    "score"
+  ],
+  "primary_estimator": {
+    "family": "graph-regularized exact-fixed-margin hierarchical coupling",
+    "graph": "separate two-nearest-neighbor marker graphs are derived from calibration RNA and ADT profiles; their product incidence regularizes ordered coupling fields",
+    "grid": {
+      "graph_penalty": [0.1, 1.0],
+      "heterogeneity_penalty": [0.1, 1.0, 10.0],
+      "ridge_penalty": [0.01, 0.1, 1.0],
+      "transport_multiplier": [0.5, 0.75, 1.0]
+    },
+    "selection": "Fit on the five frozen calibration donors and minimize component-equal deviance across the three pool-disjoint validation components, with lexicographic tie breaking. The primary grid contains only positive graph penalties.",
+    "graph_zero_ablation": "Select heterogeneity, ridge, and transport on the same source split with graph penalty fixed to zero; this ablation is not eligible to become the primary estimator.",
+    "refit": "Refit the selected configuration on all ten source donors before any held assay access."
+  },
+  "public_tags": {
+    "adt": "gse185381-aml-v1-adt",
+    "adt_attempt": "gse185381-aml-v1-adt-attempt",
+    "prediction": "gse185381-aml-v1-predictions",
+    "prediction_attempt": "gse185381-aml-v1-prediction-attempt",
+    "protocol": "gse185381-aml-v1-protocol",
+    "result": "gse185381-aml-v1-result",
+    "rna": "gse185381-aml-v1-rna",
+    "rna_attempt": "gse185381-aml-v1-rna-attempt",
+    "score_attempt": "gse185381-aml-v1-score-attempt",
+    "score_authorization": "gse185381-aml-v1-score-authorized",
+    "source": "gse185381-aml-v1-source",
+    "source_attempt": "gse185381-aml-v1-source-attempt"
+  },
+  "schema": "gse185381-aml-followon-protocol/1.0",
+  "source_design": {
+    "calibration_donors": 5,
+    "calibration_pool_components": 5,
+    "final_source_donors": 10,
+    "validation_donors": 5,
+    "validation_pool_components": 3
+  },
+  "status": "FROZEN_FROM_METADATA_AND_FEATURE_SCHEMAS_BEFORE_ANY_RNA_OR_ADT_MATRIX_ACCESS",
+  "terminal_rules": {
+    "adaptive_rescue": "forbidden",
+    "post_score_criterion_failure": "publish a completed negative result",
+    "pre_score_support_or_numerical_failure": "publish a terminal refusal without inventing a score",
+    "stage_interruption_or_unexpected_exception": "consume and publish the stage attempt; do not rerun"
+  }
+}

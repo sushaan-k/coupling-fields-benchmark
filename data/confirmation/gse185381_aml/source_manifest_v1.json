@@ -1,0 +1,1710 @@
+{
+  "accession": "GSE185381",
+  "authorized_download_plan": {
+    "assay_sha256_rule": "Compute and record whole-file SHA-256 immediately after download: source-stage hashing for source-selected RNA and ADT files, held RNA-stage hashing for target RNA files, and held ADT-stage hashing for target ADT files. No assay hash is represented as known before its first authorized download.",
+    "held_adt_bytes": 13122448,
+    "held_rna_bytes": 2427531912,
+    "held_selected_pools": 26,
+    "selected_pool_union": 31,
+    "source_adt_bytes": 3222767,
+    "source_rna_bytes": 609769555,
+    "source_selected_pools": 8
+  },
+  "canonical_antibody_feature_reference_manifest_sha256": "47e24cab347ea1f447091d2d5bd99e7806526223a1b4506a31c6bc7b8ec1bd64",
+  "canonical_gene_feature_manifest_sha256": "0fad43767949074ed43259a6147ecd5b29f02562b276a2e06e83c6fec272ae7f",
+  "canonical_metadata_manifest_sha256": "6f551493887c32cb8fc13b0285299193b22cb944be3c3450f9fd79147a4c4357",
+  "official_geo_records": {
+    "raw_archive_not_required": {
+      "bytes": 9602908160,
+      "filename": "GSE185381_RAW.tar",
+      "sha256": null,
+      "status": "not downloaded; direct per-GSM files are used",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE185nnn/GSE185381/suppl/GSE185381_RAW.tar"
+    },
+    "series_miniml_archive": {
+      "bytes": 12421,
+      "filename": "GSE185381_family.xml.tgz",
+      "sha256": "e71179d5f5c065bcaf82633fa26bdd2c7656c875acd955ef63b04c4a84b450da",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE185nnn/GSE185381/miniml/GSE185381_family.xml.tgz"
+    },
+    "supplementary_filelist": {
+      "bytes": 39318,
+      "filename": "filelist.txt",
+      "sha256": "4f465af05e09466576edb9ea77c38b45e529fed6158939f72ff208e8e0a5dc28",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE185nnn/GSE185381/suppl/filelist.txt"
+    },
+    "unpacked_miniml_xml": {
+      "bytes": 528323,
+      "filename": "GSE185381_family.xml",
+      "sha256": "3fdf0d45ecacd9c5d968ea81c534b64a44bdd48fb7dd5f5d752bfc7320bb5e8b"
+    }
+  },
+  "pool_files": [
+    {
+      "adt_assay": {
+        "bytes": 519440,
+        "filename": "GSM5613744_2019-07-01-count-1_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613744/suppl/GSM5613744_2019-07-01-count-1_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1407,
+        "filename": "GSM5613744_2019-07-01-count-1_feature_reference.csv.gz",
+        "sha256": "d3adf47ae7c6bcb72fec7054a63eb6b9cd49067fbf11e96e5dd01654c66dadbb",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613744/suppl/GSM5613744_2019-07-01-count-1_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334313,
+        "filename": "GSM5613744_2019-07-01-count-1_features.tsv.gz",
+        "sha256": "ae9633fe9b6885c02e77b5439f8ffd02a42337bea488eae26cf57a608d214a39",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613744/suppl/GSM5613744_2019-07-01-count-1_features.tsv.gz"
+      },
+      "gsm": "GSM5613744",
+      "metadata": {
+        "bytes": 301930,
+        "filename": "GSM5613744_2019-07-01-count-1_metadata.csv.gz",
+        "sha256": "0993ffd63ccbccd811d73a0667af509cecf606904cabfa0994eb691e653bb0f4",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613744/suppl/GSM5613744_2019-07-01-count-1_metadata.csv.gz"
+      },
+      "pool_id": "2019-07-01-count-1",
+      "rna_assay": {
+        "bytes": 137422878,
+        "filename": "GSM5613744_2019-07-01-count-1_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613744/suppl/GSM5613744_2019-07-01-count-1_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 563362,
+        "filename": "GSM5613745_2019-07-01-count-2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613745/suppl/GSM5613745_2019-07-01-count-2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1407,
+        "filename": "GSM5613745_2019-07-01-count-2_feature_reference.csv.gz",
+        "sha256": "8335bc8bd81be493c7193c78ec65c93a245b1dccbb14b58627b04f4b19ea52b6",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613745/suppl/GSM5613745_2019-07-01-count-2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334313,
+        "filename": "GSM5613745_2019-07-01-count-2_features.tsv.gz",
+        "sha256": "5103aec62d65c29c2840d6ecc2979481579f93f5267c3baffc42f8f433f9c6cd",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613745/suppl/GSM5613745_2019-07-01-count-2_features.tsv.gz"
+      },
+      "gsm": "GSM5613745",
+      "metadata": {
+        "bytes": 325364,
+        "filename": "GSM5613745_2019-07-01-count-2_metadata.csv.gz",
+        "sha256": "549c62879624205c30df64e5e6e38252c78e027aadb935025ac6763717903f3b",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613745/suppl/GSM5613745_2019-07-01-count-2_metadata.csv.gz"
+      },
+      "pool_id": "2019-07-01-count-2",
+      "rna_assay": {
+        "bytes": 133026695,
+        "filename": "GSM5613745_2019-07-01-count-2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613745/suppl/GSM5613745_2019-07-01-count-2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 556213,
+        "filename": "GSM5613746_2019-07-01-count-3_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613746/suppl/GSM5613746_2019-07-01-count-3_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1407,
+        "filename": "GSM5613746_2019-07-01-count-3_feature_reference.csv.gz",
+        "sha256": "8dcfab8cab90de67abf2858de1a222f5f885975adc6f3fbab624a1ad969a189c",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613746/suppl/GSM5613746_2019-07-01-count-3_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334313,
+        "filename": "GSM5613746_2019-07-01-count-3_features.tsv.gz",
+        "sha256": "0973947151f3fc02b395773ce1428da34cc8c451fbbbe8c9300df1295a3be9e7",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613746/suppl/GSM5613746_2019-07-01-count-3_features.tsv.gz"
+      },
+      "gsm": "GSM5613746",
+      "metadata": {
+        "bytes": 330508,
+        "filename": "GSM5613746_2019-07-01-count-3_metadata.csv.gz",
+        "sha256": "fd12c9e7eb48164c919c6ea70bd8cc65b862f8f794f55b290c5df6867e3f0c4c",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613746/suppl/GSM5613746_2019-07-01-count-3_metadata.csv.gz"
+      },
+      "pool_id": "2019-07-01-count-3",
+      "rna_assay": {
+        "bytes": 127579467,
+        "filename": "GSM5613746_2019-07-01-count-3_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613746/suppl/GSM5613746_2019-07-01-count-3_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 16898,
+        "filename": "GSM5613747_2019-08-01-count-1_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613747/suppl/GSM5613747_2019-08-01-count-1_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1404,
+        "filename": "GSM5613747_2019-08-01-count-1_feature_reference.csv.gz",
+        "sha256": "d9f50366823ee4af9f8486a241c01ab252bfc3cbafefb09107f7fce27ab043ff",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613747/suppl/GSM5613747_2019-08-01-count-1_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334316,
+        "filename": "GSM5613747_2019-08-01-count-1_features.tsv.gz",
+        "sha256": "bd8d6b2dbddca04d1367fe644008d35392c191eff766202f516808a2045d92cc",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613747/suppl/GSM5613747_2019-08-01-count-1_features.tsv.gz"
+      },
+      "gsm": "GSM5613747",
+      "metadata": {
+        "bytes": 10123,
+        "filename": "GSM5613747_2019-08-01-count-1_metadata.csv.gz",
+        "sha256": "d8c57cc2bdbbea8ae30a856ac7b85b9b1ac936dfb21ed7ddbb914ecec97af448",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613747/suppl/GSM5613747_2019-08-01-count-1_metadata.csv.gz"
+      },
+      "pool_id": "2019-08-01-count-1",
+      "rna_assay": {
+        "bytes": 4289665,
+        "filename": "GSM5613747_2019-08-01-count-1_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613747/suppl/GSM5613747_2019-08-01-count-1_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 263035,
+        "filename": "GSM5613748_2019-08-01-count-2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613748/suppl/GSM5613748_2019-08-01-count-2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1404,
+        "filename": "GSM5613748_2019-08-01-count-2_feature_reference.csv.gz",
+        "sha256": "58879b0634cc14da0037e2851ebef38b171f5d490785994a0689e27053705741",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613748/suppl/GSM5613748_2019-08-01-count-2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334316,
+        "filename": "GSM5613748_2019-08-01-count-2_features.tsv.gz",
+        "sha256": "38e135f32970e5fe4ae18ef762b7560724e3f9e455fe5cc17f82985107e85fa6",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613748/suppl/GSM5613748_2019-08-01-count-2_features.tsv.gz"
+      },
+      "gsm": "GSM5613748",
+      "metadata": {
+        "bytes": 191562,
+        "filename": "GSM5613748_2019-08-01-count-2_metadata.csv.gz",
+        "sha256": "22c868e37dc48bff0a5be375297c554b21d0d346457e1b7af621f3a330011f29",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613748/suppl/GSM5613748_2019-08-01-count-2_metadata.csv.gz"
+      },
+      "pool_id": "2019-08-01-count-2",
+      "rna_assay": {
+        "bytes": 82532049,
+        "filename": "GSM5613748_2019-08-01-count-2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613748/suppl/GSM5613748_2019-08-01-count-2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 230965,
+        "filename": "GSM5613749_2019-08-01-count-3_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613749/suppl/GSM5613749_2019-08-01-count-3_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1404,
+        "filename": "GSM5613749_2019-08-01-count-3_feature_reference.csv.gz",
+        "sha256": "f4f3b992e5c35c5ed7fc55bedce3ff9d650915596c95fada0b17cafca7708375",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613749/suppl/GSM5613749_2019-08-01-count-3_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334316,
+        "filename": "GSM5613749_2019-08-01-count-3_features.tsv.gz",
+        "sha256": "214bc56f852dfd0bdbc2347d9ac2ef76872dd6f276db24b500dfa6a791f1a5dd",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613749/suppl/GSM5613749_2019-08-01-count-3_features.tsv.gz"
+      },
+      "gsm": "GSM5613749",
+      "metadata": {
+        "bytes": 168755,
+        "filename": "GSM5613749_2019-08-01-count-3_metadata.csv.gz",
+        "sha256": "766156327dc7b5f68b2fa4c389bc9830dedaae73cb0cc427ea80acb58cc672f5",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613749/suppl/GSM5613749_2019-08-01-count-3_metadata.csv.gz"
+      },
+      "pool_id": "2019-08-01-count-3",
+      "rna_assay": {
+        "bytes": 76843262,
+        "filename": "GSM5613749_2019-08-01-count-3_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613749/suppl/GSM5613749_2019-08-01-count-3_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 232547,
+        "filename": "GSM5613750_2019-08-01-count-4_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613750/suppl/GSM5613750_2019-08-01-count-4_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1408,
+        "filename": "GSM5613750_2019-08-01-count-4_feature_reference.csv.gz",
+        "sha256": "316de83486b3a0d043e140624849fb5af5ce49fbed69d33ddf916dada79e1613",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613750/suppl/GSM5613750_2019-08-01-count-4_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334316,
+        "filename": "GSM5613750_2019-08-01-count-4_features.tsv.gz",
+        "sha256": "ede3592113552e175ab940d8becaf5bffe9aba14d77a3c25c3d30395862b502c",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613750/suppl/GSM5613750_2019-08-01-count-4_features.tsv.gz"
+      },
+      "gsm": "GSM5613750",
+      "metadata": {
+        "bytes": 170982,
+        "filename": "GSM5613750_2019-08-01-count-4_metadata.csv.gz",
+        "sha256": "b6505eba9c467306e32a7f4747eb4d4f231cc70248b761f0f5c2fe8d80d43b44",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613750/suppl/GSM5613750_2019-08-01-count-4_metadata.csv.gz"
+      },
+      "pool_id": "2019-08-01-count-4",
+      "rna_assay": {
+        "bytes": 79302956,
+        "filename": "GSM5613750_2019-08-01-count-4_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613750/suppl/GSM5613750_2019-08-01-count-4_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 368472,
+        "filename": "GSM5613751_2019-08-29-count-1_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613751/suppl/GSM5613751_2019-08-29-count-1_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1417,
+        "filename": "GSM5613751_2019-08-29-count-1_feature_reference.csv.gz",
+        "sha256": "da5e9cc7308b612f2bed01a1f820109786df0d2d0a6acce0d5d12dd912e46fcc",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613751/suppl/GSM5613751_2019-08-29-count-1_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334309,
+        "filename": "GSM5613751_2019-08-29-count-1_features.tsv.gz",
+        "sha256": "ed6daa6733f6314ae8d858281afea735344a56a44c31c9b4d12c30c9ca1e23d6",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613751/suppl/GSM5613751_2019-08-29-count-1_features.tsv.gz"
+      },
+      "gsm": "GSM5613751",
+      "metadata": {
+        "bytes": 315948,
+        "filename": "GSM5613751_2019-08-29-count-1_metadata.csv.gz",
+        "sha256": "d690cc7ab8c2748eaaaa93fca4d53a07102f707e5d1e546bc83bf368a92ee5e2",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613751/suppl/GSM5613751_2019-08-29-count-1_metadata.csv.gz"
+      },
+      "pool_id": "2019-08-29-count-1",
+      "rna_assay": {
+        "bytes": 127360259,
+        "filename": "GSM5613751_2019-08-29-count-1_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613751/suppl/GSM5613751_2019-08-29-count-1_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 349456,
+        "filename": "GSM5613752_2019-08-29-count-2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613752/suppl/GSM5613752_2019-08-29-count-2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1417,
+        "filename": "GSM5613752_2019-08-29-count-2_feature_reference.csv.gz",
+        "sha256": "a9a688ebaf56da713f767970fceb9829207ed0adc1edbea7cdf7aec1bae687f4",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613752/suppl/GSM5613752_2019-08-29-count-2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334309,
+        "filename": "GSM5613752_2019-08-29-count-2_features.tsv.gz",
+        "sha256": "9db456711e4d7f4d78a91d77529826e188bf651a2ac85fa4be3d1d88962abfdd",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613752/suppl/GSM5613752_2019-08-29-count-2_features.tsv.gz"
+      },
+      "gsm": "GSM5613752",
+      "metadata": {
+        "bytes": 294372,
+        "filename": "GSM5613752_2019-08-29-count-2_metadata.csv.gz",
+        "sha256": "46ee690c6d1dfba5fbfc5eb2c22a9d280cb858ba5999abe4fbb5c9aed9396c7b",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613752/suppl/GSM5613752_2019-08-29-count-2_metadata.csv.gz"
+      },
+      "pool_id": "2019-08-29-count-2",
+      "rna_assay": {
+        "bytes": 115548499,
+        "filename": "GSM5613752_2019-08-29-count-2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613752/suppl/GSM5613752_2019-08-29-count-2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 11235,
+        "filename": "GSM5613753_2019-09-03-count-1_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613753/suppl/GSM5613753_2019-09-03-count-1_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1402,
+        "filename": "GSM5613753_2019-09-03-count-1_feature_reference.csv.gz",
+        "sha256": "1913741820c44fd40dbeb0d02755e79cd294ebdf03dcd49667f5a88c76bd71df",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613753/suppl/GSM5613753_2019-09-03-count-1_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334309,
+        "filename": "GSM5613753_2019-09-03-count-1_features.tsv.gz",
+        "sha256": "833521b2a844b458a04be29b863e6ab05c8f4105ad680b900ab31efe44bf4a2a",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613753/suppl/GSM5613753_2019-09-03-count-1_features.tsv.gz"
+      },
+      "gsm": "GSM5613753",
+      "metadata": {
+        "bytes": 6887,
+        "filename": "GSM5613753_2019-09-03-count-1_metadata.csv.gz",
+        "sha256": "4f32839ca6c6a26b047e53452ef01da56cdbb36a42b676aa3c307b6e46d1d884",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613753/suppl/GSM5613753_2019-09-03-count-1_metadata.csv.gz"
+      },
+      "pool_id": "2019-09-03-count-1",
+      "rna_assay": {
+        "bytes": 2594518,
+        "filename": "GSM5613753_2019-09-03-count-1_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613753/suppl/GSM5613753_2019-09-03-count-1_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 10865,
+        "filename": "GSM5613754_2019-09-03-count-2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613754/suppl/GSM5613754_2019-09-03-count-2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1402,
+        "filename": "GSM5613754_2019-09-03-count-2_feature_reference.csv.gz",
+        "sha256": "950dff5ffd3c3de0133fd618ca94367ee972e1bf355b11698be9625d0fe58b95",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613754/suppl/GSM5613754_2019-09-03-count-2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334309,
+        "filename": "GSM5613754_2019-09-03-count-2_features.tsv.gz",
+        "sha256": "72893758bed8ecf930d319f922be28f4e91b67673d5cc9cba71f2f2baed855d4",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613754/suppl/GSM5613754_2019-09-03-count-2_features.tsv.gz"
+      },
+      "gsm": "GSM5613754",
+      "metadata": {
+        "bytes": 6923,
+        "filename": "GSM5613754_2019-09-03-count-2_metadata.csv.gz",
+        "sha256": "46131f5faf020cf225a08988c7566aa5a9b881267c4dd07a8afa28c6e11eb5fe",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613754/suppl/GSM5613754_2019-09-03-count-2_metadata.csv.gz"
+      },
+      "pool_id": "2019-09-03-count-2",
+      "rna_assay": {
+        "bytes": 2442308,
+        "filename": "GSM5613754_2019-09-03-count-2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613754/suppl/GSM5613754_2019-09-03-count-2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 11571,
+        "filename": "GSM5613755_2019-09-03-count-3_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613755/suppl/GSM5613755_2019-09-03-count-3_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1402,
+        "filename": "GSM5613755_2019-09-03-count-3_feature_reference.csv.gz",
+        "sha256": "0002b49815bb0a858ca6fc26229cd81120d316becfba1853edd97b5e846dc7a6",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613755/suppl/GSM5613755_2019-09-03-count-3_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334309,
+        "filename": "GSM5613755_2019-09-03-count-3_features.tsv.gz",
+        "sha256": "cbe234f3f9b10461b43bc36c87af91ef3d60072b33991e585249b1210ac92653",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613755/suppl/GSM5613755_2019-09-03-count-3_features.tsv.gz"
+      },
+      "gsm": "GSM5613755",
+      "metadata": {
+        "bytes": 6997,
+        "filename": "GSM5613755_2019-09-03-count-3_metadata.csv.gz",
+        "sha256": "48153ad50ce85c93cf3d1ee344b2909b6f344a1ae45c6d52ce8df0cb6987489e",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613755/suppl/GSM5613755_2019-09-03-count-3_metadata.csv.gz"
+      },
+      "pool_id": "2019-09-03-count-3",
+      "rna_assay": {
+        "bytes": 2432159,
+        "filename": "GSM5613755_2019-09-03-count-3_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613755/suppl/GSM5613755_2019-09-03-count-3_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 399050,
+        "filename": "GSM5613756_2019-10-25-count-5_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613756/suppl/GSM5613756_2019-10-25-count-5_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1662,
+        "filename": "GSM5613756_2019-10-25-count-5_feature_reference.csv.gz",
+        "sha256": "c31c4cdefe4607abbb0951024363a10ab12b30d8084c2896a1d4498d6b8fb276",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613756/suppl/GSM5613756_2019-10-25-count-5_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334569,
+        "filename": "GSM5613756_2019-10-25-count-5_features.tsv.gz",
+        "sha256": "64507822647f350159044de6f8a37ec95073f532393900702c91480fbc9b191e",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613756/suppl/GSM5613756_2019-10-25-count-5_features.tsv.gz"
+      },
+      "gsm": "GSM5613756",
+      "metadata": {
+        "bytes": 182338,
+        "filename": "GSM5613756_2019-10-25-count-5_metadata.csv.gz",
+        "sha256": "ab0ae80298694a8d7155d8b64968ecd6a1e99c8ab5c0eb9e854a632557f5f9d4",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613756/suppl/GSM5613756_2019-10-25-count-5_metadata.csv.gz"
+      },
+      "pool_id": "2019-10-25-count-5",
+      "rna_assay": {
+        "bytes": 74490580,
+        "filename": "GSM5613756_2019-10-25-count-5_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613756/suppl/GSM5613756_2019-10-25-count-5_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 260970,
+        "filename": "GSM5613757_2019-11-04-count-1_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613757/suppl/GSM5613757_2019-11-04-count-1_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1515,
+        "filename": "GSM5613757_2019-11-04-count-1_feature_reference.csv.gz",
+        "sha256": "dba9649685b5275efe3634d6aa880c201542b2dd5debe6dfbcc505d5cc0d5305",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613757/suppl/GSM5613757_2019-11-04-count-1_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334395,
+        "filename": "GSM5613757_2019-11-04-count-1_features.tsv.gz",
+        "sha256": "57298e44195565fb86d588d5afbfd477c9ee47672c2d3a83d75898e2dbb20ea7",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613757/suppl/GSM5613757_2019-11-04-count-1_features.tsv.gz"
+      },
+      "gsm": "GSM5613757",
+      "metadata": {
+        "bytes": 160447,
+        "filename": "GSM5613757_2019-11-04-count-1_metadata.csv.gz",
+        "sha256": "050893dfd2f7c739015cf276b25aed4f5cad64c6a0854c5c9024447edc69241e",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613757/suppl/GSM5613757_2019-11-04-count-1_metadata.csv.gz"
+      },
+      "pool_id": "2019-11-04-count-1",
+      "rna_assay": {
+        "bytes": 60303343,
+        "filename": "GSM5613757_2019-11-04-count-1_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613757/suppl/GSM5613757_2019-11-04-count-1_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 200375,
+        "filename": "GSM5613758_2019-11-04-count-2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613758/suppl/GSM5613758_2019-11-04-count-2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1515,
+        "filename": "GSM5613758_2019-11-04-count-2_feature_reference.csv.gz",
+        "sha256": "eee2c651a2127b16b60c4a2bd1d93043495b453213b8be9cd7b6d479c56b6756",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613758/suppl/GSM5613758_2019-11-04-count-2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334395,
+        "filename": "GSM5613758_2019-11-04-count-2_features.tsv.gz",
+        "sha256": "cd2562229c36768c304f836a5128279e6788ad1155d36d74c3f9072ca0b6783a",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613758/suppl/GSM5613758_2019-11-04-count-2_features.tsv.gz"
+      },
+      "gsm": "GSM5613758",
+      "metadata": {
+        "bytes": 116797,
+        "filename": "GSM5613758_2019-11-04-count-2_metadata.csv.gz",
+        "sha256": "9280d7093e01374009d484527a1610e4d43b98fbb4b4dc459fa2a9359cbd5dde",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613758/suppl/GSM5613758_2019-11-04-count-2_metadata.csv.gz"
+      },
+      "pool_id": "2019-11-04-count-2",
+      "rna_assay": {
+        "bytes": 44189021,
+        "filename": "GSM5613758_2019-11-04-count-2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613758/suppl/GSM5613758_2019-11-04-count-2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 240100,
+        "filename": "GSM5613759_2019-11-04-count-3_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613759/suppl/GSM5613759_2019-11-04-count-3_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1515,
+        "filename": "GSM5613759_2019-11-04-count-3_feature_reference.csv.gz",
+        "sha256": "471f6f087f3255677cc4a121dc57ca5ddcfa0fde7ecbd4cde296ab18f914d3c0",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613759/suppl/GSM5613759_2019-11-04-count-3_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334395,
+        "filename": "GSM5613759_2019-11-04-count-3_features.tsv.gz",
+        "sha256": "fbd1fecbaa7b83462298bc29c1cb0b4f62e8fd40ee9400d60c06552f2c2008ee",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613759/suppl/GSM5613759_2019-11-04-count-3_features.tsv.gz"
+      },
+      "gsm": "GSM5613759",
+      "metadata": {
+        "bytes": 134717,
+        "filename": "GSM5613759_2019-11-04-count-3_metadata.csv.gz",
+        "sha256": "d5a3d39f58f1cee01b4368a88d9d5696d22687346e81541fd26cfcb2beccf232",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613759/suppl/GSM5613759_2019-11-04-count-3_metadata.csv.gz"
+      },
+      "pool_id": "2019-11-04-count-3",
+      "rna_assay": {
+        "bytes": 38091653,
+        "filename": "GSM5613759_2019-11-04-count-3_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613759/suppl/GSM5613759_2019-11-04-count-3_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 492248,
+        "filename": "GSM5613760_2019-11-19-count-1_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613760/suppl/GSM5613760_2019-11-19-count-1_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1653,
+        "filename": "GSM5613760_2019-11-19-count-1_feature_reference.csv.gz",
+        "sha256": "1429093dfdeb1f2c823f77cea98792291755cf3741f82776d452257a6fedcc9c",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613760/suppl/GSM5613760_2019-11-19-count-1_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334557,
+        "filename": "GSM5613760_2019-11-19-count-1_features.tsv.gz",
+        "sha256": "2844112424632d62b41e5a691324a9539214f5148c811dde04b27a1895ee9b6e",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613760/suppl/GSM5613760_2019-11-19-count-1_features.tsv.gz"
+      },
+      "gsm": "GSM5613760",
+      "metadata": {
+        "bytes": 280363,
+        "filename": "GSM5613760_2019-11-19-count-1_metadata.csv.gz",
+        "sha256": "50c7a77688f5cde9643d3a43a2cee8ef01fc238e5e9a5cf0de6ef9891313f57f",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613760/suppl/GSM5613760_2019-11-19-count-1_metadata.csv.gz"
+      },
+      "pool_id": "2019-11-19-count-1",
+      "rna_assay": {
+        "bytes": 161369175,
+        "filename": "GSM5613760_2019-11-19-count-1_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613760/suppl/GSM5613760_2019-11-19-count-1_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 495321,
+        "filename": "GSM5613761_2019-11-19-count-2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613761/suppl/GSM5613761_2019-11-19-count-2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1653,
+        "filename": "GSM5613761_2019-11-19-count-2_feature_reference.csv.gz",
+        "sha256": "697c3943bd1b2ee73b6f14b76f62b8cd9f2aa92c981004545d512ce017224f98",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613761/suppl/GSM5613761_2019-11-19-count-2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334557,
+        "filename": "GSM5613761_2019-11-19-count-2_features.tsv.gz",
+        "sha256": "fef2811c3ae681197709338878a68f49a0866db01ca1c6455bdee69d301525e7",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613761/suppl/GSM5613761_2019-11-19-count-2_features.tsv.gz"
+      },
+      "gsm": "GSM5613761",
+      "metadata": {
+        "bytes": 284359,
+        "filename": "GSM5613761_2019-11-19-count-2_metadata.csv.gz",
+        "sha256": "2f0c69d10312d331e341a816db4031e2249a4b9c3a7777de14666cf7f5160883",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613761/suppl/GSM5613761_2019-11-19-count-2_metadata.csv.gz"
+      },
+      "pool_id": "2019-11-19-count-2",
+      "rna_assay": {
+        "bytes": 180057704,
+        "filename": "GSM5613761_2019-11-19-count-2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613761/suppl/GSM5613761_2019-11-19-count-2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 585499,
+        "filename": "GSM5613762_2019-11-26-count-1_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613762/suppl/GSM5613762_2019-11-26-count-1_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1624,
+        "filename": "GSM5613762_2019-11-26-count-1_feature_reference.csv.gz",
+        "sha256": "c559190466e18434cce9e9e7d3061de6d884f362b76ff078316bd79c76f480a9",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613762/suppl/GSM5613762_2019-11-26-count-1_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334550,
+        "filename": "GSM5613762_2019-11-26-count-1_features.tsv.gz",
+        "sha256": "82d1ba2370c3569681ee5b0ba296ed3bd466a66e0cc47d67487dd8eef9de7ba9",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613762/suppl/GSM5613762_2019-11-26-count-1_features.tsv.gz"
+      },
+      "gsm": "GSM5613762",
+      "metadata": {
+        "bytes": 344406,
+        "filename": "GSM5613762_2019-11-26-count-1_metadata.csv.gz",
+        "sha256": "059c71c50c83cf768030d440d6fc6b7ae92239fa35a5a2e90bf6d20de7a63918",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613762/suppl/GSM5613762_2019-11-26-count-1_metadata.csv.gz"
+      },
+      "pool_id": "2019-11-26-count-1",
+      "rna_assay": {
+        "bytes": 172404560,
+        "filename": "GSM5613762_2019-11-26-count-1_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613762/suppl/GSM5613762_2019-11-26-count-1_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 538874,
+        "filename": "GSM5613763_2019-11-26-count-2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613763/suppl/GSM5613763_2019-11-26-count-2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1624,
+        "filename": "GSM5613763_2019-11-26-count-2_feature_reference.csv.gz",
+        "sha256": "6218ad9a85978dd751e4590396bd10086b135a5eaa9a726c2d1914f30cea5569",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613763/suppl/GSM5613763_2019-11-26-count-2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334550,
+        "filename": "GSM5613763_2019-11-26-count-2_features.tsv.gz",
+        "sha256": "a14ffb4161e9e8bd3d3996a1feb5daedb3486b4610f5224dc44bb2ed487fd860",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613763/suppl/GSM5613763_2019-11-26-count-2_features.tsv.gz"
+      },
+      "gsm": "GSM5613763",
+      "metadata": {
+        "bytes": 323113,
+        "filename": "GSM5613763_2019-11-26-count-2_metadata.csv.gz",
+        "sha256": "cf9d8accea979b8760e267870cfffb6720f607cfa2fd5cd297fad517663615d1",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613763/suppl/GSM5613763_2019-11-26-count-2_metadata.csv.gz"
+      },
+      "pool_id": "2019-11-26-count-2",
+      "rna_assay": {
+        "bytes": 120574604,
+        "filename": "GSM5613763_2019-11-26-count-2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613763/suppl/GSM5613763_2019-11-26-count-2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 516952,
+        "filename": "GSM5613764_2020-01-03-count-1_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613764/suppl/GSM5613764_2020-01-03-count-1_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1213,
+        "filename": "GSM5613764_2020-01-03-count-1_feature_reference.csv.gz",
+        "sha256": "5dcb2d0c5a5a5e7d650bf2561e655c91e2b005cea9bcea0569a8ee38d7f6e8eb",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613764/suppl/GSM5613764_2020-01-03-count-1_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334129,
+        "filename": "GSM5613764_2020-01-03-count-1_features.tsv.gz",
+        "sha256": "c6d8922f366da571decf08d41e815a529fca5b21e79ca090de0f66bb792b9a1d",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613764/suppl/GSM5613764_2020-01-03-count-1_features.tsv.gz"
+      },
+      "gsm": "GSM5613764",
+      "metadata": {
+        "bytes": 271993,
+        "filename": "GSM5613764_2020-01-03-count-1_metadata.csv.gz",
+        "sha256": "ab735ca1823cecd051896ff925cfee358a27bdca34586dbf58c38991a7e99ae8",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613764/suppl/GSM5613764_2020-01-03-count-1_metadata.csv.gz"
+      },
+      "pool_id": "2020-01-03-count-1",
+      "rna_assay": {
+        "bytes": 157412767,
+        "filename": "GSM5613764_2020-01-03-count-1_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613764/suppl/GSM5613764_2020-01-03-count-1_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 518787,
+        "filename": "GSM5613765_2020-01-03-count-2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613765/suppl/GSM5613765_2020-01-03-count-2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1213,
+        "filename": "GSM5613765_2020-01-03-count-2_feature_reference.csv.gz",
+        "sha256": "3343ec784cb8299fb0d25adcb821d65bb89a22d96b77c43a022b06d251e77de9",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613765/suppl/GSM5613765_2020-01-03-count-2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334129,
+        "filename": "GSM5613765_2020-01-03-count-2_features.tsv.gz",
+        "sha256": "0983c6934bb773790c8cfe1d000433b5c2fc21f098b898f79d2d7765e7c0888d",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613765/suppl/GSM5613765_2020-01-03-count-2_features.tsv.gz"
+      },
+      "gsm": "GSM5613765",
+      "metadata": {
+        "bytes": 291041,
+        "filename": "GSM5613765_2020-01-03-count-2_metadata.csv.gz",
+        "sha256": "defb00ad9ed2500151e68dc7d9e1984e5672e714966cc5bd532b17c40eb48ed9",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613765/suppl/GSM5613765_2020-01-03-count-2_metadata.csv.gz"
+      },
+      "pool_id": "2020-01-03-count-2",
+      "rna_assay": {
+        "bytes": 153666780,
+        "filename": "GSM5613765_2020-01-03-count-2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613765/suppl/GSM5613765_2020-01-03-count-2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 123689,
+        "filename": "GSM5613766_2020-03-18-AML0048-c1_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613766/suppl/GSM5613766_2020-03-18-AML0048-c1_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1286,
+        "filename": "GSM5613766_2020-03-18-AML0048-c1_feature_reference.csv.gz",
+        "sha256": "18f7fc2050e6013807033806c683a1e60fda76ef7859d7776b8a9f82505d8220",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613766/suppl/GSM5613766_2020-03-18-AML0048-c1_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334255,
+        "filename": "GSM5613766_2020-03-18-AML0048-c1_features.tsv.gz",
+        "sha256": "93d4d6a9230757c80d52d4d3a5d29c6d7b975b787ea259a567824f2a453b4233",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613766/suppl/GSM5613766_2020-03-18-AML0048-c1_features.tsv.gz"
+      },
+      "gsm": "GSM5613766",
+      "metadata": {
+        "bytes": 71180,
+        "filename": "GSM5613766_2020-03-18-AML0048-c1_metadata.csv.gz",
+        "sha256": "6fc8a796c4490643e760bfb1b0e5740d0e94dc0cbaed189748e9830841a73913",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613766/suppl/GSM5613766_2020-03-18-AML0048-c1_metadata.csv.gz"
+      },
+      "pool_id": "2020-03-18-AML0048-c1",
+      "rna_assay": {
+        "bytes": 25146396,
+        "filename": "GSM5613766_2020-03-18-AML0048-c1_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613766/suppl/GSM5613766_2020-03-18-AML0048-c1_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 131066,
+        "filename": "GSM5613767_2020-03-18-AML0048-c2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613767/suppl/GSM5613767_2020-03-18-AML0048-c2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1286,
+        "filename": "GSM5613767_2020-03-18-AML0048-c2_feature_reference.csv.gz",
+        "sha256": "8d703c8ffa7f38f6708fc0bc0a76dfd3e54acf625d8f53d5c7e92ada10f800d5",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613767/suppl/GSM5613767_2020-03-18-AML0048-c2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334255,
+        "filename": "GSM5613767_2020-03-18-AML0048-c2_features.tsv.gz",
+        "sha256": "00b9f1f7cbdb5d2da7662c3818052505c17f9fc60ba653b3d1d041affb53ad52",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613767/suppl/GSM5613767_2020-03-18-AML0048-c2_features.tsv.gz"
+      },
+      "gsm": "GSM5613767",
+      "metadata": {
+        "bytes": 74820,
+        "filename": "GSM5613767_2020-03-18-AML0048-c2_metadata.csv.gz",
+        "sha256": "75698e04ff6fe4e3547999b1447cdf41e512f907ffcf94558c87f3a10980ae9f",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613767/suppl/GSM5613767_2020-03-18-AML0048-c2_metadata.csv.gz"
+      },
+      "pool_id": "2020-03-18-AML0048-c2",
+      "rna_assay": {
+        "bytes": 26285741,
+        "filename": "GSM5613767_2020-03-18-AML0048-c2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613767/suppl/GSM5613767_2020-03-18-AML0048-c2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 376697,
+        "filename": "GSM5613769_2020-03-18-count-1_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613769/suppl/GSM5613769_2020-03-18-count-1_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1325,
+        "filename": "GSM5613769_2020-03-18-count-1_feature_reference.csv.gz",
+        "sha256": "77234a438d0164cdaa126196ecafc30e263197adb907c0d3c289dd47221f9356",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613769/suppl/GSM5613769_2020-03-18-count-1_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334300,
+        "filename": "GSM5613769_2020-03-18-count-1_features.tsv.gz",
+        "sha256": "7b728c1320e0c0c23f6e307140fae0e2e1fa6d00012297d3f670840582d2ad77",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613769/suppl/GSM5613769_2020-03-18-count-1_features.tsv.gz"
+      },
+      "gsm": "GSM5613769",
+      "metadata": {
+        "bytes": 223568,
+        "filename": "GSM5613769_2020-03-18-count-1_metadata.csv.gz",
+        "sha256": "093a983cfe43bae57aba4b2b0b2cd48b19b8318a06d29f9df0215d79a9ff8fe3",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613769/suppl/GSM5613769_2020-03-18-count-1_metadata.csv.gz"
+      },
+      "pool_id": "2020-03-18-count-1",
+      "rna_assay": {
+        "bytes": 73588931,
+        "filename": "GSM5613769_2020-03-18-count-1_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613769/suppl/GSM5613769_2020-03-18-count-1_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 372766,
+        "filename": "GSM5613770_2020-03-18-count-2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613770/suppl/GSM5613770_2020-03-18-count-2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1325,
+        "filename": "GSM5613770_2020-03-18-count-2_feature_reference.csv.gz",
+        "sha256": "de9a8902f3f05a07010d677d3cb0048a1f59c5d4ffb4d16f7caa5de9610144ba",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613770/suppl/GSM5613770_2020-03-18-count-2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334300,
+        "filename": "GSM5613770_2020-03-18-count-2_features.tsv.gz",
+        "sha256": "0cc47dd3b85eab4fee0b12c87f1c899bff959fbf4a6f7835517642fad7315082",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613770/suppl/GSM5613770_2020-03-18-count-2_features.tsv.gz"
+      },
+      "gsm": "GSM5613770",
+      "metadata": {
+        "bytes": 212627,
+        "filename": "GSM5613770_2020-03-18-count-2_metadata.csv.gz",
+        "sha256": "614424529e415a6a546cad2c049282604e2945541cee9d541bd2eff488b03e83",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613770/suppl/GSM5613770_2020-03-18-count-2_metadata.csv.gz"
+      },
+      "pool_id": "2020-03-18-count-2",
+      "rna_assay": {
+        "bytes": 67958512,
+        "filename": "GSM5613770_2020-03-18-count-2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613770/suppl/GSM5613770_2020-03-18-count-2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 341237,
+        "filename": "GSM5613771_2020-03-18-count-3_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613771/suppl/GSM5613771_2020-03-18-count-3_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 1325,
+        "filename": "GSM5613771_2020-03-18-count-3_feature_reference.csv.gz",
+        "sha256": "2fa8cdd9b273cda9f91e2161720b0a7d95ce52d3795e0a45c63675f01b02bdd2",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613771/suppl/GSM5613771_2020-03-18-count-3_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 334300,
+        "filename": "GSM5613771_2020-03-18-count-3_features.tsv.gz",
+        "sha256": "d7e75e36715d311a126a453e27efb5d2a25f6d09bb93ff8e1a7449870c31ad6f",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613771/suppl/GSM5613771_2020-03-18-count-3_features.tsv.gz"
+      },
+      "gsm": "GSM5613771",
+      "metadata": {
+        "bytes": 202680,
+        "filename": "GSM5613771_2020-03-18-count-3_metadata.csv.gz",
+        "sha256": "8408bf133c79508db5ae33fb1e66caad8abde2aa788da0fabcb04e57f5eb5b62",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613771/suppl/GSM5613771_2020-03-18-count-3_metadata.csv.gz"
+      },
+      "pool_id": "2020-03-18-count-3",
+      "rna_assay": {
+        "bytes": 75241181,
+        "filename": "GSM5613771_2020-03-18-count-3_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613771/suppl/GSM5613771_2020-03-18-count-3_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 111405,
+        "filename": "GSM5613772_2020-07-29-AML2123-c1_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613772/suppl/GSM5613772_2020-07-29-AML2123-c1_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5610,
+        "filename": "GSM5613772_2020-07-29-AML2123-c1_feature_reference.csv.gz",
+        "sha256": "32b2c7a89114b5c45fde7b84e0747e07196c8f26020efe64a2bb86ab3f8bd045",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613772/suppl/GSM5613772_2020-07-29-AML2123-c1_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337697,
+        "filename": "GSM5613772_2020-07-29-AML2123-c1_features.tsv.gz",
+        "sha256": "5f6a1009cae9250d41fc12712ddcdad6116d0d9ce3dbe5db0ba5baa4ec1d2ce0",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613772/suppl/GSM5613772_2020-07-29-AML2123-c1_features.tsv.gz"
+      },
+      "gsm": "GSM5613772",
+      "metadata": {
+        "bytes": 24090,
+        "filename": "GSM5613772_2020-07-29-AML2123-c1_metadata.csv.gz",
+        "sha256": "ae3945e4f84a44b5caf22e34c17621460f318b4f09e62425cb8532af63615a1b",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613772/suppl/GSM5613772_2020-07-29-AML2123-c1_metadata.csv.gz"
+      },
+      "pool_id": "2020-07-29-AML2123-c1",
+      "rna_assay": {
+        "bytes": 12488227,
+        "filename": "GSM5613772_2020-07-29-AML2123-c1_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613772/suppl/GSM5613772_2020-07-29-AML2123-c1_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 114978,
+        "filename": "GSM5613773_2020-07-29-AML2123-c2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613773/suppl/GSM5613773_2020-07-29-AML2123-c2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5610,
+        "filename": "GSM5613773_2020-07-29-AML2123-c2_feature_reference.csv.gz",
+        "sha256": "a522514a8a6932512f604f309e072ccbde84d43b585e3c8ad964d47e8e157501",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613773/suppl/GSM5613773_2020-07-29-AML2123-c2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337697,
+        "filename": "GSM5613773_2020-07-29-AML2123-c2_features.tsv.gz",
+        "sha256": "04d62295d3c9d7f62d84859300c58053c124fd4234bed1b829412c56182b7c50",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613773/suppl/GSM5613773_2020-07-29-AML2123-c2_features.tsv.gz"
+      },
+      "gsm": "GSM5613773",
+      "metadata": {
+        "bytes": 24469,
+        "filename": "GSM5613773_2020-07-29-AML2123-c2_metadata.csv.gz",
+        "sha256": "bc1c0e087b06c9302a2e1c2b0f08d8b12715325070018f2c0e6a86d3a8003cc4",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613773/suppl/GSM5613773_2020-07-29-AML2123-c2_metadata.csv.gz"
+      },
+      "pool_id": "2020-07-29-AML2123-c2",
+      "rna_assay": {
+        "bytes": 14483874,
+        "filename": "GSM5613773_2020-07-29-AML2123-c2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613773/suppl/GSM5613773_2020-07-29-AML2123-c2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 247160,
+        "filename": "GSM5613774_2020-08-26-Control4003-c1_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613774/suppl/GSM5613774_2020-08-26-Control4003-c1_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5596,
+        "filename": "GSM5613774_2020-08-26-Control4003-c1_feature_reference.csv.gz",
+        "sha256": "2be4cb0765ca317e0bc8ccbe9b1a49d5d844b85de3f61a12ac7821abd1929a5e",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613774/suppl/GSM5613774_2020-08-26-Control4003-c1_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337692,
+        "filename": "GSM5613774_2020-08-26-Control4003-c1_features.tsv.gz",
+        "sha256": "bb7dc363190401386a8d20073510a7228235c95dbb42ad395b773fd55698f24c",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613774/suppl/GSM5613774_2020-08-26-Control4003-c1_features.tsv.gz"
+      },
+      "gsm": "GSM5613774",
+      "metadata": {
+        "bytes": 43505,
+        "filename": "GSM5613774_2020-08-26-Control4003-c1_metadata.csv.gz",
+        "sha256": "f577721b80fea0f628eb539bd1092573bae130329300d94531ba46193b6daf5e",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613774/suppl/GSM5613774_2020-08-26-Control4003-c1_metadata.csv.gz"
+      },
+      "pool_id": "2020-08-26-Control4003-c1",
+      "rna_assay": {
+        "bytes": 15102031,
+        "filename": "GSM5613774_2020-08-26-Control4003-c1_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613774/suppl/GSM5613774_2020-08-26-Control4003-c1_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 579628,
+        "filename": "GSM5613775_2020-08-26-Control4003-c2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613775/suppl/GSM5613775_2020-08-26-Control4003-c2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5596,
+        "filename": "GSM5613775_2020-08-26-Control4003-c2_feature_reference.csv.gz",
+        "sha256": "003b64d47861e56cccb088089c6b1e77e86899b9c4d204b18f70b666a076c667",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613775/suppl/GSM5613775_2020-08-26-Control4003-c2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337692,
+        "filename": "GSM5613775_2020-08-26-Control4003-c2_features.tsv.gz",
+        "sha256": "5907eba4acdea847bcedf622f3a3f087e45d715bbcdc3b6a842a4ece78806870",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613775/suppl/GSM5613775_2020-08-26-Control4003-c2_features.tsv.gz"
+      },
+      "gsm": "GSM5613775",
+      "metadata": {
+        "bytes": 100784,
+        "filename": "GSM5613775_2020-08-26-Control4003-c2_metadata.csv.gz",
+        "sha256": "0388976f765015c87b1d21d54e55638f10f68ddae3d8b432b20b80d29056357c",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613775/suppl/GSM5613775_2020-08-26-Control4003-c2_metadata.csv.gz"
+      },
+      "pool_id": "2020-08-26-Control4003-c2",
+      "rna_assay": {
+        "bytes": 37366214,
+        "filename": "GSM5613775_2020-08-26-Control4003-c2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613775/suppl/GSM5613775_2020-08-26-Control4003-c2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 546352,
+        "filename": "GSM5613776_2020-08-26-Control4003-c3_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613776/suppl/GSM5613776_2020-08-26-Control4003-c3_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5596,
+        "filename": "GSM5613776_2020-08-26-Control4003-c3_feature_reference.csv.gz",
+        "sha256": "2f68b834db4223ed62b3a6a5b09120407513a306577fe303264590e677720f15",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613776/suppl/GSM5613776_2020-08-26-Control4003-c3_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337692,
+        "filename": "GSM5613776_2020-08-26-Control4003-c3_features.tsv.gz",
+        "sha256": "4a882917aaeec058c7d0e5478c37f69a94a789affabeec400c033fb49667088a",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613776/suppl/GSM5613776_2020-08-26-Control4003-c3_features.tsv.gz"
+      },
+      "gsm": "GSM5613776",
+      "metadata": {
+        "bytes": 90839,
+        "filename": "GSM5613776_2020-08-26-Control4003-c3_metadata.csv.gz",
+        "sha256": "97bd3e76a1e348d6b4875960d29d59d6ecd479c65ce9103d9f118d487343c9a3",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613776/suppl/GSM5613776_2020-08-26-Control4003-c3_metadata.csv.gz"
+      },
+      "pool_id": "2020-08-26-Control4003-c3",
+      "rna_assay": {
+        "bytes": 32167971,
+        "filename": "GSM5613776_2020-08-26-Control4003-c3_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613776/suppl/GSM5613776_2020-08-26-Control4003-c3_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 474028,
+        "filename": "GSM5613777_2020-09-11-AML4340_AML1371-c1_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613777/suppl/GSM5613777_2020-09-11-AML4340_AML1371-c1_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5586,
+        "filename": "GSM5613777_2020-09-11-AML4340_AML1371-c1_feature_reference.csv.gz",
+        "sha256": "78696558acc9d6157c2f15d5219713c31d11a09d3f9bbe5c2dcfc9615bc5d4a5",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613777/suppl/GSM5613777_2020-09-11-AML4340_AML1371-c1_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337660,
+        "filename": "GSM5613777_2020-09-11-AML4340_AML1371-c1_features.tsv.gz",
+        "sha256": "e7e9ac2361b7046d02dc3597f277ee5c7252e33bdcdd5ff7ca1b42a6086c0700",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613777/suppl/GSM5613777_2020-09-11-AML4340_AML1371-c1_features.tsv.gz"
+      },
+      "gsm": "GSM5613777",
+      "metadata": {
+        "bytes": 107078,
+        "filename": "GSM5613777_2020-09-11-AML4340_AML1371-c1_metadata.csv.gz",
+        "sha256": "d78bbcf38f4b3e7a9ce6570246c2021a5097b8ad8ea70cbd2ca3efe7bba8e7e9",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613777/suppl/GSM5613777_2020-09-11-AML4340_AML1371-c1_metadata.csv.gz"
+      },
+      "pool_id": "2020-09-11-AML4340_AML1371-c1",
+      "rna_assay": {
+        "bytes": 56759055,
+        "filename": "GSM5613777_2020-09-11-AML4340_AML1371-c1_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613777/suppl/GSM5613777_2020-09-11-AML4340_AML1371-c1_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 462654,
+        "filename": "GSM5613778_2020-09-11-AML4340_AML1371-c2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613778/suppl/GSM5613778_2020-09-11-AML4340_AML1371-c2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5586,
+        "filename": "GSM5613778_2020-09-11-AML4340_AML1371-c2_feature_reference.csv.gz",
+        "sha256": "75a177dc4fa25418f94f5b3332b70e4301202b5c1d1d0dd613e12f2ea12d1497",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613778/suppl/GSM5613778_2020-09-11-AML4340_AML1371-c2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337660,
+        "filename": "GSM5613778_2020-09-11-AML4340_AML1371-c2_features.tsv.gz",
+        "sha256": "f1ebd57efe9fc7a248cdc4831d0fc4f5568d95cde8abf239dbaf9e40f30ef2bc",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613778/suppl/GSM5613778_2020-09-11-AML4340_AML1371-c2_features.tsv.gz"
+      },
+      "gsm": "GSM5613778",
+      "metadata": {
+        "bytes": 104268,
+        "filename": "GSM5613778_2020-09-11-AML4340_AML1371-c2_metadata.csv.gz",
+        "sha256": "f3a3cb611a91b9be2f5f8e1dd16fe835b9eda78cd9d22c720e04ae283001e4ee",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613778/suppl/GSM5613778_2020-09-11-AML4340_AML1371-c2_metadata.csv.gz"
+      },
+      "pool_id": "2020-09-11-AML4340_AML1371-c2",
+      "rna_assay": {
+        "bytes": 49499345,
+        "filename": "GSM5613778_2020-09-11-AML4340_AML1371-c2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613778/suppl/GSM5613778_2020-09-11-AML4340_AML1371-c2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 865276,
+        "filename": "GSM5613779_2020-09-15-AML0024_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613779/suppl/GSM5613779_2020-09-15-AML0024_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5519,
+        "filename": "GSM5613779_2020-09-15-AML0024_feature_reference.csv.gz",
+        "sha256": "9b7cd57304edd87a8d0fc9aa45e833e8423cfa17f55f17e2263ee8431b53e5b1",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613779/suppl/GSM5613779_2020-09-15-AML0024_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337634,
+        "filename": "GSM5613779_2020-09-15-AML0024_features.tsv.gz",
+        "sha256": "a54a0af002c6ee0b2fae74802f14f7c5834ea183617662ad68027b765a05df50",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613779/suppl/GSM5613779_2020-09-15-AML0024_features.tsv.gz"
+      },
+      "gsm": "GSM5613779",
+      "metadata": {
+        "bytes": 192840,
+        "filename": "GSM5613779_2020-09-15-AML0024_metadata.csv.gz",
+        "sha256": "ddb6ca082109b9bc99a2a26e0150bac7f932b45400e4645bed328d067b5f6105",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613779/suppl/GSM5613779_2020-09-15-AML0024_metadata.csv.gz"
+      },
+      "pool_id": "2020-09-15-AML0024",
+      "rna_assay": {
+        "bytes": 129073818,
+        "filename": "GSM5613779_2020-09-15-AML0024_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613779/suppl/GSM5613779_2020-09-15-AML0024_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 399063,
+        "filename": "GSM5613780_2020-10-06-AML4897_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613780/suppl/GSM5613780_2020-10-06-AML4897_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5555,
+        "filename": "GSM5613780_2020-10-06-AML4897_feature_reference.csv.gz",
+        "sha256": "8a5fd45f953b2f186857d21b6f8a5c03b1b95e05358ecf1cd320c1e08d82b2d2",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613780/suppl/GSM5613780_2020-10-06-AML4897_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337650,
+        "filename": "GSM5613780_2020-10-06-AML4897_features.tsv.gz",
+        "sha256": "17e090e8ea9c7266fb8f7d9da6ae6ccedebe4fb2b51ba38d97a27c28758785fb",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613780/suppl/GSM5613780_2020-10-06-AML4897_features.tsv.gz"
+      },
+      "gsm": "GSM5613780",
+      "metadata": {
+        "bytes": 96962,
+        "filename": "GSM5613780_2020-10-06-AML4897_metadata.csv.gz",
+        "sha256": "366b3ade99217866e5370d0ae6f1c890e1e1f97cea8d502850d2bfb7b3c93139",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613780/suppl/GSM5613780_2020-10-06-AML4897_metadata.csv.gz"
+      },
+      "pool_id": "2020-10-06-AML4897",
+      "rna_assay": {
+        "bytes": 45393813,
+        "filename": "GSM5613780_2020-10-06-AML4897_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613780/suppl/GSM5613780_2020-10-06-AML4897_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 809238,
+        "filename": "GSM5613781_2020-10-06-count2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613781/suppl/GSM5613781_2020-10-06-count2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5557,
+        "filename": "GSM5613781_2020-10-06-count2_feature_reference.csv.gz",
+        "sha256": "6528c80f242d61f3d958afd5e84eba0ee489a135e91b4034a3f9e7d32c6770c0",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613781/suppl/GSM5613781_2020-10-06-count2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337650,
+        "filename": "GSM5613781_2020-10-06-count2_features.tsv.gz",
+        "sha256": "11dfadb063a46714639aacb5d911fb78e6a1c246481502af04a97a5941cc0026",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613781/suppl/GSM5613781_2020-10-06-count2_features.tsv.gz"
+      },
+      "gsm": "GSM5613781",
+      "metadata": {
+        "bytes": 201754,
+        "filename": "GSM5613781_2020-10-06-count2_metadata.csv.gz",
+        "sha256": "2ef60c695be954c35205f11dbe44e17b30b369ae5134266b2847478329f80799",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613781/suppl/GSM5613781_2020-10-06-count2_metadata.csv.gz"
+      },
+      "pool_id": "2020-10-06-count2",
+      "rna_assay": {
+        "bytes": 79415558,
+        "filename": "GSM5613781_2020-10-06-count2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613781/suppl/GSM5613781_2020-10-06-count2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 379845,
+        "filename": "GSM5613782_2020-10-06-count4_0.95_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613782/suppl/GSM5613782_2020-10-06-count4_0.95_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5562,
+        "filename": "GSM5613782_2020-10-06-count4_0.95_feature_reference.csv.gz",
+        "sha256": "ce08c426fb284e555588342c12e4ea30832c7a10b960faedfa6b8b1881d73bd3",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613782/suppl/GSM5613782_2020-10-06-count4_0.95_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337650,
+        "filename": "GSM5613782_2020-10-06-count4_0.95_features.tsv.gz",
+        "sha256": "c2ad330ae03e00dfdb172bcb2d89ddaffdd26deffc6fbeb3068c5c8ced490aae",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613782/suppl/GSM5613782_2020-10-06-count4_0.95_features.tsv.gz"
+      },
+      "gsm": "GSM5613782",
+      "metadata": {
+        "bytes": 98848,
+        "filename": "GSM5613782_2020-10-06-count4_0.95_metadata.csv.gz",
+        "sha256": "66e8a89e63a4c94c0a044fb227e668064f29cb41eeffa21dfb91513d10362688",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613782/suppl/GSM5613782_2020-10-06-count4_0.95_metadata.csv.gz"
+      },
+      "pool_id": "2020-10-06-count4_0.95",
+      "rna_assay": {
+        "bytes": 30972136,
+        "filename": "GSM5613782_2020-10-06-count4_0.95_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613782/suppl/GSM5613782_2020-10-06-count4_0.95_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 71639,
+        "filename": "GSM5613783_2021-03-09-AML001_Dx-count3_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613783/suppl/GSM5613783_2021-03-09-AML001_Dx-count3_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5557,
+        "filename": "GSM5613783_2021-03-09-AML001_Dx-count3_feature_reference.csv.gz",
+        "sha256": "97f063fd989e4fc1707a20d1dac865c26a3aa7d40371ec5a5f1dd19f10fda144",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613783/suppl/GSM5613783_2021-03-09-AML001_Dx-count3_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337650,
+        "filename": "GSM5613783_2021-03-09-AML001_Dx-count3_features.tsv.gz",
+        "sha256": "61fb706bf0734cdd065541e4765c4c5f607d605e7ac41d1316eac41f39793345",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613783/suppl/GSM5613783_2021-03-09-AML001_Dx-count3_features.tsv.gz"
+      },
+      "gsm": "GSM5613783",
+      "metadata": {
+        "bytes": 17442,
+        "filename": "GSM5613783_2021-03-09-AML001_Dx-count3_metadata.csv.gz",
+        "sha256": "da4b47f7072db8ce0fd51ee7c20d02b5f43484fdd386a883dd40371e4e81ec6f",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613783/suppl/GSM5613783_2021-03-09-AML001_Dx-count3_metadata.csv.gz"
+      },
+      "pool_id": "2021-03-09-AML001_Dx-count3",
+      "rna_assay": {
+        "bytes": 10628954,
+        "filename": "GSM5613783_2021-03-09-AML001_Dx-count3_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613783/suppl/GSM5613783_2021-03-09-AML001_Dx-count3_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 586666,
+        "filename": "GSM5613784_2021-03-09-AML0693_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613784/suppl/GSM5613784_2021-03-09-AML0693_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5485,
+        "filename": "GSM5613784_2021-03-09-AML0693_feature_reference.csv.gz",
+        "sha256": "7d076bd0ac416205be93fea6dd4fea7b36432245580431160540020c7c418d4c",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613784/suppl/GSM5613784_2021-03-09-AML0693_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337620,
+        "filename": "GSM5613784_2021-03-09-AML0693_features.tsv.gz",
+        "sha256": "17a48250473c8e2150d353ec2b66ae091c04c9e85b01f708c8ea5d64ce13dd66",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613784/suppl/GSM5613784_2021-03-09-AML0693_features.tsv.gz"
+      },
+      "gsm": "GSM5613784",
+      "metadata": {
+        "bytes": 127048,
+        "filename": "GSM5613784_2021-03-09-AML0693_metadata.csv.gz",
+        "sha256": "ff7ef7a16ad56a78cf4cdc541bcfedbb78e4bec35d2880702d817448e88251a6",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613784/suppl/GSM5613784_2021-03-09-AML0693_metadata.csv.gz"
+      },
+      "pool_id": "2021-03-09-AML0693",
+      "rna_assay": {
+        "bytes": 53945867,
+        "filename": "GSM5613784_2021-03-09-AML0693_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613784/suppl/GSM5613784_2021-03-09-AML0693_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 1399184,
+        "filename": "GSM5613785_2021-03-09-AML3948_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613785/suppl/GSM5613785_2021-03-09-AML3948_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5485,
+        "filename": "GSM5613785_2021-03-09-AML3948_feature_reference.csv.gz",
+        "sha256": "b06cb9c158710f8eeb68ca1dc3db77bc9b906c65141a8b73fe5fbf4691836b8f",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613785/suppl/GSM5613785_2021-03-09-AML3948_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337620,
+        "filename": "GSM5613785_2021-03-09-AML3948_features.tsv.gz",
+        "sha256": "beba448cfafe03a823aa809bebf1ab2c86a6286fc2ae731e2599784df1509aaa",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613785/suppl/GSM5613785_2021-03-09-AML3948_features.tsv.gz"
+      },
+      "gsm": "GSM5613785",
+      "metadata": {
+        "bytes": 284723,
+        "filename": "GSM5613785_2021-03-09-AML3948_metadata.csv.gz",
+        "sha256": "7055a3d48189d511278bd7df12b7f7d187257c88cfbe5c0b6d53c15f0b375e38",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613785/suppl/GSM5613785_2021-03-09-AML3948_metadata.csv.gz"
+      },
+      "pool_id": "2021-03-09-AML3948",
+      "rna_assay": {
+        "bytes": 135222369,
+        "filename": "GSM5613785_2021-03-09-AML3948_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613785/suppl/GSM5613785_2021-03-09-AML3948_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 1029659,
+        "filename": "GSM5613786_2021-03-09-AMLMS3730_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613786/suppl/GSM5613786_2021-03-09-AMLMS3730_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5487,
+        "filename": "GSM5613786_2021-03-09-AMLMS3730_feature_reference.csv.gz",
+        "sha256": "e31c34edef1c59d17b812a28b31d8734ce1e27d8e502e94931f6297601ec9869",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613786/suppl/GSM5613786_2021-03-09-AMLMS3730_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337620,
+        "filename": "GSM5613786_2021-03-09-AMLMS3730_features.tsv.gz",
+        "sha256": "b84ca588e530f3a8a89c9aed1d2c903539743c486f1fd2e690d1b941dba2d23b",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613786/suppl/GSM5613786_2021-03-09-AMLMS3730_features.tsv.gz"
+      },
+      "gsm": "GSM5613786",
+      "metadata": {
+        "bytes": 165849,
+        "filename": "GSM5613786_2021-03-09-AMLMS3730_metadata.csv.gz",
+        "sha256": "28beca4914a0685ddd848fc8e5ecbce20f34cbf2e12abec2a433de502df3d2aa",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613786/suppl/GSM5613786_2021-03-09-AMLMS3730_metadata.csv.gz"
+      },
+      "pool_id": "2021-03-09-AMLMS3730",
+      "rna_assay": {
+        "bytes": 109275367,
+        "filename": "GSM5613786_2021-03-09-AMLMS3730_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613786/suppl/GSM5613786_2021-03-09-AMLMS3730_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 742368,
+        "filename": "GSM5613787_2021-03-09-count1_0.95_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613787/suppl/GSM5613787_2021-03-09-count1_0.95_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 5562,
+        "filename": "GSM5613787_2021-03-09-count1_0.95_feature_reference.csv.gz",
+        "sha256": "f000fc3b82772ce99c1b1a87925c4b0c61e371ec0863c35385430edd68b05672",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613787/suppl/GSM5613787_2021-03-09-count1_0.95_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 337650,
+        "filename": "GSM5613787_2021-03-09-count1_0.95_features.tsv.gz",
+        "sha256": "8affc5003ece36d91addc81e6a3a1f07d889d46156c9d4ab7949083941df6a54",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613787/suppl/GSM5613787_2021-03-09-count1_0.95_features.tsv.gz"
+      },
+      "gsm": "GSM5613787",
+      "metadata": {
+        "bytes": 173519,
+        "filename": "GSM5613787_2021-03-09-count1_0.95_metadata.csv.gz",
+        "sha256": "84c8535fe4b034d87b55e5d1e310214c297789bfe13ac724af91aa4e60c53a67",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613787/suppl/GSM5613787_2021-03-09-count1_0.95_metadata.csv.gz"
+      },
+      "pool_id": "2021-03-09-count1_0.95",
+      "rna_assay": {
+        "bytes": 74825223,
+        "filename": "GSM5613787_2021-03-09-count1_0.95_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613787/suppl/GSM5613787_2021-03-09-count1_0.95_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 200679,
+        "filename": "GSM5613788_2021-03-09-Z-1-1_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613788/suppl/GSM5613788_2021-03-09-Z-1-1_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 2990,
+        "filename": "GSM5613788_2021-03-09-Z-1-1_feature_reference.csv.gz",
+        "sha256": "995fa75166de7bce31c8c2182b4804c365ff5510d2d0def1cc57c964ba253787",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613788/suppl/GSM5613788_2021-03-09-Z-1-1_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 335562,
+        "filename": "GSM5613788_2021-03-09-Z-1-1_features.tsv.gz",
+        "sha256": "f0573e6b095b8a0225e995cf2f5fe08131dc614cb4ab65674696243828416f6f",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613788/suppl/GSM5613788_2021-03-09-Z-1-1_features.tsv.gz"
+      },
+      "gsm": "GSM5613788",
+      "metadata": {
+        "bytes": 57174,
+        "filename": "GSM5613788_2021-03-09-Z-1-1_metadata.csv.gz",
+        "sha256": "c7506020e6a518dabaa7bd2ee4692fb7ba65264b87df979dfd14c0609eed6835",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613788/suppl/GSM5613788_2021-03-09-Z-1-1_metadata.csv.gz"
+      },
+      "pool_id": "2021-03-09-Z-1-1",
+      "rna_assay": {
+        "bytes": 25109614,
+        "filename": "GSM5613788_2021-03-09-Z-1-1_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613788/suppl/GSM5613788_2021-03-09-Z-1-1_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 228137,
+        "filename": "GSM5613789_2021-03-09-Z-1-2_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613789/suppl/GSM5613789_2021-03-09-Z-1-2_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 2990,
+        "filename": "GSM5613789_2021-03-09-Z-1-2_feature_reference.csv.gz",
+        "sha256": "787dc8a8bde0c6cdd762026450502f2f8b3273873cb314bcd3659d7a6d3dbf57",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613789/suppl/GSM5613789_2021-03-09-Z-1-2_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 335562,
+        "filename": "GSM5613789_2021-03-09-Z-1-2_features.tsv.gz",
+        "sha256": "79c11210a3f1bf7ae0d2c198ddf35e443e14ad725ad072769acbd418cf70eee9",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613789/suppl/GSM5613789_2021-03-09-Z-1-2_features.tsv.gz"
+      },
+      "gsm": "GSM5613789",
+      "metadata": {
+        "bytes": 66056,
+        "filename": "GSM5613789_2021-03-09-Z-1-2_metadata.csv.gz",
+        "sha256": "ddcfd65f6102b0268bc53df954e0ced154951a12eb088f681c7724921d5de777",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613789/suppl/GSM5613789_2021-03-09-Z-1-2_metadata.csv.gz"
+      },
+      "pool_id": "2021-03-09-Z-1-2",
+      "rna_assay": {
+        "bytes": 29529962,
+        "filename": "GSM5613789_2021-03-09-Z-1-2_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613789/suppl/GSM5613789_2021-03-09-Z-1-2_RNA_soupx_processed.csv.gz"
+      }
+    },
+    {
+      "adt_assay": {
+        "bytes": 209135,
+        "filename": "GSM5613790_2021-03-09-Z-1-3_ADT_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held ADT stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613790/suppl/GSM5613790_2021-03-09-Z-1-3_ADT_processed.csv.gz"
+      },
+      "antibody_feature_reference": {
+        "bytes": 2990,
+        "filename": "GSM5613790_2021-03-09-Z-1-3_feature_reference.csv.gz",
+        "sha256": "3adde07fc5e892b2728e0f9d8dc964d33df97b5faa3c34e5d2ade6c1d5a38b99",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613790/suppl/GSM5613790_2021-03-09-Z-1-3_feature_reference.csv.gz"
+      },
+      "gene_feature_list": {
+        "bytes": 335562,
+        "filename": "GSM5613790_2021-03-09-Z-1-3_features.tsv.gz",
+        "sha256": "b9adc800deb56116099458dbc9e89d75f77519e1e635c7e6c8f045b526279ddf",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613790/suppl/GSM5613790_2021-03-09-Z-1-3_features.tsv.gz"
+      },
+      "gsm": "GSM5613790",
+      "metadata": {
+        "bytes": 62653,
+        "filename": "GSM5613790_2021-03-09-Z-1-3_metadata.csv.gz",
+        "sha256": "eaabe9468fdc195b63b534d7ca8c29a1dd1749957e42c90285d8291ae3e62a31",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613790/suppl/GSM5613790_2021-03-09-Z-1-3_metadata.csv.gz"
+      },
+      "pool_id": "2021-03-09-Z-1-3",
+      "rna_assay": {
+        "bytes": 35958705,
+        "filename": "GSM5613790_2021-03-09-Z-1-3_RNA_soupx_processed.csv.gz",
+        "sha256": null,
+        "sha256_status": "deferred to first authorized download: source stage for a source-selected pool, held RNA stage otherwise",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613790/suppl/GSM5613790_2021-03-09-Z-1-3_RNA_soupx_processed.csv.gz"
+      }
+    }
+  ],
+  "pre_protocol_access": {
+    "adt_assay_files_opened": 0,
+    "allowed_scope": "official GEO metadata and feature schemas only",
+    "antibody_feature_references_downloaded_and_opened": 46,
+    "gene_feature_lists_downloaded_and_opened": 46,
+    "metadata_files_downloaded_and_opened": 46,
+    "numeric_assay_values_read": 0,
+    "rna_assay_files_opened": 0
+  },
+  "schema": "gse185381-aml-source-manifest/1.0"
+}

@@ -1,0 +1,2088 @@
+{
+  "accession": "GSE185381",
+  "assay_hash_policy": "Metadata and feature-schema hashes are frozen now. An assay file is hashed only after a public stage claim: source-stage hashing for source-selected RNA and ADT files, held RNA-stage hashing for target RNA files, and held ADT-stage hashing for target ADT files.",
+  "cell_budget": 384,
+  "designation_basis": "Official GEO MINiML, file manifest, processed-cell metadata, gene feature lists, and antibody feature references only; no RNA or ADT matrix row or numeric assay value was opened.",
+  "donors": [
+    {
+      "acquisition_cluster": "2019-08-01",
+      "batch": "2019-08-01",
+      "donor_id": "Control2",
+      "role": "source",
+      "selected_pool_gsm": "GSM5613750",
+      "selected_pool_id": "2019-08-01-count-4",
+      "selected_pool_metadata_cells": 859
+    },
+    {
+      "acquisition_cluster": "2019-10-25",
+      "batch": "2019-10-25",
+      "donor_id": "Control0004",
+      "role": "source",
+      "selected_pool_gsm": "GSM5613756",
+      "selected_pool_id": "2019-10-25-count-5",
+      "selected_pool_metadata_cells": 2476
+    },
+    {
+      "acquisition_cluster": "2019-11-04",
+      "batch": "2019-11-04",
+      "donor_id": "Control0058",
+      "role": "source",
+      "selected_pool_gsm": "GSM5613757",
+      "selected_pool_id": "2019-11-04-count-1",
+      "selected_pool_metadata_cells": 2524
+    },
+    {
+      "acquisition_cluster": "2020-03-18",
+      "batch": "2020-03-18",
+      "donor_id": "Control0082",
+      "role": "source",
+      "selected_pool_gsm": "GSM5613769",
+      "selected_pool_id": "2020-03-18-count-1",
+      "selected_pool_metadata_cells": 3020
+    },
+    {
+      "acquisition_cluster": "2020-08-26",
+      "batch": "2020-08-26",
+      "donor_id": "Control4003",
+      "role": "source",
+      "selected_pool_gsm": "GSM5613775",
+      "selected_pool_id": "2020-08-26-Control4003-c2",
+      "selected_pool_metadata_cells": 2973
+    },
+    {
+      "acquisition_cluster": "2019-08-01",
+      "batch": "2019-08-01",
+      "donor_id": "Control1",
+      "role": "source",
+      "selected_pool_gsm": "GSM5613748",
+      "selected_pool_id": "2019-08-01-count-2",
+      "selected_pool_metadata_cells": 1058
+    },
+    {
+      "acquisition_cluster": "2019-08-01",
+      "batch": "2019-08-01",
+      "donor_id": "Control3",
+      "role": "source",
+      "selected_pool_gsm": "GSM5613748",
+      "selected_pool_id": "2019-08-01-count-2",
+      "selected_pool_metadata_cells": 1499
+    },
+    {
+      "acquisition_cluster": "2019-08-01",
+      "batch": "2019-08-01",
+      "donor_id": "Control4",
+      "role": "source",
+      "selected_pool_gsm": "GSM5613748",
+      "selected_pool_id": "2019-08-01-count-2",
+      "selected_pool_metadata_cells": 2046
+    },
+    {
+      "acquisition_cluster": "2019-08-29",
+      "batch": "2019-08-29",
+      "donor_id": "Control5",
+      "role": "source",
+      "selected_pool_gsm": "GSM5613751",
+      "selected_pool_id": "2019-08-29-count-1",
+      "selected_pool_metadata_cells": 2261
+    },
+    {
+      "acquisition_cluster": "2021-03-09",
+      "batch": "2021-03-09",
+      "donor_id": "Control0005",
+      "role": "source",
+      "selected_pool_gsm": "GSM5613787",
+      "selected_pool_id": "2021-03-09-count1_0.95",
+      "selected_pool_metadata_cells": 3545
+    },
+    {
+      "acquisition_cluster": "2021-03-09",
+      "batch": "2021-03-09",
+      "donor_id": "AML001",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613783",
+      "selected_pool_id": "2021-03-09-AML001_Dx-count3",
+      "selected_pool_metadata_cells": 466
+    },
+    {
+      "acquisition_cluster": "2020-09-15",
+      "batch": "2020-09-15",
+      "donor_id": "AML0024",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613779",
+      "selected_pool_id": "2020-09-15-AML0024",
+      "selected_pool_metadata_cells": 6141
+    },
+    {
+      "acquisition_cluster": "2019-11-26",
+      "batch": "2019-11-26",
+      "donor_id": "AML003",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613762",
+      "selected_pool_id": "2019-11-26-count-1",
+      "selected_pool_metadata_cells": 3332
+    },
+    {
+      "acquisition_cluster": "2020-03-18",
+      "batch": "2020-03-18",
+      "donor_id": "AML0048",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613767",
+      "selected_pool_id": "2020-03-18-AML0048-c2",
+      "selected_pool_metadata_cells": 2185
+    },
+    {
+      "acquisition_cluster": "2020-01-03",
+      "batch": "2020-01-03",
+      "donor_id": "AML005",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613764",
+      "selected_pool_id": "2020-01-03-count-1",
+      "selected_pool_metadata_cells": 2035
+    },
+    {
+      "acquisition_cluster": "2019-11-26",
+      "batch": "2019-11-26",
+      "donor_id": "AML006",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613762",
+      "selected_pool_id": "2019-11-26-count-1",
+      "selected_pool_metadata_cells": 1576
+    },
+    {
+      "acquisition_cluster": "2019-11-19",
+      "batch": "2019-11-19",
+      "donor_id": "AML008",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613760",
+      "selected_pool_id": "2019-11-19-count-1",
+      "selected_pool_metadata_cells": 2198
+    },
+    {
+      "acquisition_cluster": "2020-10-06",
+      "batch": "2020-10-06",
+      "donor_id": "AML009",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613781",
+      "selected_pool_id": "2020-10-06-count2",
+      "selected_pool_metadata_cells": 3002
+    },
+    {
+      "acquisition_cluster": "2021-03-09",
+      "batch": "2021-03-09",
+      "donor_id": "AML0114",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613789",
+      "selected_pool_id": "2021-03-09-Z-1-2",
+      "selected_pool_metadata_cells": 1888
+    },
+    {
+      "acquisition_cluster": "2020-01-03",
+      "batch": "2020-01-03",
+      "donor_id": "AML012",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613765",
+      "selected_pool_id": "2020-01-03-count-2",
+      "selected_pool_metadata_cells": 2459
+    },
+    {
+      "acquisition_cluster": "2019-07-01",
+      "batch": "2019-07-01",
+      "donor_id": "AML0160",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613744",
+      "selected_pool_id": "2019-07-01-count-1",
+      "selected_pool_metadata_cells": 778
+    },
+    {
+      "acquisition_cluster": "2019-11-26",
+      "batch": "2019-11-26",
+      "donor_id": "AML025",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613763",
+      "selected_pool_id": "2019-11-26-count-2",
+      "selected_pool_metadata_cells": 1884
+    },
+    {
+      "acquisition_cluster": "2020-10-06",
+      "batch": "2020-10-06",
+      "donor_id": "AML026",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613782",
+      "selected_pool_id": "2020-10-06-count4_0.95",
+      "selected_pool_metadata_cells": 1097
+    },
+    {
+      "acquisition_cluster": "2019-11-19",
+      "batch": "2019-11-19",
+      "donor_id": "AML028",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613760",
+      "selected_pool_id": "2019-11-19-count-1",
+      "selected_pool_metadata_cells": 2411
+    },
+    {
+      "acquisition_cluster": "2019-07-01",
+      "batch": "2019-07-01",
+      "donor_id": "AML0310",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613746",
+      "selected_pool_id": "2019-07-01-count-3",
+      "selected_pool_metadata_cells": 1677
+    },
+    {
+      "acquisition_cluster": "2019-08-29",
+      "batch": "2019-08-29",
+      "donor_id": "AML0361",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613751",
+      "selected_pool_id": "2019-08-29-count-1",
+      "selected_pool_metadata_cells": 1165
+    },
+    {
+      "acquisition_cluster": "2019-11-19",
+      "batch": "2019-11-19",
+      "donor_id": "AML038",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613760",
+      "selected_pool_id": "2019-11-19-count-1",
+      "selected_pool_metadata_cells": 1813
+    },
+    {
+      "acquisition_cluster": "2019-11-19",
+      "batch": "2019-11-19",
+      "donor_id": "AML043",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613761",
+      "selected_pool_id": "2019-11-19-count-2",
+      "selected_pool_metadata_cells": 954
+    },
+    {
+      "acquisition_cluster": "2020-01-03",
+      "batch": "2020-01-03",
+      "donor_id": "AML048",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613765",
+      "selected_pool_id": "2020-01-03-count-2",
+      "selected_pool_metadata_cells": 1163
+    },
+    {
+      "acquisition_cluster": "2020-10-06",
+      "batch": "2020-10-06",
+      "donor_id": "AML051",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613782",
+      "selected_pool_id": "2020-10-06-count4_0.95",
+      "selected_pool_metadata_cells": 1679
+    },
+    {
+      "acquisition_cluster": "2020-03-18",
+      "batch": "2020-03-18",
+      "donor_id": "AML052",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613769",
+      "selected_pool_id": "2020-03-18-count-1",
+      "selected_pool_metadata_cells": 3265
+    },
+    {
+      "acquisition_cluster": "2020-01-03",
+      "batch": "2020-01-03",
+      "donor_id": "AML055",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613765",
+      "selected_pool_id": "2020-01-03-count-2",
+      "selected_pool_metadata_cells": 2785
+    },
+    {
+      "acquisition_cluster": "2019-11-19",
+      "batch": "2019-11-19",
+      "donor_id": "AML056",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613760",
+      "selected_pool_id": "2019-11-19-count-1",
+      "selected_pool_metadata_cells": 1078
+    },
+    {
+      "acquisition_cluster": "2019-07-01",
+      "batch": "2019-07-01",
+      "donor_id": "AML0612",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613745",
+      "selected_pool_id": "2019-07-01-count-2",
+      "selected_pool_metadata_cells": 3476
+    },
+    {
+      "acquisition_cluster": "2021-03-09",
+      "batch": "2021-03-09",
+      "donor_id": "AML0693",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613784",
+      "selected_pool_id": "2021-03-09-AML0693",
+      "selected_pool_metadata_cells": 3604
+    },
+    {
+      "acquisition_cluster": "2019-11-26",
+      "batch": "2019-11-26",
+      "donor_id": "AML073",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613762",
+      "selected_pool_id": "2019-11-26-count-1",
+      "selected_pool_metadata_cells": 2732
+    },
+    {
+      "acquisition_cluster": "2020-09-11",
+      "batch": "2020-09-11",
+      "donor_id": "AML1371",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613778",
+      "selected_pool_id": "2020-09-11-AML4340_AML1371-c2",
+      "selected_pool_metadata_cells": 1676
+    },
+    {
+      "acquisition_cluster": "2020-07-29",
+      "batch": "2020-07-29",
+      "donor_id": "AML2123",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613773",
+      "selected_pool_id": "2020-07-29-AML2123-c2",
+      "selected_pool_metadata_cells": 674
+    },
+    {
+      "acquisition_cluster": "2019-10-25",
+      "batch": "2019-10-25",
+      "donor_id": "AML2451",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613756",
+      "selected_pool_id": "2019-10-25-count-5",
+      "selected_pool_metadata_cells": 2821
+    },
+    {
+      "acquisition_cluster": "2019-08-29",
+      "batch": "2019-08-29",
+      "donor_id": "AML2910",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613751",
+      "selected_pool_id": "2019-08-29-count-1",
+      "selected_pool_metadata_cells": 4358
+    },
+    {
+      "acquisition_cluster": "2019-08-29",
+      "batch": "2019-08-29",
+      "donor_id": "AML3050",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613751",
+      "selected_pool_id": "2019-08-29-count-1",
+      "selected_pool_metadata_cells": 1189
+    },
+    {
+      "acquisition_cluster": "2019-07-01",
+      "batch": "2019-07-01",
+      "donor_id": "AML3133",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613744",
+      "selected_pool_id": "2019-07-01-count-1",
+      "selected_pool_metadata_cells": 892
+    },
+    {
+      "acquisition_cluster": "2021-03-09",
+      "batch": "2021-03-09",
+      "donor_id": "AML3730",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613786",
+      "selected_pool_id": "2021-03-09-AMLMS3730",
+      "selected_pool_metadata_cells": 5053
+    },
+    {
+      "acquisition_cluster": "2019-07-01",
+      "batch": "2019-07-01",
+      "donor_id": "AML3762",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613746",
+      "selected_pool_id": "2019-07-01-count-3",
+      "selected_pool_metadata_cells": 3000
+    },
+    {
+      "acquisition_cluster": "2021-03-09",
+      "batch": "2021-03-09",
+      "donor_id": "AML3948",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613785",
+      "selected_pool_id": "2021-03-09-AML3948",
+      "selected_pool_metadata_cells": 8636
+    },
+    {
+      "acquisition_cluster": "2020-09-11",
+      "batch": "2020-09-11",
+      "donor_id": "AML4340",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613777",
+      "selected_pool_id": "2020-09-11-AML4340_AML1371-c1",
+      "selected_pool_metadata_cells": 1512
+    },
+    {
+      "acquisition_cluster": "2020-10-06",
+      "batch": "2020-10-06",
+      "donor_id": "AML4897",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613780",
+      "selected_pool_id": "2020-10-06-AML4897",
+      "selected_pool_metadata_cells": 2844
+    },
+    {
+      "acquisition_cluster": "2019-11-04",
+      "batch": "2019-11-04",
+      "donor_id": "PAUMTZ",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613759",
+      "selected_pool_id": "2019-11-04-count-3",
+      "selected_pool_metadata_cells": 1778
+    },
+    {
+      "acquisition_cluster": "2019-11-04",
+      "batch": "2019-11-04",
+      "donor_id": "PAXMIJ",
+      "role": "held",
+      "selected_pool_gsm": "GSM5613759",
+      "selected_pool_id": "2019-11-04-count-3",
+      "selected_pool_metadata_cells": 431
+    }
+  ],
+  "exclusions": {
+    "insufficient_single_pool_cells": [
+      {
+        "donor_id": "PAWWEE",
+        "gsm": "GSM5613755",
+        "largest_pool_id": "2019-09-03-count-3",
+        "publisher_filtered_cells": 184,
+        "reason": "fewer than 384 cells in every single pool"
+      },
+      {
+        "donor_id": "AML022",
+        "gsm": "GSM5613770",
+        "largest_pool_id": "2020-03-18-count-2",
+        "publisher_filtered_cells": 360,
+        "reason": "fewer than 384 cells in every single pool"
+      }
+    ],
+    "nonpaired_geo_samples": {
+      "rule": "exclude every GEO sample without paired processed RNA and ADT CITE-seq matrices",
+      "scRNA_seq_samples": 17,
+      "scTCR_seq_samples": 16
+    },
+    "rna_only_donor": {
+      "donor_id": "AML3266",
+      "gsm": "GSM5613768",
+      "reason": "scRNA-seq sample has no paired ADT assay"
+    }
+  },
+  "held_acquisition_cluster_rule": "Run-date prefix of the selected pool. Different GSM lanes from the same run date form one acquisition cluster for blocked inference.",
+  "held_acquisition_clusters": [
+    "2019-07-01",
+    "2019-08-29",
+    "2019-10-25",
+    "2019-11-04",
+    "2019-11-19",
+    "2019-11-26",
+    "2020-01-03",
+    "2020-03-18",
+    "2020-07-29",
+    "2020-09-11",
+    "2020-09-15",
+    "2020-10-06",
+    "2021-03-09"
+  ],
+  "marker_rule": "The 16 ordered cognates occur in every public RNA gene feature list and match an invariant antibody oligo sequence in every public CITE-seq feature reference; aliases exhaust the observed id/name forms after exact alphanumeric canonicalization.",
+  "markers": [
+    {
+      "adt_aliases": [
+        "ADT-CD3-CD3D",
+        "CD3-CD3D",
+        "CD3",
+        "ADT-CD3",
+        "CD3_TotalSeqA",
+        "0034_CD3",
+        "anti-humanCD3"
+      ],
+      "adt_sequence": "CTCATTGTAACTCCT",
+      "rna_aliases": [
+        "CD3D"
+      ],
+      "rna_symbol": "CD3D"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD8-CD8A",
+        "CD8-CD8A",
+        "CD8",
+        "ADT-CD8",
+        "CD8_TotalSeqA",
+        "0046_CD8",
+        "anti-humanCD8"
+      ],
+      "adt_sequence": "GCGCAACTTGATGAT",
+      "rna_aliases": [
+        "CD8A"
+      ],
+      "rna_symbol": "CD8A"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD20-MS4A1",
+        "CD20-MS4A1",
+        "CD20",
+        "ADT-CD20",
+        "CD20_TotalSeqA",
+        "0100_CD20",
+        "anti-humanCD20"
+      ],
+      "adt_sequence": "TTCTGGGTCCCTAGA",
+      "rna_aliases": [
+        "MS4A1"
+      ],
+      "rna_symbol": "MS4A1"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD19-CD19",
+        "CD19-CD19",
+        "CD19",
+        "ADT-CD19",
+        "CD19_TotalSeqA",
+        "0050_CD19",
+        "anti-humanCD19"
+      ],
+      "adt_sequence": "CTGGGCAATTACTCG",
+      "rna_aliases": [
+        "CD19"
+      ],
+      "rna_symbol": "CD19"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD14-CD14",
+        "CD14-CD14",
+        "CD14",
+        "ADT-CD14",
+        "CD14_TotalSeqA",
+        "0081_CD14",
+        "anti-humanCD14"
+      ],
+      "adt_sequence": "TCTCAGACCTCCGTA",
+      "rna_aliases": [
+        "CD14"
+      ],
+      "rna_symbol": "CD14"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD11B-ITGAM",
+        "CD11B-ITGAM",
+        "CD11b",
+        "ADT-CD11b",
+        "CD11b_TotalSeqA",
+        "0161_CD11b",
+        "anti-humanCD11b"
+      ],
+      "adt_sequence": "GACAAGTGATCTGCA",
+      "rna_aliases": [
+        "ITGAM"
+      ],
+      "rna_symbol": "ITGAM"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD11C-ITGAX",
+        "CD11C-ITGAX",
+        "CD11c",
+        "ADT-CD11c",
+        "CD11c_TotalSeqA",
+        "0053_CD11c",
+        "anti-humanCD11c"
+      ],
+      "adt_sequence": "TACGCCTATAACTTG",
+      "rna_aliases": [
+        "ITGAX"
+      ],
+      "rna_symbol": "ITGAX"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD33-CD33",
+        "CD33-CD33",
+        "CD33",
+        "ADT-CD33",
+        "CD33_TotalSeqA",
+        "0052_CD33",
+        "anti-humanCD33"
+      ],
+      "adt_sequence": "TAACTCAGGGCCTAT",
+      "rna_aliases": [
+        "CD33"
+      ],
+      "rna_symbol": "CD33"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD56-NCAM1",
+        "CD56-NCAM1",
+        "CD56",
+        "ADT-CD56",
+        "CD56_TotalSeqA",
+        "0047_CD56_NCAM",
+        "anti-humanCD56_NCAM"
+      ],
+      "adt_sequence": "TCCTTTCCTGATAGG",
+      "rna_aliases": [
+        "NCAM1"
+      ],
+      "rna_symbol": "NCAM1"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD161-KLRB1",
+        "CD161-KLRB1",
+        "CD161",
+        "ADT-CD161",
+        "CD161_TotalSeqA",
+        "0149_CD161",
+        "anti-humanCD161"
+      ],
+      "adt_sequence": "GTACGCAGTCCTTCT",
+      "rna_aliases": [
+        "KLRB1"
+      ],
+      "rna_symbol": "KLRB1"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD16-FCGR3A",
+        "CD16-FCGR3A",
+        "CD16",
+        "ADT-CD16",
+        "CD16_TotalSeqA",
+        "0083_CD16",
+        "anti-humanCD16"
+      ],
+      "adt_sequence": "AAGTTCACTCTTTGC",
+      "rna_aliases": [
+        "FCGR3A"
+      ],
+      "rna_symbol": "FCGR3A"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD38-CD38",
+        "CD38-CD38",
+        "CD38",
+        "ADT-CD38",
+        "CD38_TotalSeqA",
+        "0389_CD38",
+        "anti-humanCD38"
+      ],
+      "adt_sequence": "TGTACCCGCTTGTGA",
+      "rna_aliases": [
+        "CD38"
+      ],
+      "rna_symbol": "CD38"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD123-IL3RA",
+        "CD123-IL3RA",
+        "CD123",
+        "ADT-CD123",
+        "CD123_TotalSeqA",
+        "0064_CD123",
+        "anti-humanCD123"
+      ],
+      "adt_sequence": "CTTCACTCTGTCAGG",
+      "rna_aliases": [
+        "IL3RA"
+      ],
+      "rna_symbol": "IL3RA"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD115-CSF1R",
+        "CD115-CSF1R",
+        "CD115_CSF1R_TotalSeqA",
+        "0398_CD115_CSF-1R",
+        "anti-humanCD115_CSF-1R"
+      ],
+      "adt_sequence": "AATCACGGTCCTTGT",
+      "rna_aliases": [
+        "CSF1R"
+      ],
+      "rna_symbol": "CSF1R"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD69-CD69",
+        "CD69-CD69",
+        "CD69",
+        "ADT-CD69",
+        "CD69_TotalSeqA",
+        "0146_CD69",
+        "anti-humanCD69"
+      ],
+      "adt_sequence": "GTCTCTTGGCTTAAA",
+      "rna_aliases": [
+        "CD69"
+      ],
+      "rna_symbol": "CD69"
+    },
+    {
+      "adt_aliases": [
+        "ADT-CD71-TFRC",
+        "CD71-TFRC",
+        "CD71",
+        "ADT-CD71",
+        "CD71_TotalSeqA",
+        "0394_CD71",
+        "anti-humanCD71"
+      ],
+      "adt_sequence": "CCGTGTTCCTCATTA",
+      "rna_aliases": [
+        "TFRC"
+      ],
+      "rna_symbol": "TFRC"
+    }
+  ],
+  "metadata_columns": {
+    "cell": "cell",
+    "donor": "samples",
+    "pool": "orig.ident"
+  },
+  "pools": [
+    {
+      "adt_file": {
+        "bytes": 519440,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613744/suppl/GSM5613744_2019-07-01-count-1_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML0160",
+        "AML0310",
+        "AML0612",
+        "AML3133",
+        "AML3762"
+      ],
+      "gsm": "GSM5613744",
+      "metadata_file": {
+        "bytes": 301930,
+        "sha256": "0993ffd63ccbccd811d73a0667af509cecf606904cabfa0994eb691e653bb0f4"
+      },
+      "metadata_filename": "GSM5613744_2019-07-01-count-1_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613744/suppl/GSM5613744_2019-07-01-count-1_metadata.csv.gz",
+      "pool_id": "2019-07-01-count-1",
+      "rna_file": {
+        "bytes": 137422878,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613744/suppl/GSM5613744_2019-07-01-count-1_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 563362,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613745/suppl/GSM5613745_2019-07-01-count-2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML0160",
+        "AML0310",
+        "AML0612",
+        "AML3133",
+        "AML3762"
+      ],
+      "gsm": "GSM5613745",
+      "metadata_file": {
+        "bytes": 325364,
+        "sha256": "549c62879624205c30df64e5e6e38252c78e027aadb935025ac6763717903f3b"
+      },
+      "metadata_filename": "GSM5613745_2019-07-01-count-2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613745/suppl/GSM5613745_2019-07-01-count-2_metadata.csv.gz",
+      "pool_id": "2019-07-01-count-2",
+      "rna_file": {
+        "bytes": 133026695,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613745/suppl/GSM5613745_2019-07-01-count-2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 556213,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613746/suppl/GSM5613746_2019-07-01-count-3_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML0160",
+        "AML0310",
+        "AML0612",
+        "AML3133",
+        "AML3762"
+      ],
+      "gsm": "GSM5613746",
+      "metadata_file": {
+        "bytes": 330508,
+        "sha256": "fd12c9e7eb48164c919c6ea70bd8cc65b862f8f794f55b290c5df6867e3f0c4c"
+      },
+      "metadata_filename": "GSM5613746_2019-07-01-count-3_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613746/suppl/GSM5613746_2019-07-01-count-3_metadata.csv.gz",
+      "pool_id": "2019-07-01-count-3",
+      "rna_file": {
+        "bytes": 127579467,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613746/suppl/GSM5613746_2019-07-01-count-3_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 16898,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613747/suppl/GSM5613747_2019-08-01-count-1_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "Control1",
+        "Control2",
+        "Control3",
+        "Control4"
+      ],
+      "gsm": "GSM5613747",
+      "metadata_file": {
+        "bytes": 10123,
+        "sha256": "d8c57cc2bdbbea8ae30a856ac7b85b9b1ac936dfb21ed7ddbb914ecec97af448"
+      },
+      "metadata_filename": "GSM5613747_2019-08-01-count-1_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613747/suppl/GSM5613747_2019-08-01-count-1_metadata.csv.gz",
+      "pool_id": "2019-08-01-count-1",
+      "rna_file": {
+        "bytes": 4289665,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613747/suppl/GSM5613747_2019-08-01-count-1_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 263035,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613748/suppl/GSM5613748_2019-08-01-count-2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "Control1",
+        "Control2",
+        "Control3",
+        "Control4"
+      ],
+      "gsm": "GSM5613748",
+      "metadata_file": {
+        "bytes": 191562,
+        "sha256": "22c868e37dc48bff0a5be375297c554b21d0d346457e1b7af621f3a330011f29"
+      },
+      "metadata_filename": "GSM5613748_2019-08-01-count-2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613748/suppl/GSM5613748_2019-08-01-count-2_metadata.csv.gz",
+      "pool_id": "2019-08-01-count-2",
+      "rna_file": {
+        "bytes": 82532049,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613748/suppl/GSM5613748_2019-08-01-count-2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 230965,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613749/suppl/GSM5613749_2019-08-01-count-3_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "Control1",
+        "Control2",
+        "Control3",
+        "Control4"
+      ],
+      "gsm": "GSM5613749",
+      "metadata_file": {
+        "bytes": 168755,
+        "sha256": "766156327dc7b5f68b2fa4c389bc9830dedaae73cb0cc427ea80acb58cc672f5"
+      },
+      "metadata_filename": "GSM5613749_2019-08-01-count-3_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613749/suppl/GSM5613749_2019-08-01-count-3_metadata.csv.gz",
+      "pool_id": "2019-08-01-count-3",
+      "rna_file": {
+        "bytes": 76843262,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613749/suppl/GSM5613749_2019-08-01-count-3_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 232547,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613750/suppl/GSM5613750_2019-08-01-count-4_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "Control1",
+        "Control2",
+        "Control3",
+        "Control4"
+      ],
+      "gsm": "GSM5613750",
+      "metadata_file": {
+        "bytes": 170982,
+        "sha256": "b6505eba9c467306e32a7f4747eb4d4f231cc70248b761f0f5c2fe8d80d43b44"
+      },
+      "metadata_filename": "GSM5613750_2019-08-01-count-4_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613750/suppl/GSM5613750_2019-08-01-count-4_metadata.csv.gz",
+      "pool_id": "2019-08-01-count-4",
+      "rna_file": {
+        "bytes": 79302956,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613750/suppl/GSM5613750_2019-08-01-count-4_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 368472,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613751/suppl/GSM5613751_2019-08-29-count-1_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML0361",
+        "AML2910",
+        "AML3050",
+        "Control5"
+      ],
+      "gsm": "GSM5613751",
+      "metadata_file": {
+        "bytes": 315948,
+        "sha256": "d690cc7ab8c2748eaaaa93fca4d53a07102f707e5d1e546bc83bf368a92ee5e2"
+      },
+      "metadata_filename": "GSM5613751_2019-08-29-count-1_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613751/suppl/GSM5613751_2019-08-29-count-1_metadata.csv.gz",
+      "pool_id": "2019-08-29-count-1",
+      "rna_file": {
+        "bytes": 127360259,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613751/suppl/GSM5613751_2019-08-29-count-1_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 349456,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613752/suppl/GSM5613752_2019-08-29-count-2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML0361",
+        "AML2910",
+        "AML3050",
+        "Control5"
+      ],
+      "gsm": "GSM5613752",
+      "metadata_file": {
+        "bytes": 294372,
+        "sha256": "46ee690c6d1dfba5fbfc5eb2c22a9d280cb858ba5999abe4fbb5c9aed9396c7b"
+      },
+      "metadata_filename": "GSM5613752_2019-08-29-count-2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613752/suppl/GSM5613752_2019-08-29-count-2_metadata.csv.gz",
+      "pool_id": "2019-08-29-count-2",
+      "rna_file": {
+        "bytes": 115548499,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613752/suppl/GSM5613752_2019-08-29-count-2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 11235,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613753/suppl/GSM5613753_2019-09-03-count-1_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "PAWWEE"
+      ],
+      "gsm": "GSM5613753",
+      "metadata_file": {
+        "bytes": 6887,
+        "sha256": "4f32839ca6c6a26b047e53452ef01da56cdbb36a42b676aa3c307b6e46d1d884"
+      },
+      "metadata_filename": "GSM5613753_2019-09-03-count-1_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613753/suppl/GSM5613753_2019-09-03-count-1_metadata.csv.gz",
+      "pool_id": "2019-09-03-count-1",
+      "rna_file": {
+        "bytes": 2594518,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613753/suppl/GSM5613753_2019-09-03-count-1_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 10865,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613754/suppl/GSM5613754_2019-09-03-count-2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "PAWWEE"
+      ],
+      "gsm": "GSM5613754",
+      "metadata_file": {
+        "bytes": 6923,
+        "sha256": "46131f5faf020cf225a08988c7566aa5a9b881267c4dd07a8afa28c6e11eb5fe"
+      },
+      "metadata_filename": "GSM5613754_2019-09-03-count-2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613754/suppl/GSM5613754_2019-09-03-count-2_metadata.csv.gz",
+      "pool_id": "2019-09-03-count-2",
+      "rna_file": {
+        "bytes": 2442308,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613754/suppl/GSM5613754_2019-09-03-count-2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 11571,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613755/suppl/GSM5613755_2019-09-03-count-3_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "PAWWEE"
+      ],
+      "gsm": "GSM5613755",
+      "metadata_file": {
+        "bytes": 6997,
+        "sha256": "48153ad50ce85c93cf3d1ee344b2909b6f344a1ae45c6d52ce8df0cb6987489e"
+      },
+      "metadata_filename": "GSM5613755_2019-09-03-count-3_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613755/suppl/GSM5613755_2019-09-03-count-3_metadata.csv.gz",
+      "pool_id": "2019-09-03-count-3",
+      "rna_file": {
+        "bytes": 2432159,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613755/suppl/GSM5613755_2019-09-03-count-3_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 399050,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613756/suppl/GSM5613756_2019-10-25-count-5_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML2451",
+        "Control0004"
+      ],
+      "gsm": "GSM5613756",
+      "metadata_file": {
+        "bytes": 182338,
+        "sha256": "ab0ae80298694a8d7155d8b64968ecd6a1e99c8ab5c0eb9e854a632557f5f9d4"
+      },
+      "metadata_filename": "GSM5613756_2019-10-25-count-5_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613756/suppl/GSM5613756_2019-10-25-count-5_metadata.csv.gz",
+      "pool_id": "2019-10-25-count-5",
+      "rna_file": {
+        "bytes": 74490580,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613756/suppl/GSM5613756_2019-10-25-count-5_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 260970,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613757/suppl/GSM5613757_2019-11-04-count-1_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "Control0058",
+        "PAUMTZ",
+        "PAXMIJ"
+      ],
+      "gsm": "GSM5613757",
+      "metadata_file": {
+        "bytes": 160447,
+        "sha256": "050893dfd2f7c739015cf276b25aed4f5cad64c6a0854c5c9024447edc69241e"
+      },
+      "metadata_filename": "GSM5613757_2019-11-04-count-1_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613757/suppl/GSM5613757_2019-11-04-count-1_metadata.csv.gz",
+      "pool_id": "2019-11-04-count-1",
+      "rna_file": {
+        "bytes": 60303343,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613757/suppl/GSM5613757_2019-11-04-count-1_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 200375,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613758/suppl/GSM5613758_2019-11-04-count-2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "Control0058",
+        "PAUMTZ",
+        "PAXMIJ"
+      ],
+      "gsm": "GSM5613758",
+      "metadata_file": {
+        "bytes": 116797,
+        "sha256": "9280d7093e01374009d484527a1610e4d43b98fbb4b4dc459fa2a9359cbd5dde"
+      },
+      "metadata_filename": "GSM5613758_2019-11-04-count-2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613758/suppl/GSM5613758_2019-11-04-count-2_metadata.csv.gz",
+      "pool_id": "2019-11-04-count-2",
+      "rna_file": {
+        "bytes": 44189021,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613758/suppl/GSM5613758_2019-11-04-count-2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 240100,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613759/suppl/GSM5613759_2019-11-04-count-3_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "Control0058",
+        "PAUMTZ",
+        "PAXMIJ"
+      ],
+      "gsm": "GSM5613759",
+      "metadata_file": {
+        "bytes": 134717,
+        "sha256": "d5a3d39f58f1cee01b4368a88d9d5696d22687346e81541fd26cfcb2beccf232"
+      },
+      "metadata_filename": "GSM5613759_2019-11-04-count-3_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613759/suppl/GSM5613759_2019-11-04-count-3_metadata.csv.gz",
+      "pool_id": "2019-11-04-count-3",
+      "rna_file": {
+        "bytes": 38091653,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613759/suppl/GSM5613759_2019-11-04-count-3_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 492248,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613760/suppl/GSM5613760_2019-11-19-count-1_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML008",
+        "AML028",
+        "AML038",
+        "AML043",
+        "AML056"
+      ],
+      "gsm": "GSM5613760",
+      "metadata_file": {
+        "bytes": 280363,
+        "sha256": "50c7a77688f5cde9643d3a43a2cee8ef01fc238e5e9a5cf0de6ef9891313f57f"
+      },
+      "metadata_filename": "GSM5613760_2019-11-19-count-1_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613760/suppl/GSM5613760_2019-11-19-count-1_metadata.csv.gz",
+      "pool_id": "2019-11-19-count-1",
+      "rna_file": {
+        "bytes": 161369175,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613760/suppl/GSM5613760_2019-11-19-count-1_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 495321,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613761/suppl/GSM5613761_2019-11-19-count-2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML008",
+        "AML028",
+        "AML038",
+        "AML043",
+        "AML056"
+      ],
+      "gsm": "GSM5613761",
+      "metadata_file": {
+        "bytes": 284359,
+        "sha256": "2f0c69d10312d331e341a816db4031e2249a4b9c3a7777de14666cf7f5160883"
+      },
+      "metadata_filename": "GSM5613761_2019-11-19-count-2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613761/suppl/GSM5613761_2019-11-19-count-2_metadata.csv.gz",
+      "pool_id": "2019-11-19-count-2",
+      "rna_file": {
+        "bytes": 180057704,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613761/suppl/GSM5613761_2019-11-19-count-2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 585499,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613762/suppl/GSM5613762_2019-11-26-count-1_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML003",
+        "AML006",
+        "AML025",
+        "AML073"
+      ],
+      "gsm": "GSM5613762",
+      "metadata_file": {
+        "bytes": 344406,
+        "sha256": "059c71c50c83cf768030d440d6fc6b7ae92239fa35a5a2e90bf6d20de7a63918"
+      },
+      "metadata_filename": "GSM5613762_2019-11-26-count-1_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613762/suppl/GSM5613762_2019-11-26-count-1_metadata.csv.gz",
+      "pool_id": "2019-11-26-count-1",
+      "rna_file": {
+        "bytes": 172404560,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613762/suppl/GSM5613762_2019-11-26-count-1_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 538874,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613763/suppl/GSM5613763_2019-11-26-count-2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML003",
+        "AML006",
+        "AML025",
+        "AML073"
+      ],
+      "gsm": "GSM5613763",
+      "metadata_file": {
+        "bytes": 323113,
+        "sha256": "cf9d8accea979b8760e267870cfffb6720f607cfa2fd5cd297fad517663615d1"
+      },
+      "metadata_filename": "GSM5613763_2019-11-26-count-2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613763/suppl/GSM5613763_2019-11-26-count-2_metadata.csv.gz",
+      "pool_id": "2019-11-26-count-2",
+      "rna_file": {
+        "bytes": 120574604,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613763/suppl/GSM5613763_2019-11-26-count-2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 516952,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613764/suppl/GSM5613764_2020-01-03-count-1_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML005",
+        "AML012",
+        "AML048",
+        "AML055"
+      ],
+      "gsm": "GSM5613764",
+      "metadata_file": {
+        "bytes": 271993,
+        "sha256": "ab735ca1823cecd051896ff925cfee358a27bdca34586dbf58c38991a7e99ae8"
+      },
+      "metadata_filename": "GSM5613764_2020-01-03-count-1_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613764/suppl/GSM5613764_2020-01-03-count-1_metadata.csv.gz",
+      "pool_id": "2020-01-03-count-1",
+      "rna_file": {
+        "bytes": 157412767,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613764/suppl/GSM5613764_2020-01-03-count-1_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 518787,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613765/suppl/GSM5613765_2020-01-03-count-2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML005",
+        "AML012",
+        "AML048",
+        "AML055"
+      ],
+      "gsm": "GSM5613765",
+      "metadata_file": {
+        "bytes": 291041,
+        "sha256": "defb00ad9ed2500151e68dc7d9e1984e5672e714966cc5bd532b17c40eb48ed9"
+      },
+      "metadata_filename": "GSM5613765_2020-01-03-count-2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613765/suppl/GSM5613765_2020-01-03-count-2_metadata.csv.gz",
+      "pool_id": "2020-01-03-count-2",
+      "rna_file": {
+        "bytes": 153666780,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613765/suppl/GSM5613765_2020-01-03-count-2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 123689,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613766/suppl/GSM5613766_2020-03-18-AML0048-c1_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML0048"
+      ],
+      "gsm": "GSM5613766",
+      "metadata_file": {
+        "bytes": 71180,
+        "sha256": "6fc8a796c4490643e760bfb1b0e5740d0e94dc0cbaed189748e9830841a73913"
+      },
+      "metadata_filename": "GSM5613766_2020-03-18-AML0048-c1_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613766/suppl/GSM5613766_2020-03-18-AML0048-c1_metadata.csv.gz",
+      "pool_id": "2020-03-18-AML0048-c1",
+      "rna_file": {
+        "bytes": 25146396,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613766/suppl/GSM5613766_2020-03-18-AML0048-c1_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 131066,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613767/suppl/GSM5613767_2020-03-18-AML0048-c2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML0048"
+      ],
+      "gsm": "GSM5613767",
+      "metadata_file": {
+        "bytes": 74820,
+        "sha256": "75698e04ff6fe4e3547999b1447cdf41e512f907ffcf94558c87f3a10980ae9f"
+      },
+      "metadata_filename": "GSM5613767_2020-03-18-AML0048-c2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613767/suppl/GSM5613767_2020-03-18-AML0048-c2_metadata.csv.gz",
+      "pool_id": "2020-03-18-AML0048-c2",
+      "rna_file": {
+        "bytes": 26285741,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613767/suppl/GSM5613767_2020-03-18-AML0048-c2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 376697,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613769/suppl/GSM5613769_2020-03-18-count-1_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML022",
+        "AML052",
+        "Control0082"
+      ],
+      "gsm": "GSM5613769",
+      "metadata_file": {
+        "bytes": 223568,
+        "sha256": "093a983cfe43bae57aba4b2b0b2cd48b19b8318a06d29f9df0215d79a9ff8fe3"
+      },
+      "metadata_filename": "GSM5613769_2020-03-18-count-1_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613769/suppl/GSM5613769_2020-03-18-count-1_metadata.csv.gz",
+      "pool_id": "2020-03-18-count-1",
+      "rna_file": {
+        "bytes": 73588931,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613769/suppl/GSM5613769_2020-03-18-count-1_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 372766,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613770/suppl/GSM5613770_2020-03-18-count-2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML022",
+        "AML052",
+        "Control0082"
+      ],
+      "gsm": "GSM5613770",
+      "metadata_file": {
+        "bytes": 212627,
+        "sha256": "614424529e415a6a546cad2c049282604e2945541cee9d541bd2eff488b03e83"
+      },
+      "metadata_filename": "GSM5613770_2020-03-18-count-2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613770/suppl/GSM5613770_2020-03-18-count-2_metadata.csv.gz",
+      "pool_id": "2020-03-18-count-2",
+      "rna_file": {
+        "bytes": 67958512,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613770/suppl/GSM5613770_2020-03-18-count-2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 341237,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613771/suppl/GSM5613771_2020-03-18-count-3_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML022",
+        "AML052",
+        "Control0082"
+      ],
+      "gsm": "GSM5613771",
+      "metadata_file": {
+        "bytes": 202680,
+        "sha256": "8408bf133c79508db5ae33fb1e66caad8abde2aa788da0fabcb04e57f5eb5b62"
+      },
+      "metadata_filename": "GSM5613771_2020-03-18-count-3_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613771/suppl/GSM5613771_2020-03-18-count-3_metadata.csv.gz",
+      "pool_id": "2020-03-18-count-3",
+      "rna_file": {
+        "bytes": 75241181,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613771/suppl/GSM5613771_2020-03-18-count-3_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 111405,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613772/suppl/GSM5613772_2020-07-29-AML2123-c1_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML2123"
+      ],
+      "gsm": "GSM5613772",
+      "metadata_file": {
+        "bytes": 24090,
+        "sha256": "ae3945e4f84a44b5caf22e34c17621460f318b4f09e62425cb8532af63615a1b"
+      },
+      "metadata_filename": "GSM5613772_2020-07-29-AML2123-c1_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613772/suppl/GSM5613772_2020-07-29-AML2123-c1_metadata.csv.gz",
+      "pool_id": "2020-07-29-AML2123-c1",
+      "rna_file": {
+        "bytes": 12488227,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613772/suppl/GSM5613772_2020-07-29-AML2123-c1_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 114978,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613773/suppl/GSM5613773_2020-07-29-AML2123-c2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML2123"
+      ],
+      "gsm": "GSM5613773",
+      "metadata_file": {
+        "bytes": 24469,
+        "sha256": "bc1c0e087b06c9302a2e1c2b0f08d8b12715325070018f2c0e6a86d3a8003cc4"
+      },
+      "metadata_filename": "GSM5613773_2020-07-29-AML2123-c2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613773/suppl/GSM5613773_2020-07-29-AML2123-c2_metadata.csv.gz",
+      "pool_id": "2020-07-29-AML2123-c2",
+      "rna_file": {
+        "bytes": 14483874,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613773/suppl/GSM5613773_2020-07-29-AML2123-c2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 247160,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613774/suppl/GSM5613774_2020-08-26-Control4003-c1_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "Control4003"
+      ],
+      "gsm": "GSM5613774",
+      "metadata_file": {
+        "bytes": 43505,
+        "sha256": "f577721b80fea0f628eb539bd1092573bae130329300d94531ba46193b6daf5e"
+      },
+      "metadata_filename": "GSM5613774_2020-08-26-Control4003-c1_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613774/suppl/GSM5613774_2020-08-26-Control4003-c1_metadata.csv.gz",
+      "pool_id": "2020-08-26-Control4003-c1",
+      "rna_file": {
+        "bytes": 15102031,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613774/suppl/GSM5613774_2020-08-26-Control4003-c1_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 579628,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613775/suppl/GSM5613775_2020-08-26-Control4003-c2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "Control4003"
+      ],
+      "gsm": "GSM5613775",
+      "metadata_file": {
+        "bytes": 100784,
+        "sha256": "0388976f765015c87b1d21d54e55638f10f68ddae3d8b432b20b80d29056357c"
+      },
+      "metadata_filename": "GSM5613775_2020-08-26-Control4003-c2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613775/suppl/GSM5613775_2020-08-26-Control4003-c2_metadata.csv.gz",
+      "pool_id": "2020-08-26-Control4003-c2",
+      "rna_file": {
+        "bytes": 37366214,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613775/suppl/GSM5613775_2020-08-26-Control4003-c2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 546352,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613776/suppl/GSM5613776_2020-08-26-Control4003-c3_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "Control4003"
+      ],
+      "gsm": "GSM5613776",
+      "metadata_file": {
+        "bytes": 90839,
+        "sha256": "97bd3e76a1e348d6b4875960d29d59d6ecd479c65ce9103d9f118d487343c9a3"
+      },
+      "metadata_filename": "GSM5613776_2020-08-26-Control4003-c3_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613776/suppl/GSM5613776_2020-08-26-Control4003-c3_metadata.csv.gz",
+      "pool_id": "2020-08-26-Control4003-c3",
+      "rna_file": {
+        "bytes": 32167971,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613776/suppl/GSM5613776_2020-08-26-Control4003-c3_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 474028,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613777/suppl/GSM5613777_2020-09-11-AML4340_AML1371-c1_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML1371",
+        "AML4340"
+      ],
+      "gsm": "GSM5613777",
+      "metadata_file": {
+        "bytes": 107078,
+        "sha256": "d78bbcf38f4b3e7a9ce6570246c2021a5097b8ad8ea70cbd2ca3efe7bba8e7e9"
+      },
+      "metadata_filename": "GSM5613777_2020-09-11-AML4340_AML1371-c1_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613777/suppl/GSM5613777_2020-09-11-AML4340_AML1371-c1_metadata.csv.gz",
+      "pool_id": "2020-09-11-AML4340_AML1371-c1",
+      "rna_file": {
+        "bytes": 56759055,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613777/suppl/GSM5613777_2020-09-11-AML4340_AML1371-c1_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 462654,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613778/suppl/GSM5613778_2020-09-11-AML4340_AML1371-c2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML1371",
+        "AML4340"
+      ],
+      "gsm": "GSM5613778",
+      "metadata_file": {
+        "bytes": 104268,
+        "sha256": "f3a3cb611a91b9be2f5f8e1dd16fe835b9eda78cd9d22c720e04ae283001e4ee"
+      },
+      "metadata_filename": "GSM5613778_2020-09-11-AML4340_AML1371-c2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613778/suppl/GSM5613778_2020-09-11-AML4340_AML1371-c2_metadata.csv.gz",
+      "pool_id": "2020-09-11-AML4340_AML1371-c2",
+      "rna_file": {
+        "bytes": 49499345,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613778/suppl/GSM5613778_2020-09-11-AML4340_AML1371-c2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 865276,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613779/suppl/GSM5613779_2020-09-15-AML0024_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML0024"
+      ],
+      "gsm": "GSM5613779",
+      "metadata_file": {
+        "bytes": 192840,
+        "sha256": "ddb6ca082109b9bc99a2a26e0150bac7f932b45400e4645bed328d067b5f6105"
+      },
+      "metadata_filename": "GSM5613779_2020-09-15-AML0024_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613779/suppl/GSM5613779_2020-09-15-AML0024_metadata.csv.gz",
+      "pool_id": "2020-09-15-AML0024",
+      "rna_file": {
+        "bytes": 129073818,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613779/suppl/GSM5613779_2020-09-15-AML0024_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 399063,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613780/suppl/GSM5613780_2020-10-06-AML4897_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML4897"
+      ],
+      "gsm": "GSM5613780",
+      "metadata_file": {
+        "bytes": 96962,
+        "sha256": "366b3ade99217866e5370d0ae6f1c890e1e1f97cea8d502850d2bfb7b3c93139"
+      },
+      "metadata_filename": "GSM5613780_2020-10-06-AML4897_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613780/suppl/GSM5613780_2020-10-06-AML4897_metadata.csv.gz",
+      "pool_id": "2020-10-06-AML4897",
+      "rna_file": {
+        "bytes": 45393813,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613780/suppl/GSM5613780_2020-10-06-AML4897_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 809238,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613781/suppl/GSM5613781_2020-10-06-count2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML009",
+        "Control0005"
+      ],
+      "gsm": "GSM5613781",
+      "metadata_file": {
+        "bytes": 201754,
+        "sha256": "2ef60c695be954c35205f11dbe44e17b30b369ae5134266b2847478329f80799"
+      },
+      "metadata_filename": "GSM5613781_2020-10-06-count2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613781/suppl/GSM5613781_2020-10-06-count2_metadata.csv.gz",
+      "pool_id": "2020-10-06-count2",
+      "rna_file": {
+        "bytes": 79415558,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613781/suppl/GSM5613781_2020-10-06-count2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 379845,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613782/suppl/GSM5613782_2020-10-06-count4_0.95_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML026",
+        "AML051"
+      ],
+      "gsm": "GSM5613782",
+      "metadata_file": {
+        "bytes": 98848,
+        "sha256": "66e8a89e63a4c94c0a044fb227e668064f29cb41eeffa21dfb91513d10362688"
+      },
+      "metadata_filename": "GSM5613782_2020-10-06-count4_0.95_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613782/suppl/GSM5613782_2020-10-06-count4_0.95_metadata.csv.gz",
+      "pool_id": "2020-10-06-count4_0.95",
+      "rna_file": {
+        "bytes": 30972136,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613782/suppl/GSM5613782_2020-10-06-count4_0.95_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 71639,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613783/suppl/GSM5613783_2021-03-09-AML001_Dx-count3_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML001"
+      ],
+      "gsm": "GSM5613783",
+      "metadata_file": {
+        "bytes": 17442,
+        "sha256": "da4b47f7072db8ce0fd51ee7c20d02b5f43484fdd386a883dd40371e4e81ec6f"
+      },
+      "metadata_filename": "GSM5613783_2021-03-09-AML001_Dx-count3_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613783/suppl/GSM5613783_2021-03-09-AML001_Dx-count3_metadata.csv.gz",
+      "pool_id": "2021-03-09-AML001_Dx-count3",
+      "rna_file": {
+        "bytes": 10628954,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613783/suppl/GSM5613783_2021-03-09-AML001_Dx-count3_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 586666,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613784/suppl/GSM5613784_2021-03-09-AML0693_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML0693"
+      ],
+      "gsm": "GSM5613784",
+      "metadata_file": {
+        "bytes": 127048,
+        "sha256": "ff7ef7a16ad56a78cf4cdc541bcfedbb78e4bec35d2880702d817448e88251a6"
+      },
+      "metadata_filename": "GSM5613784_2021-03-09-AML0693_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613784/suppl/GSM5613784_2021-03-09-AML0693_metadata.csv.gz",
+      "pool_id": "2021-03-09-AML0693",
+      "rna_file": {
+        "bytes": 53945867,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613784/suppl/GSM5613784_2021-03-09-AML0693_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 1399184,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613785/suppl/GSM5613785_2021-03-09-AML3948_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML3948"
+      ],
+      "gsm": "GSM5613785",
+      "metadata_file": {
+        "bytes": 284723,
+        "sha256": "7055a3d48189d511278bd7df12b7f7d187257c88cfbe5c0b6d53c15f0b375e38"
+      },
+      "metadata_filename": "GSM5613785_2021-03-09-AML3948_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613785/suppl/GSM5613785_2021-03-09-AML3948_metadata.csv.gz",
+      "pool_id": "2021-03-09-AML3948",
+      "rna_file": {
+        "bytes": 135222369,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613785/suppl/GSM5613785_2021-03-09-AML3948_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 1029659,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613786/suppl/GSM5613786_2021-03-09-AMLMS3730_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML3730"
+      ],
+      "gsm": "GSM5613786",
+      "metadata_file": {
+        "bytes": 165849,
+        "sha256": "28beca4914a0685ddd848fc8e5ecbce20f34cbf2e12abec2a433de502df3d2aa"
+      },
+      "metadata_filename": "GSM5613786_2021-03-09-AMLMS3730_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613786/suppl/GSM5613786_2021-03-09-AMLMS3730_metadata.csv.gz",
+      "pool_id": "2021-03-09-AMLMS3730",
+      "rna_file": {
+        "bytes": 109275367,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613786/suppl/GSM5613786_2021-03-09-AMLMS3730_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 742368,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613787/suppl/GSM5613787_2021-03-09-count1_0.95_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML009",
+        "Control0005"
+      ],
+      "gsm": "GSM5613787",
+      "metadata_file": {
+        "bytes": 173519,
+        "sha256": "84c8535fe4b034d87b55e5d1e310214c297789bfe13ac724af91aa4e60c53a67"
+      },
+      "metadata_filename": "GSM5613787_2021-03-09-count1_0.95_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613787/suppl/GSM5613787_2021-03-09-count1_0.95_metadata.csv.gz",
+      "pool_id": "2021-03-09-count1_0.95",
+      "rna_file": {
+        "bytes": 74825223,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613787/suppl/GSM5613787_2021-03-09-count1_0.95_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 200679,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613788/suppl/GSM5613788_2021-03-09-Z-1-1_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML0114"
+      ],
+      "gsm": "GSM5613788",
+      "metadata_file": {
+        "bytes": 57174,
+        "sha256": "c7506020e6a518dabaa7bd2ee4692fb7ba65264b87df979dfd14c0609eed6835"
+      },
+      "metadata_filename": "GSM5613788_2021-03-09-Z-1-1_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613788/suppl/GSM5613788_2021-03-09-Z-1-1_metadata.csv.gz",
+      "pool_id": "2021-03-09-Z-1-1",
+      "rna_file": {
+        "bytes": 25109614,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613788/suppl/GSM5613788_2021-03-09-Z-1-1_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 228137,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613789/suppl/GSM5613789_2021-03-09-Z-1-2_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML0114"
+      ],
+      "gsm": "GSM5613789",
+      "metadata_file": {
+        "bytes": 66056,
+        "sha256": "ddcfd65f6102b0268bc53df954e0ced154951a12eb088f681c7724921d5de777"
+      },
+      "metadata_filename": "GSM5613789_2021-03-09-Z-1-2_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613789/suppl/GSM5613789_2021-03-09-Z-1-2_metadata.csv.gz",
+      "pool_id": "2021-03-09-Z-1-2",
+      "rna_file": {
+        "bytes": 29529962,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613789/suppl/GSM5613789_2021-03-09-Z-1-2_RNA_soupx_processed.csv.gz"
+    },
+    {
+      "adt_file": {
+        "bytes": 209135,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held ADT stage otherwise"
+      },
+      "adt_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613790/suppl/GSM5613790_2021-03-09-Z-1-3_ADT_processed.csv.gz",
+      "donors_in_publisher_metadata": [
+        "AML0114"
+      ],
+      "gsm": "GSM5613790",
+      "metadata_file": {
+        "bytes": 62653,
+        "sha256": "eaabe9468fdc195b63b534d7ca8c29a1dd1749957e42c90285d8291ae3e62a31"
+      },
+      "metadata_filename": "GSM5613790_2021-03-09-Z-1-3_metadata.csv.gz",
+      "metadata_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613790/suppl/GSM5613790_2021-03-09-Z-1-3_metadata.csv.gz",
+      "pool_id": "2021-03-09-Z-1-3",
+      "rna_file": {
+        "bytes": 35958705,
+        "sha256": null,
+        "sha256_policy": "compute only inside the first public authorized download: source stage for a source-selected pool, held RNA stage otherwise"
+      },
+      "rna_url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5613nnn/GSM5613790/suppl/GSM5613790_2021-03-09-Z-1-3_RNA_soupx_processed.csv.gz"
+    }
+  ],
+  "retained_counts": {
+    "held_acquisition_clusters": 13,
+    "held_donors": 39,
+    "selected_pools": 31,
+    "source_donors": 10
+  },
+  "schema": "gse185381-aml-candidate-designation/1.0",
+  "selected_pool_rule": "For each donor, use only the single CITE-seq pool with the largest publisher-filtered metadata cell count; break an exact count tie by lexicographically smallest GSM accession. Never aggregate cells across pools.",
+  "source_split": {
+    "calibration": [
+      "Control2",
+      "Control0004",
+      "Control0058",
+      "Control0082",
+      "Control4003"
+    ],
+    "components": [
+      {
+        "component_id": "calibration-01",
+        "donors": [
+          "Control2"
+        ],
+        "gsm": "GSM5613750",
+        "role": "calibration",
+        "selected_pool_id": "2019-08-01-count-4"
+      },
+      {
+        "component_id": "calibration-02",
+        "donors": [
+          "Control0004"
+        ],
+        "gsm": "GSM5613756",
+        "role": "calibration",
+        "selected_pool_id": "2019-10-25-count-5"
+      },
+      {
+        "component_id": "calibration-03",
+        "donors": [
+          "Control0058"
+        ],
+        "gsm": "GSM5613757",
+        "role": "calibration",
+        "selected_pool_id": "2019-11-04-count-1"
+      },
+      {
+        "component_id": "calibration-04",
+        "donors": [
+          "Control0082"
+        ],
+        "gsm": "GSM5613769",
+        "role": "calibration",
+        "selected_pool_id": "2020-03-18-count-1"
+      },
+      {
+        "component_id": "calibration-05",
+        "donors": [
+          "Control4003"
+        ],
+        "gsm": "GSM5613775",
+        "role": "calibration",
+        "selected_pool_id": "2020-08-26-Control4003-c2"
+      },
+      {
+        "component_id": "validation-01",
+        "donors": [
+          "Control1",
+          "Control3",
+          "Control4"
+        ],
+        "gsm": "GSM5613748",
+        "role": "validation",
+        "selected_pool_id": "2019-08-01-count-2"
+      },
+      {
+        "component_id": "validation-02",
+        "donors": [
+          "Control5"
+        ],
+        "gsm": "GSM5613751",
+        "role": "validation",
+        "selected_pool_id": "2019-08-29-count-1"
+      },
+      {
+        "component_id": "validation-03",
+        "donors": [
+          "Control0005"
+        ],
+        "gsm": "GSM5613787",
+        "role": "validation",
+        "selected_pool_id": "2021-03-09-count1_0.95"
+      }
+    ],
+    "pool_disjoint": true,
+    "rule": "The eight selected-pool components are disjoint across calibration and validation. Donors sharing one selected pool remain in the same component and role.",
+    "validation": [
+      "Control1",
+      "Control3",
+      "Control4",
+      "Control5",
+      "Control0005"
+    ]
+  },
+  "support_contract": {
+    "adt_axis_validity": "within-donor processed ADT values must contain at least two distinct values and the largest equal-value fraction must be at most 0.90",
+    "attrition_rule": "every source and held donor must retain at least 9 valid RNA axes, 9 valid ADT axes, and 128 valid ordered pairs before prediction or scoring; otherwise the stage terminates without donor replacement or threshold revision",
+    "estimand": "the donor-supported RNA-by-ADT submap; loss is averaged over each donor's informative ordered pairs without donor attrition",
+    "minimum_valid_adt_axes_per_donor": 9,
+    "minimum_valid_ordered_pairs_per_donor": 128,
+    "minimum_valid_rna_axes_per_donor": 9,
+    "ordered_pair_validity": "an ordered RNA-by-ADT pair is valid exactly when its RNA row and ADT column are both valid",
+    "rna_axis_validity": "within-donor detection prevalence must lie in the closed interval [0.05, 0.95]",
+    "total_ordered_pairs": 256
+  }
+}
