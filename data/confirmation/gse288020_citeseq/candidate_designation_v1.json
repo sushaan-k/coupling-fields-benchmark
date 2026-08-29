@@ -1,0 +1,193 @@
+{
+  "accession": "GSE288020",
+  "designation_basis": "GEO sample metadata only; no barcode or count dataset was opened",
+  "metadata_note": "GSM8757540 has a one-character typo in the GEO age-group field ('mmune-Age Young'); its sample title unambiguously states Immune-Age Young and supplies the normalized value used here.",
+  "samples": [
+    {
+      "condition": "MGUS",
+      "donor": "R001",
+      "filename": "GSM8757538_R001BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757538",
+      "immune_age": "Old",
+      "role": "calibration"
+    },
+    {
+      "condition": "MGUS",
+      "donor": "R003",
+      "filename": "GSM8757539_R003BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757539",
+      "immune_age": "Young",
+      "role": "pilot"
+    },
+    {
+      "condition": "MGUS",
+      "donor": "R005",
+      "filename": "GSM8757540_R005BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757540",
+      "immune_age": "Young",
+      "role": "calibration"
+    },
+    {
+      "condition": "MGUS",
+      "donor": "R006",
+      "filename": "GSM8757541_R006BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757541",
+      "immune_age": "Old",
+      "role": "pilot"
+    },
+    {
+      "condition": "MGUS",
+      "donor": "R008",
+      "filename": "GSM8757542_R008BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757542",
+      "immune_age": "Young",
+      "role": "calibration"
+    },
+    {
+      "condition": "MGUS",
+      "donor": "R009",
+      "filename": "GSM8757543_R009BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757543",
+      "immune_age": "Young",
+      "role": "calibration"
+    },
+    {
+      "condition": "MGUS",
+      "donor": "R013",
+      "filename": "GSM8757545_R013BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757545",
+      "immune_age": "Old",
+      "role": "calibration"
+    },
+    {
+      "condition": "MGUS",
+      "donor": "R010",
+      "filename": "GSM8757544_R010BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757544",
+      "immune_age": "Young",
+      "role": "calibration"
+    },
+    {
+      "condition": "MGUS",
+      "donor": "R014",
+      "filename": "GSM8757546_R014BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757546",
+      "immune_age": "Old",
+      "role": "calibration"
+    },
+    {
+      "condition": "MGUS",
+      "donor": "R015",
+      "filename": "GSM8757547_R015BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757547",
+      "immune_age": "Young",
+      "role": "pilot"
+    },
+    {
+      "condition": "MGUS",
+      "donor": "R016",
+      "filename": "GSM8757548_R016BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757548",
+      "immune_age": "Old",
+      "role": "pilot"
+    },
+    {
+      "condition": "MGUS",
+      "donor": "R020",
+      "filename": "GSM8757549_R020BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757549",
+      "immune_age": "Old",
+      "role": "pilot"
+    },
+    {
+      "condition": "MGUS",
+      "donor": "R023",
+      "filename": "GSM8757550_R023BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757550",
+      "immune_age": "Young",
+      "role": "pilot"
+    },
+    {
+      "condition": "MGUS",
+      "donor": "R024",
+      "filename": "GSM8757551_R024BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757551",
+      "immune_age": "Old",
+      "role": "pilot"
+    },
+    {
+      "condition": "MM",
+      "donor": "E2228",
+      "filename": "GSM8757552_E2228BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757552",
+      "immune_age": "Young",
+      "role": "held"
+    },
+    {
+      "condition": "MM",
+      "donor": "E2238",
+      "filename": "GSM8757553_E2238BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757553",
+      "immune_age": "Old",
+      "role": "held"
+    },
+    {
+      "condition": "MM",
+      "donor": "E2242",
+      "filename": "GSM8757554_E2242BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757554",
+      "immune_age": "Young",
+      "role": "held"
+    },
+    {
+      "condition": "MM",
+      "donor": "E2243",
+      "filename": "GSM8757555_E2243BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757555",
+      "immune_age": "Old",
+      "role": "held"
+    },
+    {
+      "condition": "MM",
+      "donor": "E2263",
+      "filename": "GSM8757556_E2263BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757556",
+      "immune_age": "Young",
+      "role": "held"
+    },
+    {
+      "condition": "MM",
+      "donor": "E2324",
+      "filename": "GSM8757557_E2324BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757557",
+      "immune_age": "Old",
+      "role": "held"
+    },
+    {
+      "condition": "MM",
+      "donor": "E2326",
+      "filename": "GSM8757558_E2326BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757558",
+      "immune_age": "Young",
+      "role": "held"
+    },
+    {
+      "condition": "MM",
+      "donor": "E2328",
+      "filename": "GSM8757559_E2328BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757559",
+      "immune_age": "Old",
+      "role": "held"
+    },
+    {
+      "condition": "MM",
+      "donor": "E2329",
+      "filename": "GSM8757560_E2329BM_sample_filtered_feature_bc_matrix.h5",
+      "gsm": "GSM8757560",
+      "immune_age": "Old",
+      "role": "held"
+    }
+  ],
+  "schema": "gse288020-candidate-designation/1.0",
+  "split_rule": "All 14 MGUS donors form development. Within each immune-age stratum, donors are ordered by SHA-256 of 'GSE288020-MGUS-SPLIT-v1|<age>|<donor>' with donor-ID tie breaking; the first four young and first three old donors form calibration and the remainder form pilot. All nine MM donors are held."
+}
