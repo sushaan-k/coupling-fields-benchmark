@@ -1,6 +1,7 @@
 numpy==2.0.2
 scipy==1.13.1
 h5py==3.14.0
+fsspec==2025.9.0
 matplotlib==3.9.4
 pytest==8.4.2
 rdata==0.11.2

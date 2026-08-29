@@ -1,0 +1,85 @@
+{
+  "schema": "stephenson-unused-cambridge-candidate-designation/1.0",
+  "status": "DESIGNATED_NUMERIC_ACCESS_DISABLED",
+  "designation_date": "2026-08-29",
+  "candidate": "Stephenson unused-Cambridge donor-held coupling-field confirmation",
+  "planned_protocol_tag": "stephenson-unused-cambridge-v1-protocol",
+  "panel": [
+    ["CV0073", "BGCV08_CV0073"],
+    ["CV0094", "BGCV07_CV0094"],
+    ["CV0100", "BGCV04_CV0100"],
+    ["CV0134", "BGCV07_CV0134"],
+    ["CV0176", "BGCV15_CV0176"],
+    ["CV0180", "BGCV11_CV0180"],
+    ["CV0200", "BGCV03_CV0200"],
+    ["CV0201", "BGCV06_CV0201"],
+    ["CV0257", "BGCV11_CV0257"],
+    ["CV0911", "BGCV04_CV0911"],
+    ["CV0940", "BGCV14_CV0940"]
+  ],
+  "frozen_design": {
+    "cells_per_donor": 512,
+    "markers": ["CD4", "CD7", "CD14", "CD19", "CD33", "CD38", "CD44", "CD47", "CD52"],
+    "ordered_pairs": 81,
+    "minimum_informative_pairs": 64,
+    "bootstrap_draws": 20000,
+    "minimum_relative_reduction": 0.05,
+    "paired_bootstrap_upper_95_below_zero": true,
+    "exact_one_sided_paired_sign_flip_p_max": 0.05
+  },
+  "required_comparators": [
+    "selected signed-root Poisson-deviance residual transfer",
+    "donor-pooled saturated Poisson log-linear interaction",
+    "destroyed-link exact conditional field",
+    "common-effect exact conditional CMLE"
+  ],
+  "decision_roles": {
+    "primary_inferential_comparators": [
+      "selected signed-root Poisson-deviance residual transfer",
+      "common-effect exact conditional CMLE"
+    ],
+    "validity_control": "destroyed-link exact conditional field",
+    "mandatory_reported_secondary": "donor-pooled saturated Poisson log-linear interaction"
+  },
+  "source_bindings": {
+    "source_manifest_sha256": "431e8a370bc9b08a207ab0ff8d3581f80abaf0f36b55eba4accedc5685a3d3cd",
+    "development_result_sha256": "2a8b535a0581b51a2a1eff8c764038a11cac7db08b67217c9b9dae22157e3e72",
+    "classical_fields_sha256": "23dd6540fa1c133b5d5ff09af1a35ab212e4e7de5d2a255ee018f6d4e7b07a77",
+    "classical_audit_sha256": "bc6efbb2ffe3404a294eae26b51e214054718113a8deeaf6b9f4e73ebf05f305",
+    "h5ad_official_url": "https://www.ebi.ac.uk/biostudies/files/E-MTAB-10026/covid_portal_210320_with_raw.h5ad",
+    "h5ad_resolved_range_url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/026/E-MTAB-10026/Files/covid_portal_210320_with_raw.h5ad",
+    "h5ad_bytes": 7187322881,
+    "h5ad_sha256": "ec48f328f2e884c23376c8aa1f26041e11625762be5c30b0bd0869aa8bb1a334",
+    "h5ad_etag": "\"1ac65d801-60a1af9b3c6c0\"",
+    "h5ad_last_modified": "Tue, 14 Nov 2023 11:20:35 GMT"
+  },
+  "artifacts": {
+    "protocol": "docs/STEPHENSON_UNUSED_CAMBRIDGE_HELD_DONOR_PROTOCOL_2026-08-29.md",
+    "runner": "experiments/confirm_stephenson_unused_cambridge.py",
+    "test": "tests/test_stephenson_unused_cambridge.py",
+    "preaccess": "results/development/stephenson_unused_cambridge_preaccess_v1.json",
+    "classical_audit": "results/development/classical_interaction_baselines_posthoc.json",
+    "prediction_authorization": "data/confirmation/stephenson_unused_cambridge/prediction_authorization_v1.json",
+    "prediction_attempt": "data/confirmation/stephenson_unused_cambridge/prediction_attempt_v1.json",
+    "prediction": "results/stephenson_unused_cambridge_predictions_v1.json",
+    "score_authorization": "data/confirmation/stephenson_unused_cambridge/score_authorization_v1.json",
+    "score_attempt": "data/confirmation/stephenson_unused_cambridge/score_attempt_v1.json",
+    "score": "results/stephenson_unused_cambridge_confirmation_v1.json"
+  },
+  "access_order": [
+    "public implementation freeze and fresh-clone verification",
+    "separately committed prediction authorization",
+    "source identity check and one RNA-only prediction attempt",
+    "public frozen predictions and separately committed score authorization",
+    "source identity check and one linked RNA-ADT score attempt"
+  ],
+  "numeric_access": {
+    "unused_rna_values_read": 0,
+    "unused_adt_values_read": 0,
+    "unused_pairings_formed": 0,
+    "unused_truth_tables_formed": 0,
+    "prediction_authorized": false,
+    "score_authorized": false,
+    "rerun_permitted": false
+  }
+}

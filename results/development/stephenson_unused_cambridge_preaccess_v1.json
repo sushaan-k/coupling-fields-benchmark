@@ -1,0 +1,72 @@
+{
+  "bindings": {
+    "classical_audit_sha256": "bc6efbb2ffe3404a294eae26b51e214054718113a8deeaf6b9f4e73ebf05f305",
+    "classical_fields_sha256": "23dd6540fa1c133b5d5ff09af1a35ab212e4e7de5d2a255ee018f6d4e7b07a77",
+    "development_sha256": "2a8b535a0581b51a2a1eff8c764038a11cac7db08b67217c9b9dae22157e3e72",
+    "original_prediction_sha256": "7a183d4a2f55922dc07f8cbcdca904893710fe008e9169fdf618532ba06ea6e2",
+    "original_score_sha256": "5eb5fd2b41df7f4f7d822a92765ffe69854dcbe5f572f2db35cf433d7dd0adb1",
+    "source_manifest_sha256": "431e8a370bc9b08a207ab0ff8d3581f80abaf0f36b55eba4accedc5685a3d3cd"
+  },
+  "created_at_utc": "2026-08-29T22:03:30Z",
+  "donors": [
+    "CV0073",
+    "CV0094",
+    "CV0100",
+    "CV0134",
+    "CV0176",
+    "CV0180",
+    "CV0200",
+    "CV0201",
+    "CV0257",
+    "CV0911",
+    "CV0940"
+  ],
+  "h5ad_opened_by_this_check": false,
+  "matrix_values_read_by_this_check": 0,
+  "prior_access_audits": {
+    "development": {
+      "calibration_samples_read": 12,
+      "held_site_matrix_rows_read": 0,
+      "matrix_values_decoded_only_for_frozen_features": 18,
+      "modalities_read_sequentially": [
+        "rna",
+        "adt"
+      ],
+      "pilot_samples_read": 24
+    },
+    "prediction": {
+      "adt_margins": "fixed 256/256 by frozen midrank rule",
+      "cell_vectors_serialized": false,
+      "held_adt_numeric_values_read": 0,
+      "held_rna_adt_pairings_formed": 0,
+      "held_rna_samples_read": 56,
+      "held_truth_tables_formed": 0,
+      "worker_output": "aggregate 9x2 RNA margins and digests only"
+    },
+    "score": {
+      "cell_vectors_serialized": false,
+      "held_donors_scored": 56,
+      "paired_truth_access_after_public_prediction": true,
+      "rerun_permitted": false,
+      "terminal_attempt_preceded_first_truth_request": true
+    }
+  },
+  "samples": [
+    "BGCV08_CV0073",
+    "BGCV07_CV0094",
+    "BGCV04_CV0100",
+    "BGCV07_CV0134",
+    "BGCV15_CV0176",
+    "BGCV11_CV0180",
+    "BGCV03_CV0200",
+    "BGCV06_CV0201",
+    "BGCV11_CV0257",
+    "BGCV04_CV0911",
+    "BGCV14_CV0940"
+  ],
+  "schema": "stephenson-unused-cambridge-preaccess/1.0",
+  "status": "PASS_H5AD_UNOPENED",
+  "unused_adt_values_previously_recorded": 0,
+  "unused_pairings_previously_recorded": 0,
+  "unused_rna_values_previously_recorded": 0
+}
