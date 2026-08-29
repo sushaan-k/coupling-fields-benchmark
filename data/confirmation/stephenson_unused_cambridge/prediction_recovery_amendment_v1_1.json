@@ -1,0 +1,70 @@
+{
+  "schema": "stephenson-unused-cambridge-prediction-recovery-amendment/1.1",
+  "status": "OUTCOME_BLIND_SINGLE_REPLACEMENT_ELIGIBLE",
+  "recorded_at_utc": "2026-08-29T22:47:30Z",
+  "candidate": "Stephenson unused-Cambridge donor-held coupling-field confirmation",
+  "initial_public_protocol_commit": "a28de1ba182ed3fe57a17f5c14d7f0f55bf508f1",
+  "initial_public_protocol_tag": "stephenson-unused-cambridge-v1-protocol",
+  "initial_public_prediction_authorization_commit": "57e09968cb37771837971f17b351305c8434f2fc",
+  "bindings": {
+    "candidate_designation_v1_sha256": "b6bcc8049f688b6c5c5297c348a1f425068d56afb797fe6e8e55fd8f833bcd60",
+    "protocol_v1_sha256": "a4d302c5c7c0fd8f28b5c3d7d8a142120816d89eb13ba82a801cc0c23f8b3c61",
+    "initial_prediction_authorization_sha256": "58c168f52b8e51a92c6a83785d400117c74af6767f21f3ef7e4201b1556f0250",
+    "initial_prediction_attempt_sha256": "9600c70f423588e144bde0f4c5fbe85773a89c694ecb004ed462baee1d131186"
+  },
+  "interruption": {
+    "reason_code": "EXECUTION_HOST_TURN_ABORT",
+    "observed_evidence": [
+      "the execution host emitted a turn_aborted event while the range-read process was active",
+      "the process was absent after control returned",
+      "the exclusive initial attempt record exists",
+      "no prediction output was written",
+      "the terminated process output and traceback were not recoverable"
+    ],
+    "conservative_access_bound": {
+      "metadata_h5ad_may_have_been_opened": true,
+      "unused_rna_ranges_may_have_been_read": true,
+      "unused_rna_values_serialized": 0,
+      "unused_adt_numeric_values_read": 0,
+      "unused_rna_adt_pairings_formed": 0,
+      "unused_truth_tables_formed": 0,
+      "basis_for_zero_outcome_access": "the prediction command contains no ADT numeric read, RNA-ADT pairing, or truth-table path"
+    }
+  },
+  "artifact_absence_at_recording": {
+    "initial_prediction_output": "results/stephenson_unused_cambridge_predictions_v1.json",
+    "initial_prediction_output_exists": false,
+    "initial_score_authorization": "data/confirmation/stephenson_unused_cambridge/score_authorization_v1.json",
+    "initial_score_authorization_exists": false,
+    "initial_score_attempt": "data/confirmation/stephenson_unused_cambridge/score_attempt_v1.json",
+    "initial_score_attempt_exists": false,
+    "initial_score_output": "results/stephenson_unused_cambridge_confirmation_v1.json",
+    "initial_score_output_exists": false
+  },
+  "frozen_scientific_choices": {
+    "changed_after_initial_attempt": false,
+    "donors": ["CV0073", "CV0094", "CV0100", "CV0134", "CV0176", "CV0180", "CV0200", "CV0201", "CV0257", "CV0911", "CV0940"],
+    "cells_per_donor": 512,
+    "markers": ["CD4", "CD7", "CD14", "CD19", "CD33", "CD38", "CD44", "CD47", "CD52"],
+    "ordered_pairs": 81,
+    "unchanged_components": [
+      "selected cells and state definitions",
+      "source fields and transport multipliers",
+      "comparators and comparator roles",
+      "loss and uncertainty procedure",
+      "effect threshold and decision rule"
+    ]
+  },
+  "recovery_scope": {
+    "attempt_kind": "REPLACEMENT_AFTER_HOST_INTERRUPTION",
+    "attempt_ordinal": 2,
+    "replacement_ordinal": 1,
+    "maximum_replacement_attempts": 1,
+    "permitted": "one replacement RNA-only prediction attempt after a public recovery freeze and separate public authorization",
+    "forbidden_before_frozen_predictions_are_public": "any ADT numeric read, RNA-ADT pairing, truth table, estimator change, donor change, marker change, state change, comparator change, or decision-rule change",
+    "initial_attempt_rerun_permitted": false,
+    "replacement_rerun_permitted": false,
+    "failure_after_replacement_attempt_is_terminal": true
+  },
+  "interpretation": "Any completed result is a recovery-amended donor-held confirmation, not a pristine one-shot run."
+}

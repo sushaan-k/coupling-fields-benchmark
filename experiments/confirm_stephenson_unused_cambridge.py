@@ -1,10 +1,11 @@
 """Prospective score of the 11 unused Stephenson Cambridge donors.
 
 The CLI has three phases. ``verify-preaccess`` reads public JSON artifacts only.
-``predict`` verifies source identity, writes a terminal attempt, then reads RNA
-margins only. ``score`` requires public frozen predictions, verifies source
-identity, writes a second terminal attempt, and only then reads linked RNA and
-ADT values once.
+``predict`` implements the single replacement attempt allowed by the append-only
+recovery amendment. It verifies source identity, writes a terminal attempt, then
+reads RNA margins only. ``score`` requires public frozen predictions, verifies
+source identity, writes a second terminal attempt, and only then reads linked
+RNA and ADT values once.
 """
 
 from __future__ import annotations
@@ -44,12 +45,27 @@ DEFAULT_PROTOCOL = (
 DEFAULT_PREACCESS = (
     ROOT / "results/development/stephenson_unused_cambridge_preaccess_v1.json"
 )
-DEFAULT_PREDICTION_AUTHORIZATION = DATA_DIR / "prediction_authorization_v1.json"
-DEFAULT_PREDICTION_ATTEMPT = DATA_DIR / "prediction_attempt_v1.json"
-DEFAULT_PREDICTION = ROOT / "results/stephenson_unused_cambridge_predictions_v1.json"
-DEFAULT_SCORE_AUTHORIZATION = DATA_DIR / "score_authorization_v1.json"
-DEFAULT_SCORE_ATTEMPT = DATA_DIR / "score_attempt_v1.json"
-DEFAULT_SCORE = ROOT / "results/stephenson_unused_cambridge_confirmation_v1.json"
+DEFAULT_INITIAL_PREDICTION_AUTHORIZATION = DATA_DIR / "prediction_authorization_v1.json"
+DEFAULT_INITIAL_PREDICTION_ATTEMPT = DATA_DIR / "prediction_attempt_v1.json"
+DEFAULT_INITIAL_PREDICTION = (
+    ROOT / "results/stephenson_unused_cambridge_predictions_v1.json"
+)
+DEFAULT_INITIAL_SCORE_AUTHORIZATION = DATA_DIR / "score_authorization_v1.json"
+DEFAULT_INITIAL_SCORE_ATTEMPT = DATA_DIR / "score_attempt_v1.json"
+DEFAULT_INITIAL_SCORE = (
+    ROOT / "results/stephenson_unused_cambridge_confirmation_v1.json"
+)
+DEFAULT_RECOVERY_AMENDMENT = DATA_DIR / "prediction_recovery_amendment_v1_1.json"
+DEFAULT_RECOVERY_PROTOCOL = (
+    ROOT
+    / "docs/STEPHENSON_UNUSED_CAMBRIDGE_PREDICTION_RECOVERY_AMENDMENT_2026-08-29.md"
+)
+DEFAULT_PREDICTION_AUTHORIZATION = DATA_DIR / "prediction_authorization_v1_1.json"
+DEFAULT_PREDICTION_ATTEMPT = DATA_DIR / "prediction_attempt_v1_1.json"
+DEFAULT_PREDICTION = ROOT / "results/stephenson_unused_cambridge_predictions_v1_1.json"
+DEFAULT_SCORE_AUTHORIZATION = DATA_DIR / "score_authorization_v1_1.json"
+DEFAULT_SCORE_ATTEMPT = DATA_DIR / "score_attempt_v1_1.json"
+DEFAULT_SCORE = ROOT / "results/stephenson_unused_cambridge_confirmation_v1_1.json"
 
 OFFICIAL_H5AD_NAME = "covid_portal_210320_with_raw.h5ad"
 OFFICIAL_H5AD_BYTES = 7_187_322_881
@@ -83,6 +99,21 @@ EXPECTED_ORIGINAL_PREDICTION_SHA256 = (
 )
 EXPECTED_ORIGINAL_SCORE_SHA256 = (
     "5eb5fd2b41df7f4f7d822a92765ffe69854dcbe5f572f2db35cf433d7dd0adb1"
+)
+EXPECTED_INITIAL_PREDICTION_AUTHORIZATION_SHA256 = (
+    "58c168f52b8e51a92c6a83785d400117c74af6767f21f3ef7e4201b1556f0250"
+)
+EXPECTED_INITIAL_PREDICTION_ATTEMPT_SHA256 = (
+    "9600c70f423588e144bde0f4c5fbe85773a89c694ecb004ed462baee1d131186"
+)
+EXPECTED_RECOVERY_AMENDMENT_SHA256 = (
+    "49929929e8f07149b6bc1ecbc7b8848980e0297b921a02087d9623cf208c05ff"
+)
+EXPECTED_DESIGNATION_SHA256 = (
+    "b6bcc8049f688b6c5c5297c348a1f425068d56afb797fe6e8e55fd8f833bcd60"
+)
+EXPECTED_PROTOCOL_SHA256 = (
+    "a4d302c5c7c0fd8f28b5c3d7d8a142120816d89eb13ba82a801cc0c23f8b3c61"
 )
 
 UNUSED = (
@@ -125,6 +156,19 @@ BINDING_PATHS = {
         "data/confirmation/stephenson_unused_cambridge/candidate_designation_v1.json"
     ),
     "preaccess": ("results/development/stephenson_unused_cambridge_preaccess_v1.json"),
+    "initial_prediction_authorization": (
+        "data/confirmation/stephenson_unused_cambridge/prediction_authorization_v1.json"
+    ),
+    "initial_prediction_attempt": (
+        "data/confirmation/stephenson_unused_cambridge/prediction_attempt_v1.json"
+    ),
+    "prediction_recovery_amendment": (
+        "data/confirmation/stephenson_unused_cambridge/"
+        "prediction_recovery_amendment_v1_1.json"
+    ),
+    "prediction_recovery_protocol": (
+        "docs/STEPHENSON_UNUSED_CAMBRIDGE_PREDICTION_RECOVERY_AMENDMENT_2026-08-29.md"
+    ),
     "classical_fields": (
         "data/development/stephenson_unused_cambridge/classical_fields_v1.json"
     ),
@@ -229,12 +273,20 @@ def _validate_prediction_authorization(
     implementation_commit = authorization.get("public_implementation_commit")
     if (
         authorization.get("schema")
-        != "stephenson-unused-cambridge-prediction-authorization/1.0"
-        or authorization.get("status") != "RNA_MARGIN_ACCESS_AUTHORIZED"
+        != "stephenson-unused-cambridge-prediction-authorization/1.1"
+        or authorization.get("status") != "ONE_REPLACEMENT_RNA_MARGIN_ACCESS_AUTHORIZED"
         or authorization.get("canonical_origin") != PUBLIC_ORIGIN
         or authorization.get("prediction_attempt_path")
         != _relative(DEFAULT_PREDICTION_ATTEMPT)
         or authorization.get("prediction_output_path") != _relative(DEFAULT_PREDICTION)
+        or authorization.get("attempt_kind") != "REPLACEMENT_AFTER_HOST_INTERRUPTION"
+        or authorization.get("replacement_ordinal") != 1
+        or authorization.get("maximum_replacement_attempts") != 1
+        or authorization.get("initial_attempt_sha256")
+        != EXPECTED_INITIAL_PREDICTION_ATTEMPT_SHA256
+        or authorization.get("recovery_amendment_sha256")
+        != EXPECTED_RECOVERY_AMENDMENT_SHA256
+        or authorization.get("scientific_design_changed") is not False
         or authorization.get("adt_numeric_access_authorized") is not False
         or authorization.get("rerun_permitted") is not False
         or not isinstance(implementation_commit, str)
@@ -258,13 +310,17 @@ def _validate_score_authorization(
     prediction_commit = authorization.get("public_prediction_commit")
     if (
         authorization.get("schema")
-        != "stephenson-unused-cambridge-score-authorization/1.0"
-        or authorization.get("status") != "PAIRING_ACCESS_AUTHORIZED"
+        != "stephenson-unused-cambridge-score-authorization/1.1"
+        or authorization.get("status") != "RECOVERY_AMENDED_PAIRING_ACCESS_AUTHORIZED"
         or authorization.get("canonical_origin") != PUBLIC_ORIGIN
         or authorization.get("prediction_path") != _relative(prediction_path)
         or authorization.get("prediction_sha256") != _sha256(prediction_path)
         or authorization.get("score_attempt_path") != _relative(DEFAULT_SCORE_ATTEMPT)
         or authorization.get("score_output_path") != _relative(DEFAULT_SCORE)
+        or authorization.get("recovery_amended") is not True
+        or authorization.get("replacement_ordinal") != 1
+        or authorization.get("recovery_amendment_sha256")
+        != EXPECTED_RECOVERY_AMENDMENT_SHA256
         or authorization.get("rerun_permitted") is not False
         or not isinstance(prediction_commit, str)
     ):
@@ -394,6 +450,120 @@ def _validated_classical(path: Path, development: dict[str, Any]) -> dict[str, A
         ):
             raise PermissionError(f"compact classical field differs from audit: {name}")
     return payload
+
+
+def _validated_recovery_lineage(stage: str) -> dict[str, Any]:
+    expected = {
+        DEFAULT_DESIGNATION: EXPECTED_DESIGNATION_SHA256,
+        DEFAULT_PROTOCOL: EXPECTED_PROTOCOL_SHA256,
+        DEFAULT_INITIAL_PREDICTION_AUTHORIZATION: (
+            EXPECTED_INITIAL_PREDICTION_AUTHORIZATION_SHA256
+        ),
+        DEFAULT_INITIAL_PREDICTION_ATTEMPT: (
+            EXPECTED_INITIAL_PREDICTION_ATTEMPT_SHA256
+        ),
+        DEFAULT_RECOVERY_AMENDMENT: EXPECTED_RECOVERY_AMENDMENT_SHA256,
+    }
+    if any(not path.is_file() for path in expected) or any(
+        _sha256(path) != digest for path, digest in expected.items()
+    ):
+        raise PermissionError("prediction-recovery artifact digest differs")
+    initial_authorization = _read_json(DEFAULT_INITIAL_PREDICTION_AUTHORIZATION)
+    initial_attempt = _read_json(DEFAULT_INITIAL_PREDICTION_ATTEMPT)
+    amendment = _read_json(DEFAULT_RECOVERY_AMENDMENT)
+    bindings = amendment.get("bindings", {})
+    interruption = amendment.get("interruption", {})
+    access = interruption.get("conservative_access_bound", {})
+    frozen = amendment.get("frozen_scientific_choices", {})
+    scope = amendment.get("recovery_scope", {})
+    if (
+        initial_authorization.get("schema")
+        != "stephenson-unused-cambridge-prediction-authorization/1.0"
+        or initial_authorization.get("status") != "RNA_MARGIN_ACCESS_AUTHORIZED"
+        or initial_authorization.get("prediction_attempt_path")
+        != _relative(DEFAULT_INITIAL_PREDICTION_ATTEMPT)
+        or initial_authorization.get("prediction_output_path")
+        != _relative(DEFAULT_INITIAL_PREDICTION)
+        or initial_authorization.get("adt_numeric_access_authorized") is not False
+        or initial_authorization.get("rerun_permitted") is not False
+        or initial_attempt.get("schema")
+        != "stephenson-unused-cambridge-prediction-attempt/1.0"
+        or initial_attempt.get("status") != "TERMINAL_ATTEMPT_STARTED"
+        or initial_attempt.get("authorization_sha256")
+        != EXPECTED_INITIAL_PREDICTION_AUTHORIZATION_SHA256
+        or initial_attempt.get("adt_numeric_access_authorized") is not False
+        or initial_attempt.get("rerun_permitted") is not False
+        or amendment.get("schema")
+        != "stephenson-unused-cambridge-prediction-recovery-amendment/1.1"
+        or amendment.get("status") != "OUTCOME_BLIND_SINGLE_REPLACEMENT_ELIGIBLE"
+        or bindings.get("candidate_designation_v1_sha256")
+        != EXPECTED_DESIGNATION_SHA256
+        or bindings.get("protocol_v1_sha256") != EXPECTED_PROTOCOL_SHA256
+        or bindings.get("initial_prediction_authorization_sha256")
+        != EXPECTED_INITIAL_PREDICTION_AUTHORIZATION_SHA256
+        or bindings.get("initial_prediction_attempt_sha256")
+        != EXPECTED_INITIAL_PREDICTION_ATTEMPT_SHA256
+        or interruption.get("reason_code") != "EXECUTION_HOST_TURN_ABORT"
+        or access.get("unused_adt_numeric_values_read") != 0
+        or access.get("unused_rna_adt_pairings_formed") != 0
+        or access.get("unused_truth_tables_formed") != 0
+        or frozen.get("changed_after_initial_attempt") is not False
+        or scope.get("attempt_kind") != "REPLACEMENT_AFTER_HOST_INTERRUPTION"
+        or scope.get("attempt_ordinal") != 2
+        or scope.get("replacement_ordinal") != 1
+        or scope.get("maximum_replacement_attempts") != 1
+        or scope.get("initial_attempt_rerun_permitted") is not False
+        or scope.get("replacement_rerun_permitted") is not False
+    ):
+        raise PermissionError("prediction-recovery lineage differs")
+
+    initial_forbidden = (
+        DEFAULT_INITIAL_PREDICTION,
+        DEFAULT_INITIAL_SCORE_AUTHORIZATION,
+        DEFAULT_INITIAL_SCORE_ATTEMPT,
+        DEFAULT_INITIAL_SCORE,
+    )
+    if any(path.exists() for path in initial_forbidden):
+        raise PermissionError("an initial outcome artifact exists")
+    if stage == "predict":
+        forbidden = (
+            DEFAULT_PREDICTION_ATTEMPT,
+            DEFAULT_PREDICTION,
+            DEFAULT_SCORE_AUTHORIZATION,
+            DEFAULT_SCORE_ATTEMPT,
+            DEFAULT_SCORE,
+        )
+        if any(path.exists() for path in forbidden):
+            raise PermissionError("a replacement or score artifact already exists")
+    elif stage == "score":
+        if not DEFAULT_PREDICTION_ATTEMPT.is_file() or not DEFAULT_PREDICTION.is_file():
+            raise PermissionError("replacement prediction lineage is incomplete")
+        replacement = _read_json(DEFAULT_PREDICTION_ATTEMPT)
+        if (
+            replacement.get("schema")
+            != "stephenson-unused-cambridge-prediction-attempt/1.1"
+            or replacement.get("status") != "TERMINAL_REPLACEMENT_ATTEMPT_STARTED"
+            or replacement.get("attempt_kind") != "REPLACEMENT_AFTER_HOST_INTERRUPTION"
+            or replacement.get("attempt_ordinal") != 2
+            or replacement.get("replacement_ordinal") != 1
+            or replacement.get("maximum_replacement_attempts") != 1
+            or replacement.get("initial_attempt_sha256")
+            != EXPECTED_INITIAL_PREDICTION_ATTEMPT_SHA256
+            or replacement.get("recovery_amendment_sha256")
+            != EXPECTED_RECOVERY_AMENDMENT_SHA256
+            or replacement.get("authorization_sha256")
+            != _sha256(DEFAULT_PREDICTION_AUTHORIZATION)
+            or replacement.get("scientific_design_changed") is not False
+            or replacement.get("rna_request_begins_after_this_record") is not True
+            or replacement.get("adt_numeric_access_authorized") is not False
+            or replacement.get("rerun_permitted") is not False
+        ):
+            raise PermissionError("replacement prediction attempt differs")
+        if DEFAULT_SCORE_ATTEMPT.exists() or DEFAULT_SCORE.exists():
+            raise PermissionError("a replacement score artifact already exists")
+    else:
+        raise ValueError("recovery stage must be predict or score")
+    return amendment
 
 
 @dataclass(frozen=True)
@@ -695,8 +865,20 @@ def predict(
             ("output", output_path, DEFAULT_PREDICTION),
         ),
     )
-    if attempt_path.exists() or output_path.exists() or DEFAULT_SCORE_ATTEMPT.exists():
-        raise FileExistsError("prediction campaign is one-shot")
+    if (
+        attempt_path.exists()
+        or output_path.exists()
+        or any(
+            path.exists()
+            for path in (
+                DEFAULT_SCORE_AUTHORIZATION,
+                DEFAULT_SCORE_ATTEMPT,
+                DEFAULT_SCORE,
+            )
+        )
+    ):
+        raise FileExistsError("replacement prediction campaign is one-shot")
+    recovery = _validated_recovery_lineage("predict")
     authorization = _validate_prediction_authorization(
         authorization_path, authorization_commit
     )
@@ -708,10 +890,17 @@ def predict(
     _write_json(
         attempt_path,
         {
-            "schema": "stephenson-unused-cambridge-prediction-attempt/1.0",
-            "status": "TERMINAL_ATTEMPT_STARTED",
+            "schema": "stephenson-unused-cambridge-prediction-attempt/1.1",
+            "status": "TERMINAL_REPLACEMENT_ATTEMPT_STARTED",
             "created_at_utc": _timestamp(),
             "authorization_sha256": _sha256(authorization_path),
+            "attempt_kind": "REPLACEMENT_AFTER_HOST_INTERRUPTION",
+            "attempt_ordinal": 2,
+            "replacement_ordinal": 1,
+            "maximum_replacement_attempts": 1,
+            "initial_attempt_sha256": EXPECTED_INITIAL_PREDICTION_ATTEMPT_SHA256,
+            "recovery_amendment_sha256": EXPECTED_RECOVERY_AMENDMENT_SHA256,
+            "scientific_design_changed": False,
             "source_audit": source_audit,
             "rna_request_begins_after_this_record": True,
             "adt_numeric_access_authorized": False,
@@ -727,13 +916,20 @@ def predict(
         records, selections, rna_counts, _models(development, classical)
     )
     payload = {
-        "schema": "stephenson-unused-cambridge-predictions/1.0",
+        "schema": "stephenson-unused-cambridge-predictions/1.1",
         "status": "FROZEN_PREDICTIONS",
         "created_at_utc": _timestamp(),
         "authorization_sha256": _sha256(authorization_path),
         "public_authorization_commit": authorization_commit,
         "public_implementation_commit": authorization["public_implementation_commit"],
         "attempt_sha256": _sha256(attempt_path),
+        "attempt_kind": "REPLACEMENT_AFTER_HOST_INTERRUPTION",
+        "attempt_ordinal": 2,
+        "replacement_ordinal": 1,
+        "maximum_replacement_attempts": 1,
+        "initial_attempt_sha256": EXPECTED_INITIAL_PREDICTION_ATTEMPT_SHA256,
+        "recovery_amendment_sha256": EXPECTED_RECOVERY_AMENDMENT_SHA256,
+        "scientific_design_changed": False,
         "source_audit": source_audit,
         "source_manifest_sha256": EXPECTED_SOURCE_SHA256,
         "development_sha256": EXPECTED_DEVELOPMENT_SHA256,
@@ -741,6 +937,8 @@ def predict(
         "classical_audit_sha256": EXPECTED_CLASSICAL_AUDIT_SHA256,
         "runner_sha256": _sha256(Path(__file__)),
         "protocol_sha256": _sha256(DEFAULT_PROTOCOL),
+        "recovery_protocol_sha256": _sha256(DEFAULT_RECOVERY_PROTOCOL),
+        "recovery_status": recovery["status"],
         "methods": list(METHODS),
         "donors": 11,
         "samples": rows,
@@ -764,15 +962,26 @@ def _validate_prediction(
 ) -> dict[str, Any]:
     payload = _read_json(path)
     if (
-        payload.get("schema") != "stephenson-unused-cambridge-predictions/1.0"
+        payload.get("schema") != "stephenson-unused-cambridge-predictions/1.1"
         or payload.get("status") != "FROZEN_PREDICTIONS"
+        or payload.get("attempt_sha256") != _sha256(DEFAULT_PREDICTION_ATTEMPT)
         or payload.get("source_manifest_sha256") != EXPECTED_SOURCE_SHA256
         or payload.get("development_sha256") != EXPECTED_DEVELOPMENT_SHA256
         or payload.get("classical_fields_sha256") != EXPECTED_CLASSICAL_SHA256
-        or payload.get("classical_audit_sha256")
-        != EXPECTED_CLASSICAL_AUDIT_SHA256
+        or payload.get("classical_audit_sha256") != EXPECTED_CLASSICAL_AUDIT_SHA256
         or payload.get("runner_sha256") != _sha256(Path(__file__))
         or payload.get("protocol_sha256") != _sha256(DEFAULT_PROTOCOL)
+        or payload.get("recovery_protocol_sha256") != _sha256(DEFAULT_RECOVERY_PROTOCOL)
+        or payload.get("recovery_status") != "OUTCOME_BLIND_SINGLE_REPLACEMENT_ELIGIBLE"
+        or payload.get("attempt_kind") != "REPLACEMENT_AFTER_HOST_INTERRUPTION"
+        or payload.get("attempt_ordinal") != 2
+        or payload.get("replacement_ordinal") != 1
+        or payload.get("maximum_replacement_attempts") != 1
+        or payload.get("initial_attempt_sha256")
+        != EXPECTED_INITIAL_PREDICTION_ATTEMPT_SHA256
+        or payload.get("recovery_amendment_sha256")
+        != EXPECTED_RECOVERY_AMENDMENT_SHA256
+        or payload.get("scientific_design_changed") is not False
         or payload.get("methods") != list(METHODS)
         or payload.get("donors") != 11
         or payload.get("access_audit", {}).get("adt_handles_opened") != 0
@@ -900,6 +1109,7 @@ def score(
     )
     if attempt_path.exists() or output_path.exists():
         raise FileExistsError("score campaign is one-shot")
+    recovery = _validated_recovery_lineage("score")
     authorization = _validate_score_authorization(
         authorization_path, prediction_path, authorization_commit
     )
@@ -912,11 +1122,16 @@ def score(
     _write_json(
         attempt_path,
         {
-            "schema": "stephenson-unused-cambridge-score-attempt/1.0",
+            "schema": "stephenson-unused-cambridge-score-attempt/1.1",
             "status": "TERMINAL_ATTEMPT_STARTED",
             "created_at_utc": _timestamp(),
             "authorization_sha256": _sha256(authorization_path),
             "prediction_sha256": _sha256(prediction_path),
+            "prediction_attempt_sha256": _sha256(DEFAULT_PREDICTION_ATTEMPT),
+            "recovery_amended": True,
+            "replacement_ordinal": 1,
+            "initial_attempt_sha256": EXPECTED_INITIAL_PREDICTION_ATTEMPT_SHA256,
+            "recovery_amendment_sha256": EXPECTED_RECOVERY_AMENDMENT_SHA256,
             "source_audit": source_audit,
             "pairing_request_begins_after_this_record": True,
             "rerun_permitted": False,
@@ -985,13 +1200,19 @@ def score(
     gates = _confirmation_gates(comparisons)
     full_pass = gates["passes_full_confirmation"]
     payload = {
-        "schema": "stephenson-unused-cambridge-confirmation/1.0",
+        "schema": "stephenson-unused-cambridge-confirmation/1.1",
         "status": "CONFIRMATION_PASS" if full_pass else "CONFIRMATION_FAIL",
         "created_at_utc": _timestamp(),
         "authorization_sha256": _sha256(authorization_path),
         "public_authorization_commit": authorization_commit,
         "public_prediction_commit": authorization["public_prediction_commit"],
+        "recovery_amended": True,
+        "recovery_status": recovery["status"],
+        "replacement_ordinal": 1,
+        "initial_attempt_sha256": EXPECTED_INITIAL_PREDICTION_ATTEMPT_SHA256,
+        "recovery_amendment_sha256": EXPECTED_RECOVERY_AMENDMENT_SHA256,
         "prediction_sha256": _sha256(prediction_path),
+        "prediction_attempt_sha256": _sha256(DEFAULT_PREDICTION_ATTEMPT),
         "attempt_sha256": _sha256(attempt_path),
         "source_audit": source_audit,
         "comparisons": comparisons,

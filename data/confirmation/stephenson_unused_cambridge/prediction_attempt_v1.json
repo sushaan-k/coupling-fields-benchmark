@@ -1,0 +1,20 @@
+{
+  "adt_numeric_access_authorized": false,
+  "authorization_sha256": "58c168f52b8e51a92c6a83785d400117c74af6767f21f3ef7e4201b1556f0250",
+  "created_at_utc": "2026-08-29T22:24:08Z",
+  "rerun_permitted": false,
+  "rna_request_begins_after_this_record": true,
+  "schema": "stephenson-unused-cambridge-prediction-attempt/1.0",
+  "source_audit": {
+    "accept_ranges": "bytes",
+    "bytes": 7187322881,
+    "etag": "\"1ac65d801-60a1af9b3c6c0\"",
+    "last_modified": "Tue, 14 Nov 2023 11:20:35 GMT",
+    "mode": "remote",
+    "request_url": "https://www.ebi.ac.uk/biostudies/files/E-MTAB-10026/covid_portal_210320_with_raw.h5ad",
+    "resolved_url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/026/E-MTAB-10026/Files/covid_portal_210320_with_raw.h5ad",
+    "sha256": "ec48f328f2e884c23376c8aa1f26041e11625762be5c30b0bd0869aa8bb1a334",
+    "sha256_provenance": "checksum-bound source manifest"
+  },
+  "status": "TERMINAL_ATTEMPT_STARTED"
+}

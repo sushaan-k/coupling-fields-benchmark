@@ -50,11 +50,15 @@ def _patch_prediction_paths(
     attempt = tmp_path / "prediction_attempt.json"
     output = tmp_path / "predictions.json"
     score_attempt = tmp_path / "score_attempt.json"
+    score_authorization = tmp_path / "score_authorization.json"
+    score_output = tmp_path / "score.json"
     authorization.write_text("{}\n")
     monkeypatch.setattr(campaign, "DEFAULT_PREDICTION_AUTHORIZATION", authorization)
     monkeypatch.setattr(campaign, "DEFAULT_PREDICTION_ATTEMPT", attempt)
     monkeypatch.setattr(campaign, "DEFAULT_PREDICTION", output)
+    monkeypatch.setattr(campaign, "DEFAULT_SCORE_AUTHORIZATION", score_authorization)
     monkeypatch.setattr(campaign, "DEFAULT_SCORE_ATTEMPT", score_attempt)
+    monkeypatch.setattr(campaign, "DEFAULT_SCORE", score_output)
     return authorization, attempt, output, score_attempt
 
 
@@ -63,12 +67,15 @@ def _patch_score_paths(
 ) -> tuple[Path, Path, Path, Path]:
     authorization = tmp_path / "score_authorization.json"
     prediction = tmp_path / "predictions.json"
+    prediction_attempt = tmp_path / "prediction_attempt.json"
     attempt = tmp_path / "score_attempt.json"
     output = tmp_path / "score.json"
     authorization.write_text("{}\n")
     prediction.write_text("{}\n")
+    prediction_attempt.write_text("{}\n")
     monkeypatch.setattr(campaign, "DEFAULT_SCORE_AUTHORIZATION", authorization)
     monkeypatch.setattr(campaign, "DEFAULT_PREDICTION", prediction)
+    monkeypatch.setattr(campaign, "DEFAULT_PREDICTION_ATTEMPT", prediction_attempt)
     monkeypatch.setattr(campaign, "DEFAULT_SCORE_ATTEMPT", attempt)
     monkeypatch.setattr(campaign, "DEFAULT_SCORE", output)
     return authorization, prediction, attempt, output
@@ -132,6 +139,11 @@ def test_prediction_reads_rna_only_after_terminal_attempt(
     )
     monkeypatch.setattr(
         campaign,
+        "_validated_recovery_lineage",
+        lambda *_: {"status": "OUTCOME_BLIND_SINGLE_REPLACEMENT_ELIGIBLE"},
+    )
+    monkeypatch.setattr(
+        campaign,
         "_verify_source_bytes",
         lambda *_: {"bytes": 1, "sha256": "b" * 64},
     )
@@ -177,6 +189,11 @@ def test_prediction_reads_rna_only_after_terminal_attempt(
     )
 
     assert events == ["open", "metadata", "open", "rna"]
+    attempt_payload = json.loads(attempt.read_text())
+    assert attempt_payload["status"] == "TERMINAL_REPLACEMENT_ATTEMPT_STARTED"
+    assert attempt_payload["replacement_ordinal"] == 1
+    assert attempt_payload["maximum_replacement_attempts"] == 1
+    assert attempt_payload["scientific_design_changed"] is False
     assert result["access_audit"]["adt_handles_opened"] == 0
     assert result["access_audit"]["rna_adt_pairings_formed"] == 0
 
@@ -214,6 +231,11 @@ def test_score_opens_metadata_rna_and_adt_only_after_terminal_attempt(
         campaign,
         "_validate_score_authorization",
         lambda *_: {"public_prediction_commit": "a" * 40},
+    )
+    monkeypatch.setattr(
+        campaign,
+        "_validated_recovery_lineage",
+        lambda *_: {"status": "OUTCOME_BLIND_SINGLE_REPLACEMENT_ELIGIBLE"},
     )
     monkeypatch.setattr(
         campaign,
@@ -286,6 +308,106 @@ def test_existing_attempt_refuses_before_source_access(
     )
 
     with pytest.raises(FileExistsError, match="one-shot"):
+        campaign.predict(
+            campaign.H5ADInput("remote", "memory://unused-fixture"),
+            authorization,
+            "a" * 40,
+            attempt,
+            output,
+        )
+
+
+def test_altered_initial_attempt_refuses_before_source_verification(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    authorization, attempt, output, _ = _patch_prediction_paths(monkeypatch, tmp_path)
+    real_sha256 = campaign._sha256
+    monkeypatch.setattr(
+        campaign,
+        "_sha256",
+        lambda path: (
+            "0" * 64
+            if path == campaign.DEFAULT_INITIAL_PREDICTION_ATTEMPT
+            else real_sha256(path)
+        ),
+    )
+    monkeypatch.setattr(
+        campaign,
+        "_validate_prediction_authorization",
+        lambda *_: pytest.fail("authorization validation was reached"),
+    )
+    monkeypatch.setattr(
+        campaign,
+        "_verify_source_bytes",
+        lambda *_: pytest.fail("source verification was reached"),
+    )
+
+    with pytest.raises(PermissionError, match="artifact digest"):
+        campaign.predict(
+            campaign.H5ADInput("remote", "memory://unused-fixture"),
+            authorization,
+            "a" * 40,
+            attempt,
+            output,
+        )
+
+
+def test_altered_recovery_amendment_refuses_before_source_verification(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    authorization, attempt, output, _ = _patch_prediction_paths(monkeypatch, tmp_path)
+    real_sha256 = campaign._sha256
+    monkeypatch.setattr(
+        campaign,
+        "_sha256",
+        lambda path: (
+            "0" * 64
+            if path == campaign.DEFAULT_RECOVERY_AMENDMENT
+            else real_sha256(path)
+        ),
+    )
+    monkeypatch.setattr(
+        campaign,
+        "_validate_prediction_authorization",
+        lambda *_: pytest.fail("authorization validation was reached"),
+    )
+    monkeypatch.setattr(
+        campaign,
+        "_verify_source_bytes",
+        lambda *_: pytest.fail("source verification was reached"),
+    )
+
+    with pytest.raises(PermissionError, match="artifact digest"):
+        campaign.predict(
+            campaign.H5ADInput("remote", "memory://unused-fixture"),
+            authorization,
+            "a" * 40,
+            attempt,
+            output,
+        )
+
+
+def test_initial_score_artifact_blocks_replacement_before_source_verification(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    authorization, attempt, output, _ = _patch_prediction_paths(monkeypatch, tmp_path)
+    initial_score_authorization = tmp_path / "initial_score_authorization.json"
+    initial_score_authorization.write_text("{}\n")
+    monkeypatch.setattr(
+        campaign, "DEFAULT_INITIAL_SCORE_AUTHORIZATION", initial_score_authorization
+    )
+    monkeypatch.setattr(
+        campaign,
+        "_validate_prediction_authorization",
+        lambda *_: pytest.fail("authorization validation was reached"),
+    )
+    monkeypatch.setattr(
+        campaign,
+        "_verify_source_bytes",
+        lambda *_: pytest.fail("source verification was reached"),
+    )
+
+    with pytest.raises(PermissionError, match="initial outcome artifact"):
         campaign.predict(
             campaign.H5ADInput("remote", "memory://unused-fixture"),
             authorization,
@@ -400,6 +522,9 @@ def test_frozen_prediction_tampering_is_rejected(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     path = tmp_path / "prediction.json"
+    attempt = tmp_path / "prediction_attempt.json"
+    attempt.write_text("{}\n")
+    monkeypatch.setattr(campaign, "DEFAULT_PREDICTION_ATTEMPT", attempt)
     models = _independence_models()
     rna = np.tile(np.asarray([[256, 256]], dtype=np.int64), (9, 1))
     adt = rna.copy()
@@ -409,14 +534,26 @@ def test_frozen_prediction_tampering_is_rejected(
         .tolist()
     )
     payload = {
-        "schema": "stephenson-unused-cambridge-predictions/1.0",
+        "schema": "stephenson-unused-cambridge-predictions/1.1",
         "status": "FROZEN_PREDICTIONS",
+        "attempt_sha256": campaign._sha256(attempt),
         "source_manifest_sha256": campaign.EXPECTED_SOURCE_SHA256,
         "development_sha256": campaign.EXPECTED_DEVELOPMENT_SHA256,
         "classical_fields_sha256": campaign.EXPECTED_CLASSICAL_SHA256,
         "classical_audit_sha256": campaign.EXPECTED_CLASSICAL_AUDIT_SHA256,
         "runner_sha256": campaign._sha256(Path(campaign.__file__)),
         "protocol_sha256": campaign._sha256(campaign.DEFAULT_PROTOCOL),
+        "recovery_protocol_sha256": campaign._sha256(
+            campaign.DEFAULT_RECOVERY_PROTOCOL
+        ),
+        "recovery_status": "OUTCOME_BLIND_SINGLE_REPLACEMENT_ELIGIBLE",
+        "attempt_kind": "REPLACEMENT_AFTER_HOST_INTERRUPTION",
+        "attempt_ordinal": 2,
+        "replacement_ordinal": 1,
+        "maximum_replacement_attempts": 1,
+        "initial_attempt_sha256": (campaign.EXPECTED_INITIAL_PREDICTION_ATTEMPT_SHA256),
+        "recovery_amendment_sha256": campaign.EXPECTED_RECOVERY_AMENDMENT_SHA256,
+        "scientific_design_changed": False,
         "methods": list(campaign.METHODS),
         "donors": 11,
         "access_audit": {
@@ -440,6 +577,18 @@ def test_frozen_prediction_tampering_is_rejected(
     monkeypatch.setattr(campaign, "_models", lambda *_: models)
     assert campaign._validate_prediction(path, {}, {})["donors"] == 11
 
+    payload["attempt_sha256"] = "0" * 64
+    path.write_text(json.dumps(payload) + "\n")
+    with pytest.raises(PermissionError, match="header differs"):
+        campaign._validate_prediction(path, {}, {})
+
+    payload["attempt_sha256"] = campaign._sha256(attempt)
+    payload["recovery_amendment_sha256"] = "0" * 64
+    path.write_text(json.dumps(payload) + "\n")
+    with pytest.raises(PermissionError, match="header differs"):
+        campaign._validate_prediction(path, {}, {})
+
+    payload["recovery_amendment_sha256"] = campaign.EXPECTED_RECOVERY_AMENDMENT_SHA256
     del payload["samples"][0]["selected_barcode_sha256"]
     path.write_text(json.dumps(payload) + "\n")
     with pytest.raises(PermissionError, match="selected-cell digest"):
