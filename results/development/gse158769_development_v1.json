@@ -1,0 +1,56 @@
+{
+  "accession": "GSE158769",
+  "attempt": {
+    "command": "develop",
+    "exception_message": "('adt', 0)",
+    "exception_type": "KeyError",
+    "failure_location": "_stream_panel source-feature resolution",
+    "models_fit": 0,
+    "pilot_metrics_computed": 0,
+    "result_written_by_runner": false,
+    "tables_constructed": 0
+  },
+  "created_at_utc": "2026-08-29T00:45:00Z",
+  "frozen_rule": {
+    "citation": "GSE158769 held-batch linked RNA/ADT confirmation protocol, Frozen panel and states",
+    "rule": "Missing, coincident, or ambiguous frozen features cause a terminal schema refusal; no value-dependent marker replacement is allowed.",
+    "terminal_action": "No alias amendment, development rerun, held prediction, or held score is permitted."
+  },
+  "numeric_access_audit": {
+    "actual_adt_protein_feature_rows_tokenized": 0,
+    "adt_candidate_assignments_from_gene_rows": 4,
+    "development_cell_columns_selected": 78848,
+    "development_donors_selected": 154,
+    "feature_rows_with_selected_numeric_tokens_parsed": 9,
+    "held_cell_columns_selected": 0,
+    "held_numeric_values_tokenized": 0,
+    "logical_rna_candidate_assignments": 9,
+    "raw_gzip_complete_streams": 1,
+    "selected_numeric_tokens_parsed": 709632
+  },
+  "post_failure_schema_audit": {
+    "complete_gzip_streams": 1,
+    "feature_labels_read": 33569,
+    "numeric_value_tokens_parsed": 0,
+    "observed_frozen_adt_rows": [
+      "CD3_protein",
+      "CD4_protein",
+      "CD5_protein",
+      "CD8a_protein",
+      "CD161_protein",
+      "CD127/IL-7R_protein",
+      "CD27_protein",
+      "CD38_protein",
+      "CD26_protein"
+    ],
+    "purpose": "establish the source-label cause without inspecting any count value"
+  },
+  "schema": "gse158769-development-terminal/1.0",
+  "source": {
+    "bytes": 783271940,
+    "sha256": "9eeccca161e53a6605c3a3c4bd86ab6dbc8c672cffc9b681104567c84da5a452",
+    "source_commit": "1b5d17484cd41c43538c7f3605bdbe6168cbe413",
+    "source_tag": "gse158769-citeseq-v1.1-source"
+  },
+  "status": "TERMINAL_SOURCE_SCHEMA_REFUSAL_BEFORE_PILOT"
+}
