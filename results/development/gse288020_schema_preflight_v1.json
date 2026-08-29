@@ -1,0 +1,158 @@
+{
+  "access_audit": {
+    "barcodes_dataset_opened": false,
+    "h5_feature_datasets_opened": [
+      "/matrix/features/id",
+      "/matrix/features/name",
+      "/matrix/features/feature_type"
+    ],
+    "matrix_data_dataset_opened": false,
+    "matrix_indices_dataset_opened": false,
+    "matrix_indptr_dataset_opened": false,
+    "numeric_assay_values_accessed": 0
+  },
+  "accession": "GSE288020",
+  "candidate_search_disclosure": {
+    "campaign_wide_confirmatory_error_control_claimed": false,
+    "disclosed_before_gse288020_barcode_or_count_access": true,
+    "earlier_public_campaign_ledger": {
+      "coverage": "all earlier public scored, negative, and refused panels preceding the three immediate terminal predecessors",
+      "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
+      "sha256": "1a8965a29a0b3f7ce60cd304a3bad4fb2a581b514298dfc7a5d70a80976ffa79"
+    },
+    "familywise_adjustment_across_public_candidates": false,
+    "immediate_public_terminal_predecessors": [
+      {
+        "accession": "GSE314416",
+        "outcome": "terminal pilot failure",
+        "terminal_tag": "gse314416-citeseq-v1.2-development"
+      },
+      {
+        "accession": "GSE158769",
+        "outcome": "terminal source-schema refusal",
+        "terminal_tag": "gse158769-citeseq-v1.1-development"
+      },
+      {
+        "accession": "GSE189050",
+        "outcome": "terminal development QC/support refusal",
+        "terminal_tag": "gse189050-citeseq-v1.1-development"
+      }
+    ],
+    "inference_scope": "candidate-specific",
+    "sequential_public_candidate_search": true
+  },
+  "created_at_utc": "2026-08-29T02:45:28Z",
+  "feature_counts": {
+    "Antibody Capture": 55,
+    "Gene Expression": 36601
+  },
+  "feature_schema_sha256": "c1c610528da078a489d473e33c11c8c9d6fef4be4b80f42954d521140cb520fa",
+  "panel": {
+    "adt_rows_zero_based": [
+      36630,
+      36653,
+      36648,
+      36649,
+      36608,
+      36631,
+      36644,
+      36632,
+      36643,
+      36611,
+      36635,
+      36650,
+      36645,
+      36647,
+      36633,
+      36654
+    ],
+    "cognate_mappings": 16,
+    "markers": [
+      "CD45",
+      "CD3",
+      "CD4",
+      "CD8a",
+      "CD20",
+      "CD19",
+      "CD27",
+      "CD38",
+      "CD138",
+      "CD14",
+      "CD11b",
+      "CD11c",
+      "CD33",
+      "CD56",
+      "CD161",
+      "CXCR4"
+    ],
+    "ordered_rna_adt_pairs": 256,
+    "rna_rows_zero_based": [
+      2705,
+      20705,
+      21117,
+      4352,
+      19793,
+      27086,
+      21090,
+      8070,
+      3636,
+      10606,
+      27212,
+      27213,
+      32535,
+      20626,
+      21202,
+      4929
+    ]
+  },
+  "physical_donors": 23,
+  "runtime_environment": {
+    "hdf5": {
+      "built_against_version_tuple": [
+        1,
+        14,
+        6
+      ],
+      "h5py_api_version": "1.8",
+      "runtime_version": "1.14.6",
+      "runtime_version_tuple": [
+        1,
+        14,
+        6
+      ]
+    },
+    "packages": {
+      "h5py": "3.14.0",
+      "numpy": "2.0.2",
+      "scipy": "1.13.1"
+    },
+    "python": {
+      "implementation": "CPython",
+      "version": "3.9.6"
+    }
+  },
+  "schema": "gse288020-schema-preflight/1.0",
+  "source_bindings": {
+    "designation_sha256": "aa33716cb782431b1dff5fb1a0a05d38b02b26b637616f63f87080e13265a1e6",
+    "filelist_sha256": "b6f12143487ec11877687ef4771c348fcafb49a4468e5318772f6541dfd6a59b",
+    "manifest_sha256": "dc4adb306df03573c8b9fafd86b55ef754a2548213d55a4bbb19b9ddfb024d2c",
+    "official_geo_metadata_sha256": "1b7e3239961e90652ad93783099b2ff4a18c8c8f653ce6c8ddbe60a05f8bc5bc",
+    "schema_access_sha256": "134014a2199e3316bcbe427e6cad9cfb2b89c438f12773948eee30854616a262"
+  },
+  "split": {
+    "calibration": 7,
+    "held": 9,
+    "pilot": 7
+  },
+  "state_estimand": {
+    "adt_state": "one for the upper 256 raw ADT counts after the frozen donor-marker tie rank, zero for the lower 256",
+    "analysis_unit": "physical donor",
+    "cell_population": "the 512 filtered cells selected by the frozen donor-specific hash rank",
+    "coupling_parameter": "conditional RNA-ADT log odds given the donor-specific RNA margin and fixed 256/256 ADT rank margin",
+    "loss": "donor-equal mean Poisson deviance over ordered pairs with a nondegenerate recipient RNA margin",
+    "ordered_pair_table": "a within-donor 2x2 table for one RNA marker and one ADT marker",
+    "recipient_prediction": "the expected 2x2 table at the recipient RNA margin and fixed ADT rank margin",
+    "rna_state": "one if the raw RNA count is positive, zero otherwise"
+  },
+  "status": "PASS_BEFORE_BARCODE_OR_COUNT_ACCESS"
+}

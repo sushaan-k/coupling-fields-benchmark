@@ -1,0 +1,26 @@
+{
+  "schema": "gse288020-public-freeze-verification/1.0",
+  "status": "PASS_BEFORE_BARCODE_OR_COUNT_ACCESS",
+  "verified_at_utc": "2026-08-29T03:05:55Z",
+  "public_origin": "https://github.com/sushaan-k/coupling-fields-benchmark.git",
+  "protocol_tag": "gse288020-citeseq-v1-protocol",
+  "annotated_tag_object": "93633f2f1617b2d7edb33c0e97d6c86ce3badfab",
+  "peeled_commit": "e5ecdeb0351f248069452aef3ddb924a71ea807b",
+  "fresh_clone": {
+    "clean_worktree": true,
+    "tag_object_type": "tag",
+    "head_matches_peeled_commit": true,
+    "focused_and_inherited_tests": {
+      "passed": 207,
+      "failed": 0
+    },
+    "local_path_scan": "PASS",
+    "email_pattern_scan": "PASS"
+  },
+  "access_attestation": {
+    "gse288020_barcode_datasets_opened_after_protocol_freeze": 0,
+    "gse288020_sparse_matrix_datasets_opened_after_protocol_freeze": 0,
+    "gse288020_numeric_assay_values_opened_after_protocol_freeze": 0
+  },
+  "authorization": "The public protocol tag is verified. Development count access remains disabled until the independent-study protocol is also publicly frozen and verified."
+}

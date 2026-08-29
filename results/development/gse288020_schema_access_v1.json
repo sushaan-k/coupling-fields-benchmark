@@ -1,0 +1,34 @@
+{
+  "accession": "GSE288020",
+  "archive_access": {
+    "archive_bytes_downloaded_and_opaque_hashed": 347228160,
+    "archive_member_headers_listed": true,
+    "h5_members_extracted_without_dataset_access": 23
+  },
+  "hdf5_datasets_opened": [
+    "/matrix/features/id",
+    "/matrix/features/name",
+    "/matrix/features/feature_type"
+  ],
+  "hdf5_files_schema_inspected": 23,
+  "hdf5_paths_not_opened": [
+    "/matrix/barcodes",
+    "/matrix/data",
+    "/matrix/indices",
+    "/matrix/indptr",
+    "/matrix/shape"
+  ],
+  "numeric_assay_values_accessed": {
+    "adt_count_elements": 0,
+    "rna_count_elements": 0
+  },
+  "record_created_at_utc": "2026-08-29T02:07:20Z",
+  "schema": "gse288020-schema-access/1.0",
+  "source_metadata_actions": [
+    "Downloaded and hashed the official 65720-byte NCBI GEO sample brief SOFT response",
+    "Parsed only GSM, title, disease state, immune-age, library name, and supplementary filename fields",
+    "Downloaded and hashed the public 2216-byte GEO filelist",
+    "Recorded the 23 GSM accessions, donor labels, condition labels, immune-age labels, filenames, and file sizes"
+  ],
+  "status": "NO_BARCODE_OR_NUMERIC_ASSAY_ACCESS"
+}
