@@ -382,7 +382,7 @@ def _build_source_plan(
 
 def _validate_control_allocation(
     batches: np.ndarray, conditions: np.ndarray, exp_ids: np.ndarray
-) -> None:
+) -> dict[str, dict[str, int]]:
     control = conditions == CONTROL_CONDITION
     if int(np.count_nonzero(control)) != EXPECTED_CONTROL_CELLS:
         raise ValueError("control condition no longer has the exact frozen cell count")
@@ -407,14 +407,26 @@ def _validate_control_allocation(
     )
     if observed_units != expected_units:
         raise ValueError("control batch/donor allocation differs from the frozen split")
-    for donor, (batch, expected_count) in EXCLUDED_CONTROL_DONORS.items():
+    counts: dict[str, dict[str, int]] = {}
+    for batch, donor in sorted(
+        expected_units, key=lambda unit: (unit[0], int(unit[1]))
+    ):
         observed = int(
             np.count_nonzero(
                 control & (batches.astype(str) == str(batch)) & (exp_ids == donor)
             )
         )
+        counts.setdefault(str(batch), {})[donor] = observed
+        if donor not in EXCLUDED_CONTROL_DONORS and observed < CELL_BUDGET:
+            raise ValueError(
+                f"designated batch {batch} donor {donor} has fewer than "
+                f"{CELL_BUDGET} control cells"
+            )
+    for donor, (batch, expected_count) in EXCLUDED_CONTROL_DONORS.items():
+        observed = counts[str(batch)][donor]
         if observed != expected_count:
             raise ValueError(f"excluded donor {donor} has the wrong control-cell count")
+    return counts
 
 
 def _matrix_metadata(matrix: h5py.Group) -> dict[str, Any]:
@@ -548,7 +560,7 @@ def inspect_axes(h5ad_path: Path) -> AxisInspection:
                 raise ValueError(f"/obs/{key} category axis differs")
         if int(np.count_nonzero(conditions == "0")) != EXPECTED_CONDITION_ZERO_CELLS:
             raise ValueError("condition-0 mispool anomaly has the wrong cell count")
-        _validate_control_allocation(batches, conditions, exp_ids)
+        control_cell_counts = _validate_control_allocation(batches, conditions, exp_ids)
         plan = _build_source_plan(obs_index, batches, conditions, exp_ids, free_ids)
 
         feature_ids = _frame_column(var, "gene_ids").astype(str)
@@ -625,6 +637,7 @@ def inspect_axes(h5ad_path: Path) -> AxisInspection:
                         value: int(np.count_nonzero(batches == value))
                         for value in exact_categories["batch"]
                     },
+                    "control_cell_counts_by_batch_and_exp_id": control_cell_counts,
                     "exp_id_to_free_id": exp_to_free,
                 },
                 "var": {
@@ -682,9 +695,7 @@ def inspect_axes(h5ad_path: Path) -> AxisInspection:
                 ),
                 "excluded_development_control_cells": {
                     donor: EXCLUDED_CONTROL_DONORS[donor][1]
-                    for donor in sorted(
-                        EXCLUDED_DEVELOPMENT_DONORS, key=int
-                    )
+                    for donor in sorted(EXCLUDED_DEVELOPMENT_DONORS, key=int)
                 },
                 "donor_count": len(plan.donor_axis),
                 "donor_axis": [int(donor) for donor in plan.donor_axis],

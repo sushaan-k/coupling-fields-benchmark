@@ -303,7 +303,7 @@ def test_strict_fixed_margin_interior_is_required(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     monkeypatch.setattr(subject, "SOURCE_BATCHES", (0, 1))
-    donors = ("a", "b", "c", "d")
+    donors = ("1", "2", "3", "4")
     batches = (0, 0, 1, 1)
     rna = np.zeros((4, 128, 17), dtype=np.int32)
     adt = np.zeros_like(rna)
