@@ -1,0 +1,20 @@
+{
+  "schema": "gse309593-runtime-environment/1.0",
+  "required_runtime": {
+    "python": {
+      "implementation": "CPython",
+      "version": "3.9.6"
+    },
+    "packages": {
+      "numpy": "2.0.2",
+      "scipy": "1.13.1",
+      "h5py": "3.14.0"
+    },
+    "hdf5": {
+      "runtime_version": "1.14.6",
+      "runtime_version_tuple": [1, 14, 6],
+      "built_against_version_tuple": [1, 14, 6],
+      "h5py_api_version": "1.8"
+    }
+  }
+}

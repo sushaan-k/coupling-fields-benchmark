@@ -1,0 +1,112 @@
+{
+  "schema": "gse309593-independent-study-confirmation-protocol/1.0",
+  "status": "FROZEN_BEFORE_ANY_GSE309593_ASSAY_IDENTIFIER_OR_BARCODE_ACCESS",
+  "created_at_utc": "2026-08-29T02:20:30Z",
+  "recipient_accession": "GSE309593",
+  "source_accession": "GSE288020",
+  "source_roles": {
+    "calibration": ["R001", "R005", "R008", "R009", "R010", "R013", "R014"],
+    "pilot": ["R003", "R006", "R015", "R016", "R020", "R023", "R024"],
+    "internal_test": ["E2228", "E2238", "E2242", "E2243", "E2263", "E2324", "E2326", "E2328", "E2329"],
+    "final_refit": "the 14 MGUS development subjects only, after public closure of the source development artifact, using configurations selected only from the salted 7/7 calibration and pilot",
+    "mm_internal_test_use_in_independent_source_model": "forbidden",
+    "independent_branch_release": "GSE309593 proceeds after source development closure and valid 14-MGUS fits regardless of the separate MGUS-to-MM diagnostic outcome"
+  },
+  "source_model_contract": {
+    "schema": "gse288020-independent-study-source-model/1.0",
+    "canonical_artifact_path": "results/development/gse288020_development_v1.json",
+    "canonical_attempt_path": "results/development/gse288020_development_attempt_v1.jsonl",
+    "canonical_runtime_path": "results/development/gse288020_runtime_environment_v1.json",
+    "json_pointer": "/source_only_external_study_model",
+    "public_export_location": "results/development/gse288020_development_v1.json#/source_only_external_study_model",
+    "canonical_hash_encoding": "SHA-256 of UTF-8 JSON with sorted keys, separators comma and colon, and nonfinite values forbidden",
+    "required_methods": [
+      "primary",
+      "matched_deviance_residual",
+      "destroyed_link",
+      "common_effect_cmle",
+      "pooled_saturated_poisson"
+    ],
+    "external_access_rule": "all five methods must be valid and external_study_ready must be true before any GSE309593 target assay access; a classical-method refusal closes the candidate without target access",
+    "target_study_tuning": "forbidden"
+  },
+  "expected_source_marker_mappings": [
+    {"rna_symbol": "PTPRC", "adt_target": "CD45"},
+    {"rna_symbol": "CD3E", "adt_target": "CD3"},
+    {"rna_symbol": "CD4", "adt_target": "CD4"},
+    {"rna_symbol": "CD8A", "adt_target": "CD8a"},
+    {"rna_symbol": "MS4A1", "adt_target": "CD20"},
+    {"rna_symbol": "CD19", "adt_target": "CD19"},
+    {"rna_symbol": "CD27", "adt_target": "CD27"},
+    {"rna_symbol": "CD38", "adt_target": "CD38"},
+    {"rna_symbol": "SDC1", "adt_target": "CD138"},
+    {"rna_symbol": "CD14", "adt_target": "CD14"},
+    {"rna_symbol": "ITGAM", "adt_target": "CD11b"},
+    {"rna_symbol": "ITGAX", "adt_target": "CD11c"},
+    {"rna_symbol": "CD33", "adt_target": "CD33"},
+    {"rna_symbol": "NCAM1", "adt_target": "CD56"},
+    {"rna_symbol": "KLRB1", "adt_target": "CD161"},
+    {"rna_symbol": "CXCR4", "adt_target": "CXCR4"}
+  ],
+  "recipient_design": {
+    "subjects": 23,
+    "batches": ["B092", "B099", "B110", "B129", "B162", "B208", "B210"],
+    "cells_per_subject": 512,
+    "rna_qc_before_selection": {
+      "minimum_detected_genes": 200,
+      "maximum_mitochondrial_fraction": 0.1,
+      "maximum_rna_umis": 70000
+    },
+    "rna_state": "raw UMI count greater than zero",
+    "adt_state": "within-subject deterministic midrank split into 256 low and 256 high cells for a supported marker; an unsupported subject-marker receives a 512/0 sentinel margin and no high/low biological state",
+    "adt_subject_marker_support_rule": "a subject-marker is supported only when at most 128 of 512 cells belong to a raw-count tie block crossing its 256/256 boundary; otherwise every ordered pair using that ADT is excluded for that subject without changing the global panel axis",
+    "cell_selection_salt": "GSE309593-CELL-BUDGET-v1",
+    "adt_tie_salt": "GSE309593-ADT-MIDRANK-v1",
+    "minimum_retained_cognates": 9,
+    "minimum_informative_pairs_per_subject": 64,
+    "minimum_eligible_subjects": 18,
+    "all_seven_batches_required": true
+  },
+  "scratch_storage_rule": "RNA and ADT downloads must use scratch storage outside the public repository; every temporary assay file is deleted after reduction and a hard interruption cannot leave assay bytes in the repository",
+  "panel_rule": "Use the exact ordered common intersection of the public candidate list, the frozen source marker mappings, and the feature schemas of all 23 recipient RNA H5 and all 23 recipient ADT CSV artifacts. Preserve candidate order; per-subject schema differences remove a feature from the common axis, and numeric values cannot add, remove, or reorder markers. Refuse when fewer than nine cognates remain.",
+  "primary_endpoint": "donor-equal mean multinomial deviance per cell over each eligible subject's informative ordered RNA-to-ADT pairs",
+  "inference": {
+    "bootstrap_draws": 20000,
+    "bootstrap_seed": 20260829,
+    "minimum_relative_reduction": 0.05,
+    "minimum_favorable_subject_fraction": 0.8,
+    "primary_uncertainty": "paired-donor bootstrap stratified within each of the seven fixed batches, preserving each observed batch size and the donor-equal endpoint",
+    "require_batch_stratified_donor_bootstrap_upper_95_below_zero": true,
+    "batch_block_bootstrap": "reported sensitivity only",
+    "leave_one_batch_jackknife_t": "reported sensitivity only with df 6",
+    "require_every_batch_mean_difference_negative": true,
+    "require_exact_batch_sign_flip_one_sided_p_at_most": 0.025,
+    "require_every_leave_one_batch_out_mean_difference_negative": true,
+    "donor_bootstrap": "reported sensitivity only",
+    "batch_sign_flip_assumptions": "the seven batch-level paired effects are independent across batches and sign-symmetric under the null; the exact sign-flip result is a prespecified sensitivity and gate, not the primary interval",
+    "gating_comparators": ["matched_deviance_residual", "destroyed_link"],
+    "classical_comparators": ["common_effect_cmle", "pooled_saturated_poisson"],
+    "classical_source_gate": "both classical fits and their numerical certificates must be valid before target access so both head-to-head comparisons are mandatory"
+  },
+  "one_shot_stages": ["rna", "adt", "prediction", "score"],
+  "public_tags": {
+    "protocol": "gse309593-independent-study-v1-protocol",
+    "source_authorization": "gse309593-independent-study-v1-source-authorized",
+    "rna_attempt": "gse309593-independent-study-v1-rna-attempt",
+    "rna": "gse309593-independent-study-v1-rna",
+    "adt_attempt": "gse309593-independent-study-v1-adt-attempt",
+    "adt": "gse309593-independent-study-v1-adt",
+    "prediction_attempt": "gse309593-independent-study-v1-prediction-attempt",
+    "prediction": "gse309593-independent-study-v1-predictions",
+    "score_authorization": "gse309593-independent-study-v1-score-authorized",
+    "score_attempt": "gse309593-independent-study-v1-score-attempt",
+    "result": "gse309593-independent-study-v1-result"
+  },
+  "terminal_rules": {
+    "support_or_qc_failure": "publish terminal refusal without forming recipient joint tables",
+    "public_verification": "verify-stage semantically validates either a completed stage or its terminal-refusal payload and ledger; a verified terminal refusal never authorizes a downstream stage",
+    "post_score_criterion_failure": "publish a completed negative result, never relabel it as refusal",
+    "adaptive_rescue": "forbidden"
+  },
+  "claim_scope": "composition-inclusive cross-condition transfer among source-QC-matched selected cell mixtures; not cell-type-conditional invariance or same-population causal transport"
+}

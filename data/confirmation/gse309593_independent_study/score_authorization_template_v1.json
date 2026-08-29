@@ -1,0 +1,17 @@
+{
+  "schema": "gse309593-independent-study-score-authorization/1.0",
+  "status": "DISABLED_TEMPLATE",
+  "outcome_access_authorized": false,
+  "recipient_joint_tables_formed_before_authorization": 0,
+  "prediction_tag": "gse309593-independent-study-v1-predictions",
+  "prediction_commit": null,
+  "prediction_path": "results/gse309593_independent_study_predictions_v1.json",
+  "prediction_sha256": null,
+  "prediction_bytes": null,
+  "rna_stage_sha256": null,
+  "adt_stage_sha256": null,
+  "source_authorization_sha256": null,
+  "protocol_sha256": null,
+  "runner_sha256": null,
+  "transitive_bindings": null
+}

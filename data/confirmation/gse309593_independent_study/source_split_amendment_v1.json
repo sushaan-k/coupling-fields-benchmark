@@ -1,0 +1,96 @@
+{
+  "schema": "gse309593-independent-study-source-only-amendment/1.0",
+  "status": "FROZEN_BEFORE_ANY_GSE309593_ASSAY_IDENTIFIER_OR_BARCODE_ACCESS",
+  "created_at_utc": "2026-08-29T02:20:30Z",
+  "candidate_history": {
+    "tag": "gse309593-independent-study-v1-candidate",
+    "tag_object": "f557f53d329e20ba4161d35feb895dd4458c49ac",
+    "commit": "9136e876da61a8184b4a48c70921fe69a30b0826",
+    "candidate_designation_sha256": "07c1979bcee8009db14265a2360f2f46527f674ac5835cf54f098f2f10bdc3e9",
+    "preservation_rule": "The public candidate file remains unchanged and is retained as historical provenance."
+  },
+  "source_split_correction": {
+    "reason": "The candidate designation recorded a preliminary source split. The final GSE288020 protocol derives the source split by a frozen SHA-256 ordering within immune-age strata.",
+    "superseded_calibration_subjects": ["R001", "R003", "R005", "R006", "R008", "R009", "R013"],
+    "superseded_pilot_subjects": ["R010", "R014", "R015", "R016", "R020", "R023", "R024"],
+    "corrected_calibration_subjects": ["R001", "R005", "R008", "R009", "R010", "R013", "R014"],
+    "corrected_pilot_subjects": ["R003", "R006", "R015", "R016", "R020", "R023", "R024"],
+    "independent_internal_test_subjects": ["E2228", "E2238", "E2242", "E2243", "E2263", "E2324", "E2326", "E2328", "E2329"],
+    "split_rule": "Within each GSE288020 MGUS immune-age stratum, order donors by SHA-256 of 'GSE288020-MGUS-SPLIT-v1|<age>|<donor>' with donor-ID tie breaking; assign the first four young and first three old donors to calibration and the remainder to pilot; hold all nine MM donors for the internal test.",
+    "superseded_final_refit_rule": "refit each fixed estimator on all 23 GSE288020 subjects",
+    "corrected_final_refit_rule": "Select every configuration using only the salted 7/7 MGUS calibration/pilot split, then refit the fixed primary and every comparator on the 14 MGUS development donors only. The nine MM internal-test outcomes never enter the GSE309593 source model.",
+    "branch_release_rule": "GSE309593 may proceed after the GSE288020 development artifact and 14-MGUS source model are publicly closed, whether the separate MGUS-to-MM promotion diagnostic passes or fails, provided all five methods are valid and external_study_ready is true. Both studies' outcomes remain reportable.",
+    "effect": "This correction changes GSE288020 source development roles, final-refit membership, and branch release. It does not change the GSE309593 cohort, marker candidates, or estimand. The separate preaccess batch-inference amendment below supersedes the candidate designation's inference."
+  },
+  "identifier_boundary_clarification": {
+    "superseded_phrase": "choose 512 common-identifier candidates by the frozen hash rule",
+    "operational_rule": "The RNA-only stage selects exactly 512 H5 identifiers by the frozen salted-hash rule without opening an ADT file. The later ADT-only stage must find every selected identifier exactly once. Missing or duplicate selected identifiers cause terminal refusal; no replacement identifier or resampling is allowed.",
+    "reason": "Whether an identifier is common to RNA and ADT cannot be known inside an RNA-only process. The operational rule is stricter and preserves the staged outcome firewall."
+  },
+  "batch_inference_amendment": {
+    "superseded_primary_interval": "paired-subject bootstrap",
+    "primary_interval": "resample eligible subjects with replacement separately within each of the seven fixed batches, preserve each batch's observed subject count, and compute the donor-equal mean difference",
+    "batch_block_bootstrap_role": "reported sensitivity only",
+    "unstratified_donor_bootstrap_role": "reported sensitivity only",
+    "leave_one_batch_jackknife_t_role": "reported sensitivity only with 6 degrees of freedom",
+    "additional_primary_checks": [
+      "one-sided exact sign-flip p-value at most 0.025 over the seven batch mean differences",
+      "negative donor-equal mean difference after leaving out each batch in turn"
+    ],
+    "classical_interval": "the same within-batch stratified paired-donor bootstrap used for the primary comparisons",
+    "reason": "The 23 recipient subjects are nested in seven processing batches; batch-aware inference prevents subject-level pseudo-replication while retaining the donor-equal endpoint."
+  },
+  "complete_supersession_matrix": [
+    {
+      "candidate_field": "source_development.calibration_subjects and pilot_subjects",
+      "superseding_rule": "use the final salted age-stratified 7/7 MGUS split recorded above"
+    },
+    {
+      "candidate_field": "source_development.final_refit_rule",
+      "superseding_rule": "refit on the 14 MGUS development donors only; never use the nine MM outcomes"
+    },
+    {
+      "candidate_field": "source branch after the GSE288020 internal diagnostic",
+      "superseding_rule": "the branch is independent of diagnostic direction but requires all 14 MGUS donors, all five valid methods, and external_study_ready"
+    },
+    {
+      "candidate_field": "access_sequence RNA common-identifier phrase",
+      "superseding_rule": "select 512 RNA identifiers first; the ADT stage must recover all 512 exactly once without replacement"
+    },
+    {
+      "candidate_field": "inference paired-subject bootstrap",
+      "superseding_rule": "use the within-batch stratified paired-donor bootstrap as primary; retain batch-block, unstratified donor, and jackknife-t intervals as sensitivities"
+    },
+    {
+      "candidate_field": "states_and_sampling cell selection",
+      "superseding_rule": "apply source-matched RNA-only QC before salted selection: at least 200 detected genes, mitochondrial fraction at most 0.10, and at most 70000 RNA UMIs"
+    },
+    {
+      "candidate_field": "states_and_sampling ADT midrank ties",
+      "superseding_rule": "mark a subject-marker unsupported when more than 128 cells lie in its raw-count tie block crossing the 256/256 boundary; serialize a 512/0 sentinel margin and exclude all pairs using that ADT for that subject, while preserving the global marker axis and applying the frozen informative-pair, subject-count, and seven-batch gates"
+    },
+    {
+      "candidate_field": "stage lineage",
+      "superseding_rule": "bind exact runtime, canonical annotated tags, attempts, prerequisites, semantic payloads, hashes, and statuses at every stage"
+    },
+    {
+      "candidate_field": "study_design.claim_if_successful",
+      "superseding_rule": "limit any positive interpretation to composition-inclusive cross-condition transfer among source-QC-matched selected cell mixtures; do not claim cell-type-conditional invariance or same-population causal transport"
+    }
+  ],
+  "claim_scope_clarification": "Any positive result is composition-inclusive cross-condition transfer among source-QC-matched selected cell mixtures, not cell-type-conditional invariance or same-population causal transport.",
+  "sequential_candidate_search_disclosure": {
+    "preceding_terminal_candidate": "GSE189050",
+    "public_terminal_tag": "gse189050-citeseq-v1.1-development",
+    "peeled_commit": "66e3d233ff2bf5c65a090bfbb1bbfb0bf48eea9a",
+    "terminal_status": "TERMINAL_DEVELOPMENT_QC_OR_SUPPORT_FAILURE",
+    "claim_scope": "GSE309593 is a separately frozen follow-on candidate; no campaign-wide confirmatory error-control claim is made."
+  },
+  "target_access_attestation": {
+    "gse309593_h5_files_downloaded_or_opened": 0,
+    "gse309593_adt_csv_files_downloaded_or_opened": 0,
+    "gse309593_cell_identifiers_read": 0,
+    "gse309593_barcodes_read": 0,
+    "gse309593_assay_values_read": 0
+  }
+}
