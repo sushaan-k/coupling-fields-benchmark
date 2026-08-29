@@ -1,0 +1,239 @@
+{
+  "access": {
+    "pool_qc": {
+      "s1a": {
+        "accepted_singlets_by_subject": {
+          "SUB235950": 3229,
+          "SUB235954": 1763,
+          "SUB235969": 2895,
+          "SUB235993": 4740
+        },
+        "checks": {
+          "exact_declared_hto_tag_set_represented": true,
+          "human_pool_ambiguous_fraction_at_most_0_30": true,
+          "human_pool_negative_fraction_at_most_0_30": true,
+          "human_pool_singlet_fraction_at_least_0_50": true,
+          "positive_donor_yield_ratio_at_most_4": true
+        },
+        "classification_fractions_among_human": {
+          "ambiguous": 0.1560747663551402,
+          "negative": 0.0010013351134846463,
+          "singlet": 0.8429238985313752
+        },
+        "filtered_barcodes": 15735,
+        "human_barcodes": 14980,
+        "passes": true,
+        "pool": "s1a",
+        "positive_donor_yield_ratio": 2.688598979013046,
+        "represented_subjects": [
+          "SUB235950",
+          "SUB235954",
+          "SUB235969",
+          "SUB235993"
+        ],
+        "retained_subjects_at_512": [
+          "SUB235950",
+          "SUB235954",
+          "SUB235969",
+          "SUB235993"
+        ]
+      },
+      "s2a": {
+        "accepted_singlets_by_subject": {
+          "SUB235956": 3717,
+          "SUB235960": 1280,
+          "SUB235973": 1621,
+          "SUB235994": 455
+        },
+        "checks": {
+          "exact_declared_hto_tag_set_represented": true,
+          "human_pool_ambiguous_fraction_at_most_0_30": false,
+          "human_pool_negative_fraction_at_most_0_30": true,
+          "human_pool_singlet_fraction_at_least_0_50": true,
+          "positive_donor_yield_ratio_at_most_4": false
+        },
+        "classification_fractions_among_human": {
+          "ambiguous": 0.46780018055973516,
+          "negative": 7.523322299127295e-05,
+          "singlet": 0.5321245862172735
+        },
+        "filtered_barcodes": 18595,
+        "human_barcodes": 13292,
+        "passes": false,
+        "pool": "s2a",
+        "positive_donor_yield_ratio": 8.169230769230769,
+        "represented_subjects": [
+          "SUB235956",
+          "SUB235960",
+          "SUB235973",
+          "SUB235994"
+        ],
+        "retained_subjects_at_512": [
+          "SUB235956",
+          "SUB235960",
+          "SUB235973"
+        ]
+      },
+      "s3a": {
+        "accepted_singlets_by_subject": {
+          "SUB235946": 18,
+          "SUB235951": 4,
+          "SUB235970": 99,
+          "SUB235990": 39,
+          "SUB235992": 25
+        },
+        "checks": {
+          "exact_declared_hto_tag_set_represented": true,
+          "human_pool_ambiguous_fraction_at_most_0_30": true,
+          "human_pool_negative_fraction_at_most_0_30": false,
+          "human_pool_singlet_fraction_at_least_0_50": false,
+          "positive_donor_yield_ratio_at_most_4": false
+        },
+        "classification_fractions_among_human": {
+          "ambiguous": 0.01878796440175166,
+          "negative": 0.9550784009040825,
+          "singlet": 0.026133634694165842
+        },
+        "filtered_barcodes": 96006,
+        "human_barcodes": 7079,
+        "passes": false,
+        "pool": "s3a",
+        "positive_donor_yield_ratio": 24.75,
+        "represented_subjects": [
+          "SUB235946",
+          "SUB235951",
+          "SUB235970",
+          "SUB235990",
+          "SUB235992"
+        ],
+        "retained_subjects_at_512": []
+      },
+      "s4a": {
+        "accepted_singlets_by_subject": {
+          "SUB235944": 13,
+          "SUB235959": 3,
+          "SUB235974": 6,
+          "SUB235988": 0,
+          "SUB236001": 0
+        },
+        "checks": {
+          "exact_declared_hto_tag_set_represented": false,
+          "human_pool_ambiguous_fraction_at_most_0_30": true,
+          "human_pool_negative_fraction_at_most_0_30": false,
+          "human_pool_singlet_fraction_at_least_0_50": false,
+          "positive_donor_yield_ratio_at_most_4": false
+        },
+        "classification_fractions_among_human": {
+          "ambiguous": 0.04395604395604396,
+          "negative": 0.7142857142857143,
+          "singlet": 0.24175824175824176
+        },
+        "filtered_barcodes": 67823,
+        "human_barcodes": 91,
+        "passes": false,
+        "pool": "s4a",
+        "positive_donor_yield_ratio": 4.333333333333333,
+        "represented_subjects": [
+          "SUB235944",
+          "SUB235959",
+          "SUB235974"
+        ],
+        "retained_subjects_at_512": []
+      }
+    },
+    "stream_access": {
+      "s1a": {
+        "biological_adt_coordinate_lines_skipped_without_value_conversion": 0,
+        "biological_adt_values_serialized": 0,
+        "full_matrix_materialized": false,
+        "matrix_coordinate_lines_seen": 9670985,
+        "numeric_values_converted": {
+          "biological_adt": 221644,
+          "hto": 57549,
+          "human_gex": 7100732,
+          "mouse_gex": 1846528
+        }
+      },
+      "s2a": {
+        "biological_adt_coordinate_lines_skipped_without_value_conversion": 0,
+        "biological_adt_values_serialized": 0,
+        "full_matrix_materialized": false,
+        "matrix_coordinate_lines_seen": 10068229,
+        "numeric_values_converted": {
+          "biological_adt": 271107,
+          "hto": 74166,
+          "human_gex": 6439475,
+          "mouse_gex": 2696463
+        }
+      },
+      "s3a": {
+        "biological_adt_coordinate_lines_skipped_without_value_conversion": 0,
+        "biological_adt_values_serialized": 0,
+        "full_matrix_materialized": false,
+        "matrix_coordinate_lines_seen": 13926548,
+        "numeric_values_converted": {
+          "biological_adt": 1236341,
+          "hto": 427073,
+          "human_gex": 4415912,
+          "mouse_gex": 5294807
+        }
+      },
+      "s4a": {
+        "biological_adt_coordinate_lines_skipped_without_value_conversion": 0,
+        "biological_adt_values_serialized": 0,
+        "full_matrix_materialized": false,
+        "matrix_coordinate_lines_seen": 23559860,
+        "numeric_values_converted": {
+          "biological_adt": 980759,
+          "hto": 333495,
+          "human_gex": 8417411,
+          "mouse_gex": 11585770
+        }
+      }
+    }
+  },
+  "created_at_utc": "2026-08-29T01:34:10Z",
+  "protocol_commit": "525648d0eb7747b17b6c8c49c7aca0d7e3751b58",
+  "schema": "gse189050-development/1.0",
+  "status": "TERMINAL_DEVELOPMENT_QC_OR_SUPPORT_FAILURE",
+  "support": {
+    "calibration": {
+      "checks": {
+        "at_least_3_donors_per_pool": false,
+        "at_least_7_donors": false
+      },
+      "eligible_donor_count": 4,
+      "eligible_donors": [
+        "SUB235950",
+        "SUB235954",
+        "SUB235969",
+        "SUB235993"
+      ],
+      "eligible_donors_by_pool": {
+        "s1a": 4,
+        "s3a": 0
+      },
+      "passes": false,
+      "role": "calibration"
+    },
+    "pilot": {
+      "checks": {
+        "at_least_3_donors_per_pool": false,
+        "at_least_7_donors": false
+      },
+      "eligible_donor_count": 3,
+      "eligible_donors": [
+        "SUB235956",
+        "SUB235960",
+        "SUB235973"
+      ],
+      "eligible_donors_by_pool": {
+        "s2a": 3,
+        "s4a": 0
+      },
+      "passes": false,
+      "role": "pilot"
+    }
+  },
+  "terminal_rule": "No held matrix or barcode value may be accessed."
+}
