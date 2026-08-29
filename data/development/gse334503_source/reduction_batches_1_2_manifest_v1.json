@@ -1,0 +1,887 @@
+{
+  "accession": "GSE334503",
+  "adt_graph_profile": {
+    "cell_clr_formula": "clr_cell = log1p(count_130) - mean_j(log1p(count_130))",
+    "cognate_adt_axis": [
+      "CD1c",
+      "CD2.1",
+      "CD4.1",
+      "CD7.1",
+      "CD8",
+      "CD11b",
+      "CD11c",
+      "CD14.1",
+      "CD19.1",
+      "CD20",
+      "CD22.1",
+      "CD27.1",
+      "CD33.1",
+      "CD36.1",
+      "CD38.1",
+      "CD40.1",
+      "CD47.1",
+      "CD64",
+      "CD69.1",
+      "CD86.1",
+      "CD163.1",
+      "CX3CR1.1"
+    ],
+    "cognate_positions_zero_based": [
+      54,
+      89,
+      23,
+      19,
+      11,
+      55,
+      15,
+      25,
+      13,
+      31,
+      101,
+      49,
+      14,
+      104,
+      98,
+      7,
+      5,
+      56,
+      43,
+      0,
+      85,
+      66
+    ],
+    "denominator_adt_axis": [
+      "CD86.1",
+      "CD274 (B7-H1; PD-L1)",
+      "CD270 (HVEM; TR2)",
+      "CD155 (PVR)",
+      "CD112 (Nectin-2)",
+      "CD47.1",
+      "CD48.1",
+      "CD40.1",
+      "CD154",
+      "CD52.1",
+      "CD3",
+      "CD8",
+      "CD56",
+      "CD19.1",
+      "CD33.1",
+      "CD11c",
+      "HLA-A;B;C",
+      "CD45RA",
+      "CD123",
+      "CD7.1",
+      "CD105",
+      "anti-human/mouse CD49f",
+      "CD194 (CCR4)",
+      "CD4.1",
+      "anti-mouse/human CD44",
+      "CD14.1",
+      "CD16",
+      "CD25",
+      "CD45RO",
+      "CD279",
+      "TIGIT (VSTM3)",
+      "CD20",
+      "CD335 (NKp46)",
+      "CD31",
+      "CD146",
+      "IgM",
+      "CD5.1",
+      "CD183 (CXCR3)",
+      "CD195 (CCR5)",
+      "CD32",
+      "CD196 (CCR6)",
+      "CD185 (CXCR5)",
+      "CD103 (Integrin \u03b1E)",
+      "CD69.1",
+      "CD62L",
+      "CD161",
+      "CD152 (CTLA-4)",
+      "CD223 (LAG-3)",
+      "KLRG1 (MAFA)",
+      "CD27.1",
+      "CD107a (LAMP-1)",
+      "CD95 (Fas)",
+      "CD134 (OX40)",
+      "HLA-DR",
+      "CD1c",
+      "CD11b",
+      "CD64",
+      "CD141 (Thrombomodulin)",
+      "CD1d",
+      "CD314 (NKG2D)",
+      "CD35",
+      "CD57 Recombinant",
+      "CD272 (BTLA)",
+      "anti-human/mouse/rat CD278 (ICOS)",
+      "CD58 (LFA-3)",
+      "CD39",
+      "CX3CR1.1",
+      "CD24.1",
+      "CD21",
+      "CD11a",
+      "CD79b (Ig\u03b2)",
+      "CD244 (2B4)",
+      "CD169 (Sialoadhesin; Siglec-1)",
+      "anti-human/mouse integrin \u03b27",
+      "CD268 (BAFF-R)",
+      "CD42b",
+      "CD54",
+      "CD62P (P-Selectin)",
+      "CD119 (IFN-\u03b3 R \u03b1 chain)",
+      "TCR \u03b1/\u03b2",
+      "CD122 (IL-2R\u03b2)",
+      "CD267 (TACI)",
+      "Fc\u03b5RI\u03b1",
+      "CD41",
+      "CD137 (4-1BB)",
+      "CD163.1",
+      "CD83.1",
+      "CD124 (IL-4R\u03b1)",
+      "CD13",
+      "CD2.1",
+      "CD226 (DNAM-1)",
+      "CD29",
+      "CD303 (BDCA-2)",
+      "CD49b",
+      "CD81 (TAPA-1)",
+      "IgD",
+      "CD18",
+      "CD28.1",
+      "CD38.1",
+      "CD127 (IL-7R\u03b1)",
+      "CD45",
+      "CD22.1",
+      "CD71",
+      "CD26",
+      "CD36.1",
+      "CD158 (KIR2DL1/S1/S3/S5)",
+      "CD49a",
+      "CD49d",
+      "CD73 (Ecto-5'-nucleotidase)",
+      "TCR V\u03b17.2",
+      "TCR V\u03b42",
+      "LOX-1",
+      "CD158b (KIR2DL2/L3;  NKAT2)",
+      "CD158e1 (KIR3DL1; NKB1)",
+      "CD319 (CRACC)",
+      "CD99.1",
+      "CLEC12A.1",
+      "CD352 (NTB-A)",
+      "CD94",
+      "Ig light chain \u03ba",
+      "CD85j (ILT2)",
+      "CD23",
+      "Ig light chain \u03bb",
+      "CD328 (Siglec-7)",
+      "GPR56",
+      "HLA-E.1",
+      "CD82.1",
+      "CD101 (BB27)",
+      "CD88 (C5aR)",
+      "CD224"
+    ],
+    "denominator_adt_axis_sha256": "52167faed9e61185f34f2ae9f267895dbb25300f3e2660b67f0c33017a93c16d",
+    "denominator_adt_set_sha256": "bfebbcaca807a654f114c4e418e73388e2ab3bccf3a6c06bf3f86044c7ef96af",
+    "denominator_feature_count": 130,
+    "denominator_rule": "first 137 biological ADT rows excluding the seven feature-reference names containing 'isotype Ctrl' case-insensitively",
+    "donor_profile_formula": "mean_cells(clr_cell), restricted to the 22 cognate positions",
+    "excluded_isotype_reference_names": [
+      "Mouse IgG1; \u03ba isotype Ctrl",
+      "Mouse IgG2a; \u03ba isotype Ctrl",
+      "Mouse IgG2b; \u03ba isotype Ctrl",
+      "Rat IgG2b; \u03ba Isotype Ctrl",
+      "Rat IgG1; \u03ba isotype Ctrl",
+      "Rat IgG2a; \u03ba Isotype Ctrl",
+      "Armenian Hamster IgG Isotype Ctrl"
+    ]
+  },
+  "batches": [
+    {
+      "adt_matrix": {
+        "counts_nonnegative_integer": true,
+        "duplicate_coordinates": false,
+        "matrix_market_field": "integer",
+        "nnz": 5922836,
+        "shape": [
+          150,
+          63764
+        ]
+      },
+      "barcode_axis_sha256": "8676e7c7b5d688d0d4514975a450d6d7afe752ac4494fd7bad732c84c02cdbc4",
+      "batch": "Batch1",
+      "cell_count": 63764,
+      "donors": [
+        {
+          "donor": "Donor001",
+          "hto_singlets_before_rna_qc": 3844,
+          "hto_singlets_passing_rna_qc": 3844,
+          "selected_cells": 512,
+          "selected_control_hto_median": 0.0,
+          "selected_detected_genes_minimum": 237,
+          "selected_total_rna_maximum": 12618,
+          "selected_total_rna_minimum": 385
+        },
+        {
+          "donor": "Donor002",
+          "hto_singlets_before_rna_qc": 3102,
+          "hto_singlets_passing_rna_qc": 3101,
+          "selected_cells": 512,
+          "selected_control_hto_median": 0.0,
+          "selected_detected_genes_minimum": 286,
+          "selected_total_rna_maximum": 15530,
+          "selected_total_rna_minimum": 373
+        },
+        {
+          "donor": "Donor005",
+          "hto_singlets_before_rna_qc": 4197,
+          "hto_singlets_passing_rna_qc": 4197,
+          "selected_cells": 512,
+          "selected_control_hto_median": 0.0,
+          "selected_detected_genes_minimum": 244,
+          "selected_total_rna_maximum": 14250,
+          "selected_total_rna_minimum": 402
+        },
+        {
+          "donor": "Donor008",
+          "hto_singlets_before_rna_qc": 4735,
+          "hto_singlets_passing_rna_qc": 4735,
+          "selected_cells": 512,
+          "selected_control_hto_median": 0.0,
+          "selected_detected_genes_minimum": 247,
+          "selected_total_rna_maximum": 12457,
+          "selected_total_rna_minimum": 415
+        },
+        {
+          "donor": "Donor015",
+          "hto_singlets_before_rna_qc": 4374,
+          "hto_singlets_passing_rna_qc": 4374,
+          "selected_cells": 512,
+          "selected_control_hto_median": 0.0,
+          "selected_detected_genes_minimum": 247,
+          "selected_total_rna_maximum": 12197,
+          "selected_total_rna_minimum": 372
+        },
+        {
+          "donor": "Donor025",
+          "hto_singlets_before_rna_qc": 4115,
+          "hto_singlets_passing_rna_qc": 4115,
+          "selected_cells": 512,
+          "selected_control_hto_median": 0.0,
+          "selected_detected_genes_minimum": 276,
+          "selected_total_rna_maximum": 14074,
+          "selected_total_rna_minimum": 367
+        }
+      ],
+      "feature_axes": {
+        "adt_feature_axis_sha256": "0922da6d1d8d5069f464e92843d3eb2145311996316ae13b1c2d8ea2decf36a9",
+        "adt_feature_count": 150,
+        "biological_adt_rows": 137,
+        "gex_feature_axis_sha256": "48a94661a8639f76d544a83b680999eb93fe58d2d52ee6d72187deee18011f7e",
+        "gex_feature_count": 36878,
+        "hto_rows": 13,
+        "mitochondrial_qc_evidence": {
+          "applied": false,
+          "evidence_axis_sha256": "48a94661a8639f76d544a83b680999eb93fe58d2d52ee6d72187deee18011f7e",
+          "recognition_rule": "feature name starts with 'MT-'",
+          "recognized_feature_axis": [],
+          "recognized_feature_count": 0,
+          "status": "UNAVAILABLE_NO_CANONICAL_MITOCHONDRIAL_FEATURES"
+        }
+      },
+      "files": {
+        "adt_barcodes": {
+          "bytes": 270948,
+          "name": "GSM9789809_ADT_Batch1_barcodes.tsv.gz",
+          "sha256": "550dce8df1861d79289ea02ba84034b8c9bc7d3351635fe2a4c8bf76da46c0fe"
+        },
+        "adt_features": {
+          "bytes": 930,
+          "name": "GSM9789809_ADT_Batch1_features.tsv.gz",
+          "sha256": "498f4ca459b5f18bf1c73158008ad2eb7465e3372a1375832d9c4bc4be3d5e83"
+        },
+        "adt_matrix": {
+          "bytes": 17404683,
+          "name": "GSM9789809_ADT_Batch1_matrix.mtx.gz",
+          "sha256": "74bc3cfcb682430e8ff5ce3a11202b682e89dd48bd5d2af7a1fd17a88c565f82"
+        },
+        "gex_barcodes": {
+          "bytes": 270948,
+          "name": "GSM9789808_GEX_Batch1_barcodes.tsv.gz",
+          "sha256": "38e884d5a055319f9bbeae2e6e345254ee207c9f7a6549166a3e332b4840eafd"
+        },
+        "gex_features": {
+          "bytes": 126983,
+          "name": "GSM9789808_GEX_Batch1_features.tsv.gz",
+          "sha256": "bac4cf7c2cb91a1688fcbfc09975fa7785fb17ac56f9859218c23741d928ffda"
+        },
+        "gex_matrix": {
+          "bytes": 249414108,
+          "name": "GSM9789808_GEX_Batch1_matrix.mtx.gz",
+          "sha256": "6c7244602eabbe88ab07c88eec9438e031fb3d87b966995d874a0df6c577db83"
+        }
+      },
+      "gex_matrix": {
+        "counts_nonnegative_integer": true,
+        "duplicate_coordinates": false,
+        "matrix_market_field": "integer",
+        "nnz": 77473942,
+        "shape": [
+          36878,
+          63764
+        ]
+      },
+      "hto_demultiplexing": {
+        "clara_samples": 100,
+        "classification_counts": {
+          "doublet": 11810,
+          "negative": 3257,
+          "singlet": 48697
+        },
+        "clr_margin": 1,
+        "clustering": "cluster::clara",
+        "clusters": 13,
+        "cutoffs": [
+          25,
+          21,
+          30,
+          16,
+          41,
+          34,
+          79,
+          44,
+          17,
+          13,
+          10,
+          28
+        ],
+        "fits": [
+          {
+            "background_cells": 5000,
+            "cutoff": 25,
+            "mu": 4.15800038656306,
+            "negative_cluster": 10,
+            "size": 0.674065739973014,
+            "tag_index": 0
+          },
+          {
+            "background_cells": 5487,
+            "cutoff": 21,
+            "mu": 2.88555094254572,
+            "negative_cluster": 6,
+            "size": 0.466476966781707,
+            "tag_index": 1
+          },
+          {
+            "background_cells": 5128,
+            "cutoff": 30,
+            "mu": 4.60064699994917,
+            "negative_cluster": 7,
+            "size": 0.554440259054582,
+            "tag_index": 2
+          },
+          {
+            "background_cells": 5000,
+            "cutoff": 16,
+            "mu": 3.19120071950703,
+            "negative_cluster": 10,
+            "size": 1.04640053786518,
+            "tag_index": 3
+          },
+          {
+            "background_cells": 5128,
+            "cutoff": 41,
+            "mu": 5.62090367968401,
+            "negative_cluster": 7,
+            "size": 0.449946645695267,
+            "tag_index": 4
+          },
+          {
+            "background_cells": 5000,
+            "cutoff": 34,
+            "mu": 6.09300006507376,
+            "negative_cluster": 10,
+            "size": 0.740271200341802,
+            "tag_index": 5
+          },
+          {
+            "background_cells": 5000,
+            "cutoff": 79,
+            "mu": 18.2814007496578,
+            "negative_cluster": 10,
+            "size": 1.1998583844179,
+            "tag_index": 6
+          },
+          {
+            "background_cells": 5000,
+            "cutoff": 44,
+            "mu": 10.1121001800331,
+            "negative_cluster": 10,
+            "size": 1.25689554367218,
+            "tag_index": 7
+          },
+          {
+            "background_cells": 5000,
+            "cutoff": 17,
+            "mu": 2.27385412647694,
+            "negative_cluster": 10,
+            "size": 0.477094109901264,
+            "tag_index": 8
+          },
+          {
+            "background_cells": 5000,
+            "cutoff": 13,
+            "mu": 1.75044816337592,
+            "negative_cluster": 10,
+            "size": 0.501181878999548,
+            "tag_index": 9
+          },
+          {
+            "background_cells": 5000,
+            "cutoff": 10,
+            "mu": 1.43740449164144,
+            "negative_cluster": 10,
+            "size": 0.595223246073035,
+            "tag_index": 10
+          },
+          {
+            "background_cells": 5000,
+            "cutoff": 28,
+            "mu": 5.85180278092781,
+            "negative_cluster": 10,
+            "size": 1.02285501545428,
+            "tag_index": 11
+          }
+        ],
+        "helper_sha256": "a3fdd0db9cbe30863a71458ebc4398588f9fd948980104d4374734fce747f468",
+        "method": "Seurat_HTODemux_compatible",
+        "negative_binomial_fit": "MASS::fitdistr",
+        "positive_quantile": 0.99,
+        "runtime": {
+          "cluster_version": "2.1.8.2",
+          "mass_version": "7.3.65",
+          "r_version": "R version 4.6.1 (2026-06-24)"
+        },
+        "seed": 42,
+        "seurat_reference_commit": "51b449b477fd3f63593f6c783daaac8d72a06dc6"
+      },
+      "rna_qc_counts": {
+        "above_maximum_total_rna": 0,
+        "accepted": 63760,
+        "below_minimum_detected_genes": 4,
+        "zero_total_rna": 0
+      },
+      "rna_qc_pass_count": 63760
+    },
+    {
+      "adt_matrix": {
+        "counts_nonnegative_integer": true,
+        "duplicate_coordinates": false,
+        "matrix_market_field": "integer",
+        "nnz": 10665480,
+        "shape": [
+          150,
+          93476
+        ]
+      },
+      "barcode_axis_sha256": "39b0bf65f61d76318423ca8e9885d7dc8149f8817e62200dbcb4ef72da81813e",
+      "batch": "Batch2",
+      "cell_count": 93476,
+      "donors": [
+        {
+          "donor": "Donor004",
+          "hto_singlets_before_rna_qc": 6734,
+          "hto_singlets_passing_rna_qc": 6734,
+          "selected_cells": 512,
+          "selected_control_hto_median": 0.0,
+          "selected_detected_genes_minimum": 1134,
+          "selected_total_rna_maximum": 14306,
+          "selected_total_rna_minimum": 2645
+        },
+        {
+          "donor": "Donor006",
+          "hto_singlets_before_rna_qc": 6540,
+          "hto_singlets_passing_rna_qc": 6540,
+          "selected_cells": 512,
+          "selected_control_hto_median": 0.0,
+          "selected_detected_genes_minimum": 1128,
+          "selected_total_rna_maximum": 25105,
+          "selected_total_rna_minimum": 2730
+        },
+        {
+          "donor": "Donor012",
+          "hto_singlets_before_rna_qc": 5919,
+          "hto_singlets_passing_rna_qc": 5919,
+          "selected_cells": 512,
+          "selected_control_hto_median": 0.0,
+          "selected_detected_genes_minimum": 1215,
+          "selected_total_rna_maximum": 22524,
+          "selected_total_rna_minimum": 2655
+        },
+        {
+          "donor": "Donor017",
+          "hto_singlets_before_rna_qc": 5963,
+          "hto_singlets_passing_rna_qc": 5963,
+          "selected_cells": 512,
+          "selected_control_hto_median": 0.0,
+          "selected_detected_genes_minimum": 1113,
+          "selected_total_rna_maximum": 33878,
+          "selected_total_rna_minimum": 2646
+        },
+        {
+          "donor": "Donor027",
+          "hto_singlets_before_rna_qc": 5121,
+          "hto_singlets_passing_rna_qc": 5121,
+          "selected_cells": 512,
+          "selected_control_hto_median": 0.0,
+          "selected_detected_genes_minimum": 1080,
+          "selected_total_rna_maximum": 29746,
+          "selected_total_rna_minimum": 2630
+        },
+        {
+          "donor": "Donor030",
+          "hto_singlets_before_rna_qc": 4179,
+          "hto_singlets_passing_rna_qc": 4179,
+          "selected_cells": 512,
+          "selected_control_hto_median": 0.0,
+          "selected_detected_genes_minimum": 1182,
+          "selected_total_rna_maximum": 23047,
+          "selected_total_rna_minimum": 2690
+        }
+      ],
+      "feature_axes": {
+        "adt_feature_axis_sha256": "59285cf490686518d2ef17170b69cad1461823cd770e7c83b6e12289c2359b08",
+        "adt_feature_count": 150,
+        "biological_adt_rows": 137,
+        "gex_feature_axis_sha256": "48a94661a8639f76d544a83b680999eb93fe58d2d52ee6d72187deee18011f7e",
+        "gex_feature_count": 36878,
+        "hto_rows": 13,
+        "mitochondrial_qc_evidence": {
+          "applied": false,
+          "evidence_axis_sha256": "48a94661a8639f76d544a83b680999eb93fe58d2d52ee6d72187deee18011f7e",
+          "recognition_rule": "feature name starts with 'MT-'",
+          "recognized_feature_axis": [],
+          "recognized_feature_count": 0,
+          "status": "UNAVAILABLE_NO_CANONICAL_MITOCHONDRIAL_FEATURES"
+        }
+      },
+      "files": {
+        "adt_barcodes": {
+          "bytes": 370877,
+          "name": "GSM9789811_ADT_Batch2_barcodes.tsv.gz",
+          "sha256": "94fcaabe39ed4d132abb3615b90b676746979953a94c2fc1e9aab5efda13184a"
+        },
+        "adt_features": {
+          "bytes": 933,
+          "name": "GSM9789811_ADT_Batch2_features.tsv.gz",
+          "sha256": "444e9c66acd20c15bda341d7badfd8d198e47f55cd4f2c7bbf229239527fa487"
+        },
+        "adt_matrix": {
+          "bytes": 32748424,
+          "name": "GSM9789811_ADT_Batch2_matrix.mtx.gz",
+          "sha256": "86ecc3c1c4bd83fee192a9c53b523cfd474eac0e5ffedd6abcae4aa8dec57883"
+        },
+        "gex_barcodes": {
+          "bytes": 370877,
+          "name": "GSM9789810_GEX_Batch2_barcodes.tsv.gz",
+          "sha256": "7b2d1f397c2ed0b35824e1d9128db3b8aa58fcaee9f3de211e090a1c30c5e429"
+        },
+        "gex_features": {
+          "bytes": 126983,
+          "name": "GSM9789810_GEX_Batch2_features.tsv.gz",
+          "sha256": "1ab0b33d8524028586e32ef90ef12309c545f9d23ec1e72df48e81c20b6b4994"
+        },
+        "gex_matrix": {
+          "bytes": 731564492,
+          "name": "GSM9789810_GEX_Batch2_matrix.mtx.gz",
+          "sha256": "cb8c32b28ea79dfc11a39146ec25e4bc233a7789db63b2edbb335894a743faf5"
+        }
+      },
+      "gex_matrix": {
+        "counts_nonnegative_integer": true,
+        "duplicate_coordinates": false,
+        "matrix_market_field": "integer",
+        "nnz": 233981889,
+        "shape": [
+          36878,
+          93476
+        ]
+      },
+      "hto_demultiplexing": {
+        "clara_samples": 100,
+        "classification_counts": {
+          "doublet": 24458,
+          "negative": 2037,
+          "singlet": 66981
+        },
+        "clr_margin": 1,
+        "clustering": "cluster::clara",
+        "clusters": 13,
+        "cutoffs": [
+          41,
+          72,
+          43,
+          43,
+          40,
+          84,
+          125,
+          45,
+          40,
+          24,
+          17,
+          60
+        ],
+        "fits": [
+          {
+            "background_cells": 2805,
+            "cutoff": 41,
+            "mu": 9.43992874403989,
+            "negative_cluster": 13,
+            "size": 1.26943336920793,
+            "tag_index": 0
+          },
+          {
+            "background_cells": 2805,
+            "cutoff": 72,
+            "mu": 15.157932281859,
+            "negative_cluster": 13,
+            "size": 0.99522116081022,
+            "tag_index": 1
+          },
+          {
+            "background_cells": 2805,
+            "cutoff": 43,
+            "mu": 11.6912690966129,
+            "negative_cluster": 13,
+            "size": 1.78788677871549,
+            "tag_index": 2
+          },
+          {
+            "background_cells": 2805,
+            "cutoff": 43,
+            "mu": 11.4655781025281,
+            "negative_cluster": 13,
+            "size": 1.719385111343,
+            "tag_index": 3
+          },
+          {
+            "background_cells": 2805,
+            "cutoff": 40,
+            "mu": 9.54545449749003,
+            "negative_cluster": 13,
+            "size": 1.36518925749519,
+            "tag_index": 4
+          },
+          {
+            "background_cells": 2805,
+            "cutoff": 84,
+            "mu": 14.7115422701556,
+            "negative_cluster": 13,
+            "size": 0.677187931146805,
+            "tag_index": 5
+          },
+          {
+            "background_cells": 2805,
+            "cutoff": 125,
+            "mu": 29.3026696186492,
+            "negative_cluster": 13,
+            "size": 1.20508000568697,
+            "tag_index": 6
+          },
+          {
+            "background_cells": 2805,
+            "cutoff": 45,
+            "mu": 11.4224551116276,
+            "negative_cluster": 13,
+            "size": 1.53781354713565,
+            "tag_index": 7
+          },
+          {
+            "background_cells": 2805,
+            "cutoff": 40,
+            "mu": 9.09607387216774,
+            "negative_cluster": 13,
+            "size": 1.20194543643137,
+            "tag_index": 8
+          },
+          {
+            "background_cells": 2805,
+            "cutoff": 24,
+            "mu": 4.2039215553511,
+            "negative_cluster": 13,
+            "size": 0.777488020357001,
+            "tag_index": 9
+          },
+          {
+            "background_cells": 8347,
+            "cutoff": 17,
+            "mu": 2.24799262655538,
+            "negative_cluster": 4,
+            "size": 0.47616051926753,
+            "tag_index": 10
+          },
+          {
+            "background_cells": 8475,
+            "cutoff": 60,
+            "mu": 7.7056108067658,
+            "negative_cluster": 7,
+            "size": 0.387623464260559,
+            "tag_index": 11
+          }
+        ],
+        "helper_sha256": "a3fdd0db9cbe30863a71458ebc4398588f9fd948980104d4374734fce747f468",
+        "method": "Seurat_HTODemux_compatible",
+        "negative_binomial_fit": "MASS::fitdistr",
+        "positive_quantile": 0.99,
+        "runtime": {
+          "cluster_version": "2.1.8.2",
+          "mass_version": "7.3.65",
+          "r_version": "R version 4.6.1 (2026-06-24)"
+        },
+        "seed": 42,
+        "seurat_reference_commit": "51b449b477fd3f63593f6c783daaac8d72a06dc6"
+      },
+      "rna_qc_counts": {
+        "above_maximum_total_rna": 4,
+        "accepted": 93472,
+        "below_minimum_detected_genes": 0,
+        "zero_total_rna": 0
+      },
+      "rna_qc_pass_count": 93472
+    }
+  ],
+  "cell_budget_per_donor": 512,
+  "cell_selection": {
+    "rna_qc": {
+      "maximum_total_rna": 70000,
+      "minimum_detected_genes": 200,
+      "mitochondrial_qc": {
+        "applied": false,
+        "reason": "the exact deposited GEX feature axis contains zero feature names beginning with 'MT-'",
+        "status": "UNAVAILABLE_NO_CANONICAL_MITOCHONDRIAL_FEATURES"
+      }
+    },
+    "rule": "HTODemux singlet and RNA QC, then smallest salted barcode hashes",
+    "salt": "gse334503-source-day0-v1",
+    "visit": "Day0"
+  },
+  "donor_count": 12,
+  "numeric_batches_processed": [
+    "Batch1",
+    "Batch2"
+  ],
+  "output_bytes": 193495,
+  "output_path": "data/development/gse334503_source/reduced_batches_1_2_v1.npz",
+  "output_sha256": "5ed437f843752a2ce62b3e4ce60295f26a60423d1fdfe8c0453f5899cdd9e2f4",
+  "panel": [
+    {
+      "adt_protein": "CD1c",
+      "rna_gene": "CD1C"
+    },
+    {
+      "adt_protein": "CD2.1",
+      "rna_gene": "CD2"
+    },
+    {
+      "adt_protein": "CD4.1",
+      "rna_gene": "CD4"
+    },
+    {
+      "adt_protein": "CD7.1",
+      "rna_gene": "CD7"
+    },
+    {
+      "adt_protein": "CD8",
+      "rna_gene": "CD8A"
+    },
+    {
+      "adt_protein": "CD11b",
+      "rna_gene": "ITGAM"
+    },
+    {
+      "adt_protein": "CD11c",
+      "rna_gene": "ITGAX"
+    },
+    {
+      "adt_protein": "CD14.1",
+      "rna_gene": "CD14"
+    },
+    {
+      "adt_protein": "CD19.1",
+      "rna_gene": "CD19"
+    },
+    {
+      "adt_protein": "CD20",
+      "rna_gene": "MS4A1"
+    },
+    {
+      "adt_protein": "CD22.1",
+      "rna_gene": "CD22"
+    },
+    {
+      "adt_protein": "CD27.1",
+      "rna_gene": "CD27"
+    },
+    {
+      "adt_protein": "CD33.1",
+      "rna_gene": "CD33"
+    },
+    {
+      "adt_protein": "CD36.1",
+      "rna_gene": "CD36"
+    },
+    {
+      "adt_protein": "CD38.1",
+      "rna_gene": "CD38"
+    },
+    {
+      "adt_protein": "CD40.1",
+      "rna_gene": "CD40"
+    },
+    {
+      "adt_protein": "CD47.1",
+      "rna_gene": "CD47"
+    },
+    {
+      "adt_protein": "CD64",
+      "rna_gene": "FCGR1A"
+    },
+    {
+      "adt_protein": "CD69.1",
+      "rna_gene": "CD69"
+    },
+    {
+      "adt_protein": "CD86.1",
+      "rna_gene": "CD86"
+    },
+    {
+      "adt_protein": "CD163.1",
+      "rna_gene": "CD163"
+    },
+    {
+      "adt_protein": "CX3CR1.1",
+      "rna_gene": "CX3CR1"
+    }
+  ],
+  "reducer_sha256": "bfd44eada429e605c85769add7d4efe968c9df974d3f34da76bc2e38b88cc80f",
+  "references": {
+    "adt_rows": 137,
+    "files": {
+      "adt": {
+        "bytes": 2431,
+        "name": "GSE334503_feature_reference_ADT.csv.gz",
+        "sha256": "84eb07b4f5ae8aa1051c4c6b298d6a95e3416bc76f90268d16eb6b1466e7b612"
+      },
+      "hto": {
+        "bytes": 775,
+        "name": "GSE334503_feature_reference_HTO.csv.gz",
+        "sha256": "c229ed27299c7b49e5f85a2026286f763ba7bb5ae452589d639eb9a10cd53786"
+      }
+    },
+    "hto_rows_used": 26
+  },
+  "schema": "gse334503-source-reduction/1.0",
+  "stage": "source_development",
+  "status": "COMPLETE"
+}
