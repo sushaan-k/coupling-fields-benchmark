@@ -1,0 +1,13 @@
+{
+  "schema": "gse144744-ms-runtime/1.0",
+  "python_executable": "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9",
+  "python_version": "3.9.6",
+  "numpy_version": "2.0.2",
+  "scipy_version": "1.13.1",
+  "platform": "macOS-arm64",
+  "thread_environment": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "schema": "gse144744-ms-citeseq-candidate/2.0",
+  "status": "FROZEN_BEFORE_NUMERIC_MATRIX_ACCESS",
+  "accession": "GSE144744",
+  "study": "Kaufmann et al., Med 2021",
+  "doi": "10.1016/j.medj.2021.01.002",
+  "claim_scope": "Transfer of composition-inclusive same-cell RNA-ADT coupling from untreated relapsing-remitting multiple-sclerosis and matched healthy donors assayed with 10x V2 to an untreated primary-progressive multiple-sclerosis and matched healthy cohort assayed with 10x V3.",
+  "cell_budget_per_donor": 512,
+  "source": {
+    "cohort": "RRMS_HI",
+    "chemistry": "V2",
+    "groups": ["MS2", "HI2"],
+    "cross_validation": "leave_one_exp_name_out",
+    "experiment_folds": {
+      "HE-MK-002": [["HH-OX-03", "HH-OX-04"]],
+      "HE-MK-003": [["HH-OX-09", "HH-OX-10"], ["HH-OX-13", "HH-OX-14"]],
+      "HE-MK-004": [["HH-OX-11", "HH-OX-12"], ["HH-OX-21", "HH-OX-22"]],
+      "HE-MK-005": [["HH-OX-05", "HH-OX-06"], ["HH-OX-07", "HH-OX-08"]],
+      "HE-MK-006": [["HH-OX-01", "HH-OX-02"], ["HH-OX-17", "HH-OX-18"]]
+    },
+    "selected_libraries": [
+      "HH-OX-01_1", "HH-OX-02_1", "HH-OX-03_1", "HH-OX-04_1",
+      "HH-OX-05_1", "HH-OX-06_1", "HH-OX-07_1", "HH-OX-08_1",
+      "HH-OX-09_1", "HH-OX-10_1", "HH-OX-11_1", "HH-OX-12_1",
+      "HH-OX-13_1", "HH-OX-14_1", "HH-OX-17_1", "HH-OX-18_1",
+      "HH-OX-21_1", "HH-OX-22_1"
+    ]
+  },
+  "held": {
+    "cohort": "PPMS_HI",
+    "chemistry": "V3",
+    "groups": ["PPMS", "HI3"],
+    "pairs": [
+      ["HH-OX-43", "HH-OX-44"], ["HH-OX-45", "HH-OX-46"],
+      ["HH-OX-47", "HH-OX-48"], ["HH-OX-49", "HH-OX-50"],
+      ["HH-OX-51", "HH-OX-52"], ["HH-OX-53", "HH-OX-54"],
+      ["HH-OX-55", "HH-OX-56"], ["HH-OX-57", "HH-OX-58"],
+      ["HH-OX-59", "HH-OX-60"], ["HH-OX-61", "HH-OX-62"]
+    ],
+    "experiments": ["HE-MK-015", "HE-MK-016", "HE-MK-017", "HE-MK-018"],
+    "library_selection_salt": "GSE144744-MS-LIBRARY-v1",
+    "library_selection_rule": "Among suffixes shared by both matched donors with at least 512 ADT-bearing cells per donor, minimize SHA256(salt|left-right|suffix), then suffix.",
+    "selected_libraries": [
+      {"pair": ["HH-OX-43", "HH-OX-44"], "suffix": 6, "eligible_counts": [1601, 2410], "hash_pool": "HASH-HH-OX-43-44-61-62_O"},
+      {"pair": ["HH-OX-45", "HH-OX-46"], "suffix": 4, "eligible_counts": [2888, 1998], "hash_pool": "HASH-HH-OX-45-46-49-50_E"},
+      {"pair": ["HH-OX-47", "HH-OX-48"], "suffix": 6, "eligible_counts": [2086, 2302], "hash_pool": "HASH-HH-OX-47-48-53-54_C"},
+      {"pair": ["HH-OX-49", "HH-OX-50"], "suffix": 2, "eligible_counts": [1267, 2655], "hash_pool": "HASH-HH-OX-45-46-49-50_D"},
+      {"pair": ["HH-OX-51", "HH-OX-52"], "suffix": 1, "eligible_counts": [2184, 3183], "hash_pool": "HASH-HH-OX-59-60-51-52_G"},
+      {"pair": ["HH-OX-53", "HH-OX-54"], "suffix": 1, "eligible_counts": [2004, 2286], "hash_pool": "HASH-HH-OX-47-48-53-54_A"},
+      {"pair": ["HH-OX-55", "HH-OX-56"], "suffix": 4, "eligible_counts": [2380, 2050], "hash_pool": "HASH-HH-OX-55-56-57-58_K"},
+      {"pair": ["HH-OX-57", "HH-OX-58"], "suffix": 3, "eligible_counts": [2920, 2436], "hash_pool": "HASH-HH-OX-55-56-57-58_K"},
+      {"pair": ["HH-OX-59", "HH-OX-60"], "suffix": 3, "eligible_counts": [2614, 2169], "hash_pool": "HASH-HH-OX-59-60-51-52_H"},
+      {"pair": ["HH-OX-61", "HH-OX-62"], "suffix": 1, "eligible_counts": [2150, 2056], "hash_pool": "HASH-HH-OX-43-44-61-62_M"}
+    ]
+  },
+  "candidate_marker_pairs": [
+    {"adt": "ADT-CD4", "rna": "CD4"},
+    {"adt": "ADT-CD8", "rna": "CD8A"},
+    {"adt": "ADT-CCR7-CD197", "rna": "CCR7"},
+    {"adt": "ADT-CD95", "rna": "FAS"},
+    {"adt": "ADT-CD27", "rna": "CD27"},
+    {"adt": "ADT-CD28", "rna": "CD28"},
+    {"adt": "ADT-CD38", "rna": "CD38"},
+    {"adt": "ADT-CD49d", "rna": "ITGA4"},
+    {"adt": "ADT-CD29", "rna": "ITGB1"},
+    {"adt": "ADT-CCR4-CD194", "rna": "CCR4"},
+    {"adt": "ADT-CD25", "rna": "IL2RA"},
+    {"adt": "ADT-CD127", "rna": "IL7R"},
+    {"adt": "ADT-CXCR3-CD183", "rna": "CXCR3"},
+    {"adt": "ADT-CCR6-CD196", "rna": "CCR6"},
+    {"adt": "ADT-CCR10", "rna": "CCR10"},
+    {"adt": "ADT-CXCR5", "rna": "CXCR5"},
+    {"adt": "ADT-CD161", "rna": "KLRB1"},
+    {"adt": "ADT-NKG2D", "rna": "KLRK1"},
+    {"adt": "ADT-NKG2A-CD159a", "rna": "KLRC1"},
+    {"adt": "ADT-CD19", "rna": "CD19"},
+    {"adt": "ADT-IgD", "rna": "IGHD"},
+    {"adt": "ADT-CD24", "rna": "CD24"},
+    {"adt": "ADT-CD138", "rna": "SDC1"},
+    {"adt": "ADT-CD14", "rna": "CD14"},
+    {"adt": "ADT-CD123-IL-3R", "rna": "IL3RA"},
+    {"adt": "ADT-CD11c", "rna": "ITGAX"},
+    {"adt": "ADT-CD56", "rna": "NCAM1"},
+    {"adt": "ADT-PD1-CD279", "rna": "PDCD1"},
+    {"adt": "ADT-CTLA4-CD152", "rna": "CTLA4"}
+  ],
+  "frozen_nonprimary_aliases": [
+    {"adt": "ADT-CD45RA", "rna": "PTPRC", "reason": "isoform-specific epitope lacks a gene-level state"},
+    {"adt": "ADT-CD57", "rna": "B3GAT1", "reason": "carbohydrate epitope is not a one-protein cognate"},
+    {"adt": "ADT-HLA-DR", "rna": "HLA-DRA", "reason": "conformational heterodimer is not a one-gene cognate"}
+  ],
+  "frozen_unmappable_adt_features": [
+    {"adt": "ADT-CD45RO", "reason": "isoform-specific epitope"},
+    {"adt": "ADT-CD16", "reason": "recognizes FCGR3A and FCGR3B"},
+    {"adt": "ADT-TCR-Va24-Ja18", "reason": "composite rearranged receptor"},
+    {"adt": "ADT-TCR-gd", "reason": "multi-gene receptor complex"},
+    {"adt": "ADT-TCR-Va7.2", "reason": "composite rearranged receptor"},
+    {"adt": "ADT-CD3", "reason": "multi-gene receptor complex"}
+  ],
+  "support": {
+    "rna_minimum_cells_per_binary_state": 5,
+    "adt_minimum_nonzero_fraction": 0.05,
+    "adt_positive_interquartile_range": true,
+    "adt_maximum_equal_value_fraction": 0.90,
+    "minimum_locked_markers": 12,
+    "minimum_valid_source_donors_per_locked_marker_per_modality": 18,
+    "minimum_valid_held_donors_per_locked_marker_per_modality": 20,
+    "minimum_informative_pair_fraction_per_donor": 1.0,
+    "source_lock_rule": "A candidate locks only when both marginal quality checks pass in every source donor; the resulting map is fixed before held RNA access.",
+    "held_marker_or_donor_attrition": "forbidden",
+    "replacement_or_relabeling": "forbidden"
+  },
+  "held_inference": {
+    "unit": "ten author-matched donor pairs",
+    "confirmatory_comparisons": ["source_locked_classical", "untuned_poisson_residual", "pooled_saturated_poisson_log_linear_interaction", "destroyed_link"],
+    "alpha_per_comparison": 0.0125,
+    "minimum_relative_loss_reduction": 0.05,
+    "minimum_favorable_pairs": 9,
+    "pair_cluster_bootstrap_draws": 20000,
+    "bootstrap_upper_quantile": 0.9875,
+    "exact_pair_sign_test": true
+  },
+  "non_recycling_rule": "Any refusal, failed gate, interruption, integrity error, or negative result closes this candidate. Donors, markers, thresholds, and endpoints are not replaced or rerun."
+}

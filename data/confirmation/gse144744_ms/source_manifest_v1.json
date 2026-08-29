@@ -1,0 +1,58 @@
+{
+  "schema": "gse144744-ms-citeseq-source-manifest/1.0",
+  "accession": "GSE144744",
+  "official_record": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE144744",
+  "files": [
+    {
+      "name": "GSE144744_RNA_counts.tar.gz",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE144nnn/GSE144744/suppl/GSE144744_RNA_counts.tar.gz",
+      "bytes": 1586974788,
+      "last_modified": "2020-02-04T16:41:21Z",
+      "sha256": null,
+      "access_before_freeze": "not downloaded"
+    },
+    {
+      "name": "GSE144744_ADT_counts.tar.gz",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE144nnn/GSE144744/suppl/GSE144744_ADT_counts.tar.gz",
+      "bytes": 44278744,
+      "last_modified": "2020-02-04T16:28:39Z",
+      "sha256": "bf629314d35dc6e8462f9daf2ba8a9dee5edb09f347145f2665228044cd69417",
+      "access_before_freeze": "archive downloaded for feature-schema inspection; matrix.mtx member not opened"
+    },
+    {
+      "name": "GSE144744_metadata_per_cell.csv.gz",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE144nnn/GSE144744/suppl/GSE144744_metadata_per_cell.csv.gz",
+      "bytes": 13415174,
+      "sha256": "8736ac0e56cedf6e835c279c0dbfc9f9ece49fa0a1387c96a4b815f57dd3bfda"
+    },
+    {
+      "name": "GSE144744_metadata_per_sample.csv.gz",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE144nnn/GSE144744/suppl/GSE144744_metadata_per_sample.csv.gz",
+      "bytes": 3145,
+      "sha256": "40d8089e46c2eac8924b36f92a6dfb67622314ceaefabe34aea2e35bb69d64ba"
+    }
+  ],
+  "adt_schema": {
+    "genes_member": "ADT_counts/genes.tsv",
+    "genes_rows": 38,
+    "genes_sha256": "9b4cc68bb34d52cb67f09d6335ee7ac32d0f50e60abc3553b3af3f0474845f9c",
+    "barcodes_member": "ADT_counts/barcodes.tsv",
+    "barcodes_rows": 355433,
+    "barcodes_sha256": "265b06a172468b76f1885dacfbf94e00d6acb03cbd08fb33f30cc71ee1652707",
+    "matrix_member": "ADT_counts/matrix.mtx",
+    "matrix_member_bytes": 163318167
+  },
+  "metadata_contract": {
+    "per_cell_rows": 497705,
+    "adt_barcodes_exactly_equal_cells_with_nonmissing_nCount_ADT": true,
+    "adt_columns_are_joined_by_exact_cell_names_not_row_order": true,
+    "source_adt_columns": 88278,
+    "held_adt_columns": 248216,
+    "unused_adt_columns": 18939
+  },
+  "numeric_matrix_access_before_protocol": {
+    "rna_matrix_member_opened": false,
+    "adt_matrix_member_opened": false,
+    "numeric_matrix_value_decoded": false
+  }
+}
