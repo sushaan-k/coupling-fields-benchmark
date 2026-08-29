@@ -1,0 +1,80 @@
+{
+  "schema": "kotliarov-pbmc-binary-coupling-candidate/2.0",
+  "status": "SOURCE_ONLY_DEVELOPMENT_FROZEN_BEFORE_ADT_COUNT_ACCESS",
+  "created_at_utc": "2026-08-29T23:48:54Z",
+  "dataset": "KotliarovPBMCData",
+  "study_doi": "10.1038/s41591-020-0769-8",
+  "protocol_path": "docs/KOTLIAROV_PBMC_BINARY_SOURCE_DEVELOPMENT_PROTOCOL_2026-08-29.md",
+  "protocol_sha256": "5b3f812e12dc527f23747b88bc27c51ed025063dafff11b385fea96670492368",
+  "prior_candidate_path": "data/confirmation/kotliarov_pbmc/candidate_designation_v1.json",
+  "prior_candidate_sha256": "78bfef68db4aaf28778360427000b4ab2a4dc22cecf02cb1781601e6bf8eb70b",
+  "prior_terminal_record_path": "results/kotliarov_pbmc_public_refusal.json",
+  "prior_terminal_record_sha256": "34d59fcbdcceeefb449a430bca7a0f502611d343a2ebd19fc44a7f5fd26a1324",
+  "prior_access_boundary": {
+    "adt_count_dataset_opened": false,
+    "held_rna_adt_pairing_opened": false,
+    "held_endpoint_evaluated": false
+  },
+  "source_manifest_path": "data/development/kotliarov_pbmc/source_manifest_v1.json",
+  "source_manifest_sha256": "c0d61a23a1dc1a750941b7808d1d187e841d1bdfaacb17799fbad72602aa212c",
+  "development_donors": [
+    "200",
+    "207",
+    "212",
+    "233",
+    "237",
+    "245",
+    "256",
+    "261",
+    "273",
+    "277"
+  ],
+  "held_donors": [
+    "201",
+    "205",
+    "215",
+    "229",
+    "234",
+    "236",
+    "250",
+    "268",
+    "279"
+  ],
+  "excluded_donors": [
+    "209"
+  ],
+  "cell_budget_per_donor": 512,
+  "cell_selection_salt": "KOTLIAROV-PBMC-BINARY-CELL-v2",
+  "adt_tie_salt": "KOTLIAROV-PBMC-BINARY-ADT-v2",
+  "destroyed_link_salt": "KOTLIAROV-PBMC-BINARY-DESTROYED-v2",
+  "ordered_cognates": [
+    ["CD3D", "CD3"],
+    ["CD4", "CD4"],
+    ["CD8A", "CD8"],
+    ["MS4A1", "CD20"],
+    ["CD14", "CD14"],
+    ["FCGR3A", "CD16"],
+    ["NCAM1", "CD56"],
+    ["HLA-DRA", "HLA-DR"],
+    ["IL7R", "CD127"]
+  ],
+  "entity_count": 81,
+  "source_development": {
+    "validation": "leave-one-development-donor-out",
+    "bootstrap_draws": 20000,
+    "bootstrap_seed": 20260829,
+    "promotion_relative_reduction": 0.05,
+    "minimum_favorable_donors": 8,
+    "comparators": [
+      "selected_classical_residual",
+      "best_of_common_effect_cmle_and_pooled_saturated_poisson",
+      "destroyed_link"
+    ]
+  },
+  "access_rule": {
+    "source_phase_may_read_paired_development_values": true,
+    "source_phase_may_read_held_adt_values": false,
+    "held_phase_requires_public_source_promotion": true,
+    "held_predictions_must_precede_held_adt_access": true
+  }
+}
