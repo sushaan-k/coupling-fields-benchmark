@@ -1,0 +1,48 @@
+{
+  "schema": "gse181897-source-model-terminal/1.0",
+  "status": "TERMINAL_SOURCE_CAMPAIGN_SUPPORT_REFUSAL_AND_ENTRYPOINT_FAILURE",
+  "created_at_utc": "2026-08-29T21:21:57Z",
+  "source_numeric_reduction_completed": true,
+  "model_execution_started": false,
+  "source_statistical_go_gate_passed": false,
+  "internal_numeric_access_authorized": false,
+  "rerun_forbidden": true,
+  "authorization": {
+    "path": "data/development/gse181897_source/source_campaign_authorization_v1.json",
+    "sha256": "bd82a341478aa6f5343a9a1466de72717acf0640429da23eb2d71a8c71c65a3a"
+  },
+  "attempt": {
+    "path": "data/development/gse181897_source/source_attempt_v1.json",
+    "sha256": "8864a2ce520b65df6602f3b5ae3b6f5016291fa33d39b42aa16250b69b7c2d42"
+  },
+  "source_reduction": {
+    "path": "data/development/gse181897_source/reduced_batches_0_7_control_v1.npz",
+    "sha256": "2b1df6fb3e49c523d335a5efe3db577adee45d297586d596646b9283ed784e68"
+  },
+  "source_manifest": {
+    "path": "data/development/gse181897_source/reduction_batches_0_7_control_manifest_v1.json",
+    "sha256": "12d3dfe42d85ec6ec150e7c329f7cd833ac794f0af8d8636b84ce1c520ec7330"
+  },
+  "source_reduction_terminal": {
+    "path": "data/development/gse181897_source/source_reduction_terminal_v1.json",
+    "sha256": "94431342ba4adb23528d478ca2bac536a227cb3808f25c9abe0f99f870f0dcee"
+  },
+  "support_refusal": {
+    "binary_state_rule": "raw count > 0 for RNA and ADT",
+    "required_coordinates_per_mask_and_donor": 232,
+    "final_source_mask_coordinates": 27,
+    "leave_one_pool_out_mask_coordinate_range": [20, 28],
+    "donor_supported_coordinate_range": [14, 65],
+    "donors_meeting_232_coordinate_floor": 0,
+    "source_donor_count": 39,
+    "adt_supported_marker_range": [1, 5],
+    "interpretation": "Raw ADT positivity was nearly saturated, so the prespecified support floor failed before model fitting or loss inspection."
+  },
+  "invocation_failure": {
+    "command": "python3 experiments/develop_gse181897_source_models.py",
+    "reason_code": "ModuleNotFoundError",
+    "reason": "No module named 'experiments'",
+    "failure_phase": "module import before the write-once model runner created its terminal",
+    "outcome_effect": "The already-consumed source campaign is terminal; the module entrypoint was not retried."
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "accession": "GSE181897",
+  "attempt_consumed_even_on_interruption": true,
+  "authorization": {
+    "path": "data/development/gse181897_source/source_campaign_authorization_v1.json",
+    "sha256": "bd82a341478aa6f5343a9a1466de72717acf0640429da23eb2d71a8c71c65a3a"
+  },
+  "binding": {
+    "accession": "GSE181897",
+    "attempt_path": "data/development/gse181897_source/source_attempt_v1.json",
+    "axis_freeze": {
+      "axis_reducer_sha256": "5a2ce1d57be60465c93eeb8888d9cf5ca0c536442af84ee1f57e5926e444411c",
+      "peeled_commit": "7504c75832e089772d5e86b3cf4b4ab174e21fea",
+      "preflight_path": "data/development/gse181897_source/axis_preflight_v2.json",
+      "preflight_sha256": "84d74f7c4d228d6ae6bd3b329520abc45acb3653c3f4dc41ab39eaae7c30944b",
+      "remote_tag_and_commit_match": true,
+      "tag": "gse181897-control-citeseq-v1-axis-preflight-v2",
+      "tag_object": "2973a89234867c5574f1d8f9565ce5f5ca857b18"
+    },
+    "candidate_freeze": {
+      "candidate_path": "data/confirmation/gse181897_control_citeseq/candidate_designation_v1.json",
+      "candidate_sha256": "74c9419180911fda63eba95a5520010676705366d77524a7473471207433a53d",
+      "peeled_commit": "b69d19da98aeba46880dcb62082e57daa73a82c9",
+      "remote_tag_and_commit_match": true,
+      "tag": "gse181897-control-citeseq-v1-candidate",
+      "tag_object": "d7996e8a85bca61bad919631f1fbe1890872b074"
+    },
+    "implementation_freeze": {
+      "files_sha256": {
+        "data/confirmation/gse181897_control_citeseq/candidate_designation_v1.json": "74c9419180911fda63eba95a5520010676705366d77524a7473471207433a53d",
+        "data/confirmation/gse181897_control_citeseq/confirmation_prepare_authorization_template_v1.json": "b638ca93f715e9450833d0dc55401cfe98a668feead01020986686b155d860f9",
+        "data/confirmation/gse181897_control_citeseq/confirmation_score_authorization_template_v1.json": "5879809be03be7f877d005c5a6b14bd14aefc1cb8ce86a7087e3803e92091db1",
+        "data/confirmation/gse181897_control_citeseq/internal_prepare_authorization_template_v1.json": "e694bd14b54b459f64da7fc48402c95a846f209de12068c6e16e8f5451679bfb",
+        "data/confirmation/gse181897_control_citeseq/internal_score_authorization_template_v1.json": "f25ba7a87e4d0f974e4047462d1cfa9ff039ff66092844581bc0e68ad26ff0ed",
+        "data/confirmation/gse181897_control_citeseq/protocol_v1.json": "bee7481d170bdfdda942f2cb205c0ab6ad6cd68a9acc2da057d3fb813daf1de7",
+        "docs/GSE181897_CONTROL_CITESEQ_SEQUENTIAL_CONFIRMATION_PROTOCOL_2026-08-29.md": "59c07aae86d889902fa6938f134b1a49c899e9243396f506083e7c11aeca328f",
+        "experiments/confirm_gse181897_held.py": "69d71b802476253b5e2403bac0b59d44dabc613cebfb468514ef119a66094482",
+        "experiments/develop_gse181897_source_models.py": "58f9d7e6240ca25a77251ac61c3a1bd9566ed96c64ab6739459f6f704e5d883a",
+        "experiments/reduce_gse181897_source.py": "5a2ce1d57be60465c93eeb8888d9cf5ca0c536442af84ee1f57e5926e444411c",
+        "mapreg/__init__.py": "8854ad0b216b8fa208269a83e738a2f3755e36957ecd51a8e0e5af8569b9b2d9",
+        "mapreg/classical_residuals.py": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
+        "mapreg/common_effect_conditional.py": "e8730bc5c072b66794d9d1c0f8fa8c93ba7e2bf9303a34bde98dfb7dea6ff2e9",
+        "mapreg/coupling_fields.py": "06edd27c9cc52bcee1da1fc4a7a8fd86586d6263f9b32b2c6b0c5d16b0f01dc1",
+        "mapreg/heterogeneity_adaptive_coupling.py": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e",
+        "mapreg/penalty_complete_conditional_coupling.py": "4e094271fa6d8f6b165de5b575f988e72c657b9bb17dea5e7da466df7fae7ffa",
+        "mapreg/table_prediction.py": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e",
+        "pyproject.toml": "9c49aabfd3916de8f84a3a4c287483bd76f345c24b0c0a5a3f749832f4650991",
+        "requirements.txt": "ce40818d5b3b7532c32b32d0e42b15118ecb509877b7876ec9202465cc87bf5c",
+        "tests/test_classical_residuals_full.py": "76e532a90a7c393ca95837fdd9ebbee8988b278b27c5aa027326abb936bca218",
+        "tests/test_common_effect_conditional.py": "54073b26371c734d803e984323ab79a0b51f6c09f3c2b92795252a08af15a7e7",
+        "tests/test_confirm_gse181897_held.py": "6d0cb57a906202567ec82132f83005cbc7b742b485306c012d23f089b0f4243e",
+        "tests/test_coupling_fields.py": "79fa3eb735d22a8675fb3ec471f1669c813bc9ba4f7b8ed63ccf029b4b214eb8",
+        "tests/test_develop_gse181897_source_models.py": "e5c6055cbcce9e8ad438a58af40a0d32a8ba59e6e32174c3c9c89e13b49a9bff",
+        "tests/test_gse181897_axis_preflight_artifact.py": "0f48b22d64ad016ee17cc4214b6e644c7af3131479ff98f5837b2344c6f57c9b",
+        "tests/test_gse181897_protocol.py": "757fcfc88be2da1ae5a9b4abc4e420025e833a07f6385b367e6672ccfc05a702",
+        "tests/test_heterogeneity_adaptive_coupling.py": "207bc2a10ff0a7c31b7b36122d8754c0014584174f305d7dc7a4170577768eca",
+        "tests/test_penalty_complete_conditional_coupling.py": "e8a603c005d09c65a1c8ea22fee0bf660dfeef1a968671d829d8d7f6b97f7a20",
+        "tests/test_reduce_gse181897_source.py": "fccd7c8e729e96ba7c913a61f73e3596d26cccacb979095a64dcf8e191a1c801",
+        "tests/test_table_prediction.py": "bf34b51291516246e803a6df6c166c959fa083fd47d3bf115ef35b5bd0b305a4"
+      },
+      "peeled_commit": "da8f7e1299c132125e468847e1a23f2158524f5a",
+      "remote_tag_and_commit_match": true,
+      "tag": "gse181897-control-citeseq-v1-implementation",
+      "tag_object": "67d2e8fba6b602196cf4b93fca6fe66b9e1a8764"
+    },
+    "one_shot_policy": {
+      "exclusive_attempt_before_numeric_x": true,
+      "failure_is_terminal": true,
+      "model_must_bind_same_attempt": true,
+      "rerun_after_claim_forbidden": true
+    },
+    "outputs": {
+      "source_model": "results/development/gse181897_source_candidate_v1.json",
+      "source_model_terminal": "results/development/gse181897_source_model_terminal_v1.json",
+      "source_reduction": "data/development/gse181897_source/reduced_batches_0_7_control_v1.npz",
+      "source_reduction_manifest": "data/development/gse181897_source/reduction_batches_0_7_control_manifest_v1.json",
+      "source_reduction_terminal": "data/development/gse181897_source/source_reduction_terminal_v1.json"
+    },
+    "runtime": {
+      "anndata": null,
+      "anndata_used": false,
+      "blas": {
+        "detection_method": "system",
+        "found": true,
+        "name": "accelerate",
+        "version": "unknown"
+      },
+      "h5py": "3.14.0",
+      "numpy": "2.0.2",
+      "platform": {
+        "machine": "arm64",
+        "release": "25.0.0",
+        "system": "Darwin",
+        "version": "Darwin Kernel Version 25.0.0: Wed Sep 17 21:41:26 PDT 2025; root:xnu-12377.1.9~141/RELEASE_ARM64_T6041"
+      },
+      "python": "3.9.6",
+      "python_executable": "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9",
+      "scipy": "1.13.1",
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1"
+      }
+    },
+    "schema": "gse181897-source-campaign-authorization/1.0",
+    "source_input": {
+      "archive_bytes": 1011162509,
+      "archive_sha256": "7fe58432f2f238319e81c9218eb35b5f7fbdae6f10f3d87ce9a6044ee851675b",
+      "h5ad_bytes": 3063713137,
+      "h5ad_sha256": "183d7756c750fb0ca57f381512fe784df6249ec5a5478a9caf6a62df55cba56c"
+    },
+    "stage": "source_development",
+    "status": "PUBLIC_FREEZE_VERIFIED_SOURCE_NUMERIC_ACCESS_AUTHORIZED"
+  },
+  "created_at_utc": "2026-08-29T21:20:37Z",
+  "one_shot": true,
+  "schema": "gse181897-source-campaign-attempt/1.0",
+  "stage": "source_development",
+  "status": "CLAIMED_ONE_SHOT_SOURCE_CAMPAIGN"
+}

@@ -1,0 +1,15 @@
+{
+  "attempt_path": "data/development/gse181897_source/source_attempt_v1.json",
+  "attempt_sha256": "8864a2ce520b65df6602f3b5ae3b6f5016291fa33d39b42aa16250b69b7c2d42",
+  "created_at_utc": "2026-08-29T21:21:02Z",
+  "model_numeric_access_authorized": false,
+  "model_output_path": "results/development/gse181897_source_candidate_v1.json",
+  "model_terminal_path": "results/development/gse181897_source_model_terminal_v1.json",
+  "next_step": "run the write-once source model bound to this claim",
+  "schema": "gse181897-source-reduction-terminal/1.0",
+  "source_manifest_path": "data/development/gse181897_source/reduction_batches_0_7_control_manifest_v1.json",
+  "source_manifest_sha256": "12d3dfe42d85ec6ec150e7c329f7cd833ac794f0af8d8636b84ce1c520ec7330",
+  "source_reduction_path": "data/development/gse181897_source/reduced_batches_0_7_control_v1.npz",
+  "source_reduction_sha256": "2b1df6fb3e49c523d335a5efe3db577adee45d297586d596646b9283ed784e68",
+  "status": "SOURCE_REDUCTION_COMPLETE_MODEL_PENDING"
+}
