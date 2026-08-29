@@ -1,0 +1,114 @@
+{
+  "schema": "gse326573-lung-citeseq-candidate/1.0",
+  "status": "FROZEN_AFTER_AXIS_ONLY_PREFLIGHT_BEFORE_NUMERIC_MATRIX_ACCESS",
+  "frozen_on": "2026-08-29",
+  "accession": "GSE326573",
+  "study_title": "T-cell Multiomic Analysis Identifies Subsets and Mechanisms of Interaction with Epithelial Cells in Idiopathic Pulmonary Fibrosis",
+  "claim_scope": "Same-study held-batch and held-donor transfer of composition-inclusive same-cell RNA-ADT dependence from lung CD3-positive T-cell CITE-seq batches 1-3 to wholly unseen donors in batches 4-6.",
+  "official_sources": {
+    "geo": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE326573",
+    "family_soft": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE326nnn/GSE326573/soft/GSE326573_family.soft.gz",
+      "bytes": 6811,
+      "sha256": "060f8dc69705a4b819b2b6431b5aca4229ff85eb3b274788b2985fc7d3d7586f"
+    },
+    "raw_archive": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE326nnn/GSE326573/suppl/GSE326573_RAW.tar",
+      "bytes": 326922240,
+      "sha256": "9bb9a1a879fba1f01406f4463e4b707f853c854a0cc2112a16f34dc86b0011fb"
+    }
+  },
+  "split": {
+    "source_batches": ["Batch1", "Batch2", "Batch3"],
+    "source_biological_units": 20,
+    "source_sample_matrices": 20,
+    "source_cross_validation": "leave_one_official_batch_out",
+    "held_batches": ["Batch4", "Batch5", "Batch6"],
+    "held_biological_units": 9,
+    "held_sample_matrices": 10,
+    "held_units": [
+      "CTD-ILD_1", "CTD-ILD_3", "CTD-ILD_4", "CONTROL_9", "CONTROL_10",
+      "CTD-ILD_5", "NSIP", "IPF_10", "IPF_11"
+    ],
+    "excluded_overlap_units": ["CTD-ILD_2", "IPF_1"],
+    "excluded_overlap_rule": "Recipient samples from any biological unit already present in source are neither fitted nor scored.",
+    "replicate_rule": "CTD-ILD_3a and CTD-ILD_3b are scored separately and averaged before donor-equal aggregation and inference."
+  },
+  "metadata_resolution": {
+    "anomaly": "GSM9634837 is titled non-diseased control_9_RNA, carries the only supplementary H5 for that sample, and its H5 contains both Gene Expression and Antibody Capture features, but its GEO library type characteristic says ADT. The reciprocal GSM9634838 is titled non-diseased control_9_ADT, has no supplementary file, and says mRNA.",
+    "frozen_resolution": "Bind GSM9634837 and its H5 as the paired count container for CONTROL_9, using the sample title, supplementary-file ownership, and verified paired feature schema. GSM9634838 supplies no matrix and is not a count input.",
+    "resolution_timing": "Fixed from metadata and feature axes before any sparse count dataset was opened."
+  },
+  "strict_cognates": [
+    {"rna": "CD8A", "adt_canonical": "CD8", "labels": ["CD8_totalSeqC", "CD8_totalSeq-C"]},
+    {"rna": "NCAM1", "adt_canonical": "CD56", "labels": ["CD56_totalSeqC", "CD56_totalSeq-C"]},
+    {"rna": "CD4", "adt_canonical": "CD4", "labels": ["CD4_totalSeqC", "CD4_totalSeq-C"]},
+    {"rna": "IL2RA", "adt_canonical": "CD25", "labels": ["CD25_totalSeqC", "CD25_totalSeq-C"]},
+    {"rna": "PDCD1", "adt_canonical": "PD1", "labels": ["PD1_totalSeqC", "PD1_totalSeq-C"]},
+    {"rna": "ITGAE", "adt_canonical": "CD103", "labels": ["CD103_totalSeqC", "CD103_totalSeq-C"]},
+    {"rna": "CCR7", "adt_canonical": "CCR7", "labels": ["CCR7_totalSeqC", "CCR7_totalSeq-C"]},
+    {"rna": "CTLA4", "adt_canonical": "CTLA4", "labels": ["CTLA4_totalSeqC", "CTLA4_totalSeq-C"]},
+    {"rna": "LAG3", "adt_canonical": "LAG3", "labels": ["LAG3_totalSeqC", "LAG3_totalSeq-C"]},
+    {"rna": "CD28", "adt_canonical": "CD28", "labels": ["CD28_totalSeqC", "CD28_totalSeq-C"]},
+    {"rna": "KLRG1", "adt_canonical": "KLRG1", "labels": ["KLRG1_totalSeqC", "KLRG1_totalSeq-C"]}
+  ],
+  "excluded_adt_features": [
+    {"adt_canonical": "CD3", "reason": "multi-subunit receptor complex"},
+    {"adt_canonical": "CD45RO", "reason": "isoform-specific PTPRC epitope lacks a gene-level state"},
+    {"adt_canonical": "HLADR", "reason": "heterodimeric conformational epitope is not a one-gene cognate"},
+    {"adt_canonical": "CD57", "reason": "carbohydrate epitope is not encoded by one protein-coding gene"}
+  ],
+  "axis_preflight": {
+    "files": 32,
+    "total_cells_axis_count": 225778,
+    "minimum_cells_axis_count": 1009,
+    "gene_features_per_file": 36601,
+    "adt_features_per_file": 15,
+    "gene_axis_sha256": "fc0504cedd73fb29e754f15f7ba692d2beb665f8a1f5420626881d88305958fd",
+    "adt_axis_sha256_by_label_style": {
+      "underscore_totalSeqC": "b40257a31311fc842ba69a68d7854954d69b0cd1d9c8e1fabb4256ba0a9e936b",
+      "hyphen_totalSeq-C": "630648ec30ac8ccdd513acea752fc495e044fd53a070826c264a183641120cbd"
+    },
+    "axis_hash_serialization": "UTF-8 feature labels joined in stored order with one newline byte between labels and no trailing newline",
+    "all_strict_rna_symbols_present_in_every_file": true,
+    "all_strict_adt_labels_present_in_every_file": true,
+    "numeric_count_values_read": false,
+    "opened_hdf5_datasets": ["/matrix/shape", "/matrix/features/name", "/matrix/features/feature_type"],
+    "forbidden_hdf5_datasets_not_opened": ["/matrix/data", "/matrix/indices", "/matrix/indptr", "/matrix/barcodes"]
+  },
+  "files": [
+    {"gsm": "GSM9634791", "sample_title": "non-diseased control_1_RNA", "biological_unit": "CONTROL_1", "batch": "Batch1", "role": "source_model", "file": "GSM9634791_5937_AS1_filtered_feature_bc_matrix.h5", "bytes": 6172362, "sha256": "eb08b4e1859df5785e799a0a6cfa502ca93686f81614fea18f690b6f5832fa90", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634791/suppl/GSM9634791_5937_AS1_filtered_feature_bc_matrix.h5", "cells": 4135},
+    {"gsm": "GSM9634793", "sample_title": "non-diseased control_2_RNA", "biological_unit": "CONTROL_2", "batch": "Batch1", "role": "source_model", "file": "GSM9634793_5937_AS2_filtered_feature_bc_matrix.h5", "bytes": 4070101, "sha256": "775c96c3cefeebd07d4b029978214a4671844b74b4b48fe36fd53db4971f87c7", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634793/suppl/GSM9634793_5937_AS2_filtered_feature_bc_matrix.h5", "cells": 2567},
+    {"gsm": "GSM9634795", "sample_title": "non-diseased control_3_RNA", "biological_unit": "CONTROL_3", "batch": "Batch1", "role": "source_model", "file": "GSM9634795_5937_AS3_filtered_feature_bc_matrix.h5", "bytes": 6035035, "sha256": "099a289991fa177b7974c3f05d539f8cbe2e5f0c43e6d4d56bdd783cb35574ec", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634795/suppl/GSM9634795_5937_AS3_filtered_feature_bc_matrix.h5", "cells": 7964},
+    {"gsm": "GSM9634797", "sample_title": "non-diseased control_4_RNA", "biological_unit": "CONTROL_4", "batch": "Batch1", "role": "source_model", "file": "GSM9634797_5937_AS4_filtered_feature_bc_matrix.h5", "bytes": 7468147, "sha256": "88f4d39b7d6cb035affd4a1d26d02e7320b19484b0c2963677f93c9c1a9e8232", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634797/suppl/GSM9634797_5937_AS4_filtered_feature_bc_matrix.h5", "cells": 7535},
+    {"gsm": "GSM9634799", "sample_title": "IPF_1a_RNA", "biological_unit": "IPF_1", "batch": "Batch1", "role": "source_model", "file": "GSM9634799_5937_AS5_filtered_feature_bc_matrix.h5", "bytes": 797022, "sha256": "0b1ddb2b68d667df4b5d44a2bd4891e395c2ee18be74b9abf396a31a0f8b4caf", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634799/suppl/GSM9634799_5937_AS5_filtered_feature_bc_matrix.h5", "cells": 1009},
+    {"gsm": "GSM9634801", "sample_title": "IPF_2_RNA", "biological_unit": "IPF_2", "batch": "Batch1", "role": "source_model", "file": "GSM9634801_5937_AS6_filtered_feature_bc_matrix.h5", "bytes": 5313949, "sha256": "99fc04b6d279037f6444d4a49f38ef1e1a03b820bb4e37a784fdec13ba8b1a98", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634801/suppl/GSM9634801_5937_AS6_filtered_feature_bc_matrix.h5", "cells": 4214},
+    {"gsm": "GSM9634803", "sample_title": "IPF_3_RNA", "biological_unit": "IPF_3", "batch": "Batch1", "role": "source_model", "file": "GSM9634803_5937_AS7_filtered_feature_bc_matrix.h5", "bytes": 6797608, "sha256": "bd56703d54925cadf401febb4943e6c1ae6282501eef0b6729ca123bf08aecce", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634803/suppl/GSM9634803_5937_AS7_filtered_feature_bc_matrix.h5", "cells": 4670},
+    {"gsm": "GSM9634805", "sample_title": "IPF_4_RNA", "biological_unit": "IPF_4", "batch": "Batch1", "role": "source_model", "file": "GSM9634805_5937_AS8_filtered_feature_bc_matrix.h5", "bytes": 7492011, "sha256": "d055eaeaa4bcd69438e1987e87d74a55b77a6f21377b753d58e13e539dd75a9d", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634805/suppl/GSM9634805_5937_AS8_filtered_feature_bc_matrix.h5", "cells": 7123},
+    {"gsm": "GSM9634807", "sample_title": "non-diseased control_5_RNA", "biological_unit": "CONTROL_5", "batch": "Batch2", "role": "source_model", "file": "GSM9634807_5937_AS9_filtered_feature_bc_matrix.h5", "bytes": 16670849, "sha256": "ef86e87bbff92047239bb1d9fa8e1907d814f09af12e5e657ae3d7353ca2d065", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634807/suppl/GSM9634807_5937_AS9_filtered_feature_bc_matrix.h5", "cells": 13534},
+    {"gsm": "GSM9634809", "sample_title": "non-diseased control_6_RNA", "biological_unit": "CONTROL_6", "batch": "Batch2", "role": "source_model", "file": "GSM9634809_5937_AS10_filtered_feature_bc_matrix.h5", "bytes": 12907667, "sha256": "e8157cb47006812d6f088efa2f77b057f789ed865c7a9f6a037ad96c2969a3e5", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634809/suppl/GSM9634809_5937_AS10_filtered_feature_bc_matrix.h5", "cells": 9412},
+    {"gsm": "GSM9634811", "sample_title": "non-diseased control_7_RNA", "biological_unit": "CONTROL_7", "batch": "Batch2", "role": "source_model", "file": "GSM9634811_5937_AS11_filtered_feature_bc_matrix.h5", "bytes": 11386274, "sha256": "2eba6e4270fd4e6b62d0ea89485d4a0db3f9a7c9363091cd06849913bcca546b", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634811/suppl/GSM9634811_5937_AS11_filtered_feature_bc_matrix.h5", "cells": 8894},
+    {"gsm": "GSM9634813", "sample_title": "non-diseased control_8_RNA", "biological_unit": "CONTROL_8", "batch": "Batch2", "role": "source_model", "file": "GSM9634813_5937_AS12_filtered_feature_bc_matrix.h5", "bytes": 11712166, "sha256": "88c3c17a9669b6043b062614c578dc03b9c80de2b5bd92dadb35c65a36e71716", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634813/suppl/GSM9634813_5937_AS12_filtered_feature_bc_matrix.h5", "cells": 9203},
+    {"gsm": "GSM9634815", "sample_title": "IPF_5_RNA", "biological_unit": "IPF_5", "batch": "Batch2", "role": "source_model", "file": "GSM9634815_5937_AS13_filtered_feature_bc_matrix.h5", "bytes": 13866865, "sha256": "00c5348adb131f4bfe55032337805c3cfafece2c20a3910ca1d9969c6ddfb137", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634815/suppl/GSM9634815_5937_AS13_filtered_feature_bc_matrix.h5", "cells": 9018},
+    {"gsm": "GSM9634817", "sample_title": "IPF_6_RNA", "biological_unit": "IPF_6", "batch": "Batch2", "role": "source_model", "file": "GSM9634817_5937_AS14_filtered_feature_bc_matrix.h5", "bytes": 9819529, "sha256": "67b1cbfa5ada96cd8770c8422edb33bae65fc853e14061558cc8578332bef612", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634817/suppl/GSM9634817_5937_AS14_filtered_feature_bc_matrix.h5", "cells": 8353},
+    {"gsm": "GSM9634819", "sample_title": "IPF_7_RNA", "biological_unit": "IPF_7", "batch": "Batch2", "role": "source_model", "file": "GSM9634819_5937_AS15_filtered_feature_bc_matrix.h5", "bytes": 9300473, "sha256": "3429470bbe8b5f999ca42e269facf087beba5ba44ee356158cb7cbd9a4140e56", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634819/suppl/GSM9634819_5937_AS15_filtered_feature_bc_matrix.h5", "cells": 7236},
+    {"gsm": "GSM9634821", "sample_title": "CTD-ILD_2b_RNA", "biological_unit": "CTD-ILD_2", "batch": "Batch2", "role": "source_model", "file": "GSM9634821_5937_AS16_filtered_feature_bc_matrix.h5", "bytes": 8835508, "sha256": "f9887bea036e2a60f78f90002befee31fdf47c870c0f805b13d58546e40769d8", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634821/suppl/GSM9634821_5937_AS16_filtered_feature_bc_matrix.h5", "cells": 7954},
+    {"gsm": "GSM9634823", "sample_title": "IPAF_1_RNA", "biological_unit": "IPAF_1", "batch": "Batch3", "role": "source_model", "file": "GSM9634823_6960_AS1_filtered_feature_bc_matrix.h5", "bytes": 13197540, "sha256": "08d8ed1409a70d57c2225214eb6a8133f5cf28b646fd91316e3646ec3b27b7ca", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634823/suppl/GSM9634823_6960_AS1_filtered_feature_bc_matrix.h5", "cells": 6080},
+    {"gsm": "GSM9634825", "sample_title": "IPAF_2_RNA", "biological_unit": "IPAF_2", "batch": "Batch3", "role": "source_model", "file": "GSM9634825_6960_AS2_filtered_feature_bc_matrix.h5", "bytes": 12645152, "sha256": "e02f8398c1e997de26a24aeedf24c7e64bd700c2c3adbfcf0fe8e5913372557a", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634825/suppl/GSM9634825_6960_AS2_filtered_feature_bc_matrix.h5", "cells": 8398},
+    {"gsm": "GSM9634826", "sample_title": "IPAF_3_RNA", "biological_unit": "IPAF_3", "batch": "Batch3", "role": "source_model", "file": "GSM9634826_6960_AS3_filtered_feature_bc_matrix.h5", "bytes": 15774677, "sha256": "1b0e4ef2d7eb7f3d53137495cfff108d5d0eeba4e591290e43a34d5d9054801f", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634826/suppl/GSM9634826_6960_AS3_filtered_feature_bc_matrix.h5", "cells": 8627},
+    {"gsm": "GSM9634828", "sample_title": "IPAF_4_RNA", "biological_unit": "IPAF_4", "batch": "Batch3", "role": "source_model", "file": "GSM9634828_6960_AS4_filtered_feature_bc_matrix.h5", "bytes": 8646607, "sha256": "1a5330271a7937eeff3dd77aa07e0ebb19dd04dcebdbd7576bb90911a2e5ba14", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634828/suppl/GSM9634828_6960_AS4_filtered_feature_bc_matrix.h5", "cells": 6862},
+    {"gsm": "GSM9634830", "sample_title": "CTD-ILD_1_RNA", "biological_unit": "CTD-ILD_1", "batch": "Batch4", "role": "held_score", "file": "GSM9634830_6960_AS5_filtered_feature_bc_matrix.h5", "bytes": 13827415, "sha256": "bd835c283e4093fe13a0c9cb2879e949e44e31fa179126d7b4b4361fc7a2247b", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634830/suppl/GSM9634830_6960_AS5_filtered_feature_bc_matrix.h5", "cells": 9708},
+    {"gsm": "GSM9634832", "sample_title": "CTD-ILD_2a_RNA", "biological_unit": "CTD-ILD_2", "batch": "Batch4", "role": "excluded_source_overlap", "file": "GSM9634832_6960_AS6_filtered_feature_bc_matrix.h5", "bytes": 9987847, "sha256": "ae583f5983204a5f9b24a1867d5f080d741003081984694d1df4b2891004c9cb", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634832/suppl/GSM9634832_6960_AS6_filtered_feature_bc_matrix.h5", "cells": 7247},
+    {"gsm": "GSM9634833", "sample_title": "CTD-ILD_3a_RNA", "biological_unit": "CTD-ILD_3", "batch": "Batch4", "role": "held_score", "file": "GSM9634833_6960_AS7_filtered_feature_bc_matrix.h5", "bytes": 14535211, "sha256": "98f7771073ef8bc1a6108138ddd0ed5adcd6eff7feb4019fb617c8a53263e86d", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634833/suppl/GSM9634833_6960_AS7_filtered_feature_bc_matrix.h5", "cells": 7802},
+    {"gsm": "GSM9634835", "sample_title": "CTD-ILD_3b_RNA", "biological_unit": "CTD-ILD_3", "batch": "Batch4", "role": "held_score", "file": "GSM9634835_6960_AS8_filtered_feature_bc_matrix.h5", "bytes": 14232026, "sha256": "a9cc1aa6e7ce3d012229322a0cde3bb66169ec5b31bc357a7008acd98a82dd90", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634835/suppl/GSM9634835_6960_AS8_filtered_feature_bc_matrix.h5", "cells": 8157},
+    {"gsm": "GSM9634836", "sample_title": "CTD-ILD_4_RNA", "biological_unit": "CTD-ILD_4", "batch": "Batch4", "role": "held_score", "file": "GSM9634836_6960_AS9_filtered_feature_bc_matrix.h5", "bytes": 10532992, "sha256": "6b3b4f52cfdb9284b13c0acc372c24fe9c65340cb25a87971eeef7876a44a547", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634836/suppl/GSM9634836_6960_AS9_filtered_feature_bc_matrix.h5", "cells": 5827},
+    {"gsm": "GSM9634837", "sample_title": "non-diseased control_9_RNA", "biological_unit": "CONTROL_9", "batch": "Batch5", "role": "held_score", "file": "GSM9634837_6960_AS10_filtered_feature_bc_matrix.h5", "bytes": 13990719, "sha256": "efcb23dace6745651308a49040f43e8bb6e821cd2a71ce9a982a2b6d11c24c82", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634837/suppl/GSM9634837_6960_AS10_filtered_feature_bc_matrix.h5", "cells": 8156},
+    {"gsm": "GSM9634839", "sample_title": "non-diseased control_10_RNA", "biological_unit": "CONTROL_10", "batch": "Batch5", "role": "held_score", "file": "GSM9634839_6960_AS11_filtered_feature_bc_matrix.h5", "bytes": 15786722, "sha256": "03dc4e8f9cbef3c4fece3c19b088791cb3c8fa30fd26aee5ea51cc3ff5a2d9e8", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634839/suppl/GSM9634839_6960_AS11_filtered_feature_bc_matrix.h5", "cells": 9462},
+    {"gsm": "GSM9634841", "sample_title": "CTD-ILD_5_RNA", "biological_unit": "CTD-ILD_5", "batch": "Batch5", "role": "held_score", "file": "GSM9634841_6960_AS12_filtered_feature_bc_matrix.h5", "bytes": 19152730, "sha256": "c3fa7a9588ad1f65310ebd201fdb7ff50a59abc5e62c36985439b975ce4d1622", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634841/suppl/GSM9634841_6960_AS12_filtered_feature_bc_matrix.h5", "cells": 9659},
+    {"gsm": "GSM9634843", "sample_title": "NSIP_RNA", "biological_unit": "NSIP", "batch": "Batch6", "role": "held_score", "file": "GSM9634843_6960_AS13_filtered_feature_bc_matrix.h5", "bytes": 3543244, "sha256": "016a809e2ca67fc7538da5a8d38a25a93cb9edcac67bbff35775450d9b394ba1", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634843/suppl/GSM9634843_6960_AS13_filtered_feature_bc_matrix.h5", "cells": 2721},
+    {"gsm": "GSM9634845", "sample_title": "IPF_1b_RNA", "biological_unit": "IPF_1", "batch": "Batch6", "role": "excluded_source_overlap", "file": "GSM9634845_6960_AS14_filtered_feature_bc_matrix.h5", "bytes": 9027189, "sha256": "145ed0b0563cf2fcc4e65324c7d01a5c4f9d437eae645a82e673715b8078f693", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634845/suppl/GSM9634845_6960_AS14_filtered_feature_bc_matrix.h5", "cells": 5765},
+    {"gsm": "GSM9634847", "sample_title": "IPF_10_RNA", "biological_unit": "IPF_10", "batch": "Batch6", "role": "held_score", "file": "GSM9634847_6960_AS15_filtered_feature_bc_matrix.h5", "bytes": 10129724, "sha256": "388c87f074f9482979f7ebc150881f114a7516a2c93fda3b6ec38db06989c394", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634847/suppl/GSM9634847_6960_AS15_filtered_feature_bc_matrix.h5", "cells": 6795},
+    {"gsm": "GSM9634849", "sample_title": "IPF_11_RNA", "biological_unit": "IPF_11", "batch": "Batch6", "role": "held_score", "file": "GSM9634849_6960_AS16_filtered_feature_bc_matrix.h5", "bytes": 3232904, "sha256": "277e5f5704d5624b98db6f903219bc92589300ac3543259db47bee30e09b5471", "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9634nnn/GSM9634849/suppl/GSM9634849_6960_AS16_filtered_feature_bc_matrix.h5", "cells": 1691}
+  ],
+  "non_recycling_rule": "Any integrity failure, source refusal, held support failure, interruption after a claimed stage, or completed negative result permanently closes this candidate; no donor, batch, marker, threshold, or endpoint may be replaced."
+}

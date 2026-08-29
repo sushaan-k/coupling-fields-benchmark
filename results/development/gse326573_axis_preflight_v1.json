@@ -1,0 +1,44 @@
+{
+  "schema": "gse326573-axis-preflight/1.0",
+  "status": "PASS_BEFORE_NUMERIC_MATRIX_ACCESS",
+  "created_on": "2026-08-29",
+  "accession": "GSE326573",
+  "official_archive": {
+    "bytes": 326922240,
+    "sha256": "9bb9a1a879fba1f01406f4463e4b707f853c854a0cc2112a16f34dc86b0011fb",
+    "members": 32
+  },
+  "inspected_axes": {
+    "files": 32,
+    "total_cells": 225778,
+    "minimum_cells_in_one_file": 1009,
+    "genes_per_file": 36601,
+    "antibodies_per_file": 15,
+    "gene_axis_sha256": "fc0504cedd73fb29e754f15f7ba692d2beb665f8a1f5420626881d88305958fd",
+    "adt_axis_styles": {
+      "underscore_totalSeqC": "b40257a31311fc842ba69a68d7854954d69b0cd1d9c8e1fabb4256ba0a9e936b",
+      "hyphen_totalSeq-C": "630648ec30ac8ccdd513acea752fc495e044fd53a070826c264a183641120cbd"
+    },
+    "strict_cognates_present_in_every_file": 11,
+    "every_file_has_at_least_512_cells": true
+  },
+  "access_audit": {
+    "opened_datasets": [
+      "/matrix/shape",
+      "/matrix/features/name",
+      "/matrix/features/feature_type"
+    ],
+    "not_opened": [
+      "/matrix/data",
+      "/matrix/indices",
+      "/matrix/indptr",
+      "/matrix/barcodes"
+    ],
+    "numeric_count_values_read": 0,
+    "cell_identifiers_read": 0,
+    "joint_tables_formed": 0,
+    "association_statistics_computed": 0,
+    "held_losses_computed": 0
+  },
+  "full_file_bindings_and_split": "data/confirmation/gse326573_lung/candidate_designation_v1.json"
+}
