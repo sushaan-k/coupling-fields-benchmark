@@ -1,0 +1,25 @@
+{
+  "bindings": {
+    "archive_sha256": "9bb9a1a879fba1f01406f4463e4b707f853c854a0cc2112a16f34dc86b0011fb",
+    "candidate_sha256": "a52beacbef12ff537ed5ed575feb097c9d370b6b8db2768e9e116be0a04facb6",
+    "classical_residuals_module_sha256": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
+    "coupling_fields_module_sha256": "06edd27c9cc52bcee1da1fc4a7a8fd86586d6263f9b32b2c6b0c5d16b0f01dc1",
+    "coupling_module_sha256": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e",
+    "factorial_coupling_module_sha256": "c80afa0efc70de920bdd312420c0e680df3b290528b6aefd3b0a1b98cff3b79e",
+    "gitignore_sha256": "9e24a7ae532c84beb2f21ac7736056a4f0ad881edbe98c45cc185e0cf0b02af0",
+    "hierarchical_module_sha256": "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d",
+    "mapreg_init_sha256": "8854ad0b216b8fa208269a83e738a2f3755e36957ecd51a8e0e5af8569b9b2d9",
+    "preflight_sha256": "9957dbeaa51ed7c7330edbdab805e041e9ad23b79384ef08180b9627128f6490",
+    "protocol_document_sha256": "c13f3d168280da696814a1883ce1c2dfeb2df22ff7219d326df3154cf083d463",
+    "protocol_sha256": "239a64d14662c6be184938f0155ddab8015ce7da2ae106338e3cbcb52ecca0fd",
+    "runner_sha256": "1bc064dca6d6cd5bc4da5c63fee35100f074af10d4d6ac4c53a5d104070a428a",
+    "runtime_sha256": "98b9aebe979bdee6fc07e7017808ae8d9ca6546162270241a85f3b1bafa40640",
+    "table_prediction_module_sha256": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e",
+    "test_sha256": "1f742479382029bf557b550c1621379f7d8c3703e4c29d71aea7ca5f2efdaa0a"
+  },
+  "created_at_utc": "2026-08-29T14:50:16Z",
+  "reason": "conditional-likelihood optimizer did not converge",
+  "reason_code": "CouplingEstimationRefusal",
+  "schema": "gse326573-lung-source/1.0",
+  "status": "TERMINAL_SOURCE_REFUSAL"
+}
