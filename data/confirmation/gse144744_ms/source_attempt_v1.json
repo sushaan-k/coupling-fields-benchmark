@@ -1,0 +1,9 @@
+{
+  "created_at_utc": "2026-08-29T13:12:00Z",
+  "prerequisite_commits": [],
+  "protocol_commit": "a846015a585fee7d04edd0bea77652c464c4daea",
+  "protocol_tag": "gse144744-ms-v1-protocol",
+  "schema": "gse144744-ms-stage-attempt/1.0",
+  "stage": "source",
+  "status": "STARTED"
+}
