@@ -1,8 +1,25 @@
-# GSE181897 control CITE-seq sequential confirmation protocol
+# GSE181897 control CITE-seq sequential confirmation protocol, version 1.1
 
 Frozen from metadata on 29 August 2026, before any AnnData `X` value was read.
 The machine-readable designation and protocol are normative; this document
 summarizes their design and decision rules.
+
+Version 1.1 is a pre-outcome descendant amendment. The original version 1.0
+remains immutable at annotated tag
+`gse181897-control-citeseq-v1-candidate`, commit
+`b69d19da98aeba46880dcb62082e57daa73a82c9`, with protocol SHA-256
+`ec2501565dc55df02a8c48dd0c2955a90abd8b91083a600a305334a09d1074ff`.
+This amendment fixes deterministic Stage-B, neighbor, and sign-test tie rules,
+discloses CSR index scanning, specifies supported-table pooling for Poisson,
+adds the source-attempt claim, and requires
+the version 2 axis artifact with explicit obs and var uniqueness certificates.
+It does not alter any cohort, panel, state, mask floor, grid, loss, comparator,
+gate, or decision threshold. At amendment, the first axis preflight had read
+metadata and HDF5 dataset shapes only: zero `/X/data`, `/X/indices`, and
+`/X/indptr` entries had been read. Numeric access remains closed until
+`axis_preflight_v2.json` has schema `gse181897-axis-preflight/1.1`, status
+`AXES_FROZEN_UNIQUE_X_NUMERIC_UNREAD`, and exact unique-index certificates for
+136,142 obs rows and 20,399 var rows.
 
 ## Scope
 
@@ -24,11 +41,11 @@ file.
 ## Metadata freeze
 
 The raw H5AD is `GSE181897_concat.4.raw.h5ad.gz`, with expected compressed and
-uncompressed sizes of 1,011,162,509 and 3,063,713,137 bytes. Its compressed and
-uncompressed SHA-256 values remain `PENDING`; no digest is inferred. Numeric
-access remains disabled until an axis-only preflight has committed and publicly
-tagged both digests, the exact HDF5 paths, CSR encoding, obs and var axes, and
-axis hashes.
+uncompressed sizes of 1,011,162,509 and 3,063,713,137 bytes. The immutable
+version 1 preflight recorded both SHA-256 digests. They are known but do not
+authorize numeric access: version 2 must recertify and publicly bind those
+digests, the exact HDF5 paths, CSR encoding, unique obs and var axes, and axis
+hashes after the implementation freeze.
 
 The metadata expectations are:
 
@@ -145,7 +162,13 @@ selects:
 Every mask, normalization, hypergraph, and estimator is rebuilt inside the
 training fold. Loss is equal across pools and donors within pool. After a
 source pass, the same selection is run over all eight source pools and refit on
-all 39 donors.
+all 39 donors. Stage A exact ties resolve by heterogeneity penalty, ridge
+penalty, and transport multiplier; Stage B exact ties resolve by graph penalty
+and then `k`.
+
+Within each marker-centered hypergraph, equal Euclidean neighbor distances
+resolve by lower zero-based marker index before duplicate hyperedges are
+removed.
 
 The source gate requires a nonzero graph penalty; at least 5% lower equal-pool
 loss than matched graph zero; improvement in at least 7 of 8 outer pools and
@@ -166,6 +189,13 @@ Poisson interaction, and the source-selected signed Pearson or signed-root
 Poisson-deviance coordinate. Target-margin independence is always reported.
 A deterministic within-donor cyclic shift of complete binary protein rows is
 the destroyed-link control.
+
+Pooled Poisson uses exactly the supported donor-coordinate tables available to
+the primary and omits unsupported donor-coordinate tables; only donor strata
+are removed. Held CSR access reports the full number of `/X/indices` entries
+scanned for selected rows separately from `/X/data` values decoded for the
+frozen columns. No out-of-panel data value, non-control row, or unauthorized
+held row may be decoded or retained.
 
 Every method receives the same source folds, donor states, target margins,
 comparison mask, and per-coordinate multinomial deviance. Classical methods
@@ -193,17 +223,29 @@ pool-disjoint evidence, not independent-study replication.
 Bootstrap inference uses 20,000 paired donor resamples within physical pool
 and an equal-pool mean. Cells and coordinates are never resampled as independent
 units. Donor-level and pool-level loss vectors, confidence intervals, exact
-sign tests, controls, nulls, exclusions, and refusals are all published.
+sign tests, controls, nulls, exclusions, and refusals are all published. The
+exact sign test omits zero paired differences and uses the number of nonzero
+donor pairs as its binomial `n`.
 
 ## Access order
 
-The public chain is candidate tag, axis-only preflight tag, implementation and
-runtime tag, source attempt/result, internal margins and public predictions,
+The public chain is candidate tag, implementation and runtime tag, axis-only
+preflight tag, public source authorization, source result, internal margins and public predictions,
 internal score, confirmation margins and public predictions, and confirmation
 score. Each numeric stage has one exclusive attempt claim. A hash mismatch,
 support failure, exception, or interruption after that claim consumes the
 stage. There is no retuning, rerun, donor replacement, stage pooling, or rescue.
 
-All `PENDING` implementation and input bindings are closed gates. No numeric
-`X` dataset may be decoded until every required binding has been committed,
-tagged, pushed, and verified from a fresh clone.
+Source access additionally requires a public authorization at
+`data/development/gse181897_source/source_campaign_authorization_v1.json`.
+Before the first source `/X/indptr`, `/X/indices`, or `/X/data` read, the runner
+must create `data/development/gse181897_source/source_attempt_v1.json`
+locally with `O_CREAT|O_EXCL` and fsync it. The attempt is included in the later
+published result; it does not receive a separate pre-access tag. Any subsequent
+access, partial output, interruption, refusal, exception, or hash mismatch
+consumes that attempt. The version 1.1 public tag and implementation-bound
+authorization are both closed gates until published.
+
+No numeric `X` dataset may be decoded until the prescribed implementation,
+axis-v2, and authorization bindings have been committed, tagged, pushed, and
+verified through the frozen local, remote, ancestry, and byte-identity checks.
