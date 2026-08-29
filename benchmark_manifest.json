@@ -1,1264 +1,329 @@
 {
-  "schema": "coupling-fields-public-benchmark/1.0",
-  "release_name": "coupling-fields-v1",
-  "assembled_at_utc": "2026-08-28T19:20:51Z",
-  "status": "PUBLIC_COMBAT_CITESEQ_TERMINAL_PILOT_REFUSAL",
-  "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
-  "public_freeze_commit": "240bded6e9980414c6dd37e28a061605c68a6822",
-  "immutable_release_tag": "combat-citeseq-v1-protocol",
+  "analysis_plan_characterization": "public pre-outcome analysis plans; not registry-hosted preregistration",
   "archive_doi": null,
-  "code_license": null,
-  "candidate_designation_status": "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL",
-  "prospective_candidate_count": 0,
-  "active_candidate_count": 0,
-  "prospective_candidate_artifacts": [
-    "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
-    "data/confirmation/combat_citeseq/candidate_designation_v1.json",
-    "data/confirmation/combat_citeseq/source_manifest_v1.json",
-    "experiments/confirm_combat_citeseq.py",
-    "tests/test_combat_citeseq_confirmation.py"
-  ],
-  "completed_public_panels": 7,
-  "procedural_refusal_count": 8,
-  "kotliarov_outcome_status": "TERMINAL_REFUSAL",
-  "next_protocol": {
-    "designation": "data/confirmation/combat_citeseq/candidate_designation_v1.json",
-    "designation_sha256": "1e68a0dc91e4a6f3e9dbd3b74834a5663b362e1e1d0e7375c3740e1b9b719fca",
-    "protocol": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
-    "protocol_sha256": "4899751abdc1c0adf35935f7cc386c2cc2aa5fd6e8035ee2fbd870865c566a31",
-    "status": "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL",
-    "protocol_freeze_commit": "240bded6e9980414c6dd37e28a061605c68a6822",
-    "protocol_freeze_tag": "combat-citeseq-v1-protocol",
-    "calibration_samples": 12,
-    "adaptive_pilot_samples": 24,
-    "oxford_held_samples": 51,
-    "st_georges_held_samples": 10,
-    "prediction_written": false,
-    "held_score_attempted": false,
-    "rerun_permitted_after_terminal_attempt": false,
-    "authorized_reduced_development_sha256": "06ebfad44c339d763a451662462d7c9dc60684e792d5c229a42eefd232302b2f",
-    "terminal_pilot_refusal": "results/development/combat_citeseq_pilot_terminal_refusal.json",
-    "terminal_pilot_refusal_sha256": "c41c6e46333c1dc56b460fec74a41f6d1a07a82105ca4894a273ce43dc48e2f9",
-    "pilot_gate_reached": false,
-    "held_margin_accessed": false,
-    "held_outcome_accessed": false,
-    "held_access_permanently_closed": true,
-    "matrix_payload_reads_at_prospective_freeze": 0
-  },
   "artifacts": [
     {
-      "path": "pyproject.toml",
-      "source_path": "pyproject.toml",
-      "sha256": "9c49aabfd3916de8f84a3a4c287483bd76f345c24b0c0a5a3f749832f4650991",
-      "bytes": 469,
-      "role": "software environment"
+      "bytes": 15173,
+      "path": "README.md",
+      "sha256": "d621ee937ebdb482d45745c7e1ddb6221fcc7fd7d7ccd70295c44fa2e395e4f0"
     },
     {
-      "path": "requirements.txt",
-      "source_path": "requirements.txt",
-      "sha256": "ce40818d5b3b7532c32b32d0e42b15118ecb509877b7876ec9202465cc87bf5c",
-      "bytes": 231,
-      "role": "benchmark environment"
+      "bytes": 860,
+      "path": "data/confirmation/stephenson_citeseq/score_authorization_v1.json",
+      "sha256": "6e5552208757b65dce1c7c47ca5851d2e7b9a239514d329db415ea88ee064c6c"
     },
     {
-      "path": "docs/PUBLIC_COUPLING_ATLAS_BENCHMARK_FREEZE_2026-08-26.md",
-      "source_path": "docs/PUBLIC_COUPLING_ATLAS_BENCHMARK_FREEZE_2026-08-26.md",
-      "sha256": "34facaeec5c4742decaa127a87ad9a7928bc6435fbd073bb00d13226929a2547",
-      "bytes": 13557,
-      "role": "completed-panel protocol"
+      "bytes": 1737,
+      "path": "data/confirmation/stephenson_unused_cambridge/prediction_terminal_record_v1_1.json",
+      "sha256": "288cb761236235a0e6d3df3d3984568a108648548cd5e1c5c380c6b75be51042"
     },
     {
-      "path": "docs/SECOND_HELD_UNIT_CONFIRMATION_PROTOCOL_2026-08-27.md",
-      "source_path": "docs/SECOND_HELD_UNIT_CONFIRMATION_PROTOCOL_2026-08-27.md",
-      "sha256": "5326f8b88ea79dbb7f146fcbf0e350ac99dcfcc00bdb6e1a885374912da10df9",
-      "bytes": 18651,
-      "role": "prospective Lawlor PBMC confirmation protocol"
-    },
-    {
-      "path": "docs/GSE164378_HAO_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
-      "source_path": "docs/GSE164378_HAO_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
-      "sha256": "acb47fb17bdca84a9dc99c4ec9628ef7d8b3292a78c670e52004773bac6912fc",
-      "bytes": 14508,
-      "role": "prospective Hao GSE164378 confirmation protocol"
-    },
-    {
-      "path": "docs/KOTLIAROV_PBMC_HELD_BATCH_CONFIRMATION_PROTOCOL_2026-08-28.md",
-      "source_path": "docs/KOTLIAROV_PBMC_HELD_BATCH_CONFIRMATION_PROTOCOL_2026-08-28.md",
-      "sha256": "693d0c51221f7eb50e57beb42cb2748a157b9757df019010135ac10fde49e1f0",
-      "bytes": 12382,
-      "role": "prospective Kotliarov held-batch confirmation protocol"
-    },
-    {
-      "path": "docs/KOTLIAROV_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
-      "source_path": "docs/KOTLIAROV_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
-      "sha256": "f012a8272351005d24f204761de1919b5247562b7463e69bdbe9d9fcb8ac68c3",
-      "bytes": 1361,
-      "role": "fresh-clone verification of the disabled Kotliarov freeze"
-    },
-    {
-      "path": "docs/KOTLIAROV_OUTCOME_AUTHORIZATION_VERIFICATION_2026-08-28.json",
-      "source_path": "docs/KOTLIAROV_OUTCOME_AUTHORIZATION_VERIFICATION_2026-08-28.json",
-      "sha256": "f4932b081f918e0793c836c22a1474efb8aa6d8fe5ec6abceba8f68c3fde6b1e",
-      "bytes": 731,
-      "role": "fresh-clone verification of Kotliarov outcome authorization"
-    },
-    {
-      "path": "docs/GSE143417_POKISEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-27.md",
-      "source_path": "docs/GSE143417_POKISEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-27.md",
-      "sha256": "ae550d171b494b535a922a68b8f666d161c3c3b538a988909204766025843f1a",
-      "bytes": 7563,
-      "role": "PoKI-seq protocol retained with its preflight refusal"
-    },
-    {
-      "path": "docs/COUPLING_FIELD_CLASSICAL_BOUNDARY_2026-08-27.md",
-      "source_path": "docs/COUPLING_FIELD_CLASSICAL_BOUNDARY_2026-08-27.md",
-      "sha256": "beea87995fa97afa8df564f00a7d09e51b3daf533df4aef59a2b05f348c10b61",
-      "bytes": 4098,
-      "role": "classical-estimator boundary and interpretation"
-    },
-    {
-      "path": "docs/CONFIRMATORY_FAMILY_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
-      "source_path": "docs/CONFIRMATORY_FAMILY_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
-      "sha256": "d147414bd2f0e10a732a6838208f84b751f712edc23b2a5dae454f9bc6101959",
-      "bytes": 7445,
-      "role": "independent fresh-clone verification of the disabled-outcome freeze"
-    },
-    {
-      "path": "docs/CONFIRMATORY_FAMILY_OUTCOME_AUTHORIZATION_VERIFICATION_2026-08-28.json",
-      "source_path": "docs/CONFIRMATORY_FAMILY_OUTCOME_AUTHORIZATION_VERIFICATION_2026-08-28.json",
-      "sha256": "3c137903078905b071292f755d8e89fdc9832b6c9ba678401cb5c7b41326f04f",
-      "bytes": 8379,
-      "role": "independent fresh-clone verification of the outcome-authorization commit"
-    },
-    {
-      "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "source_path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "1a8965a29a0b3f7ce60cd304a3bad4fb2a581b514298dfc7a5d70a80976ffa79",
-      "bytes": 24373,
-      "role": "claim-evidence ledger including terminal COMBAT pilot refusal"
-    },
-    {
-      "path": "results/final_public_benchmark_table.tsv",
-      "source_path": "results/final_public_benchmark_table.tsv",
-      "sha256": "fe8b12fc107891b382fe73ace427c4bcdb256e242d19236e11c866b1a1e4cae2",
-      "bytes": 14969,
-      "role": "panel-level benchmark table"
-    },
-    {
-      "path": "results/public_coupling_atlas_benchmark_v4_final_estimator.json",
-      "source_path": "results/public_coupling_atlas_benchmark_v4_final_estimator.json",
-      "sha256": "eb250bd749c92b7278e7e8c54e89f5126f3367ed489a91b664f1d664ea083195",
-      "bytes": 81377,
-      "role": "PerturbSci, Frangieh, and Papalexi results"
-    },
-    {
-      "path": "results/multiperturb_conditional_fields.json",
-      "source_path": "results/multiperturb_conditional_fields.json",
-      "sha256": "a59d3b82b914991fbb2e08195e5401b2dde249158e5f9c923decfcc1e1df4507",
-      "bytes": 10997,
-      "role": "MultiPerturb result"
-    },
-    {
-      "path": "results/development/perturbfate_conditional_fields.json",
-      "source_path": "results/development/perturbfate_conditional_fields.json",
-      "sha256": "cdf0c2cf66facfbbdfb03ac7a20c97d4cdaf4fc0bc9c63025e825dbeb1715c26",
-      "bytes": 108207,
-      "role": "PerturbFate result"
-    },
-    {
-      "path": "results/resistrace_conditional_fields.json",
-      "source_path": "results/resistrace_conditional_fields.json",
-      "sha256": "edef0dba1d1dd94f19829088cb1fcd00f72dbacbc0695516b9c25afee6b20ffb",
-      "bytes": 37354,
-      "role": "ReSisTrace result"
-    },
-    {
-      "path": "results/arce_gse278572_conditional_field_confirmation.json",
-      "source_path": "results/arce_gse278572_conditional_field_confirmation.json",
-      "sha256": "65d4bf6097a8fafee8e22f352c2c6c14fa13c1d8082073a4589d3ee693ef8b57",
-      "bytes": 114491,
-      "role": "Arce held-donor result"
-    },
-    {
-      "path": "results/arce_gse278572_postlock_controls.json",
-      "source_path": "results/arce_gse278572_postlock_controls.json",
-      "sha256": "66d3343db745ad338091397226a9b93ca222df759107fbe46eddfcbee4c1a612",
-      "bytes": 63085,
-      "role": "Arce post-lock controls"
-    },
-    {
-      "path": "results/perturbsci_module_validation.json",
-      "source_path": "results/perturbsci_module_validation.json",
-      "sha256": "68032c3bc05fe0702edd8600cf91c86d0850b1db44857e67a42845e0fc164fc2",
-      "bytes": 196709,
-      "role": "PerturbSci biology result"
-    },
-    {
-      "path": "results/development/perturbsci_conditional_sensitivity.json",
-      "source_path": "results/development/perturbsci_conditional_sensitivity.json",
-      "sha256": "b79006842352df2a07722b772b8018c1400353e85b115c9986a94ecfd74b0690",
-      "bytes": 4362,
-      "role": "PerturbSci sensitivity result"
-    },
-    {
-      "path": "results/development/factorial_coupling_stress_v1.json",
-      "source_path": "results/development/factorial_coupling_stress_v1.json",
-      "sha256": "76f521decdb64945c0bf52e46dd60688eb9705224a7ff50bda027ed4fc981b48",
-      "bytes": 27510,
-      "role": "synthetic operating characteristics"
-    },
-    {
-      "path": "results/development/factorial_coupling_bootstrap_calibration_v1.json",
-      "source_path": "results/development/factorial_coupling_bootstrap_calibration_v1.json",
-      "sha256": "744d79c3bc03321f15352d1aedda2b2308056106aa85cb841d0463396c89af62",
-      "bytes": 14293,
-      "role": "synthetic bootstrap calibration"
-    },
-    {
-      "path": "data/manifests/sources.json",
-      "source_path": "data/manifests/sources.json",
-      "sha256": "7cd8ae5410c794c88eeb7c1871dcbedb7a4425f7f4c2373e9fe943524c9dac96",
-      "bytes": 16182,
-      "role": "source provenance"
-    },
-    {
-      "path": "data/development/perturbsci_kinetics_gse218566/protocol_v1.json",
-      "source_path": "data/development/perturbsci_kinetics_gse218566/protocol_v1.json",
-      "sha256": "932986c445f3f4751a825ee547d75d95fd01f32b991aa34dbfb80042bc6e84e7",
-      "bytes": 4474,
-      "role": "PerturbSci protocol"
-    },
-    {
-      "path": "data/development/perturbsci_kinetics_gse218566/source_manifest.json",
-      "source_path": "data/development/perturbsci_kinetics_gse218566/source_manifest.json",
-      "sha256": "59775a687e01830236615343fc0aea2c6844d5a197b046c78de7d483146bde90",
-      "bytes": 65894,
-      "role": "PerturbSci source manifest"
-    },
-    {
-      "path": "data/development/perturbfate_gse291147/manifest.json",
-      "source_path": "data/development/perturbfate_gse291147/manifest.json",
-      "sha256": "37e03f6e942fd5392a231652b66b6d68a811b09469b2e352f16230706faa9e94",
-      "bytes": 2148,
-      "role": "PerturbFate source manifest"
-    },
-    {
-      "path": "data/development/arce_gse278572/source_manifest_v1.json",
-      "source_path": "data/development/arce_gse278572/source_manifest_v1.json",
-      "sha256": "e64c71a12d16eec041633e83ed79b54eb9f9cb24c43cf278eb1a8a9422a3c53d",
-      "bytes": 9148,
-      "role": "Arce source manifest"
-    },
-    {
-      "path": "data/development/lawlor_hca_pbmc/source_manifest_v1.json",
-      "source_path": "data/development/lawlor_hca_pbmc/source_manifest_v1.json",
-      "sha256": "ea1b2705e6d1e1252376c1e5b0201dbed90e1197641674e1b803132abb279709",
-      "bytes": 3573,
-      "role": "Lawlor PBMC source manifest"
-    },
-    {
-      "path": "data/development/lawlor_hca_pbmc/metadata_support_v1.json",
-      "source_path": "data/development/lawlor_hca_pbmc/metadata_support_v1.json",
-      "sha256": "5ca6e41599e6102fca8cc5457449765fc532e8630344cbc1ca7235aa75e4c1b1",
-      "bytes": 4880,
-      "role": "Lawlor PBMC metadata-only eligibility audit"
-    },
-    {
-      "path": "data/development/lawlor_hca_pbmc/adt_gene_aliases_v1.tsv",
-      "source_path": "data/development/lawlor_hca_pbmc/adt_gene_aliases_v1.tsv",
-      "sha256": "ea266a0a20570929f05e48dd322d6c5b0714084b9e0e245998c9f722a07b0c62",
-      "bytes": 393,
-      "role": "Lawlor PBMC frozen RNA-ADT aliases"
-    },
-    {
-      "path": "data/development/hao_gse164378/source_manifest_v1.json",
-      "source_path": "data/development/hao_gse164378/source_manifest_v1.json",
-      "sha256": "8461b3a9088c55132e0bffee0eeca673a01b536e76dca03a33746cdbeef5ae1c",
-      "bytes": 5294,
-      "role": "Hao GSE164378 source manifest"
-    },
-    {
-      "path": "data/development/hao_gse164378/metadata_support_v1.json",
-      "source_path": "data/development/hao_gse164378/metadata_support_v1.json",
-      "sha256": "633cf3c5e0f6b4475fac17949bf944456dc1649132611dd39925b3df8797a5ef",
-      "bytes": 1966,
-      "role": "Hao GSE164378 metadata-only eligibility audit"
-    },
-    {
-      "path": "data/development/hao_gse164378/adt_gene_aliases_v1.tsv",
-      "source_path": "data/development/hao_gse164378/adt_gene_aliases_v1.tsv",
-      "sha256": "68295c4762c78a26532a6bf57dbeb5f8a86b393e6ce09563314b7cff53f1c296",
-      "bytes": 443,
-      "role": "Hao GSE164378 frozen RNA-ADT aliases"
-    },
-    {
-      "path": "data/development/hao_gse164378/prepared_v1.json",
-      "source_path": "data/development/hao_gse164378/prepared_v1.json",
-      "sha256": "ad36b8687c64b669e6c1bed8c378dccb1ccaed9e4b22cc3920354e013b5a8410",
-      "bytes": 4778,
-      "role": "Hao reducer provenance before its terminal support refusal"
-    },
-    {
-      "path": "data/development/kotliarov_pbmc/source_manifest_v1.json",
-      "source_path": "data/development/kotliarov_pbmc/source_manifest_v1.json",
-      "sha256": "c0d61a23a1dc1a750941b7808d1d187e841d1bdfaacb17799fbad72602aa212c",
-      "bytes": 2374,
-      "role": "Kotliarov gypsum source manifest"
-    },
-    {
-      "path": "data/development/kotliarov_pbmc/metadata_support_v1.json",
-      "source_path": "data/development/kotliarov_pbmc/metadata_support_v1.json",
-      "sha256": "bd4fa56d46db6dc35a1f0214ffd827c0ed868d513e1e7c19e8ba553ed2156c0f",
-      "bytes": 1225,
-      "role": "Kotliarov metadata-only split and eligibility audit"
-    },
-    {
-      "path": "data/development/kotliarov_pbmc/adt_gene_aliases_v1.tsv",
-      "source_path": "data/development/kotliarov_pbmc/adt_gene_aliases_v1.tsv",
-      "sha256": "ae39551ff9a3c8e144a6dd3c1e45c1a5c6cd6d05af1c84595043899bea9e0b99",
-      "bytes": 1560,
-      "role": "Kotliarov frozen exact RNA-ADT aliases"
-    },
-    {
-      "path": "data/development/kotliarov_pbmc/lineage_markers_v1.tsv",
-      "source_path": "data/development/kotliarov_pbmc/lineage_markers_v1.tsv",
-      "sha256": "20d67de2dacc5662df255bcf24d22014e8d16878c268b978989673efa784c470",
-      "bytes": 281,
-      "role": "Kotliarov frozen RNA-only lineage markers"
-    },
-    {
-      "path": "data/confirmation/pbmc_citeseq_hca/candidate_designation_v2.json",
-      "source_path": "data/confirmation/pbmc_citeseq_hca/candidate_designation_v2.json",
-      "sha256": "c80954d3cf1d4709931046ab6f79cb351d6fa2983ad8e0102b3c4897b7454304",
-      "bytes": 9608,
-      "role": "Lawlor PBMC version-2 disabled-outcome designation"
-    },
-    {
-      "path": "data/confirmation/pbmc_citeseq_hca/score_authorization_template_v2.json",
-      "source_path": "data/confirmation/pbmc_citeseq_hca/score_authorization_template_v2.json",
-      "sha256": "091de7a96162c00384e660be3f2e8ac4ddb863c0c4dca42f4b8e963ac817bcd1",
-      "bytes": 1244,
-      "role": "Lawlor PBMC version-2 score-authorization template"
-    },
-    {
-      "path": "data/confirmation/hao_gse164378/candidate_designation_v1.json",
-      "source_path": "data/confirmation/hao_gse164378/candidate_designation_v1.json",
-      "sha256": "76d89a7dafa44a2184ce6ad2306a96258d80b4690bb53ad0a8221ced78eff66e",
-      "bytes": 10957,
-      "role": "Hao GSE164378 version-1 disabled-outcome designation"
-    },
-    {
-      "path": "data/confirmation/hao_gse164378/score_authorization_template_v1.json",
-      "source_path": "data/confirmation/hao_gse164378/score_authorization_template_v1.json",
-      "sha256": "23f34680314cdb17bd4540e7cb8abc28015db50c9c6cf6dd6d5ffe7a37c9af81",
-      "bytes": 1346,
-      "role": "Hao GSE164378 version-1 score-authorization template"
-    },
-    {
-      "path": "data/confirmation/kotliarov_pbmc/candidate_designation_v1.json",
-      "source_path": "data/confirmation/kotliarov_pbmc/candidate_designation_v1.json",
-      "sha256": "78bfef68db4aaf28778360427000b4ab2a4dc22cecf02cb1781601e6bf8eb70b",
-      "bytes": 8211,
-      "role": "Kotliarov disabled-outcome candidate designation"
-    },
-    {
-      "path": "data/confirmation/kotliarov_pbmc/score_authorization_template_v1.json",
-      "source_path": "data/confirmation/kotliarov_pbmc/score_authorization_template_v1.json",
-      "sha256": "9a08916d0ee6267483c7e942566e7c2bd474124f892982ea580f44886103fe99",
-      "bytes": 586,
-      "role": "Kotliarov score-authorization template"
-    },
-    {
-      "path": "data/confirmation/gse143417_pokiseq/candidate_designation_v1.json",
-      "source_path": "data/confirmation/gse143417_pokiseq/candidate_designation_v1.json",
-      "sha256": "4dafbfc270628ad6f0f9921757a9689dea34ceaf92a0ec3725d377545e63c8c8",
-      "bytes": 1521,
-      "role": "PoKI-seq historical candidate designation"
-    },
-    {
-      "path": "data/confirmation/gse143417_pokiseq/preanalysis_lock_v1.json",
-      "source_path": "data/confirmation/gse143417_pokiseq/preanalysis_lock_v1.json",
-      "sha256": "e62106b4087c323b243bf9142a4d1a99f952cd74fc8ebde43ff6519fec65726e",
-      "bytes": 2442,
-      "role": "PoKI-seq preanalysis lock"
-    },
-    {
-      "path": "data/confirmation/gse143417_pokiseq/poki_marker_cells_v1.npz",
-      "source_path": "data/confirmation/gse143417_pokiseq/poki_marker_cells_v1.npz",
-      "sha256": "2808318e2847f6f1f12c5a9537fea8dddf543cd7ede30f2b47cc5e247862ea1f",
-      "bytes": 293205,
-      "role": "PoKI-seq checksum-bound preflight cache"
-    },
-    {
-      "path": "data/scgpt_gene_embeddings_manifest.json",
-      "source_path": "data/scgpt_gene_embeddings_manifest.json",
-      "sha256": "e35e09e60884c7c781f885249fe5d20ea4ee278364fed902ed5a2e06322086f4",
-      "bytes": 1133,
-      "role": "checksum and derivation manifest for the omitted scGPT embedding"
-    },
-    {
-      "path": "mapreg/__init__.py",
-      "source_path": "mapreg/__init__.py",
-      "sha256": "8854ad0b216b8fa208269a83e738a2f3755e36957ecd51a8e0e5af8569b9b2d9",
-      "bytes": 1305,
-      "role": "public estimator API"
-    },
-    {
-      "path": "mapreg/coupling_fields.py",
-      "source_path": "mapreg/coupling_fields.py",
-      "sha256": "06edd27c9cc52bcee1da1fc4a7a8fd86586d6263f9b32b2c6b0c5d16b0f01dc1",
-      "bytes": 16618,
-      "role": "current deterministic-einsum field estimator bound by GSE279451"
-    },
-    {
-      "path": "mapreg/classical_residuals.py",
-      "source_path": "mapreg/classical_residuals.py",
-      "sha256": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
-      "bytes": 5556,
-      "role": "full classical residual comparators"
-    },
-    {
-      "path": "mapreg/factorial_coupling.py",
-      "source_path": "mapreg/factorial_coupling.py",
-      "sha256": "c80afa0efc70de920bdd312420c0e680df3b290528b6aefd3b0a1b98cff3b79e",
-      "bytes": 20390,
-      "role": "guide-aware estimator"
-    },
-    {
-      "path": "mapreg/table_prediction.py",
-      "source_path": "mapreg/table_prediction.py",
-      "sha256": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e",
-      "bytes": 6776,
-      "role": "common held-table reconstruction and loss"
-    },
-    {
-      "path": "experiments/benchmark_public_coupling_fields.py",
-      "source_path": "experiments/benchmark_public_coupling_fields.py",
-      "sha256": "52552f426f236d656c92872d86c80993dae5acfe78543d0c205b9b8c7dbbc316",
-      "bytes": 54549,
-      "role": "PerturbSci, Frangieh, and Papalexi runner"
-    },
-    {
-      "path": "experiments/benchmark_multiperturb_conditional_fields.py",
-      "source_path": "experiments/benchmark_multiperturb_conditional_fields.py",
-      "sha256": "8f4a0f8c2d8a59bcb6961b397909205e39de60bffff9f77dda1df04ed9977e9f",
-      "bytes": 16295,
-      "role": "MultiPerturb runner"
-    },
-    {
-      "path": "experiments/benchmark_perturbfate_conditional_fields.py",
-      "source_path": "experiments/benchmark_perturbfate_conditional_fields.py",
-      "sha256": "7e287f34168b3a74328501ab0093b9dc1eed9c436dba5dae79b233b05485b45e",
-      "bytes": 25463,
-      "role": "PerturbFate runner"
-    },
-    {
-      "path": "experiments/validate_resistrace_conditional_fields.py",
-      "source_path": "experiments/validate_resistrace_conditional_fields.py",
-      "sha256": "ce5f371cdd5c532cf525ed47b77e3792b6a586cdf70006fd2893ac77775ad2a4",
-      "bytes": 21362,
-      "role": "ReSisTrace runner"
-    },
-    {
-      "path": "experiments/confirm_arce_gse278572_conditional_fields.py",
-      "source_path": "experiments/confirm_arce_gse278572_conditional_fields.py",
-      "sha256": "a01c3ca5c46209be3186bfb3e52dc0d0255fdec9281c1b694f8077bafa7dd687",
-      "bytes": 55022,
-      "role": "Arce runner"
-    },
-    {
-      "path": "experiments/reduce_lawlor_hca_pbmc.R",
-      "source_path": "experiments/reduce_lawlor_hca_pbmc.R",
-      "sha256": "65595a6461a0836eb1eda307614f0201594282cc36b54849018d12ea6bfdbc22",
-      "bytes": 6997,
-      "role": "Lawlor PBMC sparse reducer"
-    },
-    {
-      "path": "experiments/confirm_lawlor_hca_pbmc.py",
-      "source_path": "experiments/confirm_lawlor_hca_pbmc.py",
-      "sha256": "859b0f0e929b0807ba01ea6294456efa85373e2f08e4a4f031a782da1bfe3d77",
-      "bytes": 73125,
-      "role": "Lawlor PBMC split predict-score runner"
-    },
-    {
-      "path": "experiments/reduce_hao_gse164378.py",
-      "source_path": "experiments/reduce_hao_gse164378.py",
-      "sha256": "6c4f6b03fb4c3e1d8d0fd37580b8ef8137b3f7c35654b9e271b26e46aa2f46d3",
-      "bytes": 17274,
-      "role": "Hao GSE164378 sparse reducer"
-    },
-    {
-      "path": "experiments/confirm_hao_gse164378.py",
-      "source_path": "experiments/confirm_hao_gse164378.py",
-      "sha256": "5653e61e99c199a8b3e59bfe9ec2025a55e75bf1e55559966e7b4c5109bffb6c",
-      "bytes": 73226,
-      "role": "Hao GSE164378 split prepare-predict-score runner"
-    },
-    {
-      "path": "experiments/reduce_kotliarov_pbmc.py",
-      "source_path": "experiments/reduce_kotliarov_pbmc.py",
-      "sha256": "70adb269b47cf29a874e4f891c0c538bce2204c1b162d29fc6f0547d0106a085",
-      "bytes": 41630,
-      "role": "Kotliarov leak-separated gypsum HDF5 reducer"
-    },
-    {
-      "path": "experiments/confirm_kotliarov_pbmc.py",
-      "source_path": "experiments/confirm_kotliarov_pbmc.py",
-      "sha256": "abe16c38835f167f68215c5d759e18437a0c4619a3f9e8540419cd354d98404e",
-      "bytes": 93051,
-      "role": "Kotliarov held-batch prepare-predict-score runner"
-    },
-    {
-      "path": "experiments/confirm_poki_gse143417_conditional_fields.py",
-      "source_path": "experiments/confirm_poki_gse143417_conditional_fields.py",
-      "sha256": "0f3f36e27bc7a0f53113d7e7456b10bf4f62070718a3b8e7b0aa99b44561c8ef",
-      "bytes": 56611,
-      "role": "PoKI-seq split predict-score runner"
-    },
-    {
-      "path": "experiments/development/simulate_coupling_margin_invariance.py",
-      "source_path": "experiments/development/simulate_coupling_margin_invariance.py",
-      "sha256": "fb99c858c93f32d1dd0bfb94f3f094eec0b19de0e0df255556bcd9289f464150",
-      "bytes": 7185,
-      "role": "classical-boundary simulation runner"
-    },
-    {
-      "path": "experiments/build_paper_tables.py",
-      "source_path": "experiments/build_paper_tables.py",
-      "sha256": "43aac974e24c6a6577341917001a2d9363f28c8ba47082150bac70d865b84278",
-      "bytes": 4432,
-      "role": "deterministic manuscript table builder"
-    },
-    {
-      "path": "results/coupling_margin_invariance_simulation.json",
-      "source_path": "results/coupling_margin_invariance_simulation.json",
-      "sha256": "1f5374edb8ff5d61159bf68c9b17169226fc8256f6e4df88225f7dc7b935d039",
-      "bytes": 4498,
-      "role": "classical-boundary simulation result"
-    },
-    {
-      "path": "results/gse143417_pokiseq_preflight_refusal.json",
-      "source_path": "results/gse143417_pokiseq_preflight_refusal.json",
-      "sha256": "24f7ad70fbbfd4e7482809db58bd94d1156c1e22c2dd94fa77d66b1d6acdcf24",
-      "bytes": 3020,
-      "role": "PoKI-seq frozen support-gate refusal"
-    },
-    {
-      "path": "results/lawlor_hca_pbmc_predictions.json",
-      "source_path": "results/lawlor_hca_pbmc_predictions.json",
-      "sha256": "6e1435ef5a5c326a2d4f8cd69c55bd2c0cf7568685ab192b84855e8f564ada4a",
-      "bytes": 565,
-      "role": "Lawlor frozen predict-stage reducer refusal"
-    },
-    {
-      "path": "results/hao_gse164378_prediction_refusal.json",
-      "source_path": "results/hao_gse164378_prediction_refusal.json",
-      "sha256": "bd6c0c2a5c5fae5b1b21b09627e7804ab47a4daa3a538f2035c64f739bd201a8",
-      "bytes": 517,
-      "role": "Hao frozen predict-stage support refusal"
-    },
-    {
-      "path": "results/kotliarov_pbmc_public_refusal.json",
-      "source_path": "results/kotliarov_pbmc_public_refusal.json",
-      "sha256": "34d59fcbdcceeefb449a430bca7a0f502611d343a2ebd19fc44a7f5fd26a1324",
-      "bytes": 1914,
-      "role": "Kotliarov terminal prepare-stage support refusal"
-    },
-    {
-      "path": "scripts/freeze_poki_gse143417_confirmation.py",
-      "source_path": "scripts/freeze_poki_gse143417_confirmation.py",
-      "sha256": "eb053cbec6e0fff8a83508ddeea879ebc0494138ae9d62dc52c58721a7b245ae",
-      "bytes": 4278,
-      "role": "PoKI-seq preanalysis freeze tool"
-    },
-    {
-      "path": "scripts/authorize_poki_gse143417_scoring.py",
-      "source_path": "scripts/authorize_poki_gse143417_scoring.py",
-      "sha256": "be7046d19ca61a263a59eda679bedaacd9893fc5ff8ffcc501d176c4ad91c871",
-      "bytes": 3641,
-      "role": "PoKI-seq prediction-hash scoring authorizer"
-    },
-    {
-      "path": "scripts/prepare_scgpt_embeddings.py",
-      "source_path": "scripts/prepare_scgpt_embeddings.py",
-      "sha256": "91c271aaadd72c86bb10151098ab9872d35e88e9ed4843ad04a8d41ea436ed94",
-      "bytes": 3860,
-      "role": "scGPT embedding derivation script"
-    },
-    {
-      "path": "scripts/freeze_kotliarov_pbmc_confirmation.py",
-      "source_path": "scripts/freeze_kotliarov_pbmc_confirmation.py",
-      "sha256": "e8340b889c6ab40e7bff4899a5280f22c4047e19bd83f9b165075adbf39f6be6",
-      "bytes": 7554,
-      "role": "Kotliarov disabled-outcome freeze generator"
-    },
-    {
-      "path": "scripts/authorize_kotliarov_pbmc_outcomes.py",
-      "source_path": "scripts/authorize_kotliarov_pbmc_outcomes.py",
-      "sha256": "114feb871ad2df5ce2b0fab2ce8e84bfedce4670292b299128aa077f70e3d2ae",
-      "bytes": 4039,
-      "role": "Kotliarov post-verification outcome authorizer"
-    },
-    {
-      "path": "scripts/verify_kotliarov_public_freeze.py",
-      "source_path": "scripts/verify_kotliarov_public_freeze.py",
-      "sha256": "e5643a8130ffe6dc726d81875f4933b6966689a5deb5d14ba437a2ce5da5289c",
-      "bytes": 6494,
-      "role": "Kotliarov fresh-clone freeze verifier"
-    },
-    {
-      "path": "experiments/validate_perturbsci_modules.py",
-      "source_path": "experiments/validate_perturbsci_modules.py",
-      "sha256": "42837ab0e67de088fbce1c498622c9b03fd9190b703fd27e92d305f0d1161628",
-      "bytes": 27972,
-      "role": "PerturbSci biology runner"
-    },
-    {
-      "path": "paper/results_macros.tex",
-      "source_path": "paper/results_macros.tex",
-      "sha256": "6166ae45a4927356e8fb2d5539b765308124c002ba268fc798836948d335a596",
-      "bytes": 1978,
-      "role": "result macros bound to benchmark outputs"
-    },
-    {
-      "path": "paper/generated_comparator_tables.tex",
-      "source_path": "paper/generated_comparator_tables.tex",
-      "sha256": "f51be5e869a1229feaa72f2b606050bd09c2953407dfa696030ba3a015cf0be0",
-      "bytes": 7296,
-      "role": "deterministically generated comparator table"
-    },
-    {
-      "path": "tests/test_public_artifact_integrity.py",
-      "source_path": "tests/test_public_artifact_integrity.py",
-      "sha256": "c50511b8e27066791412b9e14010ed605735c0348949f111a7609863620f8c42",
-      "bytes": 36050,
-      "role": "artifact integrity tests"
-    },
-    {
-      "path": "tests/test_mapreg_public_api.py",
-      "source_path": "tests/test_mapreg_public_api.py",
-      "sha256": "38d6874c79a5faa0bca28c4964391e81e41d59b6153472ef9a95264257035a3f",
-      "bytes": 2299,
-      "role": "public API contract test"
-    },
-    {
-      "path": "tests/test_coupling_fields.py",
-      "source_path": "tests/test_coupling_fields.py",
-      "sha256": "79fa3eb735d22a8675fb3ec471f1669c813bc9ba4f7b8ed63ccf029b4b214eb8",
-      "bytes": 10534,
-      "role": "field estimator tests"
-    },
-    {
-      "path": "tests/test_factorial_coupling.py",
-      "source_path": "tests/test_factorial_coupling.py",
-      "sha256": "c93c8a5f522a2e98bd819dabbc6d09d715265f5cc79bcc092d0c9fc94a2846a7",
-      "bytes": 9845,
-      "role": "guide-aware estimator tests"
-    },
-    {
-      "path": "tests/test_classical_residuals_full.py",
-      "source_path": "tests/test_classical_residuals_full.py",
-      "sha256": "76e532a90a7c393ca95837fdd9ebbee8988b278b27c5aa027326abb936bca218",
-      "bytes": 1597,
-      "role": "full residual comparator tests"
-    },
-    {
-      "path": "tests/test_table_prediction.py",
-      "source_path": "tests/test_table_prediction.py",
-      "sha256": "bf34b51291516246e803a6df6c166c959fa083fd47d3bf115ef35b5bd0b305a4",
-      "bytes": 3537,
-      "role": "common-table endpoint tests"
-    },
-    {
-      "path": "tests/test_lawlor_hca_pbmc_confirmation.py",
-      "source_path": "tests/test_lawlor_hca_pbmc_confirmation.py",
-      "sha256": "c666459ff900e2199162e863aafbf9c4c7bb7775bfc2627ca136a1d73951ed6f",
-      "bytes": 33655,
-      "role": "Lawlor PBMC pairing-seal and endpoint tests"
-    },
-    {
-      "path": "tests/test_hao_gse164378_confirmation.py",
-      "source_path": "tests/test_hao_gse164378_confirmation.py",
-      "sha256": "9b023689042a387b568c4b8c8c41806192a451498a0c63c9dfd558ed511143a9",
-      "bytes": 24091,
-      "role": "Hao GSE164378 pairing-seal and endpoint tests"
-    },
-    {
-      "path": "tests/test_kotliarov_pbmc_reducer.py",
-      "source_path": "tests/test_kotliarov_pbmc_reducer.py",
-      "sha256": "52284f17c41593778cdbbe25c879e0954c549103ffd1f5641bd0d87ec95ff6a5",
-      "bytes": 15039,
-      "role": "Kotliarov reducer and pairing-separation tests"
-    },
-    {
-      "path": "tests/test_kotliarov_pbmc_confirmation.py",
-      "source_path": "tests/test_kotliarov_pbmc_confirmation.py",
-      "sha256": "89744a9abc87914e1d1ddeb11561eefcdbc128ec74cf05eca489e3e34347adec",
-      "bytes": 14147,
-      "role": "Kotliarov estimator, inference, and seal tests"
-    },
-    {
-      "path": "tests/test_confirm_poki_gse143417.py",
-      "source_path": "tests/test_confirm_poki_gse143417.py",
-      "sha256": "2c91134fccda25de5937d72d2661f0babad29d23a6c11572de1d4b430273aa40",
-      "bytes": 12174,
-      "role": "PoKI-seq pairing-seal and endpoint tests"
-    },
-    {
-      "path": "tests/test_prepare_scgpt_embeddings.py",
-      "source_path": "tests/test_prepare_scgpt_embeddings.py",
-      "sha256": "f7726f001eb26afb74c07c3dc554bc30da4a95bc4f950792b208d5a829d69e72",
-      "bytes": 781,
-      "role": "scGPT embedding derivation test"
-    },
-    {
-      "path": "tests/test_coupling_margin_invariance_simulation.py",
-      "source_path": "tests/test_coupling_margin_invariance_simulation.py",
-      "sha256": "fd916806b573dbf3548840cf66104f6d35cd6cbf95503284518a9fddae569352",
-      "bytes": 1928,
-      "role": "classical-boundary simulation test"
-    },
-    {
-      "path": "GSE279451_CANDIDATE_DESIGNATION.json",
-      "source_path": "data/confirmation/gse279451_sepsis/candidate_designation_v1.json",
-      "sha256": "4143b6632f1b0e9bc1cae05cd9b876d70c534914fb4a1a0f35a23f04957a0b72",
-      "bytes": 6975,
-      "role": "public alias for GSE279451 designation"
-    },
-    {
-      "path": "GSE279451_SCORE_AUTHORIZATION_TEMPLATE.json",
-      "source_path": "data/confirmation/gse279451_sepsis/score_authorization_template_v1.json",
-      "sha256": "bbc9f6e7418515fe4940aaeb80c4b7713588c4b02ad940169517d9e4b4a3cfb1",
-      "bytes": 899,
-      "role": "public alias for disabled GSE279451 score authorization"
-    },
-    {
-      "path": "docs/GSE279451_SEPSIS_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
-      "source_path": "docs/GSE279451_SEPSIS_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
-      "sha256": "bbcbd1dbbdc62a0cf31acb22611812b440ba1f55d35bb859525a77d59d2d19e1",
-      "bytes": 19034,
-      "role": "prospective GSE279451 held-donor protocol"
-    },
-    {
-      "path": "docs/GSE279451_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
-      "source_path": "docs/GSE279451_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
-      "sha256": "f935a4e2405d2f2ff0620a0e7f41da8899a6502f4b07889d47570cdac5ce9bbe",
-      "bytes": 2265,
-      "role": "fresh-clone verification of the outcome-disabled GSE279451 freeze"
-    },
-    {
-      "path": "data/development/gse279451_sepsis/metadata_preflight_v1.json",
-      "source_path": "data/development/gse279451_sepsis/metadata_preflight_v1.json",
-      "sha256": "545d448621142a77274dce1385ae196a02c88adac560e6b460642747abbea5ee",
-      "bytes": 7130,
-      "role": "metadata and feature-axis-only GSE279451 preflight"
-    },
-    {
-      "path": "data/confirmation/gse279451_sepsis/candidate_designation_v1.json",
-      "source_path": "data/confirmation/gse279451_sepsis/candidate_designation_v1.json",
-      "sha256": "4143b6632f1b0e9bc1cae05cd9b876d70c534914fb4a1a0f35a23f04957a0b72",
-      "bytes": 6975,
-      "role": "GSE279451 candidate designation"
-    },
-    {
-      "path": "data/confirmation/gse279451_sepsis/family_policy_v1.json",
-      "source_path": "data/confirmation/gse279451_sepsis/family_policy_v1.json",
-      "sha256": "abdad0cf002c653b591c52b419daf86682b138e78693babc262bf8ead7cb4a48",
-      "bytes": 1766,
-      "role": "terminal BMMC and no-Sanger-attempt family lock"
-    },
-    {
-      "path": "data/confirmation/gse279451_sepsis/score_authorization_template_v1.json",
-      "source_path": "data/confirmation/gse279451_sepsis/score_authorization_template_v1.json",
-      "sha256": "bbc9f6e7418515fe4940aaeb80c4b7713588c4b02ad940169517d9e4b4a3cfb1",
-      "bytes": 899,
-      "role": "disabled GSE279451 score authorization template"
-    },
-    {
-      "path": "data/confirmation/gse279451_sepsis/source_manifest_template_v1.json",
-      "source_path": "data/confirmation/gse279451_sepsis/source_manifest_template_v1.json",
-      "sha256": "71b9b6ffb0a97b1dcd50ba0ea48b34633f2535aec67fa45ba0c730d0fc0d3e6c",
-      "bytes": 17491,
-      "role": "disabled size/hash-bound GSE279451 source template"
-    },
-    {
-      "path": "data/confirmation/gse279451_sepsis/source_manifest_v1.json",
-      "source_path": "data/confirmation/gse279451_sepsis/source_manifest_v1.json",
-      "sha256": "c15fdc13c68cff14c45cfc16153cdbc309f6c2252457634fda8abdca677e4603",
-      "bytes": 62227,
-      "role": "nonheld-only GSE279451 source manifest"
-    },
-    {
-      "path": "data/development/gse279451_sepsis/development_attempt_v1.json",
-      "source_path": "data/development/gse279451_sepsis/development_attempt_v1.json",
-      "sha256": "b8d7e745997e7b7ccd9a3bc8a7a7c3c7670b9e47c8b5d51e3d12fb70a5a8938d",
       "bytes": 2553,
-      "role": "terminal GSE279451 development-acquisition attempt"
+      "path": "data/development/gse279451_sepsis/development_attempt_v1.json",
+      "sha256": "b8d7e745997e7b7ccd9a3bc8a7a7c3c7670b9e47c8b5d51e3d12fb70a5a8938d"
     },
     {
-      "path": "data/development/gse279451_sepsis/evaluation_attempt_v1.json",
-      "source_path": "data/development/gse279451_sepsis/evaluation_attempt_v1.json",
-      "sha256": "a072d3340388afa60a33ef220b06e9e8d920a590d6b6894f66f02b999e1ef5a3",
       "bytes": 1860,
-      "role": "terminal GSE279451 development-evaluation attempt"
+      "path": "data/development/gse279451_sepsis/evaluation_attempt_v1.json",
+      "sha256": "a072d3340388afa60a33ef220b06e9e8d920a590d6b6894f66f02b999e1ef5a3"
     },
     {
-      "path": "data/development/gse279451_sepsis/reduced_development_v1.json",
-      "source_path": "data/development/gse279451_sepsis/reduced_development_v1.json",
-      "sha256": "2fab0353c44d65f6cf3d58ca19a214967c94fdccaeda89ed56c7398fb8f4185b",
-      "bytes": 290833,
-      "role": "nonheld GSE279451 reduced development tables"
-    },
-    {
-      "path": "results/development/gse279451_sepsis_evaluation_refusal.json",
-      "source_path": "results/development/gse279451_sepsis_evaluation_refusal.json",
-      "sha256": "af6d1f26eb7ea3f566612e167843bd51c03cf961a595b434e55ae7ca4d20496b",
-      "bytes": 1846,
-      "role": "terminal GSE279451 development-evaluation refusal"
-    },
-    {
-      "path": "experiments/acquire_gse279451_nonheld.py",
-      "source_path": "experiments/acquire_gse279451_nonheld.py",
-      "sha256": "03b2ceeeb764fd163e3342e76d3444999d52af0817a3cdad5bd013594178fafa",
-      "bytes": 13586,
-      "role": "sequential nonheld-only GSE279451 acquisition"
-    },
-    {
-      "path": "experiments/reduce_gse279451_sepsis.py",
-      "source_path": "experiments/reduce_gse279451_sepsis.py",
-      "sha256": "923d44d7374de8b56a1d241a73819101e0b6b5171ee01bc1dc8a71ddafeb3ac1",
-      "bytes": 26104,
-      "role": "streaming GSE279451 development reducer"
-    },
-    {
-      "path": "experiments/evaluate_gse279451_sepsis_development.py",
-      "source_path": "experiments/evaluate_gse279451_sepsis_development.py",
-      "sha256": "fb4d793a0df2cb5073423d27d5953992232c17a64a8adfdef3b26a105a0c7994",
-      "bytes": 62335,
-      "role": "19-fold GSE279451 development evaluator"
-    },
-    {
-      "path": "experiments/confirm_gse279451_sepsis.py",
-      "source_path": "experiments/confirm_gse279451_sepsis.py",
-      "sha256": "9b50950f07b78b73857f07c8f9d11e0191f00580c24cb723c59e116749d08d5d",
-      "bytes": 51230,
-      "role": "fail-closed GSE279451 predict-score runner"
-    },
-    {
-      "path": "tests/test_gse279451_sepsis_confirmation.py",
-      "source_path": "tests/test_gse279451_sepsis_confirmation.py",
-      "sha256": "412a46b2f6d7792671a03d735d77369a15e30d67e3b3c0f6e87e47e53edcacb2",
-      "bytes": 35901,
-      "role": "GSE279451 acquisition runner and poison tests"
-    },
-    {
-      "path": "tests/test_evaluate_gse279451_sepsis_development.py",
-      "source_path": "tests/test_evaluate_gse279451_sepsis_development.py",
-      "sha256": "0627818abc26b2bf39a27aaf46e0e41fbdd3d8a177225bf81232e29027646b43",
-      "bytes": 16196,
-      "role": "GSE279451 evaluator tests"
-    },
-    {
-      "path": "results/development/scmmib_bmmc_exact_development_attempt_1_refusal.json",
-      "source_path": "results/development/scmmib_bmmc_exact_development_attempt_1_refusal.json",
-      "sha256": "72d3a2a25d4aa7d51f9e341668dbef3043acf3190284baa930c37c77950bb697",
-      "bytes": 1603,
-      "role": "BMMC development attempt 1 refusal"
-    },
-    {
-      "path": "results/development/scmmib_bmmc_exact_development_attempt_2_aborted.json",
-      "source_path": "results/development/scmmib_bmmc_exact_development_attempt_2_aborted.json",
-      "sha256": "e228d35dea7f39aa112afdc774e9d34376c19fed6df1d1a956c5e4d1b66a9e30",
-      "bytes": 1463,
-      "role": "BMMC development attempt 2 aborted record"
-    },
-    {
-      "path": "results/development/scmmib_bmmc_exact_development_attempt_3_terminal_refusal.json",
-      "source_path": "results/development/scmmib_bmmc_exact_development_attempt_3_terminal_refusal.json",
-      "sha256": "caf920719694487ba228dc64ac14ed4a6579619349f496f7154372920f3e128c",
-      "bytes": 1609,
-      "role": "BMMC terminal numerical development refusal"
-    },
-    {
-      "path": "docs/GSE279451_SEPSIS_HELD_DONOR_PREFLIGHT_2026-08-28.md",
-      "source_path": "docs/GSE279451_SEPSIS_HELD_DONOR_PREFLIGHT_2026-08-28.md",
-      "sha256": "2040c6d0dad7bfc3f204524d8560ceb9c777f5b236e34cd8c3d8e4bd3ab732ff",
-      "bytes": 8024,
-      "role": "narrative metadata and feature-axis-only GSE279451 preflight"
-    },
-    {
-      "path": "BMMC_CANDIDATE_DESIGNATION.json",
-      "source_path": "BMMC_CANDIDATE_DESIGNATION.json",
-      "sha256": "5e64669d759caa06dd83f41fda7c44c593e5b9001cf0137e1401fe46532744b2",
-      "bytes": 1875,
-      "role": "BMMC protocol-only candidate designation"
-    },
-    {
-      "path": "docs/SCMMIB_BMMC_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
-      "source_path": "docs/SCMMIB_BMMC_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
-      "sha256": "6d32fe7c94738dd225b9d8b051f56461b29d07595f03d7d209d7bec4cdac357d",
-      "bytes": 9517,
-      "role": "terminal BMMC confirmation protocol"
-    },
-    {
-      "path": "docs/SCMMIB_BMMC_METADATA_PREFLIGHT_2026-08-28.md",
-      "source_path": "docs/SCMMIB_BMMC_METADATA_PREFLIGHT_2026-08-28.md",
-      "sha256": "b7e3cf70f0b804eed7c967835786326a440196e31e5630acbd5df74a56329590",
-      "bytes": 4684,
-      "role": "BMMC metadata-only preflight narrative"
-    },
-    {
-      "path": "data/confirmation/scmmib_bmmc/source_manifest_template_v1.json",
-      "source_path": "data/confirmation/scmmib_bmmc/source_manifest_template_v1.json",
-      "sha256": "0a4eef99c77948c9fbc6387a1d278abf70a332df6022aadab128160c83c1b61b",
-      "bytes": 1130,
-      "role": "disabled BMMC source manifest template"
-    },
-    {
-      "path": "data/confirmation/scmmib_bmmc/score_authorization_template_v1.json",
-      "source_path": "data/confirmation/scmmib_bmmc/score_authorization_template_v1.json",
-      "sha256": "aed2fc2c536ae93ea84e05f3d5df4b1e56502263fca5400d9b13edba56a52834",
-      "bytes": 381,
-      "role": "disabled BMMC authorization template"
-    },
-    {
-      "path": "results/development/scmmib_bmmc_metadata_preflight.json",
-      "source_path": "results/development/scmmib_bmmc_metadata_preflight.json",
-      "sha256": "93240056910c0bb77e9377f038b5ca311212ea1d2d0b513239db6eea291ef13f",
-      "bytes": 13526,
-      "role": "BMMC metadata-only preflight result"
-    },
-    {
-      "path": "experiments/preflight_scmmib_bmmc.py",
-      "source_path": "experiments/preflight_scmmib_bmmc.py",
-      "sha256": "6016a4b56f793a3caa1f560347ea45da2e2196821e24c3828722e79a31c0b4ee",
-      "bytes": 15667,
-      "role": "BMMC metadata-only preflight runner"
-    },
-    {
-      "path": "experiments/historical/confirm_scmmib_bmmc_protocol_frozen_75729.py",
-      "source_path": "experiments/historical/confirm_scmmib_bmmc_protocol_frozen_75729.py",
-      "sha256": "75729eb8594941602d545bc974c275de7f66c3daee1e95c4597d3dc0b80681cb",
-      "bytes": 21982,
-      "role": "freeze-era BMMC runner preserved at its recorded hash"
-    },
-    {
-      "path": "experiments/confirm_scmmib_bmmc.py",
-      "source_path": "experiments/confirm_scmmib_bmmc.py",
-      "sha256": "a676cb7fff631818c052121c3739c462ae96d86df9075deb2f06bda075d85dcb",
-      "bytes": 22996,
-      "role": "terminal-attempt BMMC runner"
-    },
-    {
-      "path": "experiments/evaluate_scmmib_bmmc_exact_development.py",
-      "source_path": "experiments/evaluate_scmmib_bmmc_exact_development.py",
-      "sha256": "614710340ee9ae043a591c0c9b5c6123762f921dd2e572e67c40a404b90fa929",
-      "bytes": 40998,
-      "role": "terminal-attempt BMMC exact development evaluator"
-    },
-    {
-      "path": "tests/test_scmmib_bmmc_preflight.py",
-      "source_path": "tests/test_scmmib_bmmc_preflight.py",
-      "sha256": "274b48a1c64014e749b8bc5c7888b1116d6084dfe9c5cee95715ef780a504947",
-      "bytes": 3083,
-      "role": "BMMC preflight tests"
-    },
-    {
-      "path": "tests/test_scmmib_bmmc_confirmation.py",
-      "source_path": "tests/test_scmmib_bmmc_confirmation.py",
-      "sha256": "0f8e764a27ec9a34217f72ff24409497419029dabdf9503223bfc1e2ff32a64a",
-      "bytes": 12171,
-      "role": "BMMC terminal runner tests"
-    },
-    {
-      "path": "tests/test_scmmib_bmmc_exact_development.py",
-      "source_path": "tests/test_scmmib_bmmc_exact_development.py",
-      "sha256": "27b723d64f54ee4e99f898ebd291fd24d7c68003839873ca454abde05e502d50",
-      "bytes": 7779,
-      "role": "BMMC terminal evaluator test recorded by attempt 3"
-    },
-    {
-      "path": "mapreg/historical/coupling_fields_29a3875.py",
-      "source_path": "mapreg/historical/coupling_fields_29a3875.py",
-      "sha256": "29a3875fa43572ead6c53cd7dea60bb9bdf07c35b417d79d8a97f30cbb230912",
-      "bytes": 16285,
-      "role": "exact historical estimator used by scored panels and prior refusals"
-    },
-    {
-      "path": "mapreg/hierarchical_conditional_coupling.py",
-      "source_path": "mapreg/hierarchical_conditional_coupling.py",
-      "sha256": "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d",
-      "bytes": 30776,
-      "role": "hierarchical exact conditional estimator bound by GSE279451"
-    },
-    {
-      "path": "mapreg/heterogeneity_adaptive_coupling.py",
-      "source_path": "mapreg/heterogeneity_adaptive_coupling.py",
-      "sha256": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e",
-      "bytes": 41934,
-      "role": "heterogeneity-adaptive dependency bound by GSE279451"
-    },
-    {
-      "path": "tests/test_hierarchical_conditional_coupling.py",
-      "source_path": "tests/test_hierarchical_conditional_coupling.py",
-      "sha256": "2219d4e141b8183392080031722cee861c99f9237c177f2158e5de4dc8c79b5c",
-      "bytes": 17194,
-      "role": "hierarchical exact conditional estimator tests"
-    },
-    {
-      "path": "tests/test_heterogeneity_adaptive_coupling.py",
-      "source_path": "tests/test_heterogeneity_adaptive_coupling.py",
-      "sha256": "207bc2a10ff0a7c31b7b36122d8754c0014584174f305d7dc7a4170577768eca",
-      "bytes": 11953,
-      "role": "heterogeneity-adaptive estimator tests"
-    },
-    {
-      "path": "docs/GSE299043_MLN_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
-      "source_path": "docs/GSE299043_MLN_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
-      "sha256": "b648a560d2a4e268035051675e3e2b4142fd48e36c2b0e98a43373affa5ad8f2",
-      "bytes": 9101,
-      "role": "prospective GSE299043 held-site protocol"
-    },
-    {
-      "path": "data/confirmation/gse299043_mln/candidate_designation_v1.json",
-      "source_path": "data/confirmation/gse299043_mln/candidate_designation_v1.json",
-      "sha256": "c8b6bd846f69567513398e2dd6faa9c661c09df930a09a7a57a273040733e26e",
-      "bytes": 6430,
-      "role": "GSE299043 outcome-disabled candidate designation"
-    },
-    {
-      "path": "data/confirmation/gse299043_mln/family_policy_v1.json",
-      "source_path": "data/confirmation/gse299043_mln/family_policy_v1.json",
-      "sha256": "51bd22a51b6fe353a2ff95535199391ead2131396122474cc1f06f927b702fba",
-      "bytes": 706,
-      "role": "GSE299043 successor-family policy"
-    },
-    {
-      "path": "data/confirmation/gse299043_mln/source_manifest_template_v1.json",
-      "source_path": "data/confirmation/gse299043_mln/source_manifest_template_v1.json",
-      "sha256": "83a36f5eeb2641012e763652c21630c0b29d1230fbcbfd721f46a6828009c43c",
-      "bytes": 165968,
-      "role": "disabled size-bound GSE299043 source template"
-    },
-    {
-      "path": "data/confirmation/gse299043_mln/score_authorization_template_v1.json",
-      "source_path": "data/confirmation/gse299043_mln/score_authorization_template_v1.json",
-      "sha256": "59757603a892957aa99bc70dd7460f812ade8819516981602c59e5b687403d2e",
-      "bytes": 810,
-      "role": "disabled GSE299043 score authorization template"
-    },
-    {
-      "path": "data/confirmation/gse299043_mln/score_authorization_publication_template_v1.json",
-      "source_path": "data/confirmation/gse299043_mln/score_authorization_publication_template_v1.json",
-      "sha256": "287c85aaf4f449a1cd0b6259204632fb4636b3b24fcc527c4533284f4c4481fc",
-      "bytes": 310,
-      "role": "disabled GSE299043 public-authorization sidecar template"
-    },
-    {
-      "path": "data/development/gse299043_mln/metadata_preflight_v1.tsv",
-      "source_path": "data/development/gse299043_mln/metadata_preflight_v1.tsv",
-      "sha256": "dfc929364a40895620c39897a671542670f1cf1e89058cf4ff02f51d16c86933",
-      "bytes": 80546,
-      "role": "metadata-only GSE299043 held-site preflight"
-    },
-    {
-      "path": "experiments/reduce_gse299043_mln.py",
-      "source_path": "experiments/reduce_gse299043_mln.py",
-      "sha256": "a5d92baf07d6e9855eed31e3d11b967a266469d77fe6b341cb50f6f19024dfd3",
-      "bytes": 32742,
-      "role": "streaming GSE299043 H5AD reducer"
-    },
-    {
-      "path": "experiments/acquire_gse299043_nonheld.py",
-      "source_path": "experiments/acquire_gse299043_nonheld.py",
-      "sha256": "6e4a40fbc3ba0c1e431593677e6bd764e68d95bbc60b0bee52ad5e2319574262",
-      "bytes": 25856,
-      "role": "one-shot nonheld GSE299043 acquisition"
-    },
-    {
-      "path": "experiments/evaluate_gse299043_mln_development.py",
-      "source_path": "experiments/evaluate_gse299043_mln_development.py",
-      "sha256": "6b48ae7524a376f7d0be3fcebcd7db298a149147eb32fc2b2a8003b4946c6d54",
-      "bytes": 46263,
-      "role": "ten-donor GSE299043 development evaluator"
-    },
-    {
-      "path": "experiments/confirm_gse299043_mln.py",
-      "source_path": "experiments/confirm_gse299043_mln.py",
-      "sha256": "474b4375e3982d6650f93ad7b7ee961a4e920e777a8ef5f50fbd494f044359d0",
-      "bytes": 80828,
-      "role": "fail-closed GSE299043 predict-score runner"
-    },
-    {
-      "path": "tests/test_reduce_gse299043_mln.py",
-      "source_path": "tests/test_reduce_gse299043_mln.py",
-      "sha256": "662a952472cef1d3202300b710f6dddf906d965e8edb1252b4489087f3f45df4",
-      "bytes": 15378,
-      "role": "GSE299043 reducer tests"
-    },
-    {
-      "path": "tests/test_acquire_gse299043_nonheld.py",
-      "source_path": "tests/test_acquire_gse299043_nonheld.py",
-      "sha256": "3db556136f51735ec14a3839122b8cc29b4b1fc364489b4ba5574f596fd47585",
-      "bytes": 14651,
-      "role": "GSE299043 acquisition and poison tests"
-    },
-    {
-      "path": "tests/test_evaluate_gse299043_mln_development.py",
-      "source_path": "tests/test_evaluate_gse299043_mln_development.py",
-      "sha256": "bb3d3230928da5bc2e6ca5710ceac3adcdba1498d2d44478a3659db24a6323fb",
-      "bytes": 17605,
-      "role": "GSE299043 evaluator tests"
-    },
-    {
-      "path": "tests/test_gse299043_mln_confirmation.py",
-      "source_path": "tests/test_gse299043_mln_confirmation.py",
-      "sha256": "19c829e5bf546aa2ba3a6e25c2657e119100a4048c80da7dc50e5d32eedac811",
-      "bytes": 36293,
-      "role": "GSE299043 held confirmation and authorization tests"
-    },
-    {
-      "path": "docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
-      "source_path": "docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
-      "sha256": "26bf151214312ebcc0cd83220e41cb252d592e1c574c32b509860064455f84cc",
-      "bytes": 1221,
-      "role": "fresh-clone verification of the outcome-disabled GSE299043 freeze"
-    },
-    {
-      "path": "data/development/gse299043_mln/development_attempt_v1.json",
-      "source_path": "data/development/gse299043_mln/development_attempt_v1.json",
-      "sha256": "dc6206cba4186ede6a2d9a178d6f9adb9e09e402983e32dda611b0be11ac00ad",
       "bytes": 2449,
-      "role": "terminal GSE299043 development-attempt seal"
+      "path": "data/development/gse299043_mln/development_attempt_v1.json",
+      "sha256": "dc6206cba4186ede6a2d9a178d6f9adb9e09e402983e32dda611b0be11ac00ad"
     },
     {
-      "path": "results/development/gse299043_mln_development_acquisition_refusal.json",
-      "source_path": "results/development/gse299043_mln_development_acquisition_refusal.json",
-      "sha256": "aab390fc9701171c42267d111dfb69cbbf3282abba5d39887f30431bc1e78635",
-      "bytes": 426,
-      "role": "generated terminal GSE299043 development-acquisition refusal"
-    },
-    {
-      "path": "results/development/gse299043_mln_terminal_acquisition_audit.json",
-      "source_path": "results/development/gse299043_mln_terminal_acquisition_audit.json",
-      "sha256": "6b5ef33e765adfcd80b534113a3c59dec706b82739c2518342699019011a6475",
-      "bytes": 2325,
-      "role": "aggregate audit of the terminal GSE299043 acquisition refusal"
-    },
-    {
-      "path": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
-      "source_path": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
-      "sha256": "4899751abdc1c0adf35935f7cc386c2cc2aa5fd6e8035ee2fbd870865c566a31",
       "bytes": 22668,
-      "role": "frozen COMBAT protocol with post-freeze terminal execution record"
+      "path": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "sha256": "4899751abdc1c0adf35935f7cc386c2cc2aa5fd6e8035ee2fbd870865c566a31"
     },
     {
-      "path": "data/confirmation/combat_citeseq/candidate_designation_v1.json",
-      "source_path": "data/confirmation/combat_citeseq/candidate_designation_v1.json",
-      "sha256": "1e68a0dc91e4a6f3e9dbd3b74834a5663b362e1e1d0e7375c3740e1b9b719fca",
-      "bytes": 29680,
-      "role": "COMBAT frozen design and terminal closure status"
+      "bytes": 27418,
+      "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
+      "sha256": "0834d9232767c128fb518916a4bfe22c27be5c28c18a1f431c7ab9c01e73d52d"
     },
     {
-      "path": "data/confirmation/combat_citeseq/source_manifest_v1.json",
-      "source_path": "data/confirmation/combat_citeseq/source_manifest_v1.json",
-      "sha256": "15ac994a868092060aa4bd36874161daa3d7e22d7fc5b4f56d10511f907422b4",
-      "bytes": 25465,
-      "role": "path-free COMBAT CITE-seq source and sample-universe seal"
+      "bytes": 13731,
+      "path": "docs/GSE239452_PREGNANCY_CITESEQ_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "sha256": "f340a4c1faf510eeb307c9e8115d091fb61212661f4d7c2450e5847cffbef0f0"
     },
     {
-      "path": "results/development/combat_citeseq_metadata_preflight.json",
-      "source_path": "results/development/combat_citeseq_metadata_preflight.json",
-      "sha256": "197853efd67c94188ac37265b7fd4fbb9ee2638b2389ae339a133df135c4b52f",
-      "bytes": 145939,
-      "role": "metadata-only COMBAT CITE-seq eligibility and matrix-access audit"
+      "bytes": 19034,
+      "path": "docs/GSE279451_SEPSIS_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "sha256": "bbcbd1dbbdc62a0cf31acb22611812b440ba1f55d35bb859525a77d59d2d19e1"
     },
     {
-      "path": "experiments/preflight_combat_citeseq.py",
-      "source_path": "experiments/preflight_combat_citeseq.py",
-      "sha256": "cf803a9baf23d65490cef5a7ee628781ad3a092bde0ec950e7ea7946d99c7509",
-      "bytes": 34797,
-      "role": "outcome-disabled COMBAT metadata preflight"
+      "bytes": 9101,
+      "path": "docs/GSE299043_MLN_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "sha256": "b648a560d2a4e268035051675e3e2b4142fd48e36c2b0e98a43373affa5ad8f2"
     },
     {
-      "path": "experiments/confirm_combat_citeseq.py",
-      "source_path": "experiments/confirm_combat_citeseq.py",
-      "sha256": "7873f58255eedd75a5b165d058fcd8e1b5c5f4dba24d38064cb8f747a12ff912",
-      "bytes": 160526,
-      "role": "COMBAT evaluator and fail-closed terminal pilot packager"
+      "bytes": 8649,
+      "path": "docs/GSE314416_IMMUNOMICROBIOME_HELD_POOL_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "sha256": "13e44a2faf0aeaac75e8444c8b91e9d76ded27522538abb94211b5db5f5a9fc6"
     },
     {
-      "path": "tests/test_combat_citeseq_preflight.py",
-      "source_path": "tests/test_combat_citeseq_preflight.py",
-      "sha256": "a5ea8875ee47305be7b01bbe4f10c1b662f2f93601eb17160b0262aba4f2af80",
-      "bytes": 18927,
-      "role": "COMBAT metadata-preflight tests"
+      "bytes": 9517,
+      "path": "docs/SCMMIB_BMMC_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "sha256": "6d32fe7c94738dd225b9d8b051f56461b29d07595f03d7d209d7bec4cdac357d"
     },
     {
-      "path": "tests/test_combat_citeseq_confirmation.py",
-      "source_path": "tests/test_combat_citeseq_confirmation.py",
-      "sha256": "c2fd814c0fc3f0008d00058393eefe69de6cbfbc2404731643061eda871e28a2",
-      "bytes": 73437,
-      "role": "COMBAT authorization, estimator, terminal closure, and held-seal tests"
+      "bytes": 12623,
+      "path": "docs/STEPHENSON_CITESEQ_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
+      "sha256": "61c964ceab77d1bb6a11dda4ea40012a879570e2f7d32b29e47934c49f541144"
     },
     {
-      "path": "data/confirmation/combat_citeseq/COMBAT_CITEseq_Composition-PerSample_CellType_Counts_and_PercentFrequencies_out_of_all_PBMCs.csv",
-      "source_path": "data/confirmation/combat_citeseq/COMBAT_CITEseq_Composition-PerSample_CellType_Counts_and_PercentFrequencies_out_of_all_PBMCs.csv",
-      "sha256": "2ad7e92ab122ee52986d5748dbb23c335c02ec1f1f244943ce46fff94c585157",
-      "bytes": 33391,
-      "role": "official COMBAT CITE-seq sample-composition metadata"
+      "bytes": 7273,
+      "path": "docs/STEPHENSON_UNUSED_CAMBRIDGE_HELD_DONOR_PROTOCOL_2026-08-29.md",
+      "sha256": "a4d302c5c7c0fd8f28b5c3d7d8a142120816d89eb13ba82a801cc0c23f8b3c61"
     },
     {
-      "path": "data/confirmation/combat_citeseq/README.md",
-      "source_path": "data/confirmation/combat_citeseq/README.md",
-      "sha256": "0e64ba70f3fddfa48d613503a1deba83589afc9e2d087c87b271c29f52f90045",
-      "bytes": 920,
-      "role": "COMBAT upstream attribution and redistribution notice"
+      "bytes": 2296,
+      "path": "docs/STEPHENSON_UNUSED_CAMBRIDGE_PREDICTION_RECOVERY_AMENDMENT_2026-08-29.md",
+      "sha256": "e078c6fd403a8b7431e451357ef5e4479b30f629087f4bb4a7cc00b8ceef9b15"
     },
     {
-      "path": "docs/COMBAT_CITESEQ_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
-      "source_path": "docs/COMBAT_CITESEQ_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
-      "sha256": "460d8fec1255dc7e9812c637a5a120191075c611438b61148782c9bd2467bce5",
-      "bytes": 3269,
-      "role": "fresh-clone verification of the outcome-disabled COMBAT freeze"
+      "bytes": 54149,
+      "path": "experiments/build_public_benchmark_release.py",
+      "sha256": "7d953e54e6c517e4a531a90693579f9847e26e43ac3af09c0f58eae950ff569c"
     },
     {
-      "path": "data/development/combat_citeseq/reduced_v1.json",
-      "source_path": "data/development/combat_citeseq/reduced_v1.json",
-      "sha256": "06ebfad44c339d763a451662462d7c9dc60684e792d5c229a42eefd232302b2f",
-      "bytes": 660849,
-      "role": "authorized nonheld COMBAT calibration and pilot reduction"
+      "bytes": 3159,
+      "path": "reproduce.sh",
+      "sha256": "e51bea46bc2413770b94af3834e235596d5e2c0d2e8135b99b2087e2bf7c397e"
     },
     {
-      "path": "results/development/combat_citeseq_pilot_terminal_refusal.json",
-      "source_path": "results/development/combat_citeseq_pilot_terminal_refusal.json",
-      "sha256": "c41c6e46333c1dc56b460fec74a41f6d1a07a82105ca4894a273ce43dc48e2f9",
+      "bytes": 114491,
+      "path": "results/arce_gse278572_conditional_field_confirmation.json",
+      "sha256": "65d4bf6097a8fafee8e22f352c2c6c14fa13c1d8082073a4589d3ee693ef8b57"
+    },
+    {
+      "bytes": 16946,
+      "path": "results/benchmark_comparisons_v2.tsv",
+      "sha256": "d7a99f65ba616ff50c2b5103dc23fe69db020dff887f6835cad8f118396de1c4"
+    },
+    {
+      "bytes": 18931,
+      "path": "results/benchmark_panels_v2.tsv",
+      "sha256": "ae600cc3f9283a36e53d1cf6d12735028da3213c52a405f5fc7286e7d9c88a98"
+    },
+    {
+      "bytes": 16249,
+      "path": "results/benchmark_sequence_v2.tsv",
+      "sha256": "41292d1f7fab42d85dbc32aa2245c42e24091ed76959be6e3523e86494bcd426"
+    },
+    {
+      "bytes": 102047,
+      "path": "results/development/classical_interaction_baselines_posthoc.json",
+      "sha256": "bc6efbb2ffe3404a294eae26b51e214054718113a8deeaf6b9f4e73ebf05f305"
+    },
+    {
       "bytes": 55578,
-      "role": "terminal COMBAT pilot candidate-availability refusal and zero-held-access audit"
+      "path": "results/development/combat_citeseq_pilot_terminal_refusal.json",
+      "sha256": "c41c6e46333c1dc56b460fec74a41f6d1a07a82105ca4894a273ce43dc48e2f9"
+    },
+    {
+      "bytes": 18896,
+      "path": "results/development/exact_logodds_head_to_head_v1.json",
+      "sha256": "22bbad8efad2dd9b5172a33e8b2fdaf568114103fd7045a80a58eb842bb09d2a"
+    },
+    {
+      "bytes": 242,
+      "path": "results/development/gse144744_ms_source_v1.json",
+      "sha256": "e848e7ed6578f234d4663ba70c63e5a75dbb96f0e919dedb87e8cdb780ca0535"
+    },
+    {
+      "bytes": 2069,
+      "path": "results/development/gse158769_development_v1.json",
+      "sha256": "a1e42395cd79bc4f9d3db7db3bc6f1c816edcff0dd30838beea3331da5bfcbe6"
+    },
+    {
+      "bytes": 23562,
+      "path": "results/development/gse164378_3p_gse155673_source_v1.json",
+      "sha256": "213fbe6560e43b5a57f0be7f167e3a5fa7b70c4b20827c1b4842139428915fd8"
+    },
+    {
+      "bytes": 2299,
+      "path": "results/development/gse181897_source_model_terminal_v1.json",
+      "sha256": "eacedd42017c6f566d801ea33dd822aeed5afdfddeff5acdd805e9f60fa48cdc"
+    },
+    {
+      "bytes": 1463,
+      "path": "results/development/gse185381_aml_source_v1.json",
+      "sha256": "0b03e255433cb0369c729b22827e036e735ea40693586bc9aa42e9eaee46e0dc"
+    },
+    {
+      "bytes": 7264,
+      "path": "results/development/gse189050_development_v1.json",
+      "sha256": "1001406ca7f37c453c17eb861507e22770c6741f74c9b32a062461335ad39f4a"
+    },
+    {
+      "bytes": 808,
+      "path": "results/development/gse202150_source_development_v1.json",
+      "sha256": "08239f2d667cb5e413f42f2525620e3afacd2ee4cd5b2b87fc5e7a154c335944"
+    },
+    {
+      "bytes": 1846,
+      "path": "results/development/gse279451_sepsis_evaluation_refusal.json",
+      "sha256": "af6d1f26eb7ea3f566612e167843bd51c03cf961a595b434e55ae7ca4d20496b"
+    },
+    {
+      "bytes": 163150,
+      "path": "results/development/gse288020_development_v1.json",
+      "sha256": "eac0a00afc8e605214df61334ec878ef7a4e16cee894d8c828226b9027080a14"
+    },
+    {
+      "bytes": 426,
+      "path": "results/development/gse299043_mln_development_acquisition_refusal.json",
+      "sha256": "aab390fc9701171c42267d111dfb69cbbf3282abba5d39887f30431bc1e78635"
+    },
+    {
+      "bytes": 2325,
+      "path": "results/development/gse299043_mln_terminal_acquisition_audit.json",
+      "sha256": "6b5ef33e765adfcd80b534113a3c59dec706b82739c2518342699019011a6475"
+    },
+    {
+      "bytes": 8357,
+      "path": "results/development/gse309593_held_batches_source_v1.json",
+      "sha256": "7a4ba708490f4b79bfb730e58b6dbd3430897f90c6529a4693e6662de48a4f90"
+    },
+    {
+      "bytes": 616103,
+      "path": "results/development/gse314416_citeseq_development.json",
+      "sha256": "6124bbbdee233e987521f004a9c409858203106eeae9d2339bbea2aa4dc35f33"
+    },
+    {
+      "bytes": 1803,
+      "path": "results/development/gse326573_lung_source_v1.json",
+      "sha256": "e33601db1696ccec03fe41df339dfbdb09bbeaf3eae6fab1422693e4762fd559"
+    },
+    {
+      "bytes": 1765,
+      "path": "results/development/gse334503_source_terminal_decision_v1.json",
+      "sha256": "c4b21794260aeb47cfc754be438507323511350d5fc66874aeec29412a73bf59"
+    },
+    {
+      "bytes": 108207,
+      "path": "results/development/perturbfate_conditional_fields.json",
+      "sha256": "cdf0c2cf66facfbbdfb03ac7a20c97d4cdaf4fc0bc9c63025e825dbeb1715c26"
+    },
+    {
+      "bytes": 1603,
+      "path": "results/development/scmmib_bmmc_exact_development_attempt_1_refusal.json",
+      "sha256": "72d3a2a25d4aa7d51f9e341668dbef3043acf3190284baa930c37c77950bb697"
+    },
+    {
+      "bytes": 1463,
+      "path": "results/development/scmmib_bmmc_exact_development_attempt_2_aborted.json",
+      "sha256": "e228d35dea7f39aa112afdc774e9d34376c19fed6df1d1a956c5e4d1b66a9e30"
+    },
+    {
+      "bytes": 1609,
+      "path": "results/development/scmmib_bmmc_exact_development_attempt_3_terminal_refusal.json",
+      "sha256": "caf920719694487ba228dc64ac14ed4a6579619349f496f7154372920f3e128c"
+    },
+    {
+      "bytes": 2283,
+      "path": "results/development/stephenson_unused_cambridge_preaccess_v1.json",
+      "sha256": "9a4acf9d9ea8321398de9ddd7091aa782340db5b18e748d3a82c2c9f68177232"
+    },
+    {
+      "bytes": 14969,
+      "path": "results/final_public_benchmark_table.tsv",
+      "sha256": "fe8b12fc107891b382fe73ace427c4bcdb256e242d19236e11c866b1a1e4cae2"
+    },
+    {
+      "bytes": 3020,
+      "path": "results/gse143417_pokiseq_preflight_refusal.json",
+      "sha256": "24f7ad70fbbfd4e7482809db58bd94d1156c1e22c2dd94fa77d66b1d6acdcf24"
+    },
+    {
+      "bytes": 9711,
+      "path": "results/gse239452_citeseq_confirmation.json",
+      "sha256": "12c23d6502c9192b93838d27ebcae42c4ff92e1a3b68e27cc6584efb92f22e74"
+    },
+    {
+      "bytes": 798087,
+      "path": "results/gse239452_citeseq_predictions.json",
+      "sha256": "37a7eba3b3b514ccb9d80700f039b0442caf1d02c00a0b44d9bcef735328e020"
+    },
+    {
+      "bytes": 517,
+      "path": "results/hao_gse164378_prediction_refusal.json",
+      "sha256": "bd6c0c2a5c5fae5b1b21b09627e7804ab47a4daa3a538f2035c64f739bd201a8"
+    },
+    {
+      "bytes": 1914,
+      "path": "results/kotliarov_pbmc_public_refusal.json",
+      "sha256": "34d59fcbdcceeefb449a430bca7a0f502611d343a2ebd19fc44a7f5fd26a1324"
+    },
+    {
+      "bytes": 565,
+      "path": "results/lawlor_hca_pbmc_predictions.json",
+      "sha256": "6e1435ef5a5c326a2d4f8cd69c55bd2c0cf7568685ab192b84855e8f564ada4a"
+    },
+    {
+      "bytes": 10997,
+      "path": "results/multiperturb_conditional_fields.json",
+      "sha256": "a59d3b82b914991fbb2e08195e5401b2dde249158e5f9c923decfcc1e1df4507"
+    },
+    {
+      "bytes": 81377,
+      "path": "results/public_coupling_atlas_benchmark_v4_final_estimator.json",
+      "sha256": "eb250bd749c92b7278e7e8c54e89f5126f3367ed489a91b664f1d664ea083195"
+    },
+    {
+      "bytes": 37354,
+      "path": "results/resistrace_conditional_fields.json",
+      "sha256": "edef0dba1d1dd94f19829088cb1fcd00f72dbacbc0695516b9c25afee6b20ffb"
+    },
+    {
+      "bytes": 33251,
+      "path": "results/stephenson_citeseq_confirmation.json",
+      "sha256": "5eb5fd2b41df7f4f7d822a92765ffe69854dcbe5f572f2db35cf433d7dd0adb1"
+    },
+    {
+      "bytes": 3275962,
+      "path": "results/stephenson_citeseq_predictions.json",
+      "sha256": "7a183d4a2f55922dc07f8cbcdca904893710fe008e9169fdf618532ba06ea6e2"
+    },
+    {
+      "bytes": 10446,
+      "path": "scripts/verify_public_benchmark_release.py",
+      "sha256": "1ddacb4dc5a9b5a657bb00ebbffa2d8ba9ea0f7186283c051259b31b15bf5c1e"
+    },
+    {
+      "bytes": 5418,
+      "path": "tests/test_public_benchmark_release_v2.py",
+      "sha256": "aa8769d2f12e1c62f1c763cda375dc4fcbdc20468c6c47015a55cc688e415796"
     }
   ],
-  "release_blockers": [
-    "author-approved code license",
-    "derived-data redistribution review"
-  ],
-  "bmmc_outcome_status": "TERMINAL_NUMERICAL_DEVELOPMENT_REFUSAL",
-  "gse279451_outcome_status": "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
-  "gse299043_outcome_status": "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL",
-  "combat_citeseq_outcome_status": "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL",
-  "combat_public_freeze_verification": {
-    "path": "docs/COMBAT_CITESEQ_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
-    "sha256": "460d8fec1255dc7e9812c637a5a120191075c611438b61148782c9bd2467bce5",
-    "status": "PASS",
-    "release_immutable": true
+  "code_license": null,
+  "counts": {
+    "comparison_records": 28,
+    "infrastructure_unevaluable_records": 1,
+    "panel_records": 32,
+    "pending_records": 0,
+    "procedural_refusal_records": 19,
+    "scored_panel_records": 12,
+    "sequence_records": 51
   },
-  "public_freeze_verification": {
-    "path": "docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
-    "sha256": "26bf151214312ebcc0cd83220e41cb252d592e1c574c32b509860064455f84cc",
-    "status": "PASS",
-    "release_immutable": true
+  "infrastructure_unevaluable": {
+    "panel_id": "stephenson_unused_cambridge_terminal",
+    "performance_values_recorded": false,
+    "scientific_decision": null,
+    "terminal_record": "data/confirmation/stephenson_unused_cambridge/prediction_terminal_record_v1_1.json"
   },
-  "terminal_candidate_artifacts": [
-    "data/development/combat_citeseq/reduced_v1.json",
-    "results/development/combat_citeseq_pilot_terminal_refusal.json"
-  ]
+  "intended_release_tag": "coupling-fields-v2-public-benchmark",
+  "ledgers": {
+    "comparisons": "results/benchmark_comparisons_v2.tsv",
+    "historical_v1_table": "results/final_public_benchmark_table.tsv",
+    "panels": "results/benchmark_panels_v2.tsv",
+    "sequence": "results/benchmark_sequence_v2.tsv"
+  },
+  "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
+  "release_name": "coupling-fields-v2-public-benchmark",
+  "release_status": "RELEASE_CANDIDATE_READY_FOR_TAG",
+  "schema": "coupling-fields-public-benchmark/2.0",
+  "snapshot_date": "2026-08-29"
 }

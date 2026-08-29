@@ -1,0 +1,1369 @@
+"""Build the metric-aware public benchmark release ledgers.
+
+The version-1 table is retained as a historical input. This builder normalizes
+its heterogeneous metrics, adds the later completed analyses, and records
+procedural attempts without assigning them performance values.
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import hashlib
+import json
+import subprocess
+from pathlib import Path
+from typing import Any
+
+
+ROOT = Path(__file__).resolve().parents[1]
+PANELS_PATH = Path("results/benchmark_panels_v2.tsv")
+COMPARISONS_PATH = Path("results/benchmark_comparisons_v2.tsv")
+SEQUENCE_PATH = Path("results/benchmark_sequence_v2.tsv")
+MANIFEST_PATH = Path("benchmark_manifest.json")
+CHECKSUM_PATH = Path("SHA256SUMS")
+
+PANEL_FIELDS = (
+    "panel_id",
+    "panel",
+    "accession",
+    "assay_pair",
+    "analysis_phase",
+    "inference_role",
+    "evaluation_unit",
+    "unit_count",
+    "entity_count",
+    "primary_method",
+    "primary_metric",
+    "metric_direction",
+    "primary_value",
+    "ci_95_low",
+    "ci_95_high",
+    "decision",
+    "outcome_scored",
+    "result_artifact",
+    "result_sha256",
+    "notes",
+)
+
+COMPARISON_FIELDS = (
+    "comparison_id",
+    "panel_id",
+    "analysis_phase",
+    "inference_role",
+    "comparison_role",
+    "primary_method",
+    "comparator_method",
+    "metric",
+    "metric_direction",
+    "primary_value",
+    "comparator_value",
+    "primary_minus_comparator",
+    "paired_difference_ci_95_low",
+    "paired_difference_ci_95_high",
+    "relative_improvement",
+    "relative_improvement_ci_95_low",
+    "relative_improvement_ci_95_high",
+    "favorable_units",
+    "total_units",
+    "p_value",
+    "decision",
+    "result_artifact",
+    "result_sha256",
+    "notes",
+)
+
+SEQUENCE_FIELDS = (
+    "sequence_id",
+    "panel_id",
+    "stage_ordinal",
+    "stage",
+    "status",
+    "outcome_access",
+    "public_before_outcome",
+    "artifact",
+    "artifact_sha256",
+    "public_commit_or_tag",
+    "notes",
+)
+
+LEGACY_IDS = {
+    "NeurIPS 2021 BMMC CITE-seq": "scmmib_bmmc_terminal",
+    "GSE279451 adult sepsis CITE-seq": "gse279451_terminal",
+    "GSE299043 MLN held-site confirmation": "gse299043_terminal",
+    "PerturbSci-Kinetics": "perturbsci_kinetics",
+    "Frangieh Perturb-CITE-seq": "frangieh_perturb_citeseq",
+    "Papalexi ECCITE-seq": "papalexi_ecciteseq",
+    "MultiPerturb-seq RNA-ATAC": "multiperturb_rna_atac",
+    "PerturbFate": "perturbfate",
+    "ReSisTrace": "resistrace",
+    "Arce T-cell RNA-protein confirmation": "arce_gse278572",
+    "PoKI-seq held-donor confirmation": "poki_gse143417_terminal",
+    "Lawlor HCA PBMC confirmation": "lawlor_hca_terminal",
+    "Hao held-donor confirmation": "hao_gse164378_terminal",
+    "Kotliarov PBMC held-batch confirmation": "kotliarov_pbmc_terminal",
+}
+
+SOURCE_TERMINALS = (
+    (
+        "gse158769_source_terminal",
+        "GSE158769 CITE-seq source campaign",
+        "GSE158769",
+        "RNA-ADT coupling transfer",
+        "results/development/gse158769_development_v1.json",
+    ),
+    (
+        "gse164378_3p_gse155673_source_terminal",
+        "GSE164378 3-prime to GSE155673 external-study campaign",
+        "GSE164378; GSE155673",
+        "cross-study RNA-ADT coupling transfer",
+        "results/development/gse164378_3p_gse155673_source_v1.json",
+    ),
+    (
+        "gse185381_aml_source_terminal",
+        "GSE185381 control-to-AML campaign",
+        "GSE185381",
+        "control-to-AML RNA-ADT coupling transfer",
+        "results/development/gse185381_aml_source_v1.json",
+    ),
+    (
+        "gse189050_source_terminal",
+        "GSE189050 SLE held-pool campaign",
+        "GSE189050",
+        "RNA-ADT coupling transfer",
+        "results/development/gse189050_development_v1.json",
+    ),
+    (
+        "gse202150_source_terminal",
+        "GSE202150 acute-infection campaign",
+        "GSE202150",
+        "RNA-ADT coupling transfer",
+        "results/development/gse202150_source_development_v1.json",
+    ),
+    (
+        "gse288020_source_terminal",
+        "GSE288020 MGUS-to-myeloma campaign",
+        "GSE288020",
+        "MGUS-to-myeloma RNA-ADT coupling transfer",
+        "results/development/gse288020_development_v1.json",
+    ),
+    (
+        "gse309593_source_terminal",
+        "GSE309593 held-batch campaign",
+        "GSE309593",
+        "RNA-ADT coupling transfer",
+        "results/development/gse309593_held_batches_source_v1.json",
+    ),
+    (
+        "gse326573_source_terminal",
+        "GSE326573 lung CITE-seq campaign",
+        "GSE326573",
+        "RNA-ADT coupling transfer",
+        "results/development/gse326573_lung_source_v1.json",
+    ),
+    (
+        "gse334503_source_terminal",
+        "GSE334503 batch-to-batch source campaign",
+        "GSE334503",
+        "batch-to-batch RNA-ADT coupling transfer",
+        "results/development/gse334503_source_terminal_decision_v1.json",
+    ),
+    (
+        "gse144744_source_terminal",
+        "GSE144744 multiple-sclerosis held-cohort campaign",
+        "GSE144744",
+        "RNA-ADT coupling transfer",
+        "results/development/gse144744_ms_source_v1.json",
+    ),
+    (
+        "gse181897_source_terminal",
+        "GSE181897 control CITE-seq campaign",
+        "GSE181897",
+        "control RNA-ADT coupling transfer",
+        "results/development/gse181897_source_model_terminal_v1.json",
+    ),
+)
+
+# No artifact was produced at these downstream paths. Keeping them out of the
+# checksum candidate set makes that absence explicit and harmless if a local
+# scratch file later appears under one of the names.
+ABSENT_UNUSED_CAMBRIDGE_PATHS = {
+    "results/stephenson_unused_cambridge_predictions_v1_1.json",
+    "data/confirmation/stephenson_unused_cambridge/score_authorization_v1_1.json",
+    "data/confirmation/stephenson_unused_cambridge/score_attempt_v1_1.json",
+    "results/stephenson_unused_cambridge_confirmation_v1_1.json",
+}
+
+
+def _reject_nonfinite(token: str) -> None:
+    raise ValueError(f"non-finite JSON number: {token}")
+
+
+def _load_json(relative: str | Path) -> dict[str, Any]:
+    return json.loads(
+        (ROOT / relative).read_text(encoding="utf-8"),
+        parse_constant=_reject_nonfinite,
+    )
+
+
+def _sha256(relative: str | Path) -> str:
+    digest = hashlib.sha256()
+    with (ROOT / relative).open("rb") as stream:
+        for chunk in iter(lambda: stream.read(8 << 20), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _number(value: str) -> float | None:
+    if value in {"", "NA", "not scored"}:
+        return None
+    try:
+        return float(value)
+    except ValueError:
+        return None
+
+
+def _artifact_fields(relative: str) -> tuple[str, str]:
+    path = ROOT / relative
+    if not path.is_file():
+        raise FileNotFoundError(relative)
+    return relative, _sha256(relative)
+
+
+def _legacy_role(panel: str, scored: bool) -> str:
+    if panel == "Arce T-cell RNA-protein confirmation":
+        return "analytical_holdout_post_access_correction"
+    return "retrospective_public_benchmark" if scored else "procedural_refusal"
+
+
+def _legacy_panels() -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    source = ROOT / "results/final_public_benchmark_table.tsv"
+    with source.open(newline="", encoding="utf-8") as stream:
+        rows = list(csv.DictReader(stream, delimiter="\t"))
+    if {row["panel"] for row in rows} != set(LEGACY_IDS):
+        raise ValueError("historical benchmark panel set changed")
+
+    panels: list[dict[str, Any]] = []
+    comparisons: list[dict[str, Any]] = []
+    for row in rows:
+        panel_id = LEGACY_IDS[row["panel"]]
+        result_path, result_sha = _artifact_fields(row["result_artifact"])
+        if result_sha != row["result_sha256"]:
+            raise ValueError(f"historical result hash changed: {result_path}")
+        primary_value = _number(row["primary_r"])
+        scored = primary_value is not None or row["panel"] == "ReSisTrace"
+        role = _legacy_role(row["panel"], scored)
+        panels.append(
+            {
+                "panel_id": panel_id,
+                "panel": row["panel"],
+                "accession": row["accession"],
+                "assay_pair": row["assay_pair"],
+                "analysis_phase": "held_or_replicate_evaluation" if scored else "terminal_pre_score",
+                "inference_role": role,
+                "evaluation_unit": row["replication_unit"],
+                "unit_count": "",
+                "entity_count": row["n_targets"],
+                "primary_method": row["primary_method"],
+                "primary_metric": row["primary_metric"] if scored else "",
+                "metric_direction": "higher" if primary_value is not None else "",
+                "primary_value": primary_value,
+                "ci_95_low": _number(row["primary_r_ci_low"]),
+                "ci_95_high": _number(row["primary_r_ci_high"]),
+                "decision": row["panel_decision"],
+                "outcome_scored": "YES" if scored else "NO",
+                "result_artifact": result_path,
+                "result_sha256": result_sha,
+                "notes": row["notes"],
+            }
+        )
+
+        primary_rmse = _number(row["primary_standardized_rmse"])
+        baseline_rmse = _number(row["strongest_baseline_standardized_rmse"])
+        if primary_rmse is not None and baseline_rmse is not None:
+            comparisons.append(
+                {
+                    "comparison_id": f"{panel_id}__declared_baseline_rmse",
+                    "panel_id": panel_id,
+                    "analysis_phase": "held_or_replicate_evaluation",
+                    "inference_role": role,
+                    "comparison_role": "declared_baseline",
+                    "primary_method": row["primary_method"],
+                    "comparator_method": row["strongest_declared_baseline"],
+                    "metric": "standardized_rmse",
+                    "metric_direction": "lower",
+                    "primary_value": primary_rmse,
+                    "comparator_value": baseline_rmse,
+                    "primary_minus_comparator": primary_rmse - baseline_rmse,
+                    "paired_difference_ci_95_low": "",
+                    "paired_difference_ci_95_high": "",
+                    "relative_improvement": (baseline_rmse - primary_rmse) / baseline_rmse,
+                    "relative_improvement_ci_95_low": "",
+                    "relative_improvement_ci_95_high": "",
+                    "favorable_units": "",
+                    "total_units": "",
+                    "p_value": "",
+                    "decision": row["estimator_superiority_decision"],
+                    "result_artifact": result_path,
+                    "result_sha256": result_sha,
+                    "notes": "Historical declared-baseline comparison; see the source artifact for its resampling contract.",
+                }
+            )
+
+        pairing_low = _number(row["pairing_control_ci_low"])
+        pairing_high = _number(row["pairing_control_ci_high"])
+        if row["pairing_control"] != "NA" and (
+            pairing_low is not None or row["pairing_control_estimate"] != "NA"
+        ):
+            comparisons.append(
+                {
+                    "comparison_id": f"{panel_id}__pairing_control",
+                    "panel_id": panel_id,
+                    "analysis_phase": "held_or_replicate_evaluation",
+                    "inference_role": role,
+                    "comparison_role": "pairing_control",
+                    "primary_method": row["primary_method"],
+                    "comparator_method": row["pairing_control"],
+                    "metric": row["pairing_control"],
+                    "metric_direction": "higher",
+                    "primary_value": "",
+                    "comparator_value": "",
+                    "primary_minus_comparator": _number(row["pairing_control_estimate"]),
+                    "paired_difference_ci_95_low": pairing_low,
+                    "paired_difference_ci_95_high": pairing_high,
+                    "relative_improvement": "",
+                    "relative_improvement_ci_95_low": "",
+                    "relative_improvement_ci_95_high": "",
+                    "favorable_units": "",
+                    "total_units": "",
+                    "p_value": "",
+                    "decision": row["pairing_signal_decision"],
+                    "result_artifact": result_path,
+                    "result_sha256": result_sha,
+                    "notes": "Historical pairing-control summary; empty scalar cells denote a contrast reported only by interval or text.",
+                }
+            )
+    return panels, comparisons
+
+
+def _loss_panel(
+    *,
+    panel_id: str,
+    panel: str,
+    accession: str,
+    assay_pair: str,
+    phase: str,
+    role: str,
+    unit: str,
+    units: int,
+    entities: int,
+    method: str,
+    value: float,
+    decision: str,
+    artifact: str,
+    notes: str,
+) -> dict[str, Any]:
+    result_path, result_sha = _artifact_fields(artifact)
+    return {
+        "panel_id": panel_id,
+        "panel": panel,
+        "accession": accession,
+        "assay_pair": assay_pair,
+        "analysis_phase": phase,
+        "inference_role": role,
+        "evaluation_unit": unit,
+        "unit_count": units,
+        "entity_count": entities,
+        "primary_method": method,
+        "primary_metric": "mean_poisson_deviance_per_cell",
+        "metric_direction": "lower",
+        "primary_value": value,
+        "ci_95_low": "",
+        "ci_95_high": "",
+        "decision": decision,
+        "outcome_scored": "YES",
+        "result_artifact": result_path,
+        "result_sha256": result_sha,
+        "notes": notes,
+    }
+
+
+def _loss_comparison(
+    *,
+    comparison_id: str,
+    panel_id: str,
+    phase: str,
+    role: str,
+    comparison_role: str,
+    primary_method: str,
+    comparator_method: str,
+    primary_value: float,
+    comparator_value: float,
+    ci: list[float],
+    relative_improvement: float,
+    artifact: str,
+    favorable_units: int | str,
+    total_units: int | str,
+    p_value: float | str = "",
+    relative_ci: list[float] | None = None,
+    decision: str,
+    notes: str,
+) -> dict[str, Any]:
+    result_path, result_sha = _artifact_fields(artifact)
+    return {
+        "comparison_id": comparison_id,
+        "panel_id": panel_id,
+        "analysis_phase": phase,
+        "inference_role": role,
+        "comparison_role": comparison_role,
+        "primary_method": primary_method,
+        "comparator_method": comparator_method,
+        "metric": "mean_poisson_deviance_per_cell",
+        "metric_direction": "lower",
+        "primary_value": primary_value,
+        "comparator_value": comparator_value,
+        "primary_minus_comparator": primary_value - comparator_value,
+        "paired_difference_ci_95_low": ci[0],
+        "paired_difference_ci_95_high": ci[1],
+        "relative_improvement": relative_improvement,
+        "relative_improvement_ci_95_low": "" if relative_ci is None else relative_ci[0],
+        "relative_improvement_ci_95_high": "" if relative_ci is None else relative_ci[1],
+        "favorable_units": favorable_units,
+        "total_units": total_units,
+        "p_value": p_value,
+        "decision": decision,
+        "result_artifact": result_path,
+        "result_sha256": result_sha,
+        "notes": notes,
+    }
+
+
+def _new_completed_evidence() -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    panels: list[dict[str, Any]] = []
+    comparisons: list[dict[str, Any]] = []
+
+    stephenson_path = "results/stephenson_citeseq_confirmation.json"
+    stephenson = _load_json(stephenson_path)
+    if stephenson["status"] != "CONFIRMATION_PASS":
+        raise ValueError("Stephenson confirmation status changed")
+    steph_primary = stephenson["comparisons"]["best_residual"]["primary_mean_deviance_per_cell"]
+    panels.append(
+        _loss_panel(
+            panel_id="stephenson_newcastle_confirmation",
+            panel="Stephenson Newcastle held-site confirmation",
+            accession="E-MTAB-10026",
+            assay_pair="same-cell RNA and surface-protein binary states",
+            phase="held_site_confirmation",
+            role="confirmatory",
+            unit="physical sample",
+            units=56,
+            entities=81,
+            method="hierarchical_exact_conditional_coupling",
+            value=steph_primary,
+            decision=stephenson["status"],
+            artifact=stephenson_path,
+            notes="Publicly frozen prediction preceded paired held-site scoring; the gate passed against the selected residual and destroyed-link controls.",
+        )
+    )
+    for key, comparator, role_name in (
+        ("best_residual", "selected_signed_deviance_residual", "confirmatory_gate"),
+        ("destroyed_link", "destroyed_link", "confirmatory_gate"),
+    ):
+        record = stephenson["comparisons"][key]
+        comparisons.append(
+            _loss_comparison(
+                comparison_id=f"stephenson_newcastle_confirmation__{key}",
+                panel_id="stephenson_newcastle_confirmation",
+                phase="held_site_confirmation",
+                role="confirmatory",
+                comparison_role=role_name,
+                primary_method="hierarchical_exact_conditional_coupling",
+                comparator_method=comparator,
+                primary_value=record["primary_mean_deviance_per_cell"],
+                comparator_value=record["comparator_mean_deviance_per_cell"],
+                ci=record["paired_difference_95_ci"],
+                relative_improvement=record["relative_reduction"],
+                artifact=stephenson_path,
+                favorable_units=record["favorable_samples"],
+                total_units=record["sign_test"]["donors"],
+                p_value=record["sign_test"]["one_sided_p"],
+                decision="PASS" if record["passes"] else "REFUSE",
+                notes="Prospectively frozen held-site gate; percentile paired bootstrap and exact one-sided sign test over physical samples.",
+            )
+        )
+
+    gse239_path = "results/gse239452_citeseq_confirmation.json"
+    gse239 = _load_json(gse239_path)
+    if gse239["status"] != "HELD_PASS":
+        raise ValueError("GSE239452 held status changed")
+    gse239_residual = gse239["held_gate"]["comparisons"]["best_residual"]
+    panels.append(
+        _loss_panel(
+            panel_id="gse239452_held_post_access_correction",
+            panel="GSE239452 held-cohort post-access correction",
+            accession="GSE239452",
+            assay_pair="same-cell RNA and surface-protein binary states",
+            phase="held_cohort_analysis",
+            role="post_access_correction",
+            unit="physical donor",
+            units=len(gse239["held_donors"]),
+            entities=81,
+            method="hierarchical_exact_conditional_coupling",
+            value=gse239_residual["primary_mean_loss"],
+            decision=gse239["status"],
+            artifact=gse239_path,
+            notes="Held-cohort analysis retained as a post-access protocol correction, not prospective confirmation.",
+        )
+    )
+    for key, comparator in (
+        ("best_residual", "selected_classical_residual"),
+        ("destroyed_link", "destroyed_link"),
+    ):
+        record = gse239["held_gate"]["comparisons"][key]
+        comparisons.append(
+            _loss_comparison(
+                comparison_id=f"gse239452_held_post_access_correction__{key}",
+                panel_id="gse239452_held_post_access_correction",
+                phase="held_cohort_analysis",
+                role="post_access_correction",
+                comparison_role="post_access_gate",
+                primary_method="hierarchical_exact_conditional_coupling",
+                comparator_method=comparator,
+                primary_value=record["primary_mean_loss"],
+                comparator_value=record["comparator_mean_loss"],
+                ci=record["paired_bootstrap_95_ci"],
+                relative_improvement=record["relative_deviance_reduction"],
+                artifact=gse239_path,
+                favorable_units=record["favorable_donors"],
+                total_units=len(gse239["held_donors"]),
+                decision="PASS" if record["passes_all"] else "REFUSE",
+                notes="Post-access corrected held-cohort comparison; intervals resample physical donors.",
+            )
+        )
+
+    classical_path = "results/development/classical_interaction_baselines_posthoc.json"
+    classical = _load_json(classical_path)
+    if classical["status"] != "POST_HOC_NONCONFIRMATORY_BASELINE_AUDIT":
+        raise ValueError("classical baseline audit status changed")
+    classical_specs = (
+        (
+            "stephenson_newcastle_confirmation",
+            "stephenson_newcastle_held_site",
+            "primary_vs_common_effect_exact_cmle",
+            "common_effect_exact_cmle",
+        ),
+        (
+            "stephenson_newcastle_confirmation",
+            "stephenson_newcastle_held_site",
+            "primary_vs_pooled_poisson_loglinear_interaction",
+            "pooled_saturated_poisson_loglinear_interaction",
+        ),
+        (
+            "gse239452_held_post_access_correction",
+            "gse239452_held_cohort_post_access_correction",
+            "primary_vs_common_effect_exact_cmle",
+            "common_effect_exact_cmle",
+        ),
+        (
+            "gse239452_held_post_access_correction",
+            "gse239452_held_cohort_post_access_correction",
+            "primary_vs_pooled_poisson_loglinear_interaction",
+            "pooled_saturated_poisson_loglinear_interaction",
+        ),
+    )
+    for panel_id, study, key, comparator in classical_specs:
+        record = classical["studies"][study]["comparisons"][key]
+        comparisons.append(
+            _loss_comparison(
+                comparison_id=f"{panel_id}__posthoc_{key}",
+                panel_id=panel_id,
+                phase="post_hoc_classical_baseline_audit",
+                role="post_hoc_nonconfirmatory",
+                comparison_role="classical_head_to_head",
+                primary_method="hierarchical_exact_conditional_coupling",
+                comparator_method=comparator,
+                primary_value=record["primary_mean_loss"],
+                comparator_value=record["comparator_mean_loss"],
+                ci=record["paired_difference_95_ci"],
+                relative_improvement=record["relative_loss_reduction"],
+                relative_ci=record["relative_loss_reduction_paired_bootstrap_95_ci"],
+                artifact=classical_path,
+                favorable_units=record["favorable_donors"],
+                total_units=record["units"],
+                p_value=record["exact_one_sided_sign_p"],
+                decision="DESCRIPTIVE",
+                notes="Definitions and comparisons were executed after held outcomes had been accessed.",
+            )
+        )
+
+    gse314_path = "results/development/gse314416_citeseq_development.json"
+    gse314 = _load_json(gse314_path)
+    if gse314["status"] != "TERMINAL_PILOT_REFUSAL":
+        raise ValueError("GSE314416 pilot status changed")
+    gse314_residual = gse314["pilot_gate"]["primary_vs_selected_residual"]
+    panels.append(
+        _loss_panel(
+            panel_id="gse314416_pilot_terminal",
+            panel="GSE314416 immunomicrobiome pilot",
+            accession="GSE314416",
+            assay_pair="same-cell RNA and surface-protein binary states",
+            phase="adaptive_pilot",
+            role="development",
+            unit="physical donor",
+            units=len(gse314["pilot_donors"]),
+            entities=81,
+            method="hierarchical_exact_conditional_coupling",
+            value=gse314_residual["primary_mean_loss"],
+            decision=gse314["status"],
+            artifact=gse314_path,
+            notes="The pilot missed the frozen five-percent and favorable-donor criteria; no held result was formed.",
+        )
+    )
+    for key, comparator in (
+        ("primary_vs_selected_residual", "selected_classical_residual"),
+        ("primary_vs_destroyed_link", "destroyed_link"),
+    ):
+        record = gse314["pilot_gate"][key]
+        comparisons.append(
+            _loss_comparison(
+                comparison_id=f"gse314416_pilot_terminal__{key}",
+                panel_id="gse314416_pilot_terminal",
+                phase="adaptive_pilot",
+                role="development",
+                comparison_role="development_gate",
+                primary_method="hierarchical_exact_conditional_coupling",
+                comparator_method=comparator,
+                primary_value=record["primary_mean_loss"],
+                comparator_value=record["comparator_mean_loss"],
+                ci=record["paired_bootstrap_95_interval"],
+                relative_improvement=record["relative_deviance_reduction"],
+                artifact=gse314_path,
+                favorable_units=record["favorable_donors"],
+                total_units=len(gse314["pilot_donors"]),
+                decision="PASS" if record["passes"] else "REFUSE",
+                notes="Development-stage pilot comparison; it is not held confirmation.",
+            )
+        )
+    secondary = gse314["secondary_broad_panel"]["comparison"]
+    comparisons.append(
+        _loss_comparison(
+            comparison_id="gse314416_pilot_terminal__secondary_exact_vs_residual",
+            panel_id="gse314416_pilot_terminal",
+            phase="adaptive_pilot_secondary",
+            role="development",
+            comparison_role="secondary_broad_panel",
+            primary_method="common_effect_exact_cmle",
+            comparator_method="selected_classical_residual",
+            primary_value=secondary["primary_mean_loss"],
+            comparator_value=secondary["comparator_mean_loss"],
+            ci=secondary["paired_bootstrap_95_interval"],
+            relative_improvement=secondary["relative_deviance_reduction"],
+            artifact=gse314_path,
+            favorable_units=secondary["favorable_donors"],
+            total_units=len(gse314["pilot_donors"]),
+            decision="PASS" if secondary["passes"] else "REFUSE",
+            notes="Secondary development comparison on the broad panel; no held inference.",
+        )
+    )
+
+    adaptive_path = "results/development/exact_logodds_head_to_head_v1.json"
+    adaptive = _load_json(adaptive_path)
+    if adaptive["status"] != "RETROSPECTIVE_ADAPTIVE_DEVELOPMENT_ONLY":
+        raise ValueError("adaptive binary audit status changed")
+    adaptive_specs = (
+        (
+            "scmmib_bmmc_adaptive_development",
+            "SCMMIB BMMC adaptive fit-to-bridge analysis",
+            "openproblems-bio BMMC",
+            "SCMMIB BMMC fit-to-bridge",
+        ),
+        (
+            "combat_oxford_adaptive_development",
+            "COMBAT Oxford adaptive calibration-to-pilot analysis",
+            "COMBAT CITE-seq",
+            "COMBAT Oxford calibration-to-pilot",
+        ),
+    )
+    adaptive_by_name = {
+        record["panel"]: record for record in adaptive["panels"].values()
+    }
+    for panel_id, panel_name, accession, source_name in adaptive_specs:
+        record = adaptive_by_name[source_name]
+        primary = record["selection"]["primary"]["mean_loss"]
+        panels.append(
+            _loss_panel(
+                panel_id=panel_id,
+                panel=panel_name,
+                accession=accession,
+                assay_pair="same-cell RNA and surface-protein binary states",
+                phase="adaptive_development",
+                role="retrospective_adaptive_development",
+                unit="nonheld physical unit",
+                units=record["unit_count"],
+                entities=record["entity_count"],
+                method="hierarchical_exact_conditional_coupling",
+                value=primary,
+                decision=record["status"],
+                artifact=adaptive_path,
+                notes="The same nonheld units selected the configuration and supplied this descriptive summary; graph zero was selected.",
+            )
+        )
+        for key, comparator in (
+            ("primary_vs_best_residual", "selected_classical_residual"),
+            ("primary_vs_destroyed_link", "destroyed_link"),
+        ):
+            comparison = record["comparisons"][key]
+            comparisons.append(
+                _loss_comparison(
+                    comparison_id=f"{panel_id}__{key}",
+                    panel_id=panel_id,
+                    phase="adaptive_development",
+                    role="retrospective_adaptive_development",
+                    comparison_role="descriptive_development",
+                    primary_method="hierarchical_exact_conditional_coupling",
+                    comparator_method=comparator,
+                    primary_value=comparison["primary_mean_deviance"],
+                    comparator_value=comparison["comparator_mean_deviance"],
+                    ci=comparison["paired_unit_bootstrap_95_ci"],
+                    relative_improvement=comparison["relative_reduction"],
+                    artifact=adaptive_path,
+                    favorable_units=comparison["favorable_units"],
+                    total_units=comparison["total_units"],
+                    decision="DESCRIPTIVE",
+                    notes="Retrospective adaptive development result; not held or confirmatory inference.",
+                )
+            )
+
+    combat_path = "results/development/combat_citeseq_pilot_terminal_refusal.json"
+    combat = _load_json(combat_path)
+    if combat["status"] != "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL":
+        raise ValueError("COMBAT terminal status changed")
+    result_path, result_sha = _artifact_fields(combat_path)
+    panels.append(
+        {
+            "panel_id": "combat_terminal_pilot",
+            "panel": "COMBAT CITE-seq frozen pilot",
+            "accession": "COMBAT CITE-seq",
+            "assay_pair": "same-cell RNA and surface-protein binary states",
+            "analysis_phase": "adaptive_pilot",
+            "inference_role": "procedural_refusal",
+            "evaluation_unit": "physical sample",
+            "unit_count": 24,
+            "entity_count": 81,
+            "primary_method": "Haldane_Paule_Mandel_product_graph_field",
+            "primary_metric": "",
+            "metric_direction": "",
+            "primary_value": "",
+            "ci_95_low": "",
+            "ci_95_high": "",
+            "decision": combat["status"],
+            "outcome_scored": "NO",
+            "result_artifact": result_path,
+            "result_sha256": result_sha,
+            "notes": "Comparator-family availability failed in the pilot; all 61 held samples remained unopened.",
+        }
+    )
+    return panels, comparisons
+
+
+def _terminal_panels() -> list[dict[str, Any]]:
+    panels: list[dict[str, Any]] = []
+    for panel_id, panel, accession, assay_pair, artifact in SOURCE_TERMINALS:
+        result = _load_json(artifact)
+        status = result.get("status")
+        if not isinstance(status, str) or "TERMINAL" not in status:
+            raise ValueError(f"source terminal status changed: {artifact}")
+        result_path, result_sha = _artifact_fields(artifact)
+        panels.append(
+            {
+                "panel_id": panel_id,
+                "panel": panel,
+                "accession": accession,
+                "assay_pair": assay_pair,
+                "analysis_phase": "source_or_development_gate",
+                "inference_role": "procedural_refusal",
+                "evaluation_unit": "",
+                "unit_count": "",
+                "entity_count": "",
+                "primary_method": "hierarchical_exact_conditional_coupling",
+                "primary_metric": "",
+                "metric_direction": "",
+                "primary_value": "",
+                "ci_95_low": "",
+                "ci_95_high": "",
+                "decision": status,
+                "outcome_scored": "NO",
+                "result_artifact": result_path,
+                "result_sha256": result_sha,
+                "notes": "Terminal source/development-stage record; no held performance value is assigned in the aggregate ledger.",
+            }
+        )
+
+    terminal_path = (
+        "data/confirmation/stephenson_unused_cambridge/"
+        "prediction_terminal_record_v1_1.json"
+    )
+    terminal = _load_json(terminal_path)
+    if terminal["status"] != "TERMINAL_INFRASTRUCTURE_UNEVALUABLE":
+        raise ValueError("unused-Cambridge terminal status changed")
+    if terminal["observations"]["prediction_output_exists"]:
+        raise ValueError("unused-Cambridge terminal record unexpectedly has predictions")
+    if terminal["access_boundary"]["score_phase_started"]:
+        raise ValueError("unused-Cambridge terminal record unexpectedly started scoring")
+    result_path, result_sha = _artifact_fields(terminal_path)
+    panels.append(
+        {
+            "panel_id": "stephenson_unused_cambridge_terminal",
+            "panel": "Stephenson unused-Cambridge donor confirmation",
+            "accession": "E-MTAB-10026",
+            "assay_pair": "same-cell RNA and surface-protein binary states",
+            "analysis_phase": "recovery_amended_prediction_terminal",
+            "inference_role": "infrastructure_unevaluable",
+            "evaluation_unit": "physical donor",
+            "unit_count": "",
+            "entity_count": 81,
+            "primary_method": "hierarchical_exact_conditional_coupling",
+            "primary_metric": "",
+            "metric_direction": "",
+            "primary_value": "",
+            "ci_95_low": "",
+            "ci_95_high": "",
+            "decision": terminal["status"],
+            "outcome_scored": "NO",
+            "result_artifact": result_path,
+            "result_sha256": result_sha,
+            "notes": "The single authorized replacement produced no prediction or score. The terminal record classifies the attempt as infrastructure-unevaluable, not a scientific pass or failure.",
+        }
+    )
+    return panels
+
+
+def _sequence_row(
+    panel_id: str,
+    ordinal: int,
+    stage: str,
+    status: str,
+    outcome_access: str,
+    public_before_outcome: str,
+    artifact: str,
+    public_commit_or_tag: str = "",
+    notes: str = "",
+) -> dict[str, Any]:
+    artifact_sha = "" if not artifact else _sha256(artifact)
+    return {
+        "sequence_id": f"{panel_id}__{ordinal:02d}_{stage}",
+        "panel_id": panel_id,
+        "stage_ordinal": ordinal,
+        "stage": stage,
+        "status": status,
+        "outcome_access": outcome_access,
+        "public_before_outcome": public_before_outcome,
+        "artifact": artifact,
+        "artifact_sha256": artifact_sha,
+        "public_commit_or_tag": public_commit_or_tag,
+        "notes": notes or "See artifact.",
+    }
+
+
+def _sequence(panels: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    explicit_ids = {
+        "scmmib_bmmc_terminal",
+        "gse279451_terminal",
+        "gse299043_terminal",
+        "stephenson_newcastle_confirmation",
+        "gse239452_held_post_access_correction",
+        "gse314416_pilot_terminal",
+        "scmmib_bmmc_adaptive_development",
+        "combat_oxford_adaptive_development",
+        "combat_terminal_pilot",
+        "stephenson_unused_cambridge_terminal",
+    }
+    rows = [
+        _sequence_row(
+            panel["panel_id"],
+            1,
+            "terminal_record",
+            panel["decision"],
+            "SCORED" if panel["outcome_scored"] == "YES" else "NOT_SCORED",
+            "UNKNOWN",
+            panel["result_artifact"],
+            notes="Single-row historical sequence; inference role is defined in the panels ledger.",
+        )
+        for panel in panels
+        if panel["panel_id"] not in explicit_ids
+    ]
+
+    rows.extend(
+        (
+            _sequence_row(
+                "scmmib_bmmc_terminal",
+                1,
+                "protocol",
+                "OUTCOME_ACCESS_DISABLED",
+                "HELD_DISABLED",
+                "YES",
+                "docs/SCMMIB_BMMC_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
+                "bmmc-held-donor-v1-protocol",
+            ),
+            _sequence_row(
+                "scmmib_bmmc_terminal",
+                2,
+                "development_attempt_1",
+                "TERMINAL_ATTEMPT_REFUSAL_NUMERICAL",
+                "NONHELD_ONLY",
+                "NOT_APPLICABLE",
+                "results/development/scmmib_bmmc_exact_development_attempt_1_refusal.json",
+            ),
+            _sequence_row(
+                "scmmib_bmmc_terminal",
+                3,
+                "development_attempt_2",
+                "ABORTED_BYTE_FREEZE_TRANSITION",
+                "NONHELD_ONLY",
+                "NOT_APPLICABLE",
+                "results/development/scmmib_bmmc_exact_development_attempt_2_aborted.json",
+            ),
+            _sequence_row(
+                "scmmib_bmmc_terminal",
+                4,
+                "development_attempt_3",
+                "TERMINAL_NUMERICAL_EQUIVALENCE_RETRY_REFUSAL",
+                "NONHELD_ONLY",
+                "NOT_APPLICABLE",
+                "results/development/scmmib_bmmc_exact_development_attempt_3_terminal_refusal.json",
+                notes="No held count slice, prediction, or score was formed.",
+            ),
+            _sequence_row(
+                "gse279451_terminal",
+                1,
+                "protocol",
+                "PUBLIC_FREEZE_VERIFIED",
+                "HELD_DISABLED",
+                "YES",
+                "docs/GSE279451_SEPSIS_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
+                "gse279451-sepsis-v1-protocol",
+            ),
+            _sequence_row(
+                "gse279451_terminal",
+                2,
+                "development_acquisition",
+                "TERMINAL_DEVELOPMENT_ATTEMPT_STARTED",
+                "DEVELOPMENT_ONLY",
+                "NOT_APPLICABLE",
+                "data/development/gse279451_sepsis/development_attempt_v1.json",
+            ),
+            _sequence_row(
+                "gse279451_terminal",
+                3,
+                "development_evaluation",
+                "TERMINAL_DEVELOPMENT_EVALUATION_STARTED",
+                "DEVELOPMENT_ONLY",
+                "NOT_APPLICABLE",
+                "data/development/gse279451_sepsis/evaluation_attempt_v1.json",
+            ),
+            _sequence_row(
+                "gse279451_terminal",
+                4,
+                "terminal_record",
+                "TERMINAL_DEVELOPMENT_EVALUATION_REFUSAL",
+                "HELD_UNOPENED",
+                "NOT_APPLICABLE",
+                "results/development/gse279451_sepsis_evaluation_refusal.json",
+                "gse279451-sepsis-v1-terminal-refusal",
+            ),
+            _sequence_row(
+                "gse299043_terminal",
+                1,
+                "protocol",
+                "PUBLIC_FREEZE_VERIFIED",
+                "HELD_DISABLED",
+                "YES",
+                "docs/GSE299043_MLN_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
+                "gse299043-mln-v1-protocol",
+            ),
+            _sequence_row(
+                "gse299043_terminal",
+                2,
+                "development_acquisition",
+                "TERMINAL_DEVELOPMENT_ATTEMPT_STARTED",
+                "DEVELOPMENT_ONLY",
+                "NOT_APPLICABLE",
+                "data/development/gse299043_mln/development_attempt_v1.json",
+            ),
+            _sequence_row(
+                "gse299043_terminal",
+                3,
+                "development_refusal",
+                "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL",
+                "HELD_UNOPENED",
+                "NOT_APPLICABLE",
+                "results/development/gse299043_mln_development_acquisition_refusal.json",
+            ),
+            _sequence_row(
+                "gse299043_terminal",
+                4,
+                "terminal_audit",
+                "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL",
+                "HELD_UNOPENED",
+                "NOT_APPLICABLE",
+                "results/development/gse299043_mln_terminal_acquisition_audit.json",
+                "gse299043-mln-v1-terminal-refusal",
+            ),
+            _sequence_row(
+                "stephenson_newcastle_confirmation",
+                1,
+                "protocol",
+                "PUBLIC_FREEZE_VERIFIED",
+                "DISABLED",
+                "YES",
+                "docs/STEPHENSON_CITESEQ_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
+                notes="Outcome-disabled public analysis plan.",
+            ),
+            _sequence_row(
+                "stephenson_newcastle_confirmation",
+                2,
+                "prediction",
+                "FROZEN_HELD_PREDICTIONS",
+                "RNA_MARGINS_ONLY",
+                "YES",
+                "results/stephenson_citeseq_predictions.json",
+                notes="Predictions were public before paired held-site truth scoring.",
+            ),
+            _sequence_row(
+                "stephenson_newcastle_confirmation",
+                3,
+                "score_authorization",
+                "OUTCOME_ACCESS_AUTHORIZED",
+                "PAIRED_TRUTH_AUTHORIZED",
+                "YES",
+                "data/confirmation/stephenson_citeseq/score_authorization_v1.json",
+            ),
+            _sequence_row(
+                "stephenson_newcastle_confirmation",
+                4,
+                "score",
+                "CONFIRMATION_PASS",
+                "PAIRED_TRUTH_SCORED",
+                "NOT_APPLICABLE",
+                "results/stephenson_citeseq_confirmation.json",
+            ),
+            _sequence_row(
+                "gse239452_held_post_access_correction",
+                1,
+                "protocol",
+                "PLAN_RETAINED",
+                "DISABLED_AT_DESIGNATION",
+                "UNKNOWN",
+                "docs/GSE239452_PREGNANCY_CITESEQ_CONFIRMATION_PROTOCOL_2026-08-28.md",
+            ),
+            _sequence_row(
+                "gse239452_held_post_access_correction",
+                2,
+                "prediction",
+                "PREDICTIONS_FROZEN",
+                "HELD_GEX_ACCESSED",
+                "NO",
+                "results/gse239452_citeseq_predictions.json",
+                notes="Final inference is labeled post-access correction.",
+            ),
+            _sequence_row(
+                "gse239452_held_post_access_correction",
+                3,
+                "score",
+                "HELD_PASS",
+                "PAIRED_TRUTH_SCORED",
+                "NO",
+                "results/gse239452_citeseq_confirmation.json",
+                notes="Post-access corrected held-cohort analysis; not prospective confirmation.",
+            ),
+            _sequence_row(
+                "gse314416_pilot_terminal",
+                1,
+                "protocol",
+                "FROZEN",
+                "HELD_DISABLED",
+                "YES",
+                "docs/GSE314416_IMMUNOMICROBIOME_HELD_POOL_CONFIRMATION_PROTOCOL_2026-08-28.md",
+                "gse314416-citeseq-v1.2-protocol",
+            ),
+            _sequence_row(
+                "gse314416_pilot_terminal",
+                2,
+                "pilot",
+                "TERMINAL_PILOT_REFUSAL",
+                "PILOT_ONLY",
+                "NOT_APPLICABLE",
+                "results/development/gse314416_citeseq_development.json",
+                notes="No held result was formed.",
+            ),
+            _sequence_row(
+                "scmmib_bmmc_adaptive_development",
+                1,
+                "adaptive_development_audit",
+                "RETROSPECTIVE_ADAPTIVE_DEVELOPMENT_ONLY",
+                "NONHELD_ONLY",
+                "NO",
+                "results/development/exact_logodds_head_to_head_v1.json",
+            ),
+            _sequence_row(
+                "combat_oxford_adaptive_development",
+                1,
+                "adaptive_development_audit",
+                "RETROSPECTIVE_ADAPTIVE_DEVELOPMENT_ONLY",
+                "NONHELD_ONLY",
+                "NO",
+                "results/development/exact_logodds_head_to_head_v1.json",
+            ),
+            _sequence_row(
+                "combat_terminal_pilot",
+                1,
+                "protocol",
+                "PUBLIC_FREEZE_VERIFIED",
+                "HELD_DISABLED",
+                "YES",
+                "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
+                "combat-citeseq-v1-protocol",
+            ),
+            _sequence_row(
+                "combat_terminal_pilot",
+                2,
+                "pilot",
+                "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL",
+                "PILOT_ONLY",
+                "NOT_APPLICABLE",
+                "results/development/combat_citeseq_pilot_terminal_refusal.json",
+                notes="All held margins and pairings remained unopened.",
+            ),
+            _sequence_row(
+                "stephenson_unused_cambridge_terminal",
+                1,
+                "protocol",
+                "PUBLIC_FREEZE",
+                "DISABLED",
+                "YES",
+                "docs/STEPHENSON_UNUSED_CAMBRIDGE_HELD_DONOR_PROTOCOL_2026-08-29.md",
+                "stephenson-unused-cambridge-v1-protocol",
+            ),
+            _sequence_row(
+                "stephenson_unused_cambridge_terminal",
+                2,
+                "preaccess",
+                "PASS_H5AD_UNOPENED",
+                "H5AD_UNOPENED",
+                "YES",
+                "results/development/stephenson_unused_cambridge_preaccess_v1.json",
+            ),
+            _sequence_row(
+                "stephenson_unused_cambridge_terminal",
+                3,
+                "recovery_amendment",
+                "ONE_REPLACEMENT_DEFINED",
+                "RNA_MARGIN_ONLY_REPLACEMENT",
+                "YES",
+                "docs/STEPHENSON_UNUSED_CAMBRIDGE_PREDICTION_RECOVERY_AMENDMENT_2026-08-29.md",
+                "stephenson-unused-cambridge-v1.1-recovery",
+            ),
+            _sequence_row(
+                "stephenson_unused_cambridge_terminal",
+                4,
+                "prediction_and_score",
+                "TERMINAL_INFRASTRUCTURE_UNEVALUABLE",
+                "NO_PREDICTION_OR_SCORE_RECORDED",
+                "NOT_APPLICABLE",
+                "data/confirmation/stephenson_unused_cambridge/prediction_terminal_record_v1_1.json",
+                "stephenson-unused-cambridge-v1.1-terminal",
+                notes="Published terminal infrastructure record; neither a scientific pass nor a scientific failure.",
+            ),
+        )
+    )
+    return sorted(rows, key=lambda row: (row["panel_id"], row["stage_ordinal"]))
+
+
+def _write_tsv(relative: Path, fields: tuple[str, ...], rows: list[dict[str, Any]]) -> None:
+    path = ROOT / relative
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as stream:
+        writer = csv.DictWriter(stream, fieldnames=fields, delimiter="\t", lineterminator="\n")
+        writer.writeheader()
+        for row in rows:
+            if set(row) != set(fields):
+                raise ValueError(f"row fields differ for {relative}: {row.get(fields[0])}")
+            writer.writerow({field: "" if row[field] is None else row[field] for field in fields})
+
+
+def _artifact_manifest(
+    panels: list[dict[str, Any]],
+    comparisons: list[dict[str, Any]],
+    sequence: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    referenced = {
+        row["result_artifact"] for row in panels if row["result_artifact"]
+    }
+    referenced.update(
+        row["result_artifact"] for row in comparisons if row["result_artifact"]
+    )
+    referenced.update(row["artifact"] for row in sequence if row["artifact"])
+    referenced.update(
+        {
+            str(PANELS_PATH),
+            str(COMPARISONS_PATH),
+            str(SEQUENCE_PATH),
+            "results/final_public_benchmark_table.tsv",
+            "results/development/gse299043_mln_development_acquisition_refusal.json",
+            "README.md",
+            "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
+            "experiments/build_public_benchmark_release.py",
+            "scripts/verify_public_benchmark_release.py",
+            "tests/test_public_benchmark_release_v2.py",
+            "reproduce.sh",
+        }
+    )
+    artifacts = []
+    for relative in sorted(referenced):
+        path = ROOT / relative
+        if not path.is_file():
+            raise FileNotFoundError(relative)
+        artifacts.append(
+            {
+                "path": relative,
+                "bytes": path.stat().st_size,
+                "sha256": _sha256(relative),
+            }
+        )
+    return artifacts
+
+
+def _write_manifest(
+    panels: list[dict[str, Any]],
+    comparisons: list[dict[str, Any]],
+    sequence: list[dict[str, Any]],
+) -> None:
+    scored = sum(row["outcome_scored"] == "YES" for row in panels)
+    procedural = sum(row["inference_role"] == "procedural_refusal" for row in panels)
+    infrastructure_unevaluable = sum(
+        row["inference_role"] == "infrastructure_unevaluable" for row in panels
+    )
+    record = {
+        "schema": "coupling-fields-public-benchmark/2.0",
+        "release_name": "coupling-fields-v2-public-benchmark",
+        "release_status": "RELEASE_CANDIDATE_READY_FOR_TAG",
+        "snapshot_date": "2026-08-29",
+        "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
+        "intended_release_tag": "coupling-fields-v2-public-benchmark",
+        "archive_doi": None,
+        "code_license": None,
+        "analysis_plan_characterization": "public pre-outcome analysis plans; not registry-hosted preregistration",
+        "ledgers": {
+            "panels": str(PANELS_PATH),
+            "comparisons": str(COMPARISONS_PATH),
+            "sequence": str(SEQUENCE_PATH),
+            "historical_v1_table": "results/final_public_benchmark_table.tsv",
+        },
+        "counts": {
+            "panel_records": len(panels),
+            "scored_panel_records": scored,
+            "procedural_refusal_records": procedural,
+            "pending_records": 0,
+            "infrastructure_unevaluable_records": infrastructure_unevaluable,
+            "comparison_records": len(comparisons),
+            "sequence_records": len(sequence),
+        },
+        "infrastructure_unevaluable": {
+            "panel_id": "stephenson_unused_cambridge_terminal",
+            "performance_values_recorded": False,
+            "terminal_record": "data/confirmation/stephenson_unused_cambridge/prediction_terminal_record_v1_1.json",
+            "scientific_decision": None,
+        },
+        "artifacts": _artifact_manifest(panels, comparisons, sequence),
+    }
+    (ROOT / MANIFEST_PATH).write_text(
+        json.dumps(record, indent=2, sort_keys=True, allow_nan=False) + "\n",
+        encoding="utf-8",
+    )
+
+
+def _checksum_paths() -> list[str]:
+    tracked = subprocess.check_output(
+        ["git", "ls-files", "-z"], cwd=ROOT
+    ).decode().split("\0")
+    generated = {
+        str(PANELS_PATH),
+        str(COMPARISONS_PATH),
+        str(SEQUENCE_PATH),
+        str(MANIFEST_PATH),
+        "experiments/build_public_benchmark_release.py",
+        "scripts/verify_public_benchmark_release.py",
+        "tests/test_public_benchmark_release_v2.py",
+    }
+    candidates = set(filter(None, tracked)) | generated
+    candidates.discard(str(CHECKSUM_PATH))
+    candidates.difference_update(ABSENT_UNUSED_CAMBRIDGE_PATHS)
+    return sorted(relative for relative in candidates if (ROOT / relative).is_file())
+
+
+def _write_checksums() -> None:
+    lines = [f"{_sha256(relative)}  {relative}" for relative in _checksum_paths()]
+    (ROOT / CHECKSUM_PATH).write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def build() -> None:
+    panels, comparisons = _legacy_panels()
+    new_panels, new_comparisons = _new_completed_evidence()
+    panels.extend(new_panels)
+    comparisons.extend(new_comparisons)
+    panels.extend(_terminal_panels())
+    panels.sort(key=lambda row: row["panel_id"])
+    comparisons.sort(key=lambda row: row["comparison_id"])
+    if len({row["panel_id"] for row in panels}) != len(panels):
+        raise ValueError("duplicate panel_id")
+    if len({row["comparison_id"] for row in comparisons}) != len(comparisons):
+        raise ValueError("duplicate comparison_id")
+    panel_ids = {row["panel_id"] for row in panels}
+    if any(row["panel_id"] not in panel_ids for row in comparisons):
+        raise ValueError("comparison references an unknown panel")
+    sequence = _sequence(panels)
+
+    _write_tsv(PANELS_PATH, PANEL_FIELDS, panels)
+    _write_tsv(COMPARISONS_PATH, COMPARISON_FIELDS, comparisons)
+    _write_tsv(SEQUENCE_PATH, SEQUENCE_FIELDS, sequence)
+    _write_manifest(panels, comparisons, sequence)
+    _write_checksums()
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="rebuild in place and fail if any generated byte would change",
+    )
+    args = parser.parse_args()
+    outputs = (PANELS_PATH, COMPARISONS_PATH, SEQUENCE_PATH, MANIFEST_PATH, CHECKSUM_PATH)
+    before = {
+        relative: (ROOT / relative).read_bytes()
+        for relative in outputs
+        if (ROOT / relative).is_file()
+    }
+    build()
+    if args.check:
+        missing = [str(relative) for relative in outputs if relative not in before]
+        changed = [
+            str(relative)
+            for relative in outputs
+            if relative in before and before[relative] != (ROOT / relative).read_bytes()
+        ]
+        if missing or changed:
+            for relative in outputs:
+                path = ROOT / relative
+                if relative in before:
+                    path.write_bytes(before[relative])
+                elif path.exists():
+                    path.unlink()
+            raise SystemExit(
+                f"release outputs are stale; missing={missing}, changed={changed}"
+            )
+    print("\n".join(str(relative) for relative in outputs))
+
+
+if __name__ == "__main__":
+    main()

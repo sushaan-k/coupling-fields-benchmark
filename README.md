@@ -2,16 +2,41 @@
 
 This repository is a public, source-visible benchmark for
 perturbation-specific dependence in linked single-cell assays. It preserves
-positive, negative, and refused panels under one fixed evaluation contract.
-It contains seven scored public-data panels and seven transparent procedural
-refusals. PoKI-seq stopped at its
-state-occupancy preflight, Lawlor stopped when
-the frozen reducer rejected the deposited ADT object type, and Hao stopped when
-fewer than 12 markers passed its frozen marginal-support rule. None of those
-three runs formed a held joint-table score. The prospectively frozen Kotliarov
-PBMC candidate also stopped during preparation, before estimator fitting or
-scoring, because fewer than four RNA-only lineages met its frozen donor-support
-rule.
+positive, negative, and refused analyses under explicit evidence roles. The
+version-2 release candidate contains 32 panel records: 12 scored held,
+replicate, pilot, or nonheld-development analyses; 19 procedural refusals; and
+one published infrastructure-unevaluable attempt. These are analysis
+records rather than unique studies because BMMC and COMBAT each retain both a
+frozen campaign outcome and a separately labeled retrospective adaptive
+development analysis.
+
+The prospectively frozen Stephenson held-site confirmation is the first
+positive confirmatory transfer in the benchmark. Across 56 physical samples,
+hierarchical exact-conditional transfer reduced mean Poisson deviance per cell
+by 17.46% relative to the pilot-selected signed-deviance residual, with a
+paired 95% interval for the raw loss difference of -0.00413 to -0.00080; 50 of
+56 samples were favorable (exact one-sided sign-test p=5.09e-10). It reduced
+loss by 46.36% relative to destroyed links. A later, explicitly post-hoc audit
+found 6.18% lower loss than the exact common-effect CMLE and 3.39% lower loss
+than pooled saturated-Poisson interaction transfer. These post-hoc comparisons
+are descriptive and do not alter the frozen gate.
+
+The GSE239452 held-cohort analysis is retained as a post-access correction. It
+reduced loss by 41.55% relative to the selected residual and 78.89% relative to
+destroyed links across nine donors, but the exact common-effect CMLE was 2.20%
+better than the structured primary. The benchmark therefore distinguishes the
+prospective Stephenson result from corrected and retrospective evidence rather
+than pooling them as equivalent confirmations.
+
+PoKI-seq stopped at state-occupancy preflight, Lawlor at deposited-object
+compatibility, Hao and Kotliarov at frozen support gates, BMMC at numerical
+development, GSE279451 at comparator availability, GSE299043 at source feature
+preflight, and COMBAT at pilot candidate availability. GSE314416 also stopped
+at its pilot gate. Eleven later source campaigns terminated before held
+scoring and remain visible in the aggregate ledger. The recovery-amended
+unused-Cambridge attempt produced no prediction or score and is
+infrastructure-unevaluable; its published terminal record assigns no scientific
+decision and its performance fields remain empty.
 
 The BMMC candidate ended in a terminal numerical development refusal after
 three recorded attempts. It produced no prediction or held score and cannot be
@@ -42,7 +67,7 @@ classical estimand. Every prospective confirmation compares the complete
 pipeline against full Pearson and signed Poisson-deviance residual matrices
 from the independence model on the same predicted held tables.
 
-The seven scored panels and earlier procedural refusals retain their exact
+The seven historical scored panels and earlier procedural refusals retain their exact
 historical estimator at `mapreg/historical/coupling_fields_29a3875.py`. The
 current `mapreg/coupling_fields.py` contains the deterministic einsum update
 and is separately bound, with the hierarchical estimator and its transitive
@@ -59,6 +84,16 @@ python3 -m venv .venv
 python -m pip install -r requirements.txt
 python -m pip install -e . --no-deps
 shasum -a 256 -c SHA256SUMS
+python -m experiments.build_public_benchmark_release --check
+python -m scripts.verify_public_benchmark_release
+```
+
+After the aggregate tag is published, a clean fresh clone can additionally
+verify that the local and public tag resolve to the checked-out commit and that
+`SHA256SUMS` covers every tracked release byte:
+
+```bash
+python -m scripts.verify_public_benchmark_release --require-clean --require-tag
 ```
 
 This verifies every distributed byte without acquiring candidate outcomes.
@@ -79,7 +114,15 @@ redistributed.
 
 ## Evidence contract
 
-`results/final_public_benchmark_table.tsv` is the complete declared-panel ledger.
+`results/benchmark_panels_v2.tsv` is the metric-aware panel ledger;
+`results/benchmark_comparisons_v2.tsv` separates methods, metrics, evidence
+roles, uncertainty, and decisions; and `results/benchmark_sequence_v2.tsv`
+records plan, prediction, authorization, score, and refusal stages. The older
+`results/final_public_benchmark_table.tsv` is retained as a byte-stable
+historical input, not as the complete current benchmark. The deterministic
+builder and verifier are
+`experiments/build_public_benchmark_release.py` and
+`scripts/verify_public_benchmark_release.py`.
 `docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md` states the corresponding claim boundary.
 The closed Lawlor and Hao candidates are bound in
 `LAWLOR_CANDIDATE_DESIGNATION.json` and
@@ -193,11 +236,14 @@ input hashes, official source URLs, and derivation script are supplied in
   common-table reconstruction.
 - `experiments/`: deterministic completed-panel and prospective runners.
 - `docs/`: frozen protocols, theory boundary, and evidence ledger.
-- `results/`: machine-readable completed results and benchmark table.
+- `results/`: source results plus version-2 panel, comparison, and sequence ledgers.
 - `data/`: source manifests and metadata-only eligibility records.
 - `tests/`: integrity, estimator, comparator, and pairing-seal tests.
 
-The GSE299043 plan is published at
+The aggregate release target is tag `coupling-fields-v2-public-benchmark`.
+Until that tag and its GitHub release are created, the manifest status remains
+`RELEASE_CANDIDATE_READY_FOR_TAG`; the repository
+must not cite the target as an existing release. The GSE299043 plan is published at
 `https://github.com/sushaan-k/coupling-fields-benchmark` under tag
 `gse299043-mln-v1-protocol`. The immutable release and a fresh clone both
 verified at commit `87c15787f734b20d06c7b8cb0c66680b2fe5c1b0`; the record is

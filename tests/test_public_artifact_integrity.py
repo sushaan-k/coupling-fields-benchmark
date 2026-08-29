@@ -337,70 +337,47 @@ def test_frozen_json_artifacts_have_expected_bytes_and_finite_numbers():
         _assert_finite(_load(relative_path))
 
 
-def test_benchmark_manifest_records_combat_terminal_pilot_refusal():
+def test_benchmark_manifest_records_v2_aggregate_release_candidate():
     manifest = _load("benchmark_manifest.json")
-    assert manifest["status"] == (
-        "PUBLIC_COMBAT_CITESEQ_TERMINAL_PILOT_REFUSAL"
-    )
-    assert manifest["immutable_release_tag"] == "combat-citeseq-v1-protocol"
-    assert manifest["public_freeze_commit"] == (
-        "240bded6e9980414c6dd37e28a061605c68a6822"
-    )
-    assert manifest["prospective_candidate_count"] == 0
-    assert manifest["active_candidate_count"] == 0
-    assert manifest["completed_public_panels"] == 7
-    assert manifest["procedural_refusal_count"] == 8
-    assert manifest["combat_citeseq_outcome_status"] == (
-        "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL"
-    )
+    assert manifest["schema"] == "coupling-fields-public-benchmark/2.0"
+    assert manifest["release_name"] == "coupling-fields-v2-public-benchmark"
+    assert manifest["release_status"] == "RELEASE_CANDIDATE_READY_FOR_TAG"
+    assert manifest["intended_release_tag"] == "coupling-fields-v2-public-benchmark"
+    assert manifest["counts"] == {
+        "comparison_records": 28,
+        "panel_records": 32,
+        "infrastructure_unevaluable_records": 1,
+        "pending_records": 0,
+        "procedural_refusal_records": 19,
+        "scored_panel_records": 12,
+        "sequence_records": 51,
+    }
+    assert manifest["archive_doi"] is None
+    assert manifest["code_license"] is None
     assert (
-        manifest["gse299043_outcome_status"]
-        == "TERMINAL_DEVELOPMENT_ACQUISITION_REFUSAL"
+        manifest["infrastructure_unevaluable"]["performance_values_recorded"]
+        is False
     )
-    protocol = manifest["next_protocol"]
-    assert protocol["designation"] == (
-        "data/confirmation/combat_citeseq/candidate_designation_v1.json"
-    )
-    assert protocol["status"] == "TERMINAL_PILOT_CANDIDATE_AVAILABILITY_REFUSAL"
-    assert protocol["matrix_payload_reads_at_prospective_freeze"] == 0
-    assert protocol["oxford_held_samples"] == 51
-    assert protocol["st_georges_held_samples"] == 10
-    assert protocol["held_score_attempted"] is False
-    assert protocol["pilot_gate_reached"] is False
-    assert protocol["held_margin_accessed"] is False
-    assert protocol["held_outcome_accessed"] is False
-    assert protocol["held_access_permanently_closed"] is True
-    assert protocol["rerun_permitted_after_terminal_attempt"] is False
-    assert manifest["combat_public_freeze_verification"]["status"] == "PASS"
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 170
+    assert len(artifacts) == 59
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 170
+    assert len(by_path) == 59
     for relative in (
-        "docs/GSE299043_MLN_HELD_SITE_CONFIRMATION_PROTOCOL_2026-08-28.md",
-        "docs/GSE299043_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
-        "data/confirmation/gse299043_mln/candidate_designation_v1.json",
-        "data/confirmation/gse299043_mln/source_manifest_template_v1.json",
-        "data/confirmation/gse299043_mln/score_authorization_template_v1.json",
-        "data/confirmation/gse299043_mln/score_authorization_publication_template_v1.json",
-        "data/development/gse299043_mln/metadata_preflight_v1.tsv",
-        "data/development/gse299043_mln/development_attempt_v1.json",
+        "results/benchmark_panels_v2.tsv",
+        "results/benchmark_comparisons_v2.tsv",
+        "results/benchmark_sequence_v2.tsv",
+        "results/stephenson_citeseq_confirmation.json",
+        "results/gse239452_citeseq_confirmation.json",
+        "results/development/gse314416_citeseq_development.json",
+        "results/development/exact_logodds_head_to_head_v1.json",
         "results/development/gse299043_mln_development_acquisition_refusal.json",
         "results/development/gse299043_mln_terminal_acquisition_audit.json",
-        "experiments/acquire_gse299043_nonheld.py",
-        "experiments/reduce_gse299043_mln.py",
-        "experiments/evaluate_gse299043_mln_development.py",
-        "experiments/confirm_gse299043_mln.py",
-        "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
-        "docs/COMBAT_CITESEQ_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json",
-        "data/confirmation/combat_citeseq/candidate_designation_v1.json",
-        "data/confirmation/combat_citeseq/source_manifest_v1.json",
-        "data/development/combat_citeseq/reduced_v1.json",
-        "results/development/combat_citeseq_metadata_preflight.json",
         "results/development/combat_citeseq_pilot_terminal_refusal.json",
-        "experiments/confirm_combat_citeseq.py",
-        "tests/test_combat_citeseq_confirmation.py",
+        "data/confirmation/stephenson_unused_cambridge/prediction_terminal_record_v1_1.json",
+        "experiments/build_public_benchmark_release.py",
+        "scripts/verify_public_benchmark_release.py",
+        "tests/test_public_benchmark_release_v2.py",
     ):
         assert relative in by_path
     for relative, record in by_path.items():
