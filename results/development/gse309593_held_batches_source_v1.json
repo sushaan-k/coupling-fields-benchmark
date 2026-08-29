@@ -1,0 +1,194 @@
+{
+  "bindings": {
+    "amendment_sha256": "863b40d3e9cba339a3d5e61eaf3eae37dd8118aa37b9739fdd59a251298205ff",
+    "authorization_template_sha256": "8f018af3fc15463ed5e85ae0a082f0d6fba3a53b641d9c657d13ccf8f93863aa",
+    "axis_preflight_sha256": "63bf60d5bdc8c1d30e54420d126acfd48afd813a83df0c9a2589e0b13a19c1e5",
+    "candidate_sha256": "183a45325215ed08384c25a76a29c31e6a73b9d20efdac198a416b9bc937640d",
+    "classical_residuals_module_sha256": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
+    "common_effect_solver_sha256": "e8730bc5c072b66794d9d1c0f8fa8c93ba7e2bf9303a34bde98dfb7dea6ff2e9",
+    "coupling_fields_module_sha256": "06edd27c9cc52bcee1da1fc4a7a8fd86586d6263f9b32b2c6b0c5d16b0f01dc1",
+    "coupling_module_sha256": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e",
+    "factorial_coupling_module_sha256": "c80afa0efc70de920bdd312420c0e680df3b290528b6aefd3b0a1b98cff3b79e",
+    "gitignore_sha256": "5deb682f35ef83d8a5057e46cd4868c15e60f7b8fe46dc0403377cc0843cda50",
+    "hierarchical_module_sha256": "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d",
+    "mapreg_init_sha256": "8854ad0b216b8fa208269a83e738a2f3755e36957ecd51a8e0e5af8569b9b2d9",
+    "metadata_binding_sha256": "07c1979bcee8009db14265a2360f2f46527f674ac5835cf54f098f2f10bdc3e9",
+    "preflight_sha256": "63bf60d5bdc8c1d30e54420d126acfd48afd813a83df0c9a2589e0b13a19c1e5",
+    "protocol_sha256": "f0e933edc169871e1c4fd445886384d118cbba9fd7221a15ac7a84b8ce4c985f",
+    "runner_sha256": "aff9561af2300a27d7ea76b22ed84a0d2743c19ec4d409decf4dae23f4681a8d",
+    "runtime_sha256": "6817792fad90f9152bf8927ce62439cd212469e631e370fab064464c5871a694",
+    "table_prediction_module_sha256": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e",
+    "test_sha256": "5073036388fc13e111a71733db36cec4393340508c29b61a95e5abeaa095064f"
+  },
+  "created_at_utc": "2026-08-29T17:25:20Z",
+  "incremental_nonnumeric_access_audit": {
+    "contains_raw_identifiers_or_outcome_values": false,
+    "contains_urls_or_local_paths": false,
+    "counters": {
+      "embedded_h5_adt_datasets_read": 0,
+      "h5_datasets_outside_allowlist_read": 0,
+      "held_adt_csv_gz_decode_started": 0,
+      "held_adt_csv_gz_files_deleted": 0,
+      "held_adt_csv_gz_hashes_completed": 0,
+      "held_adt_csv_gz_reductions_completed": 0,
+      "held_adt_csv_gz_requests": 0,
+      "held_identifier_files_accessed": 0,
+      "held_joint_table_panels_formed": 0,
+      "held_numeric_assay_files_accessed": 0,
+      "held_rna_h5_decode_started": 0,
+      "held_rna_h5_files_deleted": 0,
+      "held_rna_h5_hashes_completed": 0,
+      "held_rna_h5_reductions_completed": 0,
+      "held_rna_h5_requests": 0,
+      "held_state_panels_formed": 0,
+      "source_adt_csv_gz_decode_started": 1,
+      "source_adt_csv_gz_files_deleted": 1,
+      "source_adt_csv_gz_hashes_completed": 1,
+      "source_adt_csv_gz_reductions_completed": 0,
+      "source_adt_csv_gz_requests": 1,
+      "source_identifier_files_accessed": 2,
+      "source_joint_table_panels_formed": 0,
+      "source_numeric_assay_files_accessed": 2,
+      "source_rna_h5_decode_started": 1,
+      "source_rna_h5_files_deleted": 1,
+      "source_rna_h5_hashes_completed": 1,
+      "source_rna_h5_reductions_completed": 1,
+      "source_rna_h5_requests": 1,
+      "source_state_panels_formed": 0
+    },
+    "events": [
+      {
+        "designated_file_bytes": 132895296,
+        "designated_file_name": "GSM9269936_B099-P1_SP02419-01_2024-02-24T01_51_43.275904721Z_labeled.h5",
+        "event": "file_requested",
+        "file_role": "rna_h5",
+        "gsm": "GSM9269936",
+        "sequence": 0,
+        "subject_id": "FH1001"
+      },
+      {
+        "computed_sha256": "885402eb00f86e54ac8ddabbd56fe50dfb360abe16eae1e36fa3417ec1cc5b79",
+        "designated_file_bytes": 132895296,
+        "designated_file_name": "GSM9269936_B099-P1_SP02419-01_2024-02-24T01_51_43.275904721Z_labeled.h5",
+        "event": "file_hash_completed",
+        "file_role": "rna_h5",
+        "gsm": "GSM9269936",
+        "sequence": 1,
+        "subject_id": "FH1001"
+      },
+      {
+        "computed_sha256": "885402eb00f86e54ac8ddabbd56fe50dfb360abe16eae1e36fa3417ec1cc5b79",
+        "designated_file_bytes": 132895296,
+        "designated_file_name": "GSM9269936_B099-P1_SP02419-01_2024-02-24T01_51_43.275904721Z_labeled.h5",
+        "event": "file_designation_verified",
+        "file_role": "rna_h5",
+        "gsm": "GSM9269936",
+        "preflight_sha256_verified": true,
+        "sequence": 2,
+        "subject_id": "FH1001"
+      },
+      {
+        "designated_file_bytes": 132895296,
+        "designated_file_name": "GSM9269936_B099-P1_SP02419-01_2024-02-24T01_51_43.275904721Z_labeled.h5",
+        "event": "rna_h5_decode_started",
+        "file_role": "rna_h5",
+        "gsm": "GSM9269936",
+        "sequence": 3,
+        "subject_id": "FH1001"
+      },
+      {
+        "completed_unique_h5_dataset_paths_decoded": [
+          "matrix/barcodes",
+          "matrix/data",
+          "matrix/features/feature_type",
+          "matrix/features/name",
+          "matrix/indices",
+          "matrix/indptr",
+          "matrix/shape"
+        ],
+        "designated_file_bytes": 132895296,
+        "designated_file_name": "GSM9269936_B099-P1_SP02419-01_2024-02-24T01_51_43.275904721Z_labeled.h5",
+        "event": "rna_h5_reduction_completed",
+        "file_role": "rna_h5",
+        "gsm": "GSM9269936",
+        "sequence": 4,
+        "subject_id": "FH1001"
+      },
+      {
+        "designated_file_bytes": 132895296,
+        "designated_file_name": "GSM9269936_B099-P1_SP02419-01_2024-02-24T01_51_43.275904721Z_labeled.h5",
+        "event": "temporary_file_deleted",
+        "file_role": "rna_h5",
+        "gsm": "GSM9269936",
+        "sequence": 5,
+        "subject_id": "FH1001"
+      },
+      {
+        "designated_file_bytes": 1644605,
+        "designated_file_name": "GSM9269936_B099-P1_SP02419-01_2024-02-24T01_51_43.275904721Z_labeled_adt_counts.csv.gz",
+        "event": "file_requested",
+        "file_role": "adt_csv_gz",
+        "gsm": "GSM9269936",
+        "sequence": 6,
+        "subject_id": "FH1001"
+      },
+      {
+        "computed_sha256": "b760e0da6a937f7bc8c772241d451b5e6f4777f956e44dda34cedd2ed0a353da",
+        "designated_file_bytes": 1644605,
+        "designated_file_name": "GSM9269936_B099-P1_SP02419-01_2024-02-24T01_51_43.275904721Z_labeled_adt_counts.csv.gz",
+        "event": "file_hash_completed",
+        "file_role": "adt_csv_gz",
+        "gsm": "GSM9269936",
+        "sequence": 7,
+        "subject_id": "FH1001"
+      },
+      {
+        "computed_sha256": "b760e0da6a937f7bc8c772241d451b5e6f4777f956e44dda34cedd2ed0a353da",
+        "designated_file_bytes": 1644605,
+        "designated_file_name": "GSM9269936_B099-P1_SP02419-01_2024-02-24T01_51_43.275904721Z_labeled_adt_counts.csv.gz",
+        "event": "file_designation_verified",
+        "file_role": "adt_csv_gz",
+        "gsm": "GSM9269936",
+        "preflight_sha256_verified": true,
+        "sequence": 8,
+        "subject_id": "FH1001"
+      },
+      {
+        "designated_file_bytes": 1644605,
+        "designated_file_name": "GSM9269936_B099-P1_SP02419-01_2024-02-24T01_51_43.275904721Z_labeled_adt_counts.csv.gz",
+        "event": "adt_csv_decode_started",
+        "file_role": "adt_csv_gz",
+        "gsm": "GSM9269936",
+        "sequence": 9,
+        "subject_id": "FH1001"
+      },
+      {
+        "designated_file_bytes": 1644605,
+        "designated_file_name": "GSM9269936_B099-P1_SP02419-01_2024-02-24T01_51_43.275904721Z_labeled_adt_counts.csv.gz",
+        "event": "temporary_file_deleted",
+        "file_role": "adt_csv_gz",
+        "gsm": "GSM9269936",
+        "sequence": 10,
+        "subject_id": "FH1001"
+      }
+    ],
+    "phase": "source",
+    "schema": "gse309593-held-batches-incremental-access-audit/1.0",
+    "unique_h5_dataset_paths_with_started_read_or_length": {
+      "held": [],
+      "source": [
+        "matrix/barcodes",
+        "matrix/data",
+        "matrix/features/feature_type",
+        "matrix/features/name",
+        "matrix/indices",
+        "matrix/indptr",
+        "matrix/shape"
+      ]
+    }
+  },
+  "reason": "ADT identifier axis is empty or duplicated",
+  "reason_code": "ValueError",
+  "schema": "gse309593-held-batches-source/1.0",
+  "status": "TERMINAL_SOURCE_REFUSAL"
+}
