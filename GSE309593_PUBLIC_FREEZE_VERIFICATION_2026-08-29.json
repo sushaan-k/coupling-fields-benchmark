@@ -1,0 +1,29 @@
+{
+  "schema": "gse309593-public-freeze-verification/1.0",
+  "status": "PASS_BEFORE_TARGET_ASSAY_IDENTIFIER_OR_BARCODE_ACCESS",
+  "verified_at_utc": "2026-08-29T03:42:39Z",
+  "public_origin": "https://github.com/sushaan-k/coupling-fields-benchmark.git",
+  "protocol_tag": "gse309593-independent-study-v1-protocol",
+  "annotated_tag_object": "90b211a275254840c5e708b99d235dc955c6546f",
+  "peeled_commit": "44a203d4a9d5eb7e99ed57ddc0eaebda8980b142",
+  "fresh_clone": {
+    "clean_worktree": true,
+    "tag_object_type": "tag",
+    "head_matches_peeled_commit": true,
+    "focused_and_inherited_tests": {
+      "passed": 257,
+      "failed": 0
+    },
+    "local_path_scan": "PASS",
+    "email_pattern_scan": "PASS",
+    "gse309593_stage_artifact_absence_scan": "PASS"
+  },
+  "access_attestation": {
+    "gse309593_h5_or_adt_files_downloaded_or_opened": 0,
+    "gse309593_identifiers_or_barcodes_read": 0,
+    "gse309593_assay_values_read": 0,
+    "gse309593_private_bridges_or_state_artifacts_created": 0,
+    "gse309593_predictions_or_joint_tables_created": 0
+  },
+  "authorization": "The independent-study protocol tag is verified. Target access remains disabled until the GSE288020 development source bundle is publicly closed and its source authorization is tagged."
+}
