@@ -1,0 +1,150 @@
+{
+  "schema": "gse164378-3p-gse155673-external-study-protocol/1.0",
+  "status": "FROZEN_FROM_NON_ASSAY_METADATA_BEFORE_ASSAY_ACCESS",
+  "created_at_utc": "2026-08-29T11:12:00Z",
+  "bound_non_assay_artifacts": {
+    "candidate_designation": {"path": "data/confirmation/gse164378_3p_gse155673/candidate_designation_v1.json", "sha256": "748fb919ce902fb52e90976d4172abc424037939d114aa68190b34bf32052cc3"},
+    "source_manifest": {"path": "data/confirmation/gse164378_3p_gse155673/source_manifest_v1.json", "sha256": "e6fb10056b897dfa751ad2cf40b26b2de96adeffc0b9f6c28371a57a007601b6"},
+    "metadata_preflight": {"path": "results/development/gse164378_3p_gse155673_metadata_preflight_v1.json", "sha256": "e464f3b6850a98dff7f3271e897d96602b55d25fc6fa7ec2cc65a1713aff76f7"},
+    "runtime_environment": {"path": "data/confirmation/gse164378_3p_gse155673/runtime_environment_v1.json", "sha256": "bebc632e7872805cd33719089ca15376bd14428c7a885dac6702743bbd060daa"},
+    "score_authorization_template": {"path": "data/confirmation/gse164378_3p_gse155673/score_authorization_template_v1.json", "sha256": "f1fc5e1cae6816a8773a785e6eda4fec943321a8f8c1bc8e8f6ea015bf39c530"},
+    "runner": {"path": "experiments/confirm_gse164378_3p_gse155673.py", "sha256": "e96978429d104657071b3d2ebc20566a510a56359fbb04dc79087863d090d8f2"},
+    "tests": {"path": "tests/test_gse164378_3p_gse155673_confirmation.py", "sha256": "4e38c662a11bcd53defd4b0bf44651a8d77378d160a7302cbb353a21421a971b"}
+  },
+  "campaign": {
+    "candidate_selection_status": "GSE164378 3-prime day-0 to GSE155673 was selected through adaptive public-metadata search after outcomes from earlier GSE202150 and GSE185381 branches were known. This is a frozen held-study endpoint, not an independent replication of the dataset-selection process.",
+    "directional_alpha": 0.0125,
+    "error_control_scope": "The 0.0125 allocation governs this one frozen directional endpoint. It does not control the familywise error rate of the historical adaptive dataset search and is not evidence for a clean prospectively selected candidate family.",
+    "non_recycling_rule": "A miss, support refusal, integrity refusal, numerical failure, interruption, or unexpected exception closes this branch. Its alpha is never reassigned to a replacement dataset, endpoint, comparator, threshold, or rerun."
+  },
+  "claim_scope": "Composition-inclusive transfer of same-cell RNA-ADT coupling from eight day-0 healthy PBMC donors in GSE164378 to twelve independently deposited PBMC donor files in GSE155673, including five healthy and seven COVID-19 donors, on a frozen 24-cognate panel. The estimand is not cell-type-conditional and is not causal.",
+  "source_design": {
+    "calibration_donors": ["P1", "P3", "P5", "P7"],
+    "validation_donors": ["P2", "P4", "P6", "P8"],
+    "validation_batch_components": [["P2", "P4"], ["P6", "P8"]],
+    "configuration_loss": "equal mean of the Batch1 validation-component loss and Batch2 validation-component loss",
+    "source_eligibility_gate": "Before held access, the selected primary estimator must have strictly lower mean validation deviance than both the source-locked classical comparator and untuned raw Poisson separately in validation component [P2,P4] and separately in validation component [P6,P8]. Any equality or loss in any of the four component-by-comparator checks is a terminal source refusal.",
+    "refit": "After marker lock, estimator configuration lock, classical comparator lock, and source eligibility pass, refit on all eight source donors and rebuild both two-nearest-neighbor marker graphs from all eight source-donor profiles before any held assay access. Calibration-only graphs are never reused for the final fit."
+  },
+  "cell_and_feature_contract": {
+    "candidate_markers": 24,
+    "cell_budget_per_donor": 384,
+    "cell_selection": "Within each frozen donor, select the 384 cells with smallest SHA-256 of `GSE164378-3P-GSE155673-CELL-BUDGET-v1|donor_id|cell_id`; donor_id is P1-P8 for source and covXX for held. Use full digest then cell ID for exact ties.",
+    "rna_state": "raw deposited UMI count greater than zero",
+    "rna_axis_validity": "Within the donor's 384 selected cells, RNA detection prevalence lies in the closed interval [0.05, 0.95].",
+    "adt_state": "For a valid donor-marker ADT axis, sort by raw deposited ADT count, SHA-256 of `GSE164378-3P-GSE155673-ADT-v1|donor_id|locked_marker_index|cell_id`, then cell ID. The top 192 are high and the bottom 192 are low.",
+    "adt_axis_validity": "Within the donor's 384 selected cells, the ADT axis has at least two distinct raw deposited counts and its largest equal-count fraction is at most 0.90.",
+    "marker_resolution": "For source RNA, resolve exactly one deposited feature row `(rna_symbol,rna_symbol)` because the GSE164378 RNA feature file uses symbol in both columns. For held RNA, resolve exactly one row `(held_rna_ensembl_id,rna_symbol)`. Resolve each frozen source ADT feature label and held ADT feature ID exactly once in its modality schema. No alias fallback, fuzzy matching, duplicate aggregation, or post-access reagent substitution is allowed.",
+    "ordered_pair_validity": "An ordered RNA-by-ADT pair is informative in a donor exactly when its RNA row and ADT column are both valid.",
+    "source_marker_lock": {
+      "rule": "A marker locks only when both its RNA and ADT axes are valid in every one of the eight source donors P1-P8. Marker status is determined before held access and never revised.",
+      "minimum_locked_markers": 16,
+      "failure": "If fewer than 16 of the 24 markers lock, publish a terminal source-support refusal."
+    },
+    "held_support": {
+      "global_modality_rule": "For every one of the m source-locked markers, its RNA axis must be valid in at least 10 of 12 held donors and its ADT axis must be valid in at least 10 of 12 held donors. No held marker is dropped or substituted.",
+      "minimum_donors_per_marker_per_modality": 10,
+      "per_donor_rule": "Every held donor must retain at least ceil(0.8*m^2) informative ordered pairs out of the fixed m-by-m source-locked map.",
+      "minimum_pair_fraction_per_donor": 0.8,
+      "donor_attrition": "forbidden",
+      "failure": "Any global-modality or per-donor pair-support failure is a terminal held-support refusal before scoring; thresholds and donors are not revised."
+    },
+    "support_estimand": "The fixed source-locked, donor-supported RNA-by-ADT map. Each donor loss averages only its informative ordered pairs, and donors receive equal weight."
+  },
+  "primary_estimator": {
+    "family": "graph-regularized exact-fixed-margin hierarchical coupling field",
+    "graph": "Construct separate two-nearest-neighbor marker graphs from continuous calibration-donor profiles. For each donor and marker, the RNA coordinate is the mean across frozen cells of log1p(10000*raw RNA count/cell RNA library size), and the ADT coordinate is the mean across frozen cells of log1p(raw ADT count). A marker's profile vector spans the calibration donors. Regularize the ordered coupling field over the product incidence graph; binary state profiles are not used for graph construction.",
+    "grid": {
+      "heterogeneity_penalty": [0.1, 1.0, 10.0],
+      "ridge_penalty": [0.01, 0.1, 1.0],
+      "graph_penalty": [0.1, 1.0],
+      "transport_multiplier": [0.5, 0.75, 1.0]
+    },
+    "selection": "Fit on P1/P3/P5/P7. Select minimum equal-component validation deviance across [P2,P4] and [P6,P8], with lexicographic tie breaking in the field order heterogeneity_penalty, ridge_penalty, graph_penalty, transport_multiplier. The primary grid contains only positive graph penalties. Before held access, enforce the source_design.source_eligibility_gate.",
+    "final_graph_refit": "After the source eligibility pass, recompute the same continuous mean-log RNA and mean-log ADT profile coordinates across all eight source donors, rebuild both two-nearest-neighbor marker graphs from those eight-donor profile vectors, and refit the selected primary configuration on all eight donors.",
+    "graph_zero_ablation": "Repeat source selection with graph penalty exactly zero; this ablation is never eligible to replace the primary estimator.",
+    "destroyed_link_control": "Within each source donor, sort the frozen cell identifiers by SHA-256 of `GSE164378-3P-GSE155673-DESTROY-v1|donor_id|cell_id` and cyclically rotate the complete ADT cell-state vectors by one position relative to RNA. This preserves every donor-marker ADT margin and destroys same-cell RNA-ADT pairing. Keep the primary source-selected hyperparameters fixed and refit on the resulting pairing-destroyed source tables; do not retune or permute marker identities."
+  },
+  "comparators": {
+    "mandatory_classical_families": [
+      "untuned row-plus-column Poisson-independence signed-root-deviance residual at transport multiplier one",
+      "source-calibrated Poisson-independence signed-root-deviance residual",
+      "common-effect stratified conditional maximum-likelihood interaction",
+      "donor-pooled saturated 2-by-2 Poisson log-linear interaction",
+      "Paule-Mandel random-effects log-odds interaction"
+    ],
+    "lock_rule": "Select the minimum equal-component source-validation deviance among the estimable source-calibrated Poisson residual, common-effect stratified conditional maximum-likelihood, donor-pooled saturated Poisson, and Paule-Mandel random-effects families. Untuned raw Poisson is never eligible to lock. Resolve exact ties in that stated four-family order. An unestimable family remains in the report with a deterministic method-specific support or numerical code.",
+    "untuned_raw_poisson": "Always report and gate separately against the literal untuned Poisson-independence signed-root-deviance residual; it never serves as the source-locked comparator.",
+    "target_margin_independence": "Report descriptively as a nontransport control."
+  },
+  "held_separation": {
+    "combined_file_firewall": "Each GSE155673 matrix physically combines 33538 Gene Expression rows and 39 Antibody Capture rows. The held RNA pass may decompress and stream the physical file and parse coordinate row/column tokens needed for routing, but may convert, retain, aggregate, or serialize numeric values only for the 24 frozen RNA rows. Numeric value tokens from Antibody Capture rows are discarded without numeric conversion. The later ADT pass applies the converse rule to the 24 frozen ADT rows. This is a row-aware information firewall, not a claim that unauthorized compressed bytes are unread.",
+    "assay_hash_timing": "Each combined held matrix is first downloaded and whole-file SHA-256 hashed only after the public RNA-attempt tag. The ADT stage re-verifies the same physical bytes and SHA-256 before its separate row pass. Source RNA and ADT matrices are first downloaded and hashed after the public source-attempt tag.",
+    "rna_stage": "May produce held RNA cell states, RNA marginal support, and frozen cell identifiers; it cannot produce or use held ADT numeric values, states, ordering, or joint tables.",
+    "adt_stage": "May produce held ADT high/low states and ADT marginal support; it cannot join those states to held RNA states or form joint tables.",
+    "prediction_stage": "May use the locked source estimator, held RNA margins, design-fixed 192/192 ADT margins, and the separately computed RNA- and ADT-axis validity masks required by the frozen support gate. It cannot use raw held ADT counts, read held joint tables, or read held outcome loss.",
+    "score_stage": "The score stage, after public prediction and score-authorization tags, is the first stage allowed to join held RNA and ADT states and form held joint tables.",
+    "private_artifacts": "Cell identifiers and binary states remain outside the repository. Public artifacts contain bindings, counts, margins, predictions, loss summaries, and refusal codes only.",
+    "assay_access_journal": "Every assay stage opens an append-only public journal before download. The attempt tag binds its empty header; every file is recorded immediately with observed bytes and SHA-256; the completion tag binds the full journal even after terminal failure."
+  },
+  "transport_contract": {
+    "download_attempts": 3,
+    "partial_file_rule": "delete after each failed attempt",
+    "journal_rule": "append DOWNLOADED_AND_HASHED only after a transport attempt completes and observed bytes and SHA-256 are computed; then compare to the manifest; record and terminate on mismatch",
+    "exhaustion": "terminal stage failure",
+    "scope": "These are byte-transport attempts inside one already-claimed stage. They do not permit an analytical rerun, a second stage claim, changed inputs, changed code, or threshold revision."
+  },
+  "held_inference": {
+    "primary_endpoint": "donor-equal mean multinomial deviance per cell over each donor's informative ordered RNA-by-ADT pairs",
+    "comparison": "paired donor loss for the primary estimator minus paired donor loss for the source-locked strongest classical comparator",
+    "bootstrap": "20,000 paired donor bootstrap draws, sampling with replacement separately within the five healthy and seven COVID-19 donor strata and recombining with their observed 5:7 weights",
+    "bootstrap_draws": 20000,
+    "bootstrap_seed": 20260829,
+    "minimum_relative_loss_reduction": 0.05,
+    "minimum_favorable_donors": 11,
+    "directional_alpha": 0.0125,
+    "primary_pass_requirements": [
+      "mean primary loss is at least 5% lower than the locked comparator loss",
+      "the 98.75th percentile of the disease-stratified paired donor bootstrap distribution of mean loss difference is below zero",
+      "at least 11 of 12 donor loss differences are negative",
+      "the exact one-sided donor sign-test p-value is at most 0.0125",
+      "the exact one-sided 4096-assignment paired donor sign-flip p-value is at most 0.0125",
+      "the healthy-donor and COVID-19-donor mean differences are each negative",
+      "the moderate-COVID and severe-COVID mean differences are each negative",
+      "every leave-one-donor-out mean difference is negative"
+    ],
+    "raw_poisson_gate": "Repeat every primary pass requirement, including the 5% threshold and all uncertainty and sensitivity calculations, against untuned raw Poisson. Label this broad-classical support separately; the locked-comparator gate remains the primary estimator confirmation.",
+    "serial_confirmatory_order": [
+      "primary estimator versus source-locked strongest classical comparator",
+      "primary estimator versus untuned raw Poisson, evaluated only after the locked-comparator gate passes",
+      "primary estimator versus graph-zero ablation, evaluated only after both classical gates pass",
+      "primary estimator versus destroyed-link control, evaluated only after the graph-zero gate passes"
+    ],
+    "descriptive_contrasts": "Target-margin independence and nonlocked classical contrasts are descriptive and cannot rescue a failed confirmatory gate."
+  },
+  "public_tags": {
+    "protocol": "gse164378-3p-gse155673-v1-protocol",
+    "source_attempt": "gse164378-3p-gse155673-v1-source-attempt",
+    "source": "gse164378-3p-gse155673-v1-source",
+    "rna_attempt": "gse164378-3p-gse155673-v1-rna-attempt",
+    "rna": "gse164378-3p-gse155673-v1-rna",
+    "adt_attempt": "gse164378-3p-gse155673-v1-adt-attempt",
+    "adt": "gse164378-3p-gse155673-v1-adt",
+    "prediction_attempt": "gse164378-3p-gse155673-v1-prediction-attempt",
+    "prediction": "gse164378-3p-gse155673-v1-prediction",
+    "score_authorization": "gse164378-3p-gse155673-v1-score-authorization",
+    "score_attempt": "gse164378-3p-gse155673-v1-score-attempt",
+    "result": "gse164378-3p-gse155673-v1-result"
+  },
+  "public_tag_sequence": ["protocol", "source_attempt", "source", "rna_attempt", "rna", "adt_attempt", "adt", "prediction_attempt", "prediction", "score_authorization", "score_attempt", "result"],
+  "public_lineage_rule": "Each later public attempt, completion, authorization, and result tag must point to a commit descended from every prerequisite commit named in its frozen ledger. Matching file bytes without Git ancestry are insufficient.",
+  "one_shot_stages": ["source", "rna", "adt", "prediction", "score"],
+  "terminal_rules": {
+    "adaptive_rescue": "forbidden",
+    "premature_assay_access": "terminal integrity refusal",
+    "source_support_or_selection_failure": "publish terminal source refusal",
+    "held_support_or_integrity_failure": "publish terminal held refusal before scoring",
+    "post_score_criterion_failure": "publish completed negative result",
+    "stage_interruption_or_unexpected_exception": "consume and publish the stage attempt; never rerun"
+  }
+}

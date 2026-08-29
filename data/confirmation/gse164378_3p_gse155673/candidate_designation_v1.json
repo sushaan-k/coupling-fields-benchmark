@@ -1,0 +1,100 @@
+{
+  "schema": "gse164378-3p-gse155673-candidate-designation/1.0",
+  "status": "FROZEN_FROM_OFFICIAL_NON_ASSAY_METADATA_BEFORE_ANY_MATRIX_ACCESS",
+  "designated_at_utc": "2026-08-29T11:12:00Z",
+  "designation_basis": "Official GEO MINiML, supplementary file listings, GSE164378 processed cell metadata, source and held barcode axes, gene and antibody feature schemas, and antibody reagent metadata only. No Matrix Market file or assay numeric value was downloaded, opened, parsed, or inspected.",
+  "source_study": {
+    "accession": "GSE164378",
+    "gsm_rna": "GSM5008737",
+    "gsm_adt": "GSM5008738",
+    "assay": "10x 3-prime CITE-seq",
+    "timepoint": "day0",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE164378",
+    "paper_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8238499/"
+  },
+  "held_study": {
+    "accession": "GSE155673",
+    "assay": "10x 3-prime CITE-seq with combined RNA and ADT Matrix Market files",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE155673",
+    "paper_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7665312/",
+    "published_experimental_batches": 2,
+    "donor_to_batch_mapping": null,
+    "donor_to_batch_mapping_status": "The paper reports two experimental batches, but official GEO non-assay metadata do not identify the batch for each deposited donor file. Donor/file is the frozen biological unit; no batch assignment is inferred."
+  },
+  "cell_budget_per_donor": 384,
+  "cell_selection_salt": "GSE164378-3P-GSE155673-CELL-BUDGET-v1",
+  "source_donors": [
+    {"donor_id": "P1", "batch": "Batch1", "lanes": ["L1", "L2", "L3", "L4", "L5"], "day": 0, "cell_count": 6443, "frozen_role": "calibration"},
+    {"donor_id": "P2", "batch": "Batch1", "lanes": ["L1", "L2", "L3", "L4", "L5"], "day": 0, "cell_count": 5978, "frozen_role": "validation"},
+    {"donor_id": "P3", "batch": "Batch1", "lanes": ["L1", "L2", "L3", "L4", "L5"], "day": 0, "cell_count": 4698, "frozen_role": "calibration"},
+    {"donor_id": "P4", "batch": "Batch1", "lanes": ["L1", "L2", "L3", "L4", "L5"], "day": 0, "cell_count": 5307, "frozen_role": "validation"},
+    {"donor_id": "P5", "batch": "Batch2", "lanes": ["E2L1", "E2L2", "E2L3", "E2L4", "E2L5", "E2L6", "E2L7", "E2L8"], "day": 0, "cell_count": 7020, "frozen_role": "calibration"},
+    {"donor_id": "P6", "batch": "Batch2", "lanes": ["E2L1", "E2L2", "E2L3", "E2L4", "E2L5", "E2L6", "E2L7", "E2L8"], "day": 0, "cell_count": 6093, "frozen_role": "validation"},
+    {"donor_id": "P7", "batch": "Batch2", "lanes": ["E2L1", "E2L2", "E2L3", "E2L4", "E2L5", "E2L6", "E2L7", "E2L8"], "day": 0, "cell_count": 8909, "frozen_role": "calibration"},
+    {"donor_id": "P8", "batch": "Batch2", "lanes": ["E2L1", "E2L2", "E2L3", "E2L4", "E2L5", "E2L6", "E2L7", "E2L8"], "day": 0, "cell_count": 8916, "frozen_role": "validation"}
+  ],
+  "source_split": {
+    "calibration": ["P1", "P3", "P5", "P7"],
+    "validation": ["P2", "P4", "P6", "P8"],
+    "validation_batch_components": [["P2", "P4"], ["P6", "P8"]],
+    "rule": "Both calibration and validation contain two donors from each source batch. Configuration selection minimizes the equal mean of the two validation-batch component losses."
+  },
+  "held_donors": [
+    {"donor_file_id": "cov01", "rna_gsm": "GSM4712885", "adt_gsm": "GSM4712886", "sample_name": "nCOV3EUHM", "age_years": 75, "sex": "F", "phenotype": "COVID-19", "severity": "Severe", "sampling_day": 15, "cell_count": 4491, "barcode_file": "GSE155673_cov01_barcodes.tsv.gz", "matrix_file": "GSE155673_cov01_matrix.mtx.gz"},
+    {"donor_file_id": "cov02", "rna_gsm": "GSM4712887", "adt_gsm": "GSM4712888", "sample_name": "nCOV7EUHM", "age_years": 53, "sex": "F", "phenotype": "COVID-19", "severity": "Moderate", "sampling_day": 9, "cell_count": 1891, "barcode_file": "GSE155673_cov02_barcodes.tsv.gz", "matrix_file": "GSE155673_cov02_matrix.mtx.gz"},
+    {"donor_file_id": "cov03", "rna_gsm": "GSM4712889", "adt_gsm": "GSM4712890", "sample_name": "nCOV1EUHM", "age_years": 75, "sex": "F", "phenotype": "COVID-19", "severity": "Moderate", "sampling_day": 2, "cell_count": 6233, "barcode_file": "GSE155673_cov03_barcodes.tsv.gz", "matrix_file": "GSE155673_cov03_matrix.mtx.gz"},
+    {"donor_file_id": "cov04", "rna_gsm": "GSM4712891", "adt_gsm": "GSM4712892", "sample_name": "nCOV6EUHM", "age_years": 59, "sex": "M", "phenotype": "COVID-19", "severity": "Severe", "sampling_day": 16, "cell_count": 2453, "barcode_file": "GSE155673_cov04_barcodes.tsv.gz", "matrix_file": "GSE155673_cov04_matrix.mtx.gz"},
+    {"donor_file_id": "cov07", "rna_gsm": "GSM4712893", "adt_gsm": "GSM4712894", "sample_name": "280", "age_years": 84, "sex": "F", "phenotype": "Healthy", "severity": null, "sampling_day": null, "cell_count": 5485, "barcode_file": "GSE155673_cov07_barcodes.tsv.gz", "matrix_file": "GSE155673_cov07_matrix.mtx.gz"},
+    {"donor_file_id": "cov08", "rna_gsm": "GSM4712895", "adt_gsm": "GSM4712896", "sample_name": "259", "age_years": 68, "sex": "F", "phenotype": "Healthy", "severity": null, "sampling_day": null, "cell_count": 5419, "barcode_file": "GSE155673_cov08_barcodes.tsv.gz", "matrix_file": "GSE155673_cov08_matrix.mtx.gz"},
+    {"donor_file_id": "cov09", "rna_gsm": "GSM4712897", "adt_gsm": "GSM4712898", "sample_name": "279", "age_years": 38, "sex": "M", "phenotype": "Healthy", "severity": null, "sampling_day": null, "cell_count": 4827, "barcode_file": "GSE155673_cov09_barcodes.tsv.gz", "matrix_file": "GSE155673_cov09_matrix.mtx.gz"},
+    {"donor_file_id": "cov10", "rna_gsm": "GSM4712899", "adt_gsm": "GSM4712900", "sample_name": "nCOV021EUHM", "age_years": 60, "sex": "F", "phenotype": "COVID-19", "severity": "Severe", "sampling_day": 15, "cell_count": 4512, "barcode_file": "GSE155673_cov10_barcodes.tsv.gz", "matrix_file": "GSE155673_cov10_matrix.mtx.gz"},
+    {"donor_file_id": "cov11", "rna_gsm": "GSM4712901", "adt_gsm": "GSM4712902", "sample_name": "nCOV024EUHM", "age_years": 48, "sex": "M", "phenotype": "COVID-19", "severity": "Severe", "sampling_day": 8, "cell_count": 7874, "barcode_file": "GSE155673_cov11_barcodes.tsv.gz", "matrix_file": "GSE155673_cov11_matrix.mtx.gz"},
+    {"donor_file_id": "cov12", "rna_gsm": "GSM4712903", "adt_gsm": "GSM4712904", "sample_name": "nCOV0029EUHM", "age_years": 47, "sex": "F", "phenotype": "COVID-19", "severity": "Moderate", "sampling_day": 9, "cell_count": 5145, "barcode_file": "GSE155673_cov12_barcodes.tsv.gz", "matrix_file": "GSE155673_cov12_matrix.mtx.gz"},
+    {"donor_file_id": "cov17", "rna_gsm": "GSM4712905", "adt_gsm": "GSM4712906", "sample_name": "265", "age_years": 90, "sex": "M", "phenotype": "Healthy", "severity": null, "sampling_day": null, "cell_count": 9143, "barcode_file": "GSE155673_cov17_barcodes.tsv.gz", "matrix_file": "GSE155673_cov17_matrix.mtx.gz"},
+    {"donor_file_id": "cov18", "rna_gsm": "GSM4712907", "adt_gsm": "GSM4712908", "sample_name": "258", "age_years": 70, "sex": "F", "phenotype": "Healthy", "severity": null, "sampling_day": null, "cell_count": 5996, "barcode_file": "GSE155673_cov18_barcodes.tsv.gz", "matrix_file": "GSE155673_cov18_matrix.mtx.gz"}
+  ],
+  "marker_contract": {
+    "marker_count": 24,
+    "ordered_rna_by_adt_pairs_before_support": 576,
+    "mapping_rule": "Retain a one-to-one human RNA-gene to ADT-reagent cognate only when the source workbook and deposited source feature identify the reagent and the held feature identifies the same catalog and clone. Exact source and held HTO sequence/clone agreement is additionally required when the held HTO record exists. If multiple exact ADT reagents map to one gene-level RNA row, retain the lowest numeric catalog before assay access.",
+    "source_label_rule": "Workbook labels use underscores for duplicate reagents; deposited source ADT feature labels replace those underscores with hyphens. Both exact strings are frozen below.",
+    "markers": [
+      {"marker_id": "CD3D_CD3", "rna_symbol": "CD3D", "held_rna_ensembl_id": "ENSG00000167286", "adt_axis": {"axis_id": "CD3", "catalog": "300475", "sequence": "CTCATTGTAACTCCT", "clone": "UCHT1", "source_workbook_label": "CD3_1", "source_feature_label": "CD3-1", "held_feature_id": "TotalSeq-300475", "held_feature_label": "CD3--UCHT1-TSA"}},
+      {"marker_id": "CD8A_CD8", "rna_symbol": "CD8A", "held_rna_ensembl_id": "ENSG00000153563", "adt_axis": {"axis_id": "CD8", "catalog": "301067", "sequence": "GCTGCGCTTTCCATT", "clone": "RPA-T8", "source_workbook_label": "CD8a", "source_feature_label": "CD8a", "held_feature_id": "TotalSeq-301067", "held_feature_label": "CD8--RPA-T8-TSA"}},
+      {"marker_id": "CD19_CD19", "rna_symbol": "CD19", "held_rna_ensembl_id": "ENSG00000177455", "adt_axis": {"axis_id": "CD19", "catalog": "302259", "sequence": "CTGGGCAATTACTCG", "clone": "HIB19", "source_workbook_label": "CD19", "source_feature_label": "CD19", "held_feature_id": "TotalSeq-302259", "held_feature_label": "CD19--HIB19-TSA"}},
+      {"marker_id": "MS4A1_CD20", "rna_symbol": "MS4A1", "held_rna_ensembl_id": "ENSG00000156738", "adt_axis": {"axis_id": "CD20", "catalog": "302359", "sequence": "TTCTGGGTCCCTAGA", "clone": "2H7", "source_workbook_label": "CD20", "source_feature_label": "CD20", "held_feature_id": "TotalSeq-302359", "held_feature_label": "CD20--2H7-TSA", "held_hto_record": "not deposited; held feature ID and label supply catalog and clone"}},
+      {"marker_id": "NCAM1_CD56", "rna_symbol": "NCAM1", "held_rna_ensembl_id": "ENSG00000149294", "adt_axis": {"axis_id": "CD56", "catalog": "362557", "sequence": "TCCTTTCCTGATAGG", "clone": "5.1H11", "source_workbook_label": "CD56_1", "source_feature_label": "CD56-1", "held_feature_id": "TotalSeq-362557", "held_feature_label": "CD56--5-1H11-TSA"}},
+      {"marker_id": "CD69_CD69", "rna_symbol": "CD69", "held_rna_ensembl_id": "ENSG00000110848", "adt_axis": {"axis_id": "CD69", "catalog": "310947", "sequence": "GTCTCTTGGCTTAAA", "clone": "FN50", "source_workbook_label": "CD69", "source_feature_label": "CD69", "held_feature_id": "TotalSeq-310947", "held_feature_label": "CD69--FN50-TSA"}},
+      {"marker_id": "CD28_CD28", "rna_symbol": "CD28", "held_rna_ensembl_id": "ENSG00000178562", "adt_axis": {"axis_id": "CD28", "catalog": "302955", "sequence": "TGAGAACGACCCTAA", "clone": "CD28.2", "source_workbook_label": "CD28", "source_feature_label": "CD28", "held_feature_id": "TotalSeq-302955", "held_feature_label": "CD28--CD28-2-TSA"}},
+      {"marker_id": "FAS_CD95", "rna_symbol": "FAS", "held_rna_ensembl_id": "ENSG00000026103", "adt_axis": {"axis_id": "CD95", "catalog": "305649", "sequence": "CCAGCTCATTAGAGC", "clone": "DX2", "source_workbook_label": "CD95", "source_feature_label": "CD95", "held_feature_id": "TotalSeq-305649", "held_feature_label": "CD95--DX2-TSA"}},
+      {"marker_id": "PTPRC_CD45RA", "rna_symbol": "PTPRC", "held_rna_ensembl_id": "ENSG00000081237", "adt_axis": {"axis_id": "CD45RA", "catalog": "304157", "sequence": "TCAATCCTTCCGCTT", "clone": "HI100", "source_workbook_label": "CD45RA", "source_feature_label": "CD45RA", "held_feature_id": "TotalSeq-304157", "held_feature_label": "CD45RA--HI100-TSA"}},
+      {"marker_id": "HLA-DRA_HLA-DR", "rna_symbol": "HLA-DRA", "held_rna_ensembl_id": "ENSG00000204287", "adt_axis": {"axis_id": "HLA-DR", "catalog": "307659", "sequence": "AATAGCGAGCAAGTA", "clone": "L243", "source_workbook_label": "HLA-DR", "source_feature_label": "HLA-DR", "held_feature_id": "TotalSeq-307659", "held_feature_label": "HLA-DR--L243-TSA"}},
+      {"marker_id": "CD14_CD14", "rna_symbol": "CD14", "held_rna_ensembl_id": "ENSG00000170458", "adt_axis": {"axis_id": "CD14", "catalog": "301855", "sequence": "TCTCAGACCTCCGTA", "clone": "M5E2", "source_workbook_label": "CD14", "source_feature_label": "CD14", "held_feature_id": "TotalSeq-301855", "held_feature_label": "CD14--M5E2-TSA"}},
+      {"marker_id": "FCGR3A_CD16", "rna_symbol": "FCGR3A", "held_rna_ensembl_id": "ENSG00000203747", "adt_axis": {"axis_id": "CD16", "catalog": "302061", "sequence": "AAGTTCACTCTTTGC", "clone": "3G8", "source_workbook_label": "CD16", "source_feature_label": "CD16", "held_feature_id": "TotalSeq-302061", "held_feature_label": "CD16--3G8-TSA"}},
+      {"marker_id": "ITGAX_CD11c", "rna_symbol": "ITGAX", "held_rna_ensembl_id": "ENSG00000140678", "adt_axis": {"axis_id": "CD11c", "catalog": "371519", "sequence": "TACGCCTATAACTTG", "clone": "S-HCL-3", "source_workbook_label": "CD11c", "source_feature_label": "CD11c", "held_feature_id": "TotalSeq-371519", "held_feature_label": "CD11c--S-HCL-3-TSA"}},
+      {"marker_id": "CD1C_CD1c", "rna_symbol": "CD1C", "held_rna_ensembl_id": "ENSG00000158481", "adt_axis": {"axis_id": "CD1c", "catalog": "331539", "sequence": "GAGCTACTTCACTCG", "clone": "L161", "source_workbook_label": "CD1c", "source_feature_label": "CD1c", "held_feature_id": "TotalSeq-331539", "held_feature_label": "CD1c_BDCA1--L161-TSA"}},
+      {"marker_id": "CLEC9A_CD370", "rna_symbol": "CLEC9A", "held_rna_ensembl_id": "ENSG00000197992", "adt_axis": {"axis_id": "CD370", "catalog": "353807", "sequence": "CTGCATTTCAGTAAG", "clone": "8F9", "source_workbook_label": "CD370", "source_feature_label": "CD370", "held_feature_id": "TotalSeq-353807", "held_feature_label": "CD370_CLEC9A--8F9-TSA"}},
+      {"marker_id": "IL3RA_CD123", "rna_symbol": "IL3RA", "held_rna_ensembl_id": "ENSG00000185291", "adt_axis": {"axis_id": "CD123", "catalog": "306037", "sequence": "CTTCACTCTGTCAGG", "clone": "6H6", "source_workbook_label": "CD123", "source_feature_label": "CD123", "held_feature_id": "TotalSeq-306037", "held_feature_label": "CD123--6H6-TSA"}},
+      {"marker_id": "CD86_CD86", "rna_symbol": "CD86", "held_rna_ensembl_id": "ENSG00000114013", "adt_axis": {"axis_id": "CD86", "catalog": "305443", "sequence": "GTCTTTGTCAGTGCA", "clone": "IT2.2", "source_workbook_label": "CD86", "source_feature_label": "CD86", "held_feature_id": "TotalSeq-305443", "held_feature_label": "CD86--IT2-2-TSA"}},
+      {"marker_id": "CD274_CD274", "rna_symbol": "CD274", "held_rna_ensembl_id": "ENSG00000120217", "adt_axis": {"axis_id": "CD274", "catalog": "329743", "sequence": "GTTGTCCGACAATAC", "clone": "29E.2A3", "source_workbook_label": "CD274", "source_feature_label": "CD274", "held_feature_id": "TotalSeq-329743", "held_feature_label": "CD274_PD-L1--29E-2A3-TSA"}},
+      {"marker_id": "CD163_CD163", "rna_symbol": "CD163", "held_rna_ensembl_id": "ENSG00000177575", "adt_axis": {"axis_id": "CD163", "catalog": "333635", "sequence": "GCTTCTCCTTCCTTA", "clone": "GHI/61", "source_workbook_label": "CD163", "source_feature_label": "CD163", "held_feature_id": "TotalSeq-333635", "held_feature_label": "CD163--GHI-61-TSA"}},
+      {"marker_id": "CD27_CD27", "rna_symbol": "CD27", "held_rna_ensembl_id": "ENSG00000139193", "adt_axis": {"axis_id": "CD27", "catalog": "302847", "sequence": "GCACTCCTGCATGTA", "clone": "O323", "source_workbook_label": "CD27", "source_feature_label": "CD27", "held_feature_id": "TotalSeq-302847", "held_feature_label": "CD27--O323-TSA"}},
+      {"marker_id": "CD38_CD38", "rna_symbol": "CD38", "held_rna_ensembl_id": "ENSG00000004468", "adt_axis": {"axis_id": "CD38", "catalog": "303541", "sequence": "TGTACCCGCTTGTGA", "clone": "HIT2", "source_workbook_label": "CD38_1", "source_feature_label": "CD38-1", "held_feature_id": "TotalSeq-303541", "held_feature_label": "CD38--HIT2-TSA"}},
+      {"marker_id": "IL2RA_CD25", "rna_symbol": "IL2RA", "held_rna_ensembl_id": "ENSG00000134460", "adt_axis": {"axis_id": "CD25", "catalog": "302643", "sequence": "TTTGTCCTGTACGCC", "clone": "BC96", "source_workbook_label": "CD25", "source_feature_label": "CD25", "held_feature_id": "TotalSeq-302643", "held_feature_label": "CD25--BC96-TSA"}},
+      {"marker_id": "CD34_CD34", "rna_symbol": "CD34", "held_rna_ensembl_id": "ENSG00000174059", "adt_axis": {"axis_id": "CD34", "catalog": "343537", "sequence": "GCAGAAATCTCCCTT", "clone": "581", "source_workbook_label": "CD34", "source_feature_label": "CD34", "held_feature_id": "TotalSeq-343537", "held_feature_label": "CD34--581-TSA"}},
+      {"marker_id": "IL7R_CD127", "rna_symbol": "IL7R", "held_rna_ensembl_id": "ENSG00000168685", "adt_axis": {"axis_id": "CD127", "catalog": "351352", "sequence": "GTGTGTTGTCCTATG", "clone": "A019D5", "source_workbook_label": "CD127", "source_feature_label": "CD127", "held_feature_id": "TotalSeq-351352", "held_feature_label": "CD127--A019D5-TSA"}}
+    ],
+    "predeclared_exclusions": [
+      {"held_feature_id": "TotalSeq-304255", "held_feature_label": "CD45RO--UCHL1-TSA", "reason": "duplicate PTPRC gene-level RNA cognate; catalog 304157 CD45RA wins the frozen lower-catalog tie-break"},
+      {"held_feature_id": "TotalSeq-350231", "held_feature_label": "CD57--Ber-ACT8-TSA", "reason": "internal deposited-metadata conflict: source workbook and held HTO record identify catalog 350231 as CD103, whereas the held feature label says CD57"},
+      {"held_feature_id": "TotalSeq-317451", "held_feature_label": "CD4--OKT4-TSA", "reason": "source study does not contain the same catalog and clone"},
+      {"held_feature_id": "TotalSeq-109123", "held_feature_label": "CD279_PD-1--RMP1-30-TSA", "reason": "mouse reagent and mouse Ensembl gene ID in held HTO metadata; no exact source reagent"},
+      {"reason": "CD33, CCR7, CD94, and FCER1A have no exact source catalog/clone match; TCR, anti-PE, and isotype axes lack a unique human RNA-gene cognate"}
+    ]
+  },
+  "barcode_identity_contract": {
+    "source": "The source RNA barcode file, source ADT barcode file, and processed-cell metadata identifier column have 161764 entries and are byte-identical in order.",
+    "held": "Each held donor has one deposited barcode axis shared by the combined RNA/ADT file. Prefix every held barcode with `donor_file_id:` before cross-donor union.",
+    "cross_donor_collision_audit": {"unprefixed_reused_barcode_strings": 600, "maximum_donor_multiplicity": 3}
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "schema": "gse164378-3p-gse155673-metadata-preflight/1.0",
+  "created_at_utc": "2026-08-29T11:12:00Z",
+  "status": "PASS_NON_ASSAY_PREFLIGHT",
+  "access_boundary": {
+    "matrix_market_files_downloaded": 0,
+    "matrix_market_files_opened": 0,
+    "assay_matrix_rows_opened": 0,
+    "numeric_assay_values_read": 0,
+    "evidence": "Only official GEO metadata, supplementary file listings, barcode files, feature files, and antibody/HTO metadata were downloaded and inspected."
+  },
+  "study_design": {
+    "source_accession": "GSE164378",
+    "source_gsm_pair": ["GSM5008737", "GSM5008738"],
+    "source_assay": "10x 3-prime CITE-seq",
+    "source_day0_donors": 8,
+    "source_day0_cells": 53364,
+    "held_accession": "GSE155673",
+    "held_donor_files": 12,
+    "held_barcode_rows": 63469,
+    "held_healthy_donors": 5,
+    "held_covid19_donors": 7,
+    "held_moderate_covid19_donors": 3,
+    "held_severe_covid19_donors": 4,
+    "minimum_held_donor_cells": 1891,
+    "cell_budget_per_donor": 384,
+    "all_frozen_donors_meet_cell_budget": true,
+    "published_held_experimental_batches": 2,
+    "held_donor_to_batch_mapping_available": false
+  },
+  "source_axis_checks": {
+    "processed_metadata_rows": 161764,
+    "rna_barcode_rows": 161764,
+    "adt_barcode_rows": 161764,
+    "rna_adt_barcode_files_byte_identical": true,
+    "metadata_identifier_axis_matches_barcode_axis": true,
+    "rna_feature_rows": 33538,
+    "adt_feature_rows": 228,
+    "day0_split": {
+      "calibration": ["P1", "P3", "P5", "P7"],
+      "validation_batch1": ["P2", "P4"],
+      "validation_batch2": ["P6", "P8"]
+    }
+  },
+  "held_axis_checks": {
+    "combined_feature_rows": 33577,
+    "gene_expression_rows": 33538,
+    "antibody_capture_rows": 39,
+    "per_donor_barcode_files": 12,
+    "per_donor_matrix_files": 12,
+    "global_barcode_file_is_cov01_duplicate": true,
+    "global_barcode_file_ingestion_status": "excluded",
+    "unprefixed_cross_donor_barcode_collisions": 600,
+    "maximum_unprefixed_barcode_multiplicity": 3,
+    "required_prefix_rule": "prefix every held cell identifier with donor_file_id and a colon before union"
+  },
+  "marker_audit": {
+    "held_antibody_features": 39,
+    "source_held_catalog_and_clone_candidates_before_gene_deduplication": 25,
+    "held_hto_records_with_explicit_matching_sequence_among_those_candidates": 24,
+    "held_feature_only_catalog_clone_candidate": "MS4A1/CD20 catalog 302359 clone 2H7; held feature ID and label are exact, but the catalog is omitted from the held HTO CSV",
+    "duplicate_gene_level_candidate": "CD45RA and CD45RO both map to PTPRC; lower catalog 304157 CD45RA is frozen and 304255 CD45RO is excluded",
+    "final_one_to_one_cognates": 24,
+    "final_unique_rna_symbols": 24,
+    "final_adt_axes": 24,
+    "source_rna_resolution": "each marker resolves exactly once as (rna_symbol,rna_symbol)",
+    "held_rna_resolution": "each marker resolves exactly once as (held Ensembl ID,rna_symbol)",
+    "all_final_rna_symbols_resolve_exactly_once_in_source_and_held_gene_features": true,
+    "all_final_adt_ids_resolve_exactly_once_in_source_and_held_adt_features": true,
+    "cd8_resolution": "Include CD8A/CD8: source workbook CD8a catalog 301067, sequence GCTGCGCTTTCCATT, clone RPA-T8 exactly maps to held TotalSeq-301067 CD8--RPA-T8-TSA. It is not the separate source CD8/SK1 reagent.",
+    "label_schema_resolution": "Source workbook duplicate-reagent labels use underscores (CD3_1, CD56_1, CD38_1); deposited source ADT features use hyphens (CD3-1, CD56-1, CD38-1). Exact paired labels are frozen in the candidate designation.",
+    "catalog_350231_resolution": "Exclude. Source workbook and held HTO metadata identify catalog 350231, sequence GACCTCATTGTGAAT, clone Ber-ACT8 as CD103, but the held feature label is CD57--Ber-ACT8-TSA.",
+    "all_mapping_records_frozen_in": "data/confirmation/gse164378_3p_gse155673/candidate_designation_v1.json"
+  },
+  "file_inventory": {
+    "non_assay_source_files_hashed": 7,
+    "non_assay_held_files_hashed": 16,
+    "source_assay_files_deferred": 2,
+    "held_combined_assay_files_deferred": 12,
+    "source_non_assay_bytes": 4755767,
+    "held_non_assay_bytes_including_redundant_global_barcode": 668104,
+    "all_non_assay_bytes": 5423871,
+    "source_assay_compressed_bytes": 1230098807,
+    "held_assay_compressed_bytes": 476335694,
+    "all_assay_compressed_bytes": 1706434501,
+    "assay_body_bytes_opened_before_freeze": 0,
+    "metadata_bytes_are_not_included_in_assay_body_totals": true,
+    "manifest": "data/confirmation/gse164378_3p_gse155673/source_manifest_v1.json"
+  },
+  "ingestion_blockers_and_rules": [
+    "Held matrices combine RNA and ADT rows; use the protocol's row-aware two-pass firewall and never describe it as byte-level blindness.",
+    "Official metadata do not expose held donor-to-batch membership; do not infer or fabricate batch clusters.",
+    "Exclude the redundant global GSE155673_barcodes.tsv.gz file; it is a duplicate of cov01, not another donor.",
+    "Prefix held barcodes by donor_file_id before union because 600 unprefixed strings recur across donor files.",
+    "Exclude catalog 350231 because the held feature label conflicts with source and held reagent metadata.",
+    "Treat the final held HTO CSV record as valid even though the gzip payload lacks a terminal newline; parse records, not physical newline count.",
+    "The two GSM records per held donor describe RNA and ADT but point to one combined donor matrix; ingest each physical matrix once per authorized row pass."
+  ],
+  "required_runner_contract_before_protocol_tag": [
+    "accept exactly source donors P1-P8 at day0 and exactly held files cov01,cov02,cov03,cov04,cov07,cov08,cov09,cov10,cov11,cov12,cov17,cov18",
+    "use calibration P1,P3,P5,P7 and validation components [P2,P4] and [P6,P8]",
+    "resolve exactly the 24 frozen one-to-one cognates; retain a marker only if both axes are valid in all eight source donors; apply minimum lock count 16",
+    "before held access require the selected primary to beat both the locked classical comparator and untuned raw Poisson strictly within each validation component [P2,P4] and [P6,P8]",
+    "after that pass rebuild both marker graphs from all eight source donor profiles for the final all-eight-donor refit",
+    "select exactly 384 salted cells per donor",
+    "enforce every-marker held modality support in at least 10 of 12 donors and every-donor support ceil(0.8*m^2)",
+    "keep every assay SHA null until its authorized stage and enforce the combined-file row firewall",
+    "apply alpha 0.0125, the exact full held gate, non-recycling, and one-shot terminal rules",
+    "publish tags in the exact frozen sequence before score access"
+  ]
+}
