@@ -1,0 +1,2404 @@
+{
+  "access_audit": {
+    "adt_numeric_values_read": 0,
+    "archives_downloaded": 10,
+    "barcode_values_read": 0,
+    "feature_tables_read": 10,
+    "hto_numeric_values_read": 0,
+    "matrix_coordinate_lines_read": 0,
+    "matrix_members_opened": 0,
+    "rna_numeric_values_read": 0,
+    "tar_member_headers_inspected": true
+  },
+  "accession": "GSE189050",
+  "bindings": {
+    "access_record_sha256": "c8c3f484f82d93f58a51964dc528c76e452c1c66ab10a0f58e459f9eb7d3d7c5",
+    "author_sheet_sha256": "7d2814f4acf83d296cbfd3b61b936f1b1a118e338ac96fef90e05b385c23953d",
+    "designation_sha256": "7a582d141a955955b27c0e1b3d4d7cc20c660b54996e4b0400feeaa301e071bf",
+    "geo_metadata_sha256": "ed761346db5883a0056049654c001490a5e751d1ceed7e7afddf04106bd2fbf4",
+    "source_manifest_sha256": "e22bcc53828182bdccc4fb2f4135483fa028f15d840361b83ea0b3eb1f4595c7"
+  },
+  "clinical_conflicts_ignored_from_author_sheet": [
+    "SUB235957",
+    "SUB236000"
+  ],
+  "clinical_metadata_authority": "GEO sample table",
+  "created_at_utc": "2026-08-29T01:19:42Z",
+  "donors": [
+    {
+      "ancestry": "AA",
+      "disease_activity": "none",
+      "hto": "HT-5",
+      "pool": "s4a",
+      "role": "pilot",
+      "subject": "SUB235944",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "none",
+      "hto": "HT-4",
+      "pool": "s5b",
+      "role": "held",
+      "subject": "SUB235945",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "none",
+      "hto": "HT-4",
+      "pool": "s3a",
+      "role": "calibration",
+      "subject": "SUB235946",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "none",
+      "hto": "HT-2",
+      "pool": "s5b",
+      "role": "held",
+      "subject": "SUB235947",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "none",
+      "hto": "HT-3",
+      "pool": "s1b",
+      "role": "held",
+      "subject": "SUB235948",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "none",
+      "hto": "HT-3",
+      "pool": "s1a",
+      "role": "calibration",
+      "subject": "SUB235950",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "none",
+      "hto": "HT-1",
+      "pool": "s3a",
+      "role": "calibration",
+      "subject": "SUB235951",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "none",
+      "hto": "HT-4",
+      "pool": "s4b",
+      "role": "held",
+      "subject": "SUB235952",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "none",
+      "hto": "HT-1",
+      "pool": "s5b",
+      "role": "held",
+      "subject": "SUB235953",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "high",
+      "hto": "HT-1",
+      "pool": "s1a",
+      "role": "calibration",
+      "subject": "SUB235954",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "none",
+      "hto": "HT-4",
+      "pool": "s5a",
+      "role": "held",
+      "subject": "SUB235955",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "none",
+      "hto": "HT-4",
+      "pool": "s2a",
+      "role": "pilot",
+      "subject": "SUB235956",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "none",
+      "hto": "HT-2",
+      "pool": "s2b",
+      "role": "held",
+      "subject": "SUB235957",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "none",
+      "hto": "HT-4",
+      "pool": "s3b",
+      "role": "held",
+      "subject": "SUB235958",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "none",
+      "hto": "HT-4",
+      "pool": "s4a",
+      "role": "pilot",
+      "subject": "SUB235959",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "none",
+      "hto": "HT-3",
+      "pool": "s2a",
+      "role": "pilot",
+      "subject": "SUB235960",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "low",
+      "hto": "HT-4",
+      "pool": "s1b",
+      "role": "held",
+      "subject": "SUB235962",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "low",
+      "hto": "HT-2",
+      "pool": "s5a",
+      "role": "held",
+      "subject": "SUB235964",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "high",
+      "hto": "HT-1",
+      "pool": "s4b",
+      "role": "held",
+      "subject": "SUB235965",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "low",
+      "hto": "HT-5",
+      "pool": "s5a",
+      "role": "held",
+      "subject": "SUB235966",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "low",
+      "hto": "HT-2",
+      "pool": "s3b",
+      "role": "held",
+      "subject": "SUB235967",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "low",
+      "hto": "HT-2",
+      "pool": "s1a",
+      "role": "calibration",
+      "subject": "SUB235969",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "high",
+      "hto": "HT-5",
+      "pool": "s3a",
+      "role": "calibration",
+      "subject": "SUB235970",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "low",
+      "hto": "HT-2",
+      "pool": "s1b",
+      "role": "held",
+      "subject": "SUB235972",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "high",
+      "hto": "HT-1",
+      "pool": "s2a",
+      "role": "pilot",
+      "subject": "SUB235973",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "low",
+      "hto": "HT-2",
+      "pool": "s4a",
+      "role": "pilot",
+      "subject": "SUB235974",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "high",
+      "hto": "HT-3",
+      "pool": "s3b",
+      "role": "held",
+      "subject": "SUB235975",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "high",
+      "hto": "HT-1",
+      "pool": "s2b",
+      "role": "held",
+      "subject": "SUB235978",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "high",
+      "hto": "HT-3",
+      "pool": "s5b",
+      "role": "held",
+      "subject": "SUB235980",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "low",
+      "hto": "HT-2",
+      "pool": "s4b",
+      "role": "held",
+      "subject": "SUB235981",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "low",
+      "hto": "HT-3",
+      "pool": "s4b",
+      "role": "held",
+      "subject": "SUB235983",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "high",
+      "hto": "HT-5",
+      "pool": "s4b",
+      "role": "held",
+      "subject": "SUB235984",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "high",
+      "hto": "HT-1",
+      "pool": "s5a",
+      "role": "held",
+      "subject": "SUB235985",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "none",
+      "hto": "HT-5",
+      "pool": "s3b",
+      "role": "held",
+      "subject": "SUB235986",
+      "subject_status": "control"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "low",
+      "hto": "HT-1",
+      "pool": "s3b",
+      "role": "held",
+      "subject": "SUB235987",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "high",
+      "hto": "HT-3",
+      "pool": "s4a",
+      "role": "pilot",
+      "subject": "SUB235988",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "low",
+      "hto": "HT-2",
+      "pool": "s3a",
+      "role": "calibration",
+      "subject": "SUB235990",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "low",
+      "hto": "HT-5",
+      "pool": "s5b",
+      "role": "held",
+      "subject": "SUB235991",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "high",
+      "hto": "HT-3",
+      "pool": "s3a",
+      "role": "calibration",
+      "subject": "SUB235992",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "high",
+      "hto": "HT-4",
+      "pool": "s1a",
+      "role": "calibration",
+      "subject": "SUB235993",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "low",
+      "hto": "HT-2",
+      "pool": "s2a",
+      "role": "pilot",
+      "subject": "SUB235994",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "high",
+      "hto": "HT-4",
+      "pool": "s2b",
+      "role": "held",
+      "subject": "SUB235995",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "high",
+      "hto": "HT-1",
+      "pool": "s1b",
+      "role": "held",
+      "subject": "SUB235997",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "high",
+      "hto": "HT-3",
+      "pool": "s5a",
+      "role": "held",
+      "subject": "SUB235998",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "EA",
+      "disease_activity": "low",
+      "hto": "HT-3",
+      "pool": "s2b",
+      "role": "held",
+      "subject": "SUB236000",
+      "subject_status": "SLE"
+    },
+    {
+      "ancestry": "AA",
+      "disease_activity": "low",
+      "hto": "HT-1",
+      "pool": "s4a",
+      "role": "pilot",
+      "subject": "SUB236001",
+      "subject_status": "SLE"
+    }
+  ],
+  "pool_schemas": {
+    "s1a": {
+      "antibody_capture_features": 56,
+      "archive_bytes": 32562299,
+      "archive_sha256": "b5f10c403e34678c0a965a15d68dbb80147c0a28a37d252ee04e29bfb60b20d0",
+      "feature_table_rows": 68942,
+      "feature_table_sha256": "46a499a5f11aa14bcc1158e1f36b33db485e84e059c71567c0217d1345813b99",
+      "gene_expression_features": 68886,
+      "hto_resolution": [
+        {
+          "row_1based": 68939,
+          "tag": "HT-1"
+        },
+        {
+          "row_1based": 68940,
+          "tag": "HT-2"
+        },
+        {
+          "row_1based": 68941,
+          "tag": "HT-3"
+        },
+        {
+          "row_1based": 68942,
+          "tag": "HT-4"
+        }
+      ],
+      "legacy_cognate_feature_mappings": [
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD16",
+          "adt_row_1based": 68897,
+          "rna_ensembl": "ENSG00000203747",
+          "rna_row_1based": 2345,
+          "rna_symbol": "FCGR3A"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "HLA-DR",
+          "adt_row_1based": 68888,
+          "rna_ensembl": "ENSG00000204287",
+          "rna_row_1based": 11756,
+          "rna_symbol": "HLA-DRA"
+        },
+        {
+          "adt": "CD95",
+          "adt_row_1based": 68916,
+          "rna_ensembl": "ENSG00000026103",
+          "rna_row_1based": 18369,
+          "rna_symbol": "FAS"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ],
+      "members": [
+        {
+          "bytes": 298965,
+          "name": "s1a_filtered_barcodes.tsv"
+        },
+        {
+          "bytes": 3819866,
+          "name": "s1a_filtered_features.tsv"
+        },
+        {
+          "bytes": 126946806,
+          "name": "s1a_filtered_matrix.mtx"
+        }
+      ],
+      "primary_cognate_feature_mappings": [
+        {
+          "adt": "CD1c",
+          "adt_row_1based": 68889,
+          "rna_ensembl": "ENSG00000158481",
+          "rna_row_1based": 2239,
+          "rna_symbol": "CD1C"
+        },
+        {
+          "adt": "CD11b",
+          "adt_row_1based": 68894,
+          "rna_ensembl": "ENSG00000169896",
+          "rna_row_1based": 27213,
+          "rna_symbol": "ITGAM"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "CD58",
+          "adt_row_1based": 68908,
+          "rna_ensembl": "ENSG00000116815",
+          "rna_row_1based": 1759,
+          "rna_symbol": "CD58"
+        },
+        {
+          "adt": "CD64",
+          "adt_row_1based": 68909,
+          "rna_ensembl": "ENSG00000150337",
+          "rna_row_1based": 1903,
+          "rna_symbol": "FCGR1A"
+        },
+        {
+          "adt": "CD85j",
+          "adt_row_1based": 68913,
+          "rna_ensembl": "ENSG00000104972",
+          "rna_row_1based": 32683,
+          "rna_symbol": "LILRB1"
+        },
+        {
+          "adt": "CD86",
+          "adt_row_1based": 68914,
+          "rna_ensembl": "ENSG00000114013",
+          "rna_row_1based": 7014,
+          "rna_symbol": "CD86"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ]
+    },
+    "s1b": {
+      "antibody_capture_features": 56,
+      "archive_bytes": 25238040,
+      "archive_sha256": "07fd5ba4cf172e2631ac516ab006a88f07e9793ad676203dfc1aeab564a3d03a",
+      "feature_table_rows": 68942,
+      "feature_table_sha256": "46a499a5f11aa14bcc1158e1f36b33db485e84e059c71567c0217d1345813b99",
+      "gene_expression_features": 68886,
+      "hto_resolution": [
+        {
+          "row_1based": 68939,
+          "tag": "HT-1"
+        },
+        {
+          "row_1based": 68940,
+          "tag": "HT-2"
+        },
+        {
+          "row_1based": 68941,
+          "tag": "HT-3"
+        },
+        {
+          "row_1based": 68942,
+          "tag": "HT-4"
+        }
+      ],
+      "legacy_cognate_feature_mappings": [
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD16",
+          "adt_row_1based": 68897,
+          "rna_ensembl": "ENSG00000203747",
+          "rna_row_1based": 2345,
+          "rna_symbol": "FCGR3A"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "HLA-DR",
+          "adt_row_1based": 68888,
+          "rna_ensembl": "ENSG00000204287",
+          "rna_row_1based": 11756,
+          "rna_symbol": "HLA-DRA"
+        },
+        {
+          "adt": "CD95",
+          "adt_row_1based": 68916,
+          "rna_ensembl": "ENSG00000026103",
+          "rna_row_1based": 18369,
+          "rna_symbol": "FAS"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ],
+      "members": [
+        {
+          "bytes": 286577,
+          "name": "s1b_filtered_barcodes.tsv"
+        },
+        {
+          "bytes": 3819866,
+          "name": "s1b_filtered_features.tsv"
+        },
+        {
+          "bytes": 95806686,
+          "name": "s1b_filtered_matrix.mtx"
+        }
+      ],
+      "primary_cognate_feature_mappings": [
+        {
+          "adt": "CD1c",
+          "adt_row_1based": 68889,
+          "rna_ensembl": "ENSG00000158481",
+          "rna_row_1based": 2239,
+          "rna_symbol": "CD1C"
+        },
+        {
+          "adt": "CD11b",
+          "adt_row_1based": 68894,
+          "rna_ensembl": "ENSG00000169896",
+          "rna_row_1based": 27213,
+          "rna_symbol": "ITGAM"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "CD58",
+          "adt_row_1based": 68908,
+          "rna_ensembl": "ENSG00000116815",
+          "rna_row_1based": 1759,
+          "rna_symbol": "CD58"
+        },
+        {
+          "adt": "CD64",
+          "adt_row_1based": 68909,
+          "rna_ensembl": "ENSG00000150337",
+          "rna_row_1based": 1903,
+          "rna_symbol": "FCGR1A"
+        },
+        {
+          "adt": "CD85j",
+          "adt_row_1based": 68913,
+          "rna_ensembl": "ENSG00000104972",
+          "rna_row_1based": 32683,
+          "rna_symbol": "LILRB1"
+        },
+        {
+          "adt": "CD86",
+          "adt_row_1based": 68914,
+          "rna_ensembl": "ENSG00000114013",
+          "rna_row_1based": 7014,
+          "rna_symbol": "CD86"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ]
+    },
+    "s2a": {
+      "antibody_capture_features": 56,
+      "archive_bytes": 34110884,
+      "archive_sha256": "4114e9903a98d24531708592b62be62bb7cb057da851353fb5450c7db086d587",
+      "feature_table_rows": 68942,
+      "feature_table_sha256": "46a499a5f11aa14bcc1158e1f36b33db485e84e059c71567c0217d1345813b99",
+      "gene_expression_features": 68886,
+      "hto_resolution": [
+        {
+          "row_1based": 68939,
+          "tag": "HT-1"
+        },
+        {
+          "row_1based": 68940,
+          "tag": "HT-2"
+        },
+        {
+          "row_1based": 68941,
+          "tag": "HT-3"
+        },
+        {
+          "row_1based": 68942,
+          "tag": "HT-4"
+        }
+      ],
+      "legacy_cognate_feature_mappings": [
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD16",
+          "adt_row_1based": 68897,
+          "rna_ensembl": "ENSG00000203747",
+          "rna_row_1based": 2345,
+          "rna_symbol": "FCGR3A"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "HLA-DR",
+          "adt_row_1based": 68888,
+          "rna_ensembl": "ENSG00000204287",
+          "rna_row_1based": 11756,
+          "rna_symbol": "HLA-DRA"
+        },
+        {
+          "adt": "CD95",
+          "adt_row_1based": 68916,
+          "rna_ensembl": "ENSG00000026103",
+          "rna_row_1based": 18369,
+          "rna_symbol": "FAS"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ],
+      "members": [
+        {
+          "bytes": 353305,
+          "name": "s2a_filtered_barcodes.tsv"
+        },
+        {
+          "bytes": 3819866,
+          "name": "s2a_filtered_features.tsv"
+        },
+        {
+          "bytes": 133580103,
+          "name": "s2a_filtered_matrix.mtx"
+        }
+      ],
+      "primary_cognate_feature_mappings": [
+        {
+          "adt": "CD1c",
+          "adt_row_1based": 68889,
+          "rna_ensembl": "ENSG00000158481",
+          "rna_row_1based": 2239,
+          "rna_symbol": "CD1C"
+        },
+        {
+          "adt": "CD11b",
+          "adt_row_1based": 68894,
+          "rna_ensembl": "ENSG00000169896",
+          "rna_row_1based": 27213,
+          "rna_symbol": "ITGAM"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "CD58",
+          "adt_row_1based": 68908,
+          "rna_ensembl": "ENSG00000116815",
+          "rna_row_1based": 1759,
+          "rna_symbol": "CD58"
+        },
+        {
+          "adt": "CD64",
+          "adt_row_1based": 68909,
+          "rna_ensembl": "ENSG00000150337",
+          "rna_row_1based": 1903,
+          "rna_symbol": "FCGR1A"
+        },
+        {
+          "adt": "CD85j",
+          "adt_row_1based": 68913,
+          "rna_ensembl": "ENSG00000104972",
+          "rna_row_1based": 32683,
+          "rna_symbol": "LILRB1"
+        },
+        {
+          "adt": "CD86",
+          "adt_row_1based": 68914,
+          "rna_ensembl": "ENSG00000114013",
+          "rna_row_1based": 7014,
+          "rna_symbol": "CD86"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ]
+    },
+    "s2b": {
+      "antibody_capture_features": 56,
+      "archive_bytes": 31232899,
+      "archive_sha256": "c816e9a13d86700d3086fefabbf4d3e2cc0e8fbb4b9debe3ab7b2c341ecdac2a",
+      "feature_table_rows": 68942,
+      "feature_table_sha256": "46a499a5f11aa14bcc1158e1f36b33db485e84e059c71567c0217d1345813b99",
+      "gene_expression_features": 68886,
+      "hto_resolution": [
+        {
+          "row_1based": 68939,
+          "tag": "HT-1"
+        },
+        {
+          "row_1based": 68940,
+          "tag": "HT-2"
+        },
+        {
+          "row_1based": 68941,
+          "tag": "HT-3"
+        },
+        {
+          "row_1based": 68942,
+          "tag": "HT-4"
+        }
+      ],
+      "legacy_cognate_feature_mappings": [
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD16",
+          "adt_row_1based": 68897,
+          "rna_ensembl": "ENSG00000203747",
+          "rna_row_1based": 2345,
+          "rna_symbol": "FCGR3A"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "HLA-DR",
+          "adt_row_1based": 68888,
+          "rna_ensembl": "ENSG00000204287",
+          "rna_row_1based": 11756,
+          "rna_symbol": "HLA-DRA"
+        },
+        {
+          "adt": "CD95",
+          "adt_row_1based": 68916,
+          "rna_ensembl": "ENSG00000026103",
+          "rna_row_1based": 18369,
+          "rna_symbol": "FAS"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ],
+      "members": [
+        {
+          "bytes": 386574,
+          "name": "s2b_filtered_barcodes.tsv"
+        },
+        {
+          "bytes": 3819866,
+          "name": "s2b_filtered_features.tsv"
+        },
+        {
+          "bytes": 122000230,
+          "name": "s2b_filtered_matrix.mtx"
+        }
+      ],
+      "primary_cognate_feature_mappings": [
+        {
+          "adt": "CD1c",
+          "adt_row_1based": 68889,
+          "rna_ensembl": "ENSG00000158481",
+          "rna_row_1based": 2239,
+          "rna_symbol": "CD1C"
+        },
+        {
+          "adt": "CD11b",
+          "adt_row_1based": 68894,
+          "rna_ensembl": "ENSG00000169896",
+          "rna_row_1based": 27213,
+          "rna_symbol": "ITGAM"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "CD58",
+          "adt_row_1based": 68908,
+          "rna_ensembl": "ENSG00000116815",
+          "rna_row_1based": 1759,
+          "rna_symbol": "CD58"
+        },
+        {
+          "adt": "CD64",
+          "adt_row_1based": 68909,
+          "rna_ensembl": "ENSG00000150337",
+          "rna_row_1based": 1903,
+          "rna_symbol": "FCGR1A"
+        },
+        {
+          "adt": "CD85j",
+          "adt_row_1based": 68913,
+          "rna_ensembl": "ENSG00000104972",
+          "rna_row_1based": 32683,
+          "rna_symbol": "LILRB1"
+        },
+        {
+          "adt": "CD86",
+          "adt_row_1based": 68914,
+          "rna_ensembl": "ENSG00000114013",
+          "rna_row_1based": 7014,
+          "rna_symbol": "CD86"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ]
+    },
+    "s3a": {
+      "antibody_capture_features": 57,
+      "archive_bytes": 49327693,
+      "archive_sha256": "a17a929a6fe497fe8c5e94618148123eb59570ee35548651893b2487c79c0ec3",
+      "feature_table_rows": 68943,
+      "feature_table_sha256": "b4ece201c2020c6bd44591e62edb97c97a17e372c0d7d68266b7f61282d0682b",
+      "gene_expression_features": 68886,
+      "hto_resolution": [
+        {
+          "row_1based": 68939,
+          "tag": "HT-1"
+        },
+        {
+          "row_1based": 68940,
+          "tag": "HT-2"
+        },
+        {
+          "row_1based": 68941,
+          "tag": "HT-3"
+        },
+        {
+          "row_1based": 68942,
+          "tag": "HT-4"
+        },
+        {
+          "row_1based": 68943,
+          "tag": "HT-5"
+        }
+      ],
+      "legacy_cognate_feature_mappings": [
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD16",
+          "adt_row_1based": 68897,
+          "rna_ensembl": "ENSG00000203747",
+          "rna_row_1based": 2345,
+          "rna_symbol": "FCGR3A"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "HLA-DR",
+          "adt_row_1based": 68888,
+          "rna_ensembl": "ENSG00000204287",
+          "rna_row_1based": 11756,
+          "rna_symbol": "HLA-DRA"
+        },
+        {
+          "adt": "CD95",
+          "adt_row_1based": 68916,
+          "rna_ensembl": "ENSG00000026103",
+          "rna_row_1based": 18369,
+          "rna_symbol": "FAS"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ],
+      "members": [
+        {
+          "bytes": 1824114,
+          "name": "s3a_filtered_barcodes.tsv"
+        },
+        {
+          "bytes": 3819893,
+          "name": "s3a_filtered_features.tsv"
+        },
+        {
+          "bytes": 193243045,
+          "name": "s3a_filtered_matrix.mtx"
+        }
+      ],
+      "primary_cognate_feature_mappings": [
+        {
+          "adt": "CD1c",
+          "adt_row_1based": 68889,
+          "rna_ensembl": "ENSG00000158481",
+          "rna_row_1based": 2239,
+          "rna_symbol": "CD1C"
+        },
+        {
+          "adt": "CD11b",
+          "adt_row_1based": 68894,
+          "rna_ensembl": "ENSG00000169896",
+          "rna_row_1based": 27213,
+          "rna_symbol": "ITGAM"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "CD58",
+          "adt_row_1based": 68908,
+          "rna_ensembl": "ENSG00000116815",
+          "rna_row_1based": 1759,
+          "rna_symbol": "CD58"
+        },
+        {
+          "adt": "CD64",
+          "adt_row_1based": 68909,
+          "rna_ensembl": "ENSG00000150337",
+          "rna_row_1based": 1903,
+          "rna_symbol": "FCGR1A"
+        },
+        {
+          "adt": "CD85j",
+          "adt_row_1based": 68913,
+          "rna_ensembl": "ENSG00000104972",
+          "rna_row_1based": 32683,
+          "rna_symbol": "LILRB1"
+        },
+        {
+          "adt": "CD86",
+          "adt_row_1based": 68914,
+          "rna_ensembl": "ENSG00000114013",
+          "rna_row_1based": 7014,
+          "rna_symbol": "CD86"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ]
+    },
+    "s3b": {
+      "antibody_capture_features": 57,
+      "archive_bytes": 30249413,
+      "archive_sha256": "675d086f20042c7eaf46082efc970cedded0d8b70436e6bbc2cf350d001c170e",
+      "feature_table_rows": 68943,
+      "feature_table_sha256": "b4ece201c2020c6bd44591e62edb97c97a17e372c0d7d68266b7f61282d0682b",
+      "gene_expression_features": 68886,
+      "hto_resolution": [
+        {
+          "row_1based": 68939,
+          "tag": "HT-1"
+        },
+        {
+          "row_1based": 68940,
+          "tag": "HT-2"
+        },
+        {
+          "row_1based": 68941,
+          "tag": "HT-3"
+        },
+        {
+          "row_1based": 68942,
+          "tag": "HT-4"
+        },
+        {
+          "row_1based": 68943,
+          "tag": "HT-5"
+        }
+      ],
+      "legacy_cognate_feature_mappings": [
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD16",
+          "adt_row_1based": 68897,
+          "rna_ensembl": "ENSG00000203747",
+          "rna_row_1based": 2345,
+          "rna_symbol": "FCGR3A"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "HLA-DR",
+          "adt_row_1based": 68888,
+          "rna_ensembl": "ENSG00000204287",
+          "rna_row_1based": 11756,
+          "rna_symbol": "HLA-DRA"
+        },
+        {
+          "adt": "CD95",
+          "adt_row_1based": 68916,
+          "rna_ensembl": "ENSG00000026103",
+          "rna_row_1based": 18369,
+          "rna_symbol": "FAS"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ],
+      "members": [
+        {
+          "bytes": 441864,
+          "name": "s3b_filtered_barcodes.tsv"
+        },
+        {
+          "bytes": 3819893,
+          "name": "s3b_filtered_features.tsv"
+        },
+        {
+          "bytes": 118213334,
+          "name": "s3b_filtered_matrix.mtx"
+        }
+      ],
+      "primary_cognate_feature_mappings": [
+        {
+          "adt": "CD1c",
+          "adt_row_1based": 68889,
+          "rna_ensembl": "ENSG00000158481",
+          "rna_row_1based": 2239,
+          "rna_symbol": "CD1C"
+        },
+        {
+          "adt": "CD11b",
+          "adt_row_1based": 68894,
+          "rna_ensembl": "ENSG00000169896",
+          "rna_row_1based": 27213,
+          "rna_symbol": "ITGAM"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "CD58",
+          "adt_row_1based": 68908,
+          "rna_ensembl": "ENSG00000116815",
+          "rna_row_1based": 1759,
+          "rna_symbol": "CD58"
+        },
+        {
+          "adt": "CD64",
+          "adt_row_1based": 68909,
+          "rna_ensembl": "ENSG00000150337",
+          "rna_row_1based": 1903,
+          "rna_symbol": "FCGR1A"
+        },
+        {
+          "adt": "CD85j",
+          "adt_row_1based": 68913,
+          "rna_ensembl": "ENSG00000104972",
+          "rna_row_1based": 32683,
+          "rna_symbol": "LILRB1"
+        },
+        {
+          "adt": "CD86",
+          "adt_row_1based": 68914,
+          "rna_ensembl": "ENSG00000114013",
+          "rna_row_1based": 7014,
+          "rna_symbol": "CD86"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ]
+    },
+    "s4a": {
+      "antibody_capture_features": 57,
+      "archive_bytes": 80196491,
+      "archive_sha256": "8ea84a2d8005b1ecc5526c968c526ed53af5ec817bf8c9773d310122c1dbf365",
+      "feature_table_rows": 68943,
+      "feature_table_sha256": "b4ece201c2020c6bd44591e62edb97c97a17e372c0d7d68266b7f61282d0682b",
+      "gene_expression_features": 68886,
+      "hto_resolution": [
+        {
+          "row_1based": 68939,
+          "tag": "HT-1"
+        },
+        {
+          "row_1based": 68940,
+          "tag": "HT-2"
+        },
+        {
+          "row_1based": 68941,
+          "tag": "HT-3"
+        },
+        {
+          "row_1based": 68942,
+          "tag": "HT-4"
+        },
+        {
+          "row_1based": 68943,
+          "tag": "HT-5"
+        }
+      ],
+      "legacy_cognate_feature_mappings": [
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD16",
+          "adt_row_1based": 68897,
+          "rna_ensembl": "ENSG00000203747",
+          "rna_row_1based": 2345,
+          "rna_symbol": "FCGR3A"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "HLA-DR",
+          "adt_row_1based": 68888,
+          "rna_ensembl": "ENSG00000204287",
+          "rna_row_1based": 11756,
+          "rna_symbol": "HLA-DRA"
+        },
+        {
+          "adt": "CD95",
+          "adt_row_1based": 68916,
+          "rna_ensembl": "ENSG00000026103",
+          "rna_row_1based": 18369,
+          "rna_symbol": "FAS"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ],
+      "members": [
+        {
+          "bytes": 1288637,
+          "name": "s4a_filtered_barcodes.tsv"
+        },
+        {
+          "bytes": 3819893,
+          "name": "s4a_filtered_features.tsv"
+        },
+        {
+          "bytes": 324853869,
+          "name": "s4a_filtered_matrix.mtx"
+        }
+      ],
+      "primary_cognate_feature_mappings": [
+        {
+          "adt": "CD1c",
+          "adt_row_1based": 68889,
+          "rna_ensembl": "ENSG00000158481",
+          "rna_row_1based": 2239,
+          "rna_symbol": "CD1C"
+        },
+        {
+          "adt": "CD11b",
+          "adt_row_1based": 68894,
+          "rna_ensembl": "ENSG00000169896",
+          "rna_row_1based": 27213,
+          "rna_symbol": "ITGAM"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "CD58",
+          "adt_row_1based": 68908,
+          "rna_ensembl": "ENSG00000116815",
+          "rna_row_1based": 1759,
+          "rna_symbol": "CD58"
+        },
+        {
+          "adt": "CD64",
+          "adt_row_1based": 68909,
+          "rna_ensembl": "ENSG00000150337",
+          "rna_row_1based": 1903,
+          "rna_symbol": "FCGR1A"
+        },
+        {
+          "adt": "CD85j",
+          "adt_row_1based": 68913,
+          "rna_ensembl": "ENSG00000104972",
+          "rna_row_1based": 32683,
+          "rna_symbol": "LILRB1"
+        },
+        {
+          "adt": "CD86",
+          "adt_row_1based": 68914,
+          "rna_ensembl": "ENSG00000114013",
+          "rna_row_1based": 7014,
+          "rna_symbol": "CD86"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ]
+    },
+    "s4b": {
+      "antibody_capture_features": 57,
+      "archive_bytes": 67285947,
+      "archive_sha256": "927e59cf63d794a52938e5cc09cce256f7c02585b87959757648157fb4cbce83",
+      "feature_table_rows": 68943,
+      "feature_table_sha256": "b4ece201c2020c6bd44591e62edb97c97a17e372c0d7d68266b7f61282d0682b",
+      "gene_expression_features": 68886,
+      "hto_resolution": [
+        {
+          "row_1based": 68939,
+          "tag": "HT-1"
+        },
+        {
+          "row_1based": 68940,
+          "tag": "HT-2"
+        },
+        {
+          "row_1based": 68941,
+          "tag": "HT-3"
+        },
+        {
+          "row_1based": 68942,
+          "tag": "HT-4"
+        },
+        {
+          "row_1based": 68943,
+          "tag": "HT-5"
+        }
+      ],
+      "legacy_cognate_feature_mappings": [
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD16",
+          "adt_row_1based": 68897,
+          "rna_ensembl": "ENSG00000203747",
+          "rna_row_1based": 2345,
+          "rna_symbol": "FCGR3A"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "HLA-DR",
+          "adt_row_1based": 68888,
+          "rna_ensembl": "ENSG00000204287",
+          "rna_row_1based": 11756,
+          "rna_symbol": "HLA-DRA"
+        },
+        {
+          "adt": "CD95",
+          "adt_row_1based": 68916,
+          "rna_ensembl": "ENSG00000026103",
+          "rna_row_1based": 18369,
+          "rna_symbol": "FAS"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ],
+      "members": [
+        {
+          "bytes": 1009603,
+          "name": "s4b_filtered_barcodes.tsv"
+        },
+        {
+          "bytes": 3819893,
+          "name": "s4b_filtered_features.tsv"
+        },
+        {
+          "bytes": 270491083,
+          "name": "s4b_filtered_matrix.mtx"
+        }
+      ],
+      "primary_cognate_feature_mappings": [
+        {
+          "adt": "CD1c",
+          "adt_row_1based": 68889,
+          "rna_ensembl": "ENSG00000158481",
+          "rna_row_1based": 2239,
+          "rna_symbol": "CD1C"
+        },
+        {
+          "adt": "CD11b",
+          "adt_row_1based": 68894,
+          "rna_ensembl": "ENSG00000169896",
+          "rna_row_1based": 27213,
+          "rna_symbol": "ITGAM"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "CD58",
+          "adt_row_1based": 68908,
+          "rna_ensembl": "ENSG00000116815",
+          "rna_row_1based": 1759,
+          "rna_symbol": "CD58"
+        },
+        {
+          "adt": "CD64",
+          "adt_row_1based": 68909,
+          "rna_ensembl": "ENSG00000150337",
+          "rna_row_1based": 1903,
+          "rna_symbol": "FCGR1A"
+        },
+        {
+          "adt": "CD85j",
+          "adt_row_1based": 68913,
+          "rna_ensembl": "ENSG00000104972",
+          "rna_row_1based": 32683,
+          "rna_symbol": "LILRB1"
+        },
+        {
+          "adt": "CD86",
+          "adt_row_1based": 68914,
+          "rna_ensembl": "ENSG00000114013",
+          "rna_row_1based": 7014,
+          "rna_symbol": "CD86"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ]
+    },
+    "s5a": {
+      "antibody_capture_features": 57,
+      "archive_bytes": 23732710,
+      "archive_sha256": "bba78ae83cd27cb1ef616fb4389325e670b2858da40b9635052b0e2ceca952cc",
+      "feature_table_rows": 68943,
+      "feature_table_sha256": "b4ece201c2020c6bd44591e62edb97c97a17e372c0d7d68266b7f61282d0682b",
+      "gene_expression_features": 68886,
+      "hto_resolution": [
+        {
+          "row_1based": 68939,
+          "tag": "HT-1"
+        },
+        {
+          "row_1based": 68940,
+          "tag": "HT-2"
+        },
+        {
+          "row_1based": 68941,
+          "tag": "HT-3"
+        },
+        {
+          "row_1based": 68942,
+          "tag": "HT-4"
+        },
+        {
+          "row_1based": 68943,
+          "tag": "HT-5"
+        }
+      ],
+      "legacy_cognate_feature_mappings": [
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD16",
+          "adt_row_1based": 68897,
+          "rna_ensembl": "ENSG00000203747",
+          "rna_row_1based": 2345,
+          "rna_symbol": "FCGR3A"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "HLA-DR",
+          "adt_row_1based": 68888,
+          "rna_ensembl": "ENSG00000204287",
+          "rna_row_1based": 11756,
+          "rna_symbol": "HLA-DRA"
+        },
+        {
+          "adt": "CD95",
+          "adt_row_1based": 68916,
+          "rna_ensembl": "ENSG00000026103",
+          "rna_row_1based": 18369,
+          "rna_symbol": "FAS"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ],
+      "members": [
+        {
+          "bytes": 531620,
+          "name": "s5a_filtered_barcodes.tsv"
+        },
+        {
+          "bytes": 3819893,
+          "name": "s5a_filtered_features.tsv"
+        },
+        {
+          "bytes": 91901452,
+          "name": "s5a_filtered_matrix.mtx"
+        }
+      ],
+      "primary_cognate_feature_mappings": [
+        {
+          "adt": "CD1c",
+          "adt_row_1based": 68889,
+          "rna_ensembl": "ENSG00000158481",
+          "rna_row_1based": 2239,
+          "rna_symbol": "CD1C"
+        },
+        {
+          "adt": "CD11b",
+          "adt_row_1based": 68894,
+          "rna_ensembl": "ENSG00000169896",
+          "rna_row_1based": 27213,
+          "rna_symbol": "ITGAM"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "CD58",
+          "adt_row_1based": 68908,
+          "rna_ensembl": "ENSG00000116815",
+          "rna_row_1based": 1759,
+          "rna_symbol": "CD58"
+        },
+        {
+          "adt": "CD64",
+          "adt_row_1based": 68909,
+          "rna_ensembl": "ENSG00000150337",
+          "rna_row_1based": 1903,
+          "rna_symbol": "FCGR1A"
+        },
+        {
+          "adt": "CD85j",
+          "adt_row_1based": 68913,
+          "rna_ensembl": "ENSG00000104972",
+          "rna_row_1based": 32683,
+          "rna_symbol": "LILRB1"
+        },
+        {
+          "adt": "CD86",
+          "adt_row_1based": 68914,
+          "rna_ensembl": "ENSG00000114013",
+          "rna_row_1based": 7014,
+          "rna_symbol": "CD86"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ]
+    },
+    "s5b": {
+      "antibody_capture_features": 57,
+      "archive_bytes": 22817635,
+      "archive_sha256": "d22f7208d3444bd3d6c178d63ae6da1e79383e805e8dcde34affc85695c85c8a",
+      "feature_table_rows": 68943,
+      "feature_table_sha256": "b4ece201c2020c6bd44591e62edb97c97a17e372c0d7d68266b7f61282d0682b",
+      "gene_expression_features": 68886,
+      "hto_resolution": [
+        {
+          "row_1based": 68939,
+          "tag": "HT-1"
+        },
+        {
+          "row_1based": 68940,
+          "tag": "HT-2"
+        },
+        {
+          "row_1based": 68941,
+          "tag": "HT-3"
+        },
+        {
+          "row_1based": 68942,
+          "tag": "HT-4"
+        },
+        {
+          "row_1based": 68943,
+          "tag": "HT-5"
+        }
+      ],
+      "legacy_cognate_feature_mappings": [
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD16",
+          "adt_row_1based": 68897,
+          "rna_ensembl": "ENSG00000203747",
+          "rna_row_1based": 2345,
+          "rna_symbol": "FCGR3A"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "HLA-DR",
+          "adt_row_1based": 68888,
+          "rna_ensembl": "ENSG00000204287",
+          "rna_row_1based": 11756,
+          "rna_symbol": "HLA-DRA"
+        },
+        {
+          "adt": "CD95",
+          "adt_row_1based": 68916,
+          "rna_ensembl": "ENSG00000026103",
+          "rna_row_1based": 18369,
+          "rna_symbol": "FAS"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ],
+      "members": [
+        {
+          "bytes": 340974,
+          "name": "s5b_filtered_barcodes.tsv"
+        },
+        {
+          "bytes": 3819893,
+          "name": "s5b_filtered_features.tsv"
+        },
+        {
+          "bytes": 87213923,
+          "name": "s5b_filtered_matrix.mtx"
+        }
+      ],
+      "primary_cognate_feature_mappings": [
+        {
+          "adt": "CD1c",
+          "adt_row_1based": 68889,
+          "rna_ensembl": "ENSG00000158481",
+          "rna_row_1based": 2239,
+          "rna_symbol": "CD1C"
+        },
+        {
+          "adt": "CD11b",
+          "adt_row_1based": 68894,
+          "rna_ensembl": "ENSG00000169896",
+          "rna_row_1based": 27213,
+          "rna_symbol": "ITGAM"
+        },
+        {
+          "adt": "CD11c",
+          "adt_row_1based": 68895,
+          "rna_ensembl": "ENSG00000140678",
+          "rna_row_1based": 27214,
+          "rna_symbol": "ITGAX"
+        },
+        {
+          "adt": "CD14",
+          "adt_row_1based": 68896,
+          "rna_ensembl": "ENSG00000170458",
+          "rna_row_1based": 10607,
+          "rna_symbol": "CD14"
+        },
+        {
+          "adt": "CD19",
+          "adt_row_1based": 68898,
+          "rna_ensembl": "ENSG00000177455",
+          "rna_row_1based": 27087,
+          "rna_symbol": "CD19"
+        },
+        {
+          "adt": "CD27",
+          "adt_row_1based": 68901,
+          "rna_ensembl": "ENSG00000139193",
+          "rna_row_1based": 21091,
+          "rna_symbol": "CD27"
+        },
+        {
+          "adt": "CD38",
+          "adt_row_1based": 68904,
+          "rna_ensembl": "ENSG00000004468",
+          "rna_row_1based": 8071,
+          "rna_symbol": "CD38"
+        },
+        {
+          "adt": "CD58",
+          "adt_row_1based": 68908,
+          "rna_ensembl": "ENSG00000116815",
+          "rna_row_1based": 1759,
+          "rna_symbol": "CD58"
+        },
+        {
+          "adt": "CD64",
+          "adt_row_1based": 68909,
+          "rna_ensembl": "ENSG00000150337",
+          "rna_row_1based": 1903,
+          "rna_symbol": "FCGR1A"
+        },
+        {
+          "adt": "CD85j",
+          "adt_row_1based": 68913,
+          "rna_ensembl": "ENSG00000104972",
+          "rna_row_1based": 32683,
+          "rna_symbol": "LILRB1"
+        },
+        {
+          "adt": "CD86",
+          "adt_row_1based": 68914,
+          "rna_ensembl": "ENSG00000114013",
+          "rna_row_1based": 7014,
+          "rna_symbol": "CD86"
+        },
+        {
+          "adt": "CD305",
+          "adt_row_1based": 68932,
+          "rna_ensembl": "ENSG00000167613",
+          "rna_row_1based": 32669,
+          "rna_symbol": "LAIR1"
+        }
+      ]
+    }
+  },
+  "role_counts": {
+    "calibration": 9,
+    "held": 28,
+    "pilot": 9
+  },
+  "role_pools": {
+    "calibration": [
+      "s1a",
+      "s3a"
+    ],
+    "held": [
+      "s1b",
+      "s2b",
+      "s3b",
+      "s4b",
+      "s5a",
+      "s5b"
+    ],
+    "pilot": [
+      "s2a",
+      "s4a"
+    ]
+  },
+  "schema": "gse189050-schema-preflight/1.0",
+  "status": "PASS_BEFORE_BARCODE_OR_MATRIX_VALUE_ACCESS"
+}

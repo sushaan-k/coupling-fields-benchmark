@@ -1,0 +1,90 @@
+{
+  "accession": "GSE189050",
+  "cell_budget_per_donor": 512,
+  "eligibility": {
+    "human_gex_fraction_minimum": 0.9,
+    "hto_singlet": {
+      "minimum_top_fraction": 0.7,
+      "minimum_top_to_second_pseudocount_ratio": 5.0,
+      "minimum_total": 20,
+      "require_unique_maximum": true
+    },
+    "minimum_accepted_singlets_per_donor": 512,
+    "no_adaptive_rescue_or_threshold_change": true
+  },
+  "expected": {
+    "calibration_donors_before_count_filter": 9,
+    "held_donors_before_count_filter": 28,
+    "pilot_donors_before_count_filter": 9,
+    "subjects": 46
+  },
+  "inference": {
+    "bootstrap_draws": 20000,
+    "bootstrap_seed": 20260828,
+    "donor_favorable_fraction": 0.8,
+    "donor_sign_test_one_sided_p_maximum": 0.025,
+    "held_physical_pool_means_required_negative": 6,
+    "minimum_relative_deviance_reduction": 0.05,
+    "primary_independent_held_run_blocks": ["s1b", "s2b", "s3b", "s4b", "s5"],
+    "require_bootstrap_upper_95_below_zero": true,
+    "s5_block_members": ["s5a", "s5b"]
+  },
+  "legacy_secondary_panel": [
+    {"adt": "CD14", "rna_ensembl": "ENSG00000170458", "rna_symbol": "CD14"},
+    {"adt": "CD16", "rna_ensembl": "ENSG00000203747", "rna_symbol": "FCGR3A"},
+    {"adt": "CD11c", "rna_ensembl": "ENSG00000140678", "rna_symbol": "ITGAX"},
+    {"adt": "CD19", "rna_ensembl": "ENSG00000177455", "rna_symbol": "CD19"},
+    {"adt": "CD27", "rna_ensembl": "ENSG00000139193", "rna_symbol": "CD27"},
+    {"adt": "CD38", "rna_ensembl": "ENSG00000004468", "rna_symbol": "CD38"},
+    {"adt": "HLA-DR", "rna_ensembl": "ENSG00000204287", "rna_symbol": "HLA-DRA"},
+    {"adt": "CD95", "rna_ensembl": "ENSG00000026103", "rna_symbol": "FAS"},
+    {"adt": "CD305", "rna_ensembl": "ENSG00000167613", "rna_symbol": "LAIR1"}
+  ],
+  "metadata_authority": {
+    "clinical_covariates": "GEO GSE189050_sample.csv.gz",
+    "demultiplex_mapping": "author da_samplesheet_final.csv run, Subject_id, and Hashtag fields only",
+    "known_conflict": "Author sheet swaps s2b SUB236000 and SUB235957 clinical labels and ages relative to GEO; clinical fields are non-gating and ignored from the author sheet."
+  },
+  "primary_panel": [
+    {"adt": "CD1c", "rna_ensembl": "ENSG00000158481", "rna_symbol": "CD1C"},
+    {"adt": "CD11b", "rna_ensembl": "ENSG00000169896", "rna_symbol": "ITGAM"},
+    {"adt": "CD11c", "rna_ensembl": "ENSG00000140678", "rna_symbol": "ITGAX"},
+    {"adt": "CD14", "rna_ensembl": "ENSG00000170458", "rna_symbol": "CD14"},
+    {"adt": "CD19", "rna_ensembl": "ENSG00000177455", "rna_symbol": "CD19"},
+    {"adt": "CD27", "rna_ensembl": "ENSG00000139193", "rna_symbol": "CD27"},
+    {"adt": "CD38", "rna_ensembl": "ENSG00000004468", "rna_symbol": "CD38"},
+    {"adt": "CD58", "rna_ensembl": "ENSG00000116815", "rna_symbol": "CD58"},
+    {"adt": "CD64", "rna_ensembl": "ENSG00000150337", "rna_symbol": "FCGR1A"},
+    {"adt": "CD85j", "rna_ensembl": "ENSG00000104972", "rna_symbol": "LILRB1"},
+    {"adt": "CD86", "rna_ensembl": "ENSG00000114013", "rna_symbol": "CD86"},
+    {"adt": "CD305", "rna_ensembl": "ENSG00000167613", "rna_symbol": "LAIR1"}
+  ],
+  "primary_panel_dimensions": {
+    "cognate_feature_mappings": 12,
+    "scored_ordered_rna_adt_pairs": 144
+  },
+  "pool_qc_gates": {
+    "ambiguous_or_doublet_fraction_among_human_cells_maximum": 0.3,
+    "declared_hto_tag_set_must_be_exactly_represented": true,
+    "negative_fraction_among_human_cells_maximum": 0.3,
+    "positive_donor_yield_maximum_to_minimum_ratio": 4.0,
+    "singlet_fraction_among_human_cells_minimum": 0.5
+  },
+  "roles": {
+    "calibration_pools": ["s1a", "s3a"],
+    "held_pools": ["s1b", "s2b", "s3b", "s4b", "s5a", "s5b"],
+    "pilot_pools": ["s2a", "s4a"]
+  },
+  "salts": {
+    "adt_tie": "GSE189050-ADT-MIDRANK-v1",
+    "cell_selection": "GSE189050-CELL-BUDGET-v1",
+    "destroyed_link": "GSE189050-DESTROYED-LINK-v1"
+  },
+  "schema": "gse189050-candidate-designation/1.0",
+  "status": "FROZEN_AFTER_FEATURE_SCHEMA_INSPECTION_BEFORE_BARCODE_OR_MATRIX_VALUE_ACCESS",
+  "support_gates": {
+    "calibration": {"minimum_donors": 7, "minimum_donors_per_pool": 3},
+    "held": {"all_six_pools_required": true, "minimum_donors": 22},
+    "pilot": {"minimum_donors": 7, "minimum_donors_per_pool": 3}
+  }
+}

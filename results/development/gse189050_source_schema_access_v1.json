@@ -1,0 +1,32 @@
+{
+  "accession": "GSE189050",
+  "archive_access": {
+    "archive_bytes_downloaded": 396754011,
+    "archive_count": 10,
+    "archive_sha256_computed": true,
+    "barcodes_member_content_opened": false,
+    "feature_table_content_opened": true,
+    "matrix_member_content_opened": false,
+    "tar_member_headers_inspected": true
+  },
+  "assay_value_access": {
+    "adt_numeric_values_read": 0,
+    "barcode_values_read": 0,
+    "hto_numeric_values_read": 0,
+    "matrix_coordinate_lines_read": 0,
+    "rna_numeric_values_read": 0
+  },
+  "created_at_utc": "2026-08-29T01:09:50Z",
+  "metadata_access": {
+    "author_sample_sheet_sha256": "7d2814f4acf83d296cbfd3b61b936f1b1a118e338ac96fef90e05b385c23953d",
+    "geo_sample_table_sha256": "ed761346db5883a0056049654c001490a5e751d1ceed7e7afddf04106bd2fbf4"
+  },
+  "seurat_preflight": {
+    "R_version": "4.6.1",
+    "checked_default_and_project_library": true,
+    "counts_accessed": false,
+    "seurat_available": false
+  },
+  "schema": "gse189050-source-schema-access/1.0",
+  "status": "FEATURE_SCHEMA_ONLY_NO_BARCODE_OR_MATRIX_VALUE_ACCESS"
+}
