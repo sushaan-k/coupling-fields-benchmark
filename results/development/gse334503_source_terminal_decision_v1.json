@@ -1,0 +1,49 @@
+{
+  "accession": "GSE334503",
+  "b3_numeric_access_authorized": false,
+  "candidate_frozen": false,
+  "created_at_utc": "2026-08-29T19:48:29Z",
+  "decision": {
+    "checks": {
+      "at_least_10_of_12_donors_improve": false,
+      "both_directional_fold_means_improve": false,
+      "graph_penalty_is_nonzero": true,
+      "relative_reduction_at_least_0_05": false
+    },
+    "favorable_donors": 6,
+    "fold_improvements": {
+      "Batch1": true,
+      "Batch2": false
+    },
+    "matched_graph_zero_equal_batch_mean_loss": 0.006711522896141011,
+    "primary_equal_batch_mean_loss": 0.00691165899360968,
+    "relative_loss_reduction_vs_matched_graph_zero": -0.02981977422497395,
+    "selected_primary": {
+      "graph_neighbors": 3,
+      "graph_penalty": 0.01,
+      "heterogeneity_penalty": 0.1,
+      "ridge_penalty": 0.01,
+      "transport_multiplier": 1.0
+    }
+  },
+  "frozen_implementation_commit": "298967ddad2a2de0e1fe8e1651445245ca6ba714",
+  "frozen_implementation_remote_commit": "298967ddad2a2de0e1fe8e1651445245ca6ba714",
+  "held_access": {
+    "Batch3_reduced_numeric_artifact_created": false,
+    "Batch3_scored": false,
+    "Batch4_files_downloaded": false,
+    "Batch4_scored": false,
+    "Batch5_files_downloaded": false,
+    "Batch5_scored": false
+  },
+  "result": {
+    "bytes": 111424,
+    "path": "results/development/gse334503_source_candidate_v1.json",
+    "sha256": "f585df257b55b861e7d3efc2ae16fe7109ff4c78b8f02a67e2d7c10cd9f41bc3",
+    "status": "SOURCE_GO_GATE_FAILED"
+  },
+  "rerun_permitted": false,
+  "schema": "gse334503-source-terminal-decision/1.0",
+  "status": "TERMINAL_SOURCE_GO_GATE_FAILED",
+  "termination_rule": "Batch3 remains sealed because the source-only gate failed. No retuning, replacement, or rerun is permitted."
+}
