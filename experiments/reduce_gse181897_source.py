@@ -10,27 +10,51 @@ from __future__ import annotations
 
 import argparse
 from dataclasses import dataclass
+from datetime import datetime, timezone
 import gzip
 import hashlib
 import json
 import math
 import os
 from pathlib import Path
+import platform
 import shutil
+import subprocess
+import sys
 from typing import Any
 import urllib.request
 
 import h5py
 import numpy as np
+import scipy
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CACHE = Path.home() / "Library/Caches/coupling-fields/gse181897-source"
 DEFAULT_OUTPUT_DIRECTORY = ROOT / "data/development/gse181897_source"
-DEFAULT_PREFLIGHT = DEFAULT_OUTPUT_DIRECTORY / "axis_preflight_v1.json"
+DEFAULT_PREFLIGHT = DEFAULT_OUTPUT_DIRECTORY / "axis_preflight_v2.json"
 DEFAULT_OUTPUT = DEFAULT_OUTPUT_DIRECTORY / "reduced_batches_0_7_control_v1.npz"
 DEFAULT_MANIFEST = (
     DEFAULT_OUTPUT_DIRECTORY / "reduction_batches_0_7_control_manifest_v1.json"
+)
+DEFAULT_SOURCE_AUTHORIZATION = (
+    DEFAULT_OUTPUT_DIRECTORY / "source_campaign_authorization_v1.json"
+)
+DEFAULT_SOURCE_ATTEMPT = DEFAULT_OUTPUT_DIRECTORY / "source_attempt_v1.json"
+DEFAULT_REDUCTION_TERMINAL = (
+    DEFAULT_OUTPUT_DIRECTORY / "source_reduction_terminal_v1.json"
+)
+DEFAULT_MODEL_OUTPUT = ROOT / "results/development/gse181897_source_candidate_v1.json"
+DEFAULT_MODEL_TERMINAL = (
+    ROOT / "results/development/gse181897_source_model_terminal_v1.json"
+)
+CANDIDATE_TAG = "gse181897-control-citeseq-v1-candidate"
+IMPLEMENTATION_TAG = "gse181897-control-citeseq-v1-implementation"
+AXIS_PREFLIGHT_TAG = "gse181897-control-citeseq-v1-axis-preflight-v2"
+SOURCE_AUTHORIZATION_TAG = "gse181897-control-citeseq-v1-source-authorized"
+PUBLIC_ORIGIN_URL = "https://github.com/sushaan-k/coupling-fields-benchmark.git"
+CANDIDATE_PATH = (
+    "data/confirmation/gse181897_control_citeseq/candidate_designation_v1.json"
 )
 
 SOURCE_URL = (
@@ -90,6 +114,47 @@ MINIMUM_MARKER_POSITIVES = 4
 MAXIMUM_MARKER_POSITIVES = CELL_BUDGET - MINIMUM_MARKER_POSITIVES
 MINIMUM_SOURCE_COORDINATES = 232
 MINIMUM_FREE_BYTES_AFTER_ACQUISITION = 512 << 20
+SOURCE_ATTEMPT_SCHEMA = "gse181897-source-campaign-attempt/1.0"
+SOURCE_ATTEMPT_STATUS = "CLAIMED_ONE_SHOT_SOURCE_CAMPAIGN"
+SOURCE_AUTHORIZATION_SCHEMA = "gse181897-source-campaign-authorization/1.0"
+SOURCE_AUTHORIZATION_STATUS = "PUBLIC_FREEZE_VERIFIED_SOURCE_NUMERIC_ACCESS_AUTHORIZED"
+REQUIRED_THREAD_ENVIRONMENT = {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+}
+CAMPAIGN_IMPLEMENTATION_FILES = (
+    "experiments/reduce_gse181897_source.py",
+    "experiments/develop_gse181897_source_models.py",
+    "experiments/confirm_gse181897_held.py",
+    "tests/test_reduce_gse181897_source.py",
+    "tests/test_develop_gse181897_source_models.py",
+    "tests/test_confirm_gse181897_held.py",
+    "tests/test_gse181897_protocol.py",
+    "tests/test_gse181897_axis_preflight_artifact.py",
+    "tests/test_penalty_complete_conditional_coupling.py",
+    "tests/test_common_effect_conditional.py",
+    "tests/test_heterogeneity_adaptive_coupling.py",
+    "tests/test_classical_residuals_full.py",
+    "tests/test_coupling_fields.py",
+    "tests/test_table_prediction.py",
+    "mapreg/penalty_complete_conditional_coupling.py",
+    "mapreg/heterogeneity_adaptive_coupling.py",
+    "mapreg/common_effect_conditional.py",
+    "mapreg/classical_residuals.py",
+    "mapreg/coupling_fields.py",
+    "mapreg/table_prediction.py",
+    "mapreg/__init__.py",
+    "data/confirmation/gse181897_control_citeseq/candidate_designation_v1.json",
+    "data/confirmation/gse181897_control_citeseq/protocol_v1.json",
+    "docs/GSE181897_CONTROL_CITESEQ_SEQUENTIAL_CONFIRMATION_PROTOCOL_2026-08-29.md",
+    "data/confirmation/gse181897_control_citeseq/internal_prepare_authorization_template_v1.json",
+    "data/confirmation/gse181897_control_citeseq/internal_score_authorization_template_v1.json",
+    "data/confirmation/gse181897_control_citeseq/confirmation_prepare_authorization_template_v1.json",
+    "data/confirmation/gse181897_control_citeseq/confirmation_score_authorization_template_v1.json",
+    "pyproject.toml",
+    "requirements.txt",
+)
 
 
 @dataclass(frozen=True)
@@ -511,6 +576,14 @@ def _feature_columns(
     )
 
 
+def _require_unique_axis(values: np.ndarray, name: str) -> int:
+    axis = np.asarray(values).astype(str)
+    unique_count = len(set(axis.tolist()))
+    if unique_count != len(axis):
+        raise ValueError(f"GSE181897 {name} index is not unique")
+    return unique_count
+
+
 def inspect_axes(h5ad_path: Path) -> AxisInspection:
     """Inspect metadata and matrix structure without indexing any X dataset."""
 
@@ -541,6 +614,8 @@ def inspect_axes(h5ad_path: Path) -> AxisInspection:
                 raise ValueError(f"/{name} differs from the frozen dataframe encoding")
         obs_index = _frame_index(obs)
         var_index = _frame_index(var)
+        obs_unique_count = _require_unique_axis(obs_index, "obs")
+        var_unique_count = _require_unique_axis(var_index, "var")
         if _axis_sha256(obs_index) != EXPECTED_OBS_AXIS_SHA256:
             raise ValueError("GSE181897 obs index differs from the frozen axis")
         if _axis_sha256(var_index) != EXPECTED_VAR_AXIS_SHA256:
@@ -593,8 +668,8 @@ def inspect_axes(h5ad_path: Path) -> AxisInspection:
             )
         ]
         payload = {
-            "schema": "gse181897-axis-preflight/1.0",
-            "status": "AXES_FROZEN_X_NUMERIC_UNREAD",
+            "schema": "gse181897-axis-preflight/1.1",
+            "status": "AXES_FROZEN_UNIQUE_X_NUMERIC_UNREAD",
             "accession": "GSE181897",
             "source": {
                 "official_url": SOURCE_URL,
@@ -618,6 +693,8 @@ def inspect_axes(h5ad_path: Path) -> AxisInspection:
                     ),
                     "index_path": "/obs/_index",
                     "rows": len(obs_index),
+                    "unique_rows": obs_unique_count,
+                    "index_is_unique": True,
                     "index_axis_sha256": _axis_sha256(obs_index),
                     "frozen_columns": ["batch", "cond", "exp_id", "free_id"],
                     "dataset_contracts": {
@@ -650,6 +727,8 @@ def inspect_axes(h5ad_path: Path) -> AxisInspection:
                     ),
                     "index_path": "/var/_index",
                     "rows": len(var_index),
+                    "unique_rows": var_unique_count,
+                    "index_is_unique": True,
                     "index_axis_sha256": _axis_sha256(var_index),
                     "gene_id_axis_sha256": _axis_sha256(feature_ids),
                     "genome_axis_sha256": _axis_sha256(genomes),
@@ -759,6 +838,387 @@ def _read_json(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise ValueError(f"{path.name} must contain one JSON object")
     return value
+
+
+def _display_path(path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(ROOT.resolve()))
+    except ValueError:
+        return str(path.resolve())
+
+
+def _timestamp() -> str:
+    return (
+        datetime.now(timezone.utc)
+        .replace(microsecond=0)
+        .isoformat()
+        .replace("+00:00", "Z")
+    )
+
+
+def _campaign_runtime() -> dict[str, Any]:
+    configuration = np.show_config(mode="dicts")
+    blas = configuration.get("Build Dependencies", {}).get("blas", {})
+    return {
+        "python": platform.python_version(),
+        "python_executable": str(Path(sys.executable).resolve()),
+        "numpy": np.__version__,
+        "h5py": h5py.__version__,
+        "scipy": scipy.__version__,
+        "anndata": None,
+        "anndata_used": False,
+        "blas": {
+            "name": blas.get("name"),
+            "version": blas.get("version"),
+            "found": blas.get("found"),
+            "detection_method": blas.get("detection method"),
+        },
+        "platform": {
+            "system": platform.system(),
+            "release": platform.release(),
+            "version": platform.version(),
+            "machine": platform.machine(),
+        },
+        "thread_environment": {
+            key: os.environ.get(key) for key in REQUIRED_THREAD_ENVIRONMENT
+        },
+    }
+
+
+def _campaign_implementation_hashes() -> dict[str, str]:
+    return {
+        relative: _sha256(ROOT / relative) for relative in CAMPAIGN_IMPLEMENTATION_FILES
+    }
+
+
+def _contains_pending(value: Any) -> bool:
+    if isinstance(value, str):
+        return "PENDING" in value.upper()
+    if isinstance(value, dict):
+        return any(_contains_pending(item) for item in value.values())
+    if isinstance(value, list):
+        return any(_contains_pending(item) for item in value)
+    return False
+
+
+def _freeze_node(value: Any, name: str) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        raise PermissionError(f"source authorization lacks {name}")
+    if (
+        not isinstance(value.get("tag"), str)
+        or not value["tag"]
+        or not isinstance(value.get("tag_object"), str)
+        or len(value["tag_object"]) != 40
+        or not isinstance(value.get("peeled_commit"), str)
+        or len(value["peeled_commit"]) != 40
+        or value.get("remote_tag_and_commit_match") is not True
+    ):
+        raise PermissionError(f"source authorization has an invalid {name}")
+    return value
+
+
+def _git_output(*arguments: str, text: bool = True) -> str | bytes:
+    completed = subprocess.run(
+        ("git", *arguments),
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=text,
+    )
+    return completed.stdout
+
+
+def _verified_tag(tag: str) -> dict[str, str]:
+    try:
+        origin = str(_git_output("config", "--get", "remote.origin.url")).strip()
+        if origin != PUBLIC_ORIGIN_URL:
+            raise PermissionError("origin is not the frozen public repository")
+        tag_object = str(_git_output("rev-parse", f"refs/tags/{tag}^{{tag}}")).strip()
+        peeled_commit = str(_git_output("rev-parse", f"{tag}^{{}}")).strip()
+        remote = str(
+            _git_output(
+                "ls-remote",
+                "--tags",
+                "origin",
+                f"refs/tags/{tag}",
+                f"refs/tags/{tag}^{{}}",
+            )
+        )
+    except subprocess.CalledProcessError as error:
+        raise PermissionError(f"cannot verify public annotated tag {tag}") from error
+    observed: dict[str, str] = {}
+    for line in remote.splitlines():
+        fields = line.split()
+        if len(fields) == 2:
+            observed[fields[1]] = fields[0]
+    if (
+        observed.get(f"refs/tags/{tag}") != tag_object
+        or observed.get(f"refs/tags/{tag}^{{}}") != peeled_commit
+    ):
+        raise PermissionError(f"local and public tag bytes differ for {tag}")
+    return {
+        "tag": tag,
+        "tag_object": tag_object,
+        "peeled_commit": peeled_commit,
+        "remote_tag_and_commit_match": True,
+    }
+
+
+def _published_file_sha256(tag: str, relative: str) -> str:
+    try:
+        payload = _git_output("show", f"{tag}:{relative}", text=False)
+    except subprocess.CalledProcessError as error:
+        raise PermissionError(f"public tag {tag} lacks {relative}") from error
+    if not isinstance(payload, bytes):
+        raise TypeError("git blob verification did not return bytes")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def _require_ancestor(first: str, second: str) -> None:
+    completed = subprocess.run(
+        ("git", "merge-base", "--is-ancestor", first, second),
+        cwd=ROOT,
+        capture_output=True,
+    )
+    if completed.returncode != 0:
+        raise PermissionError("source public-freeze ancestry is invalid")
+
+
+def _validate_public_freeze_chain(
+    authorization: dict[str, Any], authorization_path: Path
+) -> None:
+    expected_nodes = (
+        ("candidate_freeze", CANDIDATE_TAG),
+        ("implementation_freeze", IMPLEMENTATION_TAG),
+        ("axis_freeze", AXIS_PREFLIGHT_TAG),
+    )
+    snapshots = []
+    for key, tag in expected_nodes:
+        node = _freeze_node(authorization.get(key), key.replace("_", " "))
+        snapshot = _verified_tag(tag)
+        if any(node.get(field) != snapshot[field] for field in snapshot):
+            raise PermissionError(f"source authorization has the wrong {key} tag")
+        snapshots.append(snapshot)
+    authorization_snapshot = _verified_tag(SOURCE_AUTHORIZATION_TAG)
+    lineage = [
+        *(snapshot["peeled_commit"] for snapshot in snapshots),
+        authorization_snapshot["peeled_commit"],
+    ]
+    for first, second in zip(lineage, lineage[1:]):
+        _require_ancestor(first, second)
+    candidate = authorization["candidate_freeze"]
+    if (
+        candidate.get("candidate_path") != CANDIDATE_PATH
+        or candidate.get("candidate_sha256")
+        != _published_file_sha256(CANDIDATE_TAG, CANDIDATE_PATH)
+        or candidate.get("candidate_sha256") != _sha256(ROOT / CANDIDATE_PATH)
+    ):
+        raise PermissionError("candidate tag does not bind the exact candidate bytes")
+    implementation = authorization["implementation_freeze"]
+    files = implementation.get("files_sha256")
+    if not isinstance(files, dict) or set(files) != set(CAMPAIGN_IMPLEMENTATION_FILES):
+        raise PermissionError("implementation tag has the wrong exact file set")
+    for relative, expected in files.items():
+        if _published_file_sha256(IMPLEMENTATION_TAG, relative) != expected:
+            raise PermissionError(
+                f"implementation tag does not bind exact bytes: {relative}"
+            )
+    axis = authorization["axis_freeze"]
+    if _published_file_sha256(AXIS_PREFLIGHT_TAG, axis["preflight_path"]) != axis.get(
+        "preflight_sha256"
+    ):
+        raise PermissionError("axis tag does not bind the exact v2 preflight bytes")
+    try:
+        relative = authorization_path.resolve().relative_to(ROOT.resolve())
+    except ValueError as error:
+        raise PermissionError(
+            "source authorization path is outside the repository"
+        ) from error
+    if _published_file_sha256(SOURCE_AUTHORIZATION_TAG, relative.as_posix()) != _sha256(
+        authorization_path
+    ):
+        raise PermissionError("public authorization bytes differ from the local file")
+
+
+def _validate_source_authorization(
+    authorization_path: Path,
+    preflight_path: Path,
+    output_path: Path,
+    manifest_path: Path,
+    model_output_path: Path,
+    model_terminal_path: Path,
+    reduction_terminal_path: Path,
+) -> dict[str, Any]:
+    if (
+        authorization_path.resolve() != DEFAULT_SOURCE_AUTHORIZATION.resolve()
+        or preflight_path.resolve() != DEFAULT_PREFLIGHT.resolve()
+    ):
+        raise PermissionError("source authorization or axis-v2 path is not canonical")
+    authorization = _read_json(authorization_path)
+    if (
+        authorization.get("schema") != SOURCE_AUTHORIZATION_SCHEMA
+        or authorization.get("status") != SOURCE_AUTHORIZATION_STATUS
+        or authorization.get("accession") != "GSE181897"
+        or authorization.get("stage") != "source_development"
+        or _contains_pending(authorization)
+    ):
+        raise PermissionError("source campaign authorization is not fully frozen")
+    candidate = _freeze_node(authorization.get("candidate_freeze"), "candidate freeze")
+    axis = _freeze_node(authorization.get("axis_freeze"), "axis freeze")
+    implementation = _freeze_node(
+        authorization.get("implementation_freeze"), "implementation freeze"
+    )
+    if (
+        candidate.get("tag") != CANDIDATE_TAG
+        or implementation.get("tag") != IMPLEMENTATION_TAG
+        or axis.get("tag") != AXIS_PREFLIGHT_TAG
+    ):
+        raise PermissionError("source authorization uses an unexpected freeze tag")
+    preflight = _read_json(preflight_path)
+    if (
+        axis.get("preflight_path") != _display_path(preflight_path)
+        or axis.get("preflight_sha256") != _sha256(preflight_path)
+        or axis.get("axis_reducer_sha256") != preflight.get("reducer_sha256")
+    ):
+        raise PermissionError("source authorization does not bind the axis artifact")
+    if implementation.get("files_sha256") != _campaign_implementation_hashes():
+        raise PermissionError(
+            "source authorization does not bind the current implementation"
+        )
+    if axis.get("axis_reducer_sha256") != implementation["files_sha256"].get(
+        "experiments/reduce_gse181897_source.py"
+    ):
+        raise PermissionError(
+            "axis-v2 preflight and implementation use different reducer bytes"
+        )
+    expected_input = {
+        "archive_bytes": SOURCE_ARCHIVE_BYTES,
+        "archive_sha256": SOURCE_ARCHIVE_SHA256,
+        "h5ad_bytes": SOURCE_H5AD_BYTES,
+        "h5ad_sha256": SOURCE_H5AD_SHA256,
+    }
+    if authorization.get("source_input") != expected_input:
+        raise PermissionError("source authorization has the wrong input binding")
+    if authorization.get("attempt_path") != _display_path(DEFAULT_SOURCE_ATTEMPT):
+        raise PermissionError("source authorization has the wrong attempt path")
+    expected_outputs = {
+        "source_reduction": _display_path(output_path),
+        "source_reduction_manifest": _display_path(manifest_path),
+        "source_model": _display_path(model_output_path),
+        "source_model_terminal": _display_path(model_terminal_path),
+        "source_reduction_terminal": _display_path(reduction_terminal_path),
+    }
+    if authorization.get("outputs") != expected_outputs:
+        raise PermissionError("source authorization has the wrong output binding")
+    if authorization.get("runtime") != _campaign_runtime():
+        raise PermissionError("source authorization has the wrong runtime binding")
+    one_shot = authorization.get("one_shot_policy")
+    if (
+        not isinstance(one_shot, dict)
+        or one_shot.get("exclusive_attempt_before_numeric_x") is not True
+        or one_shot.get("rerun_after_claim_forbidden") is not True
+        or one_shot.get("failure_is_terminal") is not True
+        or one_shot.get("model_must_bind_same_attempt") is not True
+    ):
+        raise PermissionError("source authorization lacks the one-shot policy")
+    _validate_public_freeze_chain(authorization, authorization_path)
+    return authorization
+
+
+def claim_source_campaign(
+    authorization_path: Path,
+    attempt_path: Path,
+    preflight_path: Path,
+    output_path: Path,
+    manifest_path: Path,
+    model_output_path: Path,
+    model_terminal_path: Path,
+    reduction_terminal_path: Path,
+) -> dict[str, Any]:
+    if attempt_path.resolve() != DEFAULT_SOURCE_ATTEMPT.resolve():
+        raise PermissionError("source campaign attempt path is not canonical")
+    for path in (
+        output_path,
+        manifest_path,
+        model_output_path,
+        model_terminal_path,
+        reduction_terminal_path,
+    ):
+        if path.exists():
+            raise FileExistsError("a source campaign output already exists")
+    authorization = _validate_source_authorization(
+        authorization_path,
+        preflight_path,
+        output_path,
+        manifest_path,
+        model_output_path,
+        model_terminal_path,
+        reduction_terminal_path,
+    )
+    payload = {
+        "schema": SOURCE_ATTEMPT_SCHEMA,
+        "status": SOURCE_ATTEMPT_STATUS,
+        "accession": "GSE181897",
+        "stage": "source_development",
+        "created_at_utc": _timestamp(),
+        "one_shot": True,
+        "attempt_consumed_even_on_interruption": True,
+        "authorization": {
+            "path": _display_path(authorization_path),
+            "sha256": _sha256(authorization_path),
+        },
+        "binding": authorization,
+    }
+    _write_json_exclusive(attempt_path, payload)
+    return payload
+
+
+def validate_source_campaign_attempt(
+    attempt_path: Path,
+    preflight_path: Path,
+    output_path: Path,
+    manifest_path: Path,
+    model_output_path: Path,
+    model_terminal_path: Path,
+    reduction_terminal_path: Path,
+) -> tuple[dict[str, Any], str]:
+    if attempt_path.resolve() != DEFAULT_SOURCE_ATTEMPT.resolve():
+        raise PermissionError("source campaign attempt path is not canonical")
+    claim_sha256 = _sha256(attempt_path)
+    claim = _read_json(attempt_path)
+    authorization_record = claim.get("authorization")
+    if (
+        claim.get("schema") != SOURCE_ATTEMPT_SCHEMA
+        or claim.get("status") != SOURCE_ATTEMPT_STATUS
+        or claim.get("accession") != "GSE181897"
+        or claim.get("stage") != "source_development"
+        or claim.get("one_shot") is not True
+        or claim.get("attempt_consumed_even_on_interruption") is not True
+        or not isinstance(authorization_record, dict)
+        or not isinstance(authorization_record.get("path"), str)
+        or not isinstance(authorization_record.get("sha256"), str)
+    ):
+        raise PermissionError("source campaign claim is absent or malformed")
+    authorization_path = ROOT / authorization_record["path"]
+    if (
+        not authorization_path.is_file()
+        or _sha256(authorization_path) != authorization_record["sha256"]
+    ):
+        raise PermissionError("source campaign authorization changed after claim")
+    authorization = _validate_source_authorization(
+        authorization_path,
+        preflight_path,
+        output_path,
+        manifest_path,
+        model_output_path,
+        model_terminal_path,
+        reduction_terminal_path,
+    )
+    if claim.get("binding") != authorization:
+        raise PermissionError("source campaign claim differs from authorization")
+    if _sha256(attempt_path) != claim_sha256:
+        raise PermissionError("source campaign claim changed during validation")
+    return claim, claim_sha256
 
 
 def _available_bytes(path: Path) -> int:
@@ -888,6 +1348,7 @@ def _read_authorized_csr_columns(
     )
     output = np.zeros((len(rows), len(columns)), dtype=np.int32)
     decoded_values = 0
+    scanned_indices = 0
     indices_dataset = matrix["indices"]
     data_dataset = matrix["data"]
     for output_row, source_row in enumerate(rows):
@@ -896,6 +1357,7 @@ def _read_authorized_csr_columns(
         if start < 0 or end < start or end > EXPECTED_X_DATA_LENGTH:
             raise ValueError("selected CSR row has malformed pointers")
         indices = np.asarray(indices_dataset[start:end], dtype=np.int64)
+        scanned_indices += len(indices)
         if (
             np.any(indices < 0)
             or np.any(indices >= EXPECTED_X_SHAPE[1])
@@ -927,6 +1389,14 @@ def _read_authorized_csr_columns(
             np.asarray(columns, dtype=np.int64)
         ),
         "stored_numeric_values_decoded": decoded_values,
+        "csr_indptr_entries_decoded": len(endpoints),
+        "csr_index_entries_scanned": scanned_indices,
+        "requested_stored_data_entries_decoded": decoded_values,
+        "unrequested_stored_data_entries_decoded": 0,
+        "out_of_panel_index_positions_scanned": scanned_indices - decoded_values,
+        "out_of_panel_indices_used_only_for_membership_filtering": True,
+        "out_of_panel_featurewise_statistics_retained": 0,
+        "out_of_panel_feature_signal_entering_model_outputs": 0,
         "implicit_zero_values_materialized": int(output.size - decoded_values),
         "held_batch_rows_decoded": 0,
         "non_control_rows_decoded": 0,
@@ -1155,15 +1625,36 @@ def _without_acquisition(payload: dict[str, Any]) -> dict[str, Any]:
     return normalized
 
 
+def _axis_contract_without_code_hash(payload: dict[str, Any]) -> dict[str, Any]:
+    normalized = _without_acquisition(payload)
+    normalized.pop("reducer_sha256", None)
+    return normalized
+
+
 def reduce_source(
     h5ad_path: Path,
     preflight_path: Path,
     output_path: Path,
     manifest_path: Path,
+    attempt_path: Path,
+    model_output_path: Path,
+    model_terminal_path: Path,
+    reduction_terminal_path: Path,
 ) -> dict[str, Any]:
+    _, attempt_sha256 = validate_source_campaign_attempt(
+        attempt_path,
+        preflight_path,
+        output_path,
+        manifest_path,
+        model_output_path,
+        model_terminal_path,
+        reduction_terminal_path,
+    )
     inspection = inspect_axes(h5ad_path)
     frozen_preflight = _read_json(preflight_path)
-    if _without_acquisition(frozen_preflight) != inspection.payload:
+    if _axis_contract_without_code_hash(
+        frozen_preflight
+    ) != _axis_contract_without_code_hash(inspection.payload):
         raise PermissionError("axis preflight differs; numeric access is refused")
     if output_path.exists() or manifest_path.exists():
         raise FileExistsError("source reduction outputs are write-once")
@@ -1239,7 +1730,15 @@ def reduce_source(
         "axis_preflight": {
             "path": str(preflight_path.resolve().relative_to(ROOT.resolve())),
             "sha256": _sha256(preflight_path),
+            "schema": frozen_preflight["schema"],
             "status": frozen_preflight["status"],
+            "axis_reducer_sha256": frozen_preflight["reducer_sha256"],
+        },
+        "source_campaign_attempt": {
+            "path": _display_path(attempt_path),
+            "sha256": attempt_sha256,
+            "schema": SOURCE_ATTEMPT_SCHEMA,
+            "status": SOURCE_ATTEMPT_STATUS,
         },
         "numeric_access": access_audit,
         "availability_diagnostics": availability,
@@ -1261,22 +1760,121 @@ def reduce_source(
 
 def _argument_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("preflight", "reduce"))
+    parser.add_argument("command", choices=("preflight", "claim", "reduce"))
     parser.add_argument("--cache", type=Path, default=DEFAULT_CACHE)
     parser.add_argument("--preflight", type=Path, default=DEFAULT_PREFLIGHT)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
+    parser.add_argument(
+        "--authorization", type=Path, default=DEFAULT_SOURCE_AUTHORIZATION
+    )
+    parser.add_argument("--attempt", type=Path, default=DEFAULT_SOURCE_ATTEMPT)
+    parser.add_argument(
+        "--reduction-terminal", type=Path, default=DEFAULT_REDUCTION_TERMINAL
+    )
+    parser.add_argument("--model-output", type=Path, default=DEFAULT_MODEL_OUTPUT)
+    parser.add_argument("--model-terminal", type=Path, default=DEFAULT_MODEL_TERMINAL)
     parser.add_argument("--keep-archive", action="store_true")
     return parser
 
 
+def _replace_open_json(stream: Any, payload: dict[str, Any]) -> None:
+    encoded = json.dumps(payload, indent=2, sort_keys=True, allow_nan=False) + "\n"
+    stream.seek(0)
+    stream.truncate()
+    stream.write(encoded)
+    stream.flush()
+    os.fsync(stream.fileno())
+
+
+def run_reduction_one_shot(args: argparse.Namespace) -> dict[str, Any]:
+    args.reduction_terminal.parent.mkdir(parents=True, exist_ok=True)
+    descriptor = os.open(
+        args.reduction_terminal, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o644
+    )
+    with os.fdopen(descriptor, "w+") as stream:
+        attempt_sha256 = _sha256(args.attempt) if args.attempt.is_file() else None
+        started = {
+            "schema": "gse181897-source-reduction-terminal/1.0",
+            "status": "SOURCE_REDUCTION_EXECUTION_STARTED_ATTEMPT_CONSUMED",
+            "created_at_utc": _timestamp(),
+            "attempt_path": _display_path(args.attempt),
+            "attempt_sha256": attempt_sha256,
+        }
+        _replace_open_json(stream, started)
+        try:
+            validate_source_campaign_attempt(
+                args.attempt,
+                args.preflight,
+                args.output,
+                args.manifest,
+                args.model_output,
+                args.model_terminal,
+                args.reduction_terminal,
+            )
+            h5ad_path, _ = acquire_h5ad(args.cache, keep_archive=args.keep_archive)
+            manifest = reduce_source(
+                h5ad_path,
+                args.preflight,
+                args.output,
+                args.manifest,
+                args.attempt,
+                args.model_output,
+                args.model_terminal,
+                args.reduction_terminal,
+            )
+            payload = {
+                "schema": "gse181897-source-reduction-terminal/1.0",
+                "status": "SOURCE_REDUCTION_COMPLETE_MODEL_PENDING",
+                "created_at_utc": _timestamp(),
+                "attempt_path": _display_path(args.attempt),
+                "attempt_sha256": attempt_sha256,
+                "source_reduction_path": _display_path(args.output),
+                "source_reduction_sha256": manifest["output"]["sha256"],
+                "source_manifest_path": _display_path(args.manifest),
+                "source_manifest_sha256": _sha256(args.manifest),
+                "model_output_path": _display_path(args.model_output),
+                "model_terminal_path": _display_path(args.model_terminal),
+                "model_numeric_access_authorized": False,
+                "next_step": "run the write-once source model bound to this claim",
+            }
+        except BaseException as error:
+            payload = {
+                "schema": "gse181897-source-reduction-terminal/1.0",
+                "status": "TERMINAL_SOURCE_REDUCTION_REFUSAL",
+                "created_at_utc": _timestamp(),
+                "attempt_path": _display_path(args.attempt),
+                "attempt_sha256": attempt_sha256,
+                "reason_code": type(error).__name__,
+                "reason": str(error)
+                .replace(str(ROOT.resolve()), "<repository>")
+                .replace(str(Path.home().resolve()), "<home>"),
+                "rerun_forbidden": True,
+            }
+        _replace_open_json(stream, payload)
+    return payload
+
+
 def main() -> None:
     args = _argument_parser().parse_args()
-    h5ad_path, acquisition = acquire_h5ad(args.cache, keep_archive=args.keep_archive)
     if args.command == "preflight":
+        h5ad_path, acquisition = acquire_h5ad(
+            args.cache, keep_archive=args.keep_archive
+        )
         payload = write_preflight(h5ad_path, args.preflight, acquisition)
+    elif args.command == "claim":
+        payload = claim_source_campaign(
+            args.authorization,
+            args.attempt,
+            args.preflight,
+            args.output,
+            args.manifest,
+            args.model_output,
+            args.model_terminal,
+            args.reduction_terminal,
+        )
     else:
-        payload = reduce_source(h5ad_path, args.preflight, args.output, args.manifest)
+        payload = run_reduction_one_shot(args)
     print(json.dumps(payload, indent=2, sort_keys=True, allow_nan=False))
 
 

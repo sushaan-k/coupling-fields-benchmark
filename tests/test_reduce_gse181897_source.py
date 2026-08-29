@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 from pathlib import Path
+from types import SimpleNamespace
 
 import h5py
 import numpy as np
@@ -9,6 +10,119 @@ import pytest
 from scipy import sparse
 
 from experiments import reduce_gse181897_source as subject
+
+
+def test_claim_rejects_an_alternate_attempt_path(tmp_path: Path) -> None:
+    with pytest.raises(PermissionError, match="attempt path is not canonical"):
+        subject.claim_source_campaign(
+            tmp_path / "authorization.json",
+            tmp_path / "alternate-attempt.json",
+            tmp_path / "preflight.json",
+            tmp_path / "source.npz",
+            tmp_path / "manifest.json",
+            tmp_path / "model.json",
+            tmp_path / "model-terminal.json",
+            tmp_path / "reduction-terminal.json",
+        )
+
+
+def test_public_freeze_chain_rejects_an_unexpected_tag(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    freeze = {
+        "tag_object": "1" * 40,
+        "peeled_commit": "2" * 40,
+        "remote_tag_and_commit_match": True,
+    }
+    authorization = {
+        "candidate_freeze": {"tag": "wrong-candidate", **freeze},
+        "implementation_freeze": {"tag": subject.IMPLEMENTATION_TAG, **freeze},
+        "axis_freeze": {"tag": subject.AXIS_PREFLIGHT_TAG, **freeze},
+    }
+    monkeypatch.setattr(
+        subject,
+        "_verified_tag",
+        lambda tag: {"tag": tag, **freeze},
+    )
+    with pytest.raises(PermissionError, match="wrong candidate_freeze tag"):
+        subject._validate_public_freeze_chain(authorization, Path("unused.json"))
+
+
+def test_public_freeze_chain_rejects_a_tagged_blob_mismatch(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    freeze = {
+        "tag_object": "1" * 40,
+        "peeled_commit": "2" * 40,
+        "remote_tag_and_commit_match": True,
+    }
+    candidate_sha256 = subject._sha256(subject.ROOT / subject.CANDIDATE_PATH)
+    authorization = {
+        "candidate_freeze": {
+            "tag": subject.CANDIDATE_TAG,
+            **freeze,
+            "candidate_path": subject.CANDIDATE_PATH,
+            "candidate_sha256": candidate_sha256,
+        },
+        "implementation_freeze": {
+            "tag": subject.IMPLEMENTATION_TAG,
+            **freeze,
+            "files_sha256": {"implementation.py": "a" * 64},
+        },
+        "axis_freeze": {
+            "tag": subject.AXIS_PREFLIGHT_TAG,
+            **freeze,
+            "preflight_path": "axis.json",
+            "preflight_sha256": "b" * 64,
+        },
+    }
+    monkeypatch.setattr(
+        subject, "CAMPAIGN_IMPLEMENTATION_FILES", ("implementation.py",)
+    )
+    monkeypatch.setattr(
+        subject,
+        "_verified_tag",
+        lambda tag: {"tag": tag, **freeze},
+    )
+    monkeypatch.setattr(subject, "_require_ancestor", lambda *_args: None)
+
+    def published(_tag: str, relative: str) -> str:
+        if relative == subject.CANDIDATE_PATH:
+            return candidate_sha256
+        return "f" * 64
+
+    monkeypatch.setattr(subject, "_published_file_sha256", published)
+    with pytest.raises(PermissionError, match="implementation tag"):
+        subject._validate_public_freeze_chain(authorization, Path("unused.json"))
+
+
+def test_reduction_interruption_is_terminal_and_blocks_rerun(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    attempt = tmp_path / "attempt.json"
+    attempt.write_text("{}\n")
+    terminal = tmp_path / "terminal.json"
+    args = SimpleNamespace(
+        reduction_terminal=terminal,
+        attempt=attempt,
+        preflight=tmp_path / "preflight.json",
+        output=tmp_path / "source.npz",
+        manifest=tmp_path / "manifest.json",
+        model_output=tmp_path / "model.json",
+        model_terminal=tmp_path / "model-terminal.json",
+        cache=tmp_path / "cache",
+        keep_archive=False,
+    )
+    monkeypatch.setattr(
+        subject,
+        "validate_source_campaign_attempt",
+        lambda *_args: (_ for _ in ()).throw(KeyboardInterrupt()),
+    )
+    result = subject.run_reduction_one_shot(args)
+    assert result["status"] == "TERMINAL_SOURCE_REDUCTION_REFUSAL"
+    assert result["reason_code"] == "KeyboardInterrupt"
+    with pytest.raises(FileExistsError):
+        subject.run_reduction_one_shot(args)
 
 
 def _strings(values: list[str] | tuple[str, ...] | np.ndarray) -> np.ndarray:
@@ -118,6 +232,22 @@ def test_frozen_panel_axes_and_selection_hash_are_exact() -> None:
     )
 
 
+@pytest.mark.parametrize("axis_name", ["obs", "var"])
+def test_axis_uniqueness_certificate_rejects_duplicate_values(
+    axis_name: str,
+) -> None:
+    with pytest.raises(ValueError, match=f"{axis_name} index is not unique"):
+        subject._require_unique_axis(
+            np.asarray([f"{axis_name}-0", f"{axis_name}-0"]), axis_name
+        )
+    assert (
+        subject._require_unique_axis(
+            np.asarray([f"{axis_name}-0", f"{axis_name}-1"]), axis_name
+        )
+        == 2
+    )
+
+
 def test_source_plan_is_deterministic_deposited_order_and_firewalled() -> None:
     barcodes, batches, conditions, exp_ids, free_ids = _production_like_metadata()
     plan = subject._build_source_plan(barcodes, batches, conditions, exp_ids, free_ids)
@@ -191,6 +321,13 @@ def test_guarded_csr_reader_never_decodes_unauthorized_poison(
     assert audit["held_batch_rows_decoded"] == 0
     assert audit["non_control_rows_decoded"] == 0
     assert audit["unselected_authorized_rows_decoded"] == 0
+    assert audit["csr_index_entries_scanned"] == values[[0, 2]].nnz
+    assert audit["requested_stored_data_entries_decoded"] == 3
+    assert audit["unrequested_stored_data_entries_decoded"] == 0
+    assert audit["out_of_panel_index_positions_scanned"] == 1
+    assert audit["out_of_panel_indices_used_only_for_membership_filtering"] is True
+    assert audit["out_of_panel_featurewise_statistics_retained"] == 0
+    assert audit["out_of_panel_feature_signal_entering_model_outputs"] == 0
 
     unauthorized = subject.SourcePlan(
         donor_axis=("a", "b"),

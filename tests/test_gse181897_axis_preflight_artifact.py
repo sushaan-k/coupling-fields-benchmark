@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,6 +15,16 @@ VERIFICATION = (
 
 def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _tagged_sha256(tag: str, path: str) -> str:
+    result = subprocess.run(
+        ["git", "show", f"{tag}:{path}"],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+    )
+    return hashlib.sha256(result.stdout).hexdigest()
 
 
 def test_preflight_binds_input_axes_and_zero_numeric_access() -> None:
@@ -44,11 +55,13 @@ def test_verification_binds_exact_artifact_and_implementation() -> None:
     verification = json.loads(VERIFICATION.read_text())
     assert verification["status"] == "VERIFIED_AXES_NUMERIC_X_UNREAD"
     assert verification["artifact"]["sha256"] == _sha256(PREFLIGHT)
-    assert verification["axis_code_freeze"]["reducer_sha256"] == _sha256(
-        ROOT / verification["axis_code_freeze"]["reducer_path"]
+    assert verification["axis_code_freeze"]["reducer_sha256"] == _tagged_sha256(
+        verification["axis_code_freeze"]["tag"],
+        verification["axis_code_freeze"]["reducer_path"],
     )
-    assert verification["axis_code_freeze"]["test_sha256"] == _sha256(
-        ROOT / verification["axis_code_freeze"]["test_path"]
+    assert verification["axis_code_freeze"]["test_sha256"] == _tagged_sha256(
+        verification["axis_code_freeze"]["tag"],
+        verification["axis_code_freeze"]["test_path"],
     )
     assert verification["axis_code_freeze"]["candidate_is_ancestor"] is True
     assert verification["numeric_access"]["source_reduction_authorized"] is False

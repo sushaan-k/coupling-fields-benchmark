@@ -1,0 +1,43 @@
+{
+  "schema": "gse181897-held-authorization/1.0",
+  "status": "TEMPLATE_CLOSED_PENDING_PUBLIC_INTERNAL_PASS",
+  "stage": "confirmation_prepare",
+  "paths": {
+    "h5ad": "PENDING_CANONICAL_CACHE_PATH/GSE181897_concat.4.raw.h5ad",
+    "axis_preflight": "data/development/gse181897_source/axis_preflight_v2.json",
+    "source_candidate": "results/development/gse181897_source_candidate_v1.json",
+    "margin_npz": "data/confirmation/gse181897_control_citeseq/confirmation_margin_counts_v1.npz",
+    "margin_manifest": "data/confirmation/gse181897_control_citeseq/confirmation_margin_manifest_v1.json",
+    "prediction_npz": "data/confirmation/gse181897_control_citeseq/confirmation_predictions_v1.npz",
+    "prediction_manifest": "data/confirmation/gse181897_control_citeseq/confirmation_prediction_manifest_v1.json",
+    "prepare_terminal": "data/confirmation/gse181897_control_citeseq/confirmation_prepare_terminal_v1.json",
+    "attempt": "data/confirmation/gse181897_control_citeseq/confirmation_prepare_attempt_v1.json",
+    "internal_result": "results/confirmation/gse181897_control_citeseq/internal_validation_result_v1.json"
+  },
+  "bindings": {
+    "protocol": "PENDING_PUBLIC_IMPLEMENTATION_FREEZE",
+    "axis_preflight": "PENDING_PUBLIC_AXIS_V2_FREEZE",
+    "source_candidate": "PENDING_PUBLIC_SOURCE_CANDIDATE_FREEZE",
+    "h5ad": "PENDING_EXACT_INPUT_BINDING",
+    "input_artifacts": "PENDING_EXACT_PUBLIC_INTERNAL_RESULT_HASH",
+    "implementation": "PENDING_EXACT_RUNTIME_AND_FILE_HASHES"
+  },
+  "verified_freeze_chain": [
+    {"tag": "gse181897-control-citeseq-v1-candidate", "annotated_tag_object": "PENDING", "peeled_commit": "PENDING"},
+    {"tag": "gse181897-control-citeseq-v1-implementation", "annotated_tag_object": "PENDING", "peeled_commit": "PENDING"},
+    {"tag": "gse181897-control-citeseq-v1-axis-preflight-v2", "annotated_tag_object": "PENDING", "peeled_commit": "PENDING"},
+    {"tag": "gse181897-control-citeseq-v1-source-authorized", "annotated_tag_object": "PENDING", "peeled_commit": "PENDING"},
+    {"tag": "gse181897-control-citeseq-v1-source-candidate", "annotated_tag_object": "PENDING", "peeled_commit": "PENDING"},
+    {"tag": "gse181897-control-citeseq-v1-internal-prepare-authorized", "annotated_tag_object": "PENDING", "peeled_commit": "PENDING"},
+    {"tag": "gse181897-control-citeseq-v1-internal-predictions", "annotated_tag_object": "PENDING", "peeled_commit": "PENDING"},
+    {"tag": "gse181897-control-citeseq-v1-internal-score-authorized", "annotated_tag_object": "PENDING", "peeled_commit": "PENDING"},
+    {"tag": "gse181897-control-citeseq-v1-internal-result", "annotated_tag_object": "PENDING", "peeled_commit": "PENDING"}
+  ],
+  "one_shot_policy": {
+    "exact_attempt_path_required": true,
+    "exclusive_attempt_before_numeric_x": true,
+    "failure_or_interruption_is_terminal": true,
+    "same_cell_joint_tables_forbidden": true,
+    "requires_public_internal_pass": true
+  }
+}

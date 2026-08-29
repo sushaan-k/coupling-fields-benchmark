@@ -1,29 +1,75 @@
 {
-  "schema": "gse181897-control-citeseq-protocol/1.0",
-  "status": "FROZEN_METADATA_ONLY_NUMERIC_ACCESS_DISABLED_PENDING_PUBLIC_BINDINGS",
+  "schema": "gse181897-control-citeseq-protocol/1.1",
+  "status": "PRE_OUTCOME_AMENDMENT_1_1_IMPLEMENTATION_READY_AWAITING_PUBLIC_TAG",
   "created_at_utc": "2026-08-29T20:00:31Z",
+  "amended_at_utc": "2026-08-29T20:32:54Z",
   "accession": "GSE181897",
   "claim_scope": "Same-study, donor-disjoint and physical-pool-disjoint transfer of composition-inclusive RNA-surface-protein dependence among unstimulated PBMC aliquots. This is not whole-file holdout because all conditions share one H5AD and each donor's sealed non-control aliquots occur in other pools; those non-control rows are never analyzed.",
   "candidate_binding": {
     "path": "data/confirmation/gse181897_control_citeseq/candidate_designation_v1.json",
     "sha256": "74c9419180911fda63eba95a5520010676705366d77524a7473471207433a53d",
-    "annotated_tag": "PENDING_PUBLIC_FREEZE",
-    "annotated_tag_object": "PENDING_PUBLIC_FREEZE",
-    "peeled_commit": "PENDING_PUBLIC_FREEZE",
+    "annotated_tag": "gse181897-control-citeseq-v1-candidate",
+    "annotated_tag_object": "d7996e8a85bca61bad919631f1fbe1890872b074",
+    "peeled_commit": "b69d19da98aeba46880dcb62082e57daa73a82c9",
     "verification": "Before axis preflight, require an annotated public tag whose local and remote tag objects and peeled commits agree, whose candidate path is byte-identical to the tagged path, and whose peeled commit is an ancestor of every later campaign tag."
   },
+  "revision_history": [
+    {
+      "schema": "gse181897-control-citeseq-protocol/1.0",
+      "status": "PUBLICLY_TAGGED_IMMUTABLE_PREDECESSOR",
+      "tag": "gse181897-control-citeseq-v1-candidate",
+      "annotated_tag_object": "d7996e8a85bca61bad919631f1fbe1890872b074",
+      "peeled_commit": "b69d19da98aeba46880dcb62082e57daa73a82c9",
+      "protocol_path": "data/confirmation/gse181897_control_citeseq/protocol_v1.json",
+      "protocol_sha256": "ec2501565dc55df02a8c48dd0c2955a90abd8b91083a600a305334a09d1074ff",
+      "candidate_path": "data/confirmation/gse181897_control_citeseq/candidate_designation_v1.json",
+      "candidate_sha256": "74c9419180911fda63eba95a5520010676705366d77524a7473471207433a53d",
+      "immutability": "The tagged 1.0 bytes and commit remain unchanged. Version 1.1 is a new descendant amendment and does not move or rewrite the original tag."
+    },
+    {
+      "schema": "gse181897-control-citeseq-protocol/1.1",
+      "status": "PRE_OUTCOME_AMENDMENT_READY_FOR_PUBLIC_TAG",
+      "scope": [
+        "make Stage-B, equal-distance hypergraph, and exact-zero sign-test tie conventions deterministic and internally consistent",
+        "disclose unavoidable full /X/indices slice scans separately from requested /X/data decoding",
+        "state that pooled Poisson uses exactly the primary-supported donor-coordinate tables",
+        "require a public authorization and exclusive source-attempt claim before source numeric access",
+        "require the version 2 axis artifact with explicit obs and var uniqueness certificates before numeric access"
+      ],
+      "scope_exclusions": "No cohort, panel, state, mask floor, model grid, loss, comparator, gate threshold, or held-stage decision rule changed.",
+      "numeric_access_at_amendment": {
+        "axis_preflight_path": "data/development/gse181897_source/axis_preflight_v1.json",
+        "axis_preflight_sha256": "a1b13f034f46a675c2c270072cf4ce2ced983edee7d811dbf882bd078f3e5c53",
+        "axis_preflight_tag": "gse181897-control-citeseq-v1-axis-preflight",
+        "axis_preflight_tag_object": "0215a84a260b732c03161b262c5233d049640209",
+        "axis_preflight_peeled_commit": "3f2eeac3ca8f47c6330458ff81c8b5a074af29d3",
+        "decoded_X_data_entries": 0,
+        "scanned_X_indices_entries": 0,
+        "decoded_X_indptr_entries": 0,
+        "permitted_preflight_reads": "metadata values, HDF5 dataset names, attributes, shapes, and dtypes only"
+      }
+    }
+  ],
   "input_binding": {
     "file_name": "GSE181897_concat.4.raw.h5ad.gz",
     "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE181nnn/GSE181897/suppl/GSE181897_concat.4.raw.h5ad.gz",
     "expected_compressed_bytes": 1011162509,
     "expected_uncompressed_bytes": 3063713137,
-    "compressed_sha256": "PENDING_SOURCE_ACQUISITION",
-    "uncompressed_sha256": "PENDING_AXIS_PREFLIGHT",
-    "axis_preflight_artifact": "PENDING_AXIS_PREFLIGHT",
-    "axis_preflight_sha256": "PENDING_AXIS_PREFLIGHT",
-    "axis_preflight_annotated_tag": "PENDING_AXIS_PREFLIGHT",
-    "numeric_matrix_schema": "AnnData X CSR encoding-version 0.1.0 with shape 136142 by 20399; exact HDF5 dataset paths, axis hashes, and input digests remain PENDING_AXIS_PREFLIGHT",
-    "binding_rule": "The opaque compressed file, decompressed H5AD, exact HDF5 paths and storage encodings, complete obs and var axes, modality labels, shapes, and hashes must be published under an annotated axis-preflight tag before any numeric matrix dataset is dereferenced. A PENDING value is a closed gate."
+    "compressed_sha256": "7fe58432f2f238319e81c9218eb35b5f7fbdae6f10f3d87ce9a6044ee851675b",
+    "uncompressed_sha256": "183d7756c750fb0ca57f381512fe784df6249ec5a5478a9caf6a62df55cba56c",
+    "axis_preflight_artifact": "data/development/gse181897_source/axis_preflight_v2.json",
+    "axis_preflight_sha256": "BOUND_BY_DESCENDANT_SOURCE_AUTHORIZATION",
+    "axis_preflight_annotated_tag": "gse181897-control-citeseq-v1-axis-preflight-v2",
+    "axis_preflight_required_schema": "gse181897-axis-preflight/1.1",
+    "axis_preflight_required_status": "AXES_FROZEN_UNIQUE_X_NUMERIC_UNREAD",
+    "axis_preflight_required_uniqueness": {
+      "hdf5.obs.unique_rows": 136142,
+      "hdf5.obs.index_is_unique": true,
+      "hdf5.var.unique_rows": 20399,
+      "hdf5.var.index_is_unique": true
+    },
+    "numeric_matrix_schema": "AnnData /X CSR encoding-version 0.1.0 with shape 136142 by 20399: /X/data float32 length 292741570, /X/indices int32 length 292741570, and /X/indptr int32 length 136143. Exact obs and var axis hashes are recertified by axis-preflight v2.",
+    "binding_rule": "The opaque compressed file, decompressed H5AD, exact HDF5 paths and storage encodings, complete unique obs and var axes, modality labels, shapes, and hashes must be published under the exact annotated axis-preflight-v2 tag and bound by the descendant source authorization before any numeric matrix dataset is dereferenced."
   },
   "axis_only_preflight": {
     "permitted": [
@@ -154,7 +200,7 @@
     "parameter": "One population full log-odds interaction for each ordered RNA-by-protein coordinate plus donor deviations penalized toward the population field.",
     "likelihood": "Exact conditional likelihood of each donor 2-by-2 table given its observed row and column margins.",
     "zero_support_semantics": "Positive heterogeneity and ridge penalties give a unique finite penalized fit even when a coordinate has no informative source table. Such a coordinate is labeled a penalty-propagated prediction, never a data-identified effect.",
-    "hypergraph": "Build separate marker-centered hypergraphs from training-only normalized RNA and protein profiles. Each marker defines one hyperedge containing itself and its k nearest markers, with duplicate membership removed. Use the Cartesian-product hypergraph Laplacian on the 17 by 17 population field.",
+    "hypergraph": "Build separate marker-centered hypergraphs from training-only normalized RNA and protein profiles. Each marker defines one hyperedge containing itself and its k nearest markers; equal Euclidean distances resolve by lower zero-based marker index before duplicate hyperedges are removed. Use the Cartesian-product hypergraph Laplacian on the 17 by 17 population field.",
     "recipient_prediction": "Transport the fitted population log odds by the frozen multiplier and combine it with recipient row and column margins through the exact noncentral-hypergeometric expectation.",
     "maximum_condition_number": 1000000000000.0,
     "stage_a_grid": {
@@ -167,7 +213,7 @@
       "neighbors": [2, 3],
       "graph_penalty": [0.01, 0.03, 0.1, 0.3]
     },
-    "selection": "In each inner training problem, Stage A selects heterogeneity penalty, ridge penalty, and transport multiplier using graph zero. Stage B fixes those values and selects k and positive graph penalty. A configuration is eligible only if it completes every inner held-pool fold. Minimize equal-pool mean donor loss and resolve exact ties lexicographically by the parameter order listed above. Apply the selected inner configuration once to its outer held pool. After the nested source gate, repeat the same inner leave-one-pool-out selection over all eight source pools and refit the final selected configuration once on all 39 source donors.",
+    "selection": "In each inner training problem, Stage A selects heterogeneity penalty, ridge penalty, and transport multiplier using graph zero. Stage B fixes those values and selects k and positive graph penalty. A configuration is eligible only if it completes every inner held-pool fold. Minimize equal-pool mean donor loss. Stage A exact ties resolve by heterogeneity penalty, then ridge penalty, then transport multiplier; Stage B exact ties resolve by graph penalty, then k. Apply the selected inner configuration once to its outer held pool. After the nested source gate, repeat the same inner leave-one-pool-out selection over all eight source pools and refit the final selected configuration once on all 39 source donors.",
     "matched_graph_zero": "Use identity incidence matrices, graph penalty zero, and the primary-selected heterogeneity penalty, ridge penalty, and transport multiplier. Do not construct a profile graph."
   },
   "comparators": {
@@ -177,7 +223,7 @@
     },
     "unstratified_pooled_poisson": {
       "family": "unstratified saturated 2-by-2 Poisson log-linear interaction after pooling source donors",
-      "selection": "Pool complete donor tables by coordinate without donor strata, require all four pooled cells positive, reconstruct the fitted pooled table to normalized absolute error at most 1e-8, and select the transport multiplier by source CV."
+      "selection": "For each coordinate, pool exactly the same supported donor-coordinate tables available to the primary, without donor strata; omit every unsupported donor-coordinate table. Require all four pooled cells positive, reconstruct the fitted pooled table to normalized absolute error at most 1e-8, and select the transport multiplier by source CV."
     },
     "classical_residual_coordinate": {
       "families": ["signed Pearson", "signed-root Poisson deviance"],
@@ -232,7 +278,7 @@
       "seed_salt": "GSE181897-CONTROL-HELD-BOOTSTRAP-v1",
       "seed_formula": "little-endian integer from the first eight bytes of SHA256(seed-salt|stage|comparator)"
     },
-    "exact_sign_test": "One-sided exact donor sign test on nonzero paired loss differences, including equality with the observed favorable count in the tail. Zero differences count as one half favorable and one half unfavorable by doubling the denominator.",
+    "exact_sign_test": "One-sided exact donor sign test on nonzero paired loss differences, including equality with the observed favorable count in the tail. Omit exact zero differences and use the number of nonzero donor pairs as n.",
     "batch_sensitivity": "Both physical-pool mean paired differences must be strictly negative versus matched graph zero. Report each pool separately for every comparator; the equal-pool mean and bootstrap govern the prespecified classical and destroyed-link contrasts."
   },
   "internal_validation_gate": {
@@ -284,25 +330,33 @@
     "interpretation": "A pass is one same-study, donor-disjoint and pool-disjoint confirmation under the frozen GSE181897 protocol. It is not an independent-study replication."
   },
   "sequential_access": {
-    "physical_file_rule": "The single public H5AD may exist locally as opaque bytes after acquisition. Local possession is not assay access. Access means dereferencing or decoding a numeric matrix dataset, and every authorized reader must publish the exact row, feature, and HDF5-dataset certificate it decoded.",
+    "physical_file_rule": "The single public H5AD may exist locally as opaque bytes after acquisition. Local possession is not assay access. Access means dereferencing or decoding a numeric matrix dataset. Every held reader must report exact selected-row and frozen-feature-column counts plus canonical axis hashes, the full number of /X/indices entries scanned across those rows, and the smaller number of /X/data entries decoded for frozen columns. Raw row indices and cell identifiers are not published. No out-of-panel data value may be decoded or retained, and no non-control or unauthorized held row may be scanned.",
+    "source_attempt_mechanics": {
+      "authorization_path": "data/development/gse181897_source/source_campaign_authorization_v1.json",
+      "attempt_path": "data/development/gse181897_source/source_attempt_v1.json",
+      "authorization_rule": "Before the first source /X/indptr, /X/indices, or /X/data access, publish an authorization binding this amended protocol tag, the verified axis-preflight tag and bytes, exact source reducer and model implementation hashes, runtime, input digests, output paths, and the empty attempt path.",
+      "exclusive_claim": "Create the attempt artifact with O_CREAT|O_EXCL and fsync before the first source numeric-matrix read. An existing attempt path refuses every rerun.",
+      "consumption_rule": "After the exclusive claim, any matrix access, interruption, support refusal, exception, hash mismatch, or partial output consumes the source attempt and must be published; it cannot be deleted or replaced.",
+      "current_status": "CLOSED_UNTIL_VERSION_1_1_IMPLEMENTATION_TAG_AXIS_V2_TAG_AND_SOURCE_AUTHORIZATION_ARE_PUBLICLY_VERIFIED"
+    },
     "stages": [
       {
         "index": 0,
         "name": "candidate_public_freeze",
         "numeric_x_access": "forbidden",
-        "exit": "candidate annotated tag verified locally, remotely, and from a fresh clone"
+        "exit": "candidate annotated tag object and peeled commit verified locally and remotely, with tagged candidate bytes identical to the canonical local path"
       },
       {
         "index": 1,
-        "name": "axis_only_preflight",
-        "numeric_x_access": "forbidden",
-        "exit": "input digests and exact H5AD schema/axes published under an annotated tag"
-      },
-      {
-        "index": 2,
         "name": "implementation_and_runtime_freeze",
         "numeric_x_access": "forbidden",
         "exit": "reducers, model code, runners, tests, dependencies, runtime, salts, grids, output schemas, and file SHA-256 values bound under an annotated tag"
+      },
+      {
+        "index": 2,
+        "name": "axis_only_preflight",
+        "numeric_x_access": "forbidden",
+        "exit": "input digests and exact H5AD schema/axes published under an annotated tag descended from the implementation tag"
       },
       {
         "index": 3,
@@ -349,7 +403,7 @@
     "no_rescue": "Internal and confirmation stages are scored separately in order. They cannot be pooled, reordered, repeated, partially reused, or replaced. A failure, support refusal, implementation exception, interruption after the attempt claim, or hash mismatch consumes that stage and closes downstream access."
   },
   "implementation_freeze": {
-    "status": "PENDING_IMPLEMENTATION_FREEZE",
+    "status": "IMPLEMENTATION_READY_AWAITING_PUBLIC_TAG",
     "required_bindings": [
       "axis-only preflight artifact and its SHA-256",
       "compressed and uncompressed input SHA-256",
@@ -360,11 +414,11 @@
       "penalty-complete conditional solver path and SHA-256",
       "hypergraph, common-effect, classical residual, Poisson, prediction, and inference module paths and SHA-256",
       "test paths and SHA-256",
-      "Python, NumPy, SciPy, h5py/anndata, BLAS, operating-system, and machine versions",
+      "Python executable and version, NumPy, SciPy, h5py, operating-system family, and machine architecture",
       "OPENBLAS_NUM_THREADS=1, OMP_NUM_THREADS=1, and VECLIB_MAXIMUM_THREADS=1",
-      "annotated public tag object, peeled commit, ancestry proof, remote verification, and fresh-clone verification"
+      "annotated public tag object, peeled commit, ancestry proof, remote verification, and git-show byte-identity verification"
     ],
-    "placeholder_rule": "No source numeric access is authorized until every required binding replaces its PENDING value in a committed amendment and that amendment passes the public verification chain."
+    "placeholder_rule": "No source numeric access is authorized until the exact implementation bytes, runtime, axis-preflight-v2 artifact, source input, canonical paths, and one-shot outputs are committed under the prescribed annotated-tag lineage and the descendant source authorization passes local, remote, ancestry, and byte-identity verification."
   },
   "reporting": {
     "always_publish": [

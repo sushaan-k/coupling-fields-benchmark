@@ -50,8 +50,29 @@ def test_candidate_is_metadata_only_and_protocol_binds_exact_bytes() -> None:
         is False
     )
     assert protocol["candidate_binding"]["sha256"] == _sha256(CANDIDATE_PATH)
+    assert protocol["schema"] == "gse181897-control-citeseq-protocol/1.1"
     assert protocol["status"] == (
-        "FROZEN_METADATA_ONLY_NUMERIC_ACCESS_DISABLED_PENDING_PUBLIC_BINDINGS"
+        "PRE_OUTCOME_AMENDMENT_1_1_IMPLEMENTATION_READY_AWAITING_PUBLIC_TAG"
+    )
+    assert protocol["amended_at_utc"] == "2026-08-29T20:32:54Z"
+
+
+def test_amendment_binds_immutable_v1_and_certifies_zero_numeric_access() -> None:
+    protocol = _load(PROTOCOL_PATH)
+    predecessor, amendment = protocol["revision_history"]
+    assert predecessor["tag"] == "gse181897-control-citeseq-v1-candidate"
+    assert predecessor["peeled_commit"] == ("b69d19da98aeba46880dcb62082e57daa73a82c9")
+    assert predecessor["protocol_sha256"] == (
+        "ec2501565dc55df02a8c48dd0c2955a90abd8b91083a600a305334a09d1074ff"
+    )
+    assert "does not move or rewrite" in predecessor["immutability"]
+    assert len(amendment["scope"]) == 5
+    access = amendment["numeric_access_at_amendment"]
+    assert access["decoded_X_data_entries"] == 0
+    assert access["scanned_X_indices_entries"] == 0
+    assert access["decoded_X_indptr_entries"] == 0
+    assert access["axis_preflight_sha256"] == (
+        "a1b13f034f46a675c2c270072cf4ce2ced983edee7d811dbf882bd078f3e5c53"
     )
 
 
@@ -208,14 +229,18 @@ def test_axis_and_input_placeholders_are_closed_numeric_gates() -> None:
     assert candidate["input"]["compressed_sha256"] == "PENDING_SOURCE_ACQUISITION"
     assert candidate["input"]["uncompressed_sha256"] == "PENDING_AXIS_PREFLIGHT"
     assert "CSR encoding-version 0.1.0" in candidate["input"]["numeric_matrix_schema"]
-    assert (
-        protocol["input_binding"]["axis_preflight_artifact"] == "PENDING_AXIS_PREFLIGHT"
+    assert protocol["input_binding"]["axis_preflight_artifact"] == (
+        "data/development/gse181897_source/axis_preflight_v2.json"
+    )
+    assert protocol["input_binding"]["axis_preflight_required_schema"] == (
+        "gse181897-axis-preflight/1.1"
     )
     assert "closed gate" in candidate["freeze_requirements"]["placeholder_rule"]
     assert (
         "No source numeric access"
         in protocol["implementation_freeze"]["placeholder_rule"]
     )
+    assert "PENDING" not in json.dumps(protocol)
     forbidden = " ".join(protocol["axis_only_preflight"]["forbidden"])
     assert "numeric matrix" in forbidden
     assert "joint tables" in forbidden
@@ -268,6 +293,7 @@ def test_nested_source_selection_and_source_gate_are_exact() -> None:
         "neighbors": [2, 3],
         "graph_penalty": [0.01, 0.03, 0.1, 0.3],
     }
+    assert "Stage B exact ties resolve by graph penalty, then k" in primary["selection"]
     checks = gate["required_checks"]
     assert (
         checks[
@@ -358,12 +384,21 @@ def test_classical_comparators_and_held_gates_are_not_overstated() -> None:
 
 def test_sequential_access_is_one_shot_and_source_joint_tables_are_disclosed() -> None:
     protocol = _load(PROTOCOL_PATH)
+    source_attempt = protocol["sequential_access"]["source_attempt_mechanics"]
+    assert source_attempt["authorization_path"] == (
+        "data/development/gse181897_source/source_campaign_authorization_v1.json"
+    )
+    assert source_attempt["attempt_path"] == (
+        "data/development/gse181897_source/source_attempt_v1.json"
+    )
+    assert "O_CREAT|O_EXCL" in source_attempt["exclusive_claim"]
+    assert source_attempt["current_status"].startswith("CLOSED_UNTIL")
     stages = protocol["sequential_access"]["stages"]
     assert [stage["index"] for stage in stages] == list(range(8))
     assert [stage["name"] for stage in stages] == [
         "candidate_public_freeze",
-        "axis_only_preflight",
         "implementation_and_runtime_freeze",
+        "axis_only_preflight",
         "source_development",
         "internal_margin_and_prediction",
         "internal_score",
