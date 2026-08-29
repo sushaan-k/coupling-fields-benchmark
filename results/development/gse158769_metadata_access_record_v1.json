@@ -1,0 +1,28 @@
+{
+  "accession": "GSE158769",
+  "accessed_inputs": {
+    "author_analysis_code": {
+      "commit": "8fe00f199c3e1554db0034288577099afa862076",
+      "numeric_assay_values_accessed": false,
+      "purpose": "confirm deposited matrix orientation"
+    },
+    "metadata": {
+      "bytes": 21855425,
+      "sha256": "5f5f44dbcf7dc28054f7f124560e3322e4ed9557ff5dbec0e48d2337af1c7f45",
+      "numeric_assay_values_accessed": false
+    },
+    "supplementary_tables": {
+      "bytes": 572216,
+      "sha256": "a57d531f0a1c3f4b83b8ccb75845a17b18f9fd8ced0a8c07918d5fb705901bd0",
+      "numeric_assay_values_accessed": false
+    }
+  },
+  "count_matrix_access": {
+    "downloaded": false,
+    "decompressed": false,
+    "numeric_values_read": 0
+  },
+  "created_at_utc": "2026-08-28T00:00:00Z",
+  "schema": "gse158769-metadata-access/1.0",
+  "status": "METADATA_ONLY"
+}

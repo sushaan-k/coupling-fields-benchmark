@@ -1,0 +1,72 @@
+{
+  "accession": "GSE158769",
+  "cell_budget_per_donor": 512,
+  "eligibility": {
+    "exclude_donors_in_multiple_processing_batches": true,
+    "minimum_deposited_cells": 512,
+    "repeated_donors": [
+      "TB0763419",
+      "TB0771071",
+      "TB1285760",
+      "TB2635526",
+      "TB5063423",
+      "TB5758296",
+      "TB5867110",
+      "TB6361266",
+      "TB6448199",
+      "TB6692076",
+      "TB7289019",
+      "TB9312329"
+    ],
+    "under_budget_donors": [
+      "TB0414005",
+      "TB0439275",
+      "TB1535708",
+      "TB2560544",
+      "TB3350734",
+      "TB4817029",
+      "TB5484224",
+      "TB5742418",
+      "TB6257284",
+      "TB6994841",
+      "TB7640450",
+      "TB8797251",
+      "TB8805781"
+    ]
+  },
+  "expected": {
+    "calibration_available_cells": 173764,
+    "calibration_case_control": [42, 43],
+    "calibration_donors": 85,
+    "eligible_donors": 234,
+    "held_available_cells": 148228,
+    "held_case_control": [39, 41],
+    "held_donors": 80,
+    "pilot_available_cells": 130420,
+    "pilot_case_control": [31, 38],
+    "pilot_donors": 69
+  },
+  "markers": [
+    {"adt_aliases": ["CD3", "CD3.1", "CD3 (CD3E)"], "marker": "CD3", "rna_feature": "CD3E"},
+    {"adt_aliases": ["CD4", "CD4.1"], "marker": "CD4", "rna_feature": "CD4"},
+    {"adt_aliases": ["CD5", "CD5.1"], "marker": "CD5", "rna_feature": "CD5"},
+    {"adt_aliases": ["CD8a", "CD8a/CD8A"], "marker": "CD8", "rna_feature": "CD8A"},
+    {"adt_aliases": ["CD161", "CD161 (KLRB1)"], "marker": "CD161", "rna_feature": "KLRB1"},
+    {"adt_aliases": ["CD127", "CD127/IL-7R", "CD127 (IL7R)"], "marker": "CD127", "rna_feature": "IL7R"},
+    {"adt_aliases": ["CD27", "CD27.1"], "marker": "CD27", "rna_feature": "CD27"},
+    {"adt_aliases": ["CD38", "CD38.1"], "marker": "CD38", "rna_feature": "CD38"},
+    {"adt_aliases": ["CD26", "CD26 (DPP4)"], "marker": "CD26", "rna_feature": "DPP4"}
+  ],
+  "roles": {
+    "calibration_batches": [15, 42, 27, 36, 7, 2, 28, 10, 30, 40, 45, 12, 6, 37, 13, 32],
+    "held_batches": [21, 43, 25, 20, 1, 46, 16, 44, 39, 26, 19, 3, 8, 5, 23, 31],
+    "pilot_batches": [33, 41, 34, 38, 11, 29, 24, 18, 22, 9, 14, 17, 35, 4]
+  },
+  "salts": {
+    "adt_tie": "GSE158769-ADT-v1",
+    "cell_selection": "GSE158769-CELL-BUDGET-v1",
+    "destroyed_link": "GSE158769-DESTROYED-LINK-v1"
+  },
+  "schema": "gse158769-candidate-designation/1.0",
+  "status": "FROZEN_BEFORE_RAW_COUNT_DOWNLOAD_OR_DECOMPRESSION"
+}

@@ -1,0 +1,3249 @@
+{
+  "access_audit": {
+    "adt_numeric_values_read": 0,
+    "raw_matrix_decompressed": false,
+    "raw_matrix_downloaded": false,
+    "rna_numeric_values_read": 0
+  },
+  "accession": "GSE158769",
+  "bindings": {
+    "designation_sha256": "6a6f4b838e69787042d1382cd348c01ba2ec2136ad6a05a25229dff1e0f1bdc6",
+    "metadata_sha256": "5f5f44dbcf7dc28054f7f124560e3322e4ed9557ff5dbec0e48d2337af1c7f45",
+    "source_manifest_sha256": "373ae10705dfca8edd5f0afb09e29b352a0657972ecb82c0c2851d71604c8ad2"
+  },
+  "created_at_utc": "2026-08-29T00:30:56Z",
+  "donors": [
+    {
+      "batches": [
+        29
+      ],
+      "donor": "TB0039509",
+      "metadata_cells": 1411,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "e5c447e59efe135d3e2aaef5062833e7ba3bc928739a74d3094518c97c92297f",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        14
+      ],
+      "donor": "TB0124070",
+      "metadata_cells": 2480,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "790ad9f65fd4bf9003c0e85fe22647016ba9b15e82d878e49904f8ffb6624b25",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        26
+      ],
+      "donor": "TB0182731",
+      "metadata_cells": 1672,
+      "role": "held",
+      "selected_cell_axis_sha256": "1102d812a38930ebd4b1d33e0359f5eb7e6d4792186ed817cd027238537cc5a1",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        25
+      ],
+      "donor": "TB0195250",
+      "metadata_cells": 2301,
+      "role": "held",
+      "selected_cell_axis_sha256": "6486812f969bc5f375c0a1cdae78a64ec1adc05b4a0d18595048103cf840045b",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        31
+      ],
+      "donor": "TB0229059",
+      "metadata_cells": 2027,
+      "role": "held",
+      "selected_cell_axis_sha256": "1e68b6b75dbb22edcb393cfaab05dc7e3d51e4f32ca03f849444580e061135d4",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        12
+      ],
+      "donor": "TB0261461",
+      "metadata_cells": 1812,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "046fb1c614a49a3f204a9c7ec28cc2a07bcab559f84dc645da251d9d504b0185",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        12
+      ],
+      "donor": "TB0271013",
+      "metadata_cells": 1565,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "e448ffbb50f57e9c269ba04b30a4e890c7a3826cfaa8a45f5f59a409cccf835f",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        30
+      ],
+      "donor": "TB0334622",
+      "metadata_cells": 1099,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "5d70ca59c9e8e1483bdcc579ac31e3a330250d123a2ed5a982284b6e1f6687aa",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        29
+      ],
+      "donor": "TB0337301",
+      "metadata_cells": 1588,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "18f80cf48ecf63b7fadfaf5850d58b8f9a067f4416eea9b8bd4a4b030e78379a",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        6
+      ],
+      "donor": "TB0393118",
+      "metadata_cells": 2476,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "f81482d7cbad2433abccad82e4ce8d0c9328e57c431772c40f9de9c34953781c",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        16
+      ],
+      "donor": "TB0397751",
+      "metadata_cells": 1968,
+      "role": "held",
+      "selected_cell_axis_sha256": "cf2550c79e7d11df423f1012fdcdba1836ec666b0f0a65d04de51080c2abbea1",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        2
+      ],
+      "donor": "TB0402649",
+      "metadata_cells": 1646,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "13aa8606e998caabab397c29e6c51b416a6e934115771cea2f59919a535a43c8",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        35
+      ],
+      "donor": "TB0414005",
+      "metadata_cells": 234,
+      "role": "excluded_under_budget",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        18
+      ],
+      "donor": "TB0439275",
+      "metadata_cells": 307,
+      "role": "excluded_under_budget",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        15
+      ],
+      "donor": "TB0468544",
+      "metadata_cells": 1175,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "6ee0855754e79dd8cf18287b7749d465d7b1bb44332c5a9eecaa3af84b699bfb",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        14
+      ],
+      "donor": "TB0468950",
+      "metadata_cells": 662,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "60f1b56ce64b5e741db1192ea668b49e92d4b9485c1045a3dbc9f6fe12a1f746",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        8
+      ],
+      "donor": "TB0521973",
+      "metadata_cells": 1651,
+      "role": "held",
+      "selected_cell_axis_sha256": "78eaa1d4419a7dd39dd6963ace8425a1badd4c275d26e3a5052fc91d027856d1",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        40
+      ],
+      "donor": "TB0533278",
+      "metadata_cells": 3292,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "0627f8ce68b67083351c6117f1bb17f7b7859dfa017ae27d6c9b83da18aacfca",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        13
+      ],
+      "donor": "TB0538711",
+      "metadata_cells": 1187,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "ad1dafd5b738306669a6245ff9ad287843560820ed3a99dc2fbc420211de42fb",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        40
+      ],
+      "donor": "TB0553105",
+      "metadata_cells": 2426,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "b44b44918ff2c1f6847ae961c50e71f7ead0604a9fc4f26d660737885d603253",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        1
+      ],
+      "donor": "TB0610655",
+      "metadata_cells": 2230,
+      "role": "held",
+      "selected_cell_axis_sha256": "575e00a407d17060ae00588705818e0e59dacb812cd814867a06c3e3cf93b3a5",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        20
+      ],
+      "donor": "TB0673810",
+      "metadata_cells": 1850,
+      "role": "held",
+      "selected_cell_axis_sha256": "38d7b541726e3fb30c20ab4151fe53dec34ea38c1b3cfe2368ac4506d2afb4db",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        43
+      ],
+      "donor": "TB0680219",
+      "metadata_cells": 925,
+      "role": "held",
+      "selected_cell_axis_sha256": "d1cd8bb87157c6871c5e6748fc4076513d6e574a3e05258016c9030e7c429b42",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        32
+      ],
+      "donor": "TB0738700",
+      "metadata_cells": 2487,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "7bd84d45e27f4cc4ad86bcb31f3867da7befdb0fad388e27f3c82a2c5efd660c",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        25,
+        31
+      ],
+      "donor": "TB0763419",
+      "metadata_cells": 4489,
+      "role": "excluded_repeated",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        5,
+        46
+      ],
+      "donor": "TB0771071",
+      "metadata_cells": 1797,
+      "role": "excluded_repeated",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        1
+      ],
+      "donor": "TB0847586",
+      "metadata_cells": 1501,
+      "role": "held",
+      "selected_cell_axis_sha256": "6d0ee844716de5e1e5fd522bef4c0b246f00f9f2515385c6d183549f361af024",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        32
+      ],
+      "donor": "TB0863599",
+      "metadata_cells": 1158,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "3f1f2726b609b089610d7738e2fbb67509d0b11257e14c73299225881a851182",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        29
+      ],
+      "donor": "TB0928897",
+      "metadata_cells": 1678,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "40f984ae6a75efa928ccb45a9292e308ec8e59baeb450adcfb8d2b7ab9a9a5a3",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        3
+      ],
+      "donor": "TB0944983",
+      "metadata_cells": 899,
+      "role": "held",
+      "selected_cell_axis_sha256": "4d8830cf0f8f53bfe9d7f1961817628ff1418426492f45b1c62277e6dc6c1b8f",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        24
+      ],
+      "donor": "TB0949279",
+      "metadata_cells": 1411,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "973451ef4866d0036f1eb451bdc283f936bf8451b11097dd7123a9172cce43c2",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        22
+      ],
+      "donor": "TB1031074",
+      "metadata_cells": 2026,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "5af888504c98200146025bd20310ee56c543443150d19d31fcf754550c1b3cee",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        29
+      ],
+      "donor": "TB1066983",
+      "metadata_cells": 1761,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "9226931ab0801f5f49208cced7a5b9ba2e24b03208d6d45693d510713274e3d9",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        45
+      ],
+      "donor": "TB1080227",
+      "metadata_cells": 1868,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "933025af356815f83511db41e8a9e53928f490f905476a874ea8f6b4808a250e",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        32
+      ],
+      "donor": "TB1139335",
+      "metadata_cells": 2003,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "d0487ac7b0c9e4bd95a06119ac66edc2b1349be3d3537fdd78495b23c9905ce0",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        12
+      ],
+      "donor": "TB1228980",
+      "metadata_cells": 1642,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "92252b2f9f7fef74535534141dc45228fa93b7724844a2931232419c40406452",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        15
+      ],
+      "donor": "TB1273029",
+      "metadata_cells": 1461,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "7793e1a72ece222d4a3964a193b9b4afe1f4396817fee3321dba700228081db7",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        15,
+        17
+      ],
+      "donor": "TB1285760",
+      "metadata_cells": 3993,
+      "role": "excluded_repeated",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        34
+      ],
+      "donor": "TB1315929",
+      "metadata_cells": 2344,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "31d51947d5506b074caf5db06dfff97526d1e4894b34956b552d976e55a0432e",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        39
+      ],
+      "donor": "TB1341185",
+      "metadata_cells": 1472,
+      "role": "held",
+      "selected_cell_axis_sha256": "8c094d02fa8165c58ed17125b7ef91595d2f8c362c8315882b478a5e6797a408",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        39
+      ],
+      "donor": "TB1402343",
+      "metadata_cells": 708,
+      "role": "held",
+      "selected_cell_axis_sha256": "13b220f6f3115358fc2cc6e4a540dd120bc2b73f37a71f47075c340295e3ef14",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        4
+      ],
+      "donor": "TB1535708",
+      "metadata_cells": 416,
+      "role": "excluded_under_budget",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        32
+      ],
+      "donor": "TB1557887",
+      "metadata_cells": 2603,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "d0b18ddb091d305bd9dbc37e254078fcef5ba14b5f43a05478943e646a35e4ad",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        10
+      ],
+      "donor": "TB1572931",
+      "metadata_cells": 1936,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "d1fb90476085273a45e84f458a243e9c3b872fb3d6cd153b188c1a859a842b91",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        36
+      ],
+      "donor": "TB1611911",
+      "metadata_cells": 2900,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "a494c78b685894e37a6d8ec27a6e78252e644f4217cabc4a9940dc07a2053d34",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        27
+      ],
+      "donor": "TB1613959",
+      "metadata_cells": 2758,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "eb1698b8e95b16baa5a2731b93ad563fa5e6a326c831ad4ce0617080de2578e9",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        22
+      ],
+      "donor": "TB1686809",
+      "metadata_cells": 1825,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "71ca48951df96697fd375206e17dea16e3a1ffb5f795bd9a3770bff12137f535",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        38
+      ],
+      "donor": "TB1715457",
+      "metadata_cells": 2600,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "99c4c989a1ceb73a5ea6a94a2498641ef6e4933c72c0e0928a1afc5549655a69",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        39
+      ],
+      "donor": "TB1792755",
+      "metadata_cells": 2985,
+      "role": "held",
+      "selected_cell_axis_sha256": "4fe728f9cf626f1817996e68fcfe9c866c9ca9f84247327787bf57109454ef72",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        7
+      ],
+      "donor": "TB1805468",
+      "metadata_cells": 1429,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "cf56d41fd10e204789ac68fac0fd6bff91fbfa10714fb1e7d4ee3ad7403f081d",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        9
+      ],
+      "donor": "TB1825084",
+      "metadata_cells": 1442,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "c6f375fbf2d06019ea869288a2bb3ef66285ad6e81bda7a3f424ad0e7e9e6fa1",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        11
+      ],
+      "donor": "TB1827259",
+      "metadata_cells": 1781,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "eba9a505a29c40190a24c92f467aab85bc2dc2bb1589deddb256ae0c6c4021b7",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        17
+      ],
+      "donor": "TB1865457",
+      "metadata_cells": 1757,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "e7483042652e1c1a469460e96d0661538e6fa8b12b5700fe81c66ae5ebc8023d",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        17
+      ],
+      "donor": "TB1965871",
+      "metadata_cells": 1494,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "49a2331b5c6ac169f7752499881d65ddf59068407910d2dec7dc06fffa4baaa6",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        25
+      ],
+      "donor": "TB1982774",
+      "metadata_cells": 2338,
+      "role": "held",
+      "selected_cell_axis_sha256": "eeaab8894d1e3a78dc8b21aaf2ce3fdb99d510a00f6b33c2937c128bae671019",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        19
+      ],
+      "donor": "TB2032403",
+      "metadata_cells": 2730,
+      "role": "held",
+      "selected_cell_axis_sha256": "7ac9c551fd88aae963c758687c0d9c4d6bc4a521b8b099d5a703a35798a53276",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        42
+      ],
+      "donor": "TB2038316",
+      "metadata_cells": 2144,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "f986439a0d241c6ead9f6f8793b210abc252c420f0f2622366e2ac0375f96846",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        30
+      ],
+      "donor": "TB2118337",
+      "metadata_cells": 2570,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "2fbd840fb101041f579eebdb4b1d28db713e036df9b8d0f34ec7c04144351d43",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        26
+      ],
+      "donor": "TB2172113",
+      "metadata_cells": 1744,
+      "role": "held",
+      "selected_cell_axis_sha256": "42ad9a189cc0097beaae9c7533da50c54d5d50a5e9d1fe732266547949d7fc82",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        38
+      ],
+      "donor": "TB2177927",
+      "metadata_cells": 2223,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "6c129194f4fb941e340f36f4107a8817b2014204c5840418115f2542c1443aad",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        40
+      ],
+      "donor": "TB2220529",
+      "metadata_cells": 2584,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "64feb55933fffb3b2a827ab30ae12a844b8163fcfb50fc0a285a24b62929a254",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        37
+      ],
+      "donor": "TB2238003",
+      "metadata_cells": 2324,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "cf35a156e1e9798d33188b1fd62ba567c1a3fd7333b4ca686a3eccb126340c4f",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        40
+      ],
+      "donor": "TB2247275",
+      "metadata_cells": 3099,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "7455da3a37f60893beea93de659b80231c1f19012d22dfaef67f48c1bae3e670",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        38
+      ],
+      "donor": "TB2340421",
+      "metadata_cells": 2713,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "8534a21aee797e9da0c7e46a3f5419d45a52444fc29c12e4f65bccbb19b8038b",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        2
+      ],
+      "donor": "TB2362960",
+      "metadata_cells": 1869,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "deedd4f4f1a0d41b3c4393d92643d0641915fe5c72d128f19c9b23744fc93236",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        27
+      ],
+      "donor": "TB2374859",
+      "metadata_cells": 2785,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "36cd2bb7b92fdc3e816054a75206f404e67d552474addc5287b41d3ecfb6de2f",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        22
+      ],
+      "donor": "TB2375988",
+      "metadata_cells": 2227,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "841771e97be8120be0af257761834a75d55f50c542564897cada735ee0c09621",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        2
+      ],
+      "donor": "TB2419309",
+      "metadata_cells": 2653,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "0f6ca50103423d6dea469f8033e8abd5872ae03b33888c97a8948a2b414f105c",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        30
+      ],
+      "donor": "TB2489528",
+      "metadata_cells": 1959,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "c2047065c129d2e48913a2dbfdf61ce5a6c54d935c00e2d4dd7adc4a0931b105",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        7
+      ],
+      "donor": "TB2495016",
+      "metadata_cells": 1232,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "9df212bb605094d4c2173933805dd31c0e523919392d5a8a4d27b7fd03282042",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        46
+      ],
+      "donor": "TB2496561",
+      "metadata_cells": 2922,
+      "role": "held",
+      "selected_cell_axis_sha256": "263793bbc41f4ce94ad4e635208bc89e765b8aa08465676c83968fe60be5e2bd",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        11
+      ],
+      "donor": "TB2506105",
+      "metadata_cells": 692,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "ddeb4350b5b66b92a54d5f8fc8a60265739ee22de04d042485ba4a7657c52ecc",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        39
+      ],
+      "donor": "TB2531658",
+      "metadata_cells": 3310,
+      "role": "held",
+      "selected_cell_axis_sha256": "59decd63e8e0beed6869f2bc6ff713f0a47db9a714bdc6808f53a86210b9d198",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        8
+      ],
+      "donor": "TB2560544",
+      "metadata_cells": 251,
+      "role": "excluded_under_budget",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        1,
+        7
+      ],
+      "donor": "TB2635526",
+      "metadata_cells": 3451,
+      "role": "excluded_repeated",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        20
+      ],
+      "donor": "TB2708773",
+      "metadata_cells": 1827,
+      "role": "held",
+      "selected_cell_axis_sha256": "cc29b78e9f8e815aca73a341830610db5fe8e8b9eb7a518df2eaa345ea83eccc",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        10
+      ],
+      "donor": "TB2729054",
+      "metadata_cells": 2117,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "759cf7786cf03435c42f91f9c661c100a3d215f67e40de78de1a9d16dd404c25",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        46
+      ],
+      "donor": "TB2792656",
+      "metadata_cells": 2230,
+      "role": "held",
+      "selected_cell_axis_sha256": "32bcd85ddb74f6a515cb0186444c1ea3a3a6e0340dbd818eaf97fe3269b00a6d",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        26
+      ],
+      "donor": "TB2823005",
+      "metadata_cells": 1462,
+      "role": "held",
+      "selected_cell_axis_sha256": "62eb5615a04b800101866cace44cbee59fea2867bb3f066e083c65f0b1d3e658",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        17
+      ],
+      "donor": "TB2893641",
+      "metadata_cells": 1933,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "6cf533460cc836a834680f5b6a8a1325ed73607ebb6888b5b2e626b18cdfc3ca",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        5
+      ],
+      "donor": "TB3003179",
+      "metadata_cells": 1721,
+      "role": "held",
+      "selected_cell_axis_sha256": "98f74ea8ea63a29955893e2314d61e55e2ffb479e2d06581adae3105fb56896f",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        15
+      ],
+      "donor": "TB3008741",
+      "metadata_cells": 2184,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "ea44cba64c99a84a36ba06debe4547e071d464a6538cdb57d98a450bc4613ffd",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        1
+      ],
+      "donor": "TB3035353",
+      "metadata_cells": 793,
+      "role": "held",
+      "selected_cell_axis_sha256": "2b799cc1a65382d50cdc6e3d4978f0679bbf7347ead39ac73a2ae8c9646c747b",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        19
+      ],
+      "donor": "TB3037078",
+      "metadata_cells": 2239,
+      "role": "held",
+      "selected_cell_axis_sha256": "6ef11c4bb08286fa5db217a19c9d219723c310d6e8b82057212addbb060dad6b",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        23
+      ],
+      "donor": "TB3072372",
+      "metadata_cells": 1795,
+      "role": "held",
+      "selected_cell_axis_sha256": "5cdec0061ed5a5aeeffdb467e7462fb14b157907b43436e54c13e47aeeac30c9",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        18
+      ],
+      "donor": "TB3123295",
+      "metadata_cells": 2568,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "c917ba611f2d8be62c4a1aed3f357e17be02b1686dbf1c2957975e87470c7240",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        16
+      ],
+      "donor": "TB3143460",
+      "metadata_cells": 2092,
+      "role": "held",
+      "selected_cell_axis_sha256": "8e6a5667088ea94935882d12817dea03a014ee673acb94ed4e384c77aa572ad2",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        21
+      ],
+      "donor": "TB3193260",
+      "metadata_cells": 1674,
+      "role": "held",
+      "selected_cell_axis_sha256": "ac660e1ef39c2cc6bb48e3fa4f3832c149a9a4fcdcd417f3bd3399336f452606",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        13
+      ],
+      "donor": "TB3233788",
+      "metadata_cells": 1966,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "b620bca98d9efc9c288629fee0f8ff04d6cabe7d10d8876cb831b592dbbe259c",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        16
+      ],
+      "donor": "TB3287455",
+      "metadata_cells": 2036,
+      "role": "held",
+      "selected_cell_axis_sha256": "44bedf1970eb28776d22fde7ea42a8b352cd77a937457bb3d9a5ee6ae46fc135",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        3
+      ],
+      "donor": "TB3308746",
+      "metadata_cells": 2022,
+      "role": "held",
+      "selected_cell_axis_sha256": "be7f7eb77da738fe184a1c5e15186372db98e39ac1a108e393ff21d6ef6d4b9a",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        4
+      ],
+      "donor": "TB3329322",
+      "metadata_cells": 2885,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "c97ff1d1889e6261a3ebe0557bffecbbf58c15f10a6bbe609d53220d3314c928",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        20
+      ],
+      "donor": "TB3350734",
+      "metadata_cells": 322,
+      "role": "excluded_under_budget",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        1
+      ],
+      "donor": "TB3419057",
+      "metadata_cells": 1938,
+      "role": "held",
+      "selected_cell_axis_sha256": "0f01a0e003fe0b90f6bc3fb342e9e5a8f08b18d65cc717e93cc11a8e2d1e2ae5",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        16
+      ],
+      "donor": "TB3434628",
+      "metadata_cells": 2137,
+      "role": "held",
+      "selected_cell_axis_sha256": "6fc2cb3d22841f73cf4b82fb1129c008e5d023c0cd6d87dd1c9c348c372cac46",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        28
+      ],
+      "donor": "TB3449079",
+      "metadata_cells": 1318,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "c1502d07fb4c7e3e985e25b40e181c8e5531ffe3406788bcf7ab7bc45ce80d63",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        10
+      ],
+      "donor": "TB3456716",
+      "metadata_cells": 2348,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "9bfa1841c1362a023c7d1dc17f02642b593c7a792801b6fb734d31987b172fc8",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        12
+      ],
+      "donor": "TB3474696",
+      "metadata_cells": 2065,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "93889a17a12cd6a131fb10a7c18f431678910522066d0dcace052edac5897b90",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        11
+      ],
+      "donor": "TB3496154",
+      "metadata_cells": 2188,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "0e3982d0539a83851e0579adfb97fbc7e6866ca1bb7b2ad487f34854c11e125b",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        21
+      ],
+      "donor": "TB3518989",
+      "metadata_cells": 1824,
+      "role": "held",
+      "selected_cell_axis_sha256": "15e95fc66210b3937f7dcac6a9dc833251bfab6a8913c8d2cf9c5f24fcc7d525",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        6
+      ],
+      "donor": "TB3538427",
+      "metadata_cells": 1310,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "01b8a2edc6fd8e7c8020a666ed562dd1c50ca38dd1f5d10ad0653971e1531f03",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        45
+      ],
+      "donor": "TB3550834",
+      "metadata_cells": 2017,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "53a57db9c8898b837664a7242efa5f53fbe07043a7adfca861ef296a58c1a405",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        36
+      ],
+      "donor": "TB3557634",
+      "metadata_cells": 1812,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "99859bd03941bd872d2e04d8a01772daccefa469bdf77376ce58e6d25c1adc1e",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        35
+      ],
+      "donor": "TB3635308",
+      "metadata_cells": 2263,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "6e5ebe395e927f87f5d071a940709948f498855da502f31c5ebe360133a91f9d",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        31
+      ],
+      "donor": "TB3727590",
+      "metadata_cells": 517,
+      "role": "held",
+      "selected_cell_axis_sha256": "bce628f865a42cde4e776d3f773d9d38fb4d0b9a469e299bac5408887b764f46",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        12
+      ],
+      "donor": "TB3740946",
+      "metadata_cells": 1572,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "16096467be149916fc7c486765360905b5b1e2357f18b44c989b7ae06cc37219",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        42
+      ],
+      "donor": "TB3749656",
+      "metadata_cells": 2288,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "33bf693217335580bc144dc93151882f0805487c35da1d65c19b2e2e13275342",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        41
+      ],
+      "donor": "TB3816833",
+      "metadata_cells": 1374,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "e8e9543c79087361e06dd597ba477e4f6a882a8906aacd0e57e658f0dcd1624a",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        14
+      ],
+      "donor": "TB3892069",
+      "metadata_cells": 2767,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "5054d727172c917353d01b7122b11b4ccd4cc8b831cc92837166a6de35cbbbf8",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        41
+      ],
+      "donor": "TB3950874",
+      "metadata_cells": 1364,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "2a6a6b69172b6e1b2e560cbc96042bbc567f3d5abbaf3eeb69b89c4745dc3218",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        33
+      ],
+      "donor": "TB4025519",
+      "metadata_cells": 2107,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "5b9129cafa7efdf58838fbfe83d4ac5da84e068d4baeb0678d8c7959da975288",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        10
+      ],
+      "donor": "TB4034074",
+      "metadata_cells": 2133,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "b48150f83ae8571d28560c0bc10ca7e8e09737b1fb5a2a541cf1b85e8ee87e6f",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        31
+      ],
+      "donor": "TB4091662",
+      "metadata_cells": 2037,
+      "role": "held",
+      "selected_cell_axis_sha256": "64d06978ff3aa6565cb7710ead281c83203de187238c1ddeffec97c64ea6bd7b",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        42
+      ],
+      "donor": "TB4117338",
+      "metadata_cells": 1611,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "35a81e7d09c448c93f631f5a39490251886ad80463c76385f8bd718fa2362309",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        44
+      ],
+      "donor": "TB4185069",
+      "metadata_cells": 609,
+      "role": "held",
+      "selected_cell_axis_sha256": "f93be8505590ca5bf6b7be49c14d9a8429efbfcc9d75a8bfe1e060e5b293620b",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        3
+      ],
+      "donor": "TB4225880",
+      "metadata_cells": 1602,
+      "role": "held",
+      "selected_cell_axis_sha256": "57f469161ace7660e850bebcde7c36e16d90d2bc91e71a12104054c9a554fc61",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        27
+      ],
+      "donor": "TB4234865",
+      "metadata_cells": 1772,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "68542d4d4bd4b4935cc035b0e3cf507bc5c9d6a5820a561c6f0c117861b44f18",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        11
+      ],
+      "donor": "TB4261616",
+      "metadata_cells": 1249,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "7b1907db3921ca55f7e6a5791d2989fb16eab73fb64833c55ef2c5e1c147619f",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        8
+      ],
+      "donor": "TB4302004",
+      "metadata_cells": 1847,
+      "role": "held",
+      "selected_cell_axis_sha256": "e6c7a6ff18139052fddd1578d6437fdd3711038ae3717d6338d96e3ec2894ec1",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        12
+      ],
+      "donor": "TB4338234",
+      "metadata_cells": 1935,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "17420dac5a037671999d6c465d7becaa6cec6f1ae57553275d688f643272d881",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        28
+      ],
+      "donor": "TB4416742",
+      "metadata_cells": 2100,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "05e0334ea7abebf75c78d5602cdfad9d93cd7c7d0965c227960611165c333542",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        18
+      ],
+      "donor": "TB4490510",
+      "metadata_cells": 2510,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "b03ddd7232599ab5a0e94d1266c77c44e5c08f15415f3c5eb781f43648536ee7",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        40
+      ],
+      "donor": "TB4566405",
+      "metadata_cells": 674,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "12c86b8fb2717f70018e4d34766e6ca5a454a4077f853b8fef81dbb3cb302813",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        35
+      ],
+      "donor": "TB4598647",
+      "metadata_cells": 2965,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "87e6816e44bec8117e576a7ae2dcc8fbf55398bb68e428a5f2500b93d7095063",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        38
+      ],
+      "donor": "TB4672631",
+      "metadata_cells": 2841,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "82594c9405113d007357ead0880e738c3793f8f0eead72861d95ff84c0444dbb",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        22
+      ],
+      "donor": "TB4759200",
+      "metadata_cells": 2086,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "5842960f7f43445b2b98b4638f9f9cc28dd417e61c521e392a457794b32e3e67",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        34
+      ],
+      "donor": "TB4817029",
+      "metadata_cells": 72,
+      "role": "excluded_under_budget",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        24
+      ],
+      "donor": "TB4832261",
+      "metadata_cells": 1888,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "2b5b38c5f511665e5b30cd630c7191b14e0a9545d5cce6d648ae0036a42916e4",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        20
+      ],
+      "donor": "TB4885038",
+      "metadata_cells": 2098,
+      "role": "held",
+      "selected_cell_axis_sha256": "e053d6fd3715977ea7fcbce06d99659eae41edb6c739c0de24f90356dd087f86",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        21
+      ],
+      "donor": "TB4972466",
+      "metadata_cells": 2226,
+      "role": "held",
+      "selected_cell_axis_sha256": "cb3c61cfde4304dcb506c664d3448658b83c5a36311889af839db82559facfab",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        11
+      ],
+      "donor": "TB5054132",
+      "metadata_cells": 1776,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "ed1605e87230b99c40ab417a038740bf02ffcf5eb5f73f77b125881fff0e405f",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        7,
+        9
+      ],
+      "donor": "TB5063423",
+      "metadata_cells": 3310,
+      "role": "excluded_repeated",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        43
+      ],
+      "donor": "TB5343212",
+      "metadata_cells": 1610,
+      "role": "held",
+      "selected_cell_axis_sha256": "3be318b02c868088e263d5647d2966f0f304e17ef05acacb7620b17052cd52ff",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        11
+      ],
+      "donor": "TB5361130",
+      "metadata_cells": 1928,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "dd293f53239547ec238ad5750ff241e8b5cc10ff6737b3f11f216e265decbf2a",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        33
+      ],
+      "donor": "TB5480698",
+      "metadata_cells": 669,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "fb05bc18e952d80ec17fa14b71e79c84e488274722b9b70b2f4a3340cedc4245",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        14
+      ],
+      "donor": "TB5484224",
+      "metadata_cells": 271,
+      "role": "excluded_under_budget",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        29
+      ],
+      "donor": "TB5504051",
+      "metadata_cells": 1214,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "786a5631eb2e3f29b9965f72b3cf5809e55714f92c7d7ed2515bd8e11fc57bb8",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        15
+      ],
+      "donor": "TB5516293",
+      "metadata_cells": 2445,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "c886ffcdc8d1ec94836b445afbbf4fd498df6e114996b82261b53b1fbbd51828",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        21
+      ],
+      "donor": "TB5541037",
+      "metadata_cells": 2190,
+      "role": "held",
+      "selected_cell_axis_sha256": "fd86b6d662da31340c5922a9a8a61f6e29749ef20a37710d1de41dec3a5cf642",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        37
+      ],
+      "donor": "TB5556538",
+      "metadata_cells": 2998,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "2a2c2af798876377d7a9ae391eda6efc0a70bb9aef93a5975332a2b28a264ed3",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        3
+      ],
+      "donor": "TB5571693",
+      "metadata_cells": 1856,
+      "role": "held",
+      "selected_cell_axis_sha256": "cb4b836ec96d0d5e247e0d541202180132cc574e76dbf2ef1daeca8ac75f723a",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        5
+      ],
+      "donor": "TB5573921",
+      "metadata_cells": 1538,
+      "role": "held",
+      "selected_cell_axis_sha256": "7551f2fa89c5f89362af75522e41eb9b19149e64f5d1386fd0a2f1cea02de263",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        3
+      ],
+      "donor": "TB5578978",
+      "metadata_cells": 1360,
+      "role": "held",
+      "selected_cell_axis_sha256": "f1bbe34bba98c670eb770c419fd50a12804985687dd0f55141b230b25eef4ad2",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        44
+      ],
+      "donor": "TB5651785",
+      "metadata_cells": 2185,
+      "role": "held",
+      "selected_cell_axis_sha256": "09e0eda055828da81980fa2ab857f07e70d454a7592ab87ddacdeea3be573d4e",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        35
+      ],
+      "donor": "TB5663989",
+      "metadata_cells": 2741,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "78ce70b65c0ebd1df06c40e56cd1ea5d24d89a64ac59d55b2b07e73fa1b1f275",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        9
+      ],
+      "donor": "TB5681452",
+      "metadata_cells": 514,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "50dab8039b52d7d1d90d3877c77a44f75f3343646cda4bb9033d31dd15138105",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        22
+      ],
+      "donor": "TB5742418",
+      "metadata_cells": 114,
+      "role": "excluded_under_budget",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        5
+      ],
+      "donor": "TB5755478",
+      "metadata_cells": 1229,
+      "role": "held",
+      "selected_cell_axis_sha256": "d174bdfe26a182dfdfaa8bd37b511406c1f6e16dc408dffe2d2e8090bc8681d6",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        23,
+        25
+      ],
+      "donor": "TB5758296",
+      "metadata_cells": 4225,
+      "role": "excluded_repeated",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        34
+      ],
+      "donor": "TB5834548",
+      "metadata_cells": 2042,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "6d32546b96608793b036f84814937c8c630d6a153718832f481177d33cae16ef",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        31,
+        33
+      ],
+      "donor": "TB5867110",
+      "metadata_cells": 3986,
+      "role": "excluded_repeated",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        45
+      ],
+      "donor": "TB5915252",
+      "metadata_cells": 1971,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "c7fd1dd4831b8efc04a102436b7b7fc6a2f3a1710e793daba290436207a05272",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        45
+      ],
+      "donor": "TB5921295",
+      "metadata_cells": 1933,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "ccbe46d54e2871eabb1bf3747fb3ebd2a13c013db0a81f18c983a7e220f9e81b",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        22
+      ],
+      "donor": "TB5940469",
+      "metadata_cells": 1294,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "877a217c9f798f398c6e0d04d1b47f6bd1211b898be4d90a211500c905b20c0a",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        42
+      ],
+      "donor": "TB5956419",
+      "metadata_cells": 2477,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "c827a8c2fbdb6d866c32e94622e1d3bf3c65ad07bf3fa78c466b5e97bf93fb3a",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        18
+      ],
+      "donor": "TB6121199",
+      "metadata_cells": 865,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "d4e19932e805d48813935e33bbd4ec4d4b5f5c10f7df696a2e48097e2790d15b",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        7
+      ],
+      "donor": "TB6150985",
+      "metadata_cells": 1377,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "cb293af373f1077710ebe8339b16b752a9ad315d3c86909c10213ed9a5bd2247",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        19
+      ],
+      "donor": "TB6152333",
+      "metadata_cells": 2069,
+      "role": "held",
+      "selected_cell_axis_sha256": "95db4b796efb08fb7684239661a7a79363509115a273d47a37eb2f988ac54d5f",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        21
+      ],
+      "donor": "TB6152763",
+      "metadata_cells": 1109,
+      "role": "held",
+      "selected_cell_axis_sha256": "11870b6961decf554e273fae45f1f414074a3078398e1dc8955d0c7dcaa3a1de",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        23
+      ],
+      "donor": "TB6156646",
+      "metadata_cells": 1321,
+      "role": "held",
+      "selected_cell_axis_sha256": "eed0dd180fbbd6db0d1407a719da3e9987ec6c084441afc0534ac44e9f09cd40",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        19
+      ],
+      "donor": "TB6179918",
+      "metadata_cells": 1885,
+      "role": "held",
+      "selected_cell_axis_sha256": "165d5d2baca0844089484df36f8abdc8a692d50db1bab57f243845f53b4e5059",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        24
+      ],
+      "donor": "TB6197709",
+      "metadata_cells": 1701,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "31e3acfd16c8045b7032050d2c56a5302a2722ba891ccda9fa3ac8ad12a80bab",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        44
+      ],
+      "donor": "TB6209826",
+      "metadata_cells": 3030,
+      "role": "held",
+      "selected_cell_axis_sha256": "706d94551ceed135b3d62924e600168275dd4d89c99ab104ccfef1cb07631d0f",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        1
+      ],
+      "donor": "TB6216067",
+      "metadata_cells": 1797,
+      "role": "held",
+      "selected_cell_axis_sha256": "1260eda74ec2aee7b9689a36775e6cf0eae0321b9d88385f14808088be09040a",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        27
+      ],
+      "donor": "TB6257284",
+      "metadata_cells": 384,
+      "role": "excluded_under_budget",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        36
+      ],
+      "donor": "TB6270533",
+      "metadata_cells": 2935,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "ec2197aed01deb713cf1eaadbf44874e61c835cbf60b2065e363c55a8ad07cae",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        39,
+        41
+      ],
+      "donor": "TB6361266",
+      "metadata_cells": 5403,
+      "role": "excluded_repeated",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        41
+      ],
+      "donor": "TB6433577",
+      "metadata_cells": 1838,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "8abcdc3e3b8e50daea08973916b07aef7b0f8e856c2b1d5e6acfd5163120a486",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        26
+      ],
+      "donor": "TB6440493",
+      "metadata_cells": 1852,
+      "role": "held",
+      "selected_cell_axis_sha256": "e5d45af039f0f8572b99eccc5c0f697965d88287228b11a540359c8789dd2fad",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        9,
+        15
+      ],
+      "donor": "TB6448199",
+      "metadata_cells": 4224,
+      "role": "excluded_repeated",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        8
+      ],
+      "donor": "TB6502604",
+      "metadata_cells": 1649,
+      "role": "held",
+      "selected_cell_axis_sha256": "a4989f9556882063b69a61051d3c45c9aaaa7265783353049e62215737b725fc",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        44
+      ],
+      "donor": "TB6524292",
+      "metadata_cells": 2617,
+      "role": "held",
+      "selected_cell_axis_sha256": "25a02ff9b2c80a9cc4241bcf8f0f9df1497d5907af2c151a22b8c4c400c13775",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        27
+      ],
+      "donor": "TB6537577",
+      "metadata_cells": 2284,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "39921560c47c5d80802e6d86cc516ab9975b8e97319b463bfd35da9f8058beba",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        19
+      ],
+      "donor": "TB6593770",
+      "metadata_cells": 2145,
+      "role": "held",
+      "selected_cell_axis_sha256": "45f6aed83f36385ae4a656fc4778d2607e5720ddbf50444005744daeee8d0381",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        33
+      ],
+      "donor": "TB6665092",
+      "metadata_cells": 930,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "494f38c84eb3499d7f89a325266500fc65b5ba830945972080f4018e76208f16",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        33,
+        39
+      ],
+      "donor": "TB6692076",
+      "metadata_cells": 5487,
+      "role": "excluded_repeated",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        41
+      ],
+      "donor": "TB6730217",
+      "metadata_cells": 1252,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "1f32177416dd7effa5672ef37b211c553675a82a6e3bb5b795d6b35ea4fc09f4",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        10
+      ],
+      "donor": "TB6811140",
+      "metadata_cells": 2261,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "d7176051512be50a462623985ea0112059fafccf7cadc2a7b49b61054b7a3095",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        10
+      ],
+      "donor": "TB6822495",
+      "metadata_cells": 2056,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "d31b09930a23ddadc894200f35bc418976dd3c9470283cef4dbc97ebf4b90528",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        26
+      ],
+      "donor": "TB6881514",
+      "metadata_cells": 1747,
+      "role": "held",
+      "selected_cell_axis_sha256": "5a3ff7b8cd0b4b1df0b09298a84de12b0d8e265ca9a6ab334d112ee2c6023e91",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        20
+      ],
+      "donor": "TB6885256",
+      "metadata_cells": 2388,
+      "role": "held",
+      "selected_cell_axis_sha256": "b5f6e568d08b23bd075ea5c6a61ad2b7c3e373b4189311423d18bffda0ae28b9",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        6
+      ],
+      "donor": "TB6976605",
+      "metadata_cells": 1955,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "9c688162ffd3c286c5704065eb8e069c316399cf9058cb7b60f72ce926201ce9",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        43
+      ],
+      "donor": "TB6987751",
+      "metadata_cells": 2259,
+      "role": "held",
+      "selected_cell_axis_sha256": "f2f6dc55162e66651b5c3d66deddbf3a65f43485c5813aaaa441dec9dfb58bad",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        2
+      ],
+      "donor": "TB6994841",
+      "metadata_cells": 243,
+      "role": "excluded_under_budget",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        17
+      ],
+      "donor": "TB7004386",
+      "metadata_cells": 1465,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "a4c1b7493bc4719cef9ca3d392af11b226e915111121b459086c415623dc3ac0",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        37
+      ],
+      "donor": "TB7114145",
+      "metadata_cells": 2226,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "e4dbfabaf5559fbfc15e8bcf53766a6259e21ac095b661792c68533e27ebe3f6",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        34
+      ],
+      "donor": "TB7141739",
+      "metadata_cells": 2237,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "3884702d0aeda814ee69e778d8640dd5818d8fccbffdc38e9297151024ba60b0",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        46
+      ],
+      "donor": "TB7198118",
+      "metadata_cells": 2589,
+      "role": "held",
+      "selected_cell_axis_sha256": "493fb62f70f8dcb84ba16787b7cc4e9654a2d1960924ca4a18f583e78c714084",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        20
+      ],
+      "donor": "TB7231330",
+      "metadata_cells": 1828,
+      "role": "held",
+      "selected_cell_axis_sha256": "5e238c408c1084b323fa6501091e81cfcea164885abc095c6250a312031114e2",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        9
+      ],
+      "donor": "TB7276195",
+      "metadata_cells": 1401,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "fe71a917581004d9969e4b4a00c3558d6b904cb50ad23a2149b6afae9ecc69d8",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        17,
+        23
+      ],
+      "donor": "TB7289019",
+      "metadata_cells": 2469,
+      "role": "excluded_repeated",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        2
+      ],
+      "donor": "TB7300167",
+      "metadata_cells": 2773,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "9e6fb5513ac929f6a60850c665121bef88d6405d8f69de9d422af770673d422a",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        38
+      ],
+      "donor": "TB7303942",
+      "metadata_cells": 1940,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "031e7d1ea7a72e19c6417cbd0fde12797b36b31727161bf4275fbc17ab6c3003",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        34
+      ],
+      "donor": "TB7310893",
+      "metadata_cells": 2531,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "ebbaab93dc2ccf41e1b9cd40d24ceb575569a9af0a2bd2a78d95ef1f775c6499",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        6
+      ],
+      "donor": "TB7335909",
+      "metadata_cells": 1939,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "6b2881c30a5c60306d595f9dfee1ab6d0cdfaddd0fff7ee5335cf95f91850214",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        14
+      ],
+      "donor": "TB7392866",
+      "metadata_cells": 2862,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "8d5fb20679dbf6bb49489a36b461fbde44c426a9e9be4c915e2b03ead422446d",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        44
+      ],
+      "donor": "TB7420822",
+      "metadata_cells": 1867,
+      "role": "held",
+      "selected_cell_axis_sha256": "558e2b287ad2061c71666fa1b01acdad9fe8fdfc9f1bc4b8a49af0ca3fbf163a",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        24
+      ],
+      "donor": "TB7447977",
+      "metadata_cells": 1686,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "c34d031ab0981139040ded35e2287fc40d56ac496f3d3ac9b2f9852c974347f2",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        31
+      ],
+      "donor": "TB7459729",
+      "metadata_cells": 1759,
+      "role": "held",
+      "selected_cell_axis_sha256": "8d41bf818b746eb56ca2c74387fbdc692a5f0897db52662372f836cb4f16176e",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        38
+      ],
+      "donor": "TB7580693",
+      "metadata_cells": 1087,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "b2ae1033587e9c6f593bdfe200d86daa42796c305e2d9c81dbba386555e1957c",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        7
+      ],
+      "donor": "TB7593950",
+      "metadata_cells": 1007,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "cd446b0d6eeda65fef05b7ed7271e701d6ac3aac1843b5befa2913b7bb52e644",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        34
+      ],
+      "donor": "TB7596714",
+      "metadata_cells": 2472,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "aadca1df4ca8ddb2f0beaf2b57807a7a14a764257ce1c3d390db8c2979a7e3ac",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        13
+      ],
+      "donor": "TB7636211",
+      "metadata_cells": 2068,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "1223a777ac12923e871ee9a7771b4a659e31eb7acfd9235cb44ca1440ed8577f",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        19
+      ],
+      "donor": "TB7640450",
+      "metadata_cells": 334,
+      "role": "excluded_under_budget",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        35
+      ],
+      "donor": "TB7654712",
+      "metadata_cells": 2369,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "ead18012c250372e2cba0bccfc832e68b5439c6ee072118a7b4875748a83abdd",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        40
+      ],
+      "donor": "TB7684283",
+      "metadata_cells": 2418,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "fc6035fe030ccfecf66b8c7a6b79f36ec01a29046fe44ecd1ec90dc80bc7ddff",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        35
+      ],
+      "donor": "TB7697020",
+      "metadata_cells": 2996,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "9da884476b2d896c8dbf2973fafc75a111514ddece2c398382ed193de61147e4",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        43
+      ],
+      "donor": "TB7827348",
+      "metadata_cells": 821,
+      "role": "held",
+      "selected_cell_axis_sha256": "562788e5b2ddc6091ebf3dfddd2aacf008bfc873e9c9c0351ba0e60ce88c5b7a",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        30
+      ],
+      "donor": "TB7891731",
+      "metadata_cells": 2355,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "27fbf74ccedc21c940fbf7d69754f204e27a58f9e44af24e5bd177fdf8696e1f",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        4
+      ],
+      "donor": "TB7943371",
+      "metadata_cells": 2006,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "88419a60624827b74c28b4c3a0c40b1969159f607656d26e338bb13d9120d45f",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        25
+      ],
+      "donor": "TB7975304",
+      "metadata_cells": 2163,
+      "role": "held",
+      "selected_cell_axis_sha256": "25c87066e2b5282247d94523581254c6ec3a9d6332ac542bd0b6a14492aedc73",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        28
+      ],
+      "donor": "TB8043438",
+      "metadata_cells": 1479,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "36fe7887748a69b4a5a77abcc2ac1503fa0a3e8cfd042510bfd2aa8deacfae87",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        27
+      ],
+      "donor": "TB8165290",
+      "metadata_cells": 3121,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "7e7e7880f8f1b893b62082e9332f56fed48c211165a2f4ca6263d8eee3e26b42",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        9
+      ],
+      "donor": "TB8234767",
+      "metadata_cells": 1509,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "58f0349869b6927913a2510cede4cd4255bf5a670fb22b6464facac67be872fd",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        41
+      ],
+      "donor": "TB8237998",
+      "metadata_cells": 1485,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "0a26870d4599afe139899284ec9641dab75a887e3503f50aa559e13b61d57a2d",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        18
+      ],
+      "donor": "TB8257621",
+      "metadata_cells": 2064,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "d95f9d1e568d6500efe720ac41ac6d4e68001752a4c230f883d38574eaec566b",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        13
+      ],
+      "donor": "TB8286225",
+      "metadata_cells": 1709,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "b1cfafca99733636649203c3f33ea208ce063ebe394705c6a174a135fd6e7b0b",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        45
+      ],
+      "donor": "TB8355183",
+      "metadata_cells": 1990,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "86e64286381672040e682c842242af5fbe18931b03c8581b06c09a64ad3104e5",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        4
+      ],
+      "donor": "TB8381021",
+      "metadata_cells": 1448,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "562d61f94a5c0b79c7c93dafe575fb6fd65d5e69a875651c2af5b6b9e88f35e5",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        45
+      ],
+      "donor": "TB8404478",
+      "metadata_cells": 1696,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "b28e78a1d6d9ea5501685c63cbd23853de4b2214b1443ec5dca551b3f1039c56",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        32
+      ],
+      "donor": "TB8432474",
+      "metadata_cells": 2072,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "554b70f465b263226ed527e0ab118c16f6a808acc5d50866646d9647a876b262",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        13
+      ],
+      "donor": "TB8521355",
+      "metadata_cells": 1376,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "b269e7d7c557692a312441bfb8d541918b83115b2b62042d19d19540a0f9ca7b",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        43
+      ],
+      "donor": "TB8568896",
+      "metadata_cells": 2294,
+      "role": "held",
+      "selected_cell_axis_sha256": "0c6fefc65d630d71ab80c7c4f4543a79af310d3ec8a7510a3cad3e59cf64cbf1",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        24
+      ],
+      "donor": "TB8584221",
+      "metadata_cells": 1792,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "5e838fb010ee1b662814851b7572852ef5ec427b39702f4498682520254f0fcb",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        3
+      ],
+      "donor": "TB8623085",
+      "metadata_cells": 2309,
+      "role": "held",
+      "selected_cell_axis_sha256": "2b8f5afece3f47097ce8e2b6f78659ea10c55a3a30b19bcb589f0065a89fdc42",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        16
+      ],
+      "donor": "TB8686250",
+      "metadata_cells": 1624,
+      "role": "held",
+      "selected_cell_axis_sha256": "1adf89b35f82cff20ce721e67df285c1b96fd2fd78a5dd196ba6b4c21cd3ce6b",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        32
+      ],
+      "donor": "TB8797251",
+      "metadata_cells": 202,
+      "role": "excluded_under_budget",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        6
+      ],
+      "donor": "TB8805781",
+      "metadata_cells": 234,
+      "role": "excluded_under_budget",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        30
+      ],
+      "donor": "TB8842336",
+      "metadata_cells": 2344,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "6ddf908cd35d2a9d22f3140c7321ab7a0f82cdda0894f12ff3f6af20c845005c",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        33
+      ],
+      "donor": "TB8848244",
+      "metadata_cells": 2127,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "6de5089a830b4931931389972891d2224e848231ea9691b5974b500b1a0cb12b",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        36
+      ],
+      "donor": "TB8866882",
+      "metadata_cells": 3128,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "4de80a7f41670a0cca7c58da35f86749e0e2abf73c1519a79e7d9d230d31da0d",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        8
+      ],
+      "donor": "TB8891793",
+      "metadata_cells": 1647,
+      "role": "held",
+      "selected_cell_axis_sha256": "b094898a813b0d26f9ae6e1f001b73b89b31103c7922f7bbaf8b0f451195afab",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        18
+      ],
+      "donor": "TB8896313",
+      "metadata_cells": 3067,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "51e5c028f50edbf40232042e46be675905197f9095d9920d41c4cf68550e5f06",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        43
+      ],
+      "donor": "TB8901232",
+      "metadata_cells": 1823,
+      "role": "held",
+      "selected_cell_axis_sha256": "9a4430aa4fa23300006cab6a7f8250f853fbd7a3f50a5c082b64e2c30e99eec9",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        23
+      ],
+      "donor": "TB8998508",
+      "metadata_cells": 1756,
+      "role": "held",
+      "selected_cell_axis_sha256": "b3d7affc7620574db7cfcdb5ab8147503cd85d763b585a1ba6c3ee0ee2a9ad07",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        14
+      ],
+      "donor": "TB9100553",
+      "metadata_cells": 2808,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "f5fb40cee3cad7b7fbfb23f123ba420e88f6bd2347306648fed34bffc4cec452",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        2
+      ],
+      "donor": "TB9109453",
+      "metadata_cells": 1562,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "b0a62f7e96d39a064c4d52d098862edcdbdeecf999eac4f7d6ea6ac38d59d78d",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        8
+      ],
+      "donor": "TB9168959",
+      "metadata_cells": 2155,
+      "role": "held",
+      "selected_cell_axis_sha256": "8d73f60574ef4ed8357150c84d0043be43364e24177849a9e48eecd2837e8282",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        24
+      ],
+      "donor": "TB9171957",
+      "metadata_cells": 1330,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "8815a112d9c53be24bfef328e518a617bf4b707489354ef18a5c4863607bdb1b",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        42
+      ],
+      "donor": "TB9233691",
+      "metadata_cells": 2399,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "b4a9a24a7ff6889ea8d6e498bcf9868e7e853ccf7f3d198f1687158e02c0abda",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        4,
+        46
+      ],
+      "donor": "TB9312329",
+      "metadata_cells": 1459,
+      "role": "excluded_repeated",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        46
+      ],
+      "donor": "TB9334348",
+      "metadata_cells": 2209,
+      "role": "held",
+      "selected_cell_axis_sha256": "d147324bfc2dd03813f55122566e7c4cb7273b7e9da3f41efa41097e2093e7ca",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        28
+      ],
+      "donor": "TB9423229",
+      "metadata_cells": 915,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "38356e140c93b03719aa78f6f3a5c5bc17d04a9e0133d1c25090d6d9d403ccd4",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        23
+      ],
+      "donor": "TB9431592",
+      "metadata_cells": 2056,
+      "role": "held",
+      "selected_cell_axis_sha256": "14b0aa6245be91ff86964f3b4933db390fc3de0bda51ce2b32ae806062adb0ba",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        6
+      ],
+      "donor": "TB9458589",
+      "metadata_cells": 2177,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "01ac74b1179fd482eaf0bcc00d679097a67a0babc020bfc468a9d812058dc4cf",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        13
+      ],
+      "donor": "TB9488114",
+      "metadata_cells": 1788,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "b442c6195836c768ba71b84a0e172809ebcddf3d46bc4cb71c63b8d893f3d050",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        26
+      ],
+      "donor": "TB9535070",
+      "metadata_cells": 1951,
+      "role": "held",
+      "selected_cell_axis_sha256": "91c612a39444b28cca360b107f2ca8b096e2ddd249013a90c8242a8733f1e961",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        5
+      ],
+      "donor": "TB9564709",
+      "metadata_cells": 1339,
+      "role": "held",
+      "selected_cell_axis_sha256": "a31ce2fcabe50665b75b0bba7e10b18b2c58528701bdd37e614b2625ccf5f2ee",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        28
+      ],
+      "donor": "TB9586477",
+      "metadata_cells": 1997,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "24e1e8d34e18ea69d58e6498228c1a34c041f7883ca1ce0e621acef0c87448c4",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        4
+      ],
+      "donor": "TB9648142",
+      "metadata_cells": 1871,
+      "role": "pilot",
+      "selected_cell_axis_sha256": "2cd3f2ae4ed975be6daf36045053af21e2d4d3a6de9eaee33798ad4f45d9a34b",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        25
+      ],
+      "donor": "TB9686722",
+      "metadata_cells": 900,
+      "role": "held",
+      "selected_cell_axis_sha256": "ab1795b5574cca97d5e3313977e3c87d19cd32d44f3dafacc0985661ea3844b3",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        36
+      ],
+      "donor": "TB9712989",
+      "metadata_cells": 2302,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "bb4616109b11c5438b52e616ea348afb96e56b9cebf05f3f2170933a24574e8d",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        44
+      ],
+      "donor": "TB9726894",
+      "metadata_cells": 2415,
+      "role": "held",
+      "selected_cell_axis_sha256": "b997a4e64b7fb677feef05a8c5b7b7af05849a502cf5d483ea52e64cf73d6c52",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        5
+      ],
+      "donor": "TB9735866",
+      "metadata_cells": 1307,
+      "role": "held",
+      "selected_cell_axis_sha256": "9d191d3362a08108df37874b73ec42f506cd369a5b45d50318aa0801783b74c9",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        37
+      ],
+      "donor": "TB9746232",
+      "metadata_cells": 2146,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "b70e245daff66f334b0a80495e402dd7c70929e0e73b702eaf3aee35907fc658",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        42
+      ],
+      "donor": "TB9748629",
+      "metadata_cells": 1996,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "18d223e9e194e723a91b934c726d1ae1e5a923ee09e34159441a6daed7850db1",
+      "statuses": [
+        "CASE"
+      ]
+    },
+    {
+      "batches": [
+        16
+      ],
+      "donor": "TB9763117",
+      "metadata_cells": 1621,
+      "role": "held",
+      "selected_cell_axis_sha256": "3b500b48a1a8b95d6fbc9afb86d12f8cd9173fb18d433cab1f376ec3d467eff7",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        30
+      ],
+      "donor": "TB9764503",
+      "metadata_cells": 2349,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "a6312bdd709fc02ec8593a921c4e2b63bc7e7afe40734f34e7410c365ba9be85",
+      "statuses": [
+        "CONTROL"
+      ]
+    },
+    {
+      "batches": [
+        37
+      ],
+      "donor": "TB9941678",
+      "metadata_cells": 2376,
+      "role": "calibration",
+      "selected_cell_axis_sha256": "fe6482f94aab98c2c8f6f9cae4290d3424c7c2fd1d0760f3275efb944de087fa",
+      "statuses": [
+        "CASE"
+      ]
+    }
+  ],
+  "markers": [
+    {
+      "adt_aliases": [
+        "CD3",
+        "CD3.1",
+        "CD3 (CD3E)"
+      ],
+      "marker": "CD3",
+      "rna_feature": "CD3E"
+    },
+    {
+      "adt_aliases": [
+        "CD4",
+        "CD4.1"
+      ],
+      "marker": "CD4",
+      "rna_feature": "CD4"
+    },
+    {
+      "adt_aliases": [
+        "CD5",
+        "CD5.1"
+      ],
+      "marker": "CD5",
+      "rna_feature": "CD5"
+    },
+    {
+      "adt_aliases": [
+        "CD8a",
+        "CD8a/CD8A"
+      ],
+      "marker": "CD8",
+      "rna_feature": "CD8A"
+    },
+    {
+      "adt_aliases": [
+        "CD161",
+        "CD161 (KLRB1)"
+      ],
+      "marker": "CD161",
+      "rna_feature": "KLRB1"
+    },
+    {
+      "adt_aliases": [
+        "CD127",
+        "CD127/IL-7R",
+        "CD127 (IL7R)"
+      ],
+      "marker": "CD127",
+      "rna_feature": "IL7R"
+    },
+    {
+      "adt_aliases": [
+        "CD27",
+        "CD27.1"
+      ],
+      "marker": "CD27",
+      "rna_feature": "CD27"
+    },
+    {
+      "adt_aliases": [
+        "CD38",
+        "CD38.1"
+      ],
+      "marker": "CD38",
+      "rna_feature": "CD38"
+    },
+    {
+      "adt_aliases": [
+        "CD26",
+        "CD26 (DPP4)"
+      ],
+      "marker": "CD26",
+      "rna_feature": "DPP4"
+    }
+  ],
+  "role_batches": {
+    "calibration": [
+      15,
+      42,
+      27,
+      36,
+      7,
+      2,
+      28,
+      10,
+      30,
+      40,
+      45,
+      12,
+      6,
+      37,
+      13,
+      32
+    ],
+    "held": [
+      21,
+      43,
+      25,
+      20,
+      1,
+      46,
+      16,
+      44,
+      39,
+      26,
+      19,
+      3,
+      8,
+      5,
+      23,
+      31
+    ],
+    "pilot": [
+      33,
+      41,
+      34,
+      38,
+      11,
+      29,
+      24,
+      18,
+      22,
+      9,
+      14,
+      17,
+      35,
+      4
+    ]
+  },
+  "role_counts": {
+    "calibration": 85,
+    "held": 80,
+    "pilot": 69
+  },
+  "schema": "gse158769-metadata-preflight/1.0",
+  "status": "PASS"
+}

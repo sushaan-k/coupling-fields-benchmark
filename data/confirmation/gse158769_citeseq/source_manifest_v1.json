@@ -1,0 +1,35 @@
+{
+  "accession": "GSE158769",
+  "assay": {
+    "cells": 500089,
+    "joint_modalities": [
+      "RNA UMI counts",
+      "TotalSeq-A antibody counts"
+    ],
+    "processing_batches": 46,
+    "reported_antibodies": 31,
+    "reported_donors_after_qc": 259,
+    "tissue": "peripheral-blood memory T cells"
+  },
+  "files": {
+    "metadata": {
+      "bytes": 21855425,
+      "sha256": "5f5f44dbcf7dc28054f7f124560e3322e4ed9557ff5dbec0e48d2337af1c7f45",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE158nnn/GSE158769/suppl/GSE158769_meta_data.txt.gz"
+    },
+    "raw_linked_matrix": {
+      "bytes": 783271940,
+      "format": "gzip-compressed feature-by-cell TSV; first column is feature label",
+      "sha256": null,
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE158nnn/GSE158769/suppl/GSE158769_exprs_raw.tsv.gz"
+    },
+    "supplementary_tables": {
+      "bytes": 572216,
+      "sha256": "a57d531f0a1c3f4b83b8ccb75845a17b18f9fd8ced0a8c07918d5fb705901bd0",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/8162307/bin/NIHMS1694732-supplement-Supplementary_Tables.xlsx"
+    }
+  },
+  "primary_article_doi": "10.1038/s41590-021-00933-1",
+  "schema": "gse158769-source-manifest/1.0",
+  "source_page": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE158769"
+}
