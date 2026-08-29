@@ -1,0 +1,71 @@
+{
+  "schema": "stephenson-unused-cambridge-prediction-authorization/1.0",
+  "status": "RNA_MARGIN_ACCESS_AUTHORIZED",
+  "created_at_utc": "2026-08-29T22:22:52Z",
+  "canonical_origin": "https://github.com/sushaan-k/coupling-fields-benchmark.git",
+  "public_implementation_commit": "a28de1ba182ed3fe57a17f5c14d7f0f55bf508f1",
+  "public_protocol_tag": "stephenson-unused-cambridge-v1-protocol",
+  "fresh_clone_verification": {
+    "commit": "a28de1ba182ed3fe57a17f5c14d7f0f55bf508f1",
+    "focused_tests_passed": 32,
+    "preaccess_check_status": "PASS_H5AD_UNOPENED"
+  },
+  "artifact_bindings": {
+    "classical_audit": {
+      "path": "results/development/classical_interaction_baselines_posthoc.json",
+      "sha256": "bc6efbb2ffe3404a294eae26b51e214054718113a8deeaf6b9f4e73ebf05f305"
+    },
+    "classical_fields": {
+      "path": "data/development/stephenson_unused_cambridge/classical_fields_v1.json",
+      "sha256": "23dd6540fa1c133b5d5ff09af1a35ab212e4e7de5d2a255ee018f6d4e7b07a77"
+    },
+    "combat_numerics": {
+      "path": "experiments/confirm_combat_citeseq.py",
+      "sha256": "7873f58255eedd75a5b165d058fcd8e1b5c5f4dba24d38064cb8f747a12ff912"
+    },
+    "conditional_solver": {
+      "path": "mapreg/hierarchical_conditional_coupling.py",
+      "sha256": "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d"
+    },
+    "designation": {
+      "path": "data/confirmation/stephenson_unused_cambridge/candidate_designation_v1.json",
+      "sha256": "b6bcc8049f688b6c5c5297c348a1f425068d56afb797fe6e8e55fd8f833bcd60"
+    },
+    "development_result": {
+      "path": "results/development/stephenson_citeseq_development.json",
+      "sha256": "2a8b535a0581b51a2a1eff8c764038a11cac7db08b67217c9b9dae22157e3e72"
+    },
+    "preaccess": {
+      "path": "results/development/stephenson_unused_cambridge_preaccess_v1.json",
+      "sha256": "9a4acf9d9ea8321398de9ddd7091aa782340db5b18e748d3a82c2c9f68177232"
+    },
+    "protocol": {
+      "path": "docs/STEPHENSON_UNUSED_CAMBRIDGE_HELD_DONOR_PROTOCOL_2026-08-29.md",
+      "sha256": "a4d302c5c7c0fd8f28b5c3d7d8a142120816d89eb13ba82a801cc0c23f8b3c61"
+    },
+    "runner": {
+      "path": "experiments/confirm_stephenson_unused_cambridge.py",
+      "sha256": "26561e4d60c9b05bda7fdc3188ade9bfade866486c9580b307e4b64ac241ee7b"
+    },
+    "runner_test": {
+      "path": "tests/test_stephenson_unused_cambridge.py",
+      "sha256": "2ae38e8dd4b826bdb6ff97e3d41518380a2614766bcbdd1d0bbd563abe3d49cf"
+    },
+    "source_manifest": {
+      "path": "data/confirmation/stephenson_citeseq/source_manifest_v1.json",
+      "sha256": "431e8a370bc9b08a207ab0ff8d3581f80abaf0f36b55eba4accedc5685a3d3cd"
+    },
+    "stephenson_runner": {
+      "path": "experiments/confirm_stephenson_citeseq.py",
+      "sha256": "3708bccf52283e4f08e9fa842d7045dcc0756fa41d54476aaa1fc6ddc7197e76"
+    },
+    "table_prediction": {
+      "path": "mapreg/table_prediction.py",
+      "sha256": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e"
+    }
+  },
+  "prediction_attempt_path": "data/confirmation/stephenson_unused_cambridge/prediction_attempt_v1.json",
+  "prediction_output_path": "results/stephenson_unused_cambridge_predictions_v1.json",
+  "adt_numeric_access_authorized": false,
+  "rerun_permitted": false
+}
