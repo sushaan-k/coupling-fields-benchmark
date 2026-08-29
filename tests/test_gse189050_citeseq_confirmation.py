@@ -2,6 +2,7 @@ import io
 import json
 import math
 from pathlib import Path
+from types import SimpleNamespace
 
 import numpy as np
 import pytest
@@ -267,6 +268,54 @@ def test_public_stage_tags_are_distinct():
         )
         == 3
     )
+
+
+def test_protocol_binds_complete_mapreg_runtime_and_environment():
+    required = {
+        "mapreg/__init__.py",
+        "mapreg/classical_residuals.py",
+        "mapreg/coupling_fields.py",
+        "mapreg/factorial_coupling.py",
+        "mapreg/heterogeneity_adaptive_coupling.py",
+        "mapreg/hierarchical_conditional_coupling.py",
+        "mapreg/table_prediction.py",
+        "requirements.txt",
+        "pyproject.toml",
+    }
+    assert required <= set(confirmation.PROTOCOL_BINDINGS)
+
+
+def test_public_binding_rejects_a_changed_transitive_dependency(
+    monkeypatch, tmp_path: Path
+):
+    paths = ("experiments/runner.py", "mapreg/coupling_fields.py")
+    tagged = {
+        "experiments/runner.py": b"runner\n",
+        "mapreg/coupling_fields.py": b"dependency\n",
+    }
+    for relative, value in tagged.items():
+        path = tmp_path / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(value)
+    commit = "a" * 40
+
+    def fake_run(args, **kwargs):
+        del kwargs
+        if args[1] == "rev-list":
+            return SimpleNamespace(stdout=commit + "\n")
+        if args[1] == "ls-remote":
+            return SimpleNamespace(stdout=f"{commit}\trefs/tags/frozen^{{}}\n")
+        if args[1] == "show":
+            relative = args[-1].split(":", 1)[1]
+            return SimpleNamespace(stdout=tagged[relative])
+        raise AssertionError(args)
+
+    monkeypatch.setattr(confirmation, "ROOT", tmp_path)
+    monkeypatch.setattr(confirmation.subprocess, "run", fake_run)
+    assert confirmation._require_public_tag("frozen", paths) == commit
+    (tmp_path / "mapreg/coupling_fields.py").write_bytes(b"changed\n")
+    with pytest.raises(PermissionError, match="differs from public tag"):
+        confirmation._require_public_tag("frozen", paths)
 
 
 def test_frozen_preflight_is_count_blind():

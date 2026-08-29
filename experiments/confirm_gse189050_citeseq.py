@@ -53,7 +53,7 @@ DEFAULT_PROTOCOL = (
 )
 
 PUBLIC_ORIGIN = "https://github.com/sushaan-k/coupling-fields-benchmark.git"
-PROTOCOL_TAG = "gse189050-citeseq-v1-protocol"
+PROTOCOL_TAG = "gse189050-citeseq-v1.1-protocol"
 DEVELOPMENT_TAG = "gse189050-citeseq-v1-development"
 PREDICTION_TAG = "gse189050-citeseq-v1-predictions"
 
@@ -195,8 +195,15 @@ PROTOCOL_BINDINGS = (
     "results/development/gse189050_schema_preflight_v1.json",
     "experiments/confirm_gse158769_citeseq.py",
     "experiments/confirm_gse314416_citeseq.py",
+    "mapreg/__init__.py",
+    "mapreg/classical_residuals.py",
+    "mapreg/coupling_fields.py",
+    "mapreg/factorial_coupling.py",
     "mapreg/heterogeneity_adaptive_coupling.py",
     "mapreg/hierarchical_conditional_coupling.py",
+    "mapreg/table_prediction.py",
+    "requirements.txt",
+    "pyproject.toml",
 )
 
 
