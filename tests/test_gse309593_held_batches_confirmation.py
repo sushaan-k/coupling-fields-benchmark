@@ -451,6 +451,22 @@ def test_pooled_poisson_includes_raw_varying_margin_degenerate_subjects(
     assert certificate["passes"] is True
 
 
+def test_residual_pool_does_not_mutate_subject_support(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(subject, "MARKER_COUNT", 2)
+    tables = np.tile(
+        np.asarray([[10, 5], [5, 10]], dtype=np.int64), (3, 2, 2, 1, 1)
+    )
+    support = np.ones((3, 2, 2), dtype=bool)
+    mask = np.asarray([[True, False], [True, True]])
+    original = support.copy()
+
+    subject._residual_pool(tables, "pearson", mask, support)
+
+    np.testing.assert_array_equal(support, original)
+
+
 def _patch_lightweight_selection(monkeypatch: pytest.MonkeyPatch) -> None:
     valid = subject.PrimaryConfig(2, 0.1, 0.01, 0.0, 0.0)
     invalid = subject.PrimaryConfig(2, 0.1, 0.1, 0.0, 0.0)

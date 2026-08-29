@@ -1460,7 +1460,7 @@ def _residual_pool(
     support = (
         _informative(values)
         if subject_support is None
-        else np.asarray(subject_support, dtype=bool).reshape(len(tables), -1)
+        else np.asarray(subject_support, dtype=bool).reshape(len(tables), -1).copy()
     )
     support &= mask[None, :]
     if np.any(support[:, mask].sum(axis=0) < 2):
