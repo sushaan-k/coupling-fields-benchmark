@@ -1,0 +1,34 @@
+{
+  "schema": "stephenson-unused-cambridge-prediction-terminal-record/1.1",
+  "status": "TERMINAL_INFRASTRUCTURE_UNEVALUABLE",
+  "created_at_utc": "2026-08-29T23:39:08Z",
+  "attempt_path": "data/confirmation/stephenson_unused_cambridge/prediction_attempt_v1_1.json",
+  "attempt_sha256": "92778629ab3764c5df18d2b622857239c008e505627f03fe949b4582c5045f10",
+  "authorization_path": "data/confirmation/stephenson_unused_cambridge/prediction_authorization_v1_1.json",
+  "authorization_sha256": "7348c5cad39e61df64969c64fabb42e40d3d31684df28fde374895bbf0f618ce",
+  "recovery_amendment_sha256": "49929929e8f07149b6bc1ecbc7b8848980e0297b921a02087d9623cf208c05ff",
+  "observations": {
+    "prediction_process_running_after_attempt_record": true,
+    "prediction_process_later_absent": true,
+    "prediction_output_exists": false,
+    "stderr_stdout_log_bytes": 0,
+    "wrapper_exit_record_exists": false,
+    "score_authorization_exists": false,
+    "score_attempt_exists": false,
+    "score_output_exists": false,
+    "host_volume_capacity_at_terminal_inspection": "100%",
+    "host_volume_available_at_terminal_inspection": "116 MiB",
+    "unreferenced_concurrent_git_temporary_pack_observed": "6.9 GiB",
+    "unreferenced_concurrent_git_temporary_object_observed": "166 MiB"
+  },
+  "access_boundary": {
+    "prediction_phase_authorized_numeric_modalities": [
+      "RNA"
+    ],
+    "adt_numeric_access_authorized": false,
+    "paired_rna_adt_outcome_access_authorized": false,
+    "score_phase_started": false
+  },
+  "interpretation": "The replacement attempt produced neither frozen predictions nor an outcome score. It is an infrastructure-unevaluable attempt, not a scientific pass or failure.",
+  "further_replacement_authorized": false
+}
