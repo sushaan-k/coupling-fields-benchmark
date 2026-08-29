@@ -1,0 +1,156 @@
+{
+  "schema": "gse181897-control-citeseq-candidate-designation/1.0",
+  "status": "FROZEN_METADATA_ONLY_PENDING_PUBLIC_TAG_AND_AXIS_PREFLIGHT",
+  "created_at_utc": "2026-08-29T20:00:31Z",
+  "accession": "GSE181897",
+  "official_series_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE181897",
+  "claim_scope": "Same-study, donor-disjoint and physical-pool-disjoint transfer among unstimulated PBMC aliquots. This is not a whole-file holdout: the shared H5AD also contains each donor's non-control aliquots in other pools, none of which is analyzed. The estimand is composition-inclusive RNA-surface-protein dependence, not a cell-type-conditional, causal, or stimulus-response effect.",
+  "designation_basis": "Official GEO series metadata and metadata-only inspection of the H5AD obs schema. The exact feature-axis and numeric-matrix schemas remain pending a committed axis-only preflight. No AnnData X value, RNA count, protein count, joint table, model loss, or outcome statistic was read to designate the candidate.",
+  "input": {
+    "file_name": "GSE181897_concat.4.raw.h5ad.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE181nnn/GSE181897/suppl/GSE181897_concat.4.raw.h5ad.gz",
+    "compression": "gzip",
+    "expected_compressed_bytes": 1011162509,
+    "expected_uncompressed_bytes": 3063713137,
+    "compressed_sha256": "PENDING_SOURCE_ACQUISITION",
+    "uncompressed_sha256": "PENDING_AXIS_PREFLIGHT",
+    "hash_policy": "Neither digest may be guessed. The compressed digest is bound at opaque acquisition; the uncompressed H5AD digest and exact schema are bound by a public axis-only preflight before numeric X access.",
+    "metadata_shape": [136142, 20399],
+    "expected_unique_obs_identifiers": 136142,
+    "expected_unique_var_identifiers": 20399,
+    "expected_control_cells": 22732,
+    "expected_control_donors": 64,
+    "expected_feature_summary_pending_axis_preflight": {
+      "grch38_gene_features": 20303,
+      "bd99abseq_protein_features": 96
+    },
+    "numeric_matrix": "AnnData X",
+    "numeric_matrix_schema": "AnnData X CSR encoding-version 0.1.0 with shape 136142 by 20399; exact HDF5 dataset paths, axis hashes, and input digests remain PENDING_AXIS_PREFLIGHT",
+    "numeric_matrix_values_read_at_designation": 0
+  },
+  "metadata_contract": {
+    "required_obs_columns": ["cond", "exp_id", "free_id", "batch"],
+    "control_selector": {
+      "column": "cond",
+      "value": "C",
+      "exact_equality": true
+    },
+    "documented_mispool_anomaly": {
+      "column": "cond",
+      "value": "0",
+      "metadata_cells": 455,
+      "action": "exclude every such row and certify that none enters any cohort; the exact cond == C selector independently enforces this exclusion"
+    },
+    "donor_identifier": "exp_id",
+    "demultiplexed_identifier": "free_id",
+    "donor_bijection": "Across retained cond == C rows, exp_id and free_id must be one-to-one at the donor level. Any violation is a terminal pre-numeric refusal.",
+    "batch_identifier": "batch",
+    "expected_batch_axis": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    "cell_identifier": "H5AD obs index",
+    "cell_budget_per_retained_donor": 128,
+    "canonical_identifier_rule": "Parse exp_id and batch as base-10 integers without missing values, then publish them as JSON integers. Duplicate cells are forbidden; exp_id 0 is a valid donor and is distinct from the excluded cond == '0' anomaly."
+  },
+  "allocation": {
+    "ordering_rule": "Within each role, order physical batches numerically and donors numerically within batch. This exact order is the statistical and serialization axis.",
+    "source_development": {
+      "batches": [
+        {"batch": 0, "exp_ids": [34, 35, 45, 57, 58]},
+        {"batch": 1, "exp_ids": [18, 22, 24, 55, 59, 61]},
+        {"batch": 2, "exp_ids": [13, 29, 31, 42, 43]},
+        {"batch": 3, "exp_ids": [5, 12, 30, 36, 60, 63]},
+        {"batch": 4, "exp_ids": [10, 14, 38, 47]},
+        {"batch": 5, "exp_ids": [11, 15, 25, 39, 49]},
+        {"batch": 6, "exp_ids": [1, 4, 7, 27]},
+        {"batch": 7, "exp_ids": [9, 32, 37, 44]}
+      ],
+      "excluded_exp_ids": [23, 62],
+      "excluded_control_cell_counts": {"23": 2, "62": 64},
+      "donor_count": 39,
+      "physical_batch_count": 8
+    },
+    "internal_validation": {
+      "batches": [
+        {"batch": 8, "exp_ids": [3, 16, 19, 48, 50]},
+        {"batch": 9, "exp_ids": [0, 2, 17, 33]}
+      ],
+      "excluded_exp_ids": [51, 52],
+      "excluded_control_cell_counts": {"51": 70, "52": 91},
+      "donor_count": 9,
+      "physical_batch_count": 2
+    },
+    "primary_confirmation": {
+      "batches": [
+        {"batch": 10, "exp_ids": [8, 21, 28, 41, 53, 56]},
+        {"batch": 11, "exp_ids": [6, 20, 26, 40, 46, 54]}
+      ],
+      "excluded_exp_ids": [],
+      "donor_count": 12,
+      "physical_batch_count": 2
+    },
+    "all_excluded_exp_ids": [23, 51, 52, 62],
+    "exclusion_rule": "Exclude the four prespecified donors with fewer than 128 cond == C cells. No other donor exclusion or replacement is permitted.",
+    "donor_disjoint": true,
+    "physical_batch_disjoint": true,
+    "whole_file_disjoint": false,
+    "whole_file_boundary": "The single H5AD contains all conditions. The frozen control aliquots are donor-disjoint and physical-pool-disjoint across roles, but sealed donors' non-control aliquots occur elsewhere in the same shared file and are never eligible inputs.",
+    "retained_donor_count": 60
+  },
+  "panel": {
+    "source": "Prespecified RNA and BD99AbSeq cognates from metadata-only schema inspection; committed axis hashes remain PENDING_AXIS_PREFLIGHT.",
+    "modality_rule": "Resolve RNA features on var/genome == GRCh38 and protein features on var/genome == BD99AbSeq. Do not use var/feature_types, which labels both modalities as Gene Expression in this H5AD.",
+    "ordered_cognates": [
+      {"rna": "CD1C", "protein_target": "CD1c", "protein_exact_feature": "CD1c|CD1C"},
+      {"rna": "CD2", "protein_target": "CD2", "protein_exact_feature": "CD2|CD2"},
+      {"rna": "CD4", "protein_target": "CD4", "protein_exact_feature": "CD4|CD4"},
+      {"rna": "CD7", "protein_target": "CD7", "protein_exact_feature": "CD7|CD7"},
+      {"rna": "CD8A", "protein_target": "CD8", "protein_exact_feature": "CD8|CD8A"},
+      {"rna": "ITGAM", "protein_target": "CD11b", "protein_exact_feature": "CD11b|ITGAM"},
+      {"rna": "ITGAX", "protein_target": "CD11c", "protein_exact_feature": "CD11c|ITGAX"},
+      {"rna": "CD14", "protein_target": "CD14", "protein_exact_feature": "CD14|CD14"},
+      {"rna": "MS4A1", "protein_target": "CD20", "protein_exact_feature": "CD20|MS4A1"},
+      {"rna": "CD27", "protein_target": "CD27", "protein_exact_feature": "CD27|CD27"},
+      {"rna": "CD33", "protein_target": "CD33", "protein_exact_feature": "CD33|CD33"},
+      {"rna": "CD34", "protein_target": "CD34", "protein_exact_feature": "CD34|CD34"},
+      {"rna": "CD38", "protein_target": "CD38", "protein_exact_feature": "CD38|CD38"},
+      {"rna": "CD69", "protein_target": "CD69", "protein_exact_feature": "CD69|CD69"},
+      {"rna": "CD80", "protein_target": "CD80", "protein_exact_feature": "CD80|CD80"},
+      {"rna": "CD86", "protein_target": "CD86", "protein_exact_feature": "CD86|CD86"},
+      {"rna": "CD163", "protein_target": "CD163", "protein_exact_feature": "CD163|CD163"}
+    ],
+    "cognate_count": 17,
+    "ordered_rna_by_protein_coordinates": 289,
+    "resolution_rule": "At axis preflight, each RNA symbol must resolve by exact equality exactly once among var/genome == GRCh38 features, and each protein_exact_feature must resolve by exact equality exactly once among var/genome == BD99AbSeq features. The short protein_target is display metadata only. Aliasing, case folding, fuzzy matching, aggregation, substitution, marker removal, and reordering are forbidden."
+  },
+  "stage_bindings": {
+    "candidate_designation_path": "data/confirmation/gse181897_control_citeseq/candidate_designation_v1.json",
+    "protocol_path": "data/confirmation/gse181897_control_citeseq/protocol_v1.json",
+    "human_protocol_path": "docs/GSE181897_CONTROL_CITESEQ_SEQUENTIAL_CONFIRMATION_PROTOCOL_2026-08-29.md",
+    "tests_path": "tests/test_gse181897_protocol.py",
+    "axis_preflight_path": "PENDING_AXIS_PREFLIGHT",
+    "source_reducer_path": "PENDING_IMPLEMENTATION_FREEZE",
+    "source_model_path": "PENDING_IMPLEMENTATION_FREEZE",
+    "internal_validation_path": "PENDING_IMPLEMENTATION_FREEZE",
+    "confirmation_prediction_path": "PENDING_IMPLEMENTATION_FREEZE",
+    "confirmation_score_path": "PENDING_IMPLEMENTATION_FREEZE"
+  },
+  "freeze_requirements": {
+    "candidate_annotated_tag": "PENDING_PUBLIC_FREEZE",
+    "candidate_tag_object": "PENDING_PUBLIC_FREEZE",
+    "candidate_peeled_commit": "PENDING_PUBLIC_FREEZE",
+    "axis_preflight_annotated_tag": "PENDING_AXIS_PREFLIGHT",
+    "implementation_annotated_tag": "PENDING_IMPLEMENTATION_FREEZE",
+    "numeric_access_before_all_required_bindings_is_forbidden": true,
+    "placeholder_rule": "Every PENDING value is a closed gate, not permission to infer or substitute a value. Numeric AnnData X access is forbidden until the candidate, axis preflight, implementation files, runtime, and input digests have been committed, tagged, pushed, and independently verified."
+  },
+  "outcome_access": {
+    "ann_data_x_entries_read_at_designation": 0,
+    "rna_values_read_at_designation": 0,
+    "protein_values_read_at_designation": 0,
+    "joint_tables_computed_at_designation": 0,
+    "model_losses_computed_at_designation": 0,
+    "internal_values_may_be_read_before_source_go": false,
+    "confirmation_values_may_be_read_before_internal_pass": false,
+    "maximum_internal_score_runs": 1,
+    "maximum_confirmation_score_runs": 1
+  }
+}
