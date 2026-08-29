@@ -22,3 +22,4 @@ data/confirmation/kotliarov_pbmc/score_bundle_v1/
 data/development/gse279451_sepsis/source_members/
 data/confirmation/gse279451_sepsis/held_source_work/
 data/confirmation/gse288020_citeseq/source_cache/
+data/confirmation/gse326573_lung/private_held_rna_states_v1.npz

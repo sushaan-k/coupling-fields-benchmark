@@ -1,0 +1,207 @@
+{
+  "schema": "gse326573-lung-citeseq-held-batch-protocol/1.0",
+  "status": "FROZEN_AFTER_AXIS_ONLY_PREFLIGHT_BEFORE_NUMERIC_MATRIX_ACCESS",
+  "created_at_utc": "2026-08-29T14:41:27Z",
+  "accession": "GSE326573",
+  "claim_scope": "Same-study, batch-disjoint and donor-disjoint transfer of composition-inclusive same-cell RNA-ADT dependence from lung CD3-positive T-cell CITE-seq batches 1-3 to batches 4-6. The estimand is neither cell-type-conditional nor causal.",
+  "candidate_freeze": {
+    "tag": "gse326573-lung-v1-candidate",
+    "annotated_tag_object": "d3a692daf64af8c8a0fcca6ef38225c5ebd30eeb",
+    "peeled_commit": "489ab69915428bc8f4f614a5ceaadbb9e1fb0fdf",
+    "candidate_path": "data/confirmation/gse326573_lung/candidate_designation_v1.json",
+    "candidate_sha256": "a52beacbef12ff537ed5ed575feb097c9d370b6b8db2768e9e116be0a04facb6",
+    "axis_preflight_path": "results/development/gse326573_axis_preflight_v1.json",
+    "axis_preflight_sha256": "9957dbeaa51ed7c7330edbdab805e041e9ad23b79384ef08180b9627128f6490",
+    "numeric_count_values_read_before_freeze": 0
+  },
+  "official_archive": {
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE326nnn/GSE326573/suppl/GSE326573_RAW.tar",
+    "bytes": 326922240,
+    "sha256": "9bb9a1a879fba1f01406f4463e4b707f853c854a0cc2112a16f34dc86b0011fb",
+    "members": 32,
+    "member_contract": "Every extracted H5 must match the file name, byte count, and SHA-256 in the candidate designation. The archive and every accessed member are reverified at each numeric stage."
+  },
+  "allocation": {
+    "source": {
+      "batches": ["Batch1", "Batch2", "Batch3"],
+      "biological_units": [
+        "CONTROL_1", "CONTROL_2", "CONTROL_3", "CONTROL_4",
+        "IPF_1", "IPF_2", "IPF_3", "IPF_4",
+        "CONTROL_5", "CONTROL_6", "CONTROL_7", "CONTROL_8",
+        "IPF_5", "IPF_6", "IPF_7", "CTD-ILD_2",
+        "IPAF_1", "IPAF_2", "IPAF_3", "IPAF_4"
+      ],
+      "biological_unit_count": 20,
+      "sample_matrix_count": 20,
+      "cross_validation": "Leave one complete official source batch out. Rebuild both feature graphs and refit every candidate model using only the other two batches."
+    },
+    "held": {
+      "batches": ["Batch4", "Batch5", "Batch6"],
+      "biological_units": [
+        "CTD-ILD_1", "CTD-ILD_3", "CTD-ILD_4",
+        "CONTROL_9", "CONTROL_10", "CTD-ILD_5",
+        "NSIP", "IPF_10", "IPF_11"
+      ],
+      "sample_matrices": [
+        "GSM9634830", "GSM9634833", "GSM9634835", "GSM9634836",
+        "GSM9634837", "GSM9634839", "GSM9634841",
+        "GSM9634843", "GSM9634847", "GSM9634849"
+      ],
+      "biological_unit_count": 9,
+      "sample_matrix_count": 10,
+      "replicate_rule": "Score the CTD-ILD_3a and CTD-ILD_3b matrices separately, then average their losses before all biological-unit-equal summaries, bootstrap resampling, sign tests, and batch summaries."
+    },
+    "excluded_overlap_units": ["CTD-ILD_2", "IPF_1"],
+    "excluded_overlap_matrices": ["GSM9634832", "GSM9634845"],
+    "exclusion_rule": "A later-batch matrix from a biological unit present in source is never fitted, predicted, paired, or scored."
+  },
+  "panel": {
+    "ordered_cognates": [
+      {"rna": "CD8A", "adt": "CD8"},
+      {"rna": "NCAM1", "adt": "CD56"},
+      {"rna": "CD4", "adt": "CD4"},
+      {"rna": "IL2RA", "adt": "CD25"},
+      {"rna": "PDCD1", "adt": "PD1"},
+      {"rna": "ITGAE", "adt": "CD103"},
+      {"rna": "CCR7", "adt": "CCR7"},
+      {"rna": "CTLA4", "adt": "CTLA4"},
+      {"rna": "LAG3", "adt": "LAG3"},
+      {"rna": "CD28", "adt": "CD28"},
+      {"rna": "KLRG1", "adt": "KLRG1"}
+    ],
+    "cognate_count": 11,
+    "ordered_rna_by_adt_tables": 121,
+    "feature_rule": "Resolve every RNA symbol and one of its two frozen TotalSeq label aliases exactly once in every accessed H5. Fuzzy matching, substitution, aggregation, marker removal, and marker reordering are forbidden.",
+    "minimum_informative_tables_per_sample": 64,
+    "informative_table": "A 2-by-2 table is informative when its fixed margins admit more than one feasible table. The same source- or held-sample mask is applied to every method. Fewer than 64 informative tables is a terminal support refusal."
+  },
+  "cell_and_state_construction": {
+    "cells_per_sample": 512,
+    "cell_selection_salt": "GSE326573-CELL-BUDGET-v1",
+    "cell_selection": "Rank unique deposited barcodes by SHA-256 of GSE326573-CELL-BUDGET-v1|GSM|barcode, then barcode; select the first 512 and retain them in deposited H5 order.",
+    "rna_state": "Raw UMI count greater than zero is state 1; zero is state 0.",
+    "adt_tie_salt": "GSE326573-ADT-MIDRANK-v1",
+    "adt_state": "For each sample and marker, order the 512 cells by raw ADT count, SHA-256 of GSE326573-ADT-MIDRANK-v1|GSM|ordered-marker-index|barcode, then barcode. The lower 256 are state 0 and upper 256 are state 1.",
+    "recipient_adt_margin": [256, 256],
+    "metadata_anomaly": "GSM9634837 is the paired CONTROL_9 count container; GSM9634838 has no count matrix and is not an input, exactly as frozen in the candidate designation."
+  },
+  "primary_estimator": {
+    "family": "hierarchical graph-regularized exact fixed-margin conditional coupling field",
+    "parameter": "One finite population full log-odds coordinate for each of the 121 ordered RNA-by-ADT tables, with sample deviations penalized toward the population field.",
+    "likelihood": "The exact conditional likelihood of each 2-by-2 table given its observed row and column margins.",
+    "rna_graph_profile": "Across training samples only, the sample-by-marker fraction of selected cells with positive RNA count.",
+    "adt_graph_profile": "Across training samples only, the sample-by-marker mean of log1p raw ADT count.",
+    "graph": "Separate standardized-Euclidean two-nearest-neighbor graphs on the RNA and ADT marker profiles; their Cartesian product regularizes the 11-by-11 population field. Graphs are rebuilt inside every source fold. The graph-zero candidate uses identity incidences and performs no profile-based graph construction.",
+    "recipient_reconstruction": "For each frozen finite transported log odds and recipient margins, predict the exact noncentral-hypergeometric expected 2-by-2 table.",
+    "maximum_condition_number": 1000000000000.0,
+    "minimum_informative_source_samples_per_coordinate": 2,
+    "grid": {
+      "graph_neighbors": [2],
+      "heterogeneity_penalty": [0.1, 1.0, 10.0],
+      "ridge_penalty": [0.01, 0.1],
+      "graph_penalty": [0.0, 0.03, 0.3],
+      "transport_multiplier": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5]
+    },
+    "selection": "Minimize the equal mean of the three held-batch mean losses. Exact ties are resolved lexicographically by graph_neighbors, heterogeneity_penalty, ridge_penalty, graph_penalty, and transport_multiplier."
+  },
+  "comparators": {
+    "calibrated_residual": {
+      "families": ["signed Pearson residual", "signed-root Poisson-deviance residual"],
+      "transport_multiplier_grid": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5],
+      "selection": "Fit and predict within the same leave-one-batch-out folds as the primary; select the family and multiplier with minimum equal-batch mean loss, with the listed family order then numeric multiplier breaking an exact tie."
+    },
+    "common_effect_cmle": "Fit one population log odds per ordered table by stratified exact conditional maximum likelihood on the training samples in each source fold; select its transport multiplier from 0, 0.25, 0.5, 0.75, 1.0, 1.25, and 1.5 by equal-batch source loss.",
+    "pooled_saturated_poisson": "Fit one interaction coefficient per ordered table from the donor-pooled saturated 2-by-2 Poisson log-linear model on the training samples in each source fold; select its transport multiplier from 0, 0.25, 0.5, 0.75, 1.0, 1.25, and 1.5 by equal-batch source loss.",
+    "destroyed_link": "Within each source sample, order cells by SHA-256 of GSE326573-DESTROYED-LINK-v1|GSM|barcode, cyclically shift the complete 11-marker ADT state vector by one position, and fit the selected primary configuration. This preserves every univariate margin and the multivariate ADT state distribution while destroying the same-cell RNA-ADT link.",
+    "independence": "The row-plus-column Poisson independence table determined only by the recipient margins.",
+    "same_information_rule": "Every method uses the same source samples, fixed marker axes, source folds, recipient margins, informative-table masks, and per-cell multinomial deviance. A mandatory method refusal closes the branch before held access."
+  },
+  "loss": {
+    "per_table": "For observed T, margin-preserving prediction P, and N=512, use (2/N) times the sum over cells of T_ij log(T_ij/P_ij), with a zero observed cell contributing zero.",
+    "per_sample": "Mean per-table deviance over the sample's common informative-table mask.",
+    "source_aggregation": "Compute one loss per source biological unit, one mean within each official held-out source batch, and then the equal mean of the three batch means.",
+    "held_aggregation": "Average losses from matrices assigned to the same biological unit first, then average the nine biological-unit losses equally."
+  },
+  "source_promotion_gate": {
+    "held_numeric_access_before_pass": "forbidden",
+    "required_checks": [
+      "all 20 source matrices yield 512 selected cells and at least 64 informative tables on the fixed 11-by-11 panel",
+      "all three official source batches are held out exactly once and every primary and mandatory classical candidate used by a comparison is numerically valid",
+      "the selected primary equal-batch mean loss is at least 5% below the selected calibrated-residual mean loss",
+      "the selected primary loss is below the selected calibrated-residual loss in at least 16 of 20 source biological units",
+      "the primary-minus-selected-residual mean loss is negative in each of Batch1, Batch2, and Batch3",
+      "the selected primary equal-batch mean loss is at least 5% below independence, at least 16 of 20 source biological units favor it, and its mean difference is negative in every source batch",
+      "the selected primary equal-batch mean point loss is lower than the separately source-tuned common-effect CMLE mean loss",
+      "the selected primary equal-batch mean point loss is lower than the separately source-tuned pooled saturated-Poisson mean loss"
+    ],
+    "failure": "Publish a terminal source-gate refusal and perform no held numeric matrix access."
+  },
+  "held_prediction_before_pairing": {
+    "prediction_stage": "After a publicly verified source pass, select the frozen 512 held cells, decode only their 11 RNA rows, compute RNA margins, combine them with the design-fixed 256/256 ADT margins, and materialize complete predictions from every frozen source model.",
+    "shared_sparse_container_disclosure": "Routing RNA entries may read H5 sparse pointers and feature indices, which can reveal co-resident feature support. Before the score stage, no ADT data value is requested or converted, no ADT state is formed, and no RNA-ADT joint table is formed.",
+    "frozen_artifacts": "Publish and tag all prediction tables, margins, selected-cell-axis hashes, source-model hash, protocol hash, and a hash of the private mode-0600 RNA state artifact before score authorization.",
+    "score_authorization": "A distinct public authorization must bind the exact prediction artifact and private-state hash. Only then may score read held ADT data values. Scoring rederives and verifies the held cell axes and RNA-state hashes before forming any same-cell table.",
+    "pairing_boundary": "The score stage is the first operation permitted to construct held ADT states or join held RNA and ADT states."
+  },
+  "held_inference": {
+    "unit": "biological donor",
+    "units": 9,
+    "bootstrap": {
+      "draws": 20000,
+      "seed": 20260829,
+      "resampling": "batch-stratified paired biological-unit bootstrap with three draws inside each of Batch4, Batch5, and Batch6; the two CTD-ILD_3 matrix losses are averaged before resampling",
+      "interval": "percentile 95% interval for primary-minus-comparator mean loss"
+    },
+    "bootstrap_sensitivity": {
+      "draws": 20000,
+      "seed": 20260830,
+      "resampling": "unstratified paired biological-unit bootstrap across all nine units",
+      "role": "reported sensitivity; not used by a pass gate"
+    },
+    "formal_transfer_comparators": ["selected calibrated residual", "independence", "destroyed link"],
+    "transfer_pass_for_each_formal_comparator": [
+      "at least 5% lower donor-equal mean loss",
+      "batch-stratified paired bootstrap 95% upper endpoint below zero",
+      "at least 8 of 9 biological donors have a strictly lower primary loss",
+      "one-sided exact donor sign-test p-value at most 0.025",
+      "primary-minus-comparator mean loss is negative separately in Batch4, Batch5, and Batch6"
+    ],
+    "classical_increment": "The strongest estimator-specific conclusion additionally requires lower primary point loss and a batch-stratified paired-bootstrap 95% upper endpoint below zero against both source-tuned common-effect CMLE and source-tuned pooled saturated Poisson. No 5% or sign-count threshold is imposed on these two increment comparisons.",
+    "status_rule": "Report CONFIRMATION_PASS_WITH_CLASSICAL_INCREMENT only when all three formal transfer comparisons and both classical-increment comparisons pass. Report TRANSFER_PASS_WITHOUT_CLASSICAL_INCREMENT when the transfer comparisons pass but either classical-increment comparison does not. Otherwise report CONFIRMATION_FAIL. All outcomes remain publishable."
+  },
+  "public_execution": {
+    "stages": ["source", "prediction", "score_authorization", "score"],
+    "tags": {
+      "candidate": "gse326573-lung-v1-candidate",
+      "protocol": "gse326573-lung-v1-protocol",
+      "source_attempt": "gse326573-lung-v1-source-attempt",
+      "source": "gse326573-lung-v1-source",
+      "prediction_attempt": "gse326573-lung-v1-prediction-attempt",
+      "prediction": "gse326573-lung-v1-prediction",
+      "score_authorization": "gse326573-lung-v1-score-authorization",
+      "score_attempt": "gse326573-lung-v1-score-attempt",
+      "result": "gse326573-lung-v1-result"
+    },
+    "one_shot_rule": "Before its first permitted numeric value is read, each numeric stage atomically creates an exclusive attempt artifact and publishes its attempt tag. Success, refusal, interruption, or unexpected exception consumes that stage. No stage can be rerun, and no donor, batch, marker, threshold, comparator, endpoint, or hyperparameter may be changed.",
+    "ancestry_rule": "Each stage commit must descend from the publicly verified predecessor tag and bind the exact candidate, preflight, protocol, runtime, runner, numerical modules, tests, input artifacts, access journal, and prerequisite output hashes.",
+    "benchmark_rule": "Every source refusal, held refusal, completed negative result, transfer-only pass, or full pass is added to the public benchmark and evidence ledger."
+  },
+  "bound_paths": [
+    ".gitignore",
+    "data/confirmation/gse326573_lung/candidate_designation_v1.json",
+    "results/development/gse326573_axis_preflight_v1.json",
+    "data/confirmation/gse326573_lung/protocol_v1.json",
+    "data/confirmation/gse326573_lung/runtime_environment_v1.json",
+    "docs/GSE326573_LUNG_CITESEQ_HELD_BATCH_PROTOCOL_2026-08-29.md",
+    "experiments/confirm_gse326573_lung.py",
+    "tests/test_gse326573_lung_confirmation.py",
+    "mapreg/__init__.py",
+    "mapreg/classical_residuals.py",
+    "mapreg/coupling_fields.py",
+    "mapreg/factorial_coupling.py",
+    "mapreg/hierarchical_conditional_coupling.py",
+    "mapreg/heterogeneity_adaptive_coupling.py",
+    "mapreg/table_prediction.py"
+  ],
+  "non_recycling_rule": "Any integrity failure, source refusal, held support failure, interruption after a claimed stage, or completed scored result permanently closes GSE326573. Adaptive rescue is forbidden."
+}

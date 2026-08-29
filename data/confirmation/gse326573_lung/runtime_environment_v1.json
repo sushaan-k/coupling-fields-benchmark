@@ -1,0 +1,34 @@
+{
+  "schema": "gse326573-lung-runtime-environment/1.0",
+  "status": "FROZEN_WITH_PROTOCOL",
+  "candidate_tag": "gse326573-lung-v1-candidate",
+  "candidate_commit": "489ab69915428bc8f4f614a5ceaadbb9e1fb0fdf",
+  "official_archive_sha256": "9bb9a1a879fba1f01406f4463e4b707f853c854a0cc2112a16f34dc86b0011fb",
+  "required_runtime": {
+    "python": {
+      "implementation": "CPython",
+      "version": "3.9.6",
+      "resolved_executable": "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9"
+    },
+    "packages": {
+      "numpy": "2.0.2",
+      "scipy": "1.13.1",
+      "h5py": "3.14.0"
+    },
+    "hdf5": {
+      "runtime_version": "1.14.6",
+      "runtime_version_tuple": [1, 14, 6],
+      "h5py_api_version_tuple": [1, 8]
+    },
+    "platform": {
+      "operating_system": "macOS",
+      "architecture": "arm64"
+    },
+    "thread_environment": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "validation_rule": "Every numeric stage must require exact equality for the Python, package, HDF5, architecture, and thread-environment values above before creating its execution claim."
+}
