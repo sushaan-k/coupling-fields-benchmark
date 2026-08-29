@@ -5,6 +5,18 @@ inspecting only tar member headers and feature tables. No barcode value,
 MatrixMarket header, coordinate line, RNA count, HTO count, or biological ADT
 count was opened before this protocol freeze.
 
+## v1.1 runtime-closure amendment
+
+An independent audit of the public v1 protocol tag found that its binding list
+included the two directly imported estimator modules but omitted five
+transitive `mapreg` runtime modules. No barcode or matrix member had been opened,
+so the scientific protocol and source bytes remained outcome-blind. Version
+1.1 adds the complete seven-file `mapreg/*.py` runtime closure plus
+`requirements.txt` and `pyproject.toml` to the immutable binding list. It does
+not change the source, split, panel, demultiplexing, QC, estimator grid,
+comparators, thresholds, seeds, or gates. The v1 tag remains immutable and is
+not an execution authorization.
+
 ## Scientific question
 
 Can a conditional RNA-protein coupling field learned in two calibration pools
@@ -140,7 +152,7 @@ an exact or independent-pool test. Pilot failure is terminal.
 ## Public barriers
 
 1. Publish and independently verify the annotated tag
-   `gse189050-citeseq-v1-protocol`, which binds the runner, tests, protocol,
+   `gse189050-citeseq-v1.1-protocol`, which binds the runner, tests, protocol,
    manifests, source metadata, actual feature-schema preflight, and inherited
    estimator implementation. No barcode or matrix member may be opened before
    this verification.
