@@ -1,0 +1,365 @@
+{
+  "schema": "gse309593-held-batches-protocol/1.0",
+  "status": "FROZEN_AFTER_AXIS_ONLY_PREFLIGHT_BEFORE_NUMERIC_ASSAY_ACCESS",
+  "created_at_utc": "2026-08-29T17:18:42Z",
+  "accession": "GSE309593",
+  "claim_scope": "Same-study, batch-disjoint and subject-disjoint transfer of composition-inclusive same-cell RNA-surface-protein dependence across pretreatment multiple-myeloma bone-marrow samples. The split follows deposited numeric batch identifiers and has no temporal interpretation. The estimand is neither cell-type-conditional nor causal.",
+  "candidate_freeze": {
+    "candidate_v1_tag": "gse309593-held-batches-v1-candidate",
+    "candidate_v1_annotated_tag_object": "d800c83b83c848647f2491dd9daf80587ed2cfac",
+    "candidate_v1_peeled_commit": "4356e571de915576f8dbc3a1d3943049abc560c6",
+    "candidate_v1_path": "data/confirmation/gse309593_held_batches/candidate_designation_v1.json",
+    "candidate_v1_sha256": "183a45325215ed08384c25a76a29c31e6a73b9d20efdac198a416b9bc937640d",
+    "amendment_v2_tag": "gse309593-held-batches-v2-candidate",
+    "amendment_v2_annotated_tag_object": "a72f070174a60ba0adecc2016e0999744daf3c38",
+    "amendment_v2_peeled_commit": "3aba63b1e1575790750cbb7aeda2f083492f7a8f",
+    "amendment_v2_path": "data/confirmation/gse309593_held_batches/candidate_amendment_v2.json",
+    "amendment_v2_sha256": "863b40d3e9cba339a3d5e61eaf3eae37dd8118aa37b9739fdd59a251298205ff",
+    "axis_preflight_tag": "gse309593-held-batches-v1-axis-preflight",
+    "axis_preflight_annotated_tag_object": "4d813247c3a5bec58a94135474a4e89e091e682f",
+    "axis_preflight_peeled_commit": "671882853f932c407288afa3728d1b1389f8168d",
+    "axis_preflight_path": "results/development/gse309593_held_batches_axis_preflight_v1.json",
+    "axis_preflight_sha256": "63bf60d5bdc8c1d30e54420d126acfd48afd813a83df0c9a2589e0b13a19c1e5",
+    "metadata_binding_path": "data/confirmation/gse309593_independent_study/candidate_designation_v1.json",
+    "metadata_binding_sha256": "07c1979bcee8009db14265a2360f2f46527f674ac5835cf54f098f2f10bdc3e9",
+    "numeric_rna_values_read_before_protocol_freeze": 0,
+    "numeric_adt_values_read_before_protocol_freeze": 0,
+    "barcodes_or_cell_identifiers_read_before_protocol_freeze": 0,
+    "joint_tables_or_losses_computed_before_protocol_freeze": 0
+  },
+  "public_freeze_chain": {
+    "candidate": {
+      "tag": "gse309593-held-batches-v1-candidate",
+      "annotated_tag_object": "d800c83b83c848647f2491dd9daf80587ed2cfac",
+      "peeled_commit": "4356e571de915576f8dbc3a1d3943049abc560c6",
+      "required_paths": ["data/confirmation/gse309593_held_batches/candidate_designation_v1.json"]
+    },
+    "amendment": {
+      "tag": "gse309593-held-batches-v2-candidate",
+      "annotated_tag_object": "a72f070174a60ba0adecc2016e0999744daf3c38",
+      "peeled_commit": "3aba63b1e1575790750cbb7aeda2f083492f7a8f",
+      "required_paths": [
+        "data/confirmation/gse309593_held_batches/candidate_designation_v1.json",
+        "data/confirmation/gse309593_held_batches/candidate_amendment_v2.json"
+      ]
+    },
+    "axis_preflight": {
+      "tag": "gse309593-held-batches-v1-axis-preflight",
+      "annotated_tag_object": "4d813247c3a5bec58a94135474a4e89e091e682f",
+      "peeled_commit": "671882853f932c407288afa3728d1b1389f8168d",
+      "required_paths": [
+        "data/confirmation/gse309593_held_batches/candidate_designation_v1.json",
+        "data/confirmation/gse309593_held_batches/candidate_amendment_v2.json",
+        "results/development/gse309593_held_batches_axis_preflight_v1.json"
+      ]
+    },
+    "protocol": {
+      "tag": "gse309593-held-batches-v1-protocol",
+      "peeled_commit": "DERIVE_FROM_VERIFIED_ANNOTATED_TAG",
+      "required_paths": "Use the complete bound_paths array in this protocol."
+    },
+    "verification": "Before any stage claim, require each tag to be annotated locally and on the public remote, require the local and remote tag objects and peeled commits to agree, require every frozen object/commit above to match exactly, compare every required path byte-for-byte with that tag, derive the protocol peeled commit from its verified annotated tag, and prove Git ancestry candidate -> amendment -> axis preflight -> protocol."
+  },
+  "allocation": {
+    "rule": "Order the seven deposited batch identifiers by numeric suffix; assign the four lower-numbered labels to source-only development and the three higher-numbered labels to the sealed held test. This is a deterministic batch-ID split, not a chronological split.",
+    "source": {
+      "batches": ["B092", "B099", "B110", "B129"],
+      "subjects": [
+        "FH1001", "FH1002", "FH1003", "FH1004", "FH1005", "FH1006",
+        "FH1007", "FH1008", "FH1009", "FH1010", "FH1011", "FH1012",
+        "FH1014", "FH1017"
+      ],
+      "subject_count": 14,
+      "cross_validation": "Leave one complete source batch out. Rebuild both feature graphs and refit every candidate model using only the other three batches. Aggregate source selection loss as the equal mean of the four held-out batch means."
+    },
+    "held": {
+      "batches": ["B162", "B208", "B210"],
+      "subjects": [
+        "FH1016", "FH1020", "FH1021", "FH1022", "FH1023", "FH1024",
+        "FH1026", "FH1027", "FH1028"
+      ],
+      "batch_subject_counts": {"B162": 3, "B208": 2, "B210": 4},
+      "subject_count": 9
+    },
+    "subject_disjoint": true,
+    "batch_disjoint": true
+  },
+  "input_contract": {
+    "record_binding": "The metadata binding fixes every subject, GSM, batch, role, canonical GEO URL, file name, and byte count. The corrected axis preflight additionally fixes the common feature axes, observed ADT header schemas, available file digests, and the exact 24-marker panel.",
+    "download_rule": "Download one bound artifact at a time into scratch storage outside the repository, require its bound byte count, compute and publish its SHA-256, reduce it, and delete the assay bytes. A preflight SHA-256, when present, must match exactly.",
+    "rna_h5_dataset_allowlist": [
+      "matrix/barcodes",
+      "matrix/features/name",
+      "matrix/features/feature_type",
+      "matrix/data",
+      "matrix/indices",
+      "matrix/indptr",
+      "matrix/shape"
+    ],
+    "rna_h5_forbidden_groups": ["ADT", "hash", "pca", "well"],
+    "h5_enforcement": "The complete H5 container is transferred opaquely to scratch and hashed. Only allowlisted datasets may be dereferenced, decompressed, or decoded. Each reduced H5 must publish a certificate whose sorted unique decoded-dataset set equals the seven-path allowlist exactly; this is a set certificate, not a per-slice access journal. Dereferencing any dataset outside the allowlist, including every descendant of a forbidden group, is a terminal integrity refusal.",
+    "adt_csv_rule": "Source may parse the source ADT CSV identifier axis and the 24 frozen marker rows or columns. Score may do the same for held ADT CSV files only after public score authorization. Other ADT numeric features are not converted.",
+    "embedded_adt_rule": "The embedded H5 ADT group is never a numeric input. Protein counts come only from the separately deposited ADT CSV files."
+  },
+  "panel": {
+    "ordered_cognates": [
+      {"rna": "CD1C", "adt": "CD1c"},
+      {"rna": "CD2", "adt": "CD2"},
+      {"rna": "CD4", "adt": "CD4"},
+      {"rna": "CD7", "adt": "CD7"},
+      {"rna": "CD8A", "adt": "CD8"},
+      {"rna": "ITGAM", "adt": "CD11b"},
+      {"rna": "ITGAX", "adt": "CD11c"},
+      {"rna": "CD14", "adt": "CD14"},
+      {"rna": "CD19", "adt": "CD19"},
+      {"rna": "MS4A1", "adt": "CD20"},
+      {"rna": "CD22", "adt": "CD22"},
+      {"rna": "CD27", "adt": "CD27"},
+      {"rna": "CD33", "adt": "CD33"},
+      {"rna": "CD34", "adt": "CD34"},
+      {"rna": "CD36", "adt": "CD36"},
+      {"rna": "CD38", "adt": "CD38"},
+      {"rna": "CD40", "adt": "CD40"},
+      {"rna": "CD47", "adt": "CD47"},
+      {"rna": "FCGR1A", "adt": "CD64"},
+      {"rna": "CD69", "adt": "CD69"},
+      {"rna": "CD80", "adt": "CD80"},
+      {"rna": "CD86", "adt": "CD86"},
+      {"rna": "CD163", "adt": "CD163"},
+      {"rna": "CX3CR1", "adt": "CX3CR1"}
+    ],
+    "cognate_count": 24,
+    "ordered_rna_by_adt_tables": 576,
+    "feature_rule": "Resolve every RNA symbol and deposited ADT label by exact equality exactly once in every accessed file. Preserve the frozen candidate order. Aliasing, case folding, fuzzy matching, substitution, aggregation, marker removal, and marker reordering are forbidden.",
+    "minimum_scored_tables_per_subject": 64,
+    "informative_table": "A 2-by-2 table is informative when its fixed margins admit more than one feasible table. Informativeness alone does not determine the common comparison axis; every scored method receives the source-only comparison mask intersected with the subject's informative tables and, at held score, the ADT-variation mask. Fewer than 64 scored tables is a terminal support refusal."
+  },
+  "source_only_comparison_mask": {
+    "universe": "All 576 ordered RNA-by-ADT coordinates in frozen panel order.",
+    "construction": "Before source model selection, retain a coordinate only when each of the four leave-one-source-batch-out training sets and the final 14-subject source set independently satisfy all three support conditions below. Held data cannot add, remove, or reorder a coordinate.",
+    "support_conditions": [
+      "at least two training subjects have informative fixed margins and at least two distinct raw ADT values for the coordinate's ADT marker",
+      "the sum of observed free-cell counts lies strictly between the sums of the lower and upper fixed-margin support bounds, so the unpenalized stratified common-effect conditional MLE is finite",
+      "after pooling all training-subject tables whose raw ADT marker has at least two distinct values, including fixed-margin-degenerate tables, all four pooled cells are strictly positive, so the saturated pooled-Poisson interaction is finite"
+    ],
+    "minimum_retained_coordinates": 288,
+    "per_subject_minimum": "For every source subject, the frozen comparison mask intersected with informative margins and source ADT-marker variation must contain at least 64 coordinates. Before score authorization, every held subject must have at least 64 potentially scored coordinates from the comparison mask and informative margins alone.",
+    "score_variation_filter": "At score, an ADT marker with fewer than two distinct raw values among a held subject's 512 selected cells removes all 24 RNA-by-that-ADT coordinates for that subject. The final shared subject mask is the source comparison mask intersected with informative margins and this ADT-variation filter; at least 64 coordinates must remain.",
+    "same_mask_rule": "Every source cross-validation loss and promotion comparison uses the comparison mask intersected with that source subject's informative-margin and ADT-variation support. Every held loss and bootstrap comparison uses the comparison mask intersected with that held subject's informative-margin and ADT-variation support. Every method uses the identical applicable mask. A classical boundary coordinate is excluded by the frozen source-only rule and is never counted as an estimator win.",
+    "hash_encoding": "Use the repository array hash over comparison_mask.astype(uint8): SHA-256 of dtype string |u1, int64 shape [24,24], then the 576 C-order mask bytes.",
+    "publication": "Publish the ordered Boolean mask, retained count, canonical SHA-256, retained coordinate indices and labels, every fold/final support count, pooled-Poisson support and reconstruction certificates, and each source subject's scored-coordinate count in the source artifact before held numeric assay access."
+  },
+  "cell_and_state_construction": {
+    "cells_per_subject": 512,
+    "rna_qc_before_selection": {
+      "minimum_detected_genes": 200,
+      "maximum_mitochondrial_fraction": 0.1,
+      "maximum_rna_umis": 70000
+    },
+    "cell_selection_salt": "GSE309593-HELD-BATCH-CELL-BUDGET-v1",
+    "cell_selection": "Among RNA-QC-eligible cells, rank unique deposited barcodes by SHA-256 of GSE309593-HELD-BATCH-CELL-BUDGET-v1|subject|barcode, then barcode; select the first 512 and retain them in deposited RNA-H5 order.",
+    "rna_state": "Raw UMI count greater than zero is state 1; zero is state 0.",
+    "adt_tie_salt": "GSE309593-HELD-BATCH-ADT-MIDRANK-v1",
+    "adt_state": "For each subject and ordered marker, rank the same 512 selected cells by raw ADT count, SHA-256 of GSE309593-HELD-BATCH-ADT-MIDRANK-v1|subject|ordered-marker-index|barcode, then barcode. The lower 256 receive rank-copula state 0 and the upper 256 state 1.",
+    "recipient_adt_margin": [256, 256],
+    "tie_rule": "The salted ordering breaks count ties and always produces the exact 256/256 rank margin. These are rank-copula halves, not measured biological low/high states when raw counts tie. A held marker with fewer than two distinct raw values is excluded from that subject's score mask before loss is computed.",
+    "pairing_rule": "The selected RNA barcode axis must resolve exactly once in the subject's ADT CSV identifier axis. A missing, duplicated, or extra selected identifier is a terminal refusal."
+  },
+  "primary_estimator": {
+    "family": "hierarchical graph-regularized exact fixed-margin conditional coupling field",
+    "parameter": "One finite population full log-odds coordinate for each of the 576 ordered RNA-by-ADT tables, with subject deviations penalized toward the population field.",
+    "likelihood": "The exact conditional likelihood of each 2-by-2 table given its observed row and column margins.",
+    "rna_graph_profile": "Across training subjects only, the subject-by-marker fraction of selected cells with positive RNA count.",
+    "adt_graph_profile": "Across training subjects only, the subject-by-marker mean of log1p raw ADT count.",
+    "graph": "Build separate standardized-Euclidean two-nearest-neighbor graphs on the RNA and ADT marker profiles and regularize the 24-by-24 population field over their Cartesian product. Rebuild both graphs inside every source fold. The graph-zero candidate uses identity incidences and performs no profile-based graph construction.",
+    "recipient_reconstruction": "For each finite transported log odds and recipient margins, predict the exact noncentral-hypergeometric expected 2-by-2 table.",
+    "maximum_condition_number": 1000000000000.0,
+    "minimum_informative_source_subjects_per_coordinate": 1,
+    "grid": {
+      "graph_neighbors": [2],
+      "heterogeneity_penalty": [0.1, 1.0, 10.0],
+      "ridge_penalty": [0.01, 0.1],
+      "graph_penalty": [0.0, 0.03, 0.3],
+      "transport_multiplier": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5]
+    },
+    "selection": "A configuration with any incomplete leave-one-batch-out fold is ineligible. Record and publish every configuration refusal. Among configurations complete in all four folds, minimize the equal mean of the four held-out source-batch mean losses. Resolve exact ties lexicographically by graph_neighbors, heterogeneity_penalty, ridge_penalty, graph_penalty, and transport_multiplier. At least one complete primary configuration and a valid selected final fit are mandatory."
+  },
+  "comparators": {
+    "calibrated_residual": {
+      "families": ["signed Pearson residual", "signed-root Poisson-deviance residual"],
+      "transport_multiplier_grid": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5],
+      "normalization": "For each retained coordinate and informative training subject, compute the signed Pearson statistic or signed square root of Poisson-independence deviance, divide by sqrt(512), and average over informative training subjects. Multiply by sqrt(512) after applying the transport multiplier and invert the statistic monotonically on the recipient fixed-margin interval, clipping only to that interval's attainable statistic range.",
+      "selection": "Fit and predict on the frozen source-only comparison mask within the same leave-one-batch-out folds as the primary. A candidate with any incomplete fold is ineligible, and every refusal is published. Each residual family must retain at least one complete multiplier candidate. Select family and multiplier by equal-batch mean loss, using the listed family order and then numeric multiplier to break an exact tie. The selected final fit must be valid."
+    },
+    "common_effect_cmle": {
+      "role": "Primary stratified log-linear comparator.",
+      "estimand": "One shared exact conditional log odds per retained ordered table across the training-subject strata.",
+      "solver": "Solve each one-parameter monotone conditional score equation independently with a deterministic bracketed root. Require an interior finite maximum, positive observed information, and a prespecified gradient certificate. Source-only boundary coordinates were excluded by the comparison-mask rule; no ridge, continuity correction, or multivariate optimizer is used.",
+      "transport_multiplier_grid": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5]
+    },
+    "pooled_saturated_poisson": {
+      "role": "Secondary pooled log-linear comparator.",
+      "estimand": "One interaction coefficient per retained ordered table from the saturated 2-by-2 Poisson log-linear model of the count table pooled across every training subject whose raw ADT marker has at least two distinct values. Fixed-margin-degenerate subject tables are included in this pool; conditional-likelihood informativeness is not a pooling criterion.",
+      "transport_multiplier_grid": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5],
+      "validity": "All four pooled cells must be positive. In every fold and the final source fit, reconstruct each retained pooled table from its fitted interaction and pooled margins and require the maximum absolute cell error, normalized by that table's pooled total count, to be at most 1e-8. Publish the per-ADT-marker pooled-subject counts, pooled-table array hash, maximum normalized reconstruction error across retained coordinates, and pass flag for each fold and the final fit."
+    },
+    "destroyed_link": "Use an alpha-calibrated fixed-structure pairing ablation. Within each source subject, order selected cells by SHA-256 of GSE309593-HELD-BATCH-DESTROYED-LINK-v1|subject|barcode and cyclically shift the complete 24-marker ADT state vector by one position. Hold the real-primary-selected graph, graph-neighbor count, heterogeneity penalty, ridge penalty, and graph penalty fixed. In each source fold refit on destroyed training tables, score against real validation truth on the common mask, and select a separate transport multiplier from 0, 0.25, 0.5, 0.75, 1, 1.25, and 1.5 by equal-batch loss. Publish all ablation refusals and losses. Refit the final destroyed model at that alpha. This is not a separately tuned structural competitor.",
+    "independence": "Use the row-plus-column Poisson independence table determined only by recipient margins.",
+    "same_information_rule": "The primary is fitted on the full 576-coordinate panel with minimum per-coordinate source support one. Residual, common-effect, and pooled-Poisson estimators are fitted on the frozen source-only comparison mask. Every method is evaluated on the same comparison-mask intersection, source subjects, folds, marker axes, recipient margins, and per-cell multinomial deviance. A mandatory fit refusal closes the branch before held numeric access."
+  },
+  "loss": {
+    "per_table": "For observed T, margin-preserving prediction P, and N=512, use (2/N) times the sum over cells of T_ij log(T_ij/P_ij), with a zero observed cell contributing zero.",
+    "per_subject": "Mean per-table deviance over the frozen source-only comparison mask intersected with the subject's informative-margin and raw-ADT-variation masks. Held prediction can certify only the informative-margin intersection; score supplies the first held ADT-variation mask. The identical final set is used for every method.",
+    "source_aggregation": "Compute one loss per source subject, one mean within each held-out source batch, and then the equal mean of the four batch means.",
+    "held_aggregation": "Average the nine held-subject losses equally."
+  },
+  "source_promotion_gate": {
+    "held_numeric_assay_access_before_pass": "forbidden",
+    "required_checks": [
+      "the frozen source-only comparison mask retains at least 288 of 576 coordinates and its ordered mask, hash, and fold/final support certificates reproduce",
+      "all 14 source subjects yield 512 selected cells and at least 64 coordinates after intersecting the frozen comparison mask with their informative-margin and raw-ADT-variation masks",
+      "all four source batches are held out exactly once; at least one primary configuration is complete in all four folds; each residual family retains a complete candidate; every transport multiplier for common-effect CMLE and pooled Poisson is valid in every fold; every pooled-Poisson fold/final reconstruction certificate has normalized maximum error at most 1e-8; independence is valid; and every selected and final fit is valid",
+      "the destroyed-link fixed-structure ablation retains a complete separately alpha-calibrated leave-one-batch-out candidate and a valid final fit",
+      "the selected primary equal-batch mean loss is at least 5% below the selected calibrated-residual mean loss",
+      "the selected primary loss is strictly below the selected calibrated-residual loss in at least 12 of 14 source subjects",
+      "the primary-minus-selected-residual mean loss is negative separately in B092, B099, B110, and B129",
+      "the selected primary equal-batch mean loss is at least 5% below independence",
+      "the selected primary loss is strictly below independence in at least 12 of 14 source subjects",
+      "the primary-minus-independence mean loss is negative separately in B092, B099, B110, and B129",
+      "the selected primary equal-batch mean point loss is lower than the separately source-tuned coordinatewise common-effect CMLE mean loss",
+      "the selected primary equal-batch mean point loss is lower than the separately source-tuned pooled saturated-Poisson mean loss"
+    ],
+    "failure": "Publish a terminal source-gate refusal and perform no held RNA or held ADT numeric assay access."
+  },
+  "held_prediction_before_pairing": {
+    "prediction_stage": "After a publicly verified source pass, download only each held RNA H5, enforce the RNA-only H5 allowlist, select the frozen 512 cells, and compute the 24 RNA margins. Require at least 64 potentially scored coordinates after intersecting the frozen source comparison mask with informative margins. Combine them with the design-fixed 256/256 ADT rank margins and materialize complete predictions from every frozen source model.",
+    "held_adt_access_during_prediction": "No held ADT CSV is downloaded, opened, ranged, parsed, or hashed during prediction. No embedded H5 ADT dataset is dereferenced, decompressed, or decoded. No ADT identifier, ADT numeric value, ADT state, or same-cell RNA-ADT table is formed.",
+    "private_state": "Store the selected held barcode axes and 24 binary RNA state matrices in a mode-0600 private artifact ignored by Git. Publish its SHA-256 and byte count, but not its contents.",
+    "frozen_artifacts": "Publish and tag every prediction table, held margin, selected-cell-axis hash, source-model hash, protocol hash, per-subject H5 decoded-dataset set certificate, and private-state hash before score authorization.",
+    "score_authorization": "A distinct public authorization binds the verified prediction-tag commit, exact source and prediction artifacts, candidate, amendment, metadata, preflight, protocol, runtime, disabled authorization template, Git ignore rule, runner, tests, every transitive numerical module, per-subject H5 decoded-dataset set certificates, and private-state hash. Only then may score read held ADT CSV identifiers or values.",
+    "pairing_boundary": "Score is the first operation permitted to construct held ADT states or join held RNA and ADT states. It applies the prespecified raw-ADT-variation filter, publishes every final subject mask and hash, and refuses scoring when any subject retains fewer than 64 shared coordinates."
+  },
+  "held_inference": {
+    "unit": "biological subject",
+    "units": 9,
+    "bootstrap": {
+      "draws": 20000,
+      "seed": 20260829,
+      "resampling": "Batch-stratified paired subject bootstrap: resample 3 subjects within B162, 2 within B208, and 4 within B210 on every draw, preserving the donor-equal endpoint.",
+      "interval": "Percentile 95% interval for primary-minus-comparator mean loss, using NumPy default_rng and linear empirical quantiles."
+    },
+    "bootstrap_sensitivity": {
+      "draws": 20000,
+      "seed": 20260830,
+      "resampling": "Unstratified paired subject bootstrap across all nine held subjects.",
+      "role": "Reported sensitivity; not used by a pass gate."
+    },
+    "formal_transfer_comparators": ["selected calibrated residual", "independence", "destroyed link"],
+    "transfer_pass_for_each_formal_comparator": [
+      "at least 5% lower subject-equal mean loss",
+      "batch-stratified paired-bootstrap 95% upper endpoint below zero",
+      "at least 8 of 9 held subjects have strictly lower primary loss",
+      "one-sided exact subject sign-test p-value at most 0.025",
+      "primary-minus-comparator mean loss is negative separately in B162, B208, and B210"
+    ],
+    "classical_increment": "The strongest estimator-specific conclusion additionally requires lower primary point loss and a batch-stratified paired-bootstrap 95% upper endpoint below zero against both source-tuned coordinatewise common-effect CMLE and source-tuned pooled saturated Poisson. No 5% or sign-count threshold is imposed on these two increment comparisons.",
+    "scope": "Inference is conditional on the frozen subject split, source-only comparison mask, source-selected configurations, and observed nine held subjects. Intervals and sign tests are comparisonwise; they do not provide familywise or campaign-wide error control across the broader public benchmark. The one-sided subject sign test excludes exact zero differences from its binomial denominator and assumes independent subject signs under the null.",
+    "status_rule": "Report CONFIRMATION_PASS_WITH_CLASSICAL_INCREMENT only when all three formal transfer comparisons and both classical-increment comparisons pass. Report TRANSFER_PASS_WITHOUT_CLASSICAL_INCREMENT when the transfer comparisons pass but either classical-increment comparison does not. Otherwise report CONFIRMATION_FAIL. Every completed outcome is publishable."
+  },
+  "public_execution": {
+    "stages": ["source", "prediction", "score-authorization", "score"],
+    "tags": {
+      "candidate_v1": "gse309593-held-batches-v1-candidate",
+      "candidate_v2_amendment": "gse309593-held-batches-v2-candidate",
+      "protocol": "gse309593-held-batches-v1-protocol",
+      "source_attempt": "gse309593-held-batches-v1-source-attempt",
+      "source": "gse309593-held-batches-v1-source",
+      "prediction_attempt": "gse309593-held-batches-v1-prediction-attempt",
+      "prediction": "gse309593-held-batches-v1-prediction",
+      "score_authorization_attempt": "gse309593-held-batches-v1-score-authorization-attempt",
+      "score_authorization": "gse309593-held-batches-v1-score-authorization",
+      "score_attempt": "gse309593-held-batches-v1-score-attempt",
+      "result": "gse309593-held-batches-v1-result"
+    },
+    "firewall": [
+      "source reads numeric assay values only from the 14 source subjects and must publish the frozen comparison mask and a source gate outcome",
+      "prediction may begin only after a public source pass and dereferences held RNA H5 data under the RNA-only allowlist but no held ADT CSV or H5 ADT dataset",
+      "score-authorization is a public nonnumeric stage that binds the verified prediction-tag commit, exact prediction, transitive implementation state, and private RNA-state hash before authorizing held ADT outcome access",
+      "score may begin only after verified authorization and is the first stage allowed to read held ADT CSV values, apply the raw-variation filter, or form held joint tables"
+    ],
+    "access_certificates": {
+      "h5_unique_decoded_dataset_set": [
+        "matrix/barcodes",
+        "matrix/data",
+        "matrix/features/feature_type",
+        "matrix/features/name",
+        "matrix/indices",
+        "matrix/indptr",
+        "matrix/shape"
+      ],
+      "source": "Require 14 completed source RNA H5 reductions and 14 completed source ADT CSV reductions; the exact H5 decoded-dataset set for every source subject; zero decoded embedded-H5 ADT datasets; zero held RNA or ADT files requested; and zero held identifiers, numeric values, or joint tables accessed.",
+      "prediction": "Before held RNA access, validate every source certificate field against the frozen source artifact. Require nine completed held RNA H5 reductions with the exact decoded-dataset set; zero held ADT CSV requests, opens, hashes, identifiers, or numeric values; zero decoded H5 ADT datasets; and zero held joint tables.",
+      "score_authorization": "Before authorization, validate every source and prediction certificate field. The authorization itself is nonnumeric and must report zero held ADT files opened, zero held ADT numeric values read, and zero held joint tables formed before authorization.",
+      "score": "Before held ADT access, validate every source, prediction, and authorization certificate field. Require zero held RNA H5 files opened during score, zero decoded embedded-H5 ADT datasets, nine held ADT CSV files first opened during score, and nine held subject joint-table panels first formed during score.",
+      "field_validation_rule": "A predecessor artifact hash is necessary but insufficient: every named access-certificate field, subject, GSM, and batch axis, per-subject H5 dataset-set certificate, count, zero-access assertion, private-state binding, recipient margin, comparison-mask binding, predicted method family, prediction array, and array hash must be type-checked and compared field-by-field before a new access class is permitted.",
+      "terminal_rule": "Every terminal payload, including unexpected exceptions and interrupted downloads after a claimed stage begins, retains the incremental nonnumeric access certificate accumulated before failure: file requests, completed hashes, reductions, deletions, decode-start counters, unique allowlisted H5 dataset paths for which a read or length operation started, modality-specific zero/nonzero counters, and whether any identifier, numeric value, state, or joint table was formed. A started H5 operation is not certified as a completed decode. Raw identifiers, assay values, states, and tables are never included in this audit."
+    },
+    "one_shot_rule": "Before its first newly permitted numeric value is read, each numeric stage atomically creates an exclusive attempt artifact and publishes its attempt tag. The authorization stage is likewise claimed and published before it can enable score. Success, refusal, interruption, or unexpected exception consumes that stage. No stage can be rerun, and no subject, batch, marker, threshold, comparator, endpoint, or hyperparameter may be changed.",
+    "ancestry_rule": "The protocol tag must descend from the exact frozen candidate, amendment, and axis-preflight commits in public_freeze_chain. Each later stage commit must descend from the publicly verified predecessor tag and bind the exact candidate, amendment, axis preflight, protocol, runtime, runner, numerical modules, tests, inputs, access certificates, and prerequisite outputs.",
+    "benchmark_rule": "Every source refusal, prediction refusal, authorization failure, score refusal, completed negative result, transfer-only pass, or full pass is added to the public benchmark and evidence ledger."
+  },
+  "implementation_bindings": {
+    "gitignore_path": ".gitignore",
+    "gitignore_sha256": "5deb682f35ef83d8a5057e46cd4868c15e60f7b8fe46dc0403377cc0843cda50",
+    "runner_path": "experiments/confirm_gse309593_held_batches.py",
+    "runner_sha256": "aff9561af2300a27d7ea76b22ed84a0d2743c19ec4d409decf4dae23f4681a8d",
+    "test_path": "tests/test_gse309593_held_batches_confirmation.py",
+    "test_sha256": "5073036388fc13e111a71733db36cec4393340508c29b61a95e5abeaa095064f",
+    "mapreg_init_path": "mapreg/__init__.py",
+    "mapreg_init_sha256": "8854ad0b216b8fa208269a83e738a2f3755e36957ecd51a8e0e5af8569b9b2d9",
+    "factorial_coupling_module_path": "mapreg/factorial_coupling.py",
+    "factorial_coupling_module_sha256": "c80afa0efc70de920bdd312420c0e680df3b290528b6aefd3b0a1b98cff3b79e",
+    "coordinatewise_common_effect_solver_path": "mapreg/common_effect_conditional.py",
+    "coordinatewise_common_effect_solver_sha256": "e8730bc5c072b66794d9d1c0f8fa8c93ba7e2bf9303a34bde98dfb7dea6ff2e9",
+    "hierarchical_solver_path": "mapreg/hierarchical_conditional_coupling.py",
+    "hierarchical_solver_sha256": "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d",
+    "coupling_module_path": "mapreg/heterogeneity_adaptive_coupling.py",
+    "coupling_module_sha256": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e",
+    "classical_residuals_module_path": "mapreg/classical_residuals.py",
+    "classical_residuals_module_sha256": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
+    "coupling_fields_module_path": "mapreg/coupling_fields.py",
+    "coupling_fields_module_sha256": "06edd27c9cc52bcee1da1fc4a7a8fd86586d6263f9b32b2c6b0c5d16b0f01dc1",
+    "table_prediction_module_path": "mapreg/table_prediction.py",
+    "table_prediction_module_sha256": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e",
+    "freeze_rule": "The runner and test SHA-256 values above are final. Any byte change invalidates this protocol and cannot authorize an attempt."
+  },
+  "prior_cross_study_branch": {
+    "protocol_tag": "gse309593-independent-study-v1-protocol",
+    "status": "UNAVAILABLE_BEFORE_TARGET_ACCESS",
+    "reason": "The GSE288020 source authorization required five valid methods and external_study_ready=true; that gate failed before GSE309593 target access.",
+    "gse309593_assay_files_opened": 0,
+    "relationship": "This held-batch protocol is a separate within-study experiment. It does not rerun, rescue, amend, or replace the closed cross-study branch."
+  },
+  "bound_paths": [
+    ".gitignore",
+    "data/confirmation/gse309593_held_batches/candidate_designation_v1.json",
+    "data/confirmation/gse309593_held_batches/candidate_amendment_v2.json",
+    "data/confirmation/gse309593_independent_study/candidate_designation_v1.json",
+    "results/development/gse309593_held_batches_axis_preflight_v1.json",
+    "data/confirmation/gse309593_held_batches/protocol_v1.json",
+    "data/confirmation/gse309593_held_batches/runtime_environment_v1.json",
+    "data/confirmation/gse309593_held_batches/score_authorization_template_v1.json",
+    "docs/GSE309593_HELD_BATCH_CONFIRMATION_PROTOCOL_2026-08-29.md",
+    "experiments/confirm_gse309593_held_batches.py",
+    "tests/test_gse309593_held_batches_confirmation.py",
+    "mapreg/__init__.py",
+    "mapreg/common_effect_conditional.py",
+    "mapreg/classical_residuals.py",
+    "mapreg/coupling_fields.py",
+    "mapreg/factorial_coupling.py",
+    "mapreg/hierarchical_conditional_coupling.py",
+    "mapreg/heterogeneity_adaptive_coupling.py",
+    "mapreg/table_prediction.py"
+  ],
+  "non_recycling_rule": "Any integrity failure, source refusal, held-support refusal, interruption after a claimed stage, authorization failure, score refusal, or completed scored result permanently closes this GSE309593 held-batch branch. Adaptive rescue and rerun are forbidden."
+}

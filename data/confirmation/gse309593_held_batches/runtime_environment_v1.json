@@ -1,0 +1,37 @@
+{
+  "schema": "gse309593-held-batches-runtime-environment/1.0",
+  "status": "FROZEN_WITH_PROTOCOL",
+  "candidate_v1_tag": "gse309593-held-batches-v1-candidate",
+  "candidate_v1_commit": "4356e571de915576f8dbc3a1d3943049abc560c6",
+  "candidate_v2_amendment_tag": "gse309593-held-batches-v2-candidate",
+  "candidate_v2_amendment_commit": "3aba63b1e1575790750cbb7aeda2f083492f7a8f",
+  "required_runtime": {
+    "python": {
+      "implementation": "CPython",
+      "version": "3.9.6",
+      "invocation": "/usr/bin/python3",
+      "resolved_executable": "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9"
+    },
+    "packages": {
+      "numpy": "2.0.2",
+      "scipy": "1.13.1",
+      "h5py": "3.14.0"
+    },
+    "hdf5": {
+      "runtime_version": "1.14.6",
+      "runtime_version_tuple": [1, 14, 6],
+      "built_against_version_tuple": [1, 14, 6],
+      "h5py_api_version_tuple": [1, 8]
+    },
+    "platform": {
+      "operating_system": "macOS",
+      "architecture": "arm64"
+    },
+    "thread_environment": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "validation_rule": "Before any stage claim, require exact equality for the Python implementation, version, resolved executable, NumPy, SciPy, h5py, HDF5 runtime version tuple, HDF5 built-against version tuple, h5py API version tuple, operating system, architecture, and all three thread-environment values above. Runtime HDF5 equality alone does not satisfy the built-against check."
+}
