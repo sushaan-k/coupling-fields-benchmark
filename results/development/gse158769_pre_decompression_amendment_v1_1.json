@@ -1,0 +1,27 @@
+{
+  "accession": "GSE158769",
+  "attempt": {
+    "command": "develop",
+    "failure": "metadata preflight source binding differs",
+    "stage_reached": "metadata-preflight validation",
+    "status": "STOPPED_BEFORE_RAW_GZIP_OPEN"
+  },
+  "change": {
+    "designation_digest_validation_added": true,
+    "metadata_preflight_regenerated_against_published_manifest_bytes": true,
+    "scientific_protocol_changed": false
+  },
+  "count_access": {
+    "adt_numeric_values_read": 0,
+    "feature_header_opened": false,
+    "raw_gzip_decompressed": false,
+    "rna_numeric_values_read": 0
+  },
+  "created_at_utc": "2026-08-29T00:40:00Z",
+  "original_protocol_commit": "8399bd435630901f26df1305c7f00336e2c2f62c",
+  "original_protocol_tag": "gse158769-citeseq-v1-protocol",
+  "original_source_commit": "f66f12a2905d45cd64f276a5f0ed175decc954f4",
+  "original_source_tag": "gse158769-citeseq-v1-source",
+  "schema": "gse158769-pre-decompression-amendment/1.1",
+  "status": "BINDING_ONLY_AMENDMENT_BEFORE_NUMERIC_ACCESS"
+}

@@ -43,7 +43,10 @@ DEFAULT_DESIGNATION = DATA_DIR / "candidate_designation_v1.json"
 DEFAULT_METADATA_ACCESS = (
     ROOT / "results/development/gse158769_metadata_access_record_v1.json"
 )
-DEFAULT_PREFLIGHT = ROOT / "results/development/gse158769_metadata_preflight_v1.json"
+DEFAULT_PREFLIGHT = ROOT / "results/development/gse158769_metadata_preflight_v1_1.json"
+DEFAULT_BINDING_AMENDMENT = (
+    ROOT / "results/development/gse158769_pre_decompression_amendment_v1_1.json"
+)
 DEFAULT_SOURCE_ACCESS = ROOT / "results/development/gse158769_source_access_v1.json"
 DEFAULT_DEVELOPMENT = ROOT / "results/development/gse158769_development_v1.json"
 DEFAULT_PREDICTION = ROOT / "results/gse158769_held_predictions_v1.json"
@@ -53,10 +56,10 @@ DEFAULT_PROTOCOL = (
 )
 
 PUBLIC_ORIGIN = "https://github.com/sushaan-k/coupling-fields-benchmark.git"
-PROTOCOL_TAG = "gse158769-citeseq-v1-protocol"
-SOURCE_TAG = "gse158769-citeseq-v1-source"
-DEVELOPMENT_TAG = "gse158769-citeseq-v1-development"
-PREDICTION_TAG = "gse158769-citeseq-v1-predictions"
+PROTOCOL_TAG = "gse158769-citeseq-v1.1-protocol"
+SOURCE_TAG = "gse158769-citeseq-v1.1-source"
+DEVELOPMENT_TAG = "gse158769-citeseq-v1.1-development"
+PREDICTION_TAG = "gse158769-citeseq-v1.1-predictions"
 
 MARKERS = ("CD3", "CD4", "CD5", "CD8", "CD161", "CD127", "CD27", "CD38", "CD26")
 RNA_FEATURES = ("CD3E", "CD4", "CD5", "CD8A", "KLRB1", "IL7R", "CD27", "CD38", "DPP4")
@@ -134,7 +137,8 @@ PROTOCOL_BINDINGS = (
     "data/confirmation/gse158769_citeseq/source_manifest_v1.json",
     "data/confirmation/gse158769_citeseq/candidate_designation_v1.json",
     "results/development/gse158769_metadata_access_record_v1.json",
-    "results/development/gse158769_metadata_preflight_v1.json",
+    "results/development/gse158769_metadata_preflight_v1_1.json",
+    "results/development/gse158769_pre_decompression_amendment_v1_1.json",
     "experiments/confirm_gse314416_citeseq.py",
     "mapreg/heterogeneity_adaptive_coupling.py",
     "mapreg/hierarchical_conditional_coupling.py",
@@ -400,6 +404,10 @@ def _validated_inventory(metadata_path: Path) -> dict[str, Any]:
         DEFAULT_MANIFEST
     ):
         raise PermissionError("metadata preflight source binding differs")
+    if frozen.get("bindings", {}).get("designation_sha256") != _sha256(
+        DEFAULT_DESIGNATION
+    ):
+        raise PermissionError("metadata preflight designation binding differs")
     inventory = _metadata_inventory(metadata_path)
     by_donor = {row["donor"]: row for row in frozen["donors"]}
     for donor, role in inventory["roles"].items():
