@@ -1,0 +1,72 @@
+{
+  "schema": "gse309593-held-batches-candidate-designation/1.0",
+  "status": "FROZEN_METADATA_SPLIT_BEFORE_NUMERIC_ASSAY_ACCESS",
+  "created_at_utc": "2026-08-29T13:31:55Z",
+  "base_public_commit": "b1f4f90cf8bb8f5855f0fa7fd0cd4d286eb30722",
+  "study": {
+    "accession": "GSE309593",
+    "assay": "same-cell bone-marrow RNA and surface-protein counts",
+    "cohort": "23 distinct non-bridge MM pretreatment subjects",
+    "estimand": "transfer of RNA-protein association from earlier acquisition batches to later acquisition batches at held-subject margins"
+  },
+  "allocation": {
+    "rule": "order the seven deposited acquisition batches by batch number; use the first four batches for source-only development and the final three batches for a sealed held test",
+    "source_batches": ["B092", "B099", "B110", "B129"],
+    "source_subjects": ["FH1001", "FH1002", "FH1003", "FH1004", "FH1005", "FH1006", "FH1007", "FH1008", "FH1009", "FH1010", "FH1011", "FH1012", "FH1014", "FH1017"],
+    "held_batches": ["B162", "B208", "B210"],
+    "held_subjects": ["FH1016", "FH1020", "FH1021", "FH1022", "FH1023", "FH1024", "FH1026", "FH1027", "FH1028"],
+    "source_subject_count": 14,
+    "held_subject_count": 9,
+    "subject_disjoint": true,
+    "batch_disjoint": true
+  },
+  "frozen_file_binding": {
+    "metadata_source": "data/confirmation/gse309593_independent_study/candidate_designation_v1.json",
+    "metadata_source_sha256": "07c1979bcee8009db14265a2360f2f46527f674ac5835cf54f098f2f10bdc3e9",
+    "bound_contents": "subject, batch, GSM, canonical per-sample URLs, file names, byte counts, and ordered cognate candidates"
+  },
+  "pre_protocol_axis_authorization": {
+    "purpose": "verify exact feature schemas and file digests before freezing the executable protocol",
+    "permitted_reads": ["H5 group names", "RNA feature names and feature types", "ADT feature names or CSV header", "file byte count", "file SHA-256"],
+    "forbidden_reads": ["cell barcodes or identifiers", "RNA numeric matrix values", "ADT numeric matrix values", "same-cell RNA-ADT tables", "association statistics", "held losses"],
+    "axis_information_may_remove_unsupported_features_but_may_not_change_subject_allocation": true
+  },
+  "source_only_development": {
+    "held_assay_access_before_source_freeze": "forbidden",
+    "selection_unit": "leave-one-source-batch-out prediction",
+    "primary_family": "hierarchical exact fixed-margin conditional coupling field",
+    "mandatory_comparators": [
+      "signed Pearson residual transfer",
+      "signed-root Poisson-deviance residual transfer",
+      "stratified common-effect exact conditional estimate",
+      "donor-pooled saturated Poisson log-linear interaction",
+      "margin-preserving destroyed-link control",
+      "independence"
+    ],
+    "source_promotion_gate": "the primary must fit validly, beat the best source-selected residual in leave-one-batch-out loss, and retain at least nine exact cognate markers; otherwise the branch closes without held numeric access"
+  },
+  "held_decision": {
+    "primary_loss": "subject-equal mean multinomial deviance over the frozen ordered RNA-to-ADT panel",
+    "transfer_pass": "at least 5% lower mean loss than the source-selected residual and destroyed-link control, paired bootstrap upper endpoint below zero for both loss differences, and at least 8 of 9 held subjects favorable against the residual",
+    "classical_increment": "reported separately; supported only when the primary point loss is lower than both the common-effect exact conditional and pooled saturated-Poisson estimates and both paired-bootstrap upper endpoints are below zero",
+    "bootstrap_draws": 20000,
+    "campaign_wide_error_control": false,
+    "all_supported_or_failed_outcomes_are_publishable": true
+  },
+  "prior_branch": {
+    "protocol_tag": "gse309593-independent-study-v1-protocol",
+    "status": "UNAVAILABLE_BEFORE_TARGET_ACCESS",
+    "reason": "its GSE288020 source authorization required five valid source methods and external_study_ready=true; that source gate failed",
+    "gse309593_assay_files_opened_by_prior_branch": 0,
+    "gse309593_identifiers_or_barcodes_read_by_prior_branch": 0,
+    "gse309593_numeric_values_read_by_prior_branch": 0,
+    "relationship_to_this_candidate": "this is a new within-study batch-held analysis, not a repair or rerun of the unavailable cross-study protocol"
+  },
+  "access_attestation": {
+    "before_this_designation": "one source-subject RNA feature-name axis and one source-subject ADT header/feature-name axis were inspected to establish format feasibility; no barcode, identifier, numeric assay value, pairing, association, or loss was read",
+    "held_subject_assay_files_downloaded_or_opened": 0,
+    "held_subject_identifiers_or_barcodes_read": 0,
+    "held_subject_numeric_values_read": 0,
+    "source_subject_numeric_values_read": 0
+  }
+}
