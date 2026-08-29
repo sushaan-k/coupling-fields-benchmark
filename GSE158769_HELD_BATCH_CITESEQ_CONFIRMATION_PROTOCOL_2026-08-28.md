@@ -3,6 +3,24 @@
 Frozen 2026-08-28 before download or decompression of
 `GSE158769_exprs_raw.tsv.gz` and before access to any RNA or ADT count value.
 
+## v1.1 pre-decompression binding amendment
+
+The first `develop` invocation under the public v1 source tag stopped during
+metadata-preflight validation, before the raw gzip was opened or decompressed.
+The v1 metadata preflight had been generated before removal of one trailing
+blank line from each JSON manifest, so its embedded manifest digests did not
+match the semantically unchanged manifest bytes published by the protocol tag.
+No RNA or ADT numeric value was read and no feature or cell header was opened.
+
+Version 1.1 regenerates the metadata-only preflight against the already public
+manifest bytes, validates both the source and designation digests, and adds the
+machine-readable access record
+`results/development/gse158769_pre_decompression_amendment_v1_1.json`. The
+split, cells, panel, estimator grid, comparators, states, thresholds, seeds,
+and downloaded raw gzip bytes are unchanged. Development may start only after
+`gse158769-citeseq-v1.1-protocol` and `gse158769-citeseq-v1.1-source` are
+publicly verified. The original v1 protocol and source tags remain immutable.
+
 ## Scientific question
 
 Can a conditional RNA-protein coupling field learned in 16 processing batches
@@ -36,7 +54,8 @@ The source file has no upstream checksum. The protocol tag therefore binds its
 GEO URL and byte count with a null digest. After the tag is public, `acquire`
 downloads the gzip as opaque bytes, computes SHA-256 without decompression, and
 writes a source-access record. Development is forbidden until that record is
-committed and publicly verified under `gse158769-citeseq-v1-source`.
+committed and publicly verified under `gse158769-citeseq-v1-source`, then
+reverified unchanged under the v1.1 source tag after the binding amendment.
 
 ## Metadata-only eligibility and split
 
@@ -143,16 +162,20 @@ comparators must pass. The held outcome is scored once.
 1. Commit the runner, tests, this protocol, source/designation files,
    metadata-only access record, and metadata preflight. Push and independently
    verify the annotated tag `gse158769-citeseq-v1-protocol`. No raw count gzip
-   may be downloaded or decompressed before this barrier.
+   may be downloaded or decompressed before this barrier. Apply the disclosed
+   binding-only amendment under `gse158769-citeseq-v1.1-protocol` before any
+   decompression.
 2. Run `acquire`, commit its opaque-byte SHA-256 record, and push and verify
-   `gse158769-citeseq-v1-source`. Run calibration plus pilot only. If the pilot
-   fails, publish the terminal result and stop without touching held values.
+   `gse158769-citeseq-v1-source`, then verify the same bytes under
+   `gse158769-citeseq-v1.1-source`. Run calibration plus pilot only. If the
+   pilot fails, publish the terminal result and stop without touching held
+   values.
 3. If the pilot passes, publish and verify
-   `gse158769-citeseq-v1-development`. Run `predict`; it recognizes and
+   `gse158769-citeseq-v1.1-development`. Run `predict`; it recognizes and
    tokenizes only held RNA rows. ADT candidate rows pass through the gzip
    inflater but their value fields are never tokenized, converted, retained,
    logged, or serialized. Publish and verify
-   `gse158769-citeseq-v1-predictions`.
+   `gse158769-citeseq-v1.1-predictions`.
 4. Only after the prediction tag is public may `score` tokenize held ADT rows.
    It verifies frozen donor, margin, and prediction hashes, performs the single
    held evaluation, and publishes pass or failure.
