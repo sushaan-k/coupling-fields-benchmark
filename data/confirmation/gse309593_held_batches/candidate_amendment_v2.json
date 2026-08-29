@@ -1,0 +1,38 @@
+{
+  "schema": "gse309593-held-batches-candidate-amendment/2.0",
+  "status": "FROZEN_WORDING_CORRECTION_BEFORE_NUMERIC_ASSAY_ACCESS",
+  "created_at_utc": "2026-08-29T15:01:22Z",
+  "supersedes": {
+    "candidate_path": "data/confirmation/gse309593_held_batches/candidate_designation_v1.json",
+    "candidate_sha256": "183a45325215ed08384c25a76a29c31e6a73b9d20efdac198a416b9bc937640d",
+    "candidate_tag": "gse309593-held-batches-v1-candidate"
+  },
+  "correction": {
+    "incorrect_interpretation": "The v1 text called the lower-numbered source batches earlier acquisitions and the higher-numbered held batches later acquisitions.",
+    "correct_interpretation": "The allocation is a deterministic holdout by deposited numeric batch label. It is not chronological.",
+    "allocation_rule": "Order the seven deposited batch identifiers by their numeric suffix; assign the four lower-numbered batches to source-only development and the three higher-numbered batches to the sealed held test.",
+    "source_batches": ["B092", "B099", "B110", "B129"],
+    "held_batches": ["B162", "B208", "B210"],
+    "allocation_changed": false,
+    "subjects_changed": false,
+    "files_changed": false,
+    "decision_rules_changed": false
+  },
+  "timestamp_evidence": {
+    "B092": "2023-10-10",
+    "B099": "2024-02-24",
+    "B110": "2022-06-08",
+    "B129": "2022-07-06",
+    "B162": "2023-09-14",
+    "B208": "2024-04-09",
+    "B210": "2024-06-12"
+  },
+  "access_attestation": {
+    "numeric_rna_values_read": 0,
+    "numeric_adt_values_read": 0,
+    "barcodes_or_cell_identifiers_read": 0,
+    "same_cell_tables_formed": 0,
+    "associations_or_losses_computed": 0,
+    "axis_only_preflight_authorized_by_v1": true
+  }
+}
