@@ -1,0 +1,451 @@
+{
+  "access_audit": {
+    "adt_csv_content_parsed": [
+      "header only"
+    ],
+    "adt_csv_files_opened_through_range_reader": 23,
+    "adt_numeric_matrix_values_read": 0,
+    "association_statistics_computed": 0,
+    "barcodes_or_cell_identifiers_read": 0,
+    "full_assay_file_sha256_computed": 2,
+    "full_assay_hash_scope": "FH1001 source RNA H5 and ADT CSV only",
+    "h5_datasets_read": [
+      "matrix/features/name",
+      "matrix/features/feature_type",
+      "ADT/features/id"
+    ],
+    "h5_files_opened_through_range_reader": 23,
+    "held_numeric_values_interpreted": 0,
+    "losses_computed": 0,
+    "range_reader_requested_only_h5_axis_datasets": true,
+    "rna_numeric_matrix_values_read": 0,
+    "same_cell_tables_formed": 0,
+    "source_numeric_values_interpreted": 0
+  },
+  "axis_schemas": {
+    "adt_csv": {
+      "adt_schema_1": {
+        "axis_sha256": "466df6ddbb1232f3a572a22a39f2c6300d7e568b149318f7bdf6f3b9c9243880",
+        "feature_count": 59
+      },
+      "adt_schema_2": {
+        "axis_sha256": "9cc512e8e2aa1cd85862f2b2401d053f6c5c42a539c88002a2f18312cef56d52",
+        "feature_count": 59
+      },
+      "adt_schema_3": {
+        "axis_sha256": "dcf1dbd1a96e9f9a26681660670acc7498d1f1fbe98140ce3066ad5af5565a68",
+        "feature_count": 59
+      }
+    },
+    "embedded_adt": {
+      "embedded_adt_schema_1": {
+        "axis_sha256": "466df6ddbb1232f3a572a22a39f2c6300d7e568b149318f7bdf6f3b9c9243880",
+        "feature_count": 59
+      },
+      "embedded_adt_schema_2": {
+        "axis_sha256": "9cc512e8e2aa1cd85862f2b2401d053f6c5c42a539c88002a2f18312cef56d52",
+        "feature_count": 59
+      },
+      "embedded_adt_schema_3": {
+        "axis_sha256": "dcf1dbd1a96e9f9a26681660670acc7498d1f1fbe98140ce3066ad5af5565a68",
+        "feature_count": 59
+      }
+    },
+    "h5_top_level_groups": [
+      "ADT",
+      "hash",
+      "matrix",
+      "pca",
+      "well"
+    ],
+    "rna": {
+      "feature_count": 33538,
+      "feature_name_axis_sha256": "a285759694b2e6fdb495fa4e996643b50e77588013dbba7b1eb3d1926bd95b60",
+      "feature_type_axis_sha256": "58c145194b8ad66e11884a86434848ae3fee569553c6502ab1b2a8cf1959c1ea",
+      "identical_in_all_23_files": true
+    }
+  },
+  "candidate_freeze": {
+    "amendment_v2_path": "data/confirmation/gse309593_held_batches/candidate_amendment_v2.json",
+    "amendment_v2_sha256": "863b40d3e9cba339a3d5e61eaf3eae37dd8118aa37b9739fdd59a251298205ff",
+    "amendment_v2_tag": "gse309593-held-batches-v2-candidate",
+    "candidate_v1_path": "data/confirmation/gse309593_held_batches/candidate_designation_v1.json",
+    "candidate_v1_sha256": "183a45325215ed08384c25a76a29c31e6a73b9d20efdac198a416b9bc937640d",
+    "candidate_v1_tag": "gse309593-held-batches-v1-candidate",
+    "metadata_binding_path": "data/confirmation/gse309593_independent_study/candidate_designation_v1.json",
+    "metadata_binding_sha256": "07c1979bcee8009db14265a2360f2f46527f674ac5835cf54f098f2f10bdc3e9"
+  },
+  "common_axis": {
+    "all_23_rna_name_axes_identical": true,
+    "all_23_rna_type_axes_identical": true,
+    "all_24_cognates_resolve_exactly_once_in_every_subject": true,
+    "candidate_mapping_count": 36,
+    "distinct_deposited_adt_header_axes": 3,
+    "held_records": 9,
+    "ordered_pairs": 576,
+    "retained_exact_cognates": 24,
+    "source_records": 14,
+    "subject_records": 23
+  },
+  "created_at_utc": "2026-08-29T15:12:02Z",
+  "ordered_cognate_panel": [
+    {
+      "adt_target": "CD1c",
+      "rna_symbol": "CD1C"
+    },
+    {
+      "adt_target": "CD2",
+      "rna_symbol": "CD2"
+    },
+    {
+      "adt_target": "CD4",
+      "rna_symbol": "CD4"
+    },
+    {
+      "adt_target": "CD7",
+      "rna_symbol": "CD7"
+    },
+    {
+      "adt_target": "CD8",
+      "rna_symbol": "CD8A"
+    },
+    {
+      "adt_target": "CD11b",
+      "rna_symbol": "ITGAM"
+    },
+    {
+      "adt_target": "CD11c",
+      "rna_symbol": "ITGAX"
+    },
+    {
+      "adt_target": "CD14",
+      "rna_symbol": "CD14"
+    },
+    {
+      "adt_target": "CD19",
+      "rna_symbol": "CD19"
+    },
+    {
+      "adt_target": "CD20",
+      "rna_symbol": "MS4A1"
+    },
+    {
+      "adt_target": "CD22",
+      "rna_symbol": "CD22"
+    },
+    {
+      "adt_target": "CD27",
+      "rna_symbol": "CD27"
+    },
+    {
+      "adt_target": "CD33",
+      "rna_symbol": "CD33"
+    },
+    {
+      "adt_target": "CD34",
+      "rna_symbol": "CD34"
+    },
+    {
+      "adt_target": "CD36",
+      "rna_symbol": "CD36"
+    },
+    {
+      "adt_target": "CD38",
+      "rna_symbol": "CD38"
+    },
+    {
+      "adt_target": "CD40",
+      "rna_symbol": "CD40"
+    },
+    {
+      "adt_target": "CD47",
+      "rna_symbol": "CD47"
+    },
+    {
+      "adt_target": "CD64",
+      "rna_symbol": "FCGR1A"
+    },
+    {
+      "adt_target": "CD69",
+      "rna_symbol": "CD69"
+    },
+    {
+      "adt_target": "CD80",
+      "rna_symbol": "CD80"
+    },
+    {
+      "adt_target": "CD86",
+      "rna_symbol": "CD86"
+    },
+    {
+      "adt_target": "CD163",
+      "rna_symbol": "CD163"
+    },
+    {
+      "adt_target": "CX3CR1",
+      "rna_symbol": "CX3CR1"
+    }
+  ],
+  "ordered_pair_axis": "RNA-major, then ADT marker order",
+  "ordered_pair_count": 576,
+  "panel_derivation": "Take the exact ordered intersection of the 36 candidate RNA-to-ADT mappings bound before assay access across every one of the 23 RNA feature axes and all three deposited ADT header schemas. No alias, fuzzy match, outcome, identifier, or numeric value is used.",
+  "records": [
+    {
+      "adt_csv_gz_bytes": 1644605,
+      "adt_csv_gz_sha256": "b760e0da6a937f7bc8c772241d451b5e6f4777f956e44dda34cedd2ed0a353da",
+      "adt_csv_schema": "adt_schema_3",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B099",
+      "embedded_adt_schema": "embedded_adt_schema_3",
+      "gsm": "GSM9269936",
+      "rna_h5_bytes": 132895296,
+      "rna_h5_sha256": "885402eb00f86e54ac8ddabbd56fe50dfb360abe16eae1e36fa3417ec1cc5b79",
+      "role": "source",
+      "subject_id": "FH1001"
+    },
+    {
+      "adt_csv_gz_bytes": 1307988,
+      "adt_csv_schema": "adt_schema_3",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B099",
+      "embedded_adt_schema": "embedded_adt_schema_3",
+      "gsm": "GSM9269865",
+      "rna_h5_bytes": 120829096,
+      "role": "source",
+      "subject_id": "FH1002"
+    },
+    {
+      "adt_csv_gz_bytes": 827666,
+      "adt_csv_schema": "adt_schema_2",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B092",
+      "embedded_adt_schema": "embedded_adt_schema_2",
+      "gsm": "GSM9269866",
+      "rna_h5_bytes": 68109062,
+      "role": "source",
+      "subject_id": "FH1003"
+    },
+    {
+      "adt_csv_gz_bytes": 837708,
+      "adt_csv_schema": "adt_schema_2",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B092",
+      "embedded_adt_schema": "embedded_adt_schema_2",
+      "gsm": "GSM9269869",
+      "rna_h5_bytes": 77761280,
+      "role": "source",
+      "subject_id": "FH1004"
+    },
+    {
+      "adt_csv_gz_bytes": 1293214,
+      "adt_csv_schema": "adt_schema_3",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B099",
+      "embedded_adt_schema": "embedded_adt_schema_3",
+      "gsm": "GSM9269872",
+      "rna_h5_bytes": 102547232,
+      "role": "source",
+      "subject_id": "FH1005"
+    },
+    {
+      "adt_csv_gz_bytes": 1922147,
+      "adt_csv_schema": "adt_schema_2",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B110",
+      "embedded_adt_schema": "embedded_adt_schema_2",
+      "gsm": "GSM9269886",
+      "rna_h5_bytes": 167932912,
+      "role": "source",
+      "subject_id": "FH1006"
+    },
+    {
+      "adt_csv_gz_bytes": 833693,
+      "adt_csv_schema": "adt_schema_2",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B092",
+      "embedded_adt_schema": "embedded_adt_schema_2",
+      "gsm": "GSM9269875",
+      "rna_h5_bytes": 65224225,
+      "role": "source",
+      "subject_id": "FH1007"
+    },
+    {
+      "adt_csv_gz_bytes": 2119140,
+      "adt_csv_schema": "adt_schema_2",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B110",
+      "embedded_adt_schema": "embedded_adt_schema_2",
+      "gsm": "GSM9269877",
+      "rna_h5_bytes": 163800579,
+      "role": "source",
+      "subject_id": "FH1008"
+    },
+    {
+      "adt_csv_gz_bytes": 1878949,
+      "adt_csv_schema": "adt_schema_3",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B099",
+      "embedded_adt_schema": "embedded_adt_schema_3",
+      "gsm": "GSM9269879",
+      "rna_h5_bytes": 175397658,
+      "role": "source",
+      "subject_id": "FH1009"
+    },
+    {
+      "adt_csv_gz_bytes": 2427045,
+      "adt_csv_schema": "adt_schema_2",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B110",
+      "embedded_adt_schema": "embedded_adt_schema_2",
+      "gsm": "GSM9269881",
+      "rna_h5_bytes": 179938800,
+      "role": "source",
+      "subject_id": "FH1010"
+    },
+    {
+      "adt_csv_gz_bytes": 429515,
+      "adt_csv_schema": "adt_schema_2",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B110",
+      "embedded_adt_schema": "embedded_adt_schema_2",
+      "gsm": "GSM9269882",
+      "rna_h5_bytes": 36591991,
+      "role": "source",
+      "subject_id": "FH1011"
+    },
+    {
+      "adt_csv_gz_bytes": 1350425,
+      "adt_csv_schema": "adt_schema_2",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B110",
+      "embedded_adt_schema": "embedded_adt_schema_2",
+      "gsm": "GSM9269884",
+      "rna_h5_bytes": 96148594,
+      "role": "source",
+      "subject_id": "FH1012"
+    },
+    {
+      "adt_csv_gz_bytes": 1813674,
+      "adt_csv_schema": "adt_schema_2",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B129",
+      "embedded_adt_schema": "embedded_adt_schema_2",
+      "gsm": "GSM9269885",
+      "rna_h5_bytes": 176567289,
+      "role": "source",
+      "subject_id": "FH1014"
+    },
+    {
+      "adt_csv_gz_bytes": 338819,
+      "adt_csv_schema": "adt_schema_2",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B162",
+      "embedded_adt_schema": "embedded_adt_schema_2",
+      "gsm": "GSM9269895",
+      "rna_h5_bytes": 22158980,
+      "role": "held",
+      "subject_id": "FH1016"
+    },
+    {
+      "adt_csv_gz_bytes": 693432,
+      "adt_csv_schema": "adt_schema_2",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B129",
+      "embedded_adt_schema": "embedded_adt_schema_2",
+      "gsm": "GSM9269893",
+      "rna_h5_bytes": 64325170,
+      "role": "source",
+      "subject_id": "FH1017"
+    },
+    {
+      "adt_csv_gz_bytes": 292254,
+      "adt_csv_schema": "adt_schema_2",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B162",
+      "embedded_adt_schema": "embedded_adt_schema_2",
+      "gsm": "GSM9269937",
+      "rna_h5_bytes": 14928274,
+      "role": "held",
+      "subject_id": "FH1020"
+    },
+    {
+      "adt_csv_gz_bytes": 619697,
+      "adt_csv_schema": "adt_schema_2",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B162",
+      "embedded_adt_schema": "embedded_adt_schema_2",
+      "gsm": "GSM9269896",
+      "rna_h5_bytes": 33790043,
+      "role": "held",
+      "subject_id": "FH1021"
+    },
+    {
+      "adt_csv_gz_bytes": 1128815,
+      "adt_csv_schema": "adt_schema_1",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B208",
+      "embedded_adt_schema": "embedded_adt_schema_1",
+      "gsm": "GSM9269901",
+      "rna_h5_bytes": 86283864,
+      "role": "held",
+      "subject_id": "FH1022"
+    },
+    {
+      "adt_csv_gz_bytes": 2180342,
+      "adt_csv_schema": "adt_schema_1",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B210",
+      "embedded_adt_schema": "embedded_adt_schema_1",
+      "gsm": "GSM9269906",
+      "rna_h5_bytes": 150106947,
+      "role": "held",
+      "subject_id": "FH1023"
+    },
+    {
+      "adt_csv_gz_bytes": 1404474,
+      "adt_csv_schema": "adt_schema_1",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B208",
+      "embedded_adt_schema": "embedded_adt_schema_1",
+      "gsm": "GSM9269917",
+      "rna_h5_bytes": 96890036,
+      "role": "held",
+      "subject_id": "FH1024"
+    },
+    {
+      "adt_csv_gz_bytes": 1095164,
+      "adt_csv_schema": "adt_schema_1",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B210",
+      "embedded_adt_schema": "embedded_adt_schema_1",
+      "gsm": "GSM9269920",
+      "rna_h5_bytes": 61427901,
+      "role": "held",
+      "subject_id": "FH1026"
+    },
+    {
+      "adt_csv_gz_bytes": 1461553,
+      "adt_csv_schema": "adt_schema_1",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B210",
+      "embedded_adt_schema": "embedded_adt_schema_1",
+      "gsm": "GSM9269922",
+      "rna_h5_bytes": 83968424,
+      "role": "held",
+      "subject_id": "FH1027"
+    },
+    {
+      "adt_csv_gz_bytes": 457928,
+      "adt_csv_schema": "adt_schema_1",
+      "all_24_cognates_resolve_exactly_once": true,
+      "batch": "B210",
+      "embedded_adt_schema": "embedded_adt_schema_1",
+      "gsm": "GSM9269929",
+      "rna_h5_bytes": 24319529,
+      "role": "held",
+      "subject_id": "FH1028"
+    }
+  ],
+  "schema": "gse309593-held-batches-axis-preflight/1.0",
+  "status": "PASS_AXIS_ONLY_BEFORE_NUMERIC_ASSAY_ACCESS"
+}
