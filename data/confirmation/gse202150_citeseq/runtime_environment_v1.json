@@ -1,0 +1,28 @@
+{
+  "required_runtime": {
+    "hdf5": {
+      "built_against_version_tuple": [
+        1,
+        14,
+        6
+      ],
+      "h5py_api_version": "1.8",
+      "runtime_version": "1.14.6",
+      "runtime_version_tuple": [
+        1,
+        14,
+        6
+      ]
+    },
+    "packages": {
+      "h5py": "3.14.0",
+      "numpy": "2.0.2",
+      "scipy": "1.13.1"
+    },
+    "python": {
+      "implementation": "cpython",
+      "version": "3.9.6"
+    }
+  },
+  "schema": "gse202150-runtime-environment/1.0"
+}

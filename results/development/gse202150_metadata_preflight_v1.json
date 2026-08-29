@@ -1,0 +1,164 @@
+{
+  "acute_subjects": 33,
+  "assay_numeric_values_read": 0,
+  "batch_subject_counts": {
+    "IOF1": 8,
+    "IOF2": 8,
+    "IOF3": 8,
+    "IOF4": 9
+  },
+  "bridge_samples_excluded_from_inference": [
+    "HD105_Control",
+    "HD108_Control"
+  ],
+  "cd45ra_excluded": true,
+  "created_at_utc": "2026-08-29T09:04:19Z",
+  "feature_schema_sha256": {
+    "ADRA03_IOF1_1": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF1_2": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF1_3": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF1_4": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF1_5": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF2_1": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF2_2": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF2_3": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF2_4": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF2_5": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF3_1": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF3_2": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF3_3": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF3_4": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF3_5": "0985aa5d4c7f69a3e1748e2e4791a796d401f73378118265d4f970a2fa539922",
+    "ADRA03_IOF4_2": "d221ee1ff362f602fb3c40f9b13b9382f599ffed4505c833b22644b687b2f298",
+    "ADRA03_IOF4_3": "d221ee1ff362f602fb3c40f9b13b9382f599ffed4505c833b22644b687b2f298",
+    "ADRA03_IOF4_4": "d221ee1ff362f602fb3c40f9b13b9382f599ffed4505c833b22644b687b2f298",
+    "ADRA03_IOF4_5": "d221ee1ff362f602fb3c40f9b13b9382f599ffed4505c833b22644b687b2f298"
+  },
+  "h5_file_sha256": {
+    "ADRA03_IOF1_1": "d58cd92e25d766b87ac70e33f64ef3988eee09e515c9574a16bd04b65866add9",
+    "ADRA03_IOF1_2": "3483627bdd4558d62b9a52a4d6bcdc1e617c16238465948ecfa1fca56411db01",
+    "ADRA03_IOF1_3": "3f558cfe3ae6b84061e82613a9e4265baf5dde8546e14fa3bed1cca97cabab33",
+    "ADRA03_IOF1_4": "5432621e16c7424d1450222dad90f60e79ee9488971e530ca59e8cfd58753e8c",
+    "ADRA03_IOF1_5": "91341edd5e8575b15f78182ea65c465ee7ab685e3d7a30ff37bb5287fed3eaad",
+    "ADRA03_IOF2_1": "1e5dd94306642f24dccd0f7ba5d7672de9fa1112d88327f106001202119a1485",
+    "ADRA03_IOF2_2": "f8c39c14073c0d4a7793f8078ab0b3c1787c9f9358e595e73b589b8e27964056",
+    "ADRA03_IOF2_3": "babbe59a352b1314e1c24126fdf1e65476b8ff184df02914352fde01b635bc9c",
+    "ADRA03_IOF2_4": "720f1fe4cdf106875e1e45e8fc057f4157b88ec3b6de2b50442c8c3c0c66a482",
+    "ADRA03_IOF2_5": "2981e8449e22bb23186c99300f2d07626d2d9c140f344189f1c045865144843b",
+    "ADRA03_IOF3_1": "11b3263b27b565567fa219cf1d8c3983c3931c417c7a685e3d24bb77ef42159a",
+    "ADRA03_IOF3_2": "4634535bacaee9256ef369730967ca2ab6918df3f1c1321112e03dee3276e795",
+    "ADRA03_IOF3_3": "e0b23125b6c711dfba9ee825f63ec030ea354e06e988f4275156e52cbb0fb4b6",
+    "ADRA03_IOF3_4": "dc00366154898c1ee11d40f64ef61c9aff49de90db9cee22fdacdd94d00b39ab",
+    "ADRA03_IOF3_5": "88e02fc421638ee0557d7ab23aee1b09925af33caa120858fff3bf3ed087082c",
+    "ADRA03_IOF4_2": "62890a3a70556518c2a3a55dcb62742ba7c4cae4a2a8e3ca0fd62a16a67d47c2",
+    "ADRA03_IOF4_3": "ac18c3c07dc55c180d27e9d7fbcbf6d08bc7bd472bf94d04b30bf85d4f57e0cf",
+    "ADRA03_IOF4_4": "8a2c58c74aa3653c2d422d3509ae895f79ef3eb878c01db9c948af123c039194",
+    "ADRA03_IOF4_5": "7b58ff7d86f11fb019ac304ee6be5bffe266363c3fc0d6c7ecf31a52e4c4b889"
+  },
+  "held_subjects": 17,
+  "hto_feature_counts": {
+    "ADRA03_IOF1_1": 7,
+    "ADRA03_IOF1_2": 7,
+    "ADRA03_IOF1_3": 7,
+    "ADRA03_IOF1_4": 7,
+    "ADRA03_IOF1_5": 7,
+    "ADRA03_IOF2_1": 7,
+    "ADRA03_IOF2_2": 7,
+    "ADRA03_IOF2_3": 7,
+    "ADRA03_IOF2_4": 7,
+    "ADRA03_IOF2_5": 7,
+    "ADRA03_IOF3_1": 7,
+    "ADRA03_IOF3_2": 7,
+    "ADRA03_IOF3_3": 7,
+    "ADRA03_IOF3_4": 7,
+    "ADRA03_IOF3_5": 7,
+    "ADRA03_IOF4_2": 10,
+    "ADRA03_IOF4_3": 10,
+    "ADRA03_IOF4_4": 10,
+    "ADRA03_IOF4_5": 10
+  },
+  "libraries": [
+    "ADRA03_IOF1_1",
+    "ADRA03_IOF1_2",
+    "ADRA03_IOF1_3",
+    "ADRA03_IOF1_4",
+    "ADRA03_IOF1_5",
+    "ADRA03_IOF2_1",
+    "ADRA03_IOF2_2",
+    "ADRA03_IOF2_3",
+    "ADRA03_IOF2_4",
+    "ADRA03_IOF2_5",
+    "ADRA03_IOF3_1",
+    "ADRA03_IOF3_2",
+    "ADRA03_IOF3_3",
+    "ADRA03_IOF3_4",
+    "ADRA03_IOF3_5",
+    "ADRA03_IOF4_2",
+    "ADRA03_IOF4_3",
+    "ADRA03_IOF4_4",
+    "ADRA03_IOF4_5"
+  ],
+  "official_metadata_sha256": {
+    "feature_reference": "3037bd75b74e4a735a2197c14c90279d202b4150d3a4846c67907906d9cfe4f2",
+    "filelist": "741bad1e8bf57d6564a6be6c782553f1255a2e9114ba39867b27c28a77e7433e",
+    "sample_annotations": "56c7e00288559322755412542ae390975554fa6030b73cfcb57d16e9d00a1eda",
+    "sample_hashing_map": "ad176eac7bf3a824fa985dc506f90df47922e4eb4805d1f6b1ae15b8cac51598"
+  },
+  "panel": [
+    "CD3E/CD3",
+    "CD4/CD4",
+    "CD8A/CD8",
+    "MS4A1/CD20",
+    "CD19/CD19",
+    "CD27/CD27",
+    "CD38/CD38",
+    "CD14/CD14",
+    "ITGAM/CD11b",
+    "ITGAX/CD11c",
+    "CD33/CD33",
+    "NCAM1/CD56",
+    "KLRB1/CD161"
+  ],
+  "preflight_runner_datasets_not_opened": [
+    "/matrix/barcodes",
+    "/matrix/data",
+    "/matrix/indices",
+    "/matrix/indptr",
+    "/matrix/shape"
+  ],
+  "preflight_runner_datasets_opened": [
+    "/matrix/features/id",
+    "/matrix/features/name",
+    "/matrix/features/feature_type"
+  ],
+  "runtime_environment": {
+    "hdf5": {
+      "built_against_version_tuple": [
+        1,
+        14,
+        6
+      ],
+      "h5py_api_version": "1.8",
+      "runtime_version": "1.14.6",
+      "runtime_version_tuple": [
+        1,
+        14,
+        6
+      ]
+    },
+    "packages": {
+      "h5py": "3.14.0",
+      "numpy": "2.0.2",
+      "scipy": "1.13.1"
+    },
+    "python": {
+      "implementation": "cpython",
+      "version": "3.9.6"
+    }
+  },
+  "schema": "gse202150-metadata-preflight/1.0",
+  "source_subjects": 16,
+  "status": "PREFLIGHT_PASS_NO_ASSAY_MATRIX_VALUES_OPENED",
+  "total_cd45_substituted": false,
+  "whole_file_sha256_computed_without_hdf5_dataset_decoding": true
+}
