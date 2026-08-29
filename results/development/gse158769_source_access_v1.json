@@ -1,0 +1,12 @@
+{
+  "bytes": 783271940,
+  "created_at_utc": "2026-08-29T00:37:56Z",
+  "decompression_performed": false,
+  "numeric_values_read": 0,
+  "path": "data/confirmation/gse158769_citeseq/source_cache/GSE158769_exprs_raw.tsv.gz",
+  "protocol_commit": "8399bd435630901f26df1305c7f00336e2c2f62c",
+  "protocol_tag": "gse158769-citeseq-v1-protocol",
+  "schema": "gse158769-source-access/1.0",
+  "sha256": "9eeccca161e53a6605c3a3c4bd86ab6dbc8c672cffc9b681104567c84da5a452",
+  "status": "OPAQUE_GZIP_DOWNLOADED_NOT_DECOMPRESSED"
+}
