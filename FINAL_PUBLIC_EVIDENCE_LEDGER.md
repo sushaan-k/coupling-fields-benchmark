@@ -43,7 +43,10 @@ penalty zero.
 PoKI-seq, Lawlor, Hao, Kotliarov, BMMC, GSE279451, GSE299043, and COMBAT retain
 their prior procedural refusals. Eleven subsequent public source campaigns also
 terminated before held scoring and are enumerated in the panels ledger. The
-recovery-amended unused-Cambridge run produced no prediction or score and is
+source-only Kotliarov binary-v2 replacement separately refused because no
+frozen configuration completed every source-held fold; it produced no
+comparison decision or held run. The recovery-amended unused-Cambridge run
+produced no prediction or score and is
 infrastructure-unevaluable. Its row contains no performance value and remains
 bound to the published terminal record; no scientific decision is assigned.
 
@@ -74,6 +77,7 @@ perturbation prediction or universal structured-estimator superiority.
 | Lawlor HCA PBMC | Six development donors; four held donors | Predeclared aliases | Not scored; frozen reducer rejected the deposited ADT object type | Not evaluated | Not reached | **REFUSE execution** |
 | Hao GSE164378 | Four development donors; three held donors | Predeclared aliases | Not scored; fewer than 12 markers passed frozen marginal support | Not evaluated | Not reached | **REFUSE support** |
 | Kotliarov PBMC | Ten batch-1 development donors; nine disjoint batch-2 held donors | 71 predeclared cognate markers | Not scored; fewer than four prespecified RNA-only lineages met the frozen 50-cell minimum in all 19 donors | Full Pearson and signed-deviance residual transfer not reached | Not reached | **REFUSE support** |
+| Kotliarov PBMC binary-v2 source replacement | Ten batch-1 development donors; nine disjoint batch-2 held donors reserved but not run | 81 ordered RNA--ADT pairs | Not scored; no frozen configuration completed every source-held fold | No comparison decision produced | Held ADT access remained unauthorized | **REFUSE source execution** |
 | NeurIPS 2021 BMMC CITE-seq | Two fit donors, one development donor, six held donors | 100 ordered RNA--ADT pairs | Not scored; exact conditional optimizer failed the final common-effect development refit after the frozen numerical-equivalence retry | Strongest signed Pearson or Poisson-deviance residual transfer not reached | Held pairing not opened | **REFUSE numerical development** |
 | GSE279451 adult sepsis CITE-seq | Nineteen development donors; 21 held donors | 81 ordered RNA--ADT pairs | Not scored; terminal evaluation refusal after development reduction because both common-effect control families were unavailable | Prespecified raw or exact-null-centered signed Pearson or Poisson-deviance residual transfer; no comparison decision produced | All 21 held matrices unopened | **REFUSE development evaluation** |
 | GSE299043 MLN CITE-seq | Ten Cambridge development donors; ten LiveOnNY/Columbia held donors | 81 ordered RNA--ADT pairs | Not scored; terminal feature-preflight refusal after 21 development-member reductions | Prespecified residual comparison not reached | All 151 held members unopened | **REFUSE acquisition** |
@@ -222,6 +226,9 @@ Result and terminal-attempt artifact hashes at this snapshot:
 | `results/perturbsci_module_validation.json` | `68032c3bc05fe0702edd8600cf91c86d0850b1db44857e67a42845e0fc164fc2` |
 | `results/gse143417_pokiseq_preflight_refusal.json` | `24f7ad70fbbfd4e7482809db58bd94d1156c1e22c2dd94fa77d66b1d6acdcf24` |
 | `results/kotliarov_pbmc_public_refusal.json` | `34d59fcbdcceeefb449a430bca7a0f502611d343a2ebd19fc44a7f5fd26a1324` |
+| `data/confirmation/kotliarov_pbmc_binary_v2/source_attempt_v2.json` | `8d276cc0c404fc2a379390d478ec1a14582f6aa6eaa469b915b15b70d6450b1a` |
+| `results/development/kotliarov_pbmc_binary_v2_source_v2.json` | `12aacf4dc05efabcd2d745abc0319f6a2676e5d26eb50054849005424b1a071c` |
+| `data/confirmation/kotliarov_pbmc_binary_v2/source_access_code_path_certificate_v2.json` | `1fed7f94958a07a71a195e80ce2b88f326ff2f47274733133c6b4f7dfd47d0d6` |
 | `results/development/scmmib_bmmc_exact_development_attempt_3_terminal_refusal.json` | `caf920719694487ba228dc64ac14ed4a6579619349f496f7154372920f3e128c` |
 | `data/confirmation/gse279451_sepsis/source_manifest_v1.json` | `c15fdc13c68cff14c45cfc16153cdbc309f6c2252457634fda8abdca677e4603` |
 | `data/development/gse279451_sepsis/development_attempt_v1.json` | `b8d7e745997e7b7ccd9a3bc8a7a7c3c7670b9e47c8b5d51e3d12fb70a5a8938d` |
@@ -238,8 +245,8 @@ hash before emitting a row, enforces unique panel/comparison identifiers and
 valid cross-references, and writes sorted deterministic ledgers. The standalone
 verifier rechecks row-level artifact hashes, metric finiteness, evidence counts,
 sequence order, the empty unused-Cambridge performance fields, manifest bytes,
-and `SHA256SUMS`. The release candidate contains 32 panel, 28 comparison, and
-51 sequence records.
+and `SHA256SUMS`. The release candidate contains 33 panel, 28 comparison, and
+56 sequence records.
 
 The structured consistency check parsed every audited JSON with non-finite JSON
 constants rejected; verified embedded hashes for the v4 runner, estimator, and
