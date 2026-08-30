@@ -24,3 +24,6 @@ data/confirmation/gse279451_sepsis/held_source_work/
 data/confirmation/gse288020_citeseq/source_cache/
 data/confirmation/gse326573_lung/private_held_rna_states_v1.npz
 data/confirmation/gse309593_held_batches/private_held_rna_states_v1.npz
+data/confirmation/gse342939_ra_bcell/private_held_selected_barcodes_v1.json
+data/confirmation/gse342939_ra_bcell/private_held_rna_states_v1.npz
+data/confirmation/gse342939_ra_bcell/private_held_adt_states_v1.npz
