@@ -1,0 +1,30 @@
+{
+  "schema": "gse214546-teaseq-pre-access-normalization-correction/1.0",
+  "created_at_utc": "2026-08-30T06:38:41Z",
+  "numeric_count_or_sparse_value_dataset_read": false,
+  "held_h5_requested_or_opened": false,
+  "previous_context_estimator_commit": "b781f23",
+  "previous_context_estimator_sha256": "5f1b5369ecf2ccc578075f3fcb8955cfa4ae705ae7225b9ddc51a69a456dc868",
+  "corrected_context_estimator_commit": "20cc571",
+  "corrected_context_estimator_sha256": "51e02ee70320f192991e69622d206a36a86c77fb480f6ddec22a9bb0b7e1a652",
+  "corrected_context_estimator_test_sha256": "e35e9735a41e67c59c035cd06f581fadf280100f0fd158c8b62f368a651256f0",
+  "prior_implementation_clarification_tag": "gse214546-teaseq-v1-implementation-clarification",
+  "prior_cv_availability_tag": "gse214546-teaseq-v1-cv-availability",
+  "correction": {
+    "objective": "For D informative donors, minimize D^-1 sum_d {ell_d(x_d^T beta + u_d) + eta u_d^2 / 2} + beta^T Lambda beta / 2.",
+    "reason": "The prior raw donor-sum implementation made the coefficient-ridge strength depend on whether a fit used seven leave-one-donor-out training donors or all eight source donors. Donor-mean normalization fixes the coefficient and donor-deviation penalties on a common per-donor scale.",
+    "grids_changed": false,
+    "coordinate_axis_changed": false,
+    "comparators_changed": false,
+    "confirmation_thresholds_changed": false
+  },
+  "mathematical_checks": {
+    "strict_convexity": "Positive coefficient and donor-deviation penalties give a unique finite penalized fit without a context-rank condition.",
+    "schur_weight": "v_d eta / {D(v_d + eta)}",
+    "finite_difference_gradient_and_hessian_checked": true,
+    "dense_and_schur_newton_steps_checked": true,
+    "complete_panel_duplication_invariance_checked": true
+  },
+  "supersession": "This artifact supersedes only the objective scaling and bound context-estimator hash in pre_access_implementation_clarification_v1.json. All other frozen protocol, schema, cross-validation availability, firewall, and terminality rules remain in force.",
+  "rerun_permitted": false
+}
