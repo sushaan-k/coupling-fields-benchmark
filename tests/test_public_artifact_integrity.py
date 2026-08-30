@@ -50,6 +50,15 @@ FROZEN_JSON_SHA256 = {
     "results/kotliarov_pbmc_public_refusal.json": (
         "34d59fcbdcceeefb449a430bca7a0f502611d343a2ebd19fc44a7f5fd26a1324"
     ),
+    "data/confirmation/kotliarov_pbmc_binary_v2/source_attempt_v2.json": (
+        "8d276cc0c404fc2a379390d478ec1a14582f6aa6eaa469b915b15b70d6450b1a"
+    ),
+    "results/development/kotliarov_pbmc_binary_v2_source_v2.json": (
+        "12aacf4dc05efabcd2d745abc0319f6a2676e5d26eb50054849005424b1a071c"
+    ),
+    "data/confirmation/kotliarov_pbmc_binary_v2/source_access_code_path_certificate_v2.json": (
+        "1fed7f94958a07a71a195e80ce2b88f326ff2f47274733133c6b4f7dfd47d0d6"
+    ),
 }
 
 
@@ -345,12 +354,12 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
     assert manifest["intended_release_tag"] == "coupling-fields-v2-public-benchmark"
     assert manifest["counts"] == {
         "comparison_records": 28,
-        "panel_records": 32,
+        "panel_records": 33,
         "infrastructure_unevaluable_records": 1,
         "pending_records": 0,
-        "procedural_refusal_records": 19,
+        "procedural_refusal_records": 20,
         "scored_panel_records": 12,
-        "sequence_records": 51,
+        "sequence_records": 56,
     }
     assert manifest["archive_doi"] is None
     assert manifest["code_license"] is None
@@ -360,9 +369,9 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
     )
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 59
+    assert len(artifacts) == 64
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 59
+    assert len(by_path) == 64
     for relative in (
         "results/benchmark_panels_v2.tsv",
         "results/benchmark_comparisons_v2.tsv",
@@ -374,6 +383,11 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
         "results/development/gse299043_mln_development_acquisition_refusal.json",
         "results/development/gse299043_mln_terminal_acquisition_audit.json",
         "results/development/combat_citeseq_pilot_terminal_refusal.json",
+        "results/development/kotliarov_pbmc_binary_v2_source_v2.json",
+        "data/confirmation/kotliarov_pbmc_binary_v2/candidate_designation_v2.json",
+        "data/confirmation/kotliarov_pbmc_binary_v2/source_authorization_v2.json",
+        "data/confirmation/kotliarov_pbmc_binary_v2/source_attempt_v2.json",
+        "data/confirmation/kotliarov_pbmc_binary_v2/source_access_code_path_certificate_v2.json",
         "data/confirmation/stephenson_unused_cambridge/prediction_terminal_record_v1_1.json",
         "experiments/build_public_benchmark_release.py",
         "scripts/verify_public_benchmark_release.py",

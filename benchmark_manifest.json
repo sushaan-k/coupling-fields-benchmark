@@ -3,9 +3,29 @@
   "archive_doi": null,
   "artifacts": [
     {
-      "bytes": 15173,
+      "bytes": 15359,
       "path": "README.md",
-      "sha256": "d621ee937ebdb482d45745c7e1ddb6221fcc7fd7d7ccd70295c44fa2e395e4f0"
+      "sha256": "389772a1e9bc5f90ffe91dfd0064ca86f5fcddff71fe20d3329e408461007c3a"
+    },
+    {
+      "bytes": 2520,
+      "path": "data/confirmation/kotliarov_pbmc_binary_v2/candidate_designation_v2.json",
+      "sha256": "804c9f3593f4243ed7f2bb63f262231177481075aa254995a8ee0b7a9972c4a1"
+    },
+    {
+      "bytes": 3245,
+      "path": "data/confirmation/kotliarov_pbmc_binary_v2/source_access_code_path_certificate_v2.json",
+      "sha256": "1fed7f94958a07a71a195e80ce2b88f326ff2f47274733133c6b4f7dfd47d0d6"
+    },
+    {
+      "bytes": 1766,
+      "path": "data/confirmation/kotliarov_pbmc_binary_v2/source_attempt_v2.json",
+      "sha256": "8d276cc0c404fc2a379390d478ec1a14582f6aa6eaa469b915b15b70d6450b1a"
+    },
+    {
+      "bytes": 4580,
+      "path": "data/confirmation/kotliarov_pbmc_binary_v2/source_authorization_v2.json",
+      "sha256": "1b6fd95ae23d7cf7f5427eb1f21ee31461e0ed48973366356b924d7132fc5b81"
     },
     {
       "bytes": 860,
@@ -38,9 +58,9 @@
       "sha256": "4899751abdc1c0adf35935f7cc386c2cc2aa5fd6e8035ee2fbd870865c566a31"
     },
     {
-      "bytes": 27418,
+      "bytes": 28377,
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "0834d9232767c128fb518916a4bfe22c27be5c28c18a1f431c7ab9c01e73d52d"
+      "sha256": "f22b4e03f6b639691a72ea6d7cf09d1bdd3aeb3bc70ff4eb2337d37817f00533"
     },
     {
       "bytes": 13731,
@@ -83,9 +103,9 @@
       "sha256": "e078c6fd403a8b7431e451357ef5e4479b30f629087f4bb4a7cc00b8ceef9b15"
     },
     {
-      "bytes": 54149,
+      "bytes": 59868,
       "path": "experiments/build_public_benchmark_release.py",
-      "sha256": "7d953e54e6c517e4a531a90693579f9847e26e43ac3af09c0f58eae950ff569c"
+      "sha256": "7152f016034ac9650b94b944b667be838c55bb19212672cd2f41aa8b234b03d4"
     },
     {
       "bytes": 3159,
@@ -103,14 +123,14 @@
       "sha256": "d7a99f65ba616ff50c2b5103dc23fe69db020dff887f6835cad8f118396de1c4"
     },
     {
-      "bytes": 18931,
+      "bytes": 19561,
       "path": "results/benchmark_panels_v2.tsv",
-      "sha256": "ae600cc3f9283a36e53d1cf6d12735028da3213c52a405f5fc7286e7d9c88a98"
+      "sha256": "8f33885a7283e336e24c79961592d0c86ff4272be525f1a8e36a7b85545be532"
     },
     {
-      "bytes": 16249,
+      "bytes": 18615,
       "path": "results/benchmark_sequence_v2.tsv",
-      "sha256": "41292d1f7fab42d85dbc32aa2245c42e24091ed76959be6e3523e86494bcd426"
+      "sha256": "4b52ddbb5fbf3232585478b5ffba1aab3244c154cbef8634b8d921dd28e2235c"
     },
     {
       "bytes": 102047,
@@ -203,6 +223,11 @@
       "sha256": "c4b21794260aeb47cfc754be438507323511350d5fc66874aeec29412a73bf59"
     },
     {
+      "bytes": 1861,
+      "path": "results/development/kotliarov_pbmc_binary_v2_source_v2.json",
+      "sha256": "12aacf4dc05efabcd2d745abc0319f6a2676e5d26eb50054849005424b1a071c"
+    },
+    {
       "bytes": 108207,
       "path": "results/development/perturbfate_conditional_fields.json",
       "sha256": "cdf0c2cf66facfbbdfb03ac7a20c97d4cdaf4fc0bc9c63025e825dbeb1715c26"
@@ -293,20 +318,20 @@
       "sha256": "1ddacb4dc5a9b5a657bb00ebbffa2d8ba9ea0f7186283c051259b31b15bf5c1e"
     },
     {
-      "bytes": 5418,
+      "bytes": 6860,
       "path": "tests/test_public_benchmark_release_v2.py",
-      "sha256": "aa8769d2f12e1c62f1c763cda375dc4fcbdc20468c6c47015a55cc688e415796"
+      "sha256": "85679c55e94c051aea891bf6533c01aef6bbda02f9fd1d9e5affaff3d3ecce1e"
     }
   ],
   "code_license": null,
   "counts": {
     "comparison_records": 28,
     "infrastructure_unevaluable_records": 1,
-    "panel_records": 32,
+    "panel_records": 33,
     "pending_records": 0,
-    "procedural_refusal_records": 19,
+    "procedural_refusal_records": 20,
     "scored_panel_records": 12,
-    "sequence_records": 51
+    "sequence_records": 56
   },
   "infrastructure_unevaluable": {
     "panel_id": "stephenson_unused_cambridge_terminal",

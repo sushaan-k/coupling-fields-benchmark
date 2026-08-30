@@ -40,11 +40,11 @@ def test_metric_aware_ledgers_include_completed_and_refused_evidence() -> None:
     by_panel = {row["panel_id"]: row for row in panels}
     by_comparison = {row["comparison_id"]: row for row in comparisons}
 
-    assert len(panels) == 32
+    assert len(panels) == 33
     assert len(comparisons) == 28
-    assert len(sequence) == 51
+    assert len(sequence) == 56
     assert sum(row["outcome_scored"] == "YES" for row in panels) == 12
-    assert sum(row["inference_role"] == "procedural_refusal" for row in panels) == 19
+    assert sum(row["inference_role"] == "procedural_refusal" for row in panels) == 20
 
     stephenson = by_panel["stephenson_newcastle_confirmation"]
     assert stephenson["inference_role"] == "confirmatory"
@@ -92,6 +92,41 @@ def test_metric_aware_ledgers_include_completed_and_refused_evidence() -> None:
     }
 
 
+def test_kotliarov_binary_v2_is_a_source_execution_refusal() -> None:
+    panels = _rows(PANELS_PATH)
+    comparisons = _rows(COMPARISONS_PATH)
+    sequence = _rows(SEQUENCE_PATH)
+    panel_id = "kotliarov_pbmc_binary_v2_source_terminal"
+    panel = next(row for row in panels if row["panel_id"] == panel_id)
+
+    assert panel["analysis_phase"] == "source_development_gate"
+    assert panel["inference_role"] == "procedural_refusal"
+    assert panel["decision"] == "TERMINAL_SOURCE_EXECUTION_REFUSAL"
+    assert panel["outcome_scored"] == "NO"
+    assert panel["primary_value"] == ""
+    assert not any(row["panel_id"] == panel_id for row in comparisons)
+
+    stages = [row for row in sequence if row["panel_id"] == panel_id]
+    assert [row["stage"] for row in stages] == [
+        "source_freeze",
+        "source_authorization",
+        "source_attempt",
+        "source_result",
+        "postrun_access_certificate",
+    ]
+    assert stages[-2]["status"] == "TERMINAL_SOURCE_EXECUTION_REFUSAL"
+    assert stages[-2]["outcome_access"] == "DEVELOPMENT_ONLY_HELD_ADT_UNAUTHORIZED"
+    assert stages[-2]["artifact_sha256"] == (
+        "12aacf4dc05efabcd2d745abc0319f6a2676e5d26eb50054849005424b1a071c"
+    )
+    assert stages[-1]["status"] == (
+        "DETERMINISTIC_CODE_PATH_AUDIT_HELD_ADT_UNREACHABLE"
+    )
+    assert stages[-1]["artifact_sha256"] == (
+        "1fed7f94958a07a71a195e80ce2b88f326ff2f47274733133c6b4f7dfd47d0d6"
+    )
+
+
 def test_unused_cambridge_terminal_row_contains_no_performance_claim() -> None:
     panels = _rows(PANELS_PATH)
     sequence = _rows(SEQUENCE_PATH)
@@ -127,12 +162,12 @@ def test_manifest_counts_and_claim_boundaries_match_ledgers() -> None:
     assert manifest["schema"] == "coupling-fields-public-benchmark/2.0"
     assert manifest["counts"] == {
         "comparison_records": 28,
-        "panel_records": 32,
+        "panel_records": 33,
         "infrastructure_unevaluable_records": 1,
         "pending_records": 0,
-        "procedural_refusal_records": 19,
+        "procedural_refusal_records": 20,
         "scored_panel_records": 12,
-        "sequence_records": 51,
+        "sequence_records": 56,
     }
     assert manifest["archive_doi"] is None
     assert manifest["code_license"] is None

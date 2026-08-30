@@ -3,8 +3,8 @@
 This repository is a public, source-visible benchmark for
 perturbation-specific dependence in linked single-cell assays. It preserves
 positive, negative, and refused analyses under explicit evidence roles. The
-version-2 release candidate contains 32 panel records: 12 scored held,
-replicate, pilot, or nonheld-development analyses; 19 procedural refusals; and
+version-2 release candidate contains 33 panel records: 12 scored held,
+replicate, pilot, or nonheld-development analyses; 20 procedural refusals; and
 one published infrastructure-unevaluable attempt. These are analysis
 records rather than unique studies because BMMC and COMBAT each retain both a
 frozen campaign outcome and a separately labeled retrospective adaptive
@@ -29,12 +29,14 @@ prospective Stephenson result from corrected and retrospective evidence rather
 than pooling them as equivalent confirmations.
 
 PoKI-seq stopped at state-occupancy preflight, Lawlor at deposited-object
-compatibility, Hao and Kotliarov at frozen support gates, BMMC at numerical
-development, GSE279451 at comparator availability, GSE299043 at source feature
+compatibility, Hao and the first Kotliarov campaign at frozen support gates,
+BMMC at numerical development, GSE279451 at comparator availability, GSE299043 at source feature
 preflight, and COMBAT at pilot candidate availability. GSE314416 also stopped
 at its pilot gate. Eleven later source campaigns terminated before held
-scoring and remain visible in the aggregate ledger. The recovery-amended
-unused-Cambridge attempt produced no prediction or score and is
+scoring and remain visible in the aggregate ledger. The source-only Kotliarov
+binary-v2 replacement then refused because no frozen configuration completed
+every source-held fold; it produced no comparisons or held run. The
+recovery-amended unused-Cambridge attempt produced no prediction or score and is
 infrastructure-unevaluable; its published terminal record assigns no scientific
 decision and its performance fields remain empty.
 
