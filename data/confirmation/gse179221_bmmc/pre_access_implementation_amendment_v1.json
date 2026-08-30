@@ -1,0 +1,129 @@
+{
+  "schema": "gse179221-bmmc-citeseq-pre-access-implementation-amendment/1.0",
+  "status": "FROZEN_BEFORE_ANY_H5_BODY_ACCESS",
+  "created_at_utc": "2026-08-30T01:16:00Z",
+  "supersedes": {
+    "candidate_path": "data/confirmation/gse179221_bmmc/candidate_designation_v1.json",
+    "candidate_sha256": "93e839b6da7933c79437532c85576468f9c2d1ed896e461a61a8e3f854ca4e8f",
+    "candidate_tag": "gse179221-bmmc-v1-candidate",
+    "candidate_annotated_tag_object": "918f2b042fdad3cdefbe01990ecf81c9bb783626",
+    "candidate_peeled_commit": "902fb43fc90066ac96749a3e5e87cd5e306d6321"
+  },
+  "purpose": "Resolve implementation choices that were not numerically determined by the candidate designation and prohibit validation-donor leakage through a global source mask.",
+  "access_attestation": {
+    "h5_response_bodies_requested": 0,
+    "barcodes_or_feature_axes_read": 0,
+    "numeric_rna_or_adt_values_read": 0,
+    "joint_tables_associations_predictions_or_losses_computed": 0,
+    "additional_public_information_read": "Supplementary Table 3 of the primary paper, used only to bind antibody aliases and clones"
+  },
+  "feature_contract": {
+    "feature_name_dataset": "matrix/features/name",
+    "feature_type_dataset": "matrix/features/feature_type",
+    "gene_expression_type": "Gene Expression",
+    "antibody_capture_type": "Antibody Capture",
+    "rna_resolution": "For each frozen RNA symbol, require exact equality to one and only one Gene Expression feature name.",
+    "adt_resolution": "For each frozen ADT target, require exactly one Antibody Capture feature whose name is in the target's ordered exact alias list. Zero or multiple matches is terminal; feature identifiers, case folding, punctuation folding, substring matching, and post-axis alias additions are forbidden.",
+    "ordered_cognates_and_exact_adt_aliases": [
+      {"rna": "CD3D", "adt_target": "CD3", "aliases": ["CD3"], "supplement_clone": "UCHT1"},
+      {"rna": "NCAM1", "adt_target": "CD56", "aliases": ["NCAM", "CD56"], "supplement_clone": "QA17A16"},
+      {"rna": "CD19", "adt_target": "CD19", "aliases": ["CD19"], "supplement_clone": "HIB19"},
+      {"rna": "CD14", "adt_target": "CD14", "aliases": ["CD14"], "supplement_clone": "63D3"},
+      {"rna": "FCGR3A", "adt_target": "CD16", "aliases": ["CD16"], "supplement_clone": "3G8"},
+      {"rna": "MS4A1", "adt_target": "CD20", "aliases": ["CD20"], "supplement_clone": "2H7"},
+      {"rna": "CD27", "adt_target": "CD27", "aliases": ["CD27"], "supplement_clone": "O323"},
+      {"rna": "CD38", "adt_target": "CD38", "aliases": ["CD38"], "supplement_clone": "HIT2"},
+      {"rna": "CD79B", "adt_target": "CD79b", "aliases": ["CD79b (Igβ)", "CD79b"], "supplement_clone": "CB3-1"}
+    ],
+    "duplicate_policy": "Every selected barcode and every resolved feature must be unique. A duplicate is terminal.",
+    "rna_qc_scope": "Compute detected genes, total UMIs, and mitochondrial fraction from Gene Expression rows only.",
+    "mitochondrial_rule": "A Gene Expression feature is mitochondrial if and only if its exact feature name begins with MT-.",
+    "raw_value_rule": "Every dereferenced count used by the analysis must be finite, nonnegative, and integer-valued. No normalization precedes RNA detection or ADT ranking."
+  },
+  "deterministic_ordering": {
+    "encoding": "UTF-8 strings joined by one NUL byte; marker index is its zero-based base-10 ASCII representation.",
+    "cell_key": "SHA256(cell_selection_salt NUL donor NUL barcode), then raw barcode bytes",
+    "cell_output_order": "Select the first 512 keys, then restore deposited barcode order.",
+    "adt_tie_key": "raw ADT count, then SHA256(adt_tie_salt NUL donor NUL marker_index NUL barcode), then raw barcode bytes",
+    "destroyed_order": "SHA256(cell_selection_salt NUL donor NUL barcode), then raw barcode bytes; shift the complete nine-marker ADT state vector forward by one position.",
+    "configuration_ties": "Resolve exact equal losses by the explicit family order and then increasing numeric grid order; floating-point tolerances do not create ties."
+  },
+  "fold_specific_comparison_masks": {
+    "correction": "There is no global cross-validation mask. For each leave-one-donor-out fold, construct a fresh mask using only the other seven source donors. Validation paired counts, free-cell counts, and associations cannot add or remove a coordinate. The final prediction mask is constructed independently from all eight source donors only.",
+    "coordinate_universe": "All 81 frozen ordered RNA-to-ADT pairs.",
+    "training_only_conditions": [
+      "at least two training-donor tables have nondegenerate fixed-margin support",
+      "the pooled conditional score has an interior finite common-effect maximum",
+      "the table pooled over every training donor, including fixed-margin-degenerate donors, has four positive cells"
+    ],
+    "validation_and_held_support": "Intersect the applicable training-only mask only with the recipient donor's margin-informative coordinates. Recipient paired counts and association values never affect the mask.",
+    "minimum_scored_coordinates_per_donor": 64,
+    "same_mask_rule": "Every method is scored on the identical donor-specific intersection.",
+    "primary_fit_scope": "Set tables outside the fold-specific training mask to missing before the hierarchical fit; the marker graphs may connect the frozen marker panel, but excluded paired tables contribute no conditional likelihood."
+  },
+  "graph_contract": {
+    "neighbors": 2,
+    "rna_profile": "For each training donor and RNA marker, the fraction of the 512 selected cells with a positive raw RNA count.",
+    "adt_profile": "For each training donor and ADT marker, the mean log1p raw antibody count across the 512 selected cells.",
+    "standardization": "For each marker separately, center its vector across training donors and divide by the sample standard deviation with ddof=1.",
+    "distance_and_ties": "Euclidean distance between standardized marker vectors; order neighbors by distance then frozen marker index; take the undirected union of each marker's two nearest neighbors.",
+    "incidence": "One column per lexicographically ordered undirected edge, with +1 at each endpoint and zero elsewhere.",
+    "zero_variance": "A graph-dependent candidate refuses if any standardized marker profile is nonfinite or has zero variance. Graph-penalty zero uses identity incidence matrices and does not inspect profiles.",
+    "fold_rule": "Recompute both graphs from the seven training donors in every fold and from all eight source donors for the final fit. Binary ADT-state means are forbidden graph inputs because they equal 0.5 by construction."
+  },
+  "estimator_and_comparator_contract": {
+    "primary": {
+      "family": "hierarchical graph-regularized exact fixed-margin conditional coupling field",
+      "minimum_informative_training_donors_per_retained_coordinate": 2,
+      "heterogeneity_penalty_grid": [0.1, 1.0, 10.0],
+      "population_ridge_grid": [0.01, 0.1],
+      "graph_penalty_grid": [0.0, 0.03, 0.3],
+      "transport_multiplier_grid": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5],
+      "recipient_reconstruction": "Exact noncentral-hypergeometric expected table at the recipient margins."
+    },
+    "residual": {
+      "family_order": ["signed Pearson", "signed-root Poisson deviance"],
+      "coordinate": "Compute each statistic on an informative training table, divide by sqrt(512), average across informative training donors, multiply by sqrt(512) after transport scaling, and invert monotonically at recipient margins.",
+      "transport_multiplier_grid": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5]
+    },
+    "common_effect_cmle": {
+      "fit": "One exact conditional common log odds per retained coordinate using informative training donors only.",
+      "transport_multiplier_grid": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5],
+      "held_role": "Point-loss ablation only; it is not an inferential confirmation comparator."
+    },
+    "pooled_saturated_poisson": {
+      "fit": "Sum each retained 2-by-2 table over every training donor, including fixed-margin-degenerate tables. Fit the saturated row-plus-column-plus-interaction Poisson model; its interaction is log(n00*n11/(n01*n10)).",
+      "transport_multiplier_grid": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5],
+      "recipient_reconstruction": "At recipient row and column margins, fix the transported interaction and solve the row and column nuisance parameters. Equivalently call binary_table_from_helmert_coordinate(0.5 * alpha * log_odds, rows, columns), then reconstruct all four cells algebraically from its x00 and the exact margins.",
+      "forbidden_reconstruction": "Do not pass the pooled interaction through a conditional noncentral-hypergeometric expectation.",
+      "certificates": "At alpha one and pooled margins, normalized maximum cell error from the pooled table is at most 1e-8; every recipient table has the requested margins to floating-point roundoff; alpha zero equals independence."
+    },
+    "destroyed_link": {
+      "structure": "Use the real-primary-selected neighbors, heterogeneity, ridge, and graph penalties; refit the shifted training tables inside every source fold and in the final source fit.",
+      "transport_multiplier_grid": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5]
+    },
+    "independence": "Use the unique row-plus-column independence table at recipient margins."
+  },
+  "selection_and_inference": {
+    "source_loss": "For each source donor, mean multinomial deviance per cell over its applicable coordinate mask; select configurations by the equal mean of the eight leave-one-donor-out losses.",
+    "incomplete_candidate": "Any candidate that does not complete all eight folds is ineligible. At least one complete candidate in every mandatory family and a valid final fit are required.",
+    "bootstrap": "Use numpy.random.default_rng(20260830), resample physical donors with replacement, and report the linear 0.025 and 0.975 quantiles of paired donor-mean loss differences over 20000 draws.",
+    "source_interval_role": "The source interval is selection-conditional and is used only by the frozen source promotion gate; it is not confirmatory inference.",
+    "held_sign_test": "A favorable donor has strictly lower primary loss. Exact floating equality is a failure. For x favorable donors among 10, report sum_{j=x}^{10} choose(10,j)/2^10.",
+    "multiple_comparators": "Confirmation is the intersection of the separately frozen residual, pooled-Poisson, and destroyed-link requirements; no union claim is made.",
+    "disease_strata": "The pooled estimator is trained across disease strata. Strata determine allocation and descriptive reporting only."
+  },
+  "access_firewall": {
+    "source_attempt": "An exclusive attempt artifact must exist before the first source URL GET, file hash, H5 open, barcode read, or feature-axis read.",
+    "source_allowlist": "Only the eight exact candidate source URLs may be requested. The all-donor tar, every held URL, and a redirect outside the bound NCBI file host/path are forbidden.",
+    "source_failure": "Any source preflight, fit, certificate, or promotion failure writes a terminal source result and makes every held URL unreachable. No rerun is permitted.",
+    "held_margin_stage": "After a public passing source result, reduce each held H5 sequentially. Write RNA states and ADT states as separate sealed artifacts, clear one before forming the other, and publish only separate margins and hashes. The margin code may not import or call a joint-table constructor.",
+    "prediction_stage": "Read only the public source coordinates and held margins. Publish every method's predictions before score authorization; do not read per-cell state artifacts.",
+    "score_stage": "After a separate authorization binds the predictions, load the sealed RNA and ADT state artifacts, form the 81 joint tables once, score every method, and perform no network or H5 access.",
+    "download_provenance": "For every first GET, record the final URL, frozen expected bytes, observed bytes, SHA-256, decoded H5 dataset set, and deletion status."
+  },
+  "decision_rule_change": false,
+  "donor_split_change": false,
+  "panel_change": false,
+  "held_outcome_access_before_freeze": false
+}

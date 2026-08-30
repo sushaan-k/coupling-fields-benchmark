@@ -10,6 +10,10 @@ ROOT = Path(__file__).resolve().parents[1]
 CANDIDATE = (
     ROOT / "data/confirmation/gse179221_bmmc/candidate_designation_v1.json"
 )
+AMENDMENT = (
+    ROOT
+    / "data/confirmation/gse179221_bmmc/pre_access_implementation_amendment_v1.json"
+)
 
 
 def _load() -> dict:
@@ -67,3 +71,58 @@ def test_candidate_binds_all_files_and_preaccess_boundary() -> None:
     assert access["repository_and_local_search_found_prior_use"] is False
     assert "any per-donor H5 response body" in access["not_accessed"]
     assert record["metadata_bindings"]["all_donor_tar_forbidden"] is True
+
+
+def test_preaccess_amendment_closes_mask_and_poisson_ambiguities() -> None:
+    record = json.loads(AMENDMENT.read_text())
+
+    assert record["status"] == "FROZEN_BEFORE_ANY_H5_BODY_ACCESS"
+    assert record["access_attestation"]["h5_response_bodies_requested"] == 0
+    masks = record["fold_specific_comparison_masks"]
+    assert "only the other seven source donors" in masks["correction"]
+    assert "all eight source donors only" in masks["correction"]
+    assert masks["minimum_scored_coordinates_per_donor"] == 64
+
+    graph = record["graph_contract"]
+    assert graph["neighbors"] == 2
+    assert "mean log1p raw antibody count" in graph["adt_profile"]
+    assert "forbidden graph inputs" in graph["fold_rule"]
+
+    poisson = record["estimator_and_comparator_contract"][
+        "pooled_saturated_poisson"
+    ]
+    assert "every training donor" in poisson["fit"]
+    assert "binary_table_from_helmert_coordinate" in poisson[
+        "recipient_reconstruction"
+    ]
+    assert "noncentral-hypergeometric" in poisson["forbidden_reconstruction"]
+
+
+def test_preaccess_amendment_freezes_exact_panel_resolution_and_firewall() -> None:
+    record = json.loads(AMENDMENT.read_text())
+    feature = record["feature_contract"]
+    panel = feature["ordered_cognates_and_exact_adt_aliases"]
+
+    assert feature["gene_expression_type"] == "Gene Expression"
+    assert feature["antibody_capture_type"] == "Antibody Capture"
+    assert feature["mitochondrial_rule"].endswith("begins with MT-.")
+    assert [item["rna"] for item in panel] == [
+        "CD3D",
+        "NCAM1",
+        "CD19",
+        "CD14",
+        "FCGR3A",
+        "MS4A1",
+        "CD27",
+        "CD38",
+        "CD79B",
+    ]
+    assert panel[1]["aliases"] == ["NCAM", "CD56"]
+    assert panel[-1]["aliases"] == ["CD79b (Igβ)", "CD79b"]
+
+    firewall = record["access_firewall"]
+    assert "before the first source URL GET" in firewall["source_attempt"]
+    assert "makes every held URL unreachable" in firewall["source_failure"]
+    assert "may not import or call a joint-table constructor" in firewall[
+        "held_margin_stage"
+    ]
