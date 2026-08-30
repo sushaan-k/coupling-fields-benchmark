@@ -2,6 +2,12 @@
 
 ## Question and freeze boundary
 
+The candidate designation is interpreted together with
+`pre_access_implementation_amendment_v1.json`. That amendment freezes feature
+resolution, graph construction, comparator reconstruction, fold-specific
+masks, deterministic ties, and the staged access firewall before any H5 body
+is requested.
+
 This one-shot experiment tests whether RNA--surface-protein dependence learned
 from eight bone-marrow donors predicts paired dependence in ten donor-disjoint
 marrow samples. The source and held sets are stratified across healthy, IgM
@@ -52,8 +58,11 @@ multivariate protein profile.
 
 ## Source models and classical head-to-head
 
-Source selection uses eight leave-one-donor-out folds. Every graph and fit is
-rebuilt from the seven training donors. The primary hierarchical exact
+Source selection uses eight leave-one-donor-out folds. Every graph, comparison
+mask, and fit is rebuilt from the seven training donors. A validation donor
+contributes only its recipient margins and truth for scoring; its paired counts
+cannot alter the fold mask. The final prediction mask is rebuilt from all eight
+source donors. The primary hierarchical exact
 conditional coupling field crosses heterogeneity penalty `0.1, 1, 10`,
 population ridge `0.01, 0.1`, graph penalty `0, 0.03, 0.3`, and transport
 multiplier `0, 0.25, 0.5, 0.75, 1, 1.25, 1.5`. Only configurations completing
@@ -77,10 +86,12 @@ noncentral-hypergeometric expectation.
 
 ## Source promotion
 
-The comparison mask is frozen before model selection. Every retained
-coordinate must have a finite interior common-effect estimate and a finite
-pooled Poisson interaction in every source fold and final fit. At least 64
-coordinates must remain for every source donor.
+Each fold-specific comparison mask is determined from its seven training
+donors before candidate scoring. Every retained coordinate must have a finite
+interior common-effect estimate and a finite pooled Poisson interaction in that
+training set. Its intersection with the validation donor's margin support must
+contain at least 64 coordinates. The final held mask is determined only from
+the eight source donors.
 
 Source promotion requires all of the following:
 
