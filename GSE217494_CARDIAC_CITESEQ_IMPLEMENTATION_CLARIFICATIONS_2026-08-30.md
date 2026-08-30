@@ -49,6 +49,25 @@ exact-common, and independence fields are fit entity by entity, so their
 already-frozen estimates are subset to the same module pairs; this is
 algebraically identical to refitting them on that subset.
 
+For every evaluable module-comparator pair, the effect is the donor-equal mean
+deviance difference. Its 95% interval uses the same 20,000-draw,
+etiology-stratified paired-heart percentile bootstrap and seed `21749401` as
+the primary analysis. The exact paired sign-permutation p-value uses all
+`2^8` sign assignments. Benjamini-Hochberg adjustment spans the complete
+evaluable module-by-mandatory-comparator family.
+
+## Exploratory neighbor summary
+
+For each held heart, RNA markers are represented by their rows in the
+predicted or observed standardized-residual field. The three nearest other
+RNA markers are ordered by `(Euclidean distance, marker symbol)`. The statistic
+is the mean top-three Jaccard overlap across every marker and held heart. Each
+of 10,000 null draws relabels the predicted RNA-neighbor graph with one marker
+permutation shared across all held hearts; the observed graph remains fixed.
+The seed is `21749402`. The reported Monte Carlo p-value is
+`(1 + count(null >= observed)) / 10001`, and linear 0.025 and 0.975 quantiles
+summarize the null distribution.
+
 ## Acquisition and serialization
 
 The acquisition layer independently counts and hashes the exact compressed
