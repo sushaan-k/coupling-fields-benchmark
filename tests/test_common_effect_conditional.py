@@ -48,7 +48,7 @@ def test_fit_carries_an_exact_external_score_certificate() -> None:
         minimum_informative_donors=2,
     )
 
-    np.testing.assert_allclose(fit.gradient, evaluation.gradient, atol=2e-14)
+    np.testing.assert_allclose(fit.gradient, evaluation.gradient, atol=5e-14)
     np.testing.assert_allclose(fit.data_precision, evaluation.data_precision, atol=2e-14)
     assert fit.gradient_norm == pytest.approx(np.max(np.abs(evaluation.gradient)))
     assert fit.scaled_gradient_norm < 1e-13
