@@ -41,11 +41,11 @@ def test_metric_aware_ledgers_include_completed_and_refused_evidence() -> None:
     by_panel = {row["panel_id"]: row for row in panels}
     by_comparison = {row["comparison_id"]: row for row in comparisons}
 
-    assert len(panels) == 34
+    assert len(panels) == 35
     assert len(comparisons) == 29
-    assert len(sequence) == 65
+    assert len(sequence) == 73
     assert sum(row["outcome_scored"] == "YES" for row in panels) == 12
-    assert sum(row["inference_role"] == "procedural_refusal" for row in panels) == 21
+    assert sum(row["inference_role"] == "procedural_refusal" for row in panels) == 22
 
     stephenson = by_panel["stephenson_newcastle_confirmation"]
     assert stephenson["inference_role"] == "confirmatory"
@@ -88,6 +88,41 @@ def test_metric_aware_ledgers_include_completed_and_refused_evidence() -> None:
     ]
     assert float(exact["relative_improvement"]) < 0
     assert exact["inference_role"] == "post_hoc_nonconfirmatory"
+
+    gse342939 = by_panel["gse342939_ra_bcell_source_terminal"]
+    assert gse342939["inference_role"] == "procedural_refusal"
+    assert gse342939["outcome_scored"] == "NO"
+    assert gse342939["primary_value"] == ""
+    assert gse342939["decision"] == "TERMINAL_SOURCE_EXECUTION_REFUSAL"
+    assert gse342939["result_sha256"] == (
+        "563d8dd1aa3cfba8cf1c336b2162513fc9e852605392f4d733767dd98efc0eb0"
+    )
+
+    gse342939_sequence = [
+        row
+        for row in sequence
+        if row["panel_id"] == "gse342939_ra_bcell_source_terminal"
+    ]
+    assert len(gse342939_sequence) == 8
+    assert gse342939_sequence[-1]["status"] == "TERMINAL_SOURCE_EXECUTION_REFUSAL"
+    assert gse342939_sequence[-1]["outcome_access"] == (
+        "ALL_SOURCE_MATRICES_REDUCED_HELD_UNOPENED"
+    )
+    assert gse342939_sequence[-1]["public_before_outcome"] == "NOT_APPLICABLE"
+
+    gse342939_result = json.loads(
+        (ROOT / gse342939["result_artifact"]).read_text(encoding="utf-8")
+    )
+    assert gse342939_result["held_numeric_access_authorized"] is False
+    assert gse342939_result["access_audit"]["held_numeric_urls_requested"] == 0
+    assert gse342939_result["rerun_permitted"] is False
+    assert len(gse342939_result["source_files"]) == 28
+    assert all(
+        source_file["completed"]
+        and source_file["reduction_completed"]
+        and source_file["deleted"]
+        for source_file in gse342939_result["source_files"]
+    )
     legacy_pooled = by_comparison[
         "gse239452_held_post_access_correction__"
         "posthoc_primary_vs_pooled_table_log_odds_conditional_reconstruction"
@@ -319,12 +354,12 @@ def test_manifest_counts_and_claim_boundaries_match_ledgers() -> None:
     assert manifest["schema"] == "coupling-fields-public-benchmark/2.0"
     assert manifest["counts"] == {
         "comparison_records": 29,
-        "panel_records": 34,
+        "panel_records": 35,
         "infrastructure_unevaluable_records": 1,
         "pending_records": 0,
-        "procedural_refusal_records": 21,
+        "procedural_refusal_records": 22,
         "scored_panel_records": 12,
-        "sequence_records": 65,
+        "sequence_records": 73,
     }
     assert manifest["archive_doi"] is None
     assert manifest["code_license"] is None

@@ -375,12 +375,12 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
     assert manifest["intended_release_tag"] == "coupling-fields-v2-public-benchmark"
     assert manifest["counts"] == {
         "comparison_records": 29,
-        "panel_records": 34,
+        "panel_records": 35,
         "infrastructure_unevaluable_records": 1,
         "pending_records": 0,
-        "procedural_refusal_records": 21,
+        "procedural_refusal_records": 22,
         "scored_panel_records": 12,
-        "sequence_records": 65,
+        "sequence_records": 73,
     }
     assert manifest["archive_doi"] is None
     assert manifest["code_license"] is None
@@ -390,9 +390,9 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
     )
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 79
+    assert len(artifacts) == 87
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 79
+    assert len(by_path) == 87
     for relative in (
         "results/benchmark_panels_v2.tsv",
         "results/benchmark_comparisons_v2.tsv",

@@ -954,6 +954,55 @@ def _terminal_panels() -> list[dict[str, Any]]:
             }
         )
 
+    gse342939_path = "results/development/gse342939_ra_bcell_source_v1.json"
+    gse342939 = _load_json(gse342939_path)
+    access = gse342939.get("access_audit", {})
+    files = gse342939.get("source_files", [])
+    if (
+        gse342939.get("status") != "TERMINAL_SOURCE_EXECUTION_REFUSAL"
+        or gse342939.get("reason_code") != "NO_COMPLETE_PRIMARY_CANDIDATE"
+        or gse342939.get("held_numeric_access_authorized") is not False
+        or gse342939.get("rerun_permitted") is not False
+        or access.get("held_numeric_urls_requested") != 0
+        or len(files) != 28
+        or not all(
+            record.get("completed") is True
+            and record.get("deleted") is True
+            and record.get("reduction_completed") is True
+            for record in files
+        )
+    ):
+        raise ValueError("GSE342939 terminal source record changed")
+    result_path, result_sha = _artifact_fields(gse342939_path)
+    panels.append(
+        {
+            "panel_id": "gse342939_ra_bcell_source_terminal",
+            "panel": "GSE342939 longitudinal RA B-cell source campaign",
+            "accession": "GSE342939",
+            "assay_pair": "paired longitudinal B-cell RNA-ADT coupling transfer",
+            "analysis_phase": "source_gate",
+            "inference_role": "procedural_refusal",
+            "evaluation_unit": "physical source donor",
+            "unit_count": 7,
+            "entity_count": 2025,
+            "primary_method": "longitudinal_graph_regularized_exact_conditional_coupling",
+            "primary_metric": "",
+            "metric_direction": "",
+            "primary_value": "",
+            "ci_95_low": "",
+            "ci_95_high": "",
+            "decision": gse342939["status"],
+            "outcome_scored": "NO",
+            "result_artifact": result_path,
+            "result_sha256": result_sha,
+            "notes": (
+                "All 28 source matrices were reduced and deleted, but no primary "
+                "configuration completed every source fold. The six held donors "
+                "remained unopened."
+            ),
+        }
+    )
+
     kotliarov_v2_path = "results/development/kotliarov_pbmc_binary_v2_source_v2.json"
     kotliarov_v2 = _load_json(kotliarov_v2_path)
     if kotliarov_v2["status"] != "TERMINAL_SOURCE_EXECUTION_REFUSAL":
@@ -1184,6 +1233,7 @@ def _sequence(panels: list[dict[str, Any]]) -> list[dict[str, Any]]:
         "combat_terminal_pilot",
         "kotliarov_pbmc_binary_v2_source_terminal",
         "gse179221_bmmc_source_terminal",
+        "gse342939_ra_bcell_source_terminal",
         "stephenson_unused_cambridge_terminal",
     }
     rows = [
@@ -1537,6 +1587,100 @@ def _sequence(panels: list[dict[str, Any]]) -> list[dict[str, Any]]:
                     "Deterministic post-run code-path audit, explicitly not an "
                     "instrumented runtime observation; the one-shot attempt and "
                     "result remain unchanged."
+                ),
+            ),
+            _sequence_row(
+                "gse342939_ra_bcell_source_terminal",
+                1,
+                "protocol",
+                "FROZEN_BEFORE_ANY_NUMERIC_MATRIX_ACCESS",
+                "ALL_NUMERIC_MATRICES_UNOPENED",
+                "YES",
+                "docs/GSE342939_RA_BCELL_CITESEQ_HELD_DONOR_PROTOCOL_2026-08-29.md",
+                "gse342939-ra-bcell-v1-candidate",
+            ),
+            _sequence_row(
+                "gse342939_ra_bcell_source_terminal",
+                2,
+                "candidate_designation",
+                "FROZEN_FROM_METADATA_AND_NONNUMERIC_AXES",
+                "ALL_NUMERIC_MATRICES_UNOPENED",
+                "YES",
+                "data/confirmation/gse342939_ra_bcell/candidate_designation_v1.json",
+                "gse342939-ra-bcell-v1-candidate",
+            ),
+            _sequence_row(
+                "gse342939_ra_bcell_source_terminal",
+                3,
+                "implementation_amendment",
+                "FROZEN_BEFORE_ANY_NUMERIC_MATRIX_ACCESS",
+                "ALL_NUMERIC_MATRICES_UNOPENED",
+                "YES",
+                (
+                    "data/confirmation/gse342939_ra_bcell/"
+                    "pre_access_implementation_amendment_v1.json"
+                ),
+                "gse342939-ra-bcell-v1-pre-access-amendment",
+            ),
+            _sequence_row(
+                "gse342939_ra_bcell_source_terminal",
+                4,
+                "streaming_reduction_clarification",
+                "FROZEN_BEFORE_ANY_NUMERIC_MATRIX_ACCESS",
+                "ALL_NUMERIC_MATRICES_UNOPENED",
+                "YES",
+                (
+                    "data/confirmation/gse342939_ra_bcell/"
+                    "pre_access_streaming_reduction_clarification_v1.json"
+                ),
+                "gse342939-ra-bcell-v1-streaming-reduction-clarification",
+            ),
+            _sequence_row(
+                "gse342939_ra_bcell_source_terminal",
+                5,
+                "implementation",
+                "IMPLEMENTATION_FROZEN_BEFORE_NUMERIC_ACCESS",
+                "ALL_NUMERIC_MATRICES_UNOPENED",
+                "YES",
+                "experiments/confirm_gse342939_ra_bcell.py",
+                "gse342939-ra-bcell-v1-implementation",
+            ),
+            _sequence_row(
+                "gse342939_ra_bcell_source_terminal",
+                6,
+                "source_attempt",
+                "CLAIMED_BEFORE_FIRST_NUMERIC_MATRIX_GET",
+                "SOURCE_GET_AUTHORIZED_HELD_DISABLED",
+                "YES",
+                "data/confirmation/gse342939_ra_bcell/source_attempt_v1.json",
+                "gse342939-ra-bcell-v1-source-attempt",
+            ),
+            _sequence_row(
+                "gse342939_ra_bcell_source_terminal",
+                7,
+                "source_consumption",
+                "CONSUMED_EXCLUSIVELY_BEFORE_FIRST_NUMERIC_MATRIX_GET",
+                "SOURCE_GET_CONSUMED_HELD_DISABLED",
+                "NO",
+                "data/confirmation/gse342939_ra_bcell/source_consumption_v1.json",
+                "gse342939-ra-bcell-v1-source",
+                notes=(
+                    "The exclusive consumption record preceded the first source "
+                    "GET and was published with the terminal result."
+                ),
+            ),
+            _sequence_row(
+                "gse342939_ra_bcell_source_terminal",
+                8,
+                "source_result",
+                "TERMINAL_SOURCE_EXECUTION_REFUSAL",
+                "ALL_SOURCE_MATRICES_REDUCED_HELD_UNOPENED",
+                "NOT_APPLICABLE",
+                "results/development/gse342939_ra_bcell_source_v1.json",
+                "gse342939-ra-bcell-v1-source",
+                notes=(
+                    "No primary configuration completed every source fold; the "
+                    "six held donors remained unopened."
                 ),
             ),
             _sequence_row(

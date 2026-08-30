@@ -28,6 +28,31 @@
       "sha256": "95c0c640fddc6b70cb7dd4b509e27f0e0604186df89ad057eeff7bc93f2fd871"
     },
     {
+      "bytes": 73089,
+      "path": "data/confirmation/gse342939_ra_bcell/candidate_designation_v1.json",
+      "sha256": "26816d705f201227fb86fe1e6cb167fdc4879dbc9a02d24a3b00171c73911d9e"
+    },
+    {
+      "bytes": 16945,
+      "path": "data/confirmation/gse342939_ra_bcell/pre_access_implementation_amendment_v1.json",
+      "sha256": "583890f90f0c89190cdb74a47170832d987a8d90b193a6acc3a1c923b031f0ab"
+    },
+    {
+      "bytes": 2701,
+      "path": "data/confirmation/gse342939_ra_bcell/pre_access_streaming_reduction_clarification_v1.json",
+      "sha256": "75d651d7f10b93e03f438fc35ea1420adca987a9f518afc8b9e1896c87c89ece"
+    },
+    {
+      "bytes": 6788,
+      "path": "data/confirmation/gse342939_ra_bcell/source_attempt_v1.json",
+      "sha256": "612ad89e3ec4bffe8c6d460ef711a773b81918ec24b8a59c8f543e73a116d131"
+    },
+    {
+      "bytes": 311,
+      "path": "data/confirmation/gse342939_ra_bcell/source_consumption_v1.json",
+      "sha256": "de2d49577ca4a8bce78de227b9ee038cc3cbf09a5707f15fc5677cf46c6d6af3"
+    },
+    {
       "bytes": 2520,
       "path": "data/confirmation/kotliarov_pbmc_binary_v2/candidate_designation_v2.json",
       "sha256": "804c9f3593f4243ed7f2bb63f262231177481075aa254995a8ee0b7a9972c4a1"
@@ -108,6 +133,11 @@
       "sha256": "13e44a2faf0aeaac75e8444c8b91e9d76ded27522538abb94211b5db5f5a9fc6"
     },
     {
+      "bytes": 9529,
+      "path": "docs/GSE342939_RA_BCELL_CITESEQ_HELD_DONOR_PROTOCOL_2026-08-29.md",
+      "sha256": "2f9bc8db8c20aaf71d3160ea9279b24067ff85b7af67c3843776aeab20c4f459"
+    },
+    {
       "bytes": 9517,
       "path": "docs/SCMMIB_BMMC_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-28.md",
       "sha256": "6d32fe7c94738dd225b9d8b051f56461b29d07595f03d7d209d7bec4cdac357d"
@@ -128,14 +158,19 @@
       "sha256": "e078c6fd403a8b7431e451357ef5e4479b30f629087f4bb4a7cc00b8ceef9b15"
     },
     {
-      "bytes": 77583,
+      "bytes": 83679,
       "path": "experiments/build_public_benchmark_release.py",
-      "sha256": "58d65cf409b64ce8162e4d278b18a07597a7074a07bdc12b2f9ff7c7e38ea763"
+      "sha256": "427ba0ceb24b4523606dbf318a39d4757b7a68d10643f12e3cfc75a9a96b020c"
     },
     {
       "bytes": 144069,
       "path": "experiments/confirm_gse179221_bmmc.py",
       "sha256": "af85ec66566e30b27d0d132c74a7b8b3b2d2bd5c905e643ff67e9d0283bb99bc"
+    },
+    {
+      "bytes": 181625,
+      "path": "experiments/confirm_gse342939_ra_bcell.py",
+      "sha256": "ae9be229aaaaf7a24640b1fa8d67a9a68778fb4ac5dca7589f463a20caebb862"
     },
     {
       "bytes": 9725,
@@ -163,14 +198,14 @@
       "sha256": "e6aff4d206ac9b34bb3795fbd3febeb9c6b1aa76f3e034995febe45529441147"
     },
     {
-      "bytes": 20229,
+      "bytes": 20801,
       "path": "results/benchmark_panels_v2.tsv",
-      "sha256": "9134bca2519cbf45d988e2ce5908edb06eff87ef99e4e3d586b663f22b6ba3dd"
+      "sha256": "b34fd94c8b7f5c507719385297d633009c5163b1ad56ea1f0d9bd47ee3f67947"
     },
     {
-      "bytes": 22260,
+      "bytes": 25433,
       "path": "results/benchmark_sequence_v2.tsv",
-      "sha256": "16171fdfec0e6d07d24b3632fa0daf29aeeff5e5660ac58ec6a44a287c433fc6"
+      "sha256": "68531f661d54c7c7361cd4432e484b7e314acf6f29532108da1692146c95a0f7"
     },
     {
       "bytes": 102047,
@@ -271,6 +306,11 @@
       "bytes": 1765,
       "path": "results/development/gse334503_source_terminal_decision_v1.json",
       "sha256": "c4b21794260aeb47cfc754be438507323511350d5fc66874aeec29412a73bf59"
+    },
+    {
+      "bytes": 147588,
+      "path": "results/development/gse342939_ra_bcell_source_v1.json",
+      "sha256": "563d8dd1aa3cfba8cf1c336b2162513fc9e852605392f4d733767dd98efc0eb0"
     },
     {
       "bytes": 1861,
@@ -393,20 +433,20 @@
       "sha256": "2c9f025aab0259b8cbe8b4ee0f2766a00593ae98a06daf4337fc4b08566940f4"
     },
     {
-      "bytes": 13502,
+      "bytes": 14949,
       "path": "tests/test_public_benchmark_release_v2.py",
-      "sha256": "3365bb1128116f663e5656684c1edc55771f7de4be5aab275f310da757b025f6"
+      "sha256": "bbc95827b4fe82249c5c76659ae04ceb42b7c68595e07fb9cec5d15056d32295"
     }
   ],
   "code_license": null,
   "counts": {
     "comparison_records": 29,
     "infrastructure_unevaluable_records": 1,
-    "panel_records": 34,
+    "panel_records": 35,
     "pending_records": 0,
-    "procedural_refusal_records": 21,
+    "procedural_refusal_records": 22,
     "scored_panel_records": 12,
-    "sequence_records": 65
+    "sequence_records": 73
   },
   "infrastructure_unevaluable": {
     "panel_id": "stephenson_unused_cambridge_terminal",
