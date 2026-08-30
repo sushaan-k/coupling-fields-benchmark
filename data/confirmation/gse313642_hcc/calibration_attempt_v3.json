@@ -1,0 +1,35 @@
+{
+  "automatic_retries": false,
+  "axis_preflight_commit": "1714a5c93629c7ce38d9095203e014155370fed0",
+  "axis_preflight_sha256": "b4ffb97720dc99e629aaea584e12285863fe072ed6bd110f460104fc7fc18999",
+  "claim_token_sha256": "5644ca3941dd94c8c35258fe5df868d61eb1ec104dcdd3a6e9ad00377fa9167c",
+  "created_at_utc": "2026-08-30T22:34:44Z",
+  "designation_sha256": "a5d5ca1537eafcb2694d611a0201e78b6f8be80439e300763280907cd64567b7",
+  "implementation_commit": "b4d6cd5a17bea491cec6f3ff79931e50ea0cb482",
+  "one_get_per_matrix": true,
+  "rerun_permitted": false,
+  "runtime": {
+    "operating_system": {
+      "machine": "arm64",
+      "system": "Darwin"
+    },
+    "packages": {
+      "numpy": "2.0.2",
+      "scipy": "1.13.1"
+    },
+    "python": {
+      "implementation": "CPython",
+      "version": "3.9.6"
+    },
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "schema": "gse313642-hcc-calibration-attempt/3.0",
+  "series_tar_used": false,
+  "status": "CLAIMED_BEFORE_MATRIX_ACCESS"
+}
