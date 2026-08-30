@@ -1,0 +1,152 @@
+{
+  "schema": "gse313642-hcc-citeseq-candidate-designation/2.0",
+  "status": "METADATA_ONLY_DESIGNATED_OUTCOME_DISABLED",
+  "accession": "GSE313642",
+  "bioproject": "PRJNA1380453",
+  "study": "HCC PBMC CITE-seq during sorafenib and checkpoint-inhibitor therapy",
+  "designated_at_utc": "2026-08-30T19:39:30Z",
+  "numeric_assay_matrix_entry_accessed_before_designation": false,
+  "metadata_provenance": {
+    "family_soft_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE313nnn/GSE313642/soft/GSE313642_family.soft.gz",
+    "family_soft_bytes": 20765,
+    "family_soft_sha256": "f3d1a3d6dd0fcf707456b205619659c18d6d0017cf3532e4789d99209b96c2db",
+    "filelist_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE313nnn/GSE313642/suppl/filelist.txt",
+    "filelist_bytes": 43340,
+    "filelist_sha256": "8fb88cd52c30eb91a8da21caff1352c1307a47dc7ac0ddcc3fdd9960c9141aa9",
+    "sample_records": 194,
+    "exact_gex_fb_pairs": 97,
+    "matrix_market_body_or_header_requested": false,
+    "feature_or_barcode_payload_requested": true,
+    "pre_v1_designation_axis_access": {
+      "scope": "A-07-01 GEX and FB feature and barcode gzip payloads only",
+      "numeric_matrix_values_accessed": false,
+      "gex_features_gzip_sha256": "3fa018cf1af042bb640f35fe4c118c8a11b4e66f0ce5435f1d861aa850c02793",
+      "fb_features_gzip_sha256": "822131cc6e18ff1e5f098730d1a0c5a459902d3a4687c1de813afc9279673554",
+      "gex_barcodes_gzip_sha256": "ec427de7c879e7dded19af52b065805e01b82610c30e8f677b536a91c5889a63",
+      "fb_barcodes_gzip_sha256": "e7bf9408f1580cc4ded1a29af0871878160debce019a16fcd0c545eb19165be1",
+      "barcodes_per_modality": 3078,
+      "barcode_sets_exactly_equal": true,
+      "barcode_orders_equal": false,
+      "all_nine_frozen_markers_unique_on_both_feature_axes": true,
+      "used_for_split_or_pair_selection": false
+    },
+    "post_v1_pre_v2_axis_gate_disclosure": {
+      "terminal_refusal_tag": "gse313642-hcc-v1-terminal-axis-refusal",
+      "terminal_refusal_commit": "b814c6c33a068ae341f983d8d82ea40dddb36207",
+      "terminal_refusal_path": "results/development/gse313642_hcc_axis_preflight_v1.json",
+      "axis_access_journal": "data/confirmation/gse313642_hcc/axis_access_v1.jsonl",
+      "axis_access_journal_sha256": "2619458df75a219f1f2b21b8f00e7dc2c096b7309a06dc22caa8d6d5ca201555",
+      "axis_gets_completed": 140,
+      "retained_axis_files_already_accessed": 136,
+      "numeric_matrix_body_or_header_requested": false,
+      "failure": "A-33 replicate 1 contained three duplicated barcode identifiers in both modalities",
+      "v2_change": "exclude only the refused A-33 pilot pair; all calibration and held assignments remain unchanged",
+      "used_for_v2_input_exclusion": true,
+      "used_for_split_marker_gate_or_hyperparameter_selection": false
+    }
+  },
+  "cohort": {
+    "hcc_patient_count": 34,
+    "hcc_pair_count_after_one_pair_per_patient_selection": 34,
+    "healthy_donor_count": 3,
+    "healthy_pair_count": 21,
+    "healthy_donors": ["HC1", "HC2", "HC3"],
+    "healthy_use": "descriptive only after the terminal HCC result; no tuning, promotion, prediction, gate, or inferential claim"
+  },
+  "pair_selection": {
+    "rule": "Retain the v1 earliest-timepoint and lexical-pair designation for every patient except A-33, which is excluded after its deposited GEX and FB barcode axes failed the frozen v1 uniqueness gate before any matrix request.",
+    "time_order": "baseline; then C<cycle>D<day> ordered by numeric cycle and day; then Safety follow up; then Long term follow up",
+    "uses_numeric_assay_values": false
+  },
+  "split_rule": {
+    "salt": "GSE313642-HCC-PBMC-CITESEQ-v1|donor|2026-08-30",
+    "ranking": "Within A and B separately, ascending SHA256(UTF8(salt + NUL + deposited_patient_id)); ties by deposited_patient_id",
+    "allocation_A": "v1 first 5 held, next 5 pilot, remaining 5 calibration; v2 excludes A33 from pilot without replacement",
+    "allocation_B": "first 7 held, next 7 pilot, remaining 6 calibration",
+    "salt_search_or_outcome_optimization": false,
+    "counts": {"calibration": 11, "pilot": 11, "held": 12}
+  },
+  "markers": ["CD4", "CD7", "CD14", "CD19", "CD33", "CD38", "CD44", "CD47", "CD52"],
+  "marker_order_is_frozen": true,
+  "entity_count": 81,
+  "feature_schema": {
+    "columns_per_row": 3,
+    "gex": {"marker_column_1based": 2, "type_column_1based": 3, "required_type": "Gene Expression"},
+    "fb": {
+      "marker_column_1based": 1,
+      "description_column_1based": 2,
+      "type_column_1based": 3,
+      "required_type": "Antibody Capture",
+      "exact_marker_descriptions": {
+        "CD4": "0072 anti-human CD4",
+        "CD7": "0066 anti-human CD7",
+        "CD14": "0081 anti-human CD14",
+        "CD19": "0050 anti-human CD19",
+        "CD33": "0052 anti-human CD33",
+        "CD38": "0389 anti-human CD38",
+        "CD44": "0073 anti-mouse/human CD44",
+        "CD47": "0026 anti-human CD47",
+        "CD52": "0033 anti-human CD52"
+      }
+    }
+  },
+  "pre_matrix_axis_gate": {
+    "scope": "all 34 retained HCC GEX/FB pairs",
+    "requirements": [
+      "each GEX and FB barcode axis is internally unique",
+      "each exact common barcode set contains at least 512 barcodes",
+      "the paired GEX and FB barcode sets are exactly equal after no normalization",
+      "each frozen GEX symbol resolves exactly once in feature column 2 with type Gene Expression in column 3",
+      "each same-named frozen FB alias resolves exactly once in feature column 1 with its frozen description in column 2 and type Antibody Capture in column 3",
+      "all feature and barcode gzip streams pass CRC and declared-axis validation"
+    ],
+    "failure": "terminal candidate refusal before any matrix request"
+  },
+  "remote_access": {
+    "series_raw_tar": "FORBIDDEN",
+    "individual_url_template": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9371nnn/{gsm}/suppl/{gsm}_{pair_stem}_{modality}_{member}",
+    "members": ["barcodes.tsv.gz", "features.tsv.gz", "matrix.mtx.gz"],
+    "modalities": ["GEX", "FB"]
+  },
+  "patients": [
+    {"patient_id":"A02","deposited_patient_id":"A-02","group":"A","role":"held","rank":2,"split_sha256":"2c0493a5628b4c152196c11a8d877c89417960c5d79c7397202d17f0e028324a","pair_stem":"A-02-01","timepoint":"C1D1","gex_gsm":"GSM9371480","fb_gsm":"GSM9371577","gex_expected_bytes":{"barcodes.tsv.gz":13894,"features.tsv.gz":283033,"matrix.mtx.gz":11746930},"fb_expected_bytes":{"barcodes.tsv.gz":15502,"features.tsv.gz":2844,"matrix.mtx.gz":1093847}},
+    {"patient_id":"A03","deposited_patient_id":"A-03","group":"A","role":"pilot","rank":8,"split_sha256":"86bfa71e0f1303d11b806a8978ca7b44c7b5d87dc3d14cb69d889fac9259a2c6","pair_stem":"A-03-01_01","timepoint":"Long term follow up","gex_gsm":"GSM9371487","fb_gsm":"GSM9371584","gex_expected_bytes":{"barcodes.tsv.gz":14009,"features.tsv.gz":283036,"matrix.mtx.gz":11874373},"fb_expected_bytes":{"barcodes.tsv.gz":15760,"features.tsv.gz":2847,"matrix.mtx.gz":1569954}},
+    {"patient_id":"A04","deposited_patient_id":"A-04","group":"A","role":"pilot","rank":7,"split_sha256":"77160fa2cdebebe0726f9c2179817be5197ce7ba82d81e50ac0daf3e5303e24e","pair_stem":"A-04-01_01","timepoint":"C2D1","gex_gsm":"GSM9371447","fb_gsm":"GSM9371544","gex_expected_bytes":{"barcodes.tsv.gz":10027,"features.tsv.gz":283036,"matrix.mtx.gz":8261328},"fb_expected_bytes":{"barcodes.tsv.gz":11016,"features.tsv.gz":2847,"matrix.mtx.gz":604851}},
+    {"patient_id":"A05","deposited_patient_id":"A-05","group":"A","role":"held","rank":1,"split_sha256":"110d39e3e8e94edc28ecac7e500b3bcb9a154ea0c6000d8d9fd0da220da2fe18","pair_stem":"A-05-01_01","timepoint":"C4D1","gex_gsm":"GSM9371468","fb_gsm":"GSM9371565","gex_expected_bytes":{"barcodes.tsv.gz":18788,"features.tsv.gz":283036,"matrix.mtx.gz":18986897},"fb_expected_bytes":{"barcodes.tsv.gz":21845,"features.tsv.gz":2847,"matrix.mtx.gz":2448249}},
+    {"patient_id":"A07","deposited_patient_id":"A-07","group":"A","role":"held","rank":3,"split_sha256":"2ef6f41ebe54bf61917ead613fcea09b6063a939ed5fad0a879c12c7c351fb43","pair_stem":"A-07-01","timepoint":"C2D1","gex_gsm":"GSM9371441","fb_gsm":"GSM9371538","gex_expected_bytes":{"barcodes.tsv.gz":14125,"features.tsv.gz":283033,"matrix.mtx.gz":10501377},"fb_expected_bytes":{"barcodes.tsv.gz":15829,"features.tsv.gz":2844,"matrix.mtx.gz":821145}},
+    {"patient_id":"A08","deposited_patient_id":"A-08","group":"A","role":"calibration","rank":13,"split_sha256":"e381b3a737024bbe9d15802f6d79466e60aa70da3702f726aa5a72fd66091736","pair_stem":"A-08-01_01","timepoint":"C1D1","gex_gsm":"GSM9371459","fb_gsm":"GSM9371556","gex_expected_bytes":{"barcodes.tsv.gz":10370,"features.tsv.gz":283036,"matrix.mtx.gz":8363825},"fb_expected_bytes":{"barcodes.tsv.gz":11396,"features.tsv.gz":2847,"matrix.mtx.gz":1259533}},
+    {"patient_id":"A12","deposited_patient_id":"A-12","group":"A","role":"calibration","rank":12,"split_sha256":"c680cb409b5646a8c7f4d01862579723de9d37049b5703353687c9b6be30d1d1","pair_stem":"A-12-01_01","timepoint":"baseline","gex_gsm":"GSM9371450","fb_gsm":"GSM9371547","gex_expected_bytes":{"barcodes.tsv.gz":11434,"features.tsv.gz":283036,"matrix.mtx.gz":9964273},"fb_expected_bytes":{"barcodes.tsv.gz":12666,"features.tsv.gz":2847,"matrix.mtx.gz":699346}},
+    {"patient_id":"A21","deposited_patient_id":"A-21","group":"A","role":"held","rank":4,"split_sha256":"4fd89800057488b1a464cbb1aae8181436c248442f2cd72f2e75a2bfe0ff9754","pair_stem":"A-21-01","timepoint":"baseline","gex_gsm":"GSM9371462","fb_gsm":"GSM9371559","gex_expected_bytes":{"barcodes.tsv.gz":12773,"features.tsv.gz":283033,"matrix.mtx.gz":8535977},"fb_expected_bytes":{"barcodes.tsv.gz":14125,"features.tsv.gz":2844,"matrix.mtx.gz":906444}},
+    {"patient_id":"A30","deposited_patient_id":"A-30","group":"A","role":"calibration","rank":11,"split_sha256":"bb1550ff70984ae10b7f1002e609e45a49dd98de37632b7c680e201207fde702","pair_stem":"A-30-01_01","timepoint":"C1D1","gex_gsm":"GSM9371470","fb_gsm":"GSM9371567","gex_expected_bytes":{"barcodes.tsv.gz":26323,"features.tsv.gz":283036,"matrix.mtx.gz":26880287},"fb_expected_bytes":{"barcodes.tsv.gz":31248,"features.tsv.gz":2847,"matrix.mtx.gz":3378462}},
+    {"patient_id":"A31","deposited_patient_id":"A-31","group":"A","role":"pilot","rank":10,"split_sha256":"b893210366af359851cfcae09d9772336edad822720b3ba1b7aa7ea51deac2fd","pair_stem":"A-31-02","timepoint":"C2D1","gex_gsm":"GSM9371508","fb_gsm":"GSM9371605","gex_expected_bytes":{"barcodes.tsv.gz":24010,"features.tsv.gz":283033,"matrix.mtx.gz":36355929},"fb_expected_bytes":{"barcodes.tsv.gz":28328,"features.tsv.gz":2844,"matrix.mtx.gz":3098151}},
+    {"patient_id":"A32","deposited_patient_id":"A-32","group":"A","role":"calibration","rank":14,"split_sha256":"f0611647f0fe3dccebc8287dfa3a8fbb5eb4e8a89647be70d208e3cf5d6a285d","pair_stem":"A-32-01","timepoint":"C1D1","gex_gsm":"GSM9371449","fb_gsm":"GSM9371546","gex_expected_bytes":{"barcodes.tsv.gz":16979,"features.tsv.gz":283033,"matrix.mtx.gz":14806796},"fb_expected_bytes":{"barcodes.tsv.gz":19657,"features.tsv.gz":2844,"matrix.mtx.gz":1097091}},
+    {"patient_id":"A34","deposited_patient_id":"A-34","group":"A","role":"calibration","rank":15,"split_sha256":"f977e42300f445524124b68a6449ece9072619ec9c6f0b33ba7b333575900964","pair_stem":"A-34-01_01","timepoint":"C1D1","gex_gsm":"GSM9371524","fb_gsm":"GSM9371621","gex_expected_bytes":{"barcodes.tsv.gz":8015,"features.tsv.gz":283036,"matrix.mtx.gz":10284982},"fb_expected_bytes":{"barcodes.tsv.gz":9392,"features.tsv.gz":2847,"matrix.mtx.gz":903844}},
+    {"patient_id":"A35","deposited_patient_id":"A-35","group":"A","role":"pilot","rank":9,"split_sha256":"b682891190e00ece612505425dfb1cfb8dbb03169abf0301956c626d64fbdb65","pair_stem":"A-35-01_01","timepoint":"C1D1","gex_gsm":"GSM9371529","fb_gsm":"GSM9371626","gex_expected_bytes":{"barcodes.tsv.gz":8777,"features.tsv.gz":283036,"matrix.mtx.gz":10240811},"fb_expected_bytes":{"barcodes.tsv.gz":10391,"features.tsv.gz":2847,"matrix.mtx.gz":1013315}},
+    {"patient_id":"A36","deposited_patient_id":"A-36","group":"A","role":"held","rank":5,"split_sha256":"6bbba467ba30b91a7968e2260d6efbf696fb55e4a9ad8aac6b7246c5d9775b85","pair_stem":"A-36-01_01","timepoint":"C1D1","gex_gsm":"GSM9371532","fb_gsm":"GSM9371629","gex_expected_bytes":{"barcodes.tsv.gz":6355,"features.tsv.gz":283036,"matrix.mtx.gz":7385901},"fb_expected_bytes":{"barcodes.tsv.gz":7334,"features.tsv.gz":2847,"matrix.mtx.gz":725471}},
+    {"patient_id":"B01","deposited_patient_id":"B-01","group":"B","role":"pilot","rank":13,"split_sha256":"b17782dbf1b7b859c12293a87d1671ff2d3846f2adbcb305af49f822eff83de8","pair_stem":"B-01-01","timepoint":"baseline","gex_gsm":"GSM9371489","fb_gsm":"GSM9371586","gex_expected_bytes":{"barcodes.tsv.gz":20672,"features.tsv.gz":283033,"matrix.mtx.gz":20312363},"fb_expected_bytes":{"barcodes.tsv.gz":24181,"features.tsv.gz":2844,"matrix.mtx.gz":2590922}},
+    {"patient_id":"B02","deposited_patient_id":"B-02","group":"B","role":"pilot","rank":8,"split_sha256":"5eff6735cb704a1624db01587b72cb753b788946e33e330136de09d616123329","pair_stem":"B-02-02","timepoint":"C1D1","gex_gsm":"GSM9371458","fb_gsm":"GSM9371555","gex_expected_bytes":{"barcodes.tsv.gz":42178,"features.tsv.gz":283033,"matrix.mtx.gz":43351493},"fb_expected_bytes":{"barcodes.tsv.gz":51482,"features.tsv.gz":2844,"matrix.mtx.gz":6048902}},
+    {"patient_id":"B03","deposited_patient_id":"B-03","group":"B","role":"calibration","rank":20,"split_sha256":"eeb8b7bbf581faf336299316412cc367161910e3e927a43a48028dd5a9ccc5e9","pair_stem":"B-03-02","timepoint":"C1D1","gex_gsm":"GSM9371445","fb_gsm":"GSM9371542","gex_expected_bytes":{"barcodes.tsv.gz":20240,"features.tsv.gz":283033,"matrix.mtx.gz":17082084},"fb_expected_bytes":{"barcodes.tsv.gz":23623,"features.tsv.gz":2844,"matrix.mtx.gz":1283018}},
+    {"patient_id":"B04","deposited_patient_id":"B-04","group":"B","role":"calibration","rank":18,"split_sha256":"d2d1dded7d42eab505146acd1bb2e45ef49c7320fcc20921639c89363ad2bff6","pair_stem":"B-04-01","timepoint":"baseline","gex_gsm":"GSM9371504","fb_gsm":"GSM9371601","gex_expected_bytes":{"barcodes.tsv.gz":22948,"features.tsv.gz":283033,"matrix.mtx.gz":34687416},"fb_expected_bytes":{"barcodes.tsv.gz":27030,"features.tsv.gz":2844,"matrix.mtx.gz":3137806}},
+    {"patient_id":"B05","deposited_patient_id":"B-05","group":"B","role":"pilot","rank":11,"split_sha256":"929fd5bf6b045aa357703a945895ce47f87fe5d71d7ce495d4fcca92df19e5b1","pair_stem":"B-05-02","timepoint":"C1D1","gex_gsm":"GSM9371466","fb_gsm":"GSM9371563","gex_expected_bytes":{"barcodes.tsv.gz":14013,"features.tsv.gz":283033,"matrix.mtx.gz":10252229},"fb_expected_bytes":{"barcodes.tsv.gz":15638,"features.tsv.gz":2844,"matrix.mtx.gz":1055563}},
+    {"patient_id":"B06","deposited_patient_id":"B-06","group":"B","role":"pilot","rank":10,"split_sha256":"841201e482cef1aaef4900fb0cd7feecffbd4a8c3ee90325a372916d16cda084","pair_stem":"B-06-02","timepoint":"C1D1","gex_gsm":"GSM9371476","fb_gsm":"GSM9371573","gex_expected_bytes":{"barcodes.tsv.gz":54582,"features.tsv.gz":283033,"matrix.mtx.gz":55292462},"fb_expected_bytes":{"barcodes.tsv.gz":67386,"features.tsv.gz":2844,"matrix.mtx.gz":4879773}},
+    {"patient_id":"B07","deposited_patient_id":"B-07","group":"B","role":"pilot","rank":9,"split_sha256":"78e6c98a1c0440be28d1893ad2abdb16c5c6b47f3e685cfc53a4113cfc26e421","pair_stem":"B-07-02","timepoint":"C1D1","gex_gsm":"GSM9371507","fb_gsm":"GSM9371604","gex_expected_bytes":{"barcodes.tsv.gz":25845,"features.tsv.gz":283033,"matrix.mtx.gz":41468623},"fb_expected_bytes":{"barcodes.tsv.gz":30580,"features.tsv.gz":2844,"matrix.mtx.gz":3435388}},
+    {"patient_id":"B08","deposited_patient_id":"B-08","group":"B","role":"calibration","rank":19,"split_sha256":"dba2bb334fb420aa53a6a07f6e7ac34ceed8909ed85da0acdfe96785bee05914","pair_stem":"B-08-02","timepoint":"C1D1","gex_gsm":"GSM9371455","fb_gsm":"GSM9371552","gex_expected_bytes":{"barcodes.tsv.gz":20746,"features.tsv.gz":283033,"matrix.mtx.gz":17160129},"fb_expected_bytes":{"barcodes.tsv.gz":24330,"features.tsv.gz":2844,"matrix.mtx.gz":2622850}},
+    {"patient_id":"B09","deposited_patient_id":"B-09","group":"B","role":"held","rank":6,"split_sha256":"5a27a0626fb2beb6efb61f1ef21245be3520552f26f54fd893d5496a51f5394f","pair_stem":"B-09-01","timepoint":"baseline","gex_gsm":"GSM9371461","fb_gsm":"GSM9371558","gex_expected_bytes":{"barcodes.tsv.gz":11917,"features.tsv.gz":283033,"matrix.mtx.gz":8007098},"fb_expected_bytes":{"barcodes.tsv.gz":13156,"features.tsv.gz":2844,"matrix.mtx.gz":875801}},
+    {"patient_id":"B10","deposited_patient_id":"B-10","group":"B","role":"held","rank":7,"split_sha256":"5ecf8896411697a92b75c5291a690eb456de83cb77000dce765f536e52ce9fe3","pair_stem":"B-10-01","timepoint":"C1D1","gex_gsm":"GSM9371471","fb_gsm":"GSM9371568","gex_expected_bytes":{"barcodes.tsv.gz":40878,"features.tsv.gz":283033,"matrix.mtx.gz":46568722},"fb_expected_bytes":{"barcodes.tsv.gz":49731,"features.tsv.gz":2844,"matrix.mtx.gz":5548305}},
+    {"patient_id":"B11","deposited_patient_id":"B-11","group":"B","role":"held","rank":1,"split_sha256":"06b38e6e1007d9e1bb8b378b21a9dd7a9103a0269e3bd1343654d2910a5169e7","pair_stem":"B-11-01_01","timepoint":"baseline","gex_gsm":"GSM9371473","fb_gsm":"GSM9371570","gex_expected_bytes":{"barcodes.tsv.gz":12111,"features.tsv.gz":283036,"matrix.mtx.gz":9642803},"fb_expected_bytes":{"barcodes.tsv.gz":13406,"features.tsv.gz":2847,"matrix.mtx.gz":1356923}},
+    {"patient_id":"B12","deposited_patient_id":"B-12","group":"B","role":"pilot","rank":14,"split_sha256":"b475b1aec0e25fa5525e38b2006351ae850bb74fe21a291d4e12c3043cd06b4c","pair_stem":"B-12-01","timepoint":"C1D1","gex_gsm":"GSM9371475","fb_gsm":"GSM9371572","gex_expected_bytes":{"barcodes.tsv.gz":16364,"features.tsv.gz":283033,"matrix.mtx.gz":14761477},"fb_expected_bytes":{"barcodes.tsv.gz":18752,"features.tsv.gz":2844,"matrix.mtx.gz":1374133}},
+    {"patient_id":"B13","deposited_patient_id":"B-13","group":"B","role":"held","rank":3,"split_sha256":"0f8fa8ab9270314443ffe54eef97eb18ccb61a630a3186666c56c3652ec917e8","pair_stem":"B-13-01","timepoint":"C1D1","gex_gsm":"GSM9371484","fb_gsm":"GSM9371581","gex_expected_bytes":{"barcodes.tsv.gz":14469,"features.tsv.gz":283033,"matrix.mtx.gz":13659086},"fb_expected_bytes":{"barcodes.tsv.gz":16226,"features.tsv.gz":2844,"matrix.mtx.gz":1766284}},
+    {"patient_id":"B14","deposited_patient_id":"B-14","group":"B","role":"held","rank":2,"split_sha256":"073080abffbeac7fd632bb3b8cb30cd0047ea951f5aa1a987ee34cae13e4d5ba","pair_stem":"B-14-01_01","timepoint":"C1D1","gex_gsm":"GSM9371496","fb_gsm":"GSM9371593","gex_expected_bytes":{"barcodes.tsv.gz":13302,"features.tsv.gz":283036,"matrix.mtx.gz":17202816},"fb_expected_bytes":{"barcodes.tsv.gz":14961,"features.tsv.gz":2847,"matrix.mtx.gz":1669716}},
+    {"patient_id":"B15","deposited_patient_id":"B-15","group":"B","role":"calibration","rank":15,"split_sha256":"bf135e39b5085e519b4f8f50c21764e72e69f837540945a39f16b6e6f58f2c16","pair_stem":"B-15-01_01","timepoint":"C1D1","gex_gsm":"GSM9371481","fb_gsm":"GSM9371578","gex_expected_bytes":{"barcodes.tsv.gz":25960,"features.tsv.gz":283036,"matrix.mtx.gz":28808447},"fb_expected_bytes":{"barcodes.tsv.gz":30903,"features.tsv.gz":2847,"matrix.mtx.gz":2452094}},
+    {"patient_id":"B17","deposited_patient_id":"B-17","group":"B","role":"calibration","rank":17,"split_sha256":"ccc3b804e5ccca5072dc2a4cc94abbc4a10c72ae713817e8ffe08412644935d5","pair_stem":"B-17-02","timepoint":"C1D1","gex_gsm":"GSM9371452","fb_gsm":"GSM9371549","gex_expected_bytes":{"barcodes.tsv.gz":24347,"features.tsv.gz":283033,"matrix.mtx.gz":22693663},"fb_expected_bytes":{"barcodes.tsv.gz":28709,"features.tsv.gz":2844,"matrix.mtx.gz":3197106}},
+    {"patient_id":"B18","deposited_patient_id":"B-18","group":"B","role":"held","rank":5,"split_sha256":"55e449fa1cd0792d23b03350f7f8370eccb1332e49e280d930eb2976d4de570f","pair_stem":"B-18-01","timepoint":"baseline","gex_gsm":"GSM9371498","fb_gsm":"GSM9371595","gex_expected_bytes":{"barcodes.tsv.gz":11020,"features.tsv.gz":283033,"matrix.mtx.gz":13253766},"fb_expected_bytes":{"barcodes.tsv.gz":12260,"features.tsv.gz":2844,"matrix.mtx.gz":1409202}},
+    {"patient_id":"B21","deposited_patient_id":"B-21","group":"B","role":"pilot","rank":12,"split_sha256":"9c9f31405df96758bd28e04cc16059fb83e307bb3ac917c41fcbc9140d0fa005","pair_stem":"B-21-01","timepoint":"C1D1","gex_gsm":"GSM9371443","fb_gsm":"GSM9371540","gex_expected_bytes":{"barcodes.tsv.gz":20595,"features.tsv.gz":283033,"matrix.mtx.gz":16272687},"fb_expected_bytes":{"barcodes.tsv.gz":23998,"features.tsv.gz":2844,"matrix.mtx.gz":1217045}},
+    {"patient_id":"B22","deposited_patient_id":"B-22","group":"B","role":"held","rank":4,"split_sha256":"1546fb608456424892192dbac114c7dce4c3e9f2362879f1ebec954d4286a111","pair_stem":"B-22-02","timepoint":"C1D1","gex_gsm":"GSM9371494","fb_gsm":"GSM9371591","gex_expected_bytes":{"barcodes.tsv.gz":11441,"features.tsv.gz":283033,"matrix.mtx.gz":13593299},"fb_expected_bytes":{"barcodes.tsv.gz":12911,"features.tsv.gz":2844,"matrix.mtx.gz":1369483}},
+    {"patient_id":"B23","deposited_patient_id":"B-23","group":"B","role":"calibration","rank":16,"split_sha256":"c080d54b813db6ec8fbc073e78c37be87a9603f1e40806b584882628003f1e67","pair_stem":"B-23-02","timepoint":"C1D1","gex_gsm":"GSM9371483","fb_gsm":"GSM9371580","gex_expected_bytes":{"barcodes.tsv.gz":17452,"features.tsv.gz":283033,"matrix.mtx.gz":18379731},"fb_expected_bytes":{"barcodes.tsv.gz":20173,"features.tsv.gz":2844,"matrix.mtx.gz":2226132}}
+  ],
+  "role_order": {
+    "calibration": ["A30","A12","A08","A32","A34","B15","B23","B17","B04","B08","B03"],
+    "pilot": ["A04","A03","A35","A31","B02","B07","B06","B05","B21","B01","B12"],
+    "held": ["A05","A02","A07","A21","A36","B11","B14","B13","B22","B18","B09","B10"]
+  }
+}
