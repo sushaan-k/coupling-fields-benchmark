@@ -1,0 +1,118 @@
+{
+  "bindings": {
+    "classical_residuals": {
+      "path": "mapreg/classical_residuals.py",
+      "sha256": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0"
+    },
+    "combat_classical_engine": {
+      "path": "experiments/confirm_combat_citeseq.py",
+      "sha256": "7873f58255eedd75a5b165d058fcd8e1b5c5f4dba24d38064cb8f747a12ff912"
+    },
+    "common_effect_conditional": {
+      "path": "mapreg/common_effect_conditional.py",
+      "sha256": "e8730bc5c072b66794d9d1c0f8fa8c93ba7e2bf9303a34bde98dfb7dea6ff2e9"
+    },
+    "coupling_fields": {
+      "path": "mapreg/coupling_fields.py",
+      "sha256": "06edd27c9cc52bcee1da1fc4a7a8fd86586d6263f9b32b2c6b0c5d16b0f01dc1"
+    },
+    "designation": {
+      "path": "data/confirmation/kotliarov_pbmc_binary_v2/candidate_designation_v2.json",
+      "sha256": "804c9f3593f4243ed7f2bb63f262231177481075aa254995a8ee0b7a9972c4a1"
+    },
+    "gse279451_numerics": {
+      "path": "experiments/evaluate_gse279451_sepsis_development.py",
+      "sha256": "fb4d793a0df2cb5073423d27d5953992232c17a64a8adfdef3b26a105a0c7994"
+    },
+    "gse279451_reducer": {
+      "path": "experiments/reduce_gse279451_sepsis.py",
+      "sha256": "923d44d7374de8b56a1d241a73819101e0b6b5171ee01bc1dc8a71ddafeb3ac1"
+    },
+    "gse309593_binary_engine": {
+      "path": "experiments/confirm_gse309593_held_batches.py",
+      "sha256": "5c07237f24c7be36683e3d1940c2699b348b16a33ad76ee1faeeb8017ccb779b"
+    },
+    "heterogeneity_adaptive_coupling": {
+      "path": "mapreg/heterogeneity_adaptive_coupling.py",
+      "sha256": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e"
+    },
+    "hierarchical_conditional_coupling": {
+      "path": "mapreg/hierarchical_conditional_coupling.py",
+      "sha256": "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d"
+    },
+    "kotliarov_hdf5_reader": {
+      "path": "experiments/reduce_kotliarov_pbmc.py",
+      "sha256": "70adb269b47cf29a874e4f891c0c538bce2204c1b162d29fc6f0547d0106a085"
+    },
+    "mapreg_package": {
+      "path": "mapreg/__init__.py",
+      "sha256": "8854ad0b216b8fa208269a83e738a2f3755e36957ecd51a8e0e5af8569b9b2d9"
+    },
+    "protocol": {
+      "path": "docs/KOTLIAROV_PBMC_BINARY_SOURCE_DEVELOPMENT_PROTOCOL_2026-08-29.md",
+      "sha256": "5b3f812e12dc527f23747b88bc27c51ed025063dafff11b385fea96670492368"
+    },
+    "runner": {
+      "path": "experiments/develop_kotliarov_pbmc_binary_v2.py",
+      "sha256": "9120707433bd496583044a65f3e09d346772442ee697bb4eb44576d2b3a83ee8"
+    },
+    "runner_test": {
+      "path": "tests/test_kotliarov_pbmc_binary_v2.py",
+      "sha256": "885ad63917f13a993dba53ed85ef72c37bb0e1e47d9b9093e6aef7c09014023d"
+    },
+    "source_manifest": {
+      "path": "data/development/kotliarov_pbmc/source_manifest_v1.json",
+      "sha256": "c0d61a23a1dc1a750941b7808d1d187e841d1bdfaacb17799fbad72602aa212c"
+    },
+    "table_prediction": {
+      "path": "mapreg/table_prediction.py",
+      "sha256": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e"
+    }
+  },
+  "held_adt_values_authorized": false,
+  "public_implementation_commit": "0cc77d9b869c29653f283959ed43651a703ae33f",
+  "public_source_freeze_commit": "043280178740f6da299bff6e70aeed86d3f5fdbe",
+  "runtime_contract": {
+    "h5py_version": "3.14.0",
+    "hdf5_built_version": "1.14.6",
+    "hdf5_built_version_tuple": [
+      1,
+      14,
+      6
+    ],
+    "hdf5_runtime_version": "1.14.6",
+    "hdf5_runtime_version_tuple": [
+      1,
+      14,
+      6
+    ],
+    "numpy_version": "2.0.2",
+    "pandas_version": "2.3.3",
+    "platform_machine": "arm64",
+    "platform_system": "Darwin",
+    "python_implementation": "CPython",
+    "python_version": "3.9.6",
+    "required_thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "scipy_version": "1.13.1"
+  },
+  "schema": "kotliarov-pbmc-binary-v2-source-authorization/2.0",
+  "source_attempt_path": "data/confirmation/kotliarov_pbmc_binary_v2/source_attempt_v2.json",
+  "source_input_contract": {
+    "array.h5": {
+      "bytes": 4708920,
+      "md5": "d74235cc89e0c8edbd9637731e53c8d6",
+      "sha256": "129e1da6986a7ac9b3aa3c1d7a147972c0b9d3e4691a0d83fd239a91c93f5362"
+    },
+    "matrix.h5": {
+      "bytes": 82850550,
+      "md5": "8778f578eced043bd993a474c8919139",
+      "sha256": "7360396001a67a1e187f10d3b1307f2c390a7788788f10efe9999337b5f810d4"
+    }
+  },
+  "source_output_path": "results/development/kotliarov_pbmc_binary_v2_source_v2.json",
+  "status": "SOURCE_PAIRED_DEVELOPMENT_ACCESS_AUTHORIZED"
+}
