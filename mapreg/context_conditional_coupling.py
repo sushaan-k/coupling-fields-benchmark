@@ -303,10 +303,10 @@ def fit_context_conditional_log_odds(
 
     Block Newton steps eliminate donor deviations through a diagonal solve and
     solve the exact coefficient Schur complement. Armijo backtracking accepts
-    only finite descent steps. A successful return requires the reported raw
-    gradient norm to meet ``tolerance`` and both final solve factors to meet
-    ``maximum_condition_number``. Convergence uses the reported scaled
-    gradient, which normalizes each score by its feasible-support width.
+    only finite descent steps. A successful return requires the reported
+    scaled gradient norm to meet ``tolerance`` and both final solve factors to
+    meet ``maximum_condition_number``. The scaling normalizes each score by
+    its feasible-support width.
     """
 
     values, design, requested_support, entity_shape = _validated_inputs(
