@@ -34,6 +34,7 @@ from experiments.gse313642_hcc_core import (
     COHORTS,
     MARKERS,
     PrimaryConfig,
+    SOURCE_GATE_COMPARATORS,
     adt_midrank_states,
     deserialize_models,
     fit_models,
@@ -46,7 +47,6 @@ from experiments.gse313642_hcc_core import (
     select_primary_configuration,
     serialize_models,
     serialized_panel_losses,
-    source_gate,
 )
 from experiments.gse217494_heart_core import entity_deviance, joint_binary_tables
 from mapreg.streamed_gzip_matrix_market import reduce_gzip_matrix_market
@@ -54,58 +54,74 @@ from mapreg.streamed_gzip_matrix_market import reduce_gzip_matrix_market
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data/confirmation/gse313642_hcc"
-DESIGNATION = DATA_DIR / "candidate_designation_v1.json"
-SOURCE_MANIFEST = DATA_DIR / "source_manifest_v1.json"
-AXIS_PREFLIGHT = ROOT / "results/development/gse313642_hcc_axis_preflight_v1.json"
-AXIS_ACCESS = DATA_DIR / "axis_access_v1.jsonl"
-CALIBRATION_ATTEMPT = DATA_DIR / "calibration_attempt_v1.json"
-CALIBRATION_CONSUMPTION = DATA_DIR / "calibration_consumption_v1.json"
-CALIBRATION_ACCESS = DATA_DIR / "calibration_access_v1.jsonl"
+DESIGNATION = DATA_DIR / "candidate_designation_v2.json"
+SOURCE_MANIFEST = DATA_DIR / "source_manifest_v2.json"
+AXIS_PREFLIGHT = ROOT / "results/development/gse313642_hcc_axis_preflight_v2.json"
+V1_DESIGNATION = DATA_DIR / "candidate_designation_v1.json"
+V1_SOURCE_MANIFEST = DATA_DIR / "source_manifest_v1.json"
+V1_AXIS_ACCESS = DATA_DIR / "axis_access_v1.jsonl"
+V1_AXIS_REFUSAL = ROOT / "results/development/gse313642_hcc_axis_preflight_v1.json"
+AXIS_ACCESS = V1_AXIS_ACCESS
+CALIBRATION_ATTEMPT = DATA_DIR / "calibration_attempt_v2.json"
+CALIBRATION_CONSUMPTION = DATA_DIR / "calibration_consumption_v2.json"
+CALIBRATION_ACCESS = DATA_DIR / "calibration_access_v2.jsonl"
 CALIBRATION_SELECTION = (
-    ROOT / "results/development/gse313642_hcc_calibration_selection_v1.json"
+    ROOT / "results/development/gse313642_hcc_calibration_selection_v2.json"
 )
-PILOT_AUTHORIZATION = DATA_DIR / "pilot_authorization_v1.json"
-SOURCE_ATTEMPT = DATA_DIR / "source_attempt_v1.json"
-SOURCE_CONSUMPTION = DATA_DIR / "source_consumption_v1.json"
-SOURCE_ACCESS = DATA_DIR / "source_access_v1.jsonl"
-SOURCE_RESULT = ROOT / "results/development/gse313642_hcc_source_v1.json"
-PREDICTION_AUTHORIZATION = DATA_DIR / "prediction_authorization_v1.json"
-PREDICTION_ATTEMPT = DATA_DIR / "prediction_attempt_v1.json"
-PREDICTION_CONSUMPTION = DATA_DIR / "prediction_consumption_v1.json"
-PREDICTION_ACCESS = DATA_DIR / "prediction_access_v1.jsonl"
-PREDICTION_RESULT = ROOT / "results/gse313642_hcc_predictions_v1.json"
-SCORE_AUTHORIZATION = DATA_DIR / "score_authorization_v1.json"
-SCORE_ATTEMPT = DATA_DIR / "score_attempt_v1.json"
-SCORE_CONSUMPTION = DATA_DIR / "score_consumption_v1.json"
-SCORE_ACCESS = DATA_DIR / "score_access_v1.jsonl"
-SCORE_RESULT = ROOT / "results/gse313642_hcc_confirmation_v1.json"
-DEFAULT_SCRATCH = Path("/private/tmp/gse313642-hcc-v1")
-PROTOCOL = ROOT / "docs/GSE313642_HCC_CITESEQ_HELD_PATIENT_PROTOCOL_2026-08-30.md"
+PILOT_AUTHORIZATION = DATA_DIR / "pilot_authorization_v2.json"
+SOURCE_ATTEMPT = DATA_DIR / "source_attempt_v2.json"
+SOURCE_CONSUMPTION = DATA_DIR / "source_consumption_v2.json"
+SOURCE_ACCESS = DATA_DIR / "source_access_v2.jsonl"
+SOURCE_RESULT = ROOT / "results/development/gse313642_hcc_source_v2.json"
+PREDICTION_AUTHORIZATION = DATA_DIR / "prediction_authorization_v2.json"
+PREDICTION_ATTEMPT = DATA_DIR / "prediction_attempt_v2.json"
+PREDICTION_CONSUMPTION = DATA_DIR / "prediction_consumption_v2.json"
+PREDICTION_ACCESS = DATA_DIR / "prediction_access_v2.jsonl"
+PREDICTION_RESULT = ROOT / "results/gse313642_hcc_predictions_v2.json"
+SCORE_AUTHORIZATION = DATA_DIR / "score_authorization_v2.json"
+SCORE_ATTEMPT = DATA_DIR / "score_attempt_v2.json"
+SCORE_CONSUMPTION = DATA_DIR / "score_consumption_v2.json"
+SCORE_ACCESS = DATA_DIR / "score_access_v2.jsonl"
+SCORE_RESULT = ROOT / "results/gse313642_hcc_confirmation_v2.json"
+DEFAULT_SCRATCH = Path("/private/tmp/gse313642-hcc-v2")
+PROTOCOL = ROOT / "docs/GSE313642_HCC_CITESEQ_HELD_PATIENT_PROTOCOL_V2_2026-08-30.md"
 RUNNER = ROOT / "experiments/confirm_gse313642_hcc.py"
 CORE = ROOT / "experiments/gse313642_hcc_core.py"
 RUNNER_TEST = ROOT / "tests/test_gse313642_hcc_confirmation.py"
-IMPLEMENTATION_FREEZE = DATA_DIR / "pre_access_implementation_v1.json"
+IMPLEMENTATION_FREEZE = DATA_DIR / "pre_access_implementation_v2.json"
 
 PUBLIC_ORIGIN = "https://github.com/sushaan-k/coupling-fields-benchmark.git"
-CANDIDATE_TAG = "gse313642-hcc-v1-candidate"
-IMPLEMENTATION_TAG = "gse313642-hcc-v1-implementation"
-PREFLIGHT_TAG = "gse313642-hcc-v1-axis-preflight"
-CALIBRATION_TAG = "gse313642-hcc-v1-calibration"
-CALIBRATION_ATTEMPT_TAG = "gse313642-hcc-v1-calibration-attempt"
-PILOT_AUTHORIZATION_TAG = "gse313642-hcc-v1-pilot-authorization"
-SOURCE_TAG = "gse313642-hcc-v1-source"
-SOURCE_ATTEMPT_TAG = "gse313642-hcc-v1-source-attempt"
-PREDICTION_AUTHORIZATION_TAG = "gse313642-hcc-v1-prediction-authorization"
-PREDICTION_TAG = "gse313642-hcc-v1-predictions"
-PREDICTION_ATTEMPT_TAG = "gse313642-hcc-v1-prediction-attempt"
-SCORE_AUTHORIZATION_TAG = "gse313642-hcc-v1-score-authorization"
-SCORE_ATTEMPT_TAG = "gse313642-hcc-v1-score-attempt"
-SCORE_TAG = "gse313642-hcc-v1-score"
+CANDIDATE_TAG = "gse313642-hcc-v2-candidate"
+IMPLEMENTATION_TAG = "gse313642-hcc-v2-implementation"
+PREFLIGHT_TAG = "gse313642-hcc-v2-axis-preflight"
+CALIBRATION_TAG = "gse313642-hcc-v2-calibration"
+CALIBRATION_ATTEMPT_TAG = "gse313642-hcc-v2-calibration-attempt"
+PILOT_AUTHORIZATION_TAG = "gse313642-hcc-v2-pilot-authorization"
+SOURCE_TAG = "gse313642-hcc-v2-source"
+SOURCE_ATTEMPT_TAG = "gse313642-hcc-v2-source-attempt"
+PREDICTION_AUTHORIZATION_TAG = "gse313642-hcc-v2-prediction-authorization"
+PREDICTION_TAG = "gse313642-hcc-v2-predictions"
+PREDICTION_ATTEMPT_TAG = "gse313642-hcc-v2-prediction-attempt"
+SCORE_AUTHORIZATION_TAG = "gse313642-hcc-v2-score-authorization"
+SCORE_ATTEMPT_TAG = "gse313642-hcc-v2-score-attempt"
+SCORE_TAG = "gse313642-hcc-v2-score"
+V1_TERMINAL_TAG = "gse313642-hcc-v1-terminal-axis-refusal"
+V1_TERMINAL_COMMIT = "b814c6c33a068ae341f983d8d82ea40dddb36207"
+V1_AXIS_ACCESS_SHA256 = (
+    "2619458df75a219f1f2b21b8f00e7dc2c096b7309a06dc22caa8d6d5ca201555"
+)
+V1_AXIS_REFUSAL_SHA256 = (
+    "94840b4b8756e8745caaa7738a060001ab0aea7311ddedd740aa5b6477ddba86"
+)
 
 IMPLEMENTATION_BINDINGS = (
+    "data/confirmation/gse313642_hcc/candidate_designation_v2.json",
+    "data/confirmation/gse313642_hcc/source_manifest_v2.json",
     "data/confirmation/gse313642_hcc/candidate_designation_v1.json",
     "data/confirmation/gse313642_hcc/source_manifest_v1.json",
-    "docs/GSE313642_HCC_CITESEQ_HELD_PATIENT_PROTOCOL_2026-08-30.md",
+    "data/confirmation/gse313642_hcc/axis_access_v1.jsonl",
+    "results/development/gse313642_hcc_axis_preflight_v1.json",
+    "docs/GSE313642_HCC_CITESEQ_HELD_PATIENT_PROTOCOL_V2_2026-08-30.md",
     "experiments/confirm_gse313642_hcc.py",
     "experiments/gse313642_hcc_core.py",
     "tests/test_gse313642_hcc_confirmation.py",
@@ -123,7 +139,7 @@ IMPLEMENTATION_BINDINGS = (
 )
 
 BASE_URL = "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9371nnn"
-ROLE_COUNTS = {"calibration": 11, "pilot": 12, "held": 12}
+ROLE_COUNTS = {"calibration": 11, "pilot": 11, "held": 12}
 MATRIX_MEMBER = "matrix.mtx.gz"
 AXIS_MEMBERS = ("barcodes.tsv.gz", "features.tsv.gz")
 THREAD_VARIABLES = (
@@ -305,6 +321,20 @@ def _require_ancestor(ancestor: str, descendant: str) -> None:
         raise PermissionError("campaign tags do not form the required ancestry")
 
 
+def _verify_v1_terminal_ancestry(candidate_commit: str) -> dict[str, str]:
+    terminal_commit = _require_public_tag(
+        V1_TERMINAL_TAG,
+        (V1_DESIGNATION, V1_SOURCE_MANIFEST, V1_AXIS_ACCESS, V1_AXIS_REFUSAL),
+    )
+    if terminal_commit != V1_TERMINAL_COMMIT:
+        raise PermissionError("v1 terminal refusal commit differs")
+    _require_ancestor(terminal_commit, candidate_commit)
+    return {
+        "terminal_refusal_tag": V1_TERMINAL_TAG,
+        "terminal_refusal_commit": terminal_commit,
+    }
+
+
 def freeze_implementation() -> dict[str, Any]:
     """Write the manifest that must be committed and publicly tagged before access."""
 
@@ -313,6 +343,7 @@ def freeze_implementation() -> dict[str, Any]:
     candidate_commit = _require_public_tag(
         CANDIDATE_TAG, (DESIGNATION, SOURCE_MANIFEST, PROTOCOL)
     )
+    terminal = _verify_v1_terminal_ancestry(candidate_commit)
     missing = [
         relative
         for relative in IMPLEMENTATION_BINDINGS
@@ -323,7 +354,7 @@ def freeze_implementation() -> dict[str, Any]:
             f"implementation bindings are absent: {', '.join(missing)}"
         )
     payload = {
-        "schema": "gse313642-hcc-pre-access-implementation/1.0",
+        "schema": "gse313642-hcc-pre-access-implementation/2.0",
         "status": "FROZEN_BEFORE_ANY_NUMERIC_MATRIX_ACCESS",
         "created_at_utc": _timestamp(),
         "candidate_tag": CANDIDATE_TAG,
@@ -333,6 +364,7 @@ def freeze_implementation() -> dict[str, Any]:
             relative: _sha256(ROOT / relative) for relative in IMPLEMENTATION_BINDINGS
         },
         "required_runtime": REQUIRED_RUNTIME,
+        "v1_terminal_axis_refusal": terminal,
         "matrix_body_or_header_requested": False,
         "rerun_permitted": False,
     }
@@ -346,8 +378,9 @@ def _verify_implementation() -> dict[str, str]:
         relative: _sha256(ROOT / relative) for relative in IMPLEMENTATION_BINDINGS
     }
     if (
-        value.get("schema") != "gse313642-hcc-pre-access-implementation/1.0"
+        value.get("schema") != "gse313642-hcc-pre-access-implementation/2.0"
         or value.get("status") != "FROZEN_BEFORE_ANY_NUMERIC_MATRIX_ACCESS"
+        or value.get("candidate_tag") != CANDIDATE_TAG
         or value.get("implementation_files_sha256") != expected
         or value.get("required_implementation_tag") != IMPLEMENTATION_TAG
         or value.get("required_runtime") != REQUIRED_RUNTIME
@@ -358,6 +391,12 @@ def _verify_implementation() -> dict[str, str]:
     candidate_commit = _require_public_tag(
         CANDIDATE_TAG, (DESIGNATION, SOURCE_MANIFEST, PROTOCOL)
     )
+    terminal = _verify_v1_terminal_ancestry(candidate_commit)
+    if (
+        value.get("candidate_commit") != candidate_commit
+        or value.get("v1_terminal_axis_refusal") != terminal
+    ):
+        raise PermissionError("implementation freeze terminal ancestry differs")
     implementation_commit = _require_public_tag(
         IMPLEMENTATION_TAG,
         tuple(ROOT / relative for relative in IMPLEMENTATION_BINDINGS)
@@ -424,11 +463,37 @@ def _read_jsonl(path: Path) -> list[dict[str, Any]]:
     return rows
 
 
-def _designation() -> dict[str, Any]:
-    value = _read_json(DESIGNATION)
+def _v1_designation() -> dict[str, Any]:
+    value = _read_json(V1_DESIGNATION)
     patients = value.get("patients")
     if (
         value.get("schema") != "gse313642-hcc-citeseq-candidate-designation/1.0"
+        or value.get("status") != "METADATA_ONLY_DESIGNATED_OUTCOME_DISABLED"
+        or not isinstance(patients, list)
+        or len(patients) != 35
+        or len({record.get("patient_id") for record in patients}) != 35
+    ):
+        raise PermissionError("v1 candidate designation differs")
+    a33 = [record for record in patients if record.get("patient_id") == "A33"]
+    if (
+        len(a33) != 1
+        or a33[0].get("deposited_patient_id") != "A-33"
+        or a33[0].get("pair_stem") != "A-33-01_01"
+        or a33[0].get("role") != "pilot"
+        or a33[0].get("rank") != 6
+    ):
+        raise PermissionError("v1 A33 designation differs")
+    return value
+
+
+def _designation() -> dict[str, Any]:
+    value = _read_json(DESIGNATION)
+    patients = value.get("patients")
+    disclosure = value.get("metadata_provenance", {}).get(
+        "post_v1_pre_v2_axis_gate_disclosure"
+    )
+    if (
+        value.get("schema") != "gse313642-hcc-citeseq-candidate-designation/2.0"
         or value.get("status") != "METADATA_ONLY_DESIGNATED_OUTCOME_DISABLED"
         or value.get("markers") != list(MARKERS)
         or value.get("entity_count") != 81
@@ -436,32 +501,52 @@ def _designation() -> dict[str, Any]:
         or value.get("numeric_assay_matrix_entry_accessed_before_designation")
         is not False
         or not isinstance(patients, list)
-        or len(patients) != 35
+        or len(patients) != 34
         or value.get("split_rule", {}).get("counts") != ROLE_COUNTS
         or value.get("remote_access", {}).get("series_raw_tar") != "FORBIDDEN"
+        or not isinstance(disclosure, dict)
+        or disclosure.get("terminal_refusal_tag") != V1_TERMINAL_TAG
+        or disclosure.get("terminal_refusal_commit") != V1_TERMINAL_COMMIT
+        or disclosure.get("terminal_refusal_path") != _relative(V1_AXIS_REFUSAL)
+        or disclosure.get("axis_access_journal") != _relative(V1_AXIS_ACCESS)
+        or disclosure.get("axis_access_journal_sha256") != V1_AXIS_ACCESS_SHA256
+        or disclosure.get("axis_gets_completed") != 140
+        or disclosure.get("retained_axis_files_already_accessed") != 136
+        or disclosure.get("numeric_matrix_body_or_header_requested") is not False
+        or disclosure.get("used_for_v2_input_exclusion") is not True
+        or disclosure.get("used_for_split_marker_gate_or_hyperparameter_selection")
+        is not False
     ):
         raise PermissionError("candidate designation differs from the frozen contract")
+
+    v1 = _v1_designation()
+    v1_by_id = {record["patient_id"]: record for record in v1["patients"]}
     patient_ids = [record.get("patient_id") for record in patients]
-    if len(set(patient_ids)) != 35:
-        raise PermissionError("patient identifiers are not unique")
+    if (
+        len(set(patient_ids)) != 34
+        or "A33" in patient_ids
+        or set(patient_ids) != set(v1_by_id) - {"A33"}
+        or any(record != v1_by_id[record["patient_id"]] for record in patients)
+    ):
+        raise PermissionError(
+            "v2 must equal the v1 patient panel with only A33 removed"
+        )
+
     by_role = {role: [] for role in ROLE_COUNTS}
+    salt = value.get("split_rule", {}).get("salt")
+    if not isinstance(salt, str) or salt != v1.get("split_rule", {}).get("salt"):
+        raise PermissionError("split salt differs from v1")
     for record in patients:
         role = record.get("role")
+        expected_hash = hashlib.sha256(
+            (salt + "\0" + record["deposited_patient_id"]).encode("utf-8")
+        ).hexdigest()
         if (
             role not in by_role
             or record.get("group") not in COHORTS
-            or not all(
-                isinstance(record.get(key), str) and record[key]
-                for key in (
-                    "patient_id",
-                    "deposited_patient_id",
-                    "pair_stem",
-                    "gex_gsm",
-                    "fb_gsm",
-                )
-            )
+            or record.get("split_sha256") != expected_hash
         ):
-            raise PermissionError("patient record differs from the frozen contract")
+            raise PermissionError("split rank, hash, or role differs")
         for modality in ("gex", "fb"):
             expected_bytes = record.get(f"{modality}_expected_bytes")
             if (
@@ -474,68 +559,141 @@ def _designation() -> dict[str, Any]:
             ):
                 raise PermissionError("official filelist byte binding differs")
         by_role[role].append(record)
+
     role_order = value.get("role_order", {})
+    expected_order = {
+        role: [patient for patient in v1["role_order"][role] if patient != "A33"]
+        for role in ROLE_COUNTS
+    }
     for role, count in ROLE_COUNTS.items():
         if (
             len(by_role[role]) != count
-            or not isinstance(role_order.get(role), list)
-            or len(role_order[role]) != count
+            or role_order.get(role) != expected_order[role]
             or set(role_order[role])
             != {record["patient_id"] for record in by_role[role]}
         ):
             raise PermissionError("patient role order differs")
-    split = value.get("split_rule", {})
-    salt = split.get("salt")
-    if not isinstance(salt, str) or not salt:
-        raise PermissionError("split salt is absent")
-    computed_order: dict[str, list[str]] = {role: [] for role in ROLE_COUNTS}
-    boundaries = {
-        "A": ((5, "held"), (10, "pilot"), (15, "calibration")),
-        "B": ((7, "held"), (14, "pilot"), (20, "calibration")),
-    }
-    for group in COHORTS:
-        ranked = sorted(
-            (record for record in patients if record["group"] == group),
-            key=lambda record: (
-                hashlib.sha256(
-                    (salt + "\0" + record["deposited_patient_id"]).encode("utf-8")
-                ).hexdigest(),
-                record["deposited_patient_id"],
-            ),
-        )
-        for index, record in enumerate(ranked, start=1):
-            expected_hash = hashlib.sha256(
-                (salt + "\0" + record["deposited_patient_id"]).encode("utf-8")
-            ).hexdigest()
-            expected_role = next(
-                role for stop, role in boundaries[group] if index <= stop
-            )
-            if (
-                record.get("rank") != index
-                or record.get("split_sha256") != expected_hash
-                or record.get("role") != expected_role
-            ):
-                raise PermissionError("split rank, hash, or role differs")
-            computed_order[expected_role].append(record["patient_id"])
-    if any(role_order.get(role) != computed_order[role] for role in ROLE_COUNTS):
-        raise PermissionError("role order differs from the recomputed salted rank")
     return value
 
 
-def _source_manifest() -> dict[tuple[str, str, str], dict[str, Any]]:
-    value = _read_json(SOURCE_MANIFEST)
+def _v1_axis_manifest() -> tuple[
+    dict[str, Any], dict[tuple[str, str, str], dict[str, Any]]
+]:
+    designation = _v1_designation()
+    value = _read_json(V1_SOURCE_MANIFEST)
     files = value.get("files")
     if (
         value.get("schema") != "gse313642-hcc-source-manifest/1.0"
         or value.get("status")
         != "METADATA_ONLY_FROZEN_NO_NUMERIC_MATRIX_CONTENT_ACCESSED"
-        or value.get("designation_sha256") != _sha256(DESIGNATION)
-        or value.get("numeric_matrix_content_accessed_before_manifest") is not False
-        or value.get("matrix_market_header_accessed_before_manifest") is not False
+        or value.get("designation_sha256") != _sha256(V1_DESIGNATION)
         or value.get("selected_patient_count") != 35
         or value.get("selected_file_count") != 210
         or value.get("axis_file_count") != 140
         or value.get("matrix_file_count") != 70
+        or not isinstance(files, list)
+        or len(files) != 210
+    ):
+        raise PermissionError("v1 source manifest differs")
+    mapped: dict[tuple[str, str, str], dict[str, Any]] = {}
+    for file_record in files:
+        key = (
+            file_record.get("patient_id"),
+            file_record.get("modality"),
+            file_record.get("member"),
+        )
+        if key in mapped:
+            raise PermissionError("v1 source manifest contains duplicate files")
+        mapped[key] = dict(file_record)
+    expected = {
+        (patient["patient_id"], modality, member)
+        for patient in designation["patients"]
+        for modality in ("GEX", "FB")
+        for member in AXIS_MEMBERS + (MATRIX_MEMBER,)
+    }
+    if set(mapped) != expected:
+        raise PermissionError("v1 source manifest file axis differs")
+    for patient in designation["patients"]:
+        for modality in ("GEX", "FB"):
+            for member in AXIS_MEMBERS:
+                record = mapped[(patient["patient_id"], modality, member)]
+                if (
+                    record.get("allowed_stage") != "axis_preflight"
+                    or record.get("deposited_patient_id")
+                    != patient["deposited_patient_id"]
+                    or record.get("gsm")
+                    != patient["gex_gsm" if modality == "GEX" else "fb_gsm"]
+                    or record.get("filename") != _filename(patient, modality, member)
+                    or record.get("expected_bytes")
+                    != patient[
+                        "gex_expected_bytes"
+                        if modality == "GEX"
+                        else "fb_expected_bytes"
+                    ][member]
+                ):
+                    raise PermissionError("v1 source manifest axis binding differs")
+    return designation, mapped
+
+
+def _v1_terminal_refusal() -> dict[str, Any]:
+    if (
+        _sha256(V1_AXIS_ACCESS) != V1_AXIS_ACCESS_SHA256
+        or _sha256(V1_AXIS_REFUSAL) != V1_AXIS_REFUSAL_SHA256
+    ):
+        raise PermissionError("v1 terminal evidence hash differs")
+    value = _read_json(V1_AXIS_REFUSAL)
+    failure = value.get("failure")
+    access = value.get("axis_access")
+    if (
+        value.get("schema") != "gse313642-hcc-axis-preflight-refusal/1.0"
+        or value.get("status") != "TERMINAL_AXIS_REFUSAL"
+        or value.get("refusal_code") != "BARCODE_AXIS_NOT_UNIQUE"
+        or value.get("matrix_body_or_header_requested") is not False
+        or value.get("calibration_claimed") is not False
+        or value.get("prediction_written") is not False
+        or value.get("outcome_scored") is not False
+        or value.get("rerun_permitted") is not False
+        or not isinstance(failure, dict)
+        or failure.get("patient_id") != "A33"
+        or failure.get("deposited_patient_id") != "A-33"
+        or failure.get("pair_stem") != "A-33-01_01"
+        or failure.get("role") != "pilot"
+        or not isinstance(access, dict)
+        or access.get("journal") != _relative(V1_AXIS_ACCESS)
+        or access.get("journal_sha256") != V1_AXIS_ACCESS_SHA256
+        or access.get("axis_file_count") != 140
+        or access.get("get_started") != 140
+        or access.get("get_completed") != 140
+        or access.get("gzip_parse_succeeded") != 140
+        or access.get("failed_gets") != 0
+        or access.get("matrix_requests") != 0
+    ):
+        raise PermissionError("v1 terminal refusal differs")
+    return {
+        "tag": V1_TERMINAL_TAG,
+        "commit": V1_TERMINAL_COMMIT,
+        "artifact_sha256": V1_AXIS_REFUSAL_SHA256,
+        "refusal_code": "BARCODE_AXIS_NOT_UNIQUE",
+        "excluded_patient_id": "A33",
+    }
+
+
+def _source_manifest() -> dict[tuple[str, str, str], dict[str, Any]]:
+    value = _read_json(SOURCE_MANIFEST)
+    files = value.get("files")
+    access = value.get("post_v1_pre_v2_axis_payload_access")
+    disclosure = value.get("post_v1_pre_v2_axis_gate_disclosure")
+    if (
+        value.get("schema") != "gse313642-hcc-source-manifest/2.0"
+        or value.get("status")
+        != "METADATA_ONLY_FROZEN_NO_NUMERIC_MATRIX_CONTENT_ACCESSED"
+        or value.get("designation_sha256") != _sha256(DESIGNATION)
+        or value.get("numeric_matrix_content_accessed_before_manifest") is not False
+        or value.get("matrix_market_header_accessed_before_manifest") is not False
+        or value.get("selected_patient_count") != 34
+        or value.get("selected_file_count") != 204
+        or value.get("axis_file_count") != 136
+        or value.get("matrix_file_count") != 68
         or value.get("series_raw_tar") != "FORBIDDEN"
         or value.get("individual_url_template")
         != _designation()["remote_access"]["individual_url_template"]
@@ -549,13 +707,32 @@ def _source_manifest() -> dict[tuple[str, str, str], dict[str, Any]]:
         != {
             "only_individual_supplementary_urls": True,
             "expected_content_length_must_equal_official_filelist_bytes": True,
-            "one_get_per_file_permitted_stage": True,
             "http_redirects": False,
             "automatic_retries": False,
             "observed_bytes_and_sha256_recorded_before_parse": True,
+            "axis_files_reused_from_disclosed_v1_access": True,
+            "one_get_per_unopened_matrix_per_permitted_stage": True,
         }
+        or not isinstance(access, dict)
+        or access.get("journal") != _relative(V1_AXIS_ACCESS)
+        or access.get("journal_sha256") != V1_AXIS_ACCESS_SHA256
+        or access.get("axis_gets_completed") != 140
+        or access.get("retained_axis_files") != 136
+        or access.get("excluded_axis_files") != 4
+        or access.get("numeric_matrix_values_accessed") is not False
+        or access.get("matrix_market_header_accessed") is not False
+        or access.get("used_for_v2_input_exclusion") is not True
+        or access.get("used_for_split_marker_gate_or_hyperparameter_selection")
+        is not False
+        or not isinstance(disclosure, dict)
+        or disclosure.get("terminal_refusal_tag") != V1_TERMINAL_TAG
+        or disclosure.get("terminal_refusal_commit") != V1_TERMINAL_COMMIT
+        or disclosure.get("axis_access_journal") != _relative(V1_AXIS_ACCESS)
+        or disclosure.get("axis_access_journal_sha256") != V1_AXIS_ACCESS_SHA256
+        or disclosure.get("retained_axis_files_already_accessed") != 136
+        or disclosure.get("numeric_matrix_body_or_header_requested") is not False
         or not isinstance(files, list)
-        or len(files) != 210
+        or len(files) != 204
     ):
         raise PermissionError("source manifest differs from the frozen contract")
     mapped: dict[tuple[str, str, str], dict[str, Any]] = {}
@@ -582,13 +759,13 @@ def _source_manifest() -> dict[tuple[str, str, str], dict[str, Any]]:
     }
     if set(mapped) != expected_keys:
         raise PermissionError("source manifest file axis differs")
-    prior_hashes = designation["metadata_provenance"]["pre_designation_axis_access"]
+    prior_hashes = designation["metadata_provenance"]["pre_v1_designation_axis_access"]
     for patient in designation["patients"]:
         for modality in ("GEX", "FB"):
             for member in AXIS_MEMBERS + (MATRIX_MEMBER,):
                 record = mapped[(patient["patient_id"], modality, member)]
                 expected_stage = (
-                    "axis_preflight"
+                    "v2_reuse_only_no_get"
                     if member in AXIS_MEMBERS
                     else "source_calibration"
                     if patient["role"] == "calibration"
@@ -602,12 +779,10 @@ def _source_manifest() -> dict[tuple[str, str, str], dict[str, Any]]:
                     raise PermissionError("source manifest stage boundary differs")
                 expected_gsm = patient["gex_gsm" if modality == "GEX" else "fb_gsm"]
                 expected_access = (
-                    "metadata_axis_only"
-                    if patient["patient_id"] == "A07" and member in AXIS_MEMBERS
-                    else "none"
+                    "v1_axis_preflight" if member in AXIS_MEMBERS else "none"
                 )
                 expected_prior_hash = None
-                if expected_access == "metadata_axis_only":
+                if patient["patient_id"] == "A07" and member in AXIS_MEMBERS:
                     axis_name = (
                         "barcodes" if member.startswith("barcodes") else "features"
                     )
@@ -630,6 +805,7 @@ def _source_manifest() -> dict[tuple[str, str, str], dict[str, Any]]:
                     ][member]
                     or record.get("pre_manifest_payload_access") != expected_access
                     or record.get("observed_gzip_sha256") != expected_prior_hash
+                    or record.get("v2_get_authorized") != (member == MATRIX_MEMBER)
                 ):
                     raise PermissionError("source manifest file binding differs")
     return mapped
@@ -663,6 +839,10 @@ def _filename(record: Mapping[str, Any], modality: str, member: str) -> str:
 
 def _url(record: Mapping[str, Any], modality: str, member: str) -> str:
     file_record = _manifest_file(record, modality, member)
+    return _manifest_url(file_record)
+
+
+def _manifest_url(file_record: Mapping[str, Any]) -> str:
     gsm = file_record["gsm"]
     filename = urllib.parse.quote(file_record["filename"], safe="-_.")
     return f"{BASE_URL}/{gsm}/suppl/{filename}"
@@ -792,7 +972,9 @@ def _inspect_pair_axes(axis_root: Path, record: Mapping[str, Any]) -> dict[str, 
 def _validate_axis_access(
     axis_root: Path, designation: Mapping[str, Any]
 ) -> dict[str, Any]:
-    rows = _read_jsonl(AXIS_ACCESS)
+    v1_designation, v1_manifest = _v1_axis_manifest()
+    terminal = _v1_terminal_refusal()
+    rows = _read_jsonl(V1_AXIS_ACCESS)
     header = rows[0]
     if (
         header.get("schema") != "gse313642-hcc-axis-access/1.0"
@@ -804,20 +986,32 @@ def _validate_axis_access(
         raise PermissionError("axis access header differs")
     expected = [
         (record, modality, member)
+        for record in v1_designation["patients"]
+        for modality in ("GEX", "FB")
+        for member in AXIS_MEMBERS
+    ]
+    retained_keys = [
+        (record["patient_id"], modality, member)
         for record in designation["patients"]
         for modality in ("GEX", "FB")
         for member in AXIS_MEMBERS
     ]
-    if len(rows) != 1 + 3 * len(expected):
+    retained_set = set(retained_keys)
+    if len(expected) != 140 or len(rows) != 421:
         raise PermissionError("axis access did not use exactly 140 one-shot GETs")
-    files = []
+    historical_files: dict[tuple[str, str, str], dict[str, Any]] = {}
     for index, (record, modality, member) in enumerate(expected):
         started = rows[1 + 3 * index]
         completed = rows[2 + 3 * index]
         parsed = rows[3 + 3 * index]
+        key = (record["patient_id"], modality, member)
         path = axis_root / _filename(record, modality, member)
-        manifest = _manifest_file(record, modality, member)
-        url = _url(record, modality, member)
+        manifest = v1_manifest[(record["patient_id"], modality, member)]
+        url = _manifest_url(manifest)
+        decoded = None
+        if key in retained_set and path.is_file():
+            _, decoded = _decode_gzip_lines(path)
+        digest = completed.get("sha256")
         if (
             started.get("event") != "GET_STARTED"
             or started.get("stage") != "axis_acquisition"
@@ -831,36 +1025,77 @@ def _validate_axis_access(
             or completed.get("patient_id") != record["patient_id"]
             or completed.get("modality") != modality
             or completed.get("member") != member
-            or not path.is_file()
-            or completed.get("bytes") != path.stat().st_size
             or completed.get("bytes") != manifest["expected_bytes"]
-            or completed.get("sha256") != _sha256(path)
-            or manifest.get("observed_gzip_sha256")
-            not in (None, completed.get("sha256"))
+            or not isinstance(digest, str)
+            or len(digest) != 64
+            or any(character not in "0123456789abcdef" for character in digest)
+            or manifest.get("observed_gzip_sha256") not in (None, digest)
             or parsed.get("event") != "GZIP_PARSE_SUCCEEDED"
             or parsed.get("stage") != "axis_acquisition"
             or parsed.get("patient_id") != record["patient_id"]
             or parsed.get("modality") != modality
             or parsed.get("member") != member
-            or parsed.get("download_sha256") != completed.get("sha256")
+            or parsed.get("download_sha256") != digest
             or not isinstance(parsed.get("line_count"), int)
-            or parsed.get("line_count", 0) <= 0
+            or parsed.get("line_count") <= 0
+            or (
+                key in retained_set
+                and (
+                    not path.is_file()
+                    or completed.get("bytes") != path.stat().st_size
+                    or digest != _sha256(path)
+                    or decoded is None
+                    or parsed.get("line_count") != len(decoded)
+                )
+            )
         ):
             raise PermissionError("axis access file binding differs")
-        files.append(
-            {
-                "patient_id": record["patient_id"],
-                "modality": modality,
-                "member": member,
-                "url": url,
-                "bytes": completed["bytes"],
-                "sha256": completed["sha256"],
-            }
-        )
+        historical_files[key] = {
+            "patient_id": record["patient_id"],
+            "modality": modality,
+            "member": member,
+            "url": url,
+            "bytes": completed["bytes"],
+            "sha256": completed["sha256"],
+        }
+
+    excluded = set(historical_files) - retained_set
+    if (
+        len(retained_keys) != 136
+        or len(retained_set) != 136
+        or {key[0] for key in retained_set}
+        != {record["patient_id"] for record in designation["patients"]}
+        or "A33" in {key[0] for key in retained_set}
+        or excluded
+        != {
+            ("A33", modality, member)
+            for modality in ("GEX", "FB")
+            for member in AXIS_MEMBERS
+        }
+    ):
+        raise PermissionError("v2 retained axis set does not exclude exactly A33")
+    current_manifest = _source_manifest()
+    files = []
+    for key in retained_keys:
+        historical = historical_files[key]
+        current = current_manifest[key]
+        if (
+            current.get("allowed_stage") != "v2_reuse_only_no_get"
+            or current.get("v2_get_authorized") is not False
+            or current.get("expected_bytes") != historical["bytes"]
+            or _manifest_url(current) != historical["url"]
+        ):
+            raise PermissionError("retained v2 axis differs from v1 access")
+        files.append(historical)
     return {
-        "axis_gets": len(expected),
+        "v1_journal_rows": len(rows),
+        "v1_axis_gets": len(expected),
+        "v2_axis_gets": 0,
+        "retained_axis_files": len(files),
+        "excluded_axis_files": 4,
         "matrix_gets": 0,
-        "journal_sha256": _sha256(AXIS_ACCESS),
+        "journal_sha256": _sha256(V1_AXIS_ACCESS),
+        "terminal_refusal": terminal,
         "files": files,
     }
 
@@ -868,7 +1103,11 @@ def _validate_axis_access(
 def preflight(axis_root: Path, *, output: Path = AXIS_PREFLIGHT) -> dict[str, Any]:
     """Validate all supplied axes before any matrix request."""
 
-    _require_public_tag(CANDIDATE_TAG, (DESIGNATION, SOURCE_MANIFEST, PROTOCOL))
+    tags = _verify_implementation()
+    terminal = {
+        "terminal_refusal_tag": V1_TERMINAL_TAG,
+        "terminal_refusal_commit": V1_TERMINAL_COMMIT,
+    }
     root = axis_root.expanduser().resolve()
     designation = _designation()
     access_audit = _validate_axis_access(root, designation)
@@ -878,14 +1117,16 @@ def preflight(axis_root: Path, *, output: Path = AXIS_PREFLIGHT) -> dict[str, An
         raise FileExistsError("axis preflight or a downstream source artifact exists")
     records = [_inspect_pair_axes(root, record) for record in designation["patients"]]
     payload = {
-        "schema": "gse313642-hcc-axis-preflight/1.0",
+        "schema": "gse313642-hcc-axis-preflight/2.0",
         "status": "PASS_BEFORE_ANY_MATRIX_REQUEST",
         "created_at_utc": _timestamp(),
         "designation_sha256": _sha256(DESIGNATION),
-        "patient_count": 35,
+        "implementation_commit": tags["implementation_commit"],
+        "patient_count": 34,
         "matrix_body_or_header_requested": False,
         "series_tar_used": False,
         "axis_access": access_audit,
+        "v1_terminal_axis_refusal": terminal,
         "required_runtime": REQUIRED_RUNTIME,
         "patients": records,
     }
@@ -898,12 +1139,19 @@ def _validate_preflight(axis_root: Path) -> tuple[dict[str, Any], dict[str, Any]
     access_audit = _validate_axis_access(axis_root, designation)
     preflight_value = _read_json(AXIS_PREFLIGHT)
     if (
-        preflight_value.get("schema") != "gse313642-hcc-axis-preflight/1.0"
+        preflight_value.get("schema") != "gse313642-hcc-axis-preflight/2.0"
         or preflight_value.get("status") != "PASS_BEFORE_ANY_MATRIX_REQUEST"
         or preflight_value.get("designation_sha256") != _sha256(DESIGNATION)
-        or preflight_value.get("patient_count") != 35
+        or not isinstance(preflight_value.get("implementation_commit"), str)
+        or len(preflight_value["implementation_commit"]) != 40
+        or preflight_value.get("patient_count") != 34
         or preflight_value.get("matrix_body_or_header_requested") is not False
         or preflight_value.get("axis_access") != access_audit
+        or preflight_value.get("v1_terminal_axis_refusal")
+        != {
+            "terminal_refusal_tag": V1_TERMINAL_TAG,
+            "terminal_refusal_commit": V1_TERMINAL_COMMIT,
+        }
     ):
         raise PermissionError("axis preflight differs")
     observed = [
@@ -936,7 +1184,7 @@ def _access_header(
     stage: str, created_at_utc: str, runtime: Mapping[str, Any]
 ) -> dict[str, Any]:
     return {
-        "schema": "gse313642-hcc-access/1.0",
+        "schema": "gse313642-hcc-access/2.0",
         "stage": stage,
         "event": "OPENED_BEFORE_MATRIX_ACCESS",
         "created_at_utc": created_at_utc,
@@ -952,7 +1200,7 @@ def _claim(stage: str, token_path: Path) -> dict[str, Any]:
     if stage == "calibration":
         tags = _verify_implementation()
         preflight_commit = _require_public_tag(
-            PREFLIGHT_TAG, (AXIS_ACCESS, AXIS_PREFLIGHT)
+            PREFLIGHT_TAG, (V1_AXIS_ACCESS, V1_AXIS_REFUSAL, AXIS_PREFLIGHT)
         )
         _require_ancestor(tags["implementation_commit"], preflight_commit)
         attempt, result, access = (
@@ -970,8 +1218,13 @@ def _claim(stage: str, token_path: Path) -> dict[str, Any]:
     elif stage == "source":
         attempt, result, access = SOURCE_ATTEMPT, SOURCE_RESULT, SOURCE_ACCESS
         authorization = _read_json(PILOT_AUTHORIZATION)
-        if authorization.get("calibration_selection_sha256") != _sha256(
-            CALIBRATION_SELECTION
+        if (
+            authorization.get("schema") != "gse313642-hcc-pilot-authorization/2.0"
+            or authorization.get("status")
+            != "AUTHORIZED_AFTER_PUBLIC_CALIBRATION_FREEZE"
+            or authorization.get("calibration_selection_sha256")
+            != _sha256(CALIBRATION_SELECTION)
+            or authorization.get("pilot_matrix_gets_authorized") != 22
         ):
             raise PermissionError("pilot authorization differs from calibration")
         pilot_authorization_commit = _require_public_tag(
@@ -991,7 +1244,13 @@ def _claim(stage: str, token_path: Path) -> dict[str, Any]:
             PREDICTION_ACCESS,
         )
         authorization = _read_json(PREDICTION_AUTHORIZATION)
-        if authorization.get("source_result_sha256") != _sha256(SOURCE_RESULT):
+        if (
+            authorization.get("schema") != "gse313642-hcc-prediction-authorization/2.0"
+            or authorization.get("status") != "AUTHORIZED_AFTER_PUBLIC_SOURCE_PASS"
+            or authorization.get("source_result_sha256") != _sha256(SOURCE_RESULT)
+            or authorization.get("held_gex_gets_authorized") != 12
+            or authorization.get("held_fb_gets_authorized") != 0
+        ):
             raise PermissionError("prediction authorization differs from source")
         prediction_authorization_commit = _require_public_tag(
             PREDICTION_AUTHORIZATION_TAG, (PREDICTION_AUTHORIZATION,)
@@ -1006,7 +1265,15 @@ def _claim(stage: str, token_path: Path) -> dict[str, Any]:
     elif stage == "score":
         attempt, result, access = SCORE_ATTEMPT, SCORE_RESULT, SCORE_ACCESS
         authorization = _read_json(SCORE_AUTHORIZATION)
-        if authorization.get("prediction_result_sha256") != _sha256(PREDICTION_RESULT):
+        if (
+            authorization.get("schema") != "gse313642-hcc-score-authorization/2.0"
+            or authorization.get("status")
+            != "AUTHORIZED_AFTER_PUBLIC_PREDICTION_FREEZE"
+            or authorization.get("prediction_result_sha256")
+            != _sha256(PREDICTION_RESULT)
+            or authorization.get("held_fb_gets_authorized") != 12
+            or authorization.get("held_gex_gets_authorized") != 0
+        ):
             raise PermissionError("score authorization differs from predictions")
         score_authorization_commit = _require_public_tag(
             SCORE_AUTHORIZATION_TAG, (SCORE_AUTHORIZATION,)
@@ -1031,7 +1298,7 @@ def _claim(stage: str, token_path: Path) -> dict[str, Any]:
         os.fsync(stream.fileno())
     created_at_utc = _timestamp()
     payload = {
-        "schema": f"gse313642-hcc-{stage}-attempt/1.0",
+        "schema": f"gse313642-hcc-{stage}-attempt/2.0",
         "status": "CLAIMED_BEFORE_MATRIX_ACCESS",
         "created_at_utc": created_at_utc,
         "designation_sha256": _sha256(DESIGNATION),
@@ -1131,7 +1398,7 @@ def _require_public_attempt(stage: str) -> str:
     hash_key, prerequisite_path = prerequisite_paths[stage]
     token_hash = attempt.get("claim_token_sha256")
     if (
-        attempt.get("schema") != f"gse313642-hcc-{stage}-attempt/1.0"
+        attempt.get("schema") != f"gse313642-hcc-{stage}-attempt/2.0"
         or attempt.get("status") != "CLAIMED_BEFORE_MATRIX_ACCESS"
         or attempt.get("designation_sha256") != _sha256(DESIGNATION)
         or attempt.get(hash_key) != _sha256(prerequisite_path)
@@ -1172,7 +1439,7 @@ def _consume(
     if hashlib.sha256(raw).hexdigest() != attempt.get("claim_token_sha256"):
         raise PermissionError("claim token differs")
     payload = {
-        "schema": f"gse313642-hcc-{stage}-consumption/1.0",
+        "schema": f"gse313642-hcc-{stage}-consumption/2.0",
         "status": "CONSUMED_BEFORE_FIRST_MATRIX_REQUEST",
         "consumed_at_utc": _timestamp(),
         "attempt_sha256": _sha256(attempt_path),
@@ -1221,162 +1488,6 @@ def _open_url(request: urllib.request.Request) -> BinaryIO:
     return urllib.request.build_opener(_NoRedirect).open(request, timeout=180)
 
 
-def _download_axis(
-    record: Mapping[str, Any],
-    modality: str,
-    member: str,
-    destination: Path,
-) -> dict[str, Any]:
-    url = _url(record, modality, member)
-    file_record = _manifest_file(record, modality, member)
-    if file_record["allowed_stage"] != "axis_preflight":
-        raise PermissionError("axis file is not authorized for axis acquisition")
-    expected_bytes = int(file_record["expected_bytes"])
-    _append_jsonl(
-        AXIS_ACCESS,
-        {
-            "stage": "axis_acquisition",
-            "event": "GET_STARTED",
-            "patient_id": record["patient_id"],
-            "modality": modality,
-            "member": member,
-            "url": url,
-            "expected_bytes": expected_bytes,
-        },
-    )
-    digest = hashlib.sha256()
-    byte_count = 0
-    request = urllib.request.Request(
-        url, method="GET", headers={"Accept-Encoding": "identity"}
-    )
-    try:
-        with _open_url(request) as response, destination.open("xb") as stream:
-            declared = response.headers.get("Content-Length")
-            if (
-                getattr(response, "status", response.getcode()) != 200
-                or response.geturl() != url
-                or declared is None
-                or not declared.isdigit()
-                or int(declared) != expected_bytes
-            ):
-                raise ProtocolRefusal("AXIS_RESPONSE_OR_SIZE_REFUSAL")
-            for block in iter(lambda: response.read(1 << 20), b""):
-                stream.write(block)
-                digest.update(block)
-                byte_count += len(block)
-            stream.flush()
-            os.fsync(stream.fileno())
-            if byte_count != expected_bytes:
-                raise ProtocolRefusal("AXIS_SIZE_MISMATCH")
-    except Exception:
-        destination.unlink(missing_ok=True)
-        _append_jsonl(
-            AXIS_ACCESS,
-            {
-                "stage": "axis_acquisition",
-                "event": "GET_FAILED_TERMINALLY",
-                "patient_id": record["patient_id"],
-                "modality": modality,
-                "member": member,
-            },
-        )
-        raise
-    payload = {"bytes": byte_count, "sha256": digest.hexdigest()}
-    _append_jsonl(
-        AXIS_ACCESS,
-        {
-            "stage": "axis_acquisition",
-            "event": "GET_COMPLETED",
-            "patient_id": record["patient_id"],
-            "modality": modality,
-            "member": member,
-            **payload,
-        },
-    )
-    try:
-        _, lines = _decode_gzip_lines(destination)
-    except Exception:
-        destination.unlink(missing_ok=True)
-        _append_jsonl(
-            AXIS_ACCESS,
-            {
-                "stage": "axis_acquisition",
-                "event": "GZIP_PARSE_FAILED_TERMINALLY",
-                "patient_id": record["patient_id"],
-                "modality": modality,
-                "member": member,
-                "download_sha256": payload["sha256"],
-            },
-        )
-        raise
-    _append_jsonl(
-        AXIS_ACCESS,
-        {
-            "stage": "axis_acquisition",
-            "event": "GZIP_PARSE_SUCCEEDED",
-            "patient_id": record["patient_id"],
-            "modality": modality,
-            "member": member,
-            "download_sha256": payload["sha256"],
-            "line_count": len(lines),
-        },
-    )
-    return payload
-
-
-def acquire_axes(axis_root: Path) -> dict[str, Any]:
-    """Acquire only the 140 official feature/barcode members, once each."""
-
-    _require_public_tag(CANDIDATE_TAG, (DESIGNATION, SOURCE_MANIFEST, PROTOCOL))
-    designation = _designation()
-    root = axis_root.expanduser().resolve()
-    if AXIS_ACCESS.exists() or root.exists():
-        raise FileExistsError("axis acquisition was already started")
-    root.mkdir(parents=True, mode=0o700)
-    _append_jsonl(
-        AXIS_ACCESS,
-        {
-            "schema": "gse313642-hcc-axis-access/1.0",
-            "stage": "axis_acquisition",
-            "event": "OPENED_BEFORE_FIRST_AXIS_GET",
-            "created_at_utc": _timestamp(),
-            "matrix_requests": 0,
-            "series_tar_used": False,
-        },
-        create=True,
-    )
-    records = []
-    try:
-        for patient in designation["patients"]:
-            for modality in ("GEX", "FB"):
-                for member in AXIS_MEMBERS:
-                    destination = root / _filename(patient, modality, member)
-                    audit = _download_axis(patient, modality, member, destination)
-                    records.append(
-                        {
-                            "patient_id": patient["patient_id"],
-                            "modality": modality,
-                            "member": member,
-                            **audit,
-                        }
-                    )
-    except Exception:
-        _append_jsonl(
-            AXIS_ACCESS,
-            {
-                "stage": "axis_acquisition",
-                "event": "TERMINAL_AXIS_ACQUISITION_FAILURE",
-            },
-        )
-        raise
-    return {
-        "status": "AXES_ACQUIRED_WITHOUT_MATRIX_ACCESS",
-        "file_count": len(records),
-        "matrix_requests": 0,
-        "files": records,
-    }
-
-
 def _download_matrix(
     record: Mapping[str, Any],
     modality: str,
@@ -1392,7 +1503,10 @@ def _download_matrix(
         ("prediction", "held"): "held_gex_prediction",
         ("score", "held"): "held_fb_score_after_prediction_freeze",
     }.get((stage, record["role"]))
-    if file_record["allowed_stage"] != expected_stage:
+    if (
+        file_record["allowed_stage"] != expected_stage
+        or file_record.get("v2_get_authorized") is not True
+    ):
         raise PermissionError("matrix file is not authorized for this stage")
     expected_bytes = int(file_record["expected_bytes"])
     _append_jsonl(
@@ -1670,6 +1784,54 @@ def _loss_payload(
     }
 
 
+def _source_gate(
+    losses: Mapping[str, np.ndarray], cohorts: Sequence[str]
+) -> dict[str, Any]:
+    primary = np.asarray(losses["primary"], dtype=float)
+    labels = np.asarray(tuple(cohorts), dtype=object)
+    if (
+        primary.shape != (11,)
+        or labels.shape != primary.shape
+        or int(np.count_nonzero(labels == "A")) != 4
+        or int(np.count_nonzero(labels == "B")) != 7
+        or not np.isfinite(primary).all()
+    ):
+        raise ValueError("source gate requires eleven finite pilot losses (4 A, 7 B)")
+    comparisons = {}
+    for method in SOURCE_GATE_COMPARATORS:
+        comparator = np.asarray(losses[method], dtype=float)
+        if comparator.shape != primary.shape or not np.isfinite(comparator).all():
+            raise ValueError("source comparator losses differ from the pilot panel")
+        difference = primary - comparator
+        checks = {
+            "primary_mean_strictly_lower": float(difference.mean()) < 0.0,
+            "at_least_eight_of_eleven_favorable": int(
+                np.count_nonzero(difference < 0.0)
+            )
+            >= 8,
+            "A_mean_improvement_strictly_positive": float(
+                difference[labels == "A"].mean()
+            )
+            < 0.0,
+            "B_mean_improvement_strictly_positive": float(
+                difference[labels == "B"].mean()
+            )
+            < 0.0,
+        }
+        comparisons[method] = {
+            "primary_mean_loss": float(primary.mean()),
+            "comparator_mean_loss": float(comparator.mean()),
+            "mean_difference": float(difference.mean()),
+            "favorable_patients": int(np.count_nonzero(difference < 0.0)),
+            "checks": checks,
+            "passes": all(checks.values()),
+        }
+    return {
+        "comparisons": comparisons,
+        "passes": all(record["passes"] for record in comparisons.values()),
+    }
+
+
 def _failure(stage: str, code: str) -> dict[str, Any]:
     results = {
         "calibration": CALIBRATION_SELECTION,
@@ -1681,7 +1843,7 @@ def _failure(stage: str, code: str) -> dict[str, Any]:
         raise ValueError("unknown stage")
     result = results[stage]
     payload = {
-        "schema": f"gse313642-hcc-{stage}-result/1.0",
+        "schema": f"gse313642-hcc-{stage}-result/2.0",
         "status": "TERMINAL_REFUSAL",
         "refusal_code": code,
         "created_at_utc": _timestamp(),
@@ -1792,7 +1954,7 @@ def _validate_calibration_selection(
         fit_models(tables, destroyed, cohorts, selected, comparator_alphas)
     )
     if (
-        selection.get("schema") != "gse313642-hcc-calibration-selection/1.0"
+        selection.get("schema") != "gse313642-hcc-calibration-selection/2.0"
         or selection.get("status") != "FROZEN_BEFORE_ANY_PILOT_MATRIX_REQUEST"
         or selection.get("rerun_permitted") is not False
         or selection.get("calibration_patient_order") != patient_ids
@@ -1862,7 +2024,7 @@ def run_calibration(
                 comparator_alphas,
             )
             payload = {
-                "schema": "gse313642-hcc-calibration-selection/1.0",
+                "schema": "gse313642-hcc-calibration-selection/2.0",
                 "status": "FROZEN_BEFORE_ANY_PILOT_MATRIX_REQUEST",
                 "created_at_utc": _timestamp(),
                 "rerun_permitted": False,
@@ -1902,7 +2064,9 @@ def authorize_source() -> dict[str, Any]:
     _require_runtime()
     selection = _read_json(CALIBRATION_SELECTION)
     tags = _verify_implementation()
-    preflight_commit = _require_public_tag(PREFLIGHT_TAG, (AXIS_ACCESS, AXIS_PREFLIGHT))
+    preflight_commit = _require_public_tag(
+        PREFLIGHT_TAG, (V1_AXIS_ACCESS, V1_AXIS_REFUSAL, AXIS_PREFLIGHT)
+    )
     calibration_commit = validate("calibration")["final_commit"]
     _require_ancestor(tags["implementation_commit"], preflight_commit)
     _validate_calibration_selection(selection, _designation())
@@ -1911,12 +2075,12 @@ def authorize_source() -> dict[str, Any]:
     ):
         raise FileExistsError("pilot stage is already authorized or consumed")
     payload = {
-        "schema": "gse313642-hcc-pilot-authorization/1.0",
+        "schema": "gse313642-hcc-pilot-authorization/2.0",
         "status": "AUTHORIZED_AFTER_PUBLIC_CALIBRATION_FREEZE",
         "created_at_utc": _timestamp(),
         "calibration_selection_sha256": _sha256(CALIBRATION_SELECTION),
         "calibration_commit": calibration_commit,
-        "pilot_matrix_gets_authorized": 24,
+        "pilot_matrix_gets_authorized": 22,
     }
     _write_json_x(PILOT_AUTHORIZATION, payload)
     return payload
@@ -1933,11 +2097,16 @@ def run_source(
             designation, preflight_value = _validate_preflight(axis_root)
             selection = _read_json(CALIBRATION_SELECTION)
             authorization = _read_json(PILOT_AUTHORIZATION)
-            if selection.get(
-                "status"
-            ) != "FROZEN_BEFORE_ANY_PILOT_MATRIX_REQUEST" or authorization.get(
-                "calibration_selection_sha256"
-            ) != _sha256(CALIBRATION_SELECTION):
+            if (
+                selection.get("status") != "FROZEN_BEFORE_ANY_PILOT_MATRIX_REQUEST"
+                or authorization.get("schema")
+                != "gse313642-hcc-pilot-authorization/2.0"
+                or authorization.get("status")
+                != "AUTHORIZED_AFTER_PUBLIC_CALIBRATION_FREEZE"
+                or authorization.get("calibration_selection_sha256")
+                != _sha256(CALIBRATION_SELECTION)
+                or authorization.get("pilot_matrix_gets_authorized") != 22
+            ):
                 raise PermissionError("pilot prerequisites differ")
             (
                 calibration_tables,
@@ -1968,10 +2137,10 @@ def run_source(
             pilot_losses = serialized_panel_losses(
                 calibration_models, pilot_tables, pilot_cohorts
             )
-            gate = source_gate(pilot_losses, pilot_cohorts)
+            gate = _source_gate(pilot_losses, pilot_cohorts)
             payload: dict[str, Any] = {
-                "schema": "gse313642-hcc-source-result/1.0",
-                "status": "SOURCE_PASS_REFIT_23"
+                "schema": "gse313642-hcc-source-result/2.0",
+                "status": "SOURCE_PASS_REFIT_22"
                 if gate["passes"]
                 else "TERMINAL_SOURCE_GATE_FAIL",
                 "created_at_utc": _timestamp(),
@@ -2005,7 +2174,7 @@ def run_source(
                     selected,
                     comparator_alphas,
                 )
-                payload["source_patient_count"] = 23
+                payload["source_patient_count"] = 22
                 payload["source_models"] = serialize_models(refit)
             _write_json_x(SOURCE_RESULT, payload)
             return payload
@@ -2034,15 +2203,15 @@ def _validate_source_result(
     pilot_ids = list(designation["role_order"]["pilot"])
     by_id = {record["patient_id"]: record for record in designation["patients"]}
     pilot_cohorts = [by_id[patient_id]["group"] for patient_id in pilot_ids]
-    pilot_tables = _integer_table_panel(source.get("pilot_tables"), 12, "pilot tables")
+    pilot_tables = _integer_table_panel(source.get("pilot_tables"), 11, "pilot tables")
     pilot_destroyed = _integer_table_panel(
-        source.get("pilot_destroyed_tables"), 12, "pilot destroyed tables"
+        source.get("pilot_destroyed_tables"), 11, "pilot destroyed tables"
     )
     calibration_models = deserialize_models(calibration_models_payload)
     pilot_losses = serialized_panel_losses(
         calibration_models, pilot_tables, pilot_cohorts
     )
-    gate = source_gate(pilot_losses, pilot_cohorts)
+    gate = _source_gate(pilot_losses, pilot_cohorts)
     expected_models = serialize_models(
         fit_models(
             np.concatenate((calibration_tables, pilot_tables)),
@@ -2055,8 +2224,8 @@ def _validate_source_result(
     all_ids = calibration_ids + pilot_ids
     all_cohorts = calibration_cohorts + pilot_cohorts
     if (
-        source.get("schema") != "gse313642-hcc-source-result/1.0"
-        or source.get("status") != "SOURCE_PASS_REFIT_23"
+        source.get("schema") != "gse313642-hcc-source-result/2.0"
+        or source.get("status") != "SOURCE_PASS_REFIT_22"
         or source.get("rerun_permitted") is not False
         or source.get("calibration_selection_sha256") != _sha256(CALIBRATION_SELECTION)
         or source.get("selected_configuration") != _configuration_payload(selected)
@@ -2070,7 +2239,7 @@ def _validate_source_result(
         or source.get("pilot_table_hashes") != _panel_hashes(pilot_ids, pilot_tables)
         or source.get("pilot_destroyed_table_hashes")
         != _panel_hashes(pilot_ids, pilot_destroyed)
-        or source.get("source_patient_count") != 23
+        or source.get("source_patient_count") != 22
         or source.get("source_models") != expected_models
     ):
         raise PermissionError("source promotion and refit do not replay exactly")
@@ -2091,7 +2260,7 @@ def authorize_prediction() -> dict[str, Any]:
     ):
         raise FileExistsError("prediction stage is already authorized or consumed")
     payload = {
-        "schema": "gse313642-hcc-prediction-authorization/1.0",
+        "schema": "gse313642-hcc-prediction-authorization/2.0",
         "status": "AUTHORIZED_AFTER_PUBLIC_SOURCE_PASS",
         "created_at_utc": _timestamp(),
         "source_result_sha256": _sha256(SOURCE_RESULT),
@@ -2124,7 +2293,7 @@ def run_prediction(
             designation, preflight_value = _validate_preflight(axis_root)
             source = _read_json(SOURCE_RESULT)
             authorization = _read_json(PREDICTION_AUTHORIZATION)
-            if source.get("status") != "SOURCE_PASS_REFIT_23" or authorization.get(
+            if source.get("status") != "SOURCE_PASS_REFIT_22" or authorization.get(
                 "source_result_sha256"
             ) != _sha256(SOURCE_RESULT):
                 raise PermissionError("prediction prerequisites differ")
@@ -2209,13 +2378,13 @@ def run_prediction(
                     )
                     shutil.rmtree(patient_dir, ignore_errors=True)
             private_payload = {
-                "schema": "gse313642-hcc-private-held-gex-state/1.0",
+                "schema": "gse313642-hcc-private-held-gex-state/2.0",
                 "prediction_attempt_sha256": _sha256(PREDICTION_ATTEMPT),
                 "patients": private_patients,
             }
             _write_json_x(private_state, private_payload)
             payload = {
-                "schema": "gse313642-hcc-predictions/1.0",
+                "schema": "gse313642-hcc-predictions/2.0",
                 "status": "PREDICTIONS_FROZEN_BEFORE_ANY_HELD_FB_ACCESS",
                 "created_at_utc": _timestamp(),
                 "rerun_permitted": False,
@@ -2262,7 +2431,7 @@ def authorize_score() -> dict[str, Any]:
     ):
         raise FileExistsError("score stage is already authorized or consumed")
     payload = {
-        "schema": "gse313642-hcc-score-authorization/1.0",
+        "schema": "gse313642-hcc-score-authorization/2.0",
         "status": "AUTHORIZED_AFTER_PUBLIC_PREDICTION_FREEZE",
         "created_at_utc": _timestamp(),
         "prediction_result_sha256": _sha256(PREDICTION_RESULT),
@@ -2283,7 +2452,7 @@ def _validate_public_predictions(
     patient_ids = designation["role_order"]["held"]
     public_rows = predictions.get("patients")
     if (
-        predictions.get("schema") != "gse313642-hcc-predictions/1.0"
+        predictions.get("schema") != "gse313642-hcc-predictions/2.0"
         or predictions.get("status") != "PREDICTIONS_FROZEN_BEFORE_ANY_HELD_FB_ACCESS"
         or predictions.get("rerun_permitted") is not False
         or predictions.get("source_result_sha256") != _sha256(SOURCE_RESULT)
@@ -2357,7 +2526,7 @@ def _validate_prediction_state(
     public_rows = predictions["patients"]
     private_rows = state.get("patients")
     if (
-        state.get("schema") != "gse313642-hcc-private-held-gex-state/1.0"
+        state.get("schema") != "gse313642-hcc-private-held-gex-state/2.0"
         or state.get("prediction_attempt_sha256")
         != predictions.get("prediction_attempt_sha256")
         or not isinstance(private_rows, list)
@@ -2397,7 +2566,7 @@ def _validate_score_result(
     value: Mapping[str, Any], designation: Mapping[str, Any]
 ) -> dict[str, np.ndarray]:
     if (
-        value.get("schema") != "gse313642-hcc-score-result/1.0"
+        value.get("schema") != "gse313642-hcc-score-result/2.0"
         or value.get("rerun_permitted") is not False
     ):
         raise PermissionError("score result schema or durability differs")
@@ -2607,7 +2776,7 @@ def run_score(
                     shutil.rmtree(patient_dir, ignore_errors=True)
             gate = held_gate(losses, cohorts)
             payload = {
-                "schema": "gse313642-hcc-score-result/1.0",
+                "schema": "gse313642-hcc-score-result/2.0",
                 "status": "CONFIRMATION_PASS"
                 if gate["passes"]
                 else "COMPLETED_CONFIRMATION_FAIL",
@@ -2848,7 +3017,7 @@ def validate(stage: str) -> dict[str, Any]:
     _, attempt_path, final_tag = final_tags[stage]
     consumed = _read_json(consumption)
     if (
-        consumed.get("schema") != f"gse313642-hcc-{stage}-consumption/1.0"
+        consumed.get("schema") != f"gse313642-hcc-{stage}-consumption/2.0"
         or consumed.get("status") != "CONSUMED_BEFORE_FIRST_MATRIX_REQUEST"
         or consumed.get("attempt_sha256") != _sha256(attempt_path)
         or consumed.get("rerun_permitted") is not False
@@ -2900,8 +3069,6 @@ def validate(stage: str) -> dict[str, Any]:
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(dest="command", required=True)
-    acquire_parser = subparsers.add_parser("acquire-axes")
-    acquire_parser.add_argument("--axis-root", type=Path, required=True)
     preflight_parser = subparsers.add_parser("preflight")
     preflight_parser.add_argument("--axis-root", type=Path, required=True)
     subparsers.add_parser("freeze-implementation")
@@ -2938,9 +3105,7 @@ def _parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     arguments = _parser().parse_args(argv)
-    if arguments.command == "acquire-axes":
-        output = acquire_axes(arguments.axis_root)
-    elif arguments.command == "preflight":
+    if arguments.command == "preflight":
         output = preflight(arguments.axis_root)
     elif arguments.command == "freeze-implementation":
         output = freeze_implementation()

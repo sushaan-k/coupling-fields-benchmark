@@ -1,0 +1,58 @@
+{
+  "candidate_commit": "ee223e2af7393659719e7d8f1fc169c21409b14d",
+  "candidate_tag": "gse313642-hcc-v2-candidate",
+  "created_at_utc": "2026-08-30T20:14:51Z",
+  "implementation_files_sha256": {
+    "data/confirmation/gse313642_hcc/axis_access_v1.jsonl": "2619458df75a219f1f2b21b8f00e7dc2c096b7309a06dc22caa8d6d5ca201555",
+    "data/confirmation/gse313642_hcc/candidate_designation_v1.json": "d01a606cc056cdb236ae7d5739d492b1a53c85bd10871712868f74c5ae7d1258",
+    "data/confirmation/gse313642_hcc/candidate_designation_v2.json": "f8e43c78ec44f85ce8c1e6001a87529702df008caa5a5c9196e3e93182593adf",
+    "data/confirmation/gse313642_hcc/source_manifest_v1.json": "54c4af24444fb5bf6347003fdfbda8833779af2435f5209c77398ea3dd4d1d5b",
+    "data/confirmation/gse313642_hcc/source_manifest_v2.json": "fa900ff433538117440e673081a0bf7c762b1bf4d750a0752adc31b962441344",
+    "docs/GSE313642_HCC_CITESEQ_HELD_PATIENT_PROTOCOL_V2_2026-08-30.md": "a185a1f92585f0dcb26e31be31cbfdd718b381afb3cdf14dad11e442bec7fd7e",
+    "experiments/confirm_gse313642_hcc.py": "f119e18a5a6d1f9402f17fb2ee3e602e289101cdf81c3478a67c446873ece9f2",
+    "experiments/gse217494_heart_core.py": "7f3808a7a84053dae19a731ce2a8bd48102590562d8a298c22f3d762d0a2290a",
+    "experiments/gse313642_hcc_core.py": "4b73c1e5c869d5b67bb62f6eb0ab2eb41686e37e3211f6d3af3e18935fd5b5fd",
+    "mapreg/classical_residuals.py": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
+    "mapreg/common_effect_conditional.py": "e8730bc5c072b66794d9d1c0f8fa8c93ba7e2bf9303a34bde98dfb7dea6ff2e9",
+    "mapreg/context_conditional_coupling.py": "51e02ee70320f192991e69622d206a36a86c77fb480f6ddec22a9bb0b7e1a652",
+    "mapreg/coupling_fields.py": "06edd27c9cc52bcee1da1fc4a7a8fd86586d6263f9b32b2c6b0c5d16b0f01dc1",
+    "mapreg/heterogeneity_adaptive_coupling.py": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e",
+    "mapreg/poisson_loglinear.py": "940d28fe3f4bd2c076025c2709a6d2d96eea5554acb8a20ef934be65a5d32b32",
+    "mapreg/streamed_gzip_matrix_market.py": "a464b04987153d4862034b73a274fffc4495496007b8d5a6d9ae0e5b54269748",
+    "mapreg/structured_context_conditional.py": "2dfdc2c1e990bc547146584f609cee18eae910ed594a6bc1aa7a13a8194f7353",
+    "mapreg/table_prediction.py": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e",
+    "pyproject.toml": "9c49aabfd3916de8f84a3a4c287483bd76f345c24b0c0a5a3f749832f4650991",
+    "results/development/gse313642_hcc_axis_preflight_v1.json": "94840b4b8756e8745caaa7738a060001ab0aea7311ddedd740aa5b6477ddba86",
+    "tests/test_gse313642_hcc_confirmation.py": "8bbb3628ce41c1301d0e722f9e59949e6fa6c186c5fb280da57971b75917df4f"
+  },
+  "matrix_body_or_header_requested": false,
+  "required_implementation_tag": "gse313642-hcc-v2-implementation",
+  "required_runtime": {
+    "operating_system": {
+      "machine": "arm64",
+      "system": "Darwin"
+    },
+    "packages": {
+      "numpy": "2.0.2",
+      "scipy": "1.13.1"
+    },
+    "python": {
+      "implementation": "CPython",
+      "version": "3.9.6"
+    },
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "rerun_permitted": false,
+  "schema": "gse313642-hcc-pre-access-implementation/2.0",
+  "status": "FROZEN_BEFORE_ANY_NUMERIC_MATRIX_ACCESS",
+  "v1_terminal_axis_refusal": {
+    "terminal_refusal_commit": "b814c6c33a068ae341f983d8d82ea40dddb36207",
+    "terminal_refusal_tag": "gse313642-hcc-v1-terminal-axis-refusal"
+  }
+}

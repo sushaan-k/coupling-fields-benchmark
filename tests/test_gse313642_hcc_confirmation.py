@@ -64,7 +64,7 @@ def calibration_artifact() -> tuple[dict[str, object], dict[str, object]]:
         for index, patient_id in enumerate(patient_ids)
     ]
     payload = {
-        "schema": "gse313642-hcc-calibration-selection/1.0",
+        "schema": "gse313642-hcc-calibration-selection/2.0",
         "status": "FROZEN_BEFORE_ANY_PILOT_MATRIX_REQUEST",
         "rerun_permitted": False,
         "calibration_patient_order": patient_ids,
@@ -151,7 +151,7 @@ def _prediction_artifacts(
     attempt_sha256 = "a" * 64
     return (
         {
-            "schema": "gse313642-hcc-predictions/1.0",
+            "schema": "gse313642-hcc-predictions/2.0",
             "status": "PREDICTIONS_FROZEN_BEFORE_ANY_HELD_FB_ACCESS",
             "rerun_permitted": False,
             "source_result_sha256": runner._sha256(runner.SOURCE_RESULT),
@@ -171,7 +171,7 @@ def _prediction_artifacts(
             "patients": public_rows,
         },
         {
-            "schema": "gse313642-hcc-private-held-gex-state/1.0",
+            "schema": "gse313642-hcc-private-held-gex-state/2.0",
             "prediction_attempt_sha256": attempt_sha256,
             "patients": private_rows,
         },
@@ -222,8 +222,42 @@ def _one_pair_axes(
 def test_current_candidate_and_manifest_recompute_the_frozen_split() -> None:
     candidate = runner._designation()
     manifest = runner._source_manifest()
-    assert len(candidate["patients"]) == 35
-    assert len(manifest) == 210
+    assert len(candidate["patients"]) == 34
+    assert len(manifest) == 204
+    assert {record["patient_id"] for record in candidate["patients"]}.isdisjoint(
+        {"A33"}
+    )
+    assert candidate["role_order"]["pilot"] == [
+        "A04",
+        "A03",
+        "A35",
+        "A31",
+        "B02",
+        "B07",
+        "B06",
+        "B05",
+        "B21",
+        "B01",
+        "B12",
+    ]
+    axes = [
+        record
+        for record in manifest.values()
+        if record["member"] in runner.AXIS_MEMBERS
+    ]
+    matrices = [
+        record
+        for record in manifest.values()
+        if record["member"] == runner.MATRIX_MEMBER
+    ]
+    assert len(axes) == 136
+    assert len(matrices) == 68
+    assert all(
+        record["allowed_stage"] == "v2_reuse_only_no_get"
+        and record["v2_get_authorized"] is False
+        for record in axes
+    )
+    assert all(record["v2_get_authorized"] is True for record in matrices)
     assert candidate["role_order"]["held"][:5] == [
         "A05",
         "A02",
@@ -233,11 +267,28 @@ def test_current_candidate_and_manifest_recompute_the_frozen_split() -> None:
     ]
 
 
+def test_v1_terminal_refusal_and_immutable_journal_are_bound() -> None:
+    terminal = runner._v1_terminal_refusal()
+    assert terminal == {
+        "tag": runner.V1_TERMINAL_TAG,
+        "commit": runner.V1_TERMINAL_COMMIT,
+        "artifact_sha256": runner.V1_AXIS_REFUSAL_SHA256,
+        "refusal_code": "BARCODE_AXIS_NOT_UNIQUE",
+        "excluded_patient_id": "A33",
+    }
+    assert len(runner._read_jsonl(runner.V1_AXIS_ACCESS)) == 421
+
+
 def test_rank_or_hash_mutation_is_rejected(monkeypatch: pytest.MonkeyPatch) -> None:
     value = json.loads(runner.DESIGNATION.read_text())
     value["patients"][0]["split_sha256"] = "0" * 64
-    monkeypatch.setattr(runner, "_read_json", lambda path: value)
-    with pytest.raises(PermissionError, match="split rank, hash, or role"):
+    read_json = runner._read_json
+    monkeypatch.setattr(
+        runner,
+        "_read_json",
+        lambda path: value if path == runner.DESIGNATION else read_json(path),
+    )
+    with pytest.raises(PermissionError, match="v2 must equal the v1 patient panel"):
         runner._designation()
 
 
@@ -317,9 +368,16 @@ def test_axis_gate_rejects_size_disclosed_hash_and_barcode_set_corruption(
 def test_axis_access_requires_exact_one_shot_url_and_size_journal(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    record, _ = _one_pair_axes(tmp_path, monkeypatch)
+    v1 = json.loads(runner.V1_DESIGNATION.read_text())
+    retained = [record for record in v1["patients"] if record["patient_id"] != "A33"]
     access = tmp_path / "axis-access.jsonl"
+    monkeypatch.setattr(runner, "V1_AXIS_ACCESS", access)
     monkeypatch.setattr(runner, "AXIS_ACCESS", access)
+    monkeypatch.setattr(
+        runner,
+        "_open_url",
+        lambda request: (_ for _ in ()).throw(AssertionError("unexpected GET")),
+    )
     rows = [
         {
             "schema": "gse313642-hcc-axis-access/1.0",
@@ -329,57 +387,97 @@ def test_axis_access_requires_exact_one_shot_url_and_size_journal(
             "series_tar_used": False,
         }
     ]
-    for modality in ("GEX", "FB"):
-        for member in runner.AXIS_MEMBERS:
-            path = tmp_path / runner._filename(record, modality, member)
-            url = runner._url(record, modality, member)
-            rows.extend(
-                (
-                    {
-                        "stage": "axis_acquisition",
-                        "event": "GET_STARTED",
-                        "patient_id": record["patient_id"],
-                        "modality": modality,
-                        "member": member,
-                        "url": url,
-                        "expected_bytes": path.stat().st_size,
-                    },
-                    {
-                        "stage": "axis_acquisition",
-                        "event": "GET_COMPLETED",
-                        "patient_id": record["patient_id"],
-                        "modality": modality,
-                        "member": member,
-                        "bytes": path.stat().st_size,
-                        "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
-                    },
-                    {
-                        "stage": "axis_acquisition",
-                        "event": "GZIP_PARSE_SUCCEEDED",
-                        "patient_id": record["patient_id"],
-                        "modality": modality,
-                        "member": member,
-                        "download_sha256": hashlib.sha256(
-                            path.read_bytes()
-                        ).hexdigest(),
-                        "line_count": len(gzip.open(path, "rt").read().splitlines()),
-                    },
+    historical_manifest = {}
+    current_manifest = {}
+    for record in v1["patients"]:
+        for modality in ("GEX", "FB"):
+            for member in runner.AXIS_MEMBERS:
+                key = (record["patient_id"], modality, member)
+                path = tmp_path / runner._filename(record, modality, member)
+                if record["patient_id"] == "A33":
+                    expected_bytes = 123
+                    digest = hashlib.sha256("excluded-a33-axis".encode()).hexdigest()
+                else:
+                    _write_axis(path, ["one-axis-row"])
+                    expected_bytes = path.stat().st_size
+                    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+                manifest = {
+                    "patient_id": record["patient_id"],
+                    "deposited_patient_id": record["deposited_patient_id"],
+                    "modality": modality,
+                    "member": member,
+                    "gsm": record["gex_gsm" if modality == "GEX" else "fb_gsm"],
+                    "filename": path.name,
+                    "expected_bytes": expected_bytes,
+                    "allowed_stage": "axis_preflight",
+                }
+                historical_manifest[key] = manifest
+                if record["patient_id"] != "A33":
+                    current_manifest[key] = {
+                        **manifest,
+                        "allowed_stage": "v2_reuse_only_no_get",
+                        "v2_get_authorized": False,
+                    }
+                url = runner._manifest_url(manifest)
+                rows.extend(
+                    (
+                        {
+                            "stage": "axis_acquisition",
+                            "event": "GET_STARTED",
+                            "patient_id": record["patient_id"],
+                            "modality": modality,
+                            "member": member,
+                            "url": url,
+                            "expected_bytes": expected_bytes,
+                        },
+                        {
+                            "stage": "axis_acquisition",
+                            "event": "GET_COMPLETED",
+                            "patient_id": record["patient_id"],
+                            "modality": modality,
+                            "member": member,
+                            "bytes": expected_bytes,
+                            "sha256": digest,
+                        },
+                        {
+                            "stage": "axis_acquisition",
+                            "event": "GZIP_PARSE_SUCCEEDED",
+                            "patient_id": record["patient_id"],
+                            "modality": modality,
+                            "member": member,
+                            "download_sha256": digest,
+                            "line_count": 1,
+                        },
+                    )
                 )
-            )
-    access.write_text("".join(json.dumps(row) + "\n" for row in rows))
-    assert (
-        runner._validate_axis_access(tmp_path, {"patients": [record]})["axis_gets"] == 4
+    monkeypatch.setattr(runner, "_v1_axis_manifest", lambda: (v1, historical_manifest))
+    monkeypatch.setattr(
+        runner,
+        "_v1_terminal_refusal",
+        lambda: {"excluded_patient_id": "A33"},
     )
+    monkeypatch.setattr(runner, "_source_manifest", lambda: current_manifest)
+    access.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    audit = runner._validate_axis_access(tmp_path, {"patients": retained})
+    assert audit["v1_journal_rows"] == 421
+    assert audit["v1_axis_gets"] == 140
+    assert audit["v2_axis_gets"] == 0
+    assert audit["retained_axis_files"] == 136
+    assert audit["excluded_axis_files"] == 4
+    assert len(audit["files"]) == 136
+    assert not list(tmp_path.glob("*A-33-01_01*"))
 
     rows[1]["url"] = "https://wrong.test/file"
     access.write_text("".join(json.dumps(row) + "\n" for row in rows))
     with pytest.raises(PermissionError, match="axis access file binding differs"):
-        runner._validate_axis_access(tmp_path, {"patients": [record]})
-    rows[1]["url"] = runner._url(record, "GEX", runner.AXIS_MEMBERS[0])
+        runner._validate_axis_access(tmp_path, {"patients": retained})
+    rows[1]["url"] = runner._manifest_url(
+        historical_manifest[("A02", "GEX", runner.AXIS_MEMBERS[0])]
+    )
     rows[2]["bytes"] = int(rows[2]["bytes"]) + 1
     access.write_text("".join(json.dumps(row) + "\n" for row in rows))
     with pytest.raises(PermissionError, match="axis access file binding differs"):
-        runner._validate_axis_access(tmp_path, {"patients": [record]})
+        runner._validate_axis_access(tmp_path, {"patients": retained})
 
 
 def test_matrix_reduction_joins_barcode_ids_not_positions(
@@ -470,7 +568,7 @@ def test_source_refit_identity_is_replayed_before_held_gex(
         alphas,
         calibration_models_payload,
     ) = replayed
-    pilot_tables, pilot_destroyed = _panel(12)
+    pilot_tables, pilot_destroyed = _panel(11)
     pilot_ids = designation["role_order"]["pilot"]
     by_id = {record["patient_id"]: record for record in designation["patients"]}
     pilot_cohorts = [by_id[patient_id]["group"] for patient_id in pilot_ids]
@@ -480,7 +578,7 @@ def test_source_refit_identity_is_replayed_before_held_gex(
         pilot_cohorts,
     )
     gate = {"passes": True, "synthetic_replay_gate": True}
-    monkeypatch.setattr(runner, "source_gate", lambda losses, cohorts: gate)
+    monkeypatch.setattr(runner, "_source_gate", lambda losses, cohorts: gate)
     selection_path = tmp_path / "calibration.json"
     selection_path.write_text("{}\n")
     monkeypatch.setattr(runner, "CALIBRATION_SELECTION", selection_path)
@@ -507,8 +605,8 @@ def test_source_refit_identity_is_replayed_before_held_gex(
         for index, patient_id in enumerate(pilot_ids)
     ]
     source = {
-        "schema": "gse313642-hcc-source-result/1.0",
-        "status": "SOURCE_PASS_REFIT_23",
+        "schema": "gse313642-hcc-source-result/2.0",
+        "status": "SOURCE_PASS_REFIT_22",
         "rerun_permitted": False,
         "calibration_selection_sha256": runner._sha256(selection_path),
         "selected_configuration": runner._configuration_payload(selected),
@@ -532,13 +630,40 @@ def test_source_refit_identity_is_replayed_before_held_gex(
         "pilot_destroyed_table_hashes": runner._panel_hashes(
             pilot_ids, pilot_destroyed
         ),
-        "source_patient_count": 23,
+        "source_patient_count": 22,
         "source_models": expected_models,
     }
     assert runner._validate_source_result(source, designation) == expected_models
     source["source_models"]["primary"]["cohort_log_odds"][0][0][0] += 0.01
     with pytest.raises(PermissionError, match="do not replay exactly"):
         runner._validate_source_result(source, designation)
+
+
+def test_v2_source_gate_requires_eight_of_eleven_and_both_cohorts() -> None:
+    cohorts = ["A"] * 4 + ["B"] * 7
+    difference = np.asarray(
+        [-0.2, -0.2, -0.2, 0.1, -0.2, -0.2, -0.2, -0.2, -0.2, 0.1, 0.1]
+    )
+    losses = {"primary": 1.0 + difference}
+    losses.update({method: np.ones(11) for method in core.SOURCE_GATE_COMPARATORS})
+    gate = runner._source_gate(losses, cohorts)
+    assert gate["passes"] is True
+    assert all(
+        record["favorable_patients"] == 8
+        and record["checks"]["at_least_eight_of_eleven_favorable"] is True
+        for record in gate["comparisons"].values()
+    )
+
+    failed_losses = dict(losses)
+    failed_difference = difference.copy()
+    failed_difference[0] = 0.1
+    failed_losses["primary"] = 1.0 + failed_difference
+    failed = runner._source_gate(failed_losses, cohorts)
+    assert failed["passes"] is False
+    assert all(
+        record["checks"]["at_least_eight_of_eleven_favorable"] is False
+        for record in failed["comparisons"].values()
+    )
 
 
 def test_report_only_boundary_does_not_abort_mandatory_fit(
@@ -719,7 +844,7 @@ def test_score_result_is_recomputed_from_patient_losses(
     losses["independence"] = np.full(12, 1.5)
     gate = core.held_gate(losses, cohorts)
     value = {
-        "schema": "gse313642-hcc-score-result/1.0",
+        "schema": "gse313642-hcc-score-result/2.0",
         "status": "CONFIRMATION_PASS",
         "rerun_permitted": False,
         "prediction_result_sha256": runner._sha256(prediction),
@@ -803,52 +928,6 @@ class _Response(io.BytesIO):
         self.close()
 
 
-def test_axis_get_is_journaled_before_gzip_crc_parse(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
-    record = runner._designation()["patients"][0]
-    buffer = io.BytesIO()
-    with gzip.GzipFile(fileobj=buffer, mode="wb") as stream:
-        stream.write(b"CELL-1\nCELL-2\n")
-    body = buffer.getvalue()
-    journal = tmp_path / "axis-access.jsonl"
-    journal.write_text(json.dumps({"event": "HEADER"}) + "\n")
-    destination = tmp_path / "barcodes.tsv.gz"
-    monkeypatch.setattr(runner, "AXIS_ACCESS", journal)
-    monkeypatch.setattr(
-        runner,
-        "_manifest_file",
-        lambda *args: {
-            "allowed_stage": "axis_preflight",
-            "expected_bytes": len(body),
-        },
-    )
-    monkeypatch.setattr(runner, "_url", lambda *args: "https://example.test/axis")
-    monkeypatch.setattr(
-        runner,
-        "_open_url",
-        lambda request: _Response(body, request.full_url),
-    )
-    decode = runner._decode_gzip_lines
-
-    def assert_download_was_recorded(path: Path) -> tuple[bytes, list[str]]:
-        events = [
-            json.loads(line)["event"] for line in journal.read_text().splitlines()
-        ]
-        assert events[-1] == "GET_COMPLETED"
-        return decode(path)
-
-    monkeypatch.setattr(runner, "_decode_gzip_lines", assert_download_was_recorded)
-    result = runner._download_axis(record, "GEX", "barcodes.tsv.gz", destination)
-    assert result["sha256"] == hashlib.sha256(body).hexdigest()
-    assert [json.loads(line)["event"] for line in journal.read_text().splitlines()] == [
-        "HEADER",
-        "GET_STARTED",
-        "GET_COMPLETED",
-        "GZIP_PARSE_SUCCEEDED",
-    ]
-
-
 def test_matrix_get_has_one_attempt_exact_size_and_no_redirect(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -857,6 +936,7 @@ def test_matrix_get_has_one_attempt_exact_size_and_no_redirect(
     file_record = {
         "allowed_stage": "held_gex_prediction",
         "expected_bytes": len(body),
+        "v2_get_authorized": True,
     }
     monkeypatch.setattr(runner, "_manifest_file", lambda *args: file_record)
     monkeypatch.setattr(runner, "_url", lambda *args: "https://example.test/matrix")
@@ -904,6 +984,7 @@ def test_cli_enforces_four_separate_numeric_stages() -> None:
         "run-score",
     }
     assert required <= set(choices)
+    assert "acquire-axes" not in choices
     assert "run-held" not in choices
 
 
@@ -918,7 +999,7 @@ def test_validation_requires_exact_unique_get_and_delete_sets(
     consumption.write_text(
         json.dumps(
             {
-                "schema": "gse313642-hcc-prediction-consumption/1.0",
+                "schema": "gse313642-hcc-prediction-consumption/2.0",
                 "status": "CONSUMED_BEFORE_FIRST_MATRIX_REQUEST",
                 "attempt_sha256": runner._sha256(attempt),
                 "scratch_identity_sha256": "x",
@@ -1000,7 +1081,7 @@ def test_terminal_validation_accepts_only_an_expected_request_prefix(
     consumption.write_text(
         json.dumps(
             {
-                "schema": "gse313642-hcc-prediction-consumption/1.0",
+                "schema": "gse313642-hcc-prediction-consumption/2.0",
                 "status": "CONSUMED_BEFORE_FIRST_MATRIX_REQUEST",
                 "attempt_sha256": runner._sha256(attempt),
                 "scratch_identity_sha256": "x",
