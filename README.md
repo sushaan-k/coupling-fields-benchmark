@@ -18,15 +18,36 @@ paired 95% interval for the raw loss difference of -0.00413 to -0.00080; 50 of
 56 samples were favorable (exact one-sided sign-test p=5.09e-10). It reduced
 loss by 46.36% relative to destroyed links. A later, explicitly post-hoc audit
 found 6.18% lower loss than the exact common-effect CMLE and 3.39% lower loss
-than pooled saturated-Poisson interaction transfer. These post-hoc comparisons
-are descriptive and do not alter the frozen gate.
+than pooled-table log odds reconstructed with the conditional fixed-margin
+expectation. The frozen artifact originally labeled the latter as pooled
+Poisson; its bytes are preserved, but the release ledger uses the corrected
+method name. These post-hoc comparisons are descriptive and do not alter the
+frozen gate.
 
-The GSE239452 held-cohort analysis is retained as a post-access correction. It
-reduced loss by 41.55% relative to the selected residual and 78.89% relative to
-destroyed links across nine donors, but the exact common-effect CMLE was 2.20%
-better than the structured primary. The benchmark therefore distinguishes the
-prospective Stephenson result from corrected and retrospective evidence rather
-than pooling them as equivalent confirmations.
+The GSE239452 held-cohort analysis is retained as a post-access correction. A
+subsequent numerical audit found that endpoint underflow in signed-root
+deviance inversion had misreconstructed 80 of 729 residual coordinates. The
+corrected inversion preserves the primary loss of 0.0085063650 and gives
+selected-residual loss 0.0141314858, a 39.8056% reduction with donor-bootstrap
+difference interval -0.00709509 to -0.00423212; all nine donors favor the
+primary. The 78.89%
+destroyed-link reduction is unchanged, and the exact common-effect CMLE remains
+2.20% better than the primary. The aggregate uses the correction artifact,
+while the original sealed prediction and score remain byte-identical and
+preserve the original chronology. Neither analysis is prospective confirmation.
+
+A separate post-hoc GSE239452 audit implements the standard fixed-interaction
+Poisson prediction: it fits pooled saturated table interactions on development
+donors, selects transport multiplier 1 without held donors, and refits row and
+column nuisance parameters at each recipient's margins. The structured primary
+had mean loss 0.0085063650 versus 0.0099824140 for this comparator, a 14.7865%
+reduction with donor-bootstrap relative interval 12.1841% to 17.3694% and raw
+difference interval -0.00184323 to -0.00116575; all nine donors were favorable
+(one-sided sign-test p=1/512). The audit replayed all 81 saturated source tables
+to maximum normalized error 1.78e-16 and reproduced the nine official held
+donor pairs sequentially before deleting each raw pair. This is a post-hoc
+comparison within the existing corrected cohort, not a confirmation or an
+independent cohort.
 
 PoKI-seq stopped at state-occupancy preflight, Lawlor at deposited-object
 compatibility, Hao and the first Kotliarov campaign at frozen support gates,
@@ -134,6 +155,17 @@ exclusive consumption record, and terminal result are published under the
 `gse179221-bmmc-v1-*` tags. The first source file failed exact cognate-axis
 uniqueness before its count matrix was opened; the other seven source files and
 all ten held files remained unrequested.
+The GSE239452 numerical correction is preserved in
+`results/gse239452_citeseq_post_access_correction.json`. Its correction runner
+and focused test are checksum-bound, and the original sealed prediction and
+score remain unchanged in the benchmark sequence.
+The true fixed-interaction Poisson audit is preserved in
+`results/development/gse239452_standard_poisson_interaction_posthoc.json` under
+tag `gse239452-standard-poisson-v1-result`; its runner and tests are
+checksum-bound. The earlier
+`results/development/classical_interaction_baselines_posthoc.json` remains
+byte-identical and is labeled as pooled-table log odds with conditional
+reconstruction wherever it appears in the release ledgers.
 The closed Lawlor and Hao candidates are bound in
 `LAWLOR_CANDIDATE_DESIGNATION.json` and
 `HAO_CANDIDATE_DESIGNATION.json`. Both have status `SEALED`, explicit

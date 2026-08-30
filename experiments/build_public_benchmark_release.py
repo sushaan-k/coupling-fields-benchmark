@@ -420,6 +420,7 @@ def _loss_comparison(
     relative_ci: list[float] | None = None,
     decision: str,
     notes: str,
+    metric: str = "mean_poisson_deviance_per_cell",
 ) -> dict[str, Any]:
     result_path, result_sha = _artifact_fields(artifact)
     return {
@@ -430,7 +431,7 @@ def _loss_comparison(
         "comparison_role": comparison_role,
         "primary_method": primary_method,
         "comparator_method": comparator_method,
-        "metric": "mean_poisson_deviance_per_cell",
+        "metric": metric,
         "metric_direction": "lower",
         "primary_value": primary_value,
         "comparator_value": comparator_value,
@@ -504,11 +505,54 @@ def _new_completed_evidence() -> tuple[list[dict[str, Any]], list[dict[str, Any]
             )
         )
 
-    gse239_path = "results/gse239452_citeseq_confirmation.json"
-    gse239 = _load_json(gse239_path)
-    if gse239["status"] != "HELD_PASS":
-        raise ValueError("GSE239452 held status changed")
-    gse239_residual = gse239["held_gate"]["comparisons"]["best_residual"]
+    gse239_sealed_path = "results/gse239452_citeseq_confirmation.json"
+    gse239_sealed = _load_json(gse239_sealed_path)
+    gse239_correction_path = "results/gse239452_citeseq_post_access_correction.json"
+    gse239_correction = _load_json(gse239_correction_path)
+    correction_bindings = gse239_correction.get("original_sealed_artifacts", {})
+    correction_audit = gse239_correction.get("held", {}).get(
+        "residual_reconstruction_audit", {}
+    )
+    correction_samples = gse239_correction.get("held", {}).get("samples", [])
+    if (
+        gse239_sealed.get("status") != "HELD_PASS"
+        or gse239_correction.get("schema")
+        != "gse239452-post-access-correction/1.0"
+        or gse239_correction.get("status") != "POST_ACCESS_CORRECTION_COMPLETE"
+        or gse239_correction.get("outcome_blind") is not False
+        or gse239_correction.get("original_sealed_artifacts_overwritten") is not False
+        or correction_bindings.get("held_score", {}).get("sha256")
+        != _sha256(gse239_sealed_path)
+        or correction_bindings.get("held_predictions", {}).get("sha256")
+        != _sha256("results/gse239452_citeseq_predictions.json")
+        or gse239_correction.get("corrected_runner", {}).get("sha256")
+        != _sha256("experiments/confirm_gse239452_citeseq.py")
+        or gse239_correction.get("correction_runner", {}).get("sha256")
+        != _sha256("experiments/correct_gse239452_residual_inversion.py")
+        or gse239_correction.get("held", {}).get("gate", {}).get("passes") is not True
+        or correction_audit.get("tables_checked") != 729
+        or correction_audit.get("original_coordinate_mismatches") != 80
+        or correction_audit.get("corrected_coordinate_mismatches") != 0
+        or len(correction_samples) != 9
+        or any(
+            sample.get("primary_prediction_matches_original") is not True
+            for sample in correction_samples
+        )
+    ):
+        raise ValueError("GSE239452 post-access correction boundary changed")
+    gse239_gate = gse239_correction["held"]["gate"]
+    gse239_residual = gse239_gate["comparisons"]["best_residual"]
+    if (
+        gse239_residual.get("primary_mean_loss") != 0.008506365049036143
+        or gse239_residual.get("comparator_mean_loss") != 0.01413148577805464
+        or gse239_residual.get("relative_deviance_reduction")
+        != 0.39805586032248474
+        or gse239_residual.get("paired_bootstrap_95_ci")
+        != [-0.007095088337784283, -0.0042321214194290585]
+        or gse239_residual.get("favorable_donors") != 9
+        or gse239_residual.get("passes_all") is not True
+    ):
+        raise ValueError("GSE239452 corrected residual comparison changed")
     panels.append(
         _loss_panel(
             panel_id="gse239452_held_post_access_correction",
@@ -518,20 +562,24 @@ def _new_completed_evidence() -> tuple[list[dict[str, Any]], list[dict[str, Any]
             phase="held_cohort_analysis",
             role="post_access_correction",
             unit="physical donor",
-            units=len(gse239["held_donors"]),
+            units=len(correction_samples),
             entities=81,
             method="hierarchical_exact_conditional_coupling",
             value=gse239_residual["primary_mean_loss"],
-            decision=gse239["status"],
-            artifact=gse239_path,
-            notes="Held-cohort analysis retained as a post-access protocol correction, not prospective confirmation.",
+            decision="HELD_PASS",
+            artifact=gse239_correction_path,
+            notes=(
+                "The aggregate uses the post-access numerical correction while "
+                "preserving the original sealed prediction and score chronology; "
+                "this is not prospective confirmation."
+            ),
         )
     )
     for key, comparator in (
         ("best_residual", "selected_classical_residual"),
         ("destroyed_link", "destroyed_link"),
     ):
-        record = gse239["held_gate"]["comparisons"][key]
+        record = gse239_gate["comparisons"][key]
         comparisons.append(
             _loss_comparison(
                 comparison_id=f"gse239452_held_post_access_correction__{key}",
@@ -545,11 +593,14 @@ def _new_completed_evidence() -> tuple[list[dict[str, Any]], list[dict[str, Any]
                 comparator_value=record["comparator_mean_loss"],
                 ci=record["paired_bootstrap_95_ci"],
                 relative_improvement=record["relative_deviance_reduction"],
-                artifact=gse239_path,
+                artifact=gse239_correction_path,
                 favorable_units=record["favorable_donors"],
-                total_units=len(gse239["held_donors"]),
+                total_units=len(correction_samples),
                 decision="PASS" if record["passes_all"] else "REFUSE",
-                notes="Post-access corrected held-cohort comparison; intervals resample physical donors.",
+                notes=(
+                    "Post-access numerically corrected held-cohort comparison; "
+                    "intervals resample physical donors."
+                ),
             )
         )
 
@@ -563,31 +614,35 @@ def _new_completed_evidence() -> tuple[list[dict[str, Any]], list[dict[str, Any]
             "stephenson_newcastle_held_site",
             "primary_vs_common_effect_exact_cmle",
             "common_effect_exact_cmle",
+            "primary_vs_common_effect_exact_cmle",
         ),
         (
             "stephenson_newcastle_confirmation",
             "stephenson_newcastle_held_site",
             "primary_vs_pooled_poisson_loglinear_interaction",
-            "pooled_saturated_poisson_loglinear_interaction",
+            "pooled_table_log_odds_with_conditional_reconstruction",
+            "primary_vs_pooled_table_log_odds_conditional_reconstruction",
         ),
         (
             "gse239452_held_post_access_correction",
             "gse239452_held_cohort_post_access_correction",
             "primary_vs_common_effect_exact_cmle",
             "common_effect_exact_cmle",
+            "primary_vs_common_effect_exact_cmle",
         ),
         (
             "gse239452_held_post_access_correction",
             "gse239452_held_cohort_post_access_correction",
             "primary_vs_pooled_poisson_loglinear_interaction",
-            "pooled_saturated_poisson_loglinear_interaction",
+            "pooled_table_log_odds_with_conditional_reconstruction",
+            "primary_vs_pooled_table_log_odds_conditional_reconstruction",
         ),
     )
-    for panel_id, study, key, comparator in classical_specs:
-        record = classical["studies"][study]["comparisons"][key]
+    for panel_id, study, artifact_key, comparator, comparison_suffix in classical_specs:
+        record = classical["studies"][study]["comparisons"][artifact_key]
         comparisons.append(
             _loss_comparison(
-                comparison_id=f"{panel_id}__posthoc_{key}",
+                comparison_id=f"{panel_id}__posthoc_{comparison_suffix}",
                 panel_id=panel_id,
                 phase="post_hoc_classical_baseline_audit",
                 role="post_hoc_nonconfirmatory",
@@ -607,6 +662,94 @@ def _new_completed_evidence() -> tuple[list[dict[str, Any]], list[dict[str, Any]
                 notes="Definitions and comparisons were executed after held outcomes had been accessed.",
             )
         )
+
+    standard_poisson_path = (
+        "results/development/gse239452_standard_poisson_interaction_posthoc.json"
+    )
+    standard_poisson = _load_json(standard_poisson_path)
+    standard_held = standard_poisson.get("held", {})
+    standard_comparison = standard_held.get("comparison", {})
+    standard_development = standard_poisson.get("development", {})
+    standard_certificate = standard_development.get("refit_certificate", {})
+    standard_streaming = standard_poisson.get("streaming_access", {})
+    standard_samples = standard_held.get("samples", [])
+    legacy_path = "results/development/classical_interaction_baselines_posthoc.json"
+    if (
+        standard_poisson.get("status") != "POST_HOC_NONCONFIRMATORY_HEAD_TO_HEAD"
+        or standard_poisson.get("confirmatory") is not False
+        or standard_poisson.get("reason_post_hoc")
+        != (
+            "The standard-Poisson reconstruction and comparison were defined "
+            "after held outcomes had been accessed."
+        )
+        or standard_poisson.get("method", {}).get(
+            "noncentral_hypergeometric_reconstruction_used"
+        )
+        is not False
+        or standard_poisson.get("bindings", {}).get("legacy_mislabeled_audit_sha256")
+        != _sha256(legacy_path)
+        or standard_development.get("selected_alpha") != 1.0
+        or standard_development.get("held_donors_used_for_selection") != []
+        or standard_certificate.get("saturated_tables_reconstructed") != 81
+        or standard_certificate.get("maximum_normalized_saturated_cell_error")
+        > 1e-10
+        or standard_comparison.get("post_hoc_nonconfirmatory") is not True
+        or standard_comparison.get("units") != 9
+        or standard_comparison.get("favorable_donors_primary_lower") != 9
+        or standard_comparison.get("exact_one_sided_sign_test_p") != 1 / 512
+        or len(standard_samples) != 9
+        or any(
+            sample.get("primary_loss") >= sample.get("standard_poisson_loss")
+            for sample in standard_samples
+        )
+        or standard_streaming.get("official_individual_file_pairs") != 9
+        or standard_streaming.get("held_truth_hashes_reproduced") != 9
+        or standard_streaming.get("held_truth_tables_serialized") is not False
+        or standard_streaming.get("raw_files_retained_after_each_donor") is not False
+        or len(standard_streaming.get("official_archive_and_h5ad_provenance", []))
+        != 9
+        or any(
+            len(donor.get("files", [])) != 2
+            for donor in standard_streaming.get(
+                "official_archive_and_h5ad_provenance", []
+            )
+        )
+    ):
+        raise ValueError("GSE239452 standard Poisson post-hoc boundary changed")
+    comparisons.append(
+        _loss_comparison(
+            comparison_id=(
+                "gse239452_held_post_access_correction__"
+                "posthoc_standard_fixed_interaction_poisson"
+            ),
+            panel_id="gse239452_held_post_access_correction",
+            phase="post_hoc_standard_poisson_head_to_head",
+            role="post_hoc_nonconfirmatory",
+            comparison_role="classical_head_to_head",
+            primary_method="hierarchical_exact_conditional_coupling",
+            comparator_method="standard_pooled_saturated_poisson_fixed_interaction",
+            primary_value=standard_comparison["primary_mean_loss"],
+            comparator_value=standard_comparison["standard_poisson_mean_loss"],
+            ci=standard_comparison["paired_difference_95_percentile_ci"],
+            relative_improvement=standard_comparison[
+                "relative_loss_reduction_primary_vs_poisson"
+            ],
+            relative_ci=standard_comparison[
+                "relative_loss_reduction_95_percentile_ci"
+            ],
+            artifact=standard_poisson_path,
+            favorable_units=standard_comparison["favorable_donors_primary_lower"],
+            total_units=standard_comparison["units"],
+            p_value=standard_comparison["exact_one_sided_sign_test_p"],
+            decision="DESCRIPTIVE",
+            notes=(
+                "Post-hoc nonconfirmatory comparison defined after held-outcome "
+                "access. Alpha was selected on development donors only; held "
+                "inference resamples nine physical donors."
+            ),
+            metric="mean_multinomial_deviance_per_cell",
+        )
+    )
 
     gse314_path = "results/development/gse314416_citeseq_development.json"
     gse314 = _load_json(gse314_path)
@@ -1242,6 +1385,37 @@ def _sequence(panels: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 notes="Post-access corrected held-cohort analysis; not prospective confirmation.",
             ),
             _sequence_row(
+                "gse239452_held_post_access_correction",
+                4,
+                "post_access_numerical_correction",
+                "POST_ACCESS_CORRECTION_COMPLETE",
+                "PAIRED_TRUTH_REUSED_POST_ACCESS",
+                "NO",
+                "results/gse239452_citeseq_post_access_correction.json",
+                notes=(
+                    "The residual inversion defect was corrected after outcome "
+                    "access; the original sealed predictions and score remain "
+                    "byte-identical chronology records."
+                ),
+            ),
+            _sequence_row(
+                "gse239452_held_post_access_correction",
+                5,
+                "standard_fixed_interaction_poisson_audit",
+                "POST_HOC_NONCONFIRMATORY_HEAD_TO_HEAD",
+                "PAIRED_TRUTH_REPRODUCED_POST_HOC",
+                "NO",
+                (
+                    "results/development/"
+                    "gse239452_standard_poisson_interaction_posthoc.json"
+                ),
+                "gse239452-standard-poisson-v1-result",
+                notes=(
+                    "The standard fixed-interaction Poisson comparator was defined "
+                    "after held outcomes had been accessed; it is descriptive only."
+                ),
+            ),
+            _sequence_row(
                 "gse314416_pilot_terminal",
                 1,
                 "protocol",
@@ -1529,6 +1703,11 @@ def _artifact_manifest(
             "tests/test_public_benchmark_release_v2.py",
             "tests/test_gse179221_candidate.py",
             "tests/test_gse179221_bmmc_confirmation.py",
+            "experiments/correct_gse239452_residual_inversion.py",
+            "experiments/evaluate_gse239452_standard_poisson_posthoc.py",
+            "results/gse239452_citeseq_post_access_correction.json",
+            "tests/test_gse239452_post_access_correction.py",
+            "tests/test_gse239452_standard_poisson_posthoc.py",
             "reproduce.sh",
         }
     )
@@ -1606,7 +1785,10 @@ def _checksum_paths() -> list[str]:
         str(SEQUENCE_PATH),
         str(MANIFEST_PATH),
         "experiments/build_public_benchmark_release.py",
+        "experiments/correct_gse239452_residual_inversion.py",
+        "results/gse239452_citeseq_post_access_correction.json",
         "scripts/verify_public_benchmark_release.py",
+        "tests/test_gse239452_post_access_correction.py",
         "tests/test_public_benchmark_release_v2.py",
     }
     candidates = set(filter(None, tracked)) | generated

@@ -20,13 +20,31 @@ This is the benchmark's confirmatory positive result.
 
 A post-hoc classical audit, executed after held outcomes had been accessed,
 found 6.18% lower Stephenson loss than the exact common-effect CMLE (relative
-95% interval [3.84%, 8.47%]) and 3.39% lower loss than pooled saturated-Poisson
-interaction transfer ([1.42%, 5.37%]). These comparisons are descriptive. The
-GSE239452 held-cohort analysis is separately labeled as a post-access
-correction: the structured primary beat the selected residual by 41.55% and
-destroyed links by 78.89% across nine donors, but the exact common-effect CMLE
-was 2.20% better than the primary. The positive panels therefore do not support
-a claim that structural regularization dominates every classical estimator.
+95% interval [3.84%, 8.47%]) and 3.39% lower loss than pooled-table log odds
+reconstructed with the conditional fixed-margin expectation ([1.42%, 5.37%]).
+The frozen artifact had labeled the latter comparator as pooled Poisson; its
+bytes are unchanged, and the public ledger now states the implemented method.
+These comparisons are descriptive. The GSE239452 held-cohort analysis is
+separately labeled as a post-access correction. A later numerical audit found
+that endpoint underflow in signed-root-deviance inversion had misreconstructed
+80 of 729 residual coordinates. Corrected inversion leaves primary loss
+unchanged at 0.0085063650 and gives residual loss 0.0141314858, a 39.8056%
+reduction with a donor-bootstrap difference interval of
+[-0.00709509, -0.00423212]; all nine
+donors favor the primary. The destroyed-link reduction remains 78.89%, but the
+exact common-effect CMLE was 2.20% better than the primary. The original sealed
+prediction and score remain byte-identical and preserve the original chronology;
+the aggregate panel and gate rows point to the correction artifact.
+
+A separate post-hoc GSE239452 audit used a standard fixed-interaction Poisson
+prediction. The structured primary's mean loss was 0.0085063650 versus
+0.0099824140 for Poisson, 14.7865% lower, with a donor-bootstrap relative
+interval of [12.1841%, 17.3694%] and a raw-difference interval of
+[-0.00184323, -0.00116575]. All nine donors favored the primary (one-sided
+sign-test p=1/512). The comparison was defined after held-outcome access and
+uses the same corrected cohort, so it is neither confirmatory nor an
+independent-cohort replication. The positive panels therefore do not support a
+claim that structural regularization dominates every classical estimator.
 
 The historical public panels retain their original decisions. PerturbSci has a
 reproduced pairing signal but loses to endpoint ridge. ReSisTrace has positive
@@ -66,7 +84,7 @@ perturbation prediction or universal structured-estimator superiority.
 | Panel | Unit | Targets | Primary result | Best declared baseline | Pairing control | Decision |
 |---|---|---:|---|---|---|---|
 | Stephenson Newcastle held site | 56 physical samples | 81 ordered RNA--ADT pairs | Mean deviance/cell 0.012197 | Selected signed-deviance residual 0.014777; 17.46% reduction; raw-difference CI [-0.00413, -0.00080] | Destroyed link 0.022738; 46.36% reduction | **CONFIRMATION PASS** |
-| GSE239452 held cohort | 9 physical donors | 81 ordered RNA--ADT pairs | Mean deviance/cell 0.008506 | Selected residual 0.014554; 41.55% reduction | Destroyed link 0.040288; 78.89% reduction | **PASS, POST-ACCESS CORRECTION** |
+| GSE239452 held cohort | 9 physical donors | 81 ordered RNA--ADT pairs | Mean deviance/cell 0.008506 | Corrected selected residual 0.014131, 39.8056% reduction, difference CI [-0.00709509, -0.00423212]; exact CMLE 0.008324, 2.20% better than primary; standard fixed-interaction Poisson 0.009982, primary 14.7865% lower | Destroyed link 0.040288; 78.89% reduction | **PASS, POST-ACCESS NUMERICAL CORRECTION; POISSON COMPARISON POST-HOC** |
 | GSE314416 immunomicrobiome pilot | 20 physical donors | 81 ordered RNA--ADT pairs | Mean deviance/cell 0.001927 | Selected residual 0.001936; 0.49% reduction; raw-difference CI [-0.0000182, -0.00000113] | Destroyed link 0.001936; 0.45% reduction; CI crosses zero | **REFUSE PILOT** |
 | BMMC adaptive development | 4 nonheld units | 100 ordered RNA--ADT pairs | Mean deviance/cell 0.010851 | Selected residual 0.013148; 17.47% reduction | Destroyed link 0.013351; 18.73% reduction | **DESCRIPTIVE DEVELOPMENT ONLY** |
 | COMBAT adaptive development | 24 Oxford pilot samples | 81 ordered RNA--ADT pairs | Mean deviance/cell 0.011558 | Selected residual 0.015605; 25.94% reduction | Destroyed link 0.046395; 75.09% reduction | **DESCRIPTIVE DEVELOPMENT ONLY** |
@@ -107,7 +125,7 @@ and sequence ledgers because they contain no performance estimate.
 | Pairing-dependent structure exists in linked lineages. | Every ReSisTrace arm rejects the fixed-margin Monte Carlo link control at BH q=0.0154. | **SUPPORTED at arm level** | Lineage links carried pre/post association in all eight deposited arms. |
 | Treatment-specific lineage fields reproduce biologically. | All three ReSisTrace lineage-bootstrap cosine intervals include zero; only two cultures are deposited. | **REFUSE** | No treatment-minus-control field met the replication criterion. |
 | The structured primary improves matched baselines. | Stephenson passes its frozen residual and destroyed-link comparisons. GSE239452 passes only as a post-access correction. The historical panels and GSE314416 do not pass; BMMC and COMBAT gains are adaptive development summaries. | **SUPPORTED in one prospective held-site panel** | The hierarchical exact-conditional transfer improved the selected residual in the frozen Stephenson confirmation; general superiority is not established. |
-| Hierarchical transfer adds beyond classical common-effect interaction models. | In the post-hoc audit, Stephenson improves on exact common-effect CMLE by 6.18% and pooled saturated Poisson by 3.39%. In GSE239452, pooled Poisson loses by 14.58%, but exact CMLE beats the primary by 2.20%. | **MIXED, POST-HOC** | The donor-varying transfer can outperform common-effect controls, but the direction is study-dependent and awaits a prospectively frozen classical comparison. |
+| Hierarchical transfer adds beyond classical common-effect interaction models. | In post-hoc audits, Stephenson improves on exact common-effect CMLE by 6.18% and on pooled-table log odds with conditional reconstruction by 3.39%. In GSE239452, the primary is 14.7865% better than the true standard fixed-interaction Poisson comparator, but exact CMLE beats the primary by 2.20%. The older GSE239452 artifact's 14.58% comparison also used conditional reconstruction and is not labeled standard Poisson in the release ledger. | **MIXED, POST-HOC** | The donor-varying transfer can outperform common-effect controls, but the direction is study-dependent and awaits a prospectively frozen classical comparison. |
 | The scGPT hypergraph contributes specific biological information. | The shuffled graph matches or exceeds the primary in PerturbSci and PerturbFate; no positive panel isolates a graph-specific gain. | **REFUSE** | scGPT supplies a frozen structural prior; its specific benefit was not established. |
 | Guide/observation-error correction is validated on public data. | `fit_factorial_coupling` is tested and stress-tested synthetically, but the completed public scripts use conditional empirical tables, not the guide-aware likelihood. | **REFUSE real-data claim** | Guide-aware identification and refusal are implemented and assessed in simulation. |
 | The public benchmark establishes a positive held biological replicate. | Stephenson passes its publicly frozen held-site gate across 56 physical samples. GSE239452 is positive but labeled post-access correction; GSE179221 stopped at source feature-axis preflight before count access, and the remaining held candidates refuse or stop before scoring. | **SUPPORTED once prospectively** | One prospectively frozen held-site confirmation passes; no second independent-study confirmation is claimed. |
@@ -167,10 +185,31 @@ published with held predictions, and scored once against 56 physical samples.
 Its selected graph penalty was zero, so the result validates donor-varying
 exact-conditional transfer rather than a graph-specific gain. The classical
 audit compares the frozen fields with a donor-stratified exact common-effect
-CMLE and a pooled saturated-Poisson interaction on identical held margins. It
-is post-hoc in both studies. `results/benchmark_comparisons_v2.tsv` preserves
-the raw and relative loss differences, intervals, favorable-unit counts,
-p-values, and inference roles without merging them into the prospective gate.
+CMLE and pooled-table log odds reconstructed through the conditional
+fixed-margin expectation on identical held margins. The frozen artifact called
+the latter pooled Poisson; the artifact remains byte-identical, whereas the
+release ledger uses the corrected method name. That audit is post-hoc in both
+studies.
+
+The GSE239452 aggregate uses
+`results/gse239452_citeseq_post_access_correction.json`. The correction replaces
+the signed-root-deviance inversion's machine-adjacent feasible endpoints with a
+fixed interior epsilon. It resolves all 80 mismatches among 729 reconstructed
+residual coordinates without changing the primary or destroyed-link tables.
+The original sealed prediction and score artifacts remain unchanged and appear
+before the explicit numerical-correction stage in the sequence ledger.
+
+The separate GSE239452 standard-Poisson audit fits donor-pooled saturated 2-by-2
+Poisson interactions, fixes the development-selected transport multiplier at
+1, and profiles recipient row and column nuisance terms at the observed held
+margins. No held donor entered multiplier selection. All 81 refitted source
+tables replayed their normalized fitted counts to maximum error 1.78e-16. The
+nine official held RNA/ADT file pairs were reproduced sequentially and deleted
+after each donor. Because the method and comparison were specified after held
+outcomes had been accessed, the result remains post-hoc and nonconfirmatory.
+`results/benchmark_comparisons_v2.tsv` preserves the raw and relative loss
+differences, intervals, favorable-unit counts, p-values, and inference roles
+without merging either audit into the prospective gate.
 
 ## Synthetic and sensitivity evidence
 
@@ -232,9 +271,11 @@ Result and terminal-attempt artifact hashes at this snapshot:
 | `results/arce_gse278572_postlock_controls.json` | `66d3343db745ad338091397226a9b93ca222df759107fbe46eddfcbee4c1a612` |
 | `results/stephenson_citeseq_confirmation.json` | `5eb5fd2b41df7f4f7d822a92765ffe69854dcbe5f572f2db35cf433d7dd0adb1` |
 | `results/gse239452_citeseq_confirmation.json` | `12c23d6502c9192b93838d27ebcae42c4ff92e1a3b68e27cc6584efb92f22e74` |
+| `results/gse239452_citeseq_post_access_correction.json` | `1eafd82805a0bc6d94c05afdc4160fd6917e1145d64077fb52a770e09f45793b` |
 | `results/development/gse314416_citeseq_development.json` | `6124bbbdee233e987521f004a9c409858203106eeae9d2339bbea2aa4dc35f33` |
 | `results/development/exact_logodds_head_to_head_v1.json` | `22bbad8efad2dd9b5172a33e8b2fdaf568114103fd7045a80a58eb842bb09d2a` |
 | `results/development/classical_interaction_baselines_posthoc.json` | `bc6efbb2ffe3404a294eae26b51e214054718113a8deeaf6b9f4e73ebf05f305` |
+| `results/development/gse239452_standard_poisson_interaction_posthoc.json` | `54b32b1ed12a01030210cd415b4565347868faaed13dd6fc37b6c0100c3aac97` |
 | `results/perturbsci_module_validation.json` | `68032c3bc05fe0702edd8600cf91c86d0850b1db44857e67a42845e0fc164fc2` |
 | `results/gse143417_pokiseq_preflight_refusal.json` | `24f7ad70fbbfd4e7482809db58bd94d1156c1e22c2dd94fa77d66b1d6acdcf24` |
 | `results/kotliarov_pbmc_public_refusal.json` | `34d59fcbdcceeefb449a430bca7a0f502611d343a2ebd19fc44a7f5fd26a1324` |
@@ -260,8 +301,8 @@ hash before emitting a row, enforces unique panel/comparison identifiers and
 valid cross-references, and writes sorted deterministic ledgers. The standalone
 verifier rechecks row-level artifact hashes, metric finiteness, evidence counts,
 sequence order, the empty unused-Cambridge performance fields, manifest bytes,
-and `SHA256SUMS`. The release candidate contains 34 panel, 28 comparison, and
-63 sequence records.
+and `SHA256SUMS`. The release candidate contains 34 panel, 29 comparison, and
+65 sequence records.
 
 The structured consistency check parsed every audited JSON with non-finite JSON
 constants rejected; verified embedded hashes for the v4 runner, estimator, and
@@ -294,7 +335,7 @@ file has SHA-256
 `34facaeec5c4742decaa127a87ad9a7928bc6435fbd073bb00d13226929a2547`
 after later appendices; it is not byte-identical to the recorded run version.
 
-The release entry point completed with **512 passed, 4 deselected, and 12
+The release entry point completed with **525 passed, 4 deselected, and 12
 numerical warnings**; its isolated historical-estimator assertion also passed.
 A second deterministic build was byte-identical, the standalone verifier
 returned `PUBLIC_BENCHMARK_RELEASE_VERIFICATION_PASS`, and Ruff reported no
@@ -304,9 +345,12 @@ violations in the builder, verifier, or focused release tests.
 
 Lead with the estimand, exact conditional transfer, the Stephenson prospective
 held-site pass, and the frozen residual and destroyed-link gates. Report the
-exact-CMLE and pooled-Poisson comparisons as post-hoc. Label GSE239452 as a
-post-access correction, GSE314416 as a failed pilot, and the BMMC/COMBAT gains
-as retrospective adaptive development evidence. Retain PerturbSci's positive
+exact-CMLE and pooled-table-log-odds conditional reconstructions as post-hoc.
+Report the true fixed-interaction Poisson result separately as a post-hoc,
+nonconfirmatory GSE239452 comparison, not as a new cohort. Label GSE239452 as a
+post-access numerical correction, retain the original sealed chronology, and
+label GSE314416 as a failed pilot. Treat the BMMC/COMBAT gains as retrospective
+adaptive development evidence. Retain PerturbSci's positive
 held-guide pairing signal and ReSisTrace's positive arm-level linkage beside
 their negative full decisions. Keep every procedural refusal and source-stage
 terminal record in the machine-readable benchmark. Treat unused Cambridge as

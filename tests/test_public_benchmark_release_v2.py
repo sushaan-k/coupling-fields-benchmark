@@ -42,8 +42,8 @@ def test_metric_aware_ledgers_include_completed_and_refused_evidence() -> None:
     by_comparison = {row["comparison_id"]: row for row in comparisons}
 
     assert len(panels) == 34
-    assert len(comparisons) == 28
-    assert len(sequence) == 63
+    assert len(comparisons) == 29
+    assert len(sequence) == 65
     assert sum(row["outcome_scored"] == "YES" for row in panels) == 12
     assert sum(row["inference_role"] == "procedural_refusal" for row in panels) == 21
 
@@ -57,11 +57,99 @@ def test_metric_aware_ledgers_include_completed_and_refused_evidence() -> None:
 
     gse239 = by_panel["gse239452_held_post_access_correction"]
     assert gse239["inference_role"] == "post_access_correction"
+    assert gse239["result_artifact"] == (
+        "results/gse239452_citeseq_post_access_correction.json"
+    )
+    assert gse239["result_sha256"] == (
+        "1eafd82805a0bc6d94c05afdc4160fd6917e1145d64077fb52a770e09f45793b"
+    )
+    corrected_residual = by_comparison[
+        "gse239452_held_post_access_correction__best_residual"
+    ]
+    assert float(corrected_residual["comparator_value"]) == 0.01413148577805464
+    assert float(corrected_residual["relative_improvement"]) == (
+        0.39805586032248474
+    )
+    assert float(corrected_residual["paired_difference_ci_95_low"]) == (
+        -0.007095088337784283
+    )
+    assert float(corrected_residual["paired_difference_ci_95_high"]) == (
+        -0.0042321214194290585
+    )
+    assert int(corrected_residual["favorable_units"]) == 9
+    assert int(corrected_residual["total_units"]) == 9
+    assert corrected_residual["result_artifact"] == gse239["result_artifact"]
+    corrected_destroyed = by_comparison[
+        "gse239452_held_post_access_correction__destroyed_link"
+    ]
+    assert corrected_destroyed["result_artifact"] == gse239["result_artifact"]
     exact = by_comparison[
         "gse239452_held_post_access_correction__posthoc_primary_vs_common_effect_exact_cmle"
     ]
     assert float(exact["relative_improvement"]) < 0
     assert exact["inference_role"] == "post_hoc_nonconfirmatory"
+    legacy_pooled = by_comparison[
+        "gse239452_held_post_access_correction__"
+        "posthoc_primary_vs_pooled_table_log_odds_conditional_reconstruction"
+    ]
+    assert legacy_pooled["comparator_method"] == (
+        "pooled_table_log_odds_with_conditional_reconstruction"
+    )
+    stephenson_legacy_pooled = by_comparison[
+        "stephenson_newcastle_confirmation__"
+        "posthoc_primary_vs_pooled_table_log_odds_conditional_reconstruction"
+    ]
+    assert stephenson_legacy_pooled["comparator_method"] == (
+        "pooled_table_log_odds_with_conditional_reconstruction"
+    )
+    assert not any(
+        "posthoc_primary_vs_pooled_poisson_loglinear_interaction" in comparison_id
+        for comparison_id in by_comparison
+    )
+    standard_poisson = by_comparison[
+        "gse239452_held_post_access_correction__"
+        "posthoc_standard_fixed_interaction_poisson"
+    ]
+    assert standard_poisson["inference_role"] == "post_hoc_nonconfirmatory"
+    assert standard_poisson["comparator_method"] == (
+        "standard_pooled_saturated_poisson_fixed_interaction"
+    )
+    assert standard_poisson["metric"] == "mean_multinomial_deviance_per_cell"
+    assert float(standard_poisson["primary_value"]) == 0.008506365049036143
+    assert float(standard_poisson["comparator_value"]) == 0.009982413964423759
+    assert float(standard_poisson["relative_improvement"]) == 0.14786492732600487
+    assert float(standard_poisson["relative_improvement_ci_95_low"]) == (
+        0.12184115234996165
+    )
+    assert float(standard_poisson["relative_improvement_ci_95_high"]) == (
+        0.17369414932349705
+    )
+    assert int(standard_poisson["favorable_units"]) == 9
+    assert int(standard_poisson["total_units"]) == 9
+    assert float(standard_poisson["p_value"]) == 1 / 512
+    assert standard_poisson["decision"] == "DESCRIPTIVE"
+    gse239_sequence = [
+        row for row in sequence if row["panel_id"] == gse239["panel_id"]
+    ]
+    assert [row["stage"] for row in gse239_sequence] == [
+        "protocol",
+        "prediction",
+        "score",
+        "post_access_numerical_correction",
+        "standard_fixed_interaction_poisson_audit",
+    ]
+    assert gse239_sequence[1]["artifact"] == (
+        "results/gse239452_citeseq_predictions.json"
+    )
+    assert gse239_sequence[2]["artifact"] == (
+        "results/gse239452_citeseq_confirmation.json"
+    )
+    assert gse239_sequence[3]["artifact"] == gse239["result_artifact"]
+    assert gse239_sequence[3]["status"] == "POST_ACCESS_CORRECTION_COMPLETE"
+    assert gse239_sequence[-1]["stage"] == (
+        "standard_fixed_interaction_poisson_audit"
+    )
+    assert gse239_sequence[-1]["public_before_outcome"] == "NO"
 
     bmmc = by_comparison[
         "scmmib_bmmc_adaptive_development__primary_vs_best_residual"
@@ -218,19 +306,25 @@ def test_unused_cambridge_terminal_row_contains_no_performance_claim() -> None:
     checksums = (ROOT / CHECKSUM_PATH).read_text(encoding="utf-8")
     assert "prediction_terminal_record_v1_1.json" in checksums
     assert "stephenson_unused_cambridge_predictions_v1_1.json" not in checksums
+    for relative in (
+        "experiments/correct_gse239452_residual_inversion.py",
+        "results/gse239452_citeseq_post_access_correction.json",
+        "tests/test_gse239452_post_access_correction.py",
+    ):
+        assert f"  {relative}\n" in checksums
 
 
 def test_manifest_counts_and_claim_boundaries_match_ledgers() -> None:
     manifest = json.loads((ROOT / MANIFEST_PATH).read_text(encoding="utf-8"))
     assert manifest["schema"] == "coupling-fields-public-benchmark/2.0"
     assert manifest["counts"] == {
-        "comparison_records": 28,
+        "comparison_records": 29,
         "panel_records": 34,
         "infrastructure_unevaluable_records": 1,
         "pending_records": 0,
         "procedural_refusal_records": 21,
         "scored_panel_records": 12,
-        "sequence_records": 63,
+        "sequence_records": 65,
     }
     assert manifest["archive_doi"] is None
     assert manifest["code_license"] is None

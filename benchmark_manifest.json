@@ -3,9 +3,9 @@
   "archive_doi": null,
   "artifacts": [
     {
-      "bytes": 15952,
+      "bytes": 18048,
       "path": "README.md",
-      "sha256": "5dc48f1a425624d199fac654492cb9635f81ec3d7a13148a6d1ba94467223fc8"
+      "sha256": "fe604040e312d309fa8afc6adfdcca363bc079400dcb971ad74d01488e748706"
     },
     {
       "bytes": 7965,
@@ -78,9 +78,9 @@
       "sha256": "4899751abdc1c0adf35935f7cc386c2cc2aa5fd6e8035ee2fbd870865c566a31"
     },
     {
-      "bytes": 30117,
+      "bytes": 33599,
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "5b059b83e490b2c78c611b8ede9c20a41222e5f9e57d98e74868664a5171d3a4"
+      "sha256": "4fd7e848ff378ec05c8dabfbffb03870dd32beb08791873ba178645c8a4e02a9"
     },
     {
       "bytes": 7139,
@@ -128,9 +128,9 @@
       "sha256": "e078c6fd403a8b7431e451357ef5e4479b30f629087f4bb4a7cc00b8ceef9b15"
     },
     {
-      "bytes": 68337,
+      "bytes": 77583,
       "path": "experiments/build_public_benchmark_release.py",
-      "sha256": "23cef72385d5bcb3ccf4be21e43b393250dd444285be0e41a58e6e628ec27205"
+      "sha256": "58d65cf409b64ce8162e4d278b18a07597a7074a07bdc12b2f9ff7c7e38ea763"
     },
     {
       "bytes": 144069,
@@ -138,9 +138,19 @@
       "sha256": "af85ec66566e30b27d0d132c74a7b8b3b2d2bd5c905e643ff67e9d0283bb99bc"
     },
     {
-      "bytes": 3243,
+      "bytes": 9725,
+      "path": "experiments/correct_gse239452_residual_inversion.py",
+      "sha256": "06cf66a299c404cd1d8e71a38a6fc5d276543cbaecb3703722de74a1495add7f"
+    },
+    {
+      "bytes": 29629,
+      "path": "experiments/evaluate_gse239452_standard_poisson_posthoc.py",
+      "sha256": "dd903b20233f44427cf79a2eca4e7210543bffa527525d49989c2031e65d2816"
+    },
+    {
+      "bytes": 3347,
       "path": "reproduce.sh",
-      "sha256": "ebd56f9f10ee450a8aac1ded50f1516e9d829c304d33df56d53ff19847436bfd"
+      "sha256": "72d6c1d82080af1f8b7b97669f2307d9c681ca4caf1c26f042c4ed4aa38961b5"
     },
     {
       "bytes": 114491,
@@ -148,19 +158,19 @@
       "sha256": "65d4bf6097a8fafee8e22f352c2c6c14fa13c1d8082073a4589d3ee693ef8b57"
     },
     {
-      "bytes": 16946,
+      "bytes": 17870,
       "path": "results/benchmark_comparisons_v2.tsv",
-      "sha256": "d7a99f65ba616ff50c2b5103dc23fe69db020dff887f6835cad8f118396de1c4"
+      "sha256": "e6aff4d206ac9b34bb3795fbd3febeb9c6b1aa76f3e034995febe45529441147"
     },
     {
-      "bytes": 20153,
+      "bytes": 20229,
       "path": "results/benchmark_panels_v2.tsv",
-      "sha256": "709ec9f8068b296cb717dd029a9bdf9101f4ba40ca71e66e63bf6c8b4b1e7c43"
+      "sha256": "9134bca2519cbf45d988e2ce5908edb06eff87ef99e4e3d586b663f22b6ba3dd"
     },
     {
-      "bytes": 21238,
+      "bytes": 22260,
       "path": "results/benchmark_sequence_v2.tsv",
-      "sha256": "94da51166ee21e4d09b74d1b63b86656bd43f7a7e222f6ac80824227397db0f6"
+      "sha256": "16171fdfec0e6d07d24b3632fa0daf29aeeff5e5660ac58ec6a44a287c433fc6"
     },
     {
       "bytes": 102047,
@@ -216,6 +226,11 @@
       "bytes": 808,
       "path": "results/development/gse202150_source_development_v1.json",
       "sha256": "08239f2d667cb5e413f42f2525620e3afacd2ee4cd5b2b87fc5e7a154c335944"
+    },
+    {
+      "bytes": 28285,
+      "path": "results/development/gse239452_standard_poisson_interaction_posthoc.json",
+      "sha256": "54b32b1ed12a01030210cd415b4565347868faaed13dd6fc37b6c0100c3aac97"
     },
     {
       "bytes": 1846,
@@ -303,6 +318,11 @@
       "sha256": "12c23d6502c9192b93838d27ebcae42c4ff92e1a3b68e27cc6584efb92f22e74"
     },
     {
+      "bytes": 152670,
+      "path": "results/gse239452_citeseq_post_access_correction.json",
+      "sha256": "1eafd82805a0bc6d94c05afdc4160fd6917e1145d64077fb52a770e09f45793b"
+    },
+    {
       "bytes": 798087,
       "path": "results/gse239452_citeseq_predictions.json",
       "sha256": "37a7eba3b3b514ccb9d80700f039b0442caf1d02c00a0b44d9bcef735328e020"
@@ -363,20 +383,30 @@
       "sha256": "dd0421e76e98c5f07b31af2d6b8356ed3c9054d26d75b031d89988f49875e803"
     },
     {
-      "bytes": 9417,
+      "bytes": 2286,
+      "path": "tests/test_gse239452_post_access_correction.py",
+      "sha256": "984276219910e1d9ff9b1815db3f63ca98986f1f826471462f4239cad937761b"
+    },
+    {
+      "bytes": 10684,
+      "path": "tests/test_gse239452_standard_poisson_posthoc.py",
+      "sha256": "2c9f025aab0259b8cbe8b4ee0f2766a00593ae98a06daf4337fc4b08566940f4"
+    },
+    {
+      "bytes": 13502,
       "path": "tests/test_public_benchmark_release_v2.py",
-      "sha256": "3ade9a231f1c5d7c0d163b5092e18a23369bedc82ccf1ac13b2cb040e5215681"
+      "sha256": "3365bb1128116f663e5656684c1edc55771f7de4be5aab275f310da757b025f6"
     }
   ],
   "code_license": null,
   "counts": {
-    "comparison_records": 28,
+    "comparison_records": 29,
     "infrastructure_unevaluable_records": 1,
     "panel_records": 34,
     "pending_records": 0,
     "procedural_refusal_records": 21,
     "scored_panel_records": 12,
-    "sequence_records": 63
+    "sequence_records": 65
   },
   "infrastructure_unevaluable": {
     "panel_id": "stephenson_unused_cambridge_terminal",

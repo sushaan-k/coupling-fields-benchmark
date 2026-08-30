@@ -74,6 +74,12 @@ FROZEN_JSON_SHA256 = {
     "results/development/gse179221_bmmc_source_v1.json": (
         "18982f0320c602dbc65df27a94675677dc006edd9951ac62fa3a1ad93e2a06f6"
     ),
+    "results/development/gse239452_standard_poisson_interaction_posthoc.json": (
+        "54b32b1ed12a01030210cd415b4565347868faaed13dd6fc37b6c0100c3aac97"
+    ),
+    "results/gse239452_citeseq_post_access_correction.json": (
+        "1eafd82805a0bc6d94c05afdc4160fd6917e1145d64077fb52a770e09f45793b"
+    ),
 }
 
 
@@ -368,13 +374,13 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
     assert manifest["release_status"] == "RELEASE_CANDIDATE_READY_FOR_TAG"
     assert manifest["intended_release_tag"] == "coupling-fields-v2-public-benchmark"
     assert manifest["counts"] == {
-        "comparison_records": 28,
+        "comparison_records": 29,
         "panel_records": 34,
         "infrastructure_unevaluable_records": 1,
         "pending_records": 0,
         "procedural_refusal_records": 21,
         "scored_panel_records": 12,
-        "sequence_records": 63,
+        "sequence_records": 65,
     }
     assert manifest["archive_doi"] is None
     assert manifest["code_license"] is None
@@ -384,9 +390,9 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
     )
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 73
+    assert len(artifacts) == 79
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 73
+    assert len(by_path) == 79
     for relative in (
         "results/benchmark_panels_v2.tsv",
         "results/benchmark_comparisons_v2.tsv",
@@ -413,6 +419,12 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
         "results/development/gse179221_bmmc_source_v1.json",
         "tests/test_gse179221_bmmc_confirmation.py",
         "tests/test_gse179221_candidate.py",
+        "experiments/correct_gse239452_residual_inversion.py",
+        "experiments/evaluate_gse239452_standard_poisson_posthoc.py",
+        "results/gse239452_citeseq_post_access_correction.json",
+        "results/development/gse239452_standard_poisson_interaction_posthoc.json",
+        "tests/test_gse239452_post_access_correction.py",
+        "tests/test_gse239452_standard_poisson_posthoc.py",
         "experiments/build_public_benchmark_release.py",
         "scripts/verify_public_benchmark_release.py",
         "tests/test_public_benchmark_release_v2.py",
