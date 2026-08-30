@@ -59,7 +59,7 @@ are development evidence rather than held confirmation. Both selected graph
 penalty zero.
 
 PoKI-seq, Lawlor, Hao, Kotliarov, BMMC, GSE279451, GSE299043, and COMBAT retain
-their prior procedural refusals. Eleven subsequent public source campaigns also
+their prior procedural refusals. Twelve subsequent public source campaigns also
 terminated before held scoring and are enumerated in the panels ledger. The
 source-only Kotliarov binary-v2 replacement separately refused because no
 frozen configuration completed every source-held fold; it produced no
@@ -67,7 +67,11 @@ comparison decision or held run. The GSE179221 BMMC candidate then refused at
 the exact cognate-axis gate on its first source donor. It opened barcode and
 feature axes but no count dataset; the remaining seven source files and all ten
 held files were unrequested. No table, model, comparison, prediction, or score
-was formed. The recovery-amended unused-Cambridge run
+was formed. The GSE214546 TEA-seq campaign reduced the first source donor at the
+frozen 512-cell, 53-marker budget, then refused because the second source donor
+had fewer than 512 matched singlets. The exact overlap count was not serialized;
+the remaining six source H5s and all eight held H5s stayed unopened. No model,
+comparison, prediction, or score was formed. The recovery-amended unused-Cambridge run
 produced no prediction or score and is
 infrastructure-unevaluable. Its row contains no performance value and remains
 bound to the published terminal record; no scientific decision is assigned.
@@ -101,6 +105,7 @@ perturbation prediction or universal structured-estimator superiority.
 | Kotliarov PBMC | Ten batch-1 development donors; nine disjoint batch-2 held donors | 71 predeclared cognate markers | Not scored; fewer than four prespecified RNA-only lineages met the frozen 50-cell minimum in all 19 donors | Full Pearson and signed-deviance residual transfer not reached | Not reached | **REFUSE support** |
 | Kotliarov PBMC binary-v2 source replacement | Ten batch-1 development donors; nine disjoint batch-2 held donors reserved but not run | 81 ordered RNA--ADT pairs | Not scored; no frozen configuration completed every source-held fold | No comparison decision produced | Held ADT access remained unauthorized | **REFUSE source execution** |
 | GSE179221 BMMC held-donor campaign | Eight source donors; ten donor-disjoint held donors reserved but not run | 81 ordered RNA--ADT pairs | Not scored; exact cognate-axis uniqueness failed on the first source donor before count-matrix access | No estimator or comparison was formed | Seven remaining source files and all ten held files unrequested | **REFUSE source feature-axis preflight** |
+| GSE214546 TEA-seq held-donor campaign | Two of eight source donors accessed; eight held donors reserved but not run | 53 candidate matched RNA--protein markers | Not scored; the first donor completed its 512-cell reduction, and the second had fewer than 512 matched singlets | No estimator or comparison was formed | Six remaining source H5s and all eight held H5s unopened | **REFUSE source support** |
 | NeurIPS 2021 BMMC CITE-seq | Two fit donors, one development donor, six held donors | 100 ordered RNA--ADT pairs | Not scored; exact conditional optimizer failed the final common-effect development refit after the frozen numerical-equivalence retry | Strongest signed Pearson or Poisson-deviance residual transfer not reached | Held pairing not opened | **REFUSE numerical development** |
 | GSE279451 adult sepsis CITE-seq | Nineteen development donors; 21 held donors | 81 ordered RNA--ADT pairs | Not scored; terminal evaluation refusal after development reduction because both common-effect control families were unavailable | Prespecified raw or exact-null-centered signed Pearson or Poisson-deviance residual transfer; no comparison decision produced | All 21 held matrices unopened | **REFUSE development evaluation** |
 | GSE299043 MLN CITE-seq | Ten Cambridge development donors; ten LiveOnNY/Columbia held donors | 81 ordered RNA--ADT pairs | Not scored; terminal feature-preflight refusal after 21 development-member reductions | Prespecified residual comparison not reached | All 151 held members unopened | **REFUSE acquisition** |
@@ -177,6 +182,12 @@ parameters at recipient margins. The first source file failed exact cognate-axis
 uniqueness before any count dataset was opened, so neither that comparator nor
 the hierarchical estimator was fit. GSE179221 therefore contributes an audited
 procedural refusal, not a classical head-to-head result.
+
+The GSE214546 protocol froze age-conditioned exact-conditional transfer and
+pooled and age-stratified fixed-interaction Poisson comparators. Its source
+support gate refused on the second donor before source fitting, so none of those
+estimators or comparisons was formed. GSE214546 contributes a source-support
+refusal, not a confirmation or head-to-head result.
 
 Stephenson, GSE239452, GSE314416, and the adaptive BMMC/COMBAT audit use the
 same exact conditional interaction family. The Stephenson configuration was
@@ -285,6 +296,8 @@ Result and terminal-attempt artifact hashes at this snapshot:
 | `data/confirmation/gse179221_bmmc/source_attempt_v1.json` | `e9785294eec3420c813006d88ed5a264de1ec1a119c3725b800aaf955d87f4ec` |
 | `data/confirmation/gse179221_bmmc/source_consumption_v1.json` | `95c0c640fddc6b70cb7dd4b509e27f0e0604186df89ad057eeff7bc93f2fd871` |
 | `results/development/gse179221_bmmc_source_v1.json` | `18982f0320c602dbc65df27a94675677dc006edd9951ac62fa3a1ad93e2a06f6` |
+| `data/confirmation/gse214546_teaseq/source_attempt_v1.json` | `56a832e0f3b67ceae87e7a645275a7ec4607f350dd56456f37be9149c906795f` |
+| `results/development/gse214546_teaseq_source_v1.json` | `fb7ed8218c926cbc41a105b21a94116d8f73de5fd823b98137ac094b20d410ba` |
 | `results/development/scmmib_bmmc_exact_development_attempt_3_terminal_refusal.json` | `caf920719694487ba228dc64ac14ed4a6579619349f496f7154372920f3e128c` |
 | `data/confirmation/gse279451_sepsis/source_manifest_v1.json` | `c15fdc13c68cff14c45cfc16153cdbc309f6c2252457634fda8abdca677e4603` |
 | `data/development/gse279451_sepsis/development_attempt_v1.json` | `b8d7e745997e7b7ccd9a3bc8a7a7c3c7670b9e47c8b5d51e3d12fb70a5a8938d` |
@@ -301,8 +314,8 @@ hash before emitting a row, enforces unique panel/comparison identifiers and
 valid cross-references, and writes sorted deterministic ledgers. The standalone
 verifier rechecks row-level artifact hashes, metric finiteness, evidence counts,
 sequence order, the empty unused-Cambridge performance fields, manifest bytes,
-and `SHA256SUMS`. The release candidate contains 34 panel, 29 comparison, and
-65 sequence records.
+and `SHA256SUMS`. The release candidate contains 36 panel, 29 comparison, and
+83 sequence records.
 
 The structured consistency check parsed every audited JSON with non-finite JSON
 constants rejected; verified embedded hashes for the v4 runner, estimator, and
@@ -357,6 +370,9 @@ terminal record in the machine-readable benchmark. Treat unused Cambridge as
 infrastructure-unevaluable, with no scientific decision or performance value.
 Treat GSE179221 as a source feature-axis refusal with no numerical or held
 outcome: it does not supply a second confirmation or a classical comparison.
+Treat GSE214546 as a source-support refusal with one complete source reduction,
+one axis-only failed source reduction, and no held access, fit, comparison, or
+confirmation.
 Do not claim graph-prior superiority, a second independent-study confirmation,
 confirmatory pathway or neighborhood recovery, real-data validation of
 guide-error correction, universal estimator superiority, or state-of-the-art
