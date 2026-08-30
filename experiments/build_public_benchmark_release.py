@@ -1154,6 +1154,291 @@ def _terminal_panels() -> list[dict[str, Any]]:
         }
     )
 
+    gse214546_path = "results/development/gse214546_teaseq_source_v1.json"
+    gse214546 = _load_json(gse214546_path)
+    gse214546_attempt_path = (
+        "data/confirmation/gse214546_teaseq/source_attempt_v1.json"
+    )
+    gse214546_attempt = _load_json(gse214546_attempt_path)
+    bindings = gse214546.get("bindings", {})
+    bound_artifacts = {
+        "candidate_sha256": (
+            "data/confirmation/gse214546_teaseq/candidate_designation_v1.json"
+        ),
+        "amendment_sha256": (
+            "data/confirmation/gse214546_teaseq/"
+            "pre_access_schema_amendment_v1.json"
+        ),
+        "implementation_clarification_sha256": (
+            "data/confirmation/gse214546_teaseq/"
+            "pre_access_implementation_clarification_v1.json"
+        ),
+        "cv_availability_clarification_sha256": (
+            "data/confirmation/gse214546_teaseq/"
+            "pre_access_cv_availability_clarification_v1.json"
+        ),
+        "normalization_correction_sha256": (
+            "data/confirmation/gse214546_teaseq/"
+            "pre_access_normalization_correction_v1.json"
+        ),
+        "sparse_access_clarification_sha256": (
+            "data/confirmation/gse214546_teaseq/"
+            "pre_access_sparse_access_clarification_v1.json"
+        ),
+        "crash_semantics_clarification_sha256": (
+            "data/confirmation/gse214546_teaseq/"
+            "pre_access_crash_semantics_clarification_v1.json"
+        ),
+        "protocol_sha256": (
+            "docs/GSE214546_TEASEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-30.md"
+        ),
+    }
+    source_gsms = [
+        "GSM6611363",
+        "GSM6611365",
+        "GSM6611366",
+        "GSM6611367",
+        "GSM6611371",
+        "GSM6611372",
+        "GSM6611373",
+        "GSM6611377",
+    ]
+    held_gsms = [
+        "GSM6611364",
+        "GSM6611368",
+        "GSM6611369",
+        "GSM6611370",
+        "GSM6611374",
+        "GSM6611375",
+        "GSM6611376",
+        "GSM6611378",
+    ]
+    access = gse214546.get("access_audit", [])
+    expected_downloads = [
+        (
+            "GSM6611363_B065-P1_PB00593-04_filtered_metadata.csv.gz",
+            1_143_063,
+            "9152caa317ed1d2eeb50dc6e36034de969f6a82ed24bd987eba31764d5d4eab4",
+        ),
+        (
+            "GSM6611363_B065-P1_PB00593-04.h5",
+            38_481_738,
+            "fb7b1fddf5f21e8a7e0377911dc86b28c69c2505650de9061f64eb1871f9a9dd",
+        ),
+        (
+            "GSM6611365_B076-P1_PB00368-04_filtered_metadata.csv.gz",
+            2_769_550,
+            "34990b13e213e70546659aea48075d420b6f39cd1dccddabd34ce1b547ebd157",
+        ),
+        (
+            "GSM6611365_B076-P1_PB00368-04.h5",
+            117_389_863,
+            "fa95fdf563480f49e09477b17273803cad098fe72ace7b4d2f49731cb1f0f0e6",
+        ),
+    ]
+    if len(access) != 4:
+        raise ValueError("GSE214546 source download count changed")
+    observed_downloads = [
+        (
+            record.get("filename"),
+            record.get("observed_bytes"),
+            record.get("sha256"),
+        )
+        for record in access
+    ]
+    first_metadata, first_h5, second_metadata, second_h5 = access
+    first_event_counts = {
+        dataset: sum(
+            event.get("dataset") == dataset
+            for event in first_h5.get("dataset_access_events", [])
+        )
+        for dataset in first_h5.get("datasets_read", [])
+    }
+    expected_first_event_counts = {
+        "ADT/barcodes": 1,
+        "ADT/data": 512,
+        "ADT/features/id": 1,
+        "ADT/indices": 512,
+        "ADT/indptr": 512,
+        "ADT/shape": 1,
+        "matrix/barcodes": 1,
+        "matrix/data": 511,
+        "matrix/features/feature_type": 1,
+        "matrix/features/name": 1,
+        "matrix/indices": 512,
+        "matrix/indptr": 512,
+        "matrix/shape": 1,
+    }
+    expected_second_axes = {
+        "matrix/barcodes",
+        "matrix/features/feature_type",
+        "matrix/features/name",
+        "matrix/shape",
+    }
+    expected_public_tags = {
+        "amendment_commit": "30057e6a4e4da37c3755b911f33c53d84918fdb6",
+        "amendment_tag": "gse214546-teaseq-v1-pre-access-amendment",
+        "candidate_commit": "53ae1fb470056b1ce17e78f977f52db328c89038",
+        "candidate_tag": "gse214546-teaseq-v1-candidate",
+        "crash_semantics_clarification_commit": (
+            "39579621c11c4b7e4bb667343f6407309d237862"
+        ),
+        "crash_semantics_clarification_tag": (
+            "gse214546-teaseq-v1-crash-semantics-clarification"
+        ),
+        "cv_availability_commit": "394a9bd601a0a02fb1b79540f8822c291be122c3",
+        "cv_availability_tag": "gse214546-teaseq-v1-cv-availability",
+        "implementation_clarification_commit": (
+            "8b1b4a05931110d50c2946ec49386e01bd7daeef"
+        ),
+        "implementation_clarification_tag": (
+            "gse214546-teaseq-v1-implementation-clarification"
+        ),
+        "implementation_commit": "e2bd6c8fc63c86f5f9c5d7429a33332262d47e2f",
+        "implementation_tag": "gse214546-teaseq-v1-implementation",
+        "normalization_correction_commit": (
+            "5ff7994913d254fbad88a26b59ab367bebd2534a"
+        ),
+        "normalization_correction_tag": (
+            "gse214546-teaseq-v1-normalization-correction"
+        ),
+        "sparse_access_clarification_commit": (
+            "266b5ba73477534341b4bc4acd2e1e6211213e00"
+        ),
+        "sparse_access_clarification_tag": (
+            "gse214546-teaseq-v1-sparse-access-clarification"
+        ),
+    }
+    if (
+        gse214546.get("schema") != "gse214546-teaseq-source-result/1.0"
+        or gse214546.get("status") != "TERMINAL_SOURCE_REFUSAL"
+        or gse214546.get("stage") != "source"
+        or gse214546.get("reason_code") != "FEWER_THAN_512_MATCHED_SINGLETS"
+        or gse214546.get("details") != {}
+        or gse214546.get("held_h5_requested") is not False
+        or gse214546.get("rerun_permitted") is not False
+        or bindings.get("source_attempt_sha256") != _sha256(gse214546_attempt_path)
+        or bindings.get("source_attempt_bytes")
+        != (ROOT / gse214546_attempt_path).stat().st_size
+        or bindings.get("source_attempt_tag")
+        != "gse214546-teaseq-v1-source-attempt"
+        or bindings.get("source_attempt_commit")
+        != "15b3a8cbb77395943ffef28fb01be39703ce1b95"
+        or bindings.get("claim_token_sha256")
+        != "7174930e43f0f57caad4aeef6403aeb63752b895d7b9595c816c3a1f8925e946"
+        or bindings.get("public_tags") != expected_public_tags
+        or any(bindings.get(key) != _sha256(path) for key, path in bound_artifacts.items())
+        or gse214546_attempt.get("schema")
+        != "gse214546-teaseq-source-attempt/1.0"
+        or gse214546_attempt.get("status")
+        != "CLAIMED_BEFORE_FIRST_SOURCE_FILE_GET"
+        or gse214546_attempt.get("held_numeric_access_authorized") is not False
+        or gse214546_attempt.get("rerun_permitted") is not False
+        or gse214546_attempt.get("source_gsms") != source_gsms
+        or gse214546_attempt.get("held_gsms") != held_gsms
+        or gse214546_attempt.get("claim_token_sha256")
+        != bindings.get("claim_token_sha256")
+        or any(
+            bindings.get(key) != value
+            for key, value in gse214546_attempt.get("bindings", {}).items()
+        )
+        or observed_downloads != expected_downloads
+        or any(
+            record.get("expected_bytes") != expected_bytes
+            or record.get("request_started") is not True
+            or record.get("completed") is not True
+            or record.get("deleted") is not True
+            for record, (_, expected_bytes, _) in zip(access, expected_downloads)
+        )
+        or sum(record[1] for record in expected_downloads) != 159_784_214
+        or first_metadata.get("decode")
+        != {
+            "barcode_column": "barcodes",
+            "literal_true_singlets": 10_295,
+            "rows": 11_191,
+            "singlet_column": "singlet",
+            "singlet_value": "TRUE",
+            "unique_barcodes": 11_191,
+        }
+        or first_h5.get("selected_cells") != 512
+        or first_h5.get("authorized_marker_count") != 53
+        or first_h5.get("selected_cell_axis_sha256")
+        != "9565b4c84360a0fa527833fa17beb93c842a14e3ee6b601ad76242340ffd7fa2"
+        or first_h5.get("selected_cell_indices_sha256")
+        != "896b0846b11e358245caae647203681f7419f79fdc7adb89f650e71054332e3f"
+        or first_h5.get("authorized_marker_axis_sha256")
+        != "2794bd7eb9a548ff194cdaa6f20ddf05a22fe9254e2017ec1bb25f2e62a51943"
+        or first_h5.get("h5_reduction_completed") is not True
+        or first_h5.get("gex_access", {}).get("indices_decoded") != 781_366
+        or first_h5.get("gex_access", {}).get("selected_data_values_decoded")
+        != 3_323
+        or first_h5.get("adt_access", {}).get("indices_decoded") != 20_226
+        or first_h5.get("adt_access", {}).get("selected_data_values_decoded")
+        != 19_587
+        or first_event_counts != expected_first_event_counts
+        or len(first_h5.get("dataset_access_events", [])) != 3_078
+        or not all(
+            event.get("started") is True and event.get("completed") is True
+            for event in first_h5.get("dataset_access_events", [])
+        )
+        or second_metadata.get("decode")
+        != {
+            "barcode_column": "barcodes",
+            "literal_true_singlets": 25_364,
+            "rows": 28_337,
+            "singlet_column": "singlet",
+            "singlet_value": "TRUE",
+            "unique_barcodes": 28_337,
+        }
+        or second_h5.get("h5_reduction_completed") is not False
+        or set(second_h5.get("datasets_opened", [])) != expected_second_axes
+        or set(second_h5.get("datasets_read", [])) != expected_second_axes
+        or len(second_h5.get("dataset_access_events", [])) != 4
+        or not all(
+            event.get("started") is True
+            and event.get("completed") is True
+            and event.get("selection") == {"kind": "all"}
+            for event in second_h5.get("dataset_access_events", [])
+        )
+        or "selected_cells" in second_h5
+        or any(
+            held_gsm in record.get("filename", "")
+            for held_gsm in held_gsms
+            for record in access
+        )
+    ):
+        raise ValueError("GSE214546 terminal source boundary changed")
+    result_path, result_sha = _artifact_fields(gse214546_path)
+    panels.append(
+        {
+            "panel_id": "gse214546_teaseq_source_terminal",
+            "panel": "GSE214546 TEA-seq held-donor campaign",
+            "accession": "GSE214546",
+            "assay_pair": "same-cell RNA and surface-protein binary states",
+            "analysis_phase": "source_support_gate",
+            "inference_role": "procedural_refusal",
+            "evaluation_unit": "physical source donor",
+            "unit_count": 2,
+            "entity_count": 53,
+            "primary_method": "age_conditioned_exact_conditional_coupling",
+            "primary_metric": "",
+            "metric_direction": "",
+            "primary_value": "",
+            "ci_95_low": "",
+            "ci_95_high": "",
+            "decision": gse214546["status"],
+            "outcome_scored": "NO",
+            "result_artifact": result_path,
+            "result_sha256": result_sha,
+            "notes": (
+                "The first source donor completed its frozen 512-cell, 53-marker "
+                "reduction. The second donor had fewer than 512 matched singlets; "
+                "the exact overlap count was not serialized. The remaining six "
+                "source H5s and all eight held H5s remained unopened."
+            ),
+        }
+    )
+
     terminal_path = (
         "data/confirmation/stephenson_unused_cambridge/"
         "prediction_terminal_record_v1_1.json"
@@ -1233,6 +1518,7 @@ def _sequence(panels: list[dict[str, Any]]) -> list[dict[str, Any]]:
         "combat_terminal_pilot",
         "kotliarov_pbmc_binary_v2_source_terminal",
         "gse179221_bmmc_source_terminal",
+        "gse214546_teaseq_source_terminal",
         "gse342939_ra_bcell_source_terminal",
         "stephenson_unused_cambridge_terminal",
     }
@@ -1765,6 +2051,129 @@ def _sequence(panels: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 ),
             ),
             _sequence_row(
+                "gse214546_teaseq_source_terminal",
+                1,
+                "candidate_protocol",
+                "FROZEN_BEFORE_NUMERIC_MATRIX_ACCESS",
+                "ALL_NUMERIC_MATRICES_UNOPENED",
+                "YES",
+                "docs/GSE214546_TEASEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-30.md",
+                "gse214546-teaseq-v1-candidate",
+            ),
+            _sequence_row(
+                "gse214546_teaseq_source_terminal",
+                2,
+                "schema_amendment",
+                "FROZEN_BEFORE_NUMERIC_MATRIX_ACCESS",
+                "ALL_NUMERIC_MATRICES_UNOPENED",
+                "YES",
+                (
+                    "data/confirmation/gse214546_teaseq/"
+                    "pre_access_schema_amendment_v1.json"
+                ),
+                "gse214546-teaseq-v1-pre-access-amendment",
+            ),
+            _sequence_row(
+                "gse214546_teaseq_source_terminal",
+                3,
+                "implementation_clarification",
+                "FROZEN_BEFORE_NUMERIC_MATRIX_ACCESS",
+                "ALL_NUMERIC_MATRICES_UNOPENED",
+                "YES",
+                (
+                    "data/confirmation/gse214546_teaseq/"
+                    "pre_access_implementation_clarification_v1.json"
+                ),
+                "gse214546-teaseq-v1-implementation-clarification",
+            ),
+            _sequence_row(
+                "gse214546_teaseq_source_terminal",
+                4,
+                "cv_availability",
+                "FROZEN_BEFORE_NUMERIC_MATRIX_ACCESS",
+                "ALL_NUMERIC_MATRICES_UNOPENED",
+                "YES",
+                (
+                    "data/confirmation/gse214546_teaseq/"
+                    "pre_access_cv_availability_clarification_v1.json"
+                ),
+                "gse214546-teaseq-v1-cv-availability",
+            ),
+            _sequence_row(
+                "gse214546_teaseq_source_terminal",
+                5,
+                "normalization_correction",
+                "FROZEN_BEFORE_NUMERIC_MATRIX_ACCESS",
+                "ALL_NUMERIC_MATRICES_UNOPENED",
+                "YES",
+                (
+                    "data/confirmation/gse214546_teaseq/"
+                    "pre_access_normalization_correction_v1.json"
+                ),
+                "gse214546-teaseq-v1-normalization-correction",
+            ),
+            _sequence_row(
+                "gse214546_teaseq_source_terminal",
+                6,
+                "sparse_access_clarification",
+                "FROZEN_BEFORE_NUMERIC_MATRIX_ACCESS",
+                "ALL_NUMERIC_MATRICES_UNOPENED",
+                "YES",
+                (
+                    "data/confirmation/gse214546_teaseq/"
+                    "pre_access_sparse_access_clarification_v1.json"
+                ),
+                "gse214546-teaseq-v1-sparse-access-clarification",
+            ),
+            _sequence_row(
+                "gse214546_teaseq_source_terminal",
+                7,
+                "crash_semantics",
+                "FROZEN_BEFORE_NUMERIC_MATRIX_ACCESS",
+                "ALL_NUMERIC_MATRICES_UNOPENED",
+                "YES",
+                (
+                    "data/confirmation/gse214546_teaseq/"
+                    "pre_access_crash_semantics_clarification_v1.json"
+                ),
+                "gse214546-teaseq-v1-crash-semantics-clarification",
+            ),
+            _sequence_row(
+                "gse214546_teaseq_source_terminal",
+                8,
+                "implementation",
+                "IMPLEMENTATION_FROZEN_BEFORE_NUMERIC_ACCESS",
+                "SOURCE_ACCESS_DISABLED_HELD_DISABLED",
+                "YES",
+                "experiments/confirm_gse214546_teaseq.py",
+                "gse214546-teaseq-v1-implementation",
+            ),
+            _sequence_row(
+                "gse214546_teaseq_source_terminal",
+                9,
+                "source_attempt",
+                "CLAIMED_BEFORE_FIRST_SOURCE_FILE_GET",
+                "SOURCE_ACCESS_ENABLED_HELD_DISABLED",
+                "YES",
+                "data/confirmation/gse214546_teaseq/source_attempt_v1.json",
+                "gse214546-teaseq-v1-source-attempt",
+            ),
+            _sequence_row(
+                "gse214546_teaseq_source_terminal",
+                10,
+                "source_result",
+                "TERMINAL_SOURCE_REFUSAL",
+                "TWO_SOURCE_H5_REQUESTED_ONE_REDUCED_HELD_UNOPENED",
+                "NOT_APPLICABLE",
+                "results/development/gse214546_teaseq_source_v1.json",
+                "gse214546-teaseq-v1-source-refusal",
+                notes=(
+                    "The first source donor completed reduction; the second had "
+                    "fewer than 512 matched singlets. The exact overlap count was "
+                    "not serialized, and all eight held H5s remained unopened."
+                ),
+            ),
+            _sequence_row(
                 "stephenson_unused_cambridge_terminal",
                 1,
                 "protocol",
@@ -1884,7 +2293,7 @@ def _write_manifest(
         "schema": "coupling-fields-public-benchmark/2.0",
         "release_name": "coupling-fields-v2-public-benchmark",
         "release_status": "RELEASE_CANDIDATE_READY_FOR_TAG",
-        "snapshot_date": "2026-08-29",
+        "snapshot_date": "2026-08-30",
         "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
         "intended_release_tag": "coupling-fields-v2-public-benchmark",
         "archive_doi": None,
@@ -1934,6 +2343,7 @@ def _checksum_paths() -> list[str]:
         "scripts/verify_public_benchmark_release.py",
         "tests/test_gse239452_post_access_correction.py",
         "tests/test_public_benchmark_release_v2.py",
+        "results/development/gse214546_teaseq_source_v1.json",
     }
     candidates = set(filter(None, tracked)) | generated
     candidates.discard(str(CHECKSUM_PATH))

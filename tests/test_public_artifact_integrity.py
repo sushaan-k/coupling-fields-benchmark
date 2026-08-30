@@ -74,6 +74,12 @@ FROZEN_JSON_SHA256 = {
     "results/development/gse179221_bmmc_source_v1.json": (
         "18982f0320c602dbc65df27a94675677dc006edd9951ac62fa3a1ad93e2a06f6"
     ),
+    "data/confirmation/gse214546_teaseq/source_attempt_v1.json": (
+        "56a832e0f3b67ceae87e7a645275a7ec4607f350dd56456f37be9149c906795f"
+    ),
+    "results/development/gse214546_teaseq_source_v1.json": (
+        "fb7ed8218c926cbc41a105b21a94116d8f73de5fd823b98137ac094b20d410ba"
+    ),
     "results/development/gse239452_standard_poisson_interaction_posthoc.json": (
         "54b32b1ed12a01030210cd415b4565347868faaed13dd6fc37b6c0100c3aac97"
     ),
@@ -375,12 +381,12 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
     assert manifest["intended_release_tag"] == "coupling-fields-v2-public-benchmark"
     assert manifest["counts"] == {
         "comparison_records": 29,
-        "panel_records": 35,
+        "panel_records": 36,
         "infrastructure_unevaluable_records": 1,
         "pending_records": 0,
-        "procedural_refusal_records": 22,
+        "procedural_refusal_records": 23,
         "scored_panel_records": 12,
-        "sequence_records": 73,
+        "sequence_records": 83,
     }
     assert manifest["archive_doi"] is None
     assert manifest["code_license"] is None
@@ -390,9 +396,9 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
     )
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 87
+    assert len(artifacts) == 97
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 87
+    assert len(by_path) == 97
     for relative in (
         "results/benchmark_panels_v2.tsv",
         "results/benchmark_comparisons_v2.tsv",
@@ -419,6 +425,16 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
         "results/development/gse179221_bmmc_source_v1.json",
         "tests/test_gse179221_bmmc_confirmation.py",
         "tests/test_gse179221_candidate.py",
+        "docs/GSE214546_TEASEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-08-30.md",
+        "data/confirmation/gse214546_teaseq/pre_access_schema_amendment_v1.json",
+        "data/confirmation/gse214546_teaseq/pre_access_implementation_clarification_v1.json",
+        "data/confirmation/gse214546_teaseq/pre_access_cv_availability_clarification_v1.json",
+        "data/confirmation/gse214546_teaseq/pre_access_normalization_correction_v1.json",
+        "data/confirmation/gse214546_teaseq/pre_access_sparse_access_clarification_v1.json",
+        "data/confirmation/gse214546_teaseq/pre_access_crash_semantics_clarification_v1.json",
+        "experiments/confirm_gse214546_teaseq.py",
+        "data/confirmation/gse214546_teaseq/source_attempt_v1.json",
+        "results/development/gse214546_teaseq_source_v1.json",
         "experiments/correct_gse239452_residual_inversion.py",
         "experiments/evaluate_gse239452_standard_poisson_posthoc.py",
         "results/gse239452_citeseq_post_access_correction.json",

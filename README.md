@@ -3,8 +3,8 @@
 This repository is a public, source-visible benchmark for
 perturbation-specific dependence in linked single-cell assays. It preserves
 positive, negative, and refused analyses under explicit evidence roles. The
-version-2 release candidate contains 34 panel records: 12 scored held,
-replicate, pilot, or nonheld-development analyses; 21 procedural refusals; and
+version-2 release candidate contains 36 panel records: 12 scored held,
+replicate, pilot, or nonheld-development analyses; 23 procedural refusals; and
 one published infrastructure-unevaluable attempt. These are analysis
 records rather than unique studies because BMMC and COMBAT each retain both a
 frozen campaign outcome and a separately labeled retrospective adaptive
@@ -53,13 +53,18 @@ PoKI-seq stopped at state-occupancy preflight, Lawlor at deposited-object
 compatibility, Hao and the first Kotliarov campaign at frozen support gates,
 BMMC at numerical development, GSE279451 at comparator availability, GSE299043 at source feature
 preflight, and COMBAT at pilot candidate availability. GSE314416 also stopped
-at its pilot gate. Eleven later source campaigns terminated before held
+at its pilot gate. Twelve later source campaigns terminated before held
 scoring and remain visible in the aggregate ledger. The source-only Kotliarov
 binary-v2 replacement then refused because no frozen configuration completed
 every source-held fold; it produced no comparisons or held run. The subsequent
 GSE179221 BMMC candidate refused at exact cognate-axis preflight on the first
 source donor. Only its barcode and feature axes were decoded; no count dataset,
 model, comparison, held file, prediction, or score was opened or formed. The
+GSE214546 TEA-seq campaign completed a frozen 512-cell, 53-marker reduction for
+its first source donor, then refused because the second source donor had fewer
+than 512 matched singlets. The exact overlap count was not serialized. The
+remaining six source H5s and all eight held H5s remained unopened, and no model,
+comparison, prediction, or score was formed. The
 recovery-amended unused-Cambridge attempt produced no prediction or score and is
 infrastructure-unevaluable; its published terminal record assigns no scientific
 decision and its performance fields remain empty.
@@ -155,6 +160,11 @@ exclusive consumption record, and terminal result are published under the
 `gse179221-bmmc-v1-*` tags. The first source file failed exact cognate-axis
 uniqueness before its count matrix was opened; the other seven source files and
 all ten held files remained unrequested.
+The GSE214546 pre-access lineage and source attempt are published under the
+`gse214546-teaseq-v1-*` tags. Its terminal source result records four completed,
+byte- and hash-verified source-only downloads: one complete reduction and one
+axis-only source H5 that failed the 512-cell support gate. It requested no held
+H5 and cannot be rerun.
 The GSE239452 numerical correction is preserved in
 `results/gse239452_citeseq_post_access_correction.json`. Its correction runner
 and focused test are checksum-bound, and the original sealed prediction and

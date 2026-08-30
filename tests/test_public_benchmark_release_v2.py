@@ -41,11 +41,11 @@ def test_metric_aware_ledgers_include_completed_and_refused_evidence() -> None:
     by_panel = {row["panel_id"]: row for row in panels}
     by_comparison = {row["comparison_id"]: row for row in comparisons}
 
-    assert len(panels) == 35
+    assert len(panels) == 36
     assert len(comparisons) == 29
-    assert len(sequence) == 73
+    assert len(sequence) == 83
     assert sum(row["outcome_scored"] == "YES" for row in panels) == 12
-    assert sum(row["inference_role"] == "procedural_refusal" for row in panels) == 22
+    assert sum(row["inference_role"] == "procedural_refusal" for row in panels) == 23
 
     stephenson = by_panel["stephenson_newcastle_confirmation"]
     assert stephenson["inference_role"] == "confirmatory"
@@ -313,6 +313,120 @@ def test_gse179221_is_a_zero_numeric_source_feature_axis_refusal() -> None:
     )
 
 
+def test_gse214546_is_a_terminal_source_support_refusal() -> None:
+    panels = _rows(PANELS_PATH)
+    comparisons = _rows(COMPARISONS_PATH)
+    sequence = _rows(SEQUENCE_PATH)
+    panel_id = "gse214546_teaseq_source_terminal"
+    panel = next(row for row in panels if row["panel_id"] == panel_id)
+
+    assert panel["analysis_phase"] == "source_support_gate"
+    assert panel["inference_role"] == "procedural_refusal"
+    assert panel["evaluation_unit"] == "physical source donor"
+    assert panel["unit_count"] == "2"
+    assert panel["entity_count"] == "53"
+    assert panel["decision"] == "TERMINAL_SOURCE_REFUSAL"
+    assert panel["outcome_scored"] == "NO"
+    assert panel["result_sha256"] == (
+        "fb7ed8218c926cbc41a105b21a94116d8f73de5fd823b98137ac094b20d410ba"
+    )
+    for field in (
+        "primary_metric",
+        "metric_direction",
+        "primary_value",
+        "ci_95_low",
+        "ci_95_high",
+    ):
+        assert panel[field] == ""
+    assert not any(row["panel_id"] == panel_id for row in comparisons)
+
+    stages = [row for row in sequence if row["panel_id"] == panel_id]
+    assert [row["stage"] for row in stages] == [
+        "candidate_protocol",
+        "schema_amendment",
+        "implementation_clarification",
+        "cv_availability",
+        "normalization_correction",
+        "sparse_access_clarification",
+        "crash_semantics",
+        "implementation",
+        "source_attempt",
+        "source_result",
+    ]
+    assert [row["stage_ordinal"] for row in stages] == [str(i) for i in range(1, 11)]
+    assert all(row["public_before_outcome"] == "YES" for row in stages[:-1])
+    assert stages[-2]["public_commit_or_tag"] == (
+        "gse214546-teaseq-v1-source-attempt"
+    )
+    assert stages[-1]["public_commit_or_tag"] == (
+        "gse214546-teaseq-v1-source-refusal"
+    )
+    assert stages[-1]["outcome_access"] == (
+        "TWO_SOURCE_H5_REQUESTED_ONE_REDUCED_HELD_UNOPENED"
+    )
+    assert stages[-1]["artifact_sha256"] == panel["result_sha256"]
+
+    result = json.loads(
+        (ROOT / "results/development/gse214546_teaseq_source_v1.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert result["reason_code"] == "FEWER_THAN_512_MATCHED_SINGLETS"
+    assert result["details"] == {}
+    assert result["held_h5_requested"] is False
+    assert result["rerun_permitted"] is False
+    audit = result["access_audit"]
+    assert [record["filename"] for record in audit] == [
+        "GSM6611363_B065-P1_PB00593-04_filtered_metadata.csv.gz",
+        "GSM6611363_B065-P1_PB00593-04.h5",
+        "GSM6611365_B076-P1_PB00368-04_filtered_metadata.csv.gz",
+        "GSM6611365_B076-P1_PB00368-04.h5",
+    ]
+    assert sum(record["observed_bytes"] for record in audit) == 159_784_214
+    assert all(
+        record["request_started"] and record["completed"] and record["deleted"]
+        for record in audit
+    )
+    assert audit[0]["decode"] == {
+        "barcode_column": "barcodes",
+        "literal_true_singlets": 10_295,
+        "rows": 11_191,
+        "singlet_column": "singlet",
+        "singlet_value": "TRUE",
+        "unique_barcodes": 11_191,
+    }
+    assert audit[1]["h5_reduction_completed"] is True
+    assert audit[1]["selected_cells"] == 512
+    assert audit[1]["authorized_marker_count"] == 53
+    assert len(audit[1]["dataset_access_events"]) == 3_078
+    assert audit[2]["decode"]["literal_true_singlets"] == 25_364
+    assert audit[3]["h5_reduction_completed"] is False
+    assert set(audit[3]["datasets_read"]) == {
+        "matrix/barcodes",
+        "matrix/features/feature_type",
+        "matrix/features/name",
+        "matrix/shape",
+    }
+    assert len(audit[3]["dataset_access_events"]) == 4
+    assert "selected_cells" not in audit[3]
+    attempt = json.loads(
+        (
+            ROOT
+            / "data/confirmation/gse214546_teaseq/source_attempt_v1.json"
+        ).read_text(encoding="utf-8")
+    )
+    assert len(attempt["held_gsms"]) == 8
+    assert not any(
+        gsm in record["filename"]
+        for gsm in attempt["held_gsms"]
+        for record in audit
+    )
+    assert (
+        f'{panel["result_sha256"]}  {panel["result_artifact"]}\n'
+        in (ROOT / CHECKSUM_PATH).read_text(encoding="utf-8")
+    )
+
+
 def test_unused_cambridge_terminal_row_contains_no_performance_claim() -> None:
     panels = _rows(PANELS_PATH)
     sequence = _rows(SEQUENCE_PATH)
@@ -352,14 +466,15 @@ def test_unused_cambridge_terminal_row_contains_no_performance_claim() -> None:
 def test_manifest_counts_and_claim_boundaries_match_ledgers() -> None:
     manifest = json.loads((ROOT / MANIFEST_PATH).read_text(encoding="utf-8"))
     assert manifest["schema"] == "coupling-fields-public-benchmark/2.0"
+    assert manifest["snapshot_date"] == "2026-08-30"
     assert manifest["counts"] == {
         "comparison_records": 29,
-        "panel_records": 35,
+        "panel_records": 36,
         "infrastructure_unevaluable_records": 1,
         "pending_records": 0,
-        "procedural_refusal_records": 22,
+        "procedural_refusal_records": 23,
         "scored_panel_records": 12,
-        "sequence_records": 73,
+        "sequence_records": 83,
     }
     assert manifest["archive_doi"] is None
     assert manifest["code_license"] is None
