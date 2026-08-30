@@ -1,0 +1,8 @@
+{
+  "attempt_sha256": "e9785294eec3420c813006d88ed5a264de1ec1a119c3725b800aaf955d87f4ec",
+  "created_at_utc": "2026-08-30T02:18:00Z",
+  "process_id": 35500,
+  "rerun_permitted": false,
+  "schema": "gse179221-bmmc-source-consumption/1.0",
+  "status": "CONSUMED_EXCLUSIVELY_BEFORE_FIRST_H5_GET"
+}
