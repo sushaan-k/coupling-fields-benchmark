@@ -1,0 +1,11 @@
+{
+  "access_journal": "data/confirmation/gse313642_hcc/calibration_access_v3.jsonl",
+  "access_journal_sha256": "cef304e5c1dddede40e97f0b47d35a0660c3bc85d054521078ea03f35f66751d",
+  "attempt_sha256": "ddbe10cec4625c597c1749cff7fd45ed384939dbb608aa2101a8137a61694a98",
+  "consumption_sha256": "804463e0c0b80a1c08d6afe9330d7c27db5bdecfe68283b301b50d27021beb15",
+  "created_at_utc": "2026-08-30T22:39:18Z",
+  "refusal_code": "CALIBRATION_EXECUTION_FAILURE",
+  "rerun_permitted": false,
+  "schema": "gse313642-hcc-calibration-result/3.0",
+  "status": "TERMINAL_REFUSAL"
+}
