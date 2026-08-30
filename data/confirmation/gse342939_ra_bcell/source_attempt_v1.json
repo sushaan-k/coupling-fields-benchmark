@@ -1,0 +1,103 @@
+{
+  "amendment_sha256": "583890f90f0c89190cdb74a47170832d987a8d90b193a6acc3a1c923b031f0ab",
+  "axis_cache_certificate": {
+    "bytes": 98386130,
+    "files": 104,
+    "identity_sha256": "86c494db8fda733dfa441ae1addeb88350d2033083d3fae1297cfb4633936896",
+    "metadata_manifest_sha256": "14a8389a97da0f0ec2581d6b72aa59ab8932522f314fdf8a205c8a768f20dd53"
+  },
+  "candidate_sha256": "26816d705f201227fb86fe1e6cb167fdc4879dbc9a02d24a3b00171c73911d9e",
+  "created_at_utc": "2026-08-30T04:37:09Z",
+  "held_numeric_access_authorized": false,
+  "implementation_bindings": {
+    "data/confirmation/gse342939_ra_bcell/pre_access_streaming_reduction_clarification_v1.json": "75d651d7f10b93e03f438fc35ea1420adca987a9f518afc8b9e1896c87c89ece",
+    "experiments/confirm_gse179221_bmmc.py": "af85ec66566e30b27d0d132c74a7b8b3b2d2bd5c905e643ff67e9d0283bb99bc",
+    "experiments/confirm_gse309593_held_batches.py": "5c07237f24c7be36683e3d1940c2699b348b16a33ad76ee1faeeb8017ccb779b",
+    "experiments/confirm_gse342939_ra_bcell.py": "ae9be229aaaaf7a24640b1fa8d67a9a68778fb4ac5dca7589f463a20caebb862",
+    "mapreg/common_effect_conditional.py": "e8730bc5c072b66794d9d1c0f8fa8c93ba7e2bf9303a34bde98dfb7dea6ff2e9",
+    "mapreg/heterogeneity_adaptive_coupling.py": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e",
+    "mapreg/longitudinal_conditional_coupling.py": "ee884ef2380ae50eedf2fb8bb59f949a6ee03765a08c3f6194773c6c4cb6a5b4",
+    "tests/test_gse342939_confirmation.py": "65b21ae2f71c85b0f83e556b6247e3efe7ec20d49fdefe04d8c91920d19c3099",
+    "tests/test_longitudinal_conditional_coupling.py": "fb6a3de9b76e005ddf8f37cec05dd5c2e22341a385cb169446a8fe1a73c3e5ef"
+  },
+  "manifest_sha256": "14a8389a97da0f0ec2581d6b72aa59ab8932522f314fdf8a205c8a768f20dd53",
+  "public_tags": {
+    "amendment_commit": "c92b289dd58c9eb7b837e57f7263791d7953384e",
+    "amendment_tag": "gse342939-ra-bcell-v1-pre-access-amendment",
+    "candidate_commit": "14243b9bb7c27de7fdcd10643fc3475276fd861e",
+    "candidate_tag": "gse342939-ra-bcell-v1-candidate",
+    "implementation_commit": "2a46d9c3599dc65753af04e1114eb18849e66a86",
+    "implementation_tag": "gse342939-ra-bcell-v1-implementation",
+    "streaming_clarification_commit": "0f9863c3782ac9676e237bbe4267cb68e7f65991",
+    "streaming_clarification_tag": "gse342939-ra-bcell-v1-streaming-reduction-clarification"
+  },
+  "rerun_permitted": false,
+  "runtime": {
+    "operating_system": {
+      "machine": "arm64",
+      "release": "25.0.0",
+      "system": "Darwin"
+    },
+    "packages": {
+      "numpy": "2.0.2",
+      "scipy": "1.13.1"
+    },
+    "python": {
+      "implementation": "CPython",
+      "resolved_executable": "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9",
+      "version": "3.9.6"
+    },
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "schema": "gse342939-ra-bcell-source-attempt/1.0",
+  "scratch_capacity_certificate": {
+    "filesystem_free_bytes": 7550767104,
+    "maximum_campaign_matrix_bytes": 102854757,
+    "maximum_packed_detection_bitset_bytes": 90091552,
+    "maximum_stage_matrix_bytes": 72989768,
+    "minimum_free_bytes": 1176596581,
+    "passes": true,
+    "scratch_empty_at_check": true,
+    "scratch_path_disclosed": false,
+    "temporary_coordinate_store_permitted": false
+  },
+  "source_numeric_expected_bytes": 814592401,
+  "source_numeric_file_count": 28,
+  "source_numeric_urls": [
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943416/suppl/GSM9943416_B_NN3A_GEX_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943417/suppl/GSM9943417_B_NN3A_CITE_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943419/suppl/GSM9943419_B_NN3B_GEX_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943420/suppl/GSM9943420_B_NN3B_CITE_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943434/suppl/GSM9943434_B_PC3A_GEX_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943435/suppl/GSM9943435_B_PC3A_CITE_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943437/suppl/GSM9943437_B_PC3B_GEX_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943438/suppl/GSM9943438_B_PC3B_CITE_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943440/suppl/GSM9943440_B_PC4A_GEX_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943441/suppl/GSM9943441_B_PC4A_CITE_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943443/suppl/GSM9943443_B_PC4B_GEX_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943444/suppl/GSM9943444_B_PC4B_CITE_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943446/suppl/GSM9943446_B_PC5A_GEX_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943447/suppl/GSM9943447_B_PC5A_CITE_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943449/suppl/GSM9943449_B_PC5B_GEX_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943450/suppl/GSM9943450_B_PC5B_CITE_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943452/suppl/GSM9943452_B_PN1A_GEX_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943453/suppl/GSM9943453_B_PN1A_CITE_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943455/suppl/GSM9943455_B_PN1B_GEX_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943456/suppl/GSM9943456_B_PN1B_CITE_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943458/suppl/GSM9943458_B_PN2A_GEX_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943459/suppl/GSM9943459_B_PN2A_CITE_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943461/suppl/GSM9943461_B_PN2B_GEX_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943462/suppl/GSM9943462_B_PN2B_CITE_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943464/suppl/GSM9943464_B_PN3A_GEX_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943465/suppl/GSM9943465_B_PN3A_CITE_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943467/suppl/GSM9943467_B_PN3B_GEX_matrix.mtx.gz",
+    "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9943nnn/GSM9943468/suppl/GSM9943468_B_PN3B_CITE_matrix.mtx.gz"
+  ],
+  "status": "CLAIMED_BEFORE_FIRST_NUMERIC_MATRIX_GET"
+}
