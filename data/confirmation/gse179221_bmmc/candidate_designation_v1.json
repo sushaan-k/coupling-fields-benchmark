@@ -1,0 +1,156 @@
+{
+  "schema": "gse179221-bmmc-citeseq-candidate-designation/1.0",
+  "status": "FROZEN_FROM_PUBLIC_METADATA_BEFORE_ANY_H5_BODY_ACCESS",
+  "created_at_utc": "2026-08-30T00:59:29Z",
+  "base_repository_commit": "891471bc4639e7b145bc7e7c629eea3246b46963",
+  "study": {
+    "accession": "GSE179221",
+    "bioproject": "PRJNA742751",
+    "publication_doi": "10.1158/2643-3230.BCD-21-0043",
+    "assay": "same-cell 10x RNA and TotalSeq-C surface-protein feature barcodes",
+    "reported_cells": 84128,
+    "reported_donors": {
+      "healthy": 4,
+      "IgM_MGUS": 7,
+      "Waldenstrom": 7
+    },
+    "claim_if_successful": "disease-stratified held-donor transfer of RNA-protein dependence in bone-marrow mononuclear cells"
+  },
+  "metadata_bindings": {
+    "geo_series": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE179221",
+    "geo_filelist": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179221/suppl/filelist.txt",
+      "sha256": "831107dd9d3e42374579117018248047757f2a40526492bf804f247d444104b1"
+    },
+    "publication": "https://pubmed.ncbi.nlm.nih.gov/34778800/",
+    "per_sample_url_template": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM5411nnn/{gsm}/suppl/{filename}",
+    "all_donor_tar_forbidden": true
+  },
+  "split_rule": {
+    "salt": "GSE179221-BMMC-CITESEQ-HELD-v1",
+    "canonical_bytes": "UTF8(salt) || NUL || UTF8(stratum) || NUL || UTF8(gsm)",
+    "within_stratum_order": "ascending SHA-256 digest, then GSM",
+    "held_count": "ceil(number of donors in stratum divided by two)",
+    "source_counts": {
+      "HD": 2,
+      "MGUS": 3,
+      "WM": 3
+    },
+    "held_counts": {
+      "HD": 2,
+      "MGUS": 4,
+      "WM": 4
+    }
+  },
+  "source_files": [
+    {"gsm": "GSM5411618", "donor": "HD1", "stratum": "HD", "filename": "GSM5411618_HD1_raw_feature_bc_matrix.h5", "bytes": 30078352},
+    {"gsm": "GSM5411619", "donor": "HD2", "stratum": "HD", "filename": "GSM5411619_HD2_raw_feature_bc_matrix.h5", "bytes": 31580233},
+    {"gsm": "GSM5411622", "donor": "MGUS1", "stratum": "MGUS", "filename": "GSM5411622_MGUS1_raw_feature_bc_matrix.h5", "bytes": 29532203},
+    {"gsm": "GSM5411623", "donor": "MGUS2", "stratum": "MGUS", "filename": "GSM5411623_MGUS2_raw_feature_bc_matrix.h5", "bytes": 31472379},
+    {"gsm": "GSM5411628", "donor": "MGUS7", "stratum": "MGUS", "filename": "GSM5411628_MGUS7_raw_feature_bc_matrix.h5", "bytes": 27477358},
+    {"gsm": "GSM5411629", "donor": "WM1", "stratum": "WM", "filename": "GSM5411629_WM_Pt1_raw_feature_bc_matrix.h5", "bytes": 31162870},
+    {"gsm": "GSM5411632", "donor": "WM4", "stratum": "WM", "filename": "GSM5411632_WM_Pt4_raw_feature_bc_matrix.h5", "bytes": 27257795},
+    {"gsm": "GSM5411635", "donor": "WM6", "stratum": "WM", "filename": "GSM5411635_WM_pt6_raw_feature_bc_matrix.h5", "bytes": 31490461}
+  ],
+  "held_files": [
+    {"gsm": "GSM5411620", "donor": "HD3", "stratum": "HD", "filename": "GSM5411620_HD3_raw_feature_bc_matrix.h5", "bytes": 33134240},
+    {"gsm": "GSM5411621", "donor": "HD4", "stratum": "HD", "filename": "GSM5411621_HD4_raw_feature_bc_matrix.h5", "bytes": 34934618},
+    {"gsm": "GSM5411624", "donor": "MGUS3", "stratum": "MGUS", "filename": "GSM5411624_MGUS3_raw_feature_bc_matrix.h5", "bytes": 30643740},
+    {"gsm": "GSM5411625", "donor": "MGUS4", "stratum": "MGUS", "filename": "GSM5411625_MGUS4_raw_feature_bc_matrix.h5", "bytes": 30956362},
+    {"gsm": "GSM5411626", "donor": "MGUS5", "stratum": "MGUS", "filename": "GSM5411626_MGUS5_raw_feature_bc_matrix.h5", "bytes": 29474460},
+    {"gsm": "GSM5411627", "donor": "MGUS6", "stratum": "MGUS", "filename": "GSM5411627_MGUS6_raw_feature_bc_matrix.h5", "bytes": 36472097},
+    {"gsm": "GSM5411630", "donor": "WM2", "stratum": "WM", "filename": "GSM5411630_WM_Pt2_raw_feature_bc_matrix.h5", "bytes": 29731478},
+    {"gsm": "GSM5411631", "donor": "WM3", "stratum": "WM", "filename": "GSM5411631_WM_Pt3_raw_feature_bc_matrix.h5", "bytes": 41626146},
+    {"gsm": "GSM5411633", "donor": "WM5", "stratum": "WM", "filename": "GSM5411633_WM_Pt5_raw_feature_bc_matrix.h5", "bytes": 36821857},
+    {"gsm": "GSM5411634", "donor": "WM7", "stratum": "WM", "filename": "GSM5411634_WM_Pt7_raw_feature_bc_matrix.h5", "bytes": 27550366}
+  ],
+  "ordered_cognate_candidates": [
+    ["CD3D", "CD3"],
+    ["NCAM1", "CD56"],
+    ["CD19", "CD19"],
+    ["CD14", "CD14"],
+    ["FCGR3A", "CD16"],
+    ["MS4A1", "CD20"],
+    ["CD27", "CD27"],
+    ["CD38", "CD38"],
+    ["CD79B", "CD79b"]
+  ],
+  "panel_rule": {
+    "minimum_retained_cognates": 9,
+    "required_resolution": "each RNA symbol and accepted ADT alias resolves exactly once in every source and held feature schema",
+    "analysis_panel": "all 81 ordered RNA-to-ADT pairs",
+    "axis_metadata_cannot_add_replace_or_reorder_markers": true
+  },
+  "states_and_sampling": {
+    "cells_per_donor": 512,
+    "rna_qc": {
+      "minimum_detected_genes": 200,
+      "maximum_mitochondrial_umi_fraction": 0.1,
+      "maximum_rna_umis": 70000
+    },
+    "cell_selection_salt": "GSE179221-BMMC-CELL-v1",
+    "rna_state": "raw UMI count greater than zero",
+    "adt_state": "within-donor midrank split into 256 low and 256 high cells",
+    "adt_tie_salt": "GSE179221-BMMC-ADT-v1",
+    "destroyed_link": "one-step cyclic shift of complete ADT state vectors along the frozen salted cell order"
+  },
+  "source_selection": {
+    "folds": "leave one physical source donor out",
+    "primary_grid": {
+      "heterogeneity_penalty": [0.1, 1.0, 10.0],
+      "population_ridge": [0.01, 0.1],
+      "graph_penalty": [0.0, 0.03, 0.3],
+      "transport_multiplier": [0.0, 0.25, 0.5, 0.75, 1.0, 1.25, 1.5]
+    },
+    "mandatory_comparators": [
+      "selected signed Pearson or signed-root Poisson-deviance residual transfer",
+      "margin-preserving destroyed-link refit",
+      "stratified common-effect exact conditional maximum likelihood",
+      "standard pooled saturated Poisson log-linear interaction reconstructed at recipient margins",
+      "recipient-margin independence"
+    ]
+  },
+  "source_promotion": {
+    "minimum_relative_reduction_vs_residual_poisson_destroyed_and_independence": 0.05,
+    "require_paired_donor_bootstrap_upper_95_below_zero_vs_residual_poisson_and_destroyed": true,
+    "minimum_favorable_source_donors": 7,
+    "require_primary_point_loss_below_common_effect_cmle": true,
+    "bootstrap_draws": 20000,
+    "bootstrap_seed": 20260830,
+    "complete_every_fold_and_final_fit": true
+  },
+  "held_confirmation": {
+    "primary_metric": "donor-equal mean multinomial deviance per cell",
+    "minimum_relative_reduction_vs_residual_poisson_and_destroyed": 0.05,
+    "require_paired_donor_bootstrap_upper_95_below_zero": true,
+    "minimum_favorable_held_donors": 9,
+    "maximum_one_sided_exact_sign_test_p": 0.025,
+    "require_primary_point_loss_below_common_effect_cmle": true,
+    "bootstrap_draws": 20000,
+    "bootstrap_seed": 20260830,
+    "a_missed_criterion_is_a_completed_negative_result": true,
+    "rerun_permitted": false
+  },
+  "access_sequence": [
+    "publish and independently verify this designation and the final runner/tests",
+    "download only the eight source H5 files; run source development once",
+    "publish source coordinates and comparator coordinates before any held H5 GET",
+    "only after source promotion, download the ten held H5 files and compute margins without forming paired tables",
+    "publish recipient-margin predictions before pairing held RNA and ADT states",
+    "authorize and run one held pairing and score"
+  ],
+  "pre_design_access_attestation": {
+    "repository_and_local_search_found_prior_use": false,
+    "accessed": [
+      "GEO series metadata",
+      "the official filelist.txt",
+      "the primary paper and its public figure descriptions",
+      "HTTP HEAD responses for all 18 per-donor H5 URLs"
+    ],
+    "not_accessed": [
+      "GSE179221_RAW.tar",
+      "any per-donor H5 response body",
+      "any barcode, feature axis, count, joint table, prediction, or loss"
+    ]
+  }
+}
