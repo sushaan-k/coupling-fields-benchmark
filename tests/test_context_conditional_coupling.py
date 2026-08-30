@@ -101,10 +101,11 @@ def test_returned_score_and_factor_certificates_are_external_recomputations() ->
             score[donor], precision[donor] = _conditional_score(
                 tables[donor, entity], fit.donor_log_odds[donor, entity]
             )
+        scale = 1.0 / len(contexts)
         expected_coefficient_gradient = (
-            contexts.T @ score + ridge * fit.coefficient[:, entity]
+            scale * (contexts.T @ score) + ridge * fit.coefficient[:, entity]
         )
-        expected_deviation_gradient = (
+        expected_deviation_gradient = scale * (
             score + deviation_penalty * fit.donor_deviation[:, entity]
         )
         np.testing.assert_allclose(
@@ -118,11 +119,13 @@ def test_returned_score_and_factor_certificates_are_external_recomputations() ->
             atol=2e-13,
         )
         np.testing.assert_allclose(
-            fit.donor_data_precision[:, entity], precision, atol=2e-13
+            fit.donor_data_precision[:, entity], scale * precision, atol=2e-13
         )
 
-        donor_curvature = precision + deviation_penalty
-        transmitted = precision * deviation_penalty / donor_curvature
+        donor_curvature = scale * (precision + deviation_penalty)
+        transmitted = (
+            scale * precision * deviation_penalty / (precision + deviation_penalty)
+        )
         schur = (contexts.T * transmitted) @ contexts + np.diag(ridge)
         eigenvalues = np.linalg.eigvalsh(schur)
         assert fit.minimum_schur_eigenvalue[entity] == pytest.approx(eigenvalues[0])
@@ -137,6 +140,38 @@ def test_returned_score_and_factor_certificates_are_external_recomputations() ->
     assert fit.converged
     assert fit.scaled_gradient_norm <= fit.gradient_tolerance
     assert fit.scaled_gradient_norm <= fit.gradient_norm
+
+
+def test_complete_donor_panel_duplication_preserves_the_normalized_fit() -> None:
+    tables, contexts = _trend_tables()
+    arguments = {
+        "donor_deviation_penalty": 2.5,
+        "coefficient_ridge_penalty": np.array([0.3, 0.7]),
+        "tolerance": 1e-10,
+    }
+    original = fit_context_conditional_log_odds(tables, contexts, **arguments)
+    duplicated = fit_context_conditional_log_odds(
+        np.concatenate((tables, tables)),
+        np.concatenate((contexts, contexts)),
+        **arguments,
+    )
+
+    np.testing.assert_allclose(duplicated.coefficient, original.coefficient, atol=1e-12)
+    np.testing.assert_allclose(
+        duplicated.donor_deviation[: len(contexts)],
+        original.donor_deviation,
+        atol=1e-12,
+    )
+    np.testing.assert_allclose(
+        duplicated.donor_deviation[len(contexts) :],
+        original.donor_deviation,
+        atol=1e-12,
+    )
+    np.testing.assert_allclose(
+        duplicated.coordinate_objective,
+        original.coordinate_objective,
+        atol=1e-12,
+    )
 
 
 def test_masked_donor_has_zero_deviation_and_context_only_prediction() -> None:

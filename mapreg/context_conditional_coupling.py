@@ -4,20 +4,22 @@ For donor ``d`` and entity ``e``, the fitted log odds ratio is
 
 ``theta[d, e] = context[d] @ coefficient[:, e] + deviation[d, e]``.
 
-Each informative 2 x 2 table contributes its exact fixed-margin conditional
-negative log likelihood. The objective adds positive quadratic penalties to
-every coefficient and donor deviation. For one entity, its Hessian quadratic
-form is
+For an entity observed in ``D`` donors, the objective is the donor-mean exact
+fixed-margin conditional negative log likelihood plus
+``eta ||deviation||^2 / (2D)`` and a positive coefficient ridge. Its Hessian
+quadratic form is
 
-``sum_d v_d (x_d @ b + u_d)^2 + sum_j lambda_j b_j^2 + eta sum_d u_d^2``,
+``sum_d [v_d (x_d @ b + u_d)^2 + eta u_d^2] / D``
+``+ sum_j lambda_j b_j^2``,
 
 where ``v_d`` is the exact conditional Fisher information. Because every
 ``lambda_j`` and ``eta`` is positive, this expression is positive for every
-nonzero ``(b, u)``. Thus the implemented coordinate objective is strictly
-convex and has at most one finite minimizer. The returned gradients and the
-condition numbers of the two Newton solve factors certify numerical
-stationarity and conditioning of that fit; they do not certify external
-validity or uncertainty calibration.
+nonzero ``(b, u)``. The positive penalties also make the objective coercive,
+so the implemented coordinate objective has a unique finite minimizer. The
+implementation returns a fit only when its scaled-gradient and factor-condition
+certificates pass. Those certificates establish numerical stationarity and
+conditioning of the fitted objective, not external validity or uncertainty
+calibration.
 """
 
 from __future__ import annotations
@@ -42,9 +44,10 @@ class ContextConditionalCouplingFit:
     """Unique penalized fit and its numerical certificates.
 
     ``coefficient`` has context as its first axis. Donor-indexed arrays have
-    donor first and then the original entity axes. Schur and donor-curvature
-    condition numbers describe the exact factors used by the block Newton
-    solve, not the uncomputed dense joint Hessian.
+    donor first and then the original entity axes. ``donor_data_precision`` is
+    the exact conditional curvature divided by the informative donor count.
+    Schur and donor-curvature condition numbers describe the exact factors used
+    by the block Newton solve, not the uncomputed dense joint Hessian.
     """
 
     coefficient: np.ndarray
@@ -204,11 +207,12 @@ def _evaluate_coordinate(
 ) -> tuple[float, np.ndarray, np.ndarray, np.ndarray]:
     log_odds = design @ coefficient + deviation
     data_objective, score, precision = _likelihood(log_odds, records)
-    objective = data_objective
+    donor_scale = 1.0 / len(records)
+    objective = donor_scale * data_objective
     objective += 0.5 * float(ridge @ np.square(coefficient))
-    objective += 0.5 * deviation_penalty * float(deviation @ deviation)
-    coefficient_gradient = design.T @ score + ridge * coefficient
-    deviation_gradient = score + deviation_penalty * deviation
+    objective += 0.5 * donor_scale * deviation_penalty * float(deviation @ deviation)
+    coefficient_gradient = donor_scale * (design.T @ score) + ridge * coefficient
+    deviation_gradient = donor_scale * (score + deviation_penalty * deviation)
     if (
         not np.isfinite(objective)
         or not np.isfinite(coefficient_gradient).all()
@@ -219,7 +223,7 @@ def _evaluate_coordinate(
         float(objective),
         coefficient_gradient,
         deviation_gradient,
-        precision,
+        donor_scale * precision,
     )
 
 
@@ -252,8 +256,9 @@ def _newton_factors(
     ridge: np.ndarray,
     deviation_penalty: float,
 ) -> tuple[np.ndarray, np.ndarray]:
-    donor_curvature = precision + deviation_penalty
-    transmitted = precision * deviation_penalty / donor_curvature
+    donor_penalty_curvature = deviation_penalty / design.shape[0]
+    donor_curvature = precision + donor_penalty_curvature
+    transmitted = precision * donor_penalty_curvature / donor_curvature
     schur = (design.T * transmitted) @ design
     diagonal = np.arange(ridge.size)
     schur[diagonal, diagonal] += ridge
@@ -268,14 +273,15 @@ def _gradient_certificate(
     ridge: np.ndarray,
     deviation_penalty: float,
 ) -> tuple[float, float]:
+    donor_scale = 1.0 / len(records)
     widths = np.asarray(
         [record[1][-1] - record[1][0] for record in records], dtype=float
     )
     coefficient_scale = np.maximum(
         1.0,
-        np.sum(np.abs(design) * widths[:, None], axis=0) + ridge,
+        donor_scale * np.sum(np.abs(design) * widths[:, None], axis=0) + ridge,
     )
-    deviation_scale = np.maximum(1.0, widths + deviation_penalty)
+    deviation_scale = np.maximum(1.0, donor_scale * (widths + deviation_penalty))
     raw = max(
         float(np.max(np.abs(coefficient_gradient))),
         float(np.max(np.abs(deviation_gradient))),
