@@ -1,0 +1,24 @@
+{
+  "accession": "GSE252762",
+  "calibration_samples": 9,
+  "cell_budget": 256,
+  "entity_count": 81,
+  "evidence_role": "second pre-outcome held-donor confirmation; batch 6 held as a file-separated cohort",
+  "forbidden_before_prediction_publication": [
+    "GSE252762_batch6_cite_matrix.mtx.gz"
+  ],
+  "forbidden_before_source_pass": [
+    "GSE252762_batch6_rna_matrix.mtx.gz",
+    "GSE252762_batch6_cite_matrix.mtx.gz"
+  ],
+  "held_batch": 6,
+  "held_samples": 13,
+  "metadata_preflight_path": "results/development/gse252762_celiac_metadata_preflight_v1.json",
+  "metadata_preflight_sha256": "0c3480a9db083483fb39408c4d91ef7ec73dc5ce01e4d165b6f27eee08807ecd",
+  "numeric_matrix_gets_before_designation": 0,
+  "pilot_samples": 7,
+  "protocol_path": "docs/GSE252762_CELIAC_CITESEQ_HELD_BATCH_PROTOCOL_2026-08-30.md",
+  "protocol_sha256": "16056ed3d06eb13feb10f3ef76c5ec3a970e8421768b67e3b2a1b1aa24a50a61",
+  "schema": "gse252762-celiac-candidate-designation/1.0",
+  "status": "CANDIDATE_FROZEN_BEFORE_NUMERIC_MATRIX_ACCESS"
+}
