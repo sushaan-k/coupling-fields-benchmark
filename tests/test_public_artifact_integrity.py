@@ -59,6 +59,21 @@ FROZEN_JSON_SHA256 = {
     "data/confirmation/kotliarov_pbmc_binary_v2/source_access_code_path_certificate_v2.json": (
         "1fed7f94958a07a71a195e80ce2b88f326ff2f47274733133c6b4f7dfd47d0d6"
     ),
+    "data/confirmation/gse179221_bmmc/candidate_designation_v1.json": (
+        "93e839b6da7933c79437532c85576468f9c2d1ed896e461a61a8e3f854ca4e8f"
+    ),
+    "data/confirmation/gse179221_bmmc/pre_access_implementation_amendment_v1.json": (
+        "04631dcb2cd89c6f29a2b1d24103f9d2740cc5f9ce78157a555618a738a3d25f"
+    ),
+    "data/confirmation/gse179221_bmmc/source_attempt_v1.json": (
+        "e9785294eec3420c813006d88ed5a264de1ec1a119c3725b800aaf955d87f4ec"
+    ),
+    "data/confirmation/gse179221_bmmc/source_consumption_v1.json": (
+        "95c0c640fddc6b70cb7dd4b509e27f0e0604186df89ad057eeff7bc93f2fd871"
+    ),
+    "results/development/gse179221_bmmc_source_v1.json": (
+        "18982f0320c602dbc65df27a94675677dc006edd9951ac62fa3a1ad93e2a06f6"
+    ),
 }
 
 
@@ -354,12 +369,12 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
     assert manifest["intended_release_tag"] == "coupling-fields-v2-public-benchmark"
     assert manifest["counts"] == {
         "comparison_records": 28,
-        "panel_records": 33,
+        "panel_records": 34,
         "infrastructure_unevaluable_records": 1,
         "pending_records": 0,
-        "procedural_refusal_records": 20,
+        "procedural_refusal_records": 21,
         "scored_panel_records": 12,
-        "sequence_records": 56,
+        "sequence_records": 63,
     }
     assert manifest["archive_doi"] is None
     assert manifest["code_license"] is None
@@ -369,9 +384,9 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
     )
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 64
+    assert len(artifacts) == 73
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 64
+    assert len(by_path) == 73
     for relative in (
         "results/benchmark_panels_v2.tsv",
         "results/benchmark_comparisons_v2.tsv",
@@ -389,6 +404,15 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
         "data/confirmation/kotliarov_pbmc_binary_v2/source_attempt_v2.json",
         "data/confirmation/kotliarov_pbmc_binary_v2/source_access_code_path_certificate_v2.json",
         "data/confirmation/stephenson_unused_cambridge/prediction_terminal_record_v1_1.json",
+        "data/confirmation/gse179221_bmmc/candidate_designation_v1.json",
+        "data/confirmation/gse179221_bmmc/pre_access_implementation_amendment_v1.json",
+        "data/confirmation/gse179221_bmmc/source_attempt_v1.json",
+        "data/confirmation/gse179221_bmmc/source_consumption_v1.json",
+        "docs/GSE179221_BMMC_CITESEQ_HELD_DONOR_PROTOCOL_2026-08-29.md",
+        "experiments/confirm_gse179221_bmmc.py",
+        "results/development/gse179221_bmmc_source_v1.json",
+        "tests/test_gse179221_bmmc_confirmation.py",
+        "tests/test_gse179221_candidate.py",
         "experiments/build_public_benchmark_release.py",
         "scripts/verify_public_benchmark_release.py",
         "tests/test_public_benchmark_release_v2.py",

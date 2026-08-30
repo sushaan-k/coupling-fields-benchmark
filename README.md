@@ -3,8 +3,8 @@
 This repository is a public, source-visible benchmark for
 perturbation-specific dependence in linked single-cell assays. It preserves
 positive, negative, and refused analyses under explicit evidence roles. The
-version-2 release candidate contains 33 panel records: 12 scored held,
-replicate, pilot, or nonheld-development analyses; 20 procedural refusals; and
+version-2 release candidate contains 34 panel records: 12 scored held,
+replicate, pilot, or nonheld-development analyses; 21 procedural refusals; and
 one published infrastructure-unevaluable attempt. These are analysis
 records rather than unique studies because BMMC and COMBAT each retain both a
 frozen campaign outcome and a separately labeled retrospective adaptive
@@ -35,7 +35,10 @@ preflight, and COMBAT at pilot candidate availability. GSE314416 also stopped
 at its pilot gate. Eleven later source campaigns terminated before held
 scoring and remain visible in the aggregate ledger. The source-only Kotliarov
 binary-v2 replacement then refused because no frozen configuration completed
-every source-held fold; it produced no comparisons or held run. The
+every source-held fold; it produced no comparisons or held run. The subsequent
+GSE179221 BMMC candidate refused at exact cognate-axis preflight on the first
+source donor. Only its barcode and feature axes were decoded; no count dataset,
+model, comparison, held file, prediction, or score was opened or formed. The
 recovery-amended unused-Cambridge attempt produced no prediction or score and is
 infrastructure-unevaluable; its published terminal record assigns no scientific
 decision and its performance fields remain empty.
@@ -126,6 +129,11 @@ builder and verifier are
 `experiments/build_public_benchmark_release.py` and
 `scripts/verify_public_benchmark_release.py`.
 `docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md` states the corresponding claim boundary.
+The GSE179221 candidate, implementation amendment, one-shot source attempt,
+exclusive consumption record, and terminal result are published under the
+`gse179221-bmmc-v1-*` tags. The first source file failed exact cognate-axis
+uniqueness before its count matrix was opened; the other seven source files and
+all ten held files remained unrequested.
 The closed Lawlor and Hao candidates are bound in
 `LAWLOR_CANDIDATE_DESIGNATION.json` and
 `HAO_CANDIDATE_DESIGNATION.json`. Both have status `SEALED`, explicit

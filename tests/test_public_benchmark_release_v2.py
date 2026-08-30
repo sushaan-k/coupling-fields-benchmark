@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from experiments.build_public_benchmark_release import (
+    ABSENT_GSE179221_DOWNSTREAM_PATHS,
     CHECKSUM_PATH,
     COMPARISONS_PATH,
     MANIFEST_PATH,
@@ -40,11 +41,11 @@ def test_metric_aware_ledgers_include_completed_and_refused_evidence() -> None:
     by_panel = {row["panel_id"]: row for row in panels}
     by_comparison = {row["comparison_id"]: row for row in comparisons}
 
-    assert len(panels) == 33
+    assert len(panels) == 34
     assert len(comparisons) == 28
-    assert len(sequence) == 56
+    assert len(sequence) == 63
     assert sum(row["outcome_scored"] == "YES" for row in panels) == 12
-    assert sum(row["inference_role"] == "procedural_refusal" for row in panels) == 20
+    assert sum(row["inference_role"] == "procedural_refusal" for row in panels) == 21
 
     stephenson = by_panel["stephenson_newcastle_confirmation"]
     assert stephenson["inference_role"] == "confirmatory"
@@ -127,6 +128,68 @@ def test_kotliarov_binary_v2_is_a_source_execution_refusal() -> None:
     )
 
 
+def test_gse179221_is_a_zero_numeric_source_feature_axis_refusal() -> None:
+    panels = _rows(PANELS_PATH)
+    comparisons = _rows(COMPARISONS_PATH)
+    sequence = _rows(SEQUENCE_PATH)
+    panel_id = "gse179221_bmmc_source_terminal"
+    panel = next(row for row in panels if row["panel_id"] == panel_id)
+
+    assert panel["analysis_phase"] == "source_feature_axis_preflight"
+    assert panel["inference_role"] == "procedural_refusal"
+    assert panel["decision"] == "TERMINAL_SOURCE_EXECUTION_REFUSAL"
+    assert panel["outcome_scored"] == "NO"
+    for field in (
+        "primary_metric",
+        "metric_direction",
+        "primary_value",
+        "ci_95_low",
+        "ci_95_high",
+    ):
+        assert panel[field] == ""
+    assert not any(row["panel_id"] == panel_id for row in comparisons)
+
+    result_path = ROOT / "results/development/gse179221_bmmc_source_v1.json"
+    result = json.loads(result_path.read_text(encoding="utf-8"))
+    assert result["reason_code"] == "COGNATE_AXIS_NOT_EXACTLY_UNIQUE"
+    assert result["passes_source_promotion_gate"] is False
+    assert result["held_h5_access_authorized"] is False
+    assert result["held_h5_access_eligible_after_public_source_pass"] is False
+    assert "comparisons" not in result
+    assert "models" not in result
+    access = result["access_audit"]
+    assert access["source_h5_get_count"] == 1
+    assert access["source_h5_deleted_count"] == 1
+    assert access["held_h5_get_count"] == 0
+    assert access["all_donor_tar_get_count"] == 0
+    assert access["maximum_simultaneous_h5_files"] == 1
+    assert len(access["source_files"]) == 1
+    assert access["source_files"][0]["decoded_h5_datasets"] == [
+        "matrix/barcodes",
+        "matrix/features/feature_type",
+        "matrix/features/name",
+    ]
+    assert access["source_files"][0]["deleted_after_reduction"] is True
+    assert not any((ROOT / relative).exists() for relative in ABSENT_GSE179221_DOWNSTREAM_PATHS)
+
+    stages = [row for row in sequence if row["panel_id"] == panel_id]
+    assert [row["stage"] for row in stages] == [
+        "protocol",
+        "candidate_designation",
+        "implementation_amendment",
+        "implementation",
+        "source_attempt",
+        "source_consumption",
+        "source_result",
+    ]
+    assert stages[-1]["outcome_access"] == (
+        "ONE_SOURCE_FEATURE_AXIS_OPENED_NO_COUNT_DATASET_HELD_UNOPENED"
+    )
+    assert stages[-1]["artifact_sha256"] == (
+        "18982f0320c602dbc65df27a94675677dc006edd9951ac62fa3a1ad93e2a06f6"
+    )
+
+
 def test_unused_cambridge_terminal_row_contains_no_performance_claim() -> None:
     panels = _rows(PANELS_PATH)
     sequence = _rows(SEQUENCE_PATH)
@@ -162,12 +225,12 @@ def test_manifest_counts_and_claim_boundaries_match_ledgers() -> None:
     assert manifest["schema"] == "coupling-fields-public-benchmark/2.0"
     assert manifest["counts"] == {
         "comparison_records": 28,
-        "panel_records": 33,
+        "panel_records": 34,
         "infrastructure_unevaluable_records": 1,
         "pending_records": 0,
-        "procedural_refusal_records": 20,
+        "procedural_refusal_records": 21,
         "scored_panel_records": 12,
-        "sequence_records": 56,
+        "sequence_records": 63,
     }
     assert manifest["archive_doi"] is None
     assert manifest["code_license"] is None

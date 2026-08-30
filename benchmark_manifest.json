@@ -3,9 +3,29 @@
   "archive_doi": null,
   "artifacts": [
     {
-      "bytes": 15359,
+      "bytes": 15952,
       "path": "README.md",
-      "sha256": "389772a1e9bc5f90ffe91dfd0064ca86f5fcddff71fe20d3329e408461007c3a"
+      "sha256": "5dc48f1a425624d199fac654492cb9635f81ec3d7a13148a6d1ba94467223fc8"
+    },
+    {
+      "bytes": 7965,
+      "path": "data/confirmation/gse179221_bmmc/candidate_designation_v1.json",
+      "sha256": "93e839b6da7933c79437532c85576468f9c2d1ed896e461a61a8e3f854ca4e8f"
+    },
+    {
+      "bytes": 12275,
+      "path": "data/confirmation/gse179221_bmmc/pre_access_implementation_amendment_v1.json",
+      "sha256": "04631dcb2cd89c6f29a2b1d24103f9d2740cc5f9ce78157a555618a738a3d25f"
+    },
+    {
+      "bytes": 3091,
+      "path": "data/confirmation/gse179221_bmmc/source_attempt_v1.json",
+      "sha256": "e9785294eec3420c813006d88ed5a264de1ec1a119c3725b800aaf955d87f4ec"
+    },
+    {
+      "bytes": 295,
+      "path": "data/confirmation/gse179221_bmmc/source_consumption_v1.json",
+      "sha256": "95c0c640fddc6b70cb7dd4b509e27f0e0604186df89ad057eeff7bc93f2fd871"
     },
     {
       "bytes": 2520,
@@ -58,9 +78,14 @@
       "sha256": "4899751abdc1c0adf35935f7cc386c2cc2aa5fd6e8035ee2fbd870865c566a31"
     },
     {
-      "bytes": 28377,
+      "bytes": 30117,
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "f22b4e03f6b639691a72ea6d7cf09d1bdd3aeb3bc70ff4eb2337d37817f00533"
+      "sha256": "5b059b83e490b2c78c611b8ede9c20a41222e5f9e57d98e74868664a5171d3a4"
+    },
+    {
+      "bytes": 7139,
+      "path": "docs/GSE179221_BMMC_CITESEQ_HELD_DONOR_PROTOCOL_2026-08-29.md",
+      "sha256": "5a7b8139cf45f6e8c3c92b2a6baf2a43ea054ee336516bb8e19de7ced1715588"
     },
     {
       "bytes": 13731,
@@ -103,14 +128,19 @@
       "sha256": "e078c6fd403a8b7431e451357ef5e4479b30f629087f4bb4a7cc00b8ceef9b15"
     },
     {
-      "bytes": 59868,
+      "bytes": 68337,
       "path": "experiments/build_public_benchmark_release.py",
-      "sha256": "7152f016034ac9650b94b944b667be838c55bb19212672cd2f41aa8b234b03d4"
+      "sha256": "23cef72385d5bcb3ccf4be21e43b393250dd444285be0e41a58e6e628ec27205"
     },
     {
-      "bytes": 3159,
+      "bytes": 144069,
+      "path": "experiments/confirm_gse179221_bmmc.py",
+      "sha256": "af85ec66566e30b27d0d132c74a7b8b3b2d2bd5c905e643ff67e9d0283bb99bc"
+    },
+    {
+      "bytes": 3243,
       "path": "reproduce.sh",
-      "sha256": "e51bea46bc2413770b94af3834e235596d5e2c0d2e8135b99b2087e2bf7c397e"
+      "sha256": "ebd56f9f10ee450a8aac1ded50f1516e9d829c304d33df56d53ff19847436bfd"
     },
     {
       "bytes": 114491,
@@ -123,14 +153,14 @@
       "sha256": "d7a99f65ba616ff50c2b5103dc23fe69db020dff887f6835cad8f118396de1c4"
     },
     {
-      "bytes": 19561,
+      "bytes": 20153,
       "path": "results/benchmark_panels_v2.tsv",
-      "sha256": "8f33885a7283e336e24c79961592d0c86ff4272be525f1a8e36a7b85545be532"
+      "sha256": "709ec9f8068b296cb717dd029a9bdf9101f4ba40ca71e66e63bf6c8b4b1e7c43"
     },
     {
-      "bytes": 18615,
+      "bytes": 21238,
       "path": "results/benchmark_sequence_v2.tsv",
-      "sha256": "4b52ddbb5fbf3232585478b5ffba1aab3244c154cbef8634b8d921dd28e2235c"
+      "sha256": "94da51166ee21e4d09b74d1b63b86656bd43f7a7e222f6ac80824227397db0f6"
     },
     {
       "bytes": 102047,
@@ -161,6 +191,11 @@
       "bytes": 23562,
       "path": "results/development/gse164378_3p_gse155673_source_v1.json",
       "sha256": "213fbe6560e43b5a57f0be7f167e3a5fa7b70c4b20827c1b4842139428915fd8"
+    },
+    {
+      "bytes": 3833,
+      "path": "results/development/gse179221_bmmc_source_v1.json",
+      "sha256": "18982f0320c602dbc65df27a94675677dc006edd9951ac62fa3a1ad93e2a06f6"
     },
     {
       "bytes": 2299,
@@ -318,20 +353,30 @@
       "sha256": "1ddacb4dc5a9b5a657bb00ebbffa2d8ba9ea0f7186283c051259b31b15bf5c1e"
     },
     {
-      "bytes": 6860,
+      "bytes": 25826,
+      "path": "tests/test_gse179221_bmmc_confirmation.py",
+      "sha256": "9a20f67fce437b91e132e7a4b68b0d9e87de26aba5bd722bff7e0db0cf78537e"
+    },
+    {
+      "bytes": 4487,
+      "path": "tests/test_gse179221_candidate.py",
+      "sha256": "dd0421e76e98c5f07b31af2d6b8356ed3c9054d26d75b031d89988f49875e803"
+    },
+    {
+      "bytes": 9417,
       "path": "tests/test_public_benchmark_release_v2.py",
-      "sha256": "85679c55e94c051aea891bf6533c01aef6bbda02f9fd1d9e5affaff3d3ecce1e"
+      "sha256": "3ade9a231f1c5d7c0d163b5092e18a23369bedc82ccf1ac13b2cb040e5215681"
     }
   ],
   "code_license": null,
   "counts": {
     "comparison_records": 28,
     "infrastructure_unevaluable_records": 1,
-    "panel_records": 33,
+    "panel_records": 34,
     "pending_records": 0,
-    "procedural_refusal_records": 20,
+    "procedural_refusal_records": 21,
     "scored_panel_records": 12,
-    "sequence_records": 56
+    "sequence_records": 63
   },
   "infrastructure_unevaluable": {
     "panel_id": "stephenson_unused_cambridge_terminal",

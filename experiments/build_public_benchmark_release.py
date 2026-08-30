@@ -194,6 +194,18 @@ ABSENT_UNUSED_CAMBRIDGE_PATHS = {
     "results/stephenson_unused_cambridge_confirmation_v1_1.json",
 }
 
+ABSENT_GSE179221_DOWNSTREAM_PATHS = {
+    "data/confirmation/gse179221_bmmc/held_margin_attempt_v1.json",
+    "data/confirmation/gse179221_bmmc/held_margin_consumption_v1.json",
+    "data/confirmation/gse179221_bmmc/private_held_rna_states_v1.npz",
+    "data/confirmation/gse179221_bmmc/private_held_adt_states_v1.npz",
+    "data/confirmation/gse179221_bmmc/score_authorization_v1.json",
+    "data/confirmation/gse179221_bmmc/score_attempt_v1.json",
+    "results/gse179221_bmmc_held_margins_v1.json",
+    "results/gse179221_bmmc_predictions_v1.json",
+    "results/gse179221_bmmc_confirmation_v1.json",
+}
+
 
 def _reject_nonfinite(token: str) -> None:
     raise ValueError(f"non-finite JSON number: {token}")
@@ -853,6 +865,103 @@ def _terminal_panels() -> list[dict[str, Any]]:
         }
     )
 
+    gse179221_path = "results/development/gse179221_bmmc_source_v1.json"
+    gse179221 = _load_json(gse179221_path)
+    gse179221_attempt_path = (
+        "data/confirmation/gse179221_bmmc/source_attempt_v1.json"
+    )
+    gse179221_consumption_path = (
+        "data/confirmation/gse179221_bmmc/source_consumption_v1.json"
+    )
+    gse179221_candidate = _load_json(
+        "data/confirmation/gse179221_bmmc/candidate_designation_v1.json"
+    )
+    gse179221_consumption = _load_json(gse179221_consumption_path)
+    access = gse179221.get("access_audit", {})
+    source_files = access.get("source_files", [])
+    first_candidate = gse179221_candidate["source_files"][0]
+    first_url = gse179221_candidate["metadata_bindings"][
+        "per_sample_url_template"
+    ].format(gsm=first_candidate["gsm"], filename=first_candidate["filename"])
+    expected_datasets = {
+        "matrix/barcodes",
+        "matrix/features/feature_type",
+        "matrix/features/name",
+    }
+    if (
+        gse179221.get("status") != "TERMINAL_SOURCE_EXECUTION_REFUSAL"
+        or gse179221.get("reason_code") != "COGNATE_AXIS_NOT_EXACTLY_UNIQUE"
+        or gse179221.get("passes_source_promotion_gate") is not False
+        or gse179221.get("held_h5_access_authorized") is not False
+        or gse179221.get("held_h5_access_eligible_after_public_source_pass")
+        is not False
+        or "comparisons" in gse179221
+        or "models" in gse179221
+        or gse179221.get("source_attempt_sha256")
+        != _sha256(gse179221_attempt_path)
+        or gse179221.get("source_consumption_sha256")
+        != _sha256(gse179221_consumption_path)
+        or gse179221.get("source_consumption") != gse179221_consumption
+        or access.get("source_h5_get_count") != 1
+        or access.get("source_h5_deleted_count") != 1
+        or access.get("held_h5_get_count") != 0
+        or access.get("all_donor_tar_get_count") != 0
+        or access.get("maximum_simultaneous_h5_files") != 1
+        or access.get("requested_urls") != [first_url]
+        or len(source_files) != 1
+        or source_files[0].get("gsm") != first_candidate["gsm"]
+        or source_files[0].get("donor") != first_candidate["donor"]
+        or source_files[0].get("filename") != first_candidate["filename"]
+        or source_files[0].get("expected_bytes") != first_candidate["bytes"]
+        or source_files[0].get("download_status") != "COMPLETE"
+        or source_files[0].get("reduction_status") != "REFUSED"
+        or source_files[0].get("reduction_reason_code")
+        != "COGNATE_AXIS_NOT_EXACTLY_UNIQUE"
+        or source_files[0].get("deleted_after_reduction") is not True
+        or set(source_files[0].get("decoded_h5_datasets", []))
+        != expected_datasets
+    ):
+        raise ValueError("GSE179221 terminal source boundary changed")
+    present_downstream = sorted(
+        relative
+        for relative in ABSENT_GSE179221_DOWNSTREAM_PATHS
+        if (ROOT / relative).exists()
+    )
+    if present_downstream:
+        raise ValueError(
+            f"GSE179221 terminal source run has downstream artifacts: {present_downstream}"
+        )
+    result_path, result_sha = _artifact_fields(gse179221_path)
+    panels.append(
+        {
+            "panel_id": "gse179221_bmmc_source_terminal",
+            "panel": "GSE179221 BMMC held-donor campaign",
+            "accession": "GSE179221",
+            "assay_pair": "same-cell RNA and surface-protein binary states",
+            "analysis_phase": "source_feature_axis_preflight",
+            "inference_role": "procedural_refusal",
+            "evaluation_unit": "physical donor",
+            "unit_count": 8,
+            "entity_count": 81,
+            "primary_method": "hierarchical_exact_conditional_coupling",
+            "primary_metric": "",
+            "metric_direction": "",
+            "primary_value": "",
+            "ci_95_low": "",
+            "ci_95_high": "",
+            "decision": gse179221["status"],
+            "outcome_scored": "NO",
+            "result_artifact": result_path,
+            "result_sha256": result_sha,
+            "notes": (
+                "The exact cognate-axis gate refused on the first of eight source "
+                "donors after barcode and feature-axis access. No count dataset, "
+                "model, comparison, held file, prediction, or score was opened or "
+                "formed."
+            ),
+        }
+    )
+
     terminal_path = (
         "data/confirmation/stephenson_unused_cambridge/"
         "prediction_terminal_record_v1_1.json"
@@ -931,6 +1040,7 @@ def _sequence(panels: list[dict[str, Any]]) -> list[dict[str, Any]]:
         "combat_oxford_adaptive_development",
         "combat_terminal_pilot",
         "kotliarov_pbmc_binary_v2_source_terminal",
+        "gse179221_bmmc_source_terminal",
         "stephenson_unused_cambridge_terminal",
     }
     rows = [
@@ -1256,6 +1366,87 @@ def _sequence(panels: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 ),
             ),
             _sequence_row(
+                "gse179221_bmmc_source_terminal",
+                1,
+                "protocol",
+                "FROZEN_BEFORE_ANY_H5_BODY_ACCESS",
+                "ALL_H5_BODIES_UNOPENED",
+                "YES",
+                "docs/GSE179221_BMMC_CITESEQ_HELD_DONOR_PROTOCOL_2026-08-29.md",
+                "gse179221-bmmc-v1-candidate",
+            ),
+            _sequence_row(
+                "gse179221_bmmc_source_terminal",
+                2,
+                "candidate_designation",
+                "FROZEN_FROM_PUBLIC_METADATA_BEFORE_ANY_H5_BODY_ACCESS",
+                "ALL_H5_BODIES_UNOPENED",
+                "YES",
+                "data/confirmation/gse179221_bmmc/candidate_designation_v1.json",
+                "gse179221-bmmc-v1-candidate",
+            ),
+            _sequence_row(
+                "gse179221_bmmc_source_terminal",
+                3,
+                "implementation_amendment",
+                "FROZEN_BEFORE_ANY_H5_BODY_ACCESS",
+                "ALL_H5_BODIES_UNOPENED",
+                "YES",
+                (
+                    "data/confirmation/gse179221_bmmc/"
+                    "pre_access_implementation_amendment_v1.json"
+                ),
+                "gse179221-bmmc-v1-pre-access-amendment",
+            ),
+            _sequence_row(
+                "gse179221_bmmc_source_terminal",
+                4,
+                "implementation",
+                "IMPLEMENTATION_FROZEN_BEFORE_ANY_H5_BODY_ACCESS",
+                "ALL_H5_BODIES_UNOPENED",
+                "YES",
+                "experiments/confirm_gse179221_bmmc.py",
+                "gse179221-bmmc-v1-implementation",
+            ),
+            _sequence_row(
+                "gse179221_bmmc_source_terminal",
+                5,
+                "source_attempt",
+                "CLAIMED_ONE_SHOT_BEFORE_ANY_H5_GET",
+                "SOURCE_GET_AUTHORIZED_HELD_DISABLED",
+                "YES",
+                "data/confirmation/gse179221_bmmc/source_attempt_v1.json",
+                "gse179221-bmmc-v1-source-attempt",
+            ),
+            _sequence_row(
+                "gse179221_bmmc_source_terminal",
+                6,
+                "source_consumption",
+                "CONSUMED_EXCLUSIVELY_BEFORE_FIRST_H5_GET",
+                "SOURCE_GET_CONSUMED_HELD_DISABLED",
+                "NO",
+                "data/confirmation/gse179221_bmmc/source_consumption_v1.json",
+                "gse179221-bmmc-v1-source",
+                notes=(
+                    "The exclusive local consumption record preceded the first "
+                    "source GET and was published with the terminal result."
+                ),
+            ),
+            _sequence_row(
+                "gse179221_bmmc_source_terminal",
+                7,
+                "source_result",
+                "TERMINAL_SOURCE_EXECUTION_REFUSAL",
+                "ONE_SOURCE_FEATURE_AXIS_OPENED_NO_COUNT_DATASET_HELD_UNOPENED",
+                "NOT_APPLICABLE",
+                "results/development/gse179221_bmmc_source_v1.json",
+                "gse179221-bmmc-v1-source",
+                notes=(
+                    "The first source donor failed exact cognate-axis uniqueness; "
+                    "no numerical matrix dataset or held file was opened."
+                ),
+            ),
+            _sequence_row(
                 "stephenson_unused_cambridge_terminal",
                 1,
                 "protocol",
@@ -1336,6 +1527,8 @@ def _artifact_manifest(
             "experiments/build_public_benchmark_release.py",
             "scripts/verify_public_benchmark_release.py",
             "tests/test_public_benchmark_release_v2.py",
+            "tests/test_gse179221_candidate.py",
+            "tests/test_gse179221_bmmc_confirmation.py",
             "reproduce.sh",
         }
     )
