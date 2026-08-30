@@ -1,0 +1,16 @@
+{
+  "schema": "gse214546-teaseq-pre-access-crash-semantics-clarification/1.0",
+  "created_at_utc": "2026-08-30T07:24:36Z",
+  "numeric_count_or_sparse_value_dataset_read": false,
+  "held_h5_requested_or_opened": false,
+  "prior_sparse_access_clarification_tag": "gse214546-teaseq-v1-sparse-access-clarification",
+  "prior_sparse_access_clarification_sha256": "1bda50b7990da0e9b76485f184628df88e83a0d7f2a564a5f440c4024bdda628",
+  "clarification": {
+    "catchable_failures": "Dataset opens and slices are journaled before access in process memory. Any Python exception or interrupt caught by the runner is written atomically with the completed and incomplete access events in the terminal result.",
+    "external_process_loss": "SIGKILL, interpreter termination, operating-system failure, or power loss can occur after the one-shot token is consumed but before the result and in-memory access journal reach disk. Such a stage is permanently CRASH_UNEVALUABLE: the public attempt remains, no result is inferred, and rerun is forbidden.",
+    "interpretation": "The access journal is exception-durable, not power-loss-durable. Absence of a public result after a consumed attempt is not evidence that no assay bytes were accessed."
+  },
+  "estimator_axis_grid_or_gate_changed": false,
+  "firewall_changed": false,
+  "rerun_permitted": false
+}
