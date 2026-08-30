@@ -1,0 +1,80 @@
+{
+  "candidate_commit": "d6926af62e1fee5d0049974583f779cb4e7b17ab",
+  "candidate_tag": "gse313642-hcc-v3-candidate",
+  "created_at_utc": "2026-08-30T22:33:16Z",
+  "implementation_files_sha256": {
+    "data/confirmation/gse313642_hcc/axis_access_v1.jsonl": "2619458df75a219f1f2b21b8f00e7dc2c096b7309a06dc22caa8d6d5ca201555",
+    "data/confirmation/gse313642_hcc/calibration_access_v2.jsonl": "5bbd753015f033a0618456ec29ff525eb7639d18434c274ee336193720aeb1b5",
+    "data/confirmation/gse313642_hcc/candidate_designation_v1.json": "d01a606cc056cdb236ae7d5739d492b1a53c85bd10871712868f74c5ae7d1258",
+    "data/confirmation/gse313642_hcc/candidate_designation_v2.json": "f8e43c78ec44f85ce8c1e6001a87529702df008caa5a5c9196e3e93182593adf",
+    "data/confirmation/gse313642_hcc/candidate_designation_v3.json": "a5d5ca1537eafcb2694d611a0201e78b6f8be80439e300763280907cd64567b7",
+    "data/confirmation/gse313642_hcc/postterminal_debug_disclosure_v2.json": "b88a3411712df72c91475a59faea25aa2d09b9ea39b3de67c0649f66bab5c58d",
+    "data/confirmation/gse313642_hcc/source_manifest_v1.json": "54c4af24444fb5bf6347003fdfbda8833779af2435f5209c77398ea3dd4d1d5b",
+    "data/confirmation/gse313642_hcc/source_manifest_v2.json": "fa900ff433538117440e673081a0bf7c762b1bf4d750a0752adc31b962441344",
+    "data/confirmation/gse313642_hcc/source_manifest_v3.json": "4e7214347b82b7be4e0583089a5289f4784600f28ae27a4672b8d5a57271e5e1",
+    "docs/GSE313642_HCC_CITESEQ_HELD_PATIENT_PROTOCOL_V2_2026-08-30.md": "a185a1f92585f0dcb26e31be31cbfdd718b381afb3cdf14dad11e442bec7fd7e",
+    "docs/GSE313642_HCC_CITESEQ_HELD_PATIENT_PROTOCOL_V3_2026-08-30.md": "c2bfee03a5adfcc2f1e50ec7dc2e35fd5e7ea1ddee0bd0ff3fc12521759e812a",
+    "experiments/confirm_gse313642_hcc.py": "8f9d2418a2282e6e6c25bf730e934409c91ecbe33c4724da6ab0909eede9b35b",
+    "experiments/gse217494_heart_core.py": "7f3808a7a84053dae19a731ce2a8bd48102590562d8a298c22f3d762d0a2290a",
+    "experiments/gse313642_hcc_core.py": "cdf5199c882256491697671516deb59f1590dce2f5f50e038c76cd2c501cfc71",
+    "mapreg/__init__.py": "61571a8ff98b61323f1a1986bb4f84f314396ddcff0c8751fa21ecdacb062bba",
+    "mapreg/classical_residuals.py": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
+    "mapreg/common_effect_conditional.py": "e8730bc5c072b66794d9d1c0f8fa8c93ba7e2bf9303a34bde98dfb7dea6ff2e9",
+    "mapreg/context_conditional_coupling.py": "51e02ee70320f192991e69622d206a36a86c77fb480f6ddec22a9bb0b7e1a652",
+    "mapreg/coupling_fields.py": "06edd27c9cc52bcee1da1fc4a7a8fd86586d6263f9b32b2c6b0c5d16b0f01dc1",
+    "mapreg/factorial_coupling.py": "c80afa0efc70de920bdd312420c0e680df3b290528b6aefd3b0a1b98cff3b79e",
+    "mapreg/heterogeneity_adaptive_coupling.py": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e",
+    "mapreg/poisson_loglinear.py": "940d28fe3f4bd2c076025c2709a6d2d96eea5554acb8a20ef934be65a5d32b32",
+    "mapreg/streamed_gzip_matrix_market.py": "23290796e12e387f4cd2e8e5d9bc168f5560b26b4729500470ee4ad17263a53a",
+    "mapreg/structured_context_conditional.py": "2dfdc2c1e990bc547146584f609cee18eae910ed594a6bc1aa7a13a8194f7353",
+    "mapreg/table_prediction.py": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e",
+    "pyproject.toml": "9c49aabfd3916de8f84a3a4c287483bd76f345c24b0c0a5a3f749832f4650991",
+    "results/development/gse313642_hcc_axis_preflight_v1.json": "94840b4b8756e8745caaa7738a060001ab0aea7311ddedd740aa5b6477ddba86",
+    "results/development/gse313642_hcc_calibration_selection_v2.json": "94ab4f56755fffeb0e17e2389b65d2622e90b27932be3ef06a5cb25df14d115f",
+    "tests/test_gse313642_hcc_confirmation.py": "c6df03aa1dc1dd042f1fa46f50eef8bfc6ba78c288ccbd6acd283673dbd70933",
+    "tests/test_streamed_gzip_matrix_market.py": "006f9593bfc23aac2e99bb3c9819528be0aaa7e23d72c44363e655e330ba25f0"
+  },
+  "prior_campaigns": {
+    "postterminal_debug": {
+      "artifact_sha256": "b88a3411712df72c91475a59faea25aa2d09b9ea39b3de67c0649f66bab5c58d",
+      "commit": "fd939bd08dac5ed67f620bc6bf2c269eb4b8f2ca",
+      "tag": "gse313642-hcc-v2-postterminal-debug-disclosure"
+    },
+    "v1": {
+      "terminal_refusal_commit": "b814c6c33a068ae341f983d8d82ea40dddb36207",
+      "terminal_refusal_tag": "gse313642-hcc-v1-terminal-axis-refusal"
+    },
+    "v2": {
+      "access_journal_sha256": "5bbd753015f033a0618456ec29ff525eb7639d18434c274ee336193720aeb1b5",
+      "result_sha256": "94ab4f56755fffeb0e17e2389b65d2622e90b27932be3ef06a5cb25df14d115f",
+      "terminal_refusal_commit": "9d0b53421111a1c6633bf39bf5179b4e923c06ea",
+      "terminal_refusal_tag": "gse313642-hcc-v2-calibration"
+    }
+  },
+  "required_implementation_tag": "gse313642-hcc-v3-implementation",
+  "required_runtime": {
+    "operating_system": {
+      "machine": "arm64",
+      "system": "Darwin"
+    },
+    "packages": {
+      "numpy": "2.0.2",
+      "scipy": "1.13.1"
+    },
+    "python": {
+      "implementation": "CPython",
+      "version": "3.9.6"
+    },
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "rerun_permitted": false,
+  "schema": "gse313642-hcc-pre-access-implementation/3.0",
+  "status": "FROZEN_BEFORE_ANY_V3_NUMERIC_MATRIX_ACCESS",
+  "v3_matrix_body_or_header_requested": false
+}

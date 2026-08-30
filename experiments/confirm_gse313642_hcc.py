@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 from contextlib import contextmanager
+from dataclasses import asdict
 from datetime import datetime, timezone
 import fcntl
 import gzip
@@ -49,87 +50,127 @@ from experiments.gse313642_hcc_core import (
     serialized_panel_losses,
 )
 from experiments.gse217494_heart_core import entity_deviance, joint_binary_tables
-from mapreg.streamed_gzip_matrix_market import reduce_gzip_matrix_market
+from mapreg.streamed_gzip_matrix_market import (
+    GzipMatrixMarketValidationError,
+    reduce_gzip_matrix_market,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data/confirmation/gse313642_hcc"
-DESIGNATION = DATA_DIR / "candidate_designation_v2.json"
-SOURCE_MANIFEST = DATA_DIR / "source_manifest_v2.json"
-AXIS_PREFLIGHT = ROOT / "results/development/gse313642_hcc_axis_preflight_v2.json"
+DESIGNATION = DATA_DIR / "candidate_designation_v3.json"
+BASE_DESIGNATION = DATA_DIR / "candidate_designation_v2.json"
+SOURCE_MANIFEST = DATA_DIR / "source_manifest_v3.json"
+BASE_SOURCE_MANIFEST = DATA_DIR / "source_manifest_v2.json"
+AXIS_PREFLIGHT = ROOT / "results/development/gse313642_hcc_axis_preflight_v3.json"
 V1_DESIGNATION = DATA_DIR / "candidate_designation_v1.json"
 V1_SOURCE_MANIFEST = DATA_DIR / "source_manifest_v1.json"
 V1_AXIS_ACCESS = DATA_DIR / "axis_access_v1.jsonl"
 V1_AXIS_REFUSAL = ROOT / "results/development/gse313642_hcc_axis_preflight_v1.json"
 AXIS_ACCESS = V1_AXIS_ACCESS
-CALIBRATION_ATTEMPT = DATA_DIR / "calibration_attempt_v2.json"
-CALIBRATION_CONSUMPTION = DATA_DIR / "calibration_consumption_v2.json"
-CALIBRATION_ACCESS = DATA_DIR / "calibration_access_v2.jsonl"
-CALIBRATION_SELECTION = (
+V2_CALIBRATION_ACCESS = DATA_DIR / "calibration_access_v2.jsonl"
+V2_CALIBRATION_RESULT = (
     ROOT / "results/development/gse313642_hcc_calibration_selection_v2.json"
 )
-PILOT_AUTHORIZATION = DATA_DIR / "pilot_authorization_v2.json"
-SOURCE_ATTEMPT = DATA_DIR / "source_attempt_v2.json"
-SOURCE_CONSUMPTION = DATA_DIR / "source_consumption_v2.json"
-SOURCE_ACCESS = DATA_DIR / "source_access_v2.jsonl"
-SOURCE_RESULT = ROOT / "results/development/gse313642_hcc_source_v2.json"
-PREDICTION_AUTHORIZATION = DATA_DIR / "prediction_authorization_v2.json"
-PREDICTION_ATTEMPT = DATA_DIR / "prediction_attempt_v2.json"
-PREDICTION_CONSUMPTION = DATA_DIR / "prediction_consumption_v2.json"
-PREDICTION_ACCESS = DATA_DIR / "prediction_access_v2.jsonl"
-PREDICTION_RESULT = ROOT / "results/gse313642_hcc_predictions_v2.json"
-SCORE_AUTHORIZATION = DATA_DIR / "score_authorization_v2.json"
-SCORE_ATTEMPT = DATA_DIR / "score_attempt_v2.json"
-SCORE_CONSUMPTION = DATA_DIR / "score_consumption_v2.json"
-SCORE_ACCESS = DATA_DIR / "score_access_v2.jsonl"
-SCORE_RESULT = ROOT / "results/gse313642_hcc_confirmation_v2.json"
-DEFAULT_SCRATCH = Path("/private/tmp/gse313642-hcc-v2")
-PROTOCOL = ROOT / "docs/GSE313642_HCC_CITESEQ_HELD_PATIENT_PROTOCOL_V2_2026-08-30.md"
+POSTTERMINAL_DEBUG = DATA_DIR / "postterminal_debug_disclosure_v2.json"
+CALIBRATION_ATTEMPT = DATA_DIR / "calibration_attempt_v3.json"
+CALIBRATION_CONSUMPTION = DATA_DIR / "calibration_consumption_v3.json"
+CALIBRATION_ACCESS = DATA_DIR / "calibration_access_v3.jsonl"
+CALIBRATION_SELECTION = (
+    ROOT / "results/development/gse313642_hcc_calibration_selection_v3.json"
+)
+PILOT_AUTHORIZATION = DATA_DIR / "pilot_authorization_v3.json"
+SOURCE_ATTEMPT = DATA_DIR / "source_attempt_v3.json"
+SOURCE_CONSUMPTION = DATA_DIR / "source_consumption_v3.json"
+SOURCE_ACCESS = DATA_DIR / "source_access_v3.jsonl"
+SOURCE_RESULT = ROOT / "results/development/gse313642_hcc_source_v3.json"
+PREDICTION_AUTHORIZATION = DATA_DIR / "prediction_authorization_v3.json"
+PREDICTION_ATTEMPT = DATA_DIR / "prediction_attempt_v3.json"
+PREDICTION_CONSUMPTION = DATA_DIR / "prediction_consumption_v3.json"
+PREDICTION_ACCESS = DATA_DIR / "prediction_access_v3.jsonl"
+PREDICTION_RESULT = ROOT / "results/gse313642_hcc_predictions_v3.json"
+SCORE_AUTHORIZATION = DATA_DIR / "score_authorization_v3.json"
+SCORE_ATTEMPT = DATA_DIR / "score_attempt_v3.json"
+SCORE_CONSUMPTION = DATA_DIR / "score_consumption_v3.json"
+SCORE_ACCESS = DATA_DIR / "score_access_v3.jsonl"
+SCORE_RESULT = ROOT / "results/gse313642_hcc_confirmation_v3.json"
+DEFAULT_SCRATCH = Path("/private/tmp/gse313642-hcc-v3")
+PROTOCOL = ROOT / "docs/GSE313642_HCC_CITESEQ_HELD_PATIENT_PROTOCOL_V3_2026-08-30.md"
+V2_PROTOCOL = ROOT / "docs/GSE313642_HCC_CITESEQ_HELD_PATIENT_PROTOCOL_V2_2026-08-30.md"
 RUNNER = ROOT / "experiments/confirm_gse313642_hcc.py"
 CORE = ROOT / "experiments/gse313642_hcc_core.py"
 RUNNER_TEST = ROOT / "tests/test_gse313642_hcc_confirmation.py"
-IMPLEMENTATION_FREEZE = DATA_DIR / "pre_access_implementation_v2.json"
+IMPLEMENTATION_FREEZE = DATA_DIR / "pre_access_implementation_v3.json"
 
 PUBLIC_ORIGIN = "https://github.com/sushaan-k/coupling-fields-benchmark.git"
-CANDIDATE_TAG = "gse313642-hcc-v2-candidate"
-IMPLEMENTATION_TAG = "gse313642-hcc-v2-implementation"
-PREFLIGHT_TAG = "gse313642-hcc-v2-axis-preflight"
-CALIBRATION_TAG = "gse313642-hcc-v2-calibration"
-CALIBRATION_ATTEMPT_TAG = "gse313642-hcc-v2-calibration-attempt"
-PILOT_AUTHORIZATION_TAG = "gse313642-hcc-v2-pilot-authorization"
-SOURCE_TAG = "gse313642-hcc-v2-source"
-SOURCE_ATTEMPT_TAG = "gse313642-hcc-v2-source-attempt"
-PREDICTION_AUTHORIZATION_TAG = "gse313642-hcc-v2-prediction-authorization"
-PREDICTION_TAG = "gse313642-hcc-v2-predictions"
-PREDICTION_ATTEMPT_TAG = "gse313642-hcc-v2-prediction-attempt"
-SCORE_AUTHORIZATION_TAG = "gse313642-hcc-v2-score-authorization"
-SCORE_ATTEMPT_TAG = "gse313642-hcc-v2-score-attempt"
-SCORE_TAG = "gse313642-hcc-v2-score"
+CANDIDATE_TAG = "gse313642-hcc-v3-candidate"
+IMPLEMENTATION_TAG = "gse313642-hcc-v3-implementation"
+PREFLIGHT_TAG = "gse313642-hcc-v3-axis-preflight"
+CALIBRATION_TAG = "gse313642-hcc-v3-calibration"
+CALIBRATION_ATTEMPT_TAG = "gse313642-hcc-v3-calibration-attempt"
+PILOT_AUTHORIZATION_TAG = "gse313642-hcc-v3-pilot-authorization"
+SOURCE_TAG = "gse313642-hcc-v3-source"
+SOURCE_ATTEMPT_TAG = "gse313642-hcc-v3-source-attempt"
+PREDICTION_AUTHORIZATION_TAG = "gse313642-hcc-v3-prediction-authorization"
+PREDICTION_TAG = "gse313642-hcc-v3-predictions"
+PREDICTION_ATTEMPT_TAG = "gse313642-hcc-v3-prediction-attempt"
+SCORE_AUTHORIZATION_TAG = "gse313642-hcc-v3-score-authorization"
+SCORE_ATTEMPT_TAG = "gse313642-hcc-v3-score-attempt"
+SCORE_TAG = "gse313642-hcc-v3-score"
 V1_TERMINAL_TAG = "gse313642-hcc-v1-terminal-axis-refusal"
 V1_TERMINAL_COMMIT = "b814c6c33a068ae341f983d8d82ea40dddb36207"
+V2_TERMINAL_TAG = "gse313642-hcc-v2-calibration"
+V2_TERMINAL_COMMIT = "9d0b53421111a1c6633bf39bf5179b4e923c06ea"
+POSTTERMINAL_DEBUG_TAG = "gse313642-hcc-v2-postterminal-debug-disclosure"
+POSTTERMINAL_DEBUG_COMMIT = "fd939bd08dac5ed67f620bc6bf2c269eb4b8f2ca"
 V1_AXIS_ACCESS_SHA256 = (
     "2619458df75a219f1f2b21b8f00e7dc2c096b7309a06dc22caa8d6d5ca201555"
 )
 V1_AXIS_REFUSAL_SHA256 = (
     "94840b4b8756e8745caaa7738a060001ab0aea7311ddedd740aa5b6477ddba86"
 )
+BASE_DESIGNATION_SHA256 = (
+    "f8e43c78ec44f85ce8c1e6001a87529702df008caa5a5c9196e3e93182593adf"
+)
+BASE_SOURCE_MANIFEST_SHA256 = (
+    "fa900ff433538117440e673081a0bf7c762b1bf4d750a0752adc31b962441344"
+)
+V2_PROTOCOL_SHA256 = "a185a1f92585f0dcb26e31be31cbfdd718b381afb3cdf14dad11e442bec7fd7e"
+V2_CALIBRATION_RESULT_SHA256 = (
+    "94ab4f56755fffeb0e17e2389b65d2622e90b27932be3ef06a5cb25df14d115f"
+)
+V2_CALIBRATION_ACCESS_SHA256 = (
+    "5bbd753015f033a0618456ec29ff525eb7639d18434c274ee336193720aeb1b5"
+)
+POSTTERMINAL_DEBUG_SHA256 = (
+    "b88a3411712df72c91475a59faea25aa2d09b9ea39b3de67c0649f66bab5c58d"
+)
 
 IMPLEMENTATION_BINDINGS = (
+    "data/confirmation/gse313642_hcc/candidate_designation_v3.json",
+    "data/confirmation/gse313642_hcc/source_manifest_v3.json",
     "data/confirmation/gse313642_hcc/candidate_designation_v2.json",
     "data/confirmation/gse313642_hcc/source_manifest_v2.json",
+    "data/confirmation/gse313642_hcc/postterminal_debug_disclosure_v2.json",
+    "data/confirmation/gse313642_hcc/calibration_access_v2.jsonl",
+    "results/development/gse313642_hcc_calibration_selection_v2.json",
     "data/confirmation/gse313642_hcc/candidate_designation_v1.json",
     "data/confirmation/gse313642_hcc/source_manifest_v1.json",
     "data/confirmation/gse313642_hcc/axis_access_v1.jsonl",
     "results/development/gse313642_hcc_axis_preflight_v1.json",
+    "docs/GSE313642_HCC_CITESEQ_HELD_PATIENT_PROTOCOL_V3_2026-08-30.md",
     "docs/GSE313642_HCC_CITESEQ_HELD_PATIENT_PROTOCOL_V2_2026-08-30.md",
     "experiments/confirm_gse313642_hcc.py",
     "experiments/gse313642_hcc_core.py",
     "tests/test_gse313642_hcc_confirmation.py",
+    "tests/test_streamed_gzip_matrix_market.py",
     "experiments/gse217494_heart_core.py",
+    "mapreg/__init__.py",
     "mapreg/classical_residuals.py",
     "mapreg/common_effect_conditional.py",
     "mapreg/context_conditional_coupling.py",
     "mapreg/coupling_fields.py",
+    "mapreg/factorial_coupling.py",
     "mapreg/heterogeneity_adaptive_coupling.py",
     "mapreg/poisson_loglinear.py",
     "mapreg/streamed_gzip_matrix_market.py",
@@ -139,8 +180,10 @@ IMPLEMENTATION_BINDINGS = (
 )
 
 BASE_URL = "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9371nnn"
-ROLE_COUNTS = {"calibration": 11, "pilot": 11, "held": 12}
+BASE_ROLE_COUNTS = {"calibration": 11, "pilot": 11, "held": 12}
+ROLE_COUNTS = {"calibration": 10, "pilot": 11, "held": 12}
 MATRIX_MEMBER = "matrix.mtx.gz"
+CRASH_PARSE_MESSAGE = "matrix parse had no durable outcome before crash recovery"
 AXIS_MEMBERS = ("barcodes.tsv.gz", "features.tsv.gz")
 THREAD_VARIABLES = (
     "OMP_NUM_THREADS",
@@ -271,6 +314,13 @@ def _relative(path: Path) -> str:
     return path.resolve().relative_to(ROOT.resolve()).as_posix()
 
 
+def _artifact_reference(path: Path) -> str:
+    try:
+        return _relative(path)
+    except ValueError:
+        return path.name
+
+
 def _git(*arguments: str, check: bool = True, text: bool = True) -> Any:
     return subprocess.run(
         ["git", *arguments],
@@ -315,35 +365,143 @@ def _published_bytes(tag: str, path: Path) -> bytes:
 
 
 def _require_ancestor(ancestor: str, descendant: str) -> None:
-    if _git(
-        "merge-base", "--is-ancestor", ancestor, descendant, check=False
-    ).returncode:
+    if (
+        ancestor == descendant
+        or _git(
+            "merge-base", "--is-ancestor", ancestor, descendant, check=False
+        ).returncode
+    ):
         raise PermissionError("campaign tags do not form the required ancestry")
 
 
-def _verify_v1_terminal_ancestry(candidate_commit: str) -> dict[str, str]:
-    terminal_commit = _require_public_tag(
+def _verify_prior_campaign_ancestry(candidate_commit: str) -> dict[str, Any]:
+    v1_commit = _require_public_tag(
         V1_TERMINAL_TAG,
         (V1_DESIGNATION, V1_SOURCE_MANIFEST, V1_AXIS_ACCESS, V1_AXIS_REFUSAL),
     )
-    if terminal_commit != V1_TERMINAL_COMMIT:
+    if v1_commit != V1_TERMINAL_COMMIT:
         raise PermissionError("v1 terminal refusal commit differs")
-    _require_ancestor(terminal_commit, candidate_commit)
+    v2_commit = _require_public_tag(
+        V2_TERMINAL_TAG,
+        (
+            BASE_DESIGNATION,
+            BASE_SOURCE_MANIFEST,
+            V2_PROTOCOL,
+            V2_CALIBRATION_ACCESS,
+            V2_CALIBRATION_RESULT,
+        ),
+    )
+    if v2_commit != V2_TERMINAL_COMMIT:
+        raise PermissionError("v2 terminal refusal commit differs")
+    debug_commit = _require_public_tag(POSTTERMINAL_DEBUG_TAG, (POSTTERMINAL_DEBUG,))
+    if debug_commit != POSTTERMINAL_DEBUG_COMMIT:
+        raise PermissionError("v2 post-terminal disclosure commit differs")
+    if (
+        _sha256(BASE_DESIGNATION) != BASE_DESIGNATION_SHA256
+        or _sha256(BASE_SOURCE_MANIFEST) != BASE_SOURCE_MANIFEST_SHA256
+        or _sha256(V2_PROTOCOL) != V2_PROTOCOL_SHA256
+        or _sha256(V2_CALIBRATION_RESULT) != V2_CALIBRATION_RESULT_SHA256
+        or _sha256(V2_CALIBRATION_ACCESS) != V2_CALIBRATION_ACCESS_SHA256
+        or _sha256(POSTTERMINAL_DEBUG) != POSTTERMINAL_DEBUG_SHA256
+    ):
+        raise PermissionError("v2 terminal evidence hash differs")
+    terminal = _read_json(V2_CALIBRATION_RESULT)
+    disclosure = _read_json(POSTTERMINAL_DEBUG)
+    if (
+        terminal.get("schema") != "gse313642-hcc-calibration-result/2.0"
+        or terminal.get("status") != "TERMINAL_REFUSAL"
+        or terminal.get("refusal_code") != "CALIBRATION_EXECUTION_FAILURE"
+        or terminal.get("rerun_permitted") is not False
+        or disclosure.get("schema") != "gse313642-hcc-postterminal-debug-disclosure/2.0"
+        or disclosure.get("status") != "RETROSPECTIVE_DISCLOSURE_TERMINAL"
+        or disclosure.get("authorization_published_before_access") is not False
+        or disclosure.get("v2_terminal_record", {}).get("commit") != v2_commit
+        or disclosure.get("v2_terminal_record", {}).get("tag") != V2_TERMINAL_TAG
+        or disclosure.get("v2_terminal_record", {}).get("result_sha256")
+        != V2_CALIBRATION_RESULT_SHA256
+        or disclosure.get("v2_terminal_record", {}).get("access_journal_sha256")
+        != V2_CALIBRATION_ACCESS_SHA256
+        or disclosure.get("outcome_access", {}).get(
+            "calibration_patients_with_numeric_matrix_access"
+        )
+        != ["A30"]
+        or disclosure.get("outcome_access", {}).get("pilot_matrix_gets") != 0
+        or disclosure.get("outcome_access", {}).get("held_gex_matrix_gets") != 0
+        or disclosure.get("outcome_access", {}).get("held_fb_matrix_gets") != 0
+        or disclosure.get("future_use", {}).get("v2_remains_terminal") is not True
+        or disclosure.get("future_use", {}).get(
+            "a30_excluded_from_formal_v3_calibration_and_refit"
+        )
+        is not True
+    ):
+        raise PermissionError("v2 terminal disclosure differs")
+    _require_ancestor(v1_commit, v2_commit)
+    _require_ancestor(v2_commit, debug_commit)
+    _require_ancestor(debug_commit, candidate_commit)
     return {
-        "terminal_refusal_tag": V1_TERMINAL_TAG,
-        "terminal_refusal_commit": terminal_commit,
+        "v1": {
+            "terminal_refusal_tag": V1_TERMINAL_TAG,
+            "terminal_refusal_commit": v1_commit,
+        },
+        "v2": {
+            "terminal_refusal_tag": V2_TERMINAL_TAG,
+            "terminal_refusal_commit": v2_commit,
+            "result_sha256": V2_CALIBRATION_RESULT_SHA256,
+            "access_journal_sha256": V2_CALIBRATION_ACCESS_SHA256,
+        },
+        "postterminal_debug": {
+            "tag": POSTTERMINAL_DEBUG_TAG,
+            "commit": debug_commit,
+            "artifact_sha256": POSTTERMINAL_DEBUG_SHA256,
+        },
     }
+
+
+def _numeric_stage_artifacts() -> tuple[Path, ...]:
+    return (
+        CALIBRATION_ATTEMPT,
+        CALIBRATION_CONSUMPTION,
+        CALIBRATION_ACCESS,
+        CALIBRATION_SELECTION,
+        PILOT_AUTHORIZATION,
+        SOURCE_ATTEMPT,
+        SOURCE_CONSUMPTION,
+        SOURCE_ACCESS,
+        SOURCE_RESULT,
+        PREDICTION_AUTHORIZATION,
+        PREDICTION_ATTEMPT,
+        PREDICTION_CONSUMPTION,
+        PREDICTION_ACCESS,
+        PREDICTION_RESULT,
+        SCORE_AUTHORIZATION,
+        SCORE_ATTEMPT,
+        SCORE_CONSUMPTION,
+        SCORE_ACCESS,
+        SCORE_RESULT,
+    )
 
 
 def freeze_implementation() -> dict[str, Any]:
     """Write the manifest that must be committed and publicly tagged before access."""
 
-    if IMPLEMENTATION_FREEZE.exists():
-        raise FileExistsError("implementation freeze already exists")
+    downstream = (AXIS_PREFLIGHT, *_numeric_stage_artifacts())
+    if IMPLEMENTATION_FREEZE.exists() or any(path.exists() for path in downstream):
+        raise FileExistsError("implementation freeze or a downstream artifact exists")
     candidate_commit = _require_public_tag(
-        CANDIDATE_TAG, (DESIGNATION, SOURCE_MANIFEST, PROTOCOL)
+        CANDIDATE_TAG,
+        (
+            DESIGNATION,
+            SOURCE_MANIFEST,
+            BASE_DESIGNATION,
+            BASE_SOURCE_MANIFEST,
+            POSTTERMINAL_DEBUG,
+            V2_CALIBRATION_ACCESS,
+            V2_CALIBRATION_RESULT,
+            PROTOCOL,
+            V2_PROTOCOL,
+        ),
     )
-    terminal = _verify_v1_terminal_ancestry(candidate_commit)
+    prior_campaigns = _verify_prior_campaign_ancestry(candidate_commit)
     missing = [
         relative
         for relative in IMPLEMENTATION_BINDINGS
@@ -354,8 +512,8 @@ def freeze_implementation() -> dict[str, Any]:
             f"implementation bindings are absent: {', '.join(missing)}"
         )
     payload = {
-        "schema": "gse313642-hcc-pre-access-implementation/2.0",
-        "status": "FROZEN_BEFORE_ANY_NUMERIC_MATRIX_ACCESS",
+        "schema": "gse313642-hcc-pre-access-implementation/3.0",
+        "status": "FROZEN_BEFORE_ANY_V3_NUMERIC_MATRIX_ACCESS",
         "created_at_utc": _timestamp(),
         "candidate_tag": CANDIDATE_TAG,
         "candidate_commit": candidate_commit,
@@ -364,8 +522,8 @@ def freeze_implementation() -> dict[str, Any]:
             relative: _sha256(ROOT / relative) for relative in IMPLEMENTATION_BINDINGS
         },
         "required_runtime": REQUIRED_RUNTIME,
-        "v1_terminal_axis_refusal": terminal,
-        "matrix_body_or_header_requested": False,
+        "prior_campaigns": prior_campaigns,
+        "v3_matrix_body_or_header_requested": False,
         "rerun_permitted": False,
     }
     _write_json_x(IMPLEMENTATION_FREEZE, payload)
@@ -378,23 +536,34 @@ def _verify_implementation() -> dict[str, str]:
         relative: _sha256(ROOT / relative) for relative in IMPLEMENTATION_BINDINGS
     }
     if (
-        value.get("schema") != "gse313642-hcc-pre-access-implementation/2.0"
-        or value.get("status") != "FROZEN_BEFORE_ANY_NUMERIC_MATRIX_ACCESS"
+        value.get("schema") != "gse313642-hcc-pre-access-implementation/3.0"
+        or value.get("status") != "FROZEN_BEFORE_ANY_V3_NUMERIC_MATRIX_ACCESS"
         or value.get("candidate_tag") != CANDIDATE_TAG
         or value.get("implementation_files_sha256") != expected
         or value.get("required_implementation_tag") != IMPLEMENTATION_TAG
         or value.get("required_runtime") != REQUIRED_RUNTIME
-        or value.get("matrix_body_or_header_requested") is not False
+        or value.get("v3_matrix_body_or_header_requested") is not False
         or value.get("rerun_permitted") is not False
     ):
         raise PermissionError("implementation freeze differs")
     candidate_commit = _require_public_tag(
-        CANDIDATE_TAG, (DESIGNATION, SOURCE_MANIFEST, PROTOCOL)
+        CANDIDATE_TAG,
+        (
+            DESIGNATION,
+            SOURCE_MANIFEST,
+            BASE_DESIGNATION,
+            BASE_SOURCE_MANIFEST,
+            POSTTERMINAL_DEBUG,
+            V2_CALIBRATION_ACCESS,
+            V2_CALIBRATION_RESULT,
+            PROTOCOL,
+            V2_PROTOCOL,
+        ),
     )
-    terminal = _verify_v1_terminal_ancestry(candidate_commit)
+    prior_campaigns = _verify_prior_campaign_ancestry(candidate_commit)
     if (
         value.get("candidate_commit") != candidate_commit
-        or value.get("v1_terminal_axis_refusal") != terminal
+        or value.get("prior_campaigns") != prior_campaigns
     ):
         raise PermissionError("implementation freeze terminal ancestry differs")
     implementation_commit = _require_public_tag(
@@ -446,9 +615,41 @@ def _append_jsonl(
         os.fsync(stream.fileno())
 
 
+def _repair_torn_jsonl_tail(path: Path, stage: str) -> bool:
+    """Discard one non-durable trailing fragment and record its exact digest."""
+
+    encoded = path.read_bytes()
+    if encoded.endswith(b"\n"):
+        return False
+    final_newline = encoded.rfind(b"\n")
+    if final_newline < 0:
+        raise PermissionError("access journal has no durable complete row")
+    torn = encoded[final_newline + 1 :]
+    if not torn:
+        raise PermissionError("access journal tail recovery is ambiguous")
+    with path.open("r+b") as stream:
+        stream.truncate(final_newline + 1)
+        stream.flush()
+        os.fsync(stream.fileno())
+    _append_jsonl(
+        path,
+        {
+            "stage": stage,
+            "event": "JOURNAL_TORN_TAIL_RECOVERED",
+            "torn_bytes": len(torn),
+            "torn_sha256": hashlib.sha256(torn).hexdigest(),
+            "recovered_after_crash": True,
+        },
+    )
+    return True
+
+
 def _read_jsonl(path: Path) -> list[dict[str, Any]]:
+    encoded = path.read_bytes()
+    if not encoded.endswith(b"\n"):
+        raise PermissionError("access journal has an incomplete trailing row")
     rows = []
-    for line in path.read_text(encoding="utf-8").splitlines():
+    for line in encoded.decode("utf-8").splitlines():
         if not line:
             continue
         value = json.loads(
@@ -486,8 +687,8 @@ def _v1_designation() -> dict[str, Any]:
     return value
 
 
-def _designation() -> dict[str, Any]:
-    value = _read_json(DESIGNATION)
+def _base_designation() -> dict[str, Any]:
+    value = _read_json(BASE_DESIGNATION)
     patients = value.get("patients")
     disclosure = value.get("metadata_provenance", {}).get(
         "post_v1_pre_v2_axis_gate_disclosure"
@@ -502,7 +703,7 @@ def _designation() -> dict[str, Any]:
         is not False
         or not isinstance(patients, list)
         or len(patients) != 34
-        or value.get("split_rule", {}).get("counts") != ROLE_COUNTS
+        or value.get("split_rule", {}).get("counts") != BASE_ROLE_COUNTS
         or value.get("remote_access", {}).get("series_raw_tar") != "FORBIDDEN"
         or not isinstance(disclosure, dict)
         or disclosure.get("terminal_refusal_tag") != V1_TERMINAL_TAG
@@ -532,7 +733,7 @@ def _designation() -> dict[str, Any]:
             "v2 must equal the v1 patient panel with only A33 removed"
         )
 
-    by_role = {role: [] for role in ROLE_COUNTS}
+    by_role = {role: [] for role in BASE_ROLE_COUNTS}
     salt = value.get("split_rule", {}).get("salt")
     if not isinstance(salt, str) or salt != v1.get("split_rule", {}).get("salt"):
         raise PermissionError("split salt differs from v1")
@@ -563,9 +764,9 @@ def _designation() -> dict[str, Any]:
     role_order = value.get("role_order", {})
     expected_order = {
         role: [patient for patient in v1["role_order"][role] if patient != "A33"]
-        for role in ROLE_COUNTS
+        for role in BASE_ROLE_COUNTS
     }
-    for role, count in ROLE_COUNTS.items():
+    for role, count in BASE_ROLE_COUNTS.items():
         if (
             len(by_role[role]) != count
             or role_order.get(role) != expected_order[role]
@@ -573,6 +774,146 @@ def _designation() -> dict[str, Any]:
             != {record["patient_id"] for record in by_role[role]}
         ):
             raise PermissionError("patient role order differs")
+    return value
+
+
+def _designation() -> dict[str, Any]:
+    overlay = _read_json(DESIGNATION)
+    base = _base_designation()
+    cohort = overlay.get("v3_cohort")
+    prior = overlay.get("prior_campaigns")
+    access = overlay.get("pre_v3_numeric_access")
+    matrix_contract = overlay.get("matrix_value_contract")
+    outcome = overlay.get("outcome_freeze")
+    expected_order = {
+        role: [
+            patient_id for patient_id in base["role_order"][role] if patient_id != "A30"
+        ]
+        for role in ROLE_COUNTS
+    }
+    if (
+        _sha256(BASE_DESIGNATION) != BASE_DESIGNATION_SHA256
+        or _sha256(BASE_SOURCE_MANIFEST) != BASE_SOURCE_MANIFEST_SHA256
+        or overlay.get("schema") != "gse313642-hcc-citeseq-candidate-designation/3.0"
+        or overlay.get("status")
+        != "FROZEN_POST_FAILURE_BEFORE_PILOT_OR_HELD_NUMERIC_ACCESS"
+        or overlay.get("accession") != "GSE313642"
+        or overlay.get("study")
+        != "HCC PBMC CITE-seq during sorafenib and checkpoint-inhibitor therapy"
+        or overlay.get("base_designation")
+        != {
+            "path": _relative(BASE_DESIGNATION),
+            "sha256": BASE_DESIGNATION_SHA256,
+        }
+        or overlay.get("base_manifest")
+        != {
+            "path": _relative(BASE_SOURCE_MANIFEST),
+            "sha256": BASE_SOURCE_MANIFEST_SHA256,
+        }
+        or not isinstance(prior, dict)
+        or prior.get("v1", {}).get("terminal_commit") != V1_TERMINAL_COMMIT
+        or prior.get("v1", {}).get("terminal_tag") != V1_TERMINAL_TAG
+        or prior.get("v2", {}).get("terminal_commit") != V2_TERMINAL_COMMIT
+        or prior.get("v2", {}).get("terminal_tag") != V2_TERMINAL_TAG
+        or prior.get("postterminal_debug", {}).get("commit")
+        != POSTTERMINAL_DEBUG_COMMIT
+        or prior.get("postterminal_debug", {}).get("tag") != POSTTERMINAL_DEBUG_TAG
+        or prior.get("postterminal_debug", {}).get("path")
+        != _relative(POSTTERMINAL_DEBUG)
+        or prior.get("postterminal_debug", {}).get("sha256")
+        != POSTTERMINAL_DEBUG_SHA256
+        or access
+        != {
+            "exposed_development_patients": ["A30"],
+            "pilot_matrix_gets": 0,
+            "held_gex_matrix_gets": 0,
+            "held_fb_matrix_gets": 0,
+            "a30_use_in_v3": "excluded from calibration, refitting, prediction, scoring, and inference",
+        }
+        or not isinstance(cohort, dict)
+        or cohort.get("patient_count") != 33
+        or cohort.get("calibration_count") != 10
+        or cohort.get("pilot_count") != 11
+        or cohort.get("held_count") != 12
+        or cohort.get("source_refit_count_after_promotion") != 21
+        or any(cohort.get(role) != expected_order[role] for role in ROLE_COUNTS)
+        or overlay.get("frozen_markers") != list(MARKERS)
+        or overlay.get("frozen_entity_count_per_patient") != 81
+        or overlay.get("inherited_without_change")
+        != [
+            "patient sample-selection rule",
+            "A/B-stratified split rule and salt",
+            "pilot and held patient identities",
+            "barcode selection and FB dichotomization",
+            "primary estimator and hyperparameter grid",
+            "classical comparators",
+            "pilot promotion gate",
+            "held decision criteria",
+            "bootstrap seed and draw count",
+        ]
+        or overlay.get("v3_only_changes")
+        != [
+            "exclude exposed development patient A30 without replacement",
+            "reduce calibration LOPO from 11 folds to 10 folds and source refit from 22 to 21 patients",
+            "opt in to exact count-preserving parsing of Matrix Market real-field values",
+            "record durable matrix-parse phase events and structured terminal diagnostics",
+        ]
+        or matrix_contract
+        != {
+            "accepted_banners": [
+                "%%MatrixMarket matrix coordinate integer general",
+                "%%MatrixMarket matrix coordinate real general",
+            ],
+            "real_field_requirement": "every stored value, selected or unselected, must be an unsigned finite exact integer within int64",
+            "floating_point_rounding_permitted": False,
+        }
+        or outcome
+        != {
+            "calibration_except_a30_unopened_at_designation": True,
+            "pilot_unopened_at_designation": True,
+            "held_unopened_at_designation": True,
+            "pilot_and_held_numerical_rules_changed_after_v2": False,
+            "campaign_description": "pre-outcome frozen public-data holdout after a disclosed development-stage execution failure",
+        }
+    ):
+        raise PermissionError("v3 candidate overlay differs from the frozen contract")
+
+    patients = [
+        dict(record) for record in base["patients"] if record["patient_id"] != "A30"
+    ]
+    patient_ids = {record["patient_id"] for record in patients}
+    if (
+        len(patients) != 33
+        or len(patient_ids) != 33
+        or {"A30", "A33"} & patient_ids
+        or any(
+            sum(record["role"] == role for record in patients) != count
+            for role, count in ROLE_COUNTS.items()
+        )
+        or sum(
+            record["role"] == "calibration" and record["group"] == "A"
+            for record in patients
+        )
+        != 4
+        or sum(
+            record["role"] == "calibration" and record["group"] == "B"
+            for record in patients
+        )
+        != 6
+    ):
+        raise PermissionError("v3 patient panel does not exclude exactly A30 and A33")
+    value = dict(base)
+    value.pop("numeric_assay_matrix_entry_accessed_before_designation", None)
+    value.update(
+        {
+            "schema": overlay["schema"],
+            "status": overlay["status"],
+            "patients": patients,
+            "role_order": expected_order,
+            "split_rule": {**base["split_rule"], "counts": dict(ROLE_COUNTS)},
+            "v3_overlay": overlay,
+        }
+    )
     return value
 
 
@@ -678,8 +1019,8 @@ def _v1_terminal_refusal() -> dict[str, Any]:
     }
 
 
-def _source_manifest() -> dict[tuple[str, str, str], dict[str, Any]]:
-    value = _read_json(SOURCE_MANIFEST)
+def _base_source_manifest() -> dict[tuple[str, str, str], dict[str, Any]]:
+    value = _read_json(BASE_SOURCE_MANIFEST)
     files = value.get("files")
     access = value.get("post_v1_pre_v2_axis_payload_access")
     disclosure = value.get("post_v1_pre_v2_axis_gate_disclosure")
@@ -687,7 +1028,7 @@ def _source_manifest() -> dict[tuple[str, str, str], dict[str, Any]]:
         value.get("schema") != "gse313642-hcc-source-manifest/2.0"
         or value.get("status")
         != "METADATA_ONLY_FROZEN_NO_NUMERIC_MATRIX_CONTENT_ACCESSED"
-        or value.get("designation_sha256") != _sha256(DESIGNATION)
+        or value.get("designation_sha256") != _sha256(BASE_DESIGNATION)
         or value.get("numeric_matrix_content_accessed_before_manifest") is not False
         or value.get("matrix_market_header_accessed_before_manifest") is not False
         or value.get("selected_patient_count") != 34
@@ -696,7 +1037,7 @@ def _source_manifest() -> dict[tuple[str, str, str], dict[str, Any]]:
         or value.get("matrix_file_count") != 68
         or value.get("series_raw_tar") != "FORBIDDEN"
         or value.get("individual_url_template")
-        != _designation()["remote_access"]["individual_url_template"]
+        != _base_designation()["remote_access"]["individual_url_template"]
         or value.get("official_filelist")
         != {
             "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE313nnn/GSE313642/suppl/filelist.txt",
@@ -750,7 +1091,7 @@ def _source_manifest() -> dict[tuple[str, str, str], dict[str, Any]]:
         ):
             raise PermissionError("source manifest file record differs")
         mapped[key] = dict(record)
-    designation = _designation()
+    designation = _base_designation()
     expected_keys = {
         (record["patient_id"], modality, member)
         for record in designation["patients"]
@@ -808,6 +1149,115 @@ def _source_manifest() -> dict[tuple[str, str, str], dict[str, Any]]:
                     or record.get("v2_get_authorized") != (member == MATRIX_MEMBER)
                 ):
                     raise PermissionError("source manifest file binding differs")
+    return mapped
+
+
+def _source_manifest() -> dict[tuple[str, str, str], dict[str, Any]]:
+    overlay = _read_json(SOURCE_MANIFEST)
+    designation = _designation()
+    counts = overlay.get("v3_counts")
+    stage_mapping = overlay.get("allowed_stage_mapping")
+    network = overlay.get("network_contract")
+    expected_active = {
+        role: list(designation["role_order"][role]) for role in ROLE_COUNTS
+    }
+    expected_mapping = {
+        "v2_reuse_only_no_get": "v3_reuse_only_no_get",
+        "source_calibration": "calibration",
+        "source_pilot_after_calibration_freeze": "source",
+        "held_gex_prediction": "prediction",
+        "held_fb_score_after_prediction_freeze": "score",
+    }
+    if (
+        _sha256(BASE_SOURCE_MANIFEST) != BASE_SOURCE_MANIFEST_SHA256
+        or overlay.get("schema") != "gse313642-hcc-source-manifest/3.0"
+        or overlay.get("status") != "FROZEN_OVERLAY_ON_V2_MANIFEST"
+        or overlay.get("base_manifest")
+        != {
+            "path": _relative(BASE_SOURCE_MANIFEST),
+            "sha256": BASE_SOURCE_MANIFEST_SHA256,
+            "record_count": 204,
+        }
+        or overlay.get("selection_rule")
+        != "Retain every v2 record whose patient_id is not A30; preserve every URL, filename, byte count, role, modality, and member unchanged, then map the v2 stage label to its v3 counterpart below."
+        or overlay.get("excluded_records")
+        != {
+            "patient_id": "A30",
+            "axis_records": 4,
+            "matrix_records": 2,
+            "reason": "numeric development exposure before v3 freeze",
+        }
+        or counts
+        != {
+            "patient_count": 33,
+            "record_count": 198,
+            "reused_axis_records": 132,
+            "calibration_matrix_records": 20,
+            "pilot_matrix_records": 22,
+            "held_gex_matrix_records": 12,
+            "held_fb_matrix_records": 12,
+        }
+        or overlay.get("active_patients") != expected_active
+        or stage_mapping != expected_mapping
+        or network
+        != {
+            "series_raw_tar": "FORBIDDEN",
+            "one_get_per_authorized_matrix": True,
+            "automatic_retry": False,
+            "a30_matrix_get_authorized": False,
+            "new_axis_get_authorized": False,
+        }
+    ):
+        raise PermissionError("v3 source manifest overlay differs")
+
+    base = _base_source_manifest()
+    expected_keys = {
+        (patient["patient_id"], modality, member)
+        for patient in designation["patients"]
+        for modality in ("GEX", "FB")
+        for member in AXIS_MEMBERS + (MATRIX_MEMBER,)
+    }
+    if (
+        len(expected_keys) != 198
+        or any(key[0] in {"A30", "A33"} for key in expected_keys)
+        or set(base) - expected_keys
+        != {
+            ("A30", modality, member)
+            for modality in ("GEX", "FB")
+            for member in AXIS_MEMBERS + (MATRIX_MEMBER,)
+        }
+    ):
+        raise PermissionError("v3 source file axis does not exclude exactly A30")
+
+    mapped: dict[tuple[str, str, str], dict[str, Any]] = {}
+    for key in expected_keys:
+        record = dict(base[key])
+        old_stage = record.get("allowed_stage")
+        if old_stage not in expected_mapping:
+            raise PermissionError("v3 source manifest stage mapping is incomplete")
+        record["allowed_stage"] = expected_mapping[old_stage]
+        record.pop("v2_get_authorized", None)
+        record["v3_get_authorized"] = key[2] == MATRIX_MEMBER
+        mapped[key] = record
+    matrix_records = [
+        record for record in mapped.values() if record["member"] == MATRIX_MEMBER
+    ]
+    if (
+        sum(record["role"] == "calibration" for record in matrix_records) != 20
+        or sum(record["role"] == "pilot" for record in matrix_records) != 22
+        or sum(
+            record["role"] == "held" and record["modality"] == "GEX"
+            for record in matrix_records
+        )
+        != 12
+        or sum(
+            record["role"] == "held" and record["modality"] == "FB"
+            for record in matrix_records
+        )
+        != 12
+        or sum(record["member"] in AXIS_MEMBERS for record in mapped.values()) != 132
+    ):
+        raise PermissionError("v3 source manifest counts differ")
     return mapped
 
 
@@ -1061,38 +1511,41 @@ def _validate_axis_access(
 
     excluded = set(historical_files) - retained_set
     if (
-        len(retained_keys) != 136
-        or len(retained_set) != 136
+        len(retained_keys) != 132
+        or len(retained_set) != 132
         or {key[0] for key in retained_set}
         != {record["patient_id"] for record in designation["patients"]}
         or "A33" in {key[0] for key in retained_set}
+        or {"A30", "A33"} & {key[0] for key in retained_set}
         or excluded
         != {
-            ("A33", modality, member)
+            (patient_id, modality, member)
+            for patient_id in ("A30", "A33")
             for modality in ("GEX", "FB")
             for member in AXIS_MEMBERS
         }
     ):
-        raise PermissionError("v2 retained axis set does not exclude exactly A33")
+        raise PermissionError("v3 retained axis set must exclude A30 and A33")
     current_manifest = _source_manifest()
     files = []
     for key in retained_keys:
         historical = historical_files[key]
         current = current_manifest[key]
         if (
-            current.get("allowed_stage") != "v2_reuse_only_no_get"
-            or current.get("v2_get_authorized") is not False
+            current.get("allowed_stage") != "v3_reuse_only_no_get"
+            or current.get("v3_get_authorized") is not False
             or current.get("expected_bytes") != historical["bytes"]
             or _manifest_url(current) != historical["url"]
         ):
-            raise PermissionError("retained v2 axis differs from v1 access")
+            raise PermissionError("retained v3 axis differs from v1 access")
         files.append(historical)
     return {
         "v1_journal_rows": len(rows),
         "v1_axis_gets": len(expected),
-        "v2_axis_gets": 0,
+        "v3_axis_gets": 0,
         "retained_axis_files": len(files),
-        "excluded_axis_files": 4,
+        "excluded_axis_files": 8,
+        "excluded_patient_ids": ["A30", "A33"],
         "matrix_gets": 0,
         "journal_sha256": _sha256(V1_AXIS_ACCESS),
         "terminal_refusal": terminal,
@@ -1103,6 +1556,8 @@ def _validate_axis_access(
 def preflight(axis_root: Path, *, output: Path = AXIS_PREFLIGHT) -> dict[str, Any]:
     """Validate all supplied axes before any matrix request."""
 
+    if output.exists() or any(path.exists() for path in _numeric_stage_artifacts()):
+        raise FileExistsError("axis preflight or a downstream numeric artifact exists")
     tags = _verify_implementation()
     terminal = {
         "terminal_refusal_tag": V1_TERMINAL_TAG,
@@ -1111,19 +1566,15 @@ def preflight(axis_root: Path, *, output: Path = AXIS_PREFLIGHT) -> dict[str, An
     root = axis_root.expanduser().resolve()
     designation = _designation()
     access_audit = _validate_axis_access(root, designation)
-    if output.exists() or any(
-        path.exists() for path in (SOURCE_ATTEMPT, SOURCE_RESULT)
-    ):
-        raise FileExistsError("axis preflight or a downstream source artifact exists")
     records = [_inspect_pair_axes(root, record) for record in designation["patients"]]
     payload = {
-        "schema": "gse313642-hcc-axis-preflight/2.0",
+        "schema": "gse313642-hcc-axis-preflight/3.0",
         "status": "PASS_BEFORE_ANY_MATRIX_REQUEST",
         "created_at_utc": _timestamp(),
         "designation_sha256": _sha256(DESIGNATION),
         "implementation_commit": tags["implementation_commit"],
-        "patient_count": 34,
-        "matrix_body_or_header_requested": False,
+        "patient_count": 33,
+        "v3_matrix_body_or_header_requested": False,
         "series_tar_used": False,
         "axis_access": access_audit,
         "v1_terminal_axis_refusal": terminal,
@@ -1134,18 +1585,23 @@ def preflight(axis_root: Path, *, output: Path = AXIS_PREFLIGHT) -> dict[str, An
     return payload
 
 
-def _validate_preflight(axis_root: Path) -> tuple[dict[str, Any], dict[str, Any]]:
+def _validate_preflight(
+    axis_root: Path, *, implementation_commit: str
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    if not isinstance(implementation_commit, str) or len(implementation_commit) != 40:
+        raise PermissionError("frozen implementation commit is absent")
     designation = _designation()
     access_audit = _validate_axis_access(axis_root, designation)
     preflight_value = _read_json(AXIS_PREFLIGHT)
     if (
-        preflight_value.get("schema") != "gse313642-hcc-axis-preflight/2.0"
+        preflight_value.get("schema") != "gse313642-hcc-axis-preflight/3.0"
         or preflight_value.get("status") != "PASS_BEFORE_ANY_MATRIX_REQUEST"
         or preflight_value.get("designation_sha256") != _sha256(DESIGNATION)
-        or not isinstance(preflight_value.get("implementation_commit"), str)
-        or len(preflight_value["implementation_commit"]) != 40
-        or preflight_value.get("patient_count") != 34
-        or preflight_value.get("matrix_body_or_header_requested") is not False
+        or preflight_value.get("implementation_commit") != implementation_commit
+        or preflight_value.get("patient_count") != 33
+        or preflight_value.get("v3_matrix_body_or_header_requested") is not False
+        or preflight_value.get("series_tar_used") is not False
+        or preflight_value.get("required_runtime") != REQUIRED_RUNTIME
         or preflight_value.get("axis_access") != access_audit
         or preflight_value.get("v1_terminal_axis_refusal")
         != {
@@ -1184,7 +1640,7 @@ def _access_header(
     stage: str, created_at_utc: str, runtime: Mapping[str, Any]
 ) -> dict[str, Any]:
     return {
-        "schema": "gse313642-hcc-access/2.0",
+        "schema": "gse313642-hcc-access/3.0",
         "stage": stage,
         "event": "OPENED_BEFORE_MATRIX_ACCESS",
         "created_at_utc": created_at_utc,
@@ -1197,12 +1653,12 @@ def _access_header(
 
 def _claim(stage: str, token_path: Path) -> dict[str, Any]:
     runtime = _require_runtime()
+    implementation = _verify_implementation()
     if stage == "calibration":
-        tags = _verify_implementation()
         preflight_commit = _require_public_tag(
             PREFLIGHT_TAG, (V1_AXIS_ACCESS, V1_AXIS_REFUSAL, AXIS_PREFLIGHT)
         )
-        _require_ancestor(tags["implementation_commit"], preflight_commit)
+        _require_ancestor(implementation["implementation_commit"], preflight_commit)
         attempt, result, access = (
             CALIBRATION_ATTEMPT,
             CALIBRATION_SELECTION,
@@ -1212,14 +1668,16 @@ def _claim(stage: str, token_path: Path) -> dict[str, Any]:
             raise PermissionError("axis preflight is absent")
         prerequisite = {
             "axis_preflight_sha256": _sha256(AXIS_PREFLIGHT),
-            "implementation_commit": tags["implementation_commit"],
             "axis_preflight_commit": preflight_commit,
         }
     elif stage == "source":
         attempt, result, access = SOURCE_ATTEMPT, SOURCE_RESULT, SOURCE_ACCESS
+        selection = _read_json(CALIBRATION_SELECTION)
         authorization = _read_json(PILOT_AUTHORIZATION)
         if (
-            authorization.get("schema") != "gse313642-hcc-pilot-authorization/2.0"
+            selection.get("schema") != "gse313642-hcc-calibration-selection/3.0"
+            or selection.get("status") != "FROZEN_BEFORE_ANY_PILOT_MATRIX_REQUEST"
+            or authorization.get("schema") != "gse313642-hcc-pilot-authorization/3.0"
             or authorization.get("status")
             != "AUTHORIZED_AFTER_PUBLIC_CALIBRATION_FREEZE"
             or authorization.get("calibration_selection_sha256")
@@ -1227,6 +1685,9 @@ def _claim(stage: str, token_path: Path) -> dict[str, Any]:
             or authorization.get("pilot_matrix_gets_authorized") != 22
         ):
             raise PermissionError("pilot authorization differs from calibration")
+        calibration_commit = validate("calibration")["final_commit"]
+        if authorization.get("calibration_commit") != calibration_commit:
+            raise PermissionError("pilot authorization does not bind calibration tag")
         pilot_authorization_commit = _require_public_tag(
             PILOT_AUTHORIZATION_TAG, (PILOT_AUTHORIZATION,)
         )
@@ -1243,15 +1704,22 @@ def _claim(stage: str, token_path: Path) -> dict[str, Any]:
             PREDICTION_RESULT,
             PREDICTION_ACCESS,
         )
+        source = _read_json(SOURCE_RESULT)
         authorization = _read_json(PREDICTION_AUTHORIZATION)
         if (
-            authorization.get("schema") != "gse313642-hcc-prediction-authorization/2.0"
+            source.get("schema") != "gse313642-hcc-source-result/3.0"
+            or source.get("status") != "SOURCE_PASS_REFIT_21"
+            or authorization.get("schema")
+            != "gse313642-hcc-prediction-authorization/3.0"
             or authorization.get("status") != "AUTHORIZED_AFTER_PUBLIC_SOURCE_PASS"
             or authorization.get("source_result_sha256") != _sha256(SOURCE_RESULT)
             or authorization.get("held_gex_gets_authorized") != 12
             or authorization.get("held_fb_gets_authorized") != 0
         ):
             raise PermissionError("prediction authorization differs from source")
+        source_commit = validate("source")["final_commit"]
+        if authorization.get("source_commit") != source_commit:
+            raise PermissionError("prediction authorization does not bind source tag")
         prediction_authorization_commit = _require_public_tag(
             PREDICTION_AUTHORIZATION_TAG, (PREDICTION_AUTHORIZATION,)
         )
@@ -1264,17 +1732,26 @@ def _claim(stage: str, token_path: Path) -> dict[str, Any]:
         }
     elif stage == "score":
         attempt, result, access = SCORE_ATTEMPT, SCORE_RESULT, SCORE_ACCESS
+        predictions = _read_json(PREDICTION_RESULT)
         authorization = _read_json(SCORE_AUTHORIZATION)
         if (
-            authorization.get("schema") != "gse313642-hcc-score-authorization/2.0"
+            predictions.get("schema") != "gse313642-hcc-predictions/3.0"
+            or predictions.get("status")
+            != "PREDICTIONS_FROZEN_BEFORE_ANY_HELD_FB_ACCESS"
+            or authorization.get("schema") != "gse313642-hcc-score-authorization/3.0"
             or authorization.get("status")
             != "AUTHORIZED_AFTER_PUBLIC_PREDICTION_FREEZE"
             or authorization.get("prediction_result_sha256")
             != _sha256(PREDICTION_RESULT)
+            or authorization.get("private_state_sha256")
+            != predictions.get("private_state_sha256")
             or authorization.get("held_fb_gets_authorized") != 12
             or authorization.get("held_gex_gets_authorized") != 0
         ):
             raise PermissionError("score authorization differs from predictions")
+        prediction_commit = validate("prediction")["final_commit"]
+        if authorization.get("prediction_commit") != prediction_commit:
+            raise PermissionError("score authorization does not bind prediction tag")
         score_authorization_commit = _require_public_tag(
             SCORE_AUTHORIZATION_TAG, (SCORE_AUTHORIZATION,)
         )
@@ -1298,10 +1775,11 @@ def _claim(stage: str, token_path: Path) -> dict[str, Any]:
         os.fsync(stream.fileno())
     created_at_utc = _timestamp()
     payload = {
-        "schema": f"gse313642-hcc-{stage}-attempt/2.0",
+        "schema": f"gse313642-hcc-{stage}-attempt/3.0",
         "status": "CLAIMED_BEFORE_MATRIX_ACCESS",
         "created_at_utc": created_at_utc,
         "designation_sha256": _sha256(DESIGNATION),
+        "implementation_commit": implementation["implementation_commit"],
         "claim_token_sha256": hashlib.sha256(raw).hexdigest(),
         "one_get_per_matrix": True,
         "automatic_retries": False,
@@ -1335,7 +1813,90 @@ def claim_score(token_path: Path) -> dict[str, Any]:
     return _claim("score", token_path)
 
 
+def _revalidate_upstream_publication(
+    stage: str, upstream_commit: str, implementation_commit: str
+) -> None:
+    _require_ancestor(implementation_commit, upstream_commit)
+    if stage == "calibration":
+        preflight = _read_json(AXIS_PREFLIGHT)
+        if (
+            preflight.get("schema") != "gse313642-hcc-axis-preflight/3.0"
+            or preflight.get("status") != "PASS_BEFORE_ANY_MATRIX_REQUEST"
+            or preflight.get("designation_sha256") != _sha256(DESIGNATION)
+            or preflight.get("implementation_commit") != implementation_commit
+            or preflight.get("patient_count") != 33
+            or preflight.get("v3_matrix_body_or_header_requested") is not False
+            or preflight.get("series_tar_used") is not False
+            or preflight.get("required_runtime") != REQUIRED_RUNTIME
+        ):
+            raise PermissionError("public axis preflight differs")
+        return
+
+    if stage == "source":
+        predecessor = validate("calibration")
+        selection = _read_json(CALIBRATION_SELECTION)
+        authorization = _read_json(PILOT_AUTHORIZATION)
+        if (
+            selection.get("schema") != "gse313642-hcc-calibration-selection/3.0"
+            or selection.get("status") != "FROZEN_BEFORE_ANY_PILOT_MATRIX_REQUEST"
+            or authorization.get("schema") != "gse313642-hcc-pilot-authorization/3.0"
+            or authorization.get("status")
+            != "AUTHORIZED_AFTER_PUBLIC_CALIBRATION_FREEZE"
+            or authorization.get("calibration_selection_sha256")
+            != _sha256(CALIBRATION_SELECTION)
+            or authorization.get("calibration_commit") != predecessor["final_commit"]
+            or authorization.get("pilot_matrix_gets_authorized") != 22
+        ):
+            raise PermissionError("public pilot authorization chain differs")
+        _require_ancestor(predecessor["final_commit"], upstream_commit)
+        return
+
+    if stage == "prediction":
+        predecessor = validate("source")
+        source = _read_json(SOURCE_RESULT)
+        authorization = _read_json(PREDICTION_AUTHORIZATION)
+        if (
+            source.get("schema") != "gse313642-hcc-source-result/3.0"
+            or source.get("status") != "SOURCE_PASS_REFIT_21"
+            or authorization.get("schema")
+            != "gse313642-hcc-prediction-authorization/3.0"
+            or authorization.get("status") != "AUTHORIZED_AFTER_PUBLIC_SOURCE_PASS"
+            or authorization.get("source_result_sha256") != _sha256(SOURCE_RESULT)
+            or authorization.get("source_commit") != predecessor["final_commit"]
+            or authorization.get("held_gex_gets_authorized") != 12
+            or authorization.get("held_fb_gets_authorized") != 0
+        ):
+            raise PermissionError("public prediction authorization chain differs")
+        _require_ancestor(predecessor["final_commit"], upstream_commit)
+        return
+
+    if stage == "score":
+        predecessor = validate("prediction")
+        predictions = _read_json(PREDICTION_RESULT)
+        authorization = _read_json(SCORE_AUTHORIZATION)
+        if (
+            predictions.get("schema") != "gse313642-hcc-predictions/3.0"
+            or predictions.get("status")
+            != "PREDICTIONS_FROZEN_BEFORE_ANY_HELD_FB_ACCESS"
+            or authorization.get("schema") != "gse313642-hcc-score-authorization/3.0"
+            or authorization.get("status")
+            != "AUTHORIZED_AFTER_PUBLIC_PREDICTION_FREEZE"
+            or authorization.get("prediction_result_sha256")
+            != _sha256(PREDICTION_RESULT)
+            or authorization.get("prediction_commit") != predecessor["final_commit"]
+            or authorization.get("private_state_sha256")
+            != predictions.get("private_state_sha256")
+            or authorization.get("held_fb_gets_authorized") != 12
+            or authorization.get("held_gex_gets_authorized") != 0
+        ):
+            raise PermissionError("public score authorization chain differs")
+        _require_ancestor(predecessor["final_commit"], upstream_commit)
+        return
+    raise ValueError("unknown stage")
+
+
 def _require_public_attempt(stage: str) -> str:
+    implementation = _verify_implementation()
     configuration = {
         "calibration": (
             CALIBRATION_ATTEMPT_TAG,
@@ -1369,6 +1930,25 @@ def _require_public_attempt(stage: str) -> str:
     upstream_commit = attempt.get(upstream_key)
     if not isinstance(upstream_commit, str) or len(upstream_commit) != 40:
         raise PermissionError("attempt upstream commit is absent")
+    upstream_publications = {
+        "calibration": (
+            PREFLIGHT_TAG,
+            (V1_AXIS_ACCESS, V1_AXIS_REFUSAL, AXIS_PREFLIGHT),
+        ),
+        "source": (PILOT_AUTHORIZATION_TAG, (PILOT_AUTHORIZATION,)),
+        "prediction": (
+            PREDICTION_AUTHORIZATION_TAG,
+            (PREDICTION_AUTHORIZATION,),
+        ),
+        "score": (SCORE_AUTHORIZATION_TAG, (SCORE_AUTHORIZATION,)),
+    }
+    upstream_tag, upstream_paths = upstream_publications[stage]
+    exact_upstream_commit = _require_public_tag(upstream_tag, upstream_paths)
+    if upstream_commit != exact_upstream_commit:
+        raise PermissionError("attempt does not bind the exact upstream public tag")
+    _revalidate_upstream_publication(
+        stage, exact_upstream_commit, implementation["implementation_commit"]
+    )
     expected_header = _access_header(
         stage, str(attempt.get("created_at_utc")), _require_runtime()
     )
@@ -1398,9 +1978,11 @@ def _require_public_attempt(stage: str) -> str:
     hash_key, prerequisite_path = prerequisite_paths[stage]
     token_hash = attempt.get("claim_token_sha256")
     if (
-        attempt.get("schema") != f"gse313642-hcc-{stage}-attempt/2.0"
+        attempt.get("schema") != f"gse313642-hcc-{stage}-attempt/3.0"
         or attempt.get("status") != "CLAIMED_BEFORE_MATRIX_ACCESS"
         or attempt.get("designation_sha256") != _sha256(DESIGNATION)
+        or attempt.get("implementation_commit")
+        != implementation["implementation_commit"]
         or attempt.get(hash_key) != _sha256(prerequisite_path)
         or attempt.get("runtime") != _require_runtime()
         or attempt.get("one_get_per_matrix") is not True
@@ -1412,6 +1994,7 @@ def _require_public_attempt(stage: str) -> str:
         or any(character not in "0123456789abcdef" for character in token_hash)
     ):
         raise PermissionError("public attempt differs from the frozen contract")
+    _require_ancestor(implementation["implementation_commit"], attempt_commit)
     _require_ancestor(upstream_commit, attempt_commit)
     return attempt_commit
 
@@ -1423,23 +2006,40 @@ def _consume(
     private_state: Path | None = None,
 ) -> None:
     paths = {
-        "calibration": (CALIBRATION_ATTEMPT, CALIBRATION_CONSUMPTION),
-        "source": (SOURCE_ATTEMPT, SOURCE_CONSUMPTION),
-        "prediction": (PREDICTION_ATTEMPT, PREDICTION_CONSUMPTION),
-        "score": (SCORE_ATTEMPT, SCORE_CONSUMPTION),
+        "calibration": (
+            CALIBRATION_ATTEMPT,
+            CALIBRATION_CONSUMPTION,
+            CALIBRATION_ACCESS,
+            CALIBRATION_SELECTION,
+        ),
+        "source": (SOURCE_ATTEMPT, SOURCE_CONSUMPTION, SOURCE_ACCESS, SOURCE_RESULT),
+        "prediction": (
+            PREDICTION_ATTEMPT,
+            PREDICTION_CONSUMPTION,
+            PREDICTION_ACCESS,
+            PREDICTION_RESULT,
+        ),
+        "score": (SCORE_ATTEMPT, SCORE_CONSUMPTION, SCORE_ACCESS, SCORE_RESULT),
     }
     if stage not in paths:
         raise ValueError("unknown stage")
     if (stage in {"prediction", "score"}) != (private_state is not None):
         raise ValueError("private state binding differs from the stage")
-    attempt_path, consumption = paths[stage]
+    attempt_path, consumption, access, result = paths[stage]
     attempt = _read_json(attempt_path)
+    expected_header = _access_header(
+        stage, str(attempt.get("created_at_utc")), attempt.get("runtime", {})
+    )
+    if consumption.exists() or result.exists():
+        raise FileExistsError("stage was already consumed or completed")
+    if _read_jsonl(access) != [expected_header]:
+        raise PermissionError("stage access journal is not the public header only")
     token = _token_path(token_path)
     raw = token.read_bytes()
     if hashlib.sha256(raw).hexdigest() != attempt.get("claim_token_sha256"):
         raise PermissionError("claim token differs")
     payload = {
-        "schema": f"gse313642-hcc-{stage}-consumption/2.0",
+        "schema": f"gse313642-hcc-{stage}-consumption/3.0",
         "status": "CONSUMED_BEFORE_FIRST_MATRIX_REQUEST",
         "consumed_at_utc": _timestamp(),
         "attempt_sha256": _sha256(attempt_path),
@@ -1467,8 +2067,9 @@ def _consume(
 
 @contextmanager
 def _stage_lock(scratch: Path, stage: str) -> Iterable[None]:
-    scratch.parent.mkdir(parents=True, exist_ok=True)
-    lock_path = scratch.parent / f".{scratch.name}.{stage}.lock"
+    canonical_scratch = scratch.expanduser().resolve()
+    canonical_scratch.parent.mkdir(parents=True, exist_ok=True)
+    lock_path = canonical_scratch.parent / f".{canonical_scratch.name}.{stage}.lock"
     with lock_path.open("a+b") as stream:
         try:
             fcntl.flock(stream.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
@@ -1498,14 +2099,14 @@ def _download_matrix(
     url = _url(record, modality, MATRIX_MEMBER)
     file_record = _manifest_file(record, modality, MATRIX_MEMBER)
     expected_stage = {
-        ("calibration", "calibration"): "source_calibration",
-        ("source", "pilot"): "source_pilot_after_calibration_freeze",
-        ("prediction", "held"): "held_gex_prediction",
-        ("score", "held"): "held_fb_score_after_prediction_freeze",
+        ("calibration", "calibration"): "calibration",
+        ("source", "pilot"): "source",
+        ("prediction", "held"): "prediction",
+        ("score", "held"): "score",
     }.get((stage, record["role"]))
     if (
         file_record["allowed_stage"] != expected_stage
-        or file_record.get("v2_get_authorized") is not True
+        or file_record.get("v3_get_authorized") is not True
     ):
         raise PermissionError("matrix file is not authorized for this stage")
     expected_bytes = int(file_record["expected_bytes"])
@@ -1609,6 +2210,115 @@ def _axes_for_patient(
     return barcode_axes, marker_rows
 
 
+def _reduce_matrix(
+    matrix_path: Path,
+    *,
+    expected_shape: Sequence[int],
+    selected_rows: Sequence[int],
+    selected_columns: Sequence[int],
+    record: Mapping[str, Any],
+    modality: str,
+    journal: Path | None = None,
+    stage: str | None = None,
+) -> tuple[np.ndarray, Any]:
+    if (journal is None) != (stage is None):
+        raise ValueError("matrix parse journal and stage must be supplied together")
+    event = {
+        "stage": stage,
+        "patient_id": record["patient_id"],
+        "modality": modality,
+    }
+    if journal is not None:
+        _append_jsonl(
+            journal,
+            {
+                **event,
+                "event": "MATRIX_PARSE_STARTED",
+                "allow_integral_real": True,
+            },
+        )
+    try:
+        block, audit = reduce_gzip_matrix_market(
+            matrix_path,
+            expected_shape=expected_shape,
+            selected_rows=selected_rows,
+            selected_columns=selected_columns,
+            allow_integral_real=True,
+        )
+    except Exception as error:
+        code = (
+            "MATRIX_PARSE_VALIDATION_REFUSAL"
+            if isinstance(error, GzipMatrixMarketValidationError)
+            else "MATRIX_PARSE_EXECUTION_REFUSAL"
+        )
+        if journal is not None:
+            partial = getattr(error, "partial_audit", None)
+            _append_jsonl(
+                journal,
+                {
+                    **event,
+                    "event": "MATRIX_PARSE_FAILED",
+                    "exception_class": type(error).__name__,
+                    "refusal_code": code,
+                    "message": str(error),
+                    "partial_audit": asdict(partial) if partial is not None else None,
+                },
+            )
+            raise ProtocolRefusal(code) from error
+        raise
+    if journal is not None:
+        _append_jsonl(
+            journal,
+            {
+                **event,
+                "event": "MATRIX_PARSE_FINISHED",
+                "parser_audit": _matrix_audit(audit),
+            },
+        )
+    return block, audit
+
+
+def _matrix_audit(audit: Any) -> dict[str, Any]:
+    return {
+        "banner": audit.banner,
+        "parsed_nnz": audit.parsed_nnz,
+        "declared_nnz": audit.declared_nnz,
+        "selected_value_sum": audit.selected_value_sum,
+        "compressed_bytes": audit.compressed_bytes,
+        "compressed_sha256": audit.compressed_sha256,
+        "compressed_source_exhausted": audit.compressed_source_exhausted,
+        "decompressed_bytes": audit.decompressed_bytes,
+        "decompressed_sha256": audit.decompressed_sha256,
+        "gzip_stream_exhausted": audit.gzip_stream_exhausted,
+    }
+
+
+def _validate_matrix_audit(value: Any) -> None:
+    if (
+        not isinstance(value, dict)
+        or value.get("banner")
+        not in {
+            "%%MatrixMarket matrix coordinate integer general",
+            "%%MatrixMarket matrix coordinate real general",
+        }
+        or not isinstance(value.get("declared_nnz"), int)
+        or value.get("declared_nnz") != value.get("parsed_nnz")
+        or not isinstance(value.get("selected_value_sum"), int)
+        or value.get("selected_value_sum", -1) < 0
+        or not isinstance(value.get("compressed_bytes"), int)
+        or value.get("compressed_bytes", 0) <= 0
+        or not isinstance(value.get("compressed_sha256"), str)
+        or len(value.get("compressed_sha256", "")) != 64
+        or value.get("compressed_source_exhausted") is not True
+        or not isinstance(value.get("decompressed_bytes"), int)
+        or value.get("decompressed_bytes", 0) <= 0
+        or not isinstance(value.get("decompressed_sha256"), str)
+        or len(value.get("decompressed_sha256", "")) != 64
+        or value.get("gzip_stream_exhausted") is not True
+    ):
+        raise PermissionError("matrix reduction audit differs")
+
+
 def _reduce_patient(
     gex_matrix: Path,
     fb_matrix: Path,
@@ -1630,19 +2340,16 @@ def _reduce_patient(
     audits = {}
     for modality, matrix_path in (("GEX", gex_matrix), ("FB", fb_matrix)):
         frozen = preflight_record["axes"][modality]
-        block, audit = reduce_gzip_matrix_market(
+        block, audit = _reduce_matrix(
             matrix_path,
             expected_shape=(frozen["feature_count"], frozen["barcode_count"]),
             selected_rows=marker_rows[modality],
             selected_columns=selected_columns[modality],
+            record=record,
+            modality=modality,
         )
         blocks[modality] = block.T
-        audits[modality] = {
-            "parsed_nnz": audit.parsed_nnz,
-            "declared_nnz": audit.declared_nnz,
-            "selected_value_sum": audit.selected_value_sum,
-            "decompressed_bytes": audit.decompressed_bytes,
-        }
+        audits[modality] = _matrix_audit(audit)
     tables, destroyed = patient_tables(
         blocks["GEX"],
         blocks["FB"],
@@ -1671,6 +2378,9 @@ def _reduce_one_modality(
     preflight_record: Mapping[str, Any],
     modality: str,
     selected: Sequence[str] | None = None,
+    *,
+    journal: Path | None = None,
+    stage: str | None = None,
 ) -> tuple[np.ndarray, tuple[str, ...], dict[str, Any]]:
     barcode_axes, marker_rows = _axes_for_patient(axis_root, record, preflight_record)
     selected_axis = (
@@ -1690,21 +2400,20 @@ def _reduce_one_modality(
         raise ProtocolRefusal("FROZEN_SELECTED_BARCODE_AXIS_DIFFERS")
     columns = [barcode_axes[modality].index(barcode) + 1 for barcode in selected_axis]
     frozen = preflight_record["axes"][modality]
-    block, audit = reduce_gzip_matrix_market(
+    block, audit = _reduce_matrix(
         matrix_path,
         expected_shape=(frozen["feature_count"], frozen["barcode_count"]),
         selected_rows=marker_rows[modality],
         selected_columns=columns,
+        record=record,
+        modality=modality,
+        journal=journal,
+        stage=stage,
     )
     return (
         block.T,
         selected_axis,
-        {
-            "parsed_nnz": audit.parsed_nnz,
-            "declared_nnz": audit.declared_nnz,
-            "selected_value_sum": audit.selected_value_sum,
-            "decompressed_bytes": audit.decompressed_bytes,
-        },
+        _matrix_audit(audit),
     )
 
 
@@ -1734,38 +2443,69 @@ def _acquire_role(
             modality: patient_dir / _filename(record, modality, MATRIX_MEMBER)
             for modality in ("GEX", "FB")
         }
-        downloads = {}
+        downloads: dict[str, Any] = {}
+        blocks: dict[str, np.ndarray] = {}
+        matrix_audits: dict[str, Any] = {}
+        selected: tuple[str, ...] | None = None
         try:
             for modality in ("GEX", "FB"):
-                downloads[modality] = _download_matrix(
-                    record, modality, paths[modality], journal, stage
-                )
-            current, shifted, audit = _reduce_patient(
-                paths["GEX"],
-                paths["FB"],
-                axis_root,
-                record,
-                preflight_by_id[patient_id],
+                path = paths[modality]
+                try:
+                    downloads[modality] = _download_matrix(
+                        record, modality, path, journal, stage
+                    )
+                    block, current_selected, matrix_audit = _reduce_one_modality(
+                        path,
+                        axis_root,
+                        record,
+                        preflight_by_id[patient_id],
+                        modality,
+                        selected,
+                        journal=journal,
+                        stage=stage,
+                    )
+                    if selected is None:
+                        selected = current_selected
+                    elif current_selected != selected:
+                        raise ProtocolRefusal("FROZEN_SELECTED_BARCODE_AXIS_DIFFERS")
+                    blocks[modality] = block
+                    matrix_audits[modality] = matrix_audit
+                finally:
+                    existed = path.exists()
+                    path.unlink(missing_ok=True)
+                    _append_jsonl(
+                        journal,
+                        {
+                            "stage": stage,
+                            "event": "MATRIX_DELETED",
+                            "patient_id": patient_id,
+                            "modality": modality,
+                            "body_existed": existed,
+                        },
+                    )
+            if selected is None:
+                raise AssertionError("selected barcode axis was not assigned")
+            current, shifted = patient_tables(
+                blocks["GEX"],
+                blocks["FB"],
+                selected,
+                str(record["deposited_patient_id"]),
             )
-            audit["downloads"] = downloads
+            audit = {
+                "patient_id": patient_id,
+                "role": record["role"],
+                "group": record["group"],
+                "selected_barcode_axis_sha256": _axis_sha256(selected),
+                "tables_sha256": _array_sha256(current),
+                "destroyed_tables_sha256": _array_sha256(shifted),
+                "matrix_market": matrix_audits,
+                "downloads": downloads,
+            }
             tables.append(current)
             destroyed.append(shifted)
             audits.append(audit)
             cohorts.append(record["group"])
         finally:
-            for modality, path in paths.items():
-                existed = path.exists()
-                path.unlink(missing_ok=True)
-                _append_jsonl(
-                    journal,
-                    {
-                        "stage": stage,
-                        "event": "MATRIX_DELETED",
-                        "patient_id": patient_id,
-                        "modality": modality,
-                        "body_existed": existed,
-                    },
-                )
             shutil.rmtree(patient_dir, ignore_errors=True)
     return np.asarray(tables), np.asarray(destroyed), list(patient_ids), cohorts, audits
 
@@ -1834,23 +2574,40 @@ def _source_gate(
 
 def _failure(stage: str, code: str) -> dict[str, Any]:
     results = {
-        "calibration": CALIBRATION_SELECTION,
-        "source": SOURCE_RESULT,
-        "prediction": PREDICTION_RESULT,
-        "score": SCORE_RESULT,
+        "calibration": (
+            CALIBRATION_SELECTION,
+            CALIBRATION_ATTEMPT,
+            CALIBRATION_CONSUMPTION,
+            CALIBRATION_ACCESS,
+        ),
+        "source": (SOURCE_RESULT, SOURCE_ATTEMPT, SOURCE_CONSUMPTION, SOURCE_ACCESS),
+        "prediction": (
+            PREDICTION_RESULT,
+            PREDICTION_ATTEMPT,
+            PREDICTION_CONSUMPTION,
+            PREDICTION_ACCESS,
+        ),
+        "score": (SCORE_RESULT, SCORE_ATTEMPT, SCORE_CONSUMPTION, SCORE_ACCESS),
     }
     if stage not in results:
         raise ValueError("unknown stage")
-    result = results[stage]
+    result, attempt, consumption, access = results[stage]
+    if not all(path.is_file() for path in (attempt, consumption, access)):
+        raise PermissionError("terminal refusal requires a consumed stage")
+    if result.exists():
+        return _read_json(result)
     payload = {
-        "schema": f"gse313642-hcc-{stage}-result/2.0",
+        "schema": f"gse313642-hcc-{stage}-result/3.0",
         "status": "TERMINAL_REFUSAL",
         "refusal_code": code,
         "created_at_utc": _timestamp(),
         "rerun_permitted": False,
+        "attempt_sha256": _sha256(attempt),
+        "consumption_sha256": _sha256(consumption),
+        "access_journal": _artifact_reference(access),
+        "access_journal_sha256": _sha256(access),
     }
-    if not result.exists():
-        _write_json_x(result, payload)
+    _write_json_x(result, payload)
     return payload
 
 
@@ -1924,6 +2681,11 @@ def _validate_reduction_hashes(
             "destroyed_tables_sha256"
         ) != _array_sha256(destroyed[index]):
             raise PermissionError("reduction table hash differs")
+        matrix_market = row.get("matrix_market")
+        if not isinstance(matrix_market, dict) or set(matrix_market) != {"GEX", "FB"}:
+            raise PermissionError("matrix reduction modality audit differs")
+        for audit in matrix_market.values():
+            _validate_matrix_audit(audit)
 
 
 def _validate_calibration_selection(
@@ -1941,20 +2703,24 @@ def _validate_calibration_selection(
     by_id = {record["patient_id"]: record for record in designation["patients"]}
     cohorts = [by_id[patient_id]["group"] for patient_id in patient_ids]
     tables = _integer_table_panel(
-        selection.get("calibration_tables"), 11, "calibration tables"
+        selection.get("calibration_tables"), 10, "calibration tables"
     )
     destroyed = _integer_table_panel(
         selection.get("calibration_destroyed_tables"),
-        11,
+        10,
         "calibration destroyed tables",
     )
-    selected, primary_losses = select_primary_configuration(tables, cohorts)
-    comparator_alphas, comparator_losses = select_comparator_alphas(tables, cohorts)
+    selected, primary_losses = select_primary_configuration(
+        tables, cohorts, expected_patient_count=ROLE_COUNTS["calibration"]
+    )
+    comparator_alphas, comparator_losses = select_comparator_alphas(
+        tables, cohorts, expected_patient_count=ROLE_COUNTS["calibration"]
+    )
     models = serialize_models(
         fit_models(tables, destroyed, cohorts, selected, comparator_alphas)
     )
     if (
-        selection.get("schema") != "gse313642-hcc-calibration-selection/2.0"
+        selection.get("schema") != "gse313642-hcc-calibration-selection/3.0"
         or selection.get("status") != "FROZEN_BEFORE_ANY_PILOT_MATRIX_REQUEST"
         or selection.get("rerun_permitted") is not False
         or selection.get("calibration_patient_order") != patient_ids
@@ -1991,11 +2757,14 @@ def run_calibration(
     token_path: Path, axis_root: Path, *, scratch: Path = DEFAULT_SCRATCH
 ) -> dict[str, Any]:
     with _stage_lock(scratch, "calibration"):
+        _require_runtime()
+        _require_public_attempt("calibration")
+        implementation_commit = _read_json(CALIBRATION_ATTEMPT)["implementation_commit"]
+        _consume("calibration", token_path, scratch)
         try:
-            _require_runtime()
-            _require_public_attempt("calibration")
-            _consume("calibration", token_path, scratch)
-            designation, preflight_value = _validate_preflight(axis_root)
+            designation, preflight_value = _validate_preflight(
+                axis_root, implementation_commit=implementation_commit
+            )
             scratch.mkdir(parents=True, exist_ok=True)
             (
                 tables,
@@ -2012,9 +2781,15 @@ def run_calibration(
                 CALIBRATION_ACCESS,
                 "calibration",
             )
-            selected, cv_losses = select_primary_configuration(tables, cohorts)
+            selected, cv_losses = select_primary_configuration(
+                tables,
+                cohorts,
+                expected_patient_count=ROLE_COUNTS["calibration"],
+            )
             comparator_alphas, comparator_losses = select_comparator_alphas(
-                tables, cohorts
+                tables,
+                cohorts,
+                expected_patient_count=ROLE_COUNTS["calibration"],
             )
             calibration_models = fit_models(
                 tables,
@@ -2024,7 +2799,7 @@ def run_calibration(
                 comparator_alphas,
             )
             payload = {
-                "schema": "gse313642-hcc-calibration-selection/2.0",
+                "schema": "gse313642-hcc-calibration-selection/3.0",
                 "status": "FROZEN_BEFORE_ANY_PILOT_MATRIX_REQUEST",
                 "created_at_utc": _timestamp(),
                 "rerun_permitted": False,
@@ -2075,7 +2850,7 @@ def authorize_source() -> dict[str, Any]:
     ):
         raise FileExistsError("pilot stage is already authorized or consumed")
     payload = {
-        "schema": "gse313642-hcc-pilot-authorization/2.0",
+        "schema": "gse313642-hcc-pilot-authorization/3.0",
         "status": "AUTHORIZED_AFTER_PUBLIC_CALIBRATION_FREEZE",
         "created_at_utc": _timestamp(),
         "calibration_selection_sha256": _sha256(CALIBRATION_SELECTION),
@@ -2090,17 +2865,20 @@ def run_source(
     token_path: Path, axis_root: Path, *, scratch: Path = DEFAULT_SCRATCH
 ) -> dict[str, Any]:
     with _stage_lock(scratch, "source"):
+        _require_runtime()
+        _require_public_attempt("source")
+        implementation_commit = _read_json(SOURCE_ATTEMPT)["implementation_commit"]
+        _consume("source", token_path, scratch)
         try:
-            _require_runtime()
-            _require_public_attempt("source")
-            _consume("source", token_path, scratch)
-            designation, preflight_value = _validate_preflight(axis_root)
+            designation, preflight_value = _validate_preflight(
+                axis_root, implementation_commit=implementation_commit
+            )
             selection = _read_json(CALIBRATION_SELECTION)
             authorization = _read_json(PILOT_AUTHORIZATION)
             if (
                 selection.get("status") != "FROZEN_BEFORE_ANY_PILOT_MATRIX_REQUEST"
                 or authorization.get("schema")
-                != "gse313642-hcc-pilot-authorization/2.0"
+                != "gse313642-hcc-pilot-authorization/3.0"
                 or authorization.get("status")
                 != "AUTHORIZED_AFTER_PUBLIC_CALIBRATION_FREEZE"
                 or authorization.get("calibration_selection_sha256")
@@ -2139,8 +2917,8 @@ def run_source(
             )
             gate = _source_gate(pilot_losses, pilot_cohorts)
             payload: dict[str, Any] = {
-                "schema": "gse313642-hcc-source-result/2.0",
-                "status": "SOURCE_PASS_REFIT_22"
+                "schema": "gse313642-hcc-source-result/3.0",
+                "status": "SOURCE_PASS_REFIT_21"
                 if gate["passes"]
                 else "TERMINAL_SOURCE_GATE_FAIL",
                 "created_at_utc": _timestamp(),
@@ -2174,7 +2952,7 @@ def run_source(
                     selected,
                     comparator_alphas,
                 )
-                payload["source_patient_count"] = 22
+                payload["source_patient_count"] = 21
                 payload["source_models"] = serialize_models(refit)
             _write_json_x(SOURCE_RESULT, payload)
             return payload
@@ -2212,6 +2990,35 @@ def _validate_source_result(
         calibration_models, pilot_tables, pilot_cohorts
     )
     gate = _source_gate(pilot_losses, pilot_cohorts)
+    expected_status = (
+        "SOURCE_PASS_REFIT_21" if gate["passes"] else "TERMINAL_SOURCE_GATE_FAIL"
+    )
+    all_ids = calibration_ids + pilot_ids
+    all_cohorts = calibration_cohorts + pilot_cohorts
+    if (
+        source.get("schema") != "gse313642-hcc-source-result/3.0"
+        or source.get("status") != expected_status
+        or source.get("rerun_permitted") is not False
+        or source.get("calibration_selection_sha256") != _sha256(CALIBRATION_SELECTION)
+        or source.get("selected_configuration") != _configuration_payload(selected)
+        or source.get("matched_comparator_alphas") != comparator_alphas
+        or source.get("pilot_gate") != gate
+        or source.get("pilot_losses") != _loss_payload(pilot_losses, pilot_ids)
+        or source.get("patient_order")
+        != {"calibration": calibration_ids, "pilot": pilot_ids}
+        or source.get("cohorts") != dict(zip(all_ids, all_cohorts))
+        or source.get("pilot_table_hashes") != _panel_hashes(pilot_ids, pilot_tables)
+        or source.get("pilot_destroyed_table_hashes")
+        != _panel_hashes(pilot_ids, pilot_destroyed)
+    ):
+        raise PermissionError("source promotion and refit do not replay exactly")
+    _validate_reduction_hashes(
+        source.get("reduction_audit"), pilot_ids, pilot_tables, pilot_destroyed
+    )
+    if not gate["passes"]:
+        if "source_patient_count" in source or "source_models" in source:
+            raise PermissionError("failed source gate contains a refit")
+        return {}
     expected_models = serialize_models(
         fit_models(
             np.concatenate((calibration_tables, pilot_tables)),
@@ -2221,31 +3028,11 @@ def _validate_source_result(
             comparator_alphas,
         )
     )
-    all_ids = calibration_ids + pilot_ids
-    all_cohorts = calibration_cohorts + pilot_cohorts
     if (
-        source.get("schema") != "gse313642-hcc-source-result/2.0"
-        or source.get("status") != "SOURCE_PASS_REFIT_22"
-        or source.get("rerun_permitted") is not False
-        or source.get("calibration_selection_sha256") != _sha256(CALIBRATION_SELECTION)
-        or source.get("selected_configuration") != _configuration_payload(selected)
-        or source.get("matched_comparator_alphas") != comparator_alphas
-        or source.get("pilot_gate") != gate
-        or not gate["passes"]
-        or source.get("pilot_losses") != _loss_payload(pilot_losses, pilot_ids)
-        or source.get("patient_order")
-        != {"calibration": calibration_ids, "pilot": pilot_ids}
-        or source.get("cohorts") != dict(zip(all_ids, all_cohorts))
-        or source.get("pilot_table_hashes") != _panel_hashes(pilot_ids, pilot_tables)
-        or source.get("pilot_destroyed_table_hashes")
-        != _panel_hashes(pilot_ids, pilot_destroyed)
-        or source.get("source_patient_count") != 22
+        source.get("source_patient_count") != 21
         or source.get("source_models") != expected_models
     ):
         raise PermissionError("source promotion and refit do not replay exactly")
-    _validate_reduction_hashes(
-        source.get("reduction_audit"), pilot_ids, pilot_tables, pilot_destroyed
-    )
     return expected_models
 
 
@@ -2254,13 +3041,15 @@ def authorize_prediction() -> dict[str, Any]:
     source = _read_json(SOURCE_RESULT)
     source_commit = validate("source")["final_commit"]
     _validate_source_result(source, _designation())
+    if source.get("status") != "SOURCE_PASS_REFIT_21":
+        raise PermissionError("source gate did not pass")
     if any(
         path.exists()
         for path in (PREDICTION_AUTHORIZATION, PREDICTION_ATTEMPT, PREDICTION_RESULT)
     ):
         raise FileExistsError("prediction stage is already authorized or consumed")
     payload = {
-        "schema": "gse313642-hcc-prediction-authorization/2.0",
+        "schema": "gse313642-hcc-prediction-authorization/3.0",
         "status": "AUTHORIZED_AFTER_PUBLIC_SOURCE_PASS",
         "created_at_utc": _timestamp(),
         "source_result_sha256": _sha256(SOURCE_RESULT),
@@ -2280,20 +3069,20 @@ def run_prediction(
     scratch: Path = DEFAULT_SCRATCH,
 ) -> dict[str, Any]:
     with _stage_lock(scratch, "prediction"):
-        private_state: Path | None = None
-        consumed = False
+        _require_runtime()
+        _require_public_attempt("prediction")
+        implementation_commit = _read_json(PREDICTION_ATTEMPT)["implementation_commit"]
+        private_state = _private_state_path(state_path, scratch)
+        if private_state.exists():
+            raise FileExistsError("private held GEX state already exists")
+        _consume("prediction", token_path, scratch, private_state)
         try:
-            _require_runtime()
-            _require_public_attempt("prediction")
-            private_state = _private_state_path(state_path, scratch)
-            if private_state.exists():
-                raise FileExistsError("private held GEX state already exists")
-            _consume("prediction", token_path, scratch, private_state)
-            consumed = True
-            designation, preflight_value = _validate_preflight(axis_root)
+            designation, preflight_value = _validate_preflight(
+                axis_root, implementation_commit=implementation_commit
+            )
             source = _read_json(SOURCE_RESULT)
             authorization = _read_json(PREDICTION_AUTHORIZATION)
-            if source.get("status") != "SOURCE_PASS_REFIT_22" or authorization.get(
+            if source.get("status") != "SOURCE_PASS_REFIT_21" or authorization.get(
                 "source_result_sha256"
             ) != _sha256(SOURCE_RESULT):
                 raise PermissionError("prediction prerequisites differ")
@@ -2327,6 +3116,8 @@ def run_prediction(
                         record,
                         preflight_by_id[patient_id],
                         "GEX",
+                        journal=PREDICTION_ACCESS,
+                        stage="prediction",
                     )
                     rna = rna_detection_states(counts)
                     positive = rna.sum(axis=0).astype(np.int64)
@@ -2378,13 +3169,13 @@ def run_prediction(
                     )
                     shutil.rmtree(patient_dir, ignore_errors=True)
             private_payload = {
-                "schema": "gse313642-hcc-private-held-gex-state/2.0",
+                "schema": "gse313642-hcc-private-held-gex-state/3.0",
                 "prediction_attempt_sha256": _sha256(PREDICTION_ATTEMPT),
                 "patients": private_patients,
             }
             _write_json_x(private_state, private_payload)
             payload = {
-                "schema": "gse313642-hcc-predictions/2.0",
+                "schema": "gse313642-hcc-predictions/3.0",
                 "status": "PREDICTIONS_FROZEN_BEFORE_ANY_HELD_FB_ACCESS",
                 "created_at_utc": _timestamp(),
                 "rerun_permitted": False,
@@ -2410,8 +3201,7 @@ def run_prediction(
             _write_json_x(PREDICTION_RESULT, payload)
             return payload
         except Exception as error:
-            if consumed and private_state is not None:
-                private_state.unlink(missing_ok=True)
+            private_state.unlink(missing_ok=True)
             code = (
                 error.code
                 if isinstance(error, ProtocolRefusal)
@@ -2431,7 +3221,7 @@ def authorize_score() -> dict[str, Any]:
     ):
         raise FileExistsError("score stage is already authorized or consumed")
     payload = {
-        "schema": "gse313642-hcc-score-authorization/2.0",
+        "schema": "gse313642-hcc-score-authorization/3.0",
         "status": "AUTHORIZED_AFTER_PUBLIC_PREDICTION_FREEZE",
         "created_at_utc": _timestamp(),
         "prediction_result_sha256": _sha256(PREDICTION_RESULT),
@@ -2452,13 +3242,20 @@ def _validate_public_predictions(
     patient_ids = designation["role_order"]["held"]
     public_rows = predictions.get("patients")
     if (
-        predictions.get("schema") != "gse313642-hcc-predictions/2.0"
+        predictions.get("schema") != "gse313642-hcc-predictions/3.0"
         or predictions.get("status") != "PREDICTIONS_FROZEN_BEFORE_ANY_HELD_FB_ACCESS"
         or predictions.get("rerun_permitted") is not False
         or predictions.get("source_result_sha256") != _sha256(SOURCE_RESULT)
         or predictions.get("source_models_sha256") != _json_sha256(source_models)
-        or not isinstance(predictions.get("prediction_attempt_sha256"), str)
-        or len(predictions["prediction_attempt_sha256"]) != 64
+        or predictions.get("prediction_attempt_sha256") != _sha256(PREDICTION_ATTEMPT)
+        or not isinstance(predictions.get("private_state_sha256"), str)
+        or len(predictions["private_state_sha256"]) != 64
+        or any(
+            character not in "0123456789abcdef"
+            for character in predictions["private_state_sha256"]
+        )
+        or not isinstance(predictions.get("private_state_bytes"), int)
+        or predictions.get("private_state_bytes", 0) <= 0
         or predictions.get("selected_configuration") != source_models["configuration"]
         or predictions.get("matched_comparator_alphas")
         != source_models["comparator_alphas"]
@@ -2483,6 +3280,7 @@ def _validate_public_predictions(
         cohort = designated[patient_id]["group"]
         if public.get("group") != cohort:
             raise ProtocolRefusal("FROZEN_PREDICTION_METADATA_DIFFERS")
+        _validate_matrix_audit(public.get("gex_matrix_market"))
         rows = np.asarray(public.get("row_margins"))
         columns = np.asarray(public.get("column_margins"))
         if (
@@ -2526,7 +3324,7 @@ def _validate_prediction_state(
     public_rows = predictions["patients"]
     private_rows = state.get("patients")
     if (
-        state.get("schema") != "gse313642-hcc-private-held-gex-state/2.0"
+        state.get("schema") != "gse313642-hcc-private-held-gex-state/3.0"
         or state.get("prediction_attempt_sha256")
         != predictions.get("prediction_attempt_sha256")
         or not isinstance(private_rows, list)
@@ -2566,7 +3364,7 @@ def _validate_score_result(
     value: Mapping[str, Any], designation: Mapping[str, Any]
 ) -> dict[str, np.ndarray]:
     if (
-        value.get("schema") != "gse313642-hcc-score-result/2.0"
+        value.get("schema") != "gse313642-hcc-score-result/3.0"
         or value.get("rerun_permitted") is not False
     ):
         raise PermissionError("score result schema or durability differs")
@@ -2580,7 +3378,11 @@ def _validate_score_result(
     records = {record["patient_id"]: record for record in designation["patients"]}
     cohorts = [records[patient_id]["group"] for patient_id in patient_ids]
     expected_cohorts = dict(zip(patient_ids, cohorts))
+    source_models = _validate_source_result(_read_json(SOURCE_RESULT), designation)
+    if not source_models:
+        raise PermissionError("score result requires a passing frozen source model")
     predictions = _read_json(PREDICTION_RESULT)
+    _validate_public_predictions(predictions, designation, source_models)
     prediction_patients = predictions.get("patients")
     if not isinstance(prediction_patients, list) or len(prediction_patients) != len(
         patient_ids
@@ -2609,30 +3411,49 @@ def _validate_score_result(
     ):
         raise PermissionError("score result frozen design binding differs")
 
-    loss_payload = value.get("held_losses")
-    if not isinstance(loss_payload, dict) or set(loss_payload) != expected_methods:
-        raise PermissionError("score result method losses differ")
-    losses: dict[str, np.ndarray] = {}
-    for method in sorted(expected_methods):
-        record = loss_payload.get(method)
-        if not isinstance(record, dict) or not isinstance(
-            record.get("by_patient"), dict
+    truth_tables = _integer_table_panel(
+        value.get("held_truth_tables"), len(patient_ids), "held truth tables"
+    )
+    if _json_sha256(value.get("held_truth_tables")) != _json_sha256(
+        truth_tables.tolist()
+    ):
+        raise PermissionError("held truth tables are not canonical integers")
+    truth_hashes = _panel_hashes(patient_ids, truth_tables)
+    if value.get("held_truth_table_hashes") != truth_hashes:
+        raise PermissionError("held truth-table hashes do not replay")
+
+    audits = value.get("reduction_audit")
+    if not isinstance(audits, list) or [
+        (record.get("patient_id"), record.get("group")) for record in audits
+    ] != list(zip(patient_ids, cohorts)):
+        raise PermissionError("score reduction audit order differs")
+    for patient_id, record in zip(patient_ids, audits):
+        _validate_matrix_audit(record.get("fb_matrix_market"))
+        if record.get("truth_tables_sha256") != truth_hashes[patient_id]:
+            raise PermissionError("score reduction truth-table hash differs")
+
+    losses = {
+        method: np.empty(len(patient_ids), dtype=float)
+        for method in sorted(expected_methods)
+    }
+    for patient_index, (truth, prediction) in enumerate(
+        zip(truth_tables, prediction_patients)
+    ):
+        if not np.array_equal(
+            truth.sum(axis=-1), np.asarray(prediction["row_margins"])
+        ) or not np.array_equal(
+            truth.sum(axis=-2), np.asarray(prediction["column_margins"])
         ):
-            raise PermissionError("score result patient losses are absent")
-        by_patient = record["by_patient"]
-        if list(by_patient) != patient_ids:
-            raise PermissionError("score result patient loss order differs")
-        current = np.asarray(
-            [by_patient[patient] for patient in patient_ids], dtype=float
-        )
-        if (
-            current.shape != (len(patient_ids),)
-            or not np.isfinite(current).all()
-            or np.any(current < 0.0)
-            or record.get("mean") != float(current.mean())
-        ):
-            raise PermissionError("score result patient loss values differ")
-        losses[method] = current
+            raise PermissionError("held truth-table margins differ from predictions")
+        for method in sorted(expected_methods):
+            estimate = np.asarray(prediction["predictions"][method], dtype=float)
+            losses[method][patient_index] = float(
+                np.mean(entity_deviance(truth, estimate))
+            )
+
+    expected_loss_payload = _loss_payload(losses, patient_ids)
+    if _json_sha256(value.get("held_losses")) != _json_sha256(expected_loss_payload):
+        raise PermissionError("score result losses do not replay from held truth")
 
     expected_gate = held_gate(losses, cohorts)
     expected_status = (
@@ -2646,20 +3467,6 @@ def _validate_score_result(
         or _json_sha256(value["held_gate"]) != _json_sha256(expected_gate)
     ):
         raise PermissionError("score result gate does not recompute")
-
-    audits = value.get("reduction_audit")
-    if not isinstance(audits, list) or [
-        (record.get("patient_id"), record.get("group")) for record in audits
-    ] != list(zip(patient_ids, cohorts)):
-        raise PermissionError("score reduction audit order differs")
-    for record in audits:
-        digest = record.get("truth_tables_sha256")
-        if (
-            not isinstance(digest, str)
-            or len(digest) != 64
-            or any(character not in "0123456789abcdef" for character in digest)
-        ):
-            raise PermissionError("score truth-table hash differs")
     return losses
 
 
@@ -2671,15 +3478,15 @@ def run_score(
     scratch: Path = DEFAULT_SCRATCH,
 ) -> dict[str, Any]:
     with _stage_lock(scratch, "score"):
-        private_state: Path | None = None
-        consumed = False
+        _require_runtime()
+        _require_public_attempt("score")
+        implementation_commit = _read_json(SCORE_ATTEMPT)["implementation_commit"]
+        private_state = _private_state_path(state_path, scratch)
+        _consume("score", token_path, scratch, private_state)
         try:
-            _require_runtime()
-            _require_public_attempt("score")
-            private_state = _private_state_path(state_path, scratch)
-            _consume("score", token_path, scratch, private_state)
-            consumed = True
-            designation, preflight_value = _validate_preflight(axis_root)
+            designation, preflight_value = _validate_preflight(
+                axis_root, implementation_commit=implementation_commit
+            )
             predictions = _read_json(PREDICTION_RESULT)
             source_models = _validate_source_result(
                 _read_json(SOURCE_RESULT), designation
@@ -2706,6 +3513,7 @@ def run_score(
             }
             patient_ids = designation["role_order"]["held"]
             losses: dict[str, np.ndarray] = {}
+            truth_tables = []
             audits = []
             cohorts = []
             scratch.mkdir(parents=True, exist_ok=True)
@@ -2727,6 +3535,8 @@ def run_score(
                         preflight_by_id[patient_id],
                         "FB",
                         private["selected_barcodes"],
+                        journal=SCORE_ACCESS,
+                        stage="score",
                     )
                     if _axis_sha256(selected) != frozen["selected_barcode_axis_sha256"]:
                         raise ProtocolRefusal("SCORE_BARCODE_AXIS_DIFFERS")
@@ -2735,6 +3545,7 @@ def run_score(
                         counts, selected, record["deposited_patient_id"]
                     )
                     truth = joint_binary_tables(rna, fb)
+                    truth_tables.append(truth)
                     current_predictions = {
                         method: np.asarray(values, dtype=float)
                         for method, values in frozen["predictions"].items()
@@ -2774,9 +3585,10 @@ def run_score(
                         },
                     )
                     shutil.rmtree(patient_dir, ignore_errors=True)
+            held_truth_tables = np.asarray(truth_tables, dtype=np.int64)
             gate = held_gate(losses, cohorts)
             payload = {
-                "schema": "gse313642-hcc-score-result/2.0",
+                "schema": "gse313642-hcc-score-result/3.0",
                 "status": "CONFIRMATION_PASS"
                 if gate["passes"]
                 else "COMPLETED_CONFIRMATION_FAIL",
@@ -2787,6 +3599,10 @@ def run_score(
                 "held_cohorts": dict(zip(patient_ids, cohorts)),
                 "held_gate": gate,
                 "held_losses": _loss_payload(losses, patient_ids),
+                "held_truth_tables": held_truth_tables.tolist(),
+                "held_truth_table_hashes": _panel_hashes(
+                    patient_ids, held_truth_tables
+                ),
                 "reduction_audit": audits,
                 "held_gex_gets_during_score": 0,
                 "predictions_reconstructed_after_fb_access": False,
@@ -2795,8 +3611,7 @@ def run_score(
             private_state.unlink()
             return payload
         except Exception as error:
-            if consumed and private_state is not None:
-                private_state.unlink(missing_ok=True)
+            private_state.unlink(missing_ok=True)
             code = (
                 error.code
                 if isinstance(error, ProtocolRefusal)
@@ -2825,15 +3640,13 @@ def _stage_paths(stage: str) -> tuple[Path, Path, Path]:
     return paths[stage]
 
 
-def recover(
+def _recover_locked(
     stage: str,
     *,
     scratch: Path = DEFAULT_SCRATCH,
     state_path: Path | None = None,
 ) -> dict[str, Any]:
     consumption, result, access = _stage_paths(stage)
-    if result.exists() and stage != "score":
-        return _read_json(result)
     if not consumption.exists():
         raise PermissionError("stage was not consumed; recovery is unavailable")
     consumed = _read_json(consumption)
@@ -2842,6 +3655,7 @@ def recover(
     ).hexdigest()
     if consumed.get("scratch_identity_sha256") != identity:
         raise PermissionError("recovery scratch differs from the consumed stage")
+    private_state = None
     if stage in {"prediction", "score"}:
         if state_path is None:
             raise PermissionError("private state path is required for recovery")
@@ -2849,19 +3663,60 @@ def recover(
         state_identity = hashlib.sha256(str(private_state).encode("utf-8")).hexdigest()
         if consumed.get("private_state_identity_sha256") != state_identity:
             raise PermissionError("recovery private state path differs")
-        private_state.unlink(missing_ok=True)
     elif state_path is not None:
         raise PermissionError("this stage has no private state")
+    repaired_tail = _repair_torn_jsonl_tail(access, stage)
     if result.exists():
         shutil.rmtree(scratch / stage, ignore_errors=True)
-        return _read_json(result)
+        existing = _read_json(result)
+        if repaired_tail and existing.get("status") != "TERMINAL_REFUSAL":
+            raise PermissionError(
+                "completed result cannot contain a recovered journal tail"
+            )
+        if existing.get("status") == "TERMINAL_REFUSAL" and existing.get(
+            "access_journal_sha256"
+        ) != _sha256(access):
+            raise PermissionError("terminal result differs from the recovered journal")
+        if private_state is not None and (
+            stage == "score" or existing.get("status") == "TERMINAL_REFUSAL"
+        ):
+            private_state.unlink(missing_ok=True)
+        return existing
+    if private_state is not None:
+        private_state.unlink(missing_ok=True)
     designation = _designation()
     records = {record["patient_id"]: record for record in designation["patients"]}
     events = _read_jsonl(access)
+    started = {
+        (event.get("patient_id"), event.get("modality"))
+        for event in events
+        if event.get("event") == "GET_STARTED"
+    }
     completed = {
         (event.get("patient_id"), event.get("modality"))
         for event in events
         if event.get("event") == "GET_COMPLETED"
+    }
+    get_failed = {
+        (event.get("patient_id"), event.get("modality"))
+        for event in events
+        if event.get("event") == "GET_FAILED_TERMINALLY"
+    }
+    parse_started = {
+        (event.get("patient_id"), event.get("modality"))
+        for event in events
+        if event.get("event") == "MATRIX_PARSE_STARTED"
+    }
+    parse_finished = {
+        (event.get("patient_id"), event.get("modality"))
+        for event in events
+        if event.get("event") == "MATRIX_PARSE_FINISHED"
+    }
+    parse_failures = [
+        event for event in events if event.get("event") == "MATRIX_PARSE_FAILED"
+    ]
+    parse_failed = {
+        (event.get("patient_id"), event.get("modality")) for event in parse_failures
     }
     deleted = {
         (event.get("patient_id"), event.get("modality"))
@@ -2880,8 +3735,43 @@ def recover(
         for modality in modalities
     ]
     for patient_id, modality in expected:
-        if (patient_id, modality) not in completed - deleted:
+        key = (patient_id, modality)
+        if key not in started - deleted:
             continue
+        event = {
+            "stage": stage,
+            "patient_id": patient_id,
+            "modality": modality,
+            "recovered_after_crash": True,
+        }
+        if key not in completed:
+            if key not in get_failed:
+                _append_jsonl(
+                    access,
+                    {**event, "event": "GET_FAILED_TERMINALLY"},
+                )
+        else:
+            if key not in parse_started:
+                _append_jsonl(
+                    access,
+                    {
+                        **event,
+                        "event": "MATRIX_PARSE_STARTED",
+                        "allow_integral_real": True,
+                    },
+                )
+            if key not in parse_finished and key not in parse_failed:
+                _append_jsonl(
+                    access,
+                    {
+                        **event,
+                        "event": "MATRIX_PARSE_FAILED",
+                        "exception_class": "CrashRecovery",
+                        "refusal_code": "CRASH_RECOVERY",
+                        "message": CRASH_PARSE_MESSAGE,
+                        "partial_audit": None,
+                    },
+                )
         matrix_path = (
             scratch
             / stage
@@ -2902,11 +3792,63 @@ def recover(
             },
         )
     shutil.rmtree(scratch / stage, ignore_errors=True)
-    return _failure(stage, "CRASH_RECOVERY")
+    code = "CRASH_RECOVERY"
+    if parse_failures:
+        existing_code = parse_failures[-1].get("refusal_code")
+        if not isinstance(existing_code, str) or not existing_code:
+            raise PermissionError("matrix parse refusal code is absent")
+        code = existing_code
+    return _failure(stage, code)
+
+
+def recover(
+    stage: str,
+    *,
+    scratch: Path = DEFAULT_SCRATCH,
+    state_path: Path | None = None,
+) -> dict[str, Any]:
+    with _stage_lock(scratch, stage):
+        return _recover_locked(stage, scratch=scratch, state_path=state_path)
+
+
+def _result_matrix_evidence(
+    stage: str, value: Mapping[str, Any]
+) -> list[tuple[Mapping[str, Any], Mapping[str, Any]]]:
+    if stage in {"calibration", "source"}:
+        rows = value.get("reduction_audit")
+        if not isinstance(rows, list):
+            raise PermissionError("stage reduction audit is absent")
+        evidence = []
+        for row in rows:
+            downloads = row.get("downloads")
+            audits = row.get("matrix_market")
+            if not isinstance(downloads, dict) or not isinstance(audits, dict):
+                raise PermissionError("stage matrix evidence is absent")
+            for modality in ("GEX", "FB"):
+                evidence.append((downloads.get(modality), audits.get(modality)))
+        return evidence
+    if stage == "prediction":
+        rows = value.get("patients")
+        if not isinstance(rows, list):
+            raise PermissionError("prediction matrix evidence is absent")
+        return [(row.get("gex_download"), row.get("gex_matrix_market")) for row in rows]
+    if stage == "score":
+        rows = value.get("reduction_audit")
+        if not isinstance(rows, list):
+            raise PermissionError("score matrix evidence is absent")
+        return [(row.get("fb_download"), row.get("fb_matrix_market")) for row in rows]
+    raise ValueError("unknown stage")
 
 
 def validate(stage: str) -> dict[str, Any]:
     consumption, result, access = _stage_paths(stage)
+    attempt_paths = {
+        "calibration": CALIBRATION_ATTEMPT,
+        "source": SOURCE_ATTEMPT,
+        "prediction": PREDICTION_ATTEMPT,
+        "score": SCORE_ATTEMPT,
+    }
+    attempt_path = attempt_paths[stage]
     value = _read_json(result)
     if (
         not consumption.exists()
@@ -2922,8 +3864,38 @@ def validate(stage: str) -> dict[str, Any]:
     failures = [
         event for event in events if event.get("event") == "GET_FAILED_TERMINALLY"
     ]
+    parse_started = [
+        event for event in events if event.get("event") == "MATRIX_PARSE_STARTED"
+    ]
+    parse_finished = [
+        event for event in events if event.get("event") == "MATRIX_PARSE_FINISHED"
+    ]
+    parse_failed = [
+        event for event in events if event.get("event") == "MATRIX_PARSE_FAILED"
+    ]
+    tail_repairs = [
+        event for event in events if event.get("event") == "JOURNAL_TORN_TAIL_RECOVERED"
+    ]
     designation = _designation()
-    if stage == "score":
+    if value.get("status") == "TERMINAL_REFUSAL":
+        if (
+            value.get("schema") != f"gse313642-hcc-{stage}-result/3.0"
+            or not isinstance(value.get("refusal_code"), str)
+            or not value["refusal_code"]
+            or value.get("attempt_sha256") != _sha256(attempt_path)
+            or value.get("consumption_sha256") != _sha256(consumption)
+            or value.get("access_journal") != _artifact_reference(access)
+            or value.get("access_journal_sha256") != _sha256(access)
+        ):
+            raise PermissionError("terminal result does not bind its access journal")
+    elif stage == "calibration":
+        _validate_calibration_selection(value, designation)
+    elif stage == "source":
+        _validate_source_result(value, designation)
+    elif stage == "prediction":
+        source_models = _validate_source_result(_read_json(SOURCE_RESULT), designation)
+        _validate_public_predictions(value, designation, source_models)
+    elif stage == "score":
         _validate_score_result(value, designation)
     role, modalities = {
         "calibration": ("calibration", ("GEX", "FB")),
@@ -2949,15 +3921,32 @@ def validate(stage: str) -> dict[str, Any]:
     failure_keys = [
         (event.get("patient_id"), event.get("modality")) for event in failures
     ]
+    parse_started_keys = [
+        (event.get("patient_id"), event.get("modality")) for event in parse_started
+    ]
+    parse_finished_keys = [
+        (event.get("patient_id"), event.get("modality")) for event in parse_finished
+    ]
+    parse_failed_keys = [
+        (event.get("patient_id"), event.get("modality")) for event in parse_failed
+    ]
     allowed_events = {
         "OPENED_BEFORE_MATRIX_ACCESS",
         "GET_STARTED",
         "GET_COMPLETED",
         "GET_FAILED_TERMINALLY",
+        "MATRIX_PARSE_STARTED",
+        "MATRIX_PARSE_FINISHED",
+        "MATRIX_PARSE_FAILED",
         "MATRIX_DELETED",
+        "JOURNAL_TORN_TAIL_RECOVERED",
     }
     if (
         any(event.get("event") not in allowed_events for event in events)
+        or events[0].get("event") != "OPENED_BEFORE_MATRIX_ACCESS"
+        or sum(event.get("event") == "OPENED_BEFORE_MATRIX_ACCESS" for event in events)
+        != 1
+        or any(event.get("stage") != stage for event in events[1:])
         or started_keys != expected[: len(started_keys)]
         or completed_keys != expected[: len(completed_keys)]
         or deleted_keys != expected[: len(deleted_keys)]
@@ -2965,7 +3954,21 @@ def validate(stage: str) -> dict[str, Any]:
         or len(completed_keys) != len(set(completed_keys))
         or len(deleted_keys) != len(set(deleted_keys))
         or len(failure_keys) > 1
+        or len(parse_started_keys) != len(set(parse_started_keys))
+        or len(parse_finished_keys) != len(set(parse_finished_keys))
+        or len(parse_failed_keys) > 1
+        or len(tail_repairs) > 1
+        or set(started_keys) != set(completed_keys) | set(failure_keys)
+        or bool(set(completed_keys) & set(failure_keys))
+        or parse_started_keys != completed_keys
+        or parse_finished_keys != parse_started_keys[: len(parse_finished_keys)]
+        or len(parse_finished_keys) + len(parse_failed_keys) != len(parse_started_keys)
+        or (parse_failed_keys and parse_failed_keys != parse_started_keys[-1:])
+        or (parse_failed_keys and parse_failed_keys != started_keys[-1:])
+        or (failure_keys and parse_failed_keys)
+        or set(parse_finished_keys) & set(parse_failed_keys)
         or any(key not in started_keys for key in completed_keys + failure_keys)
+        or any(key not in started_keys for key in deleted_keys)
         or any(key not in deleted_keys for key in completed_keys)
         or any(
             event.get("body_existed") is not True
@@ -2975,6 +3978,28 @@ def validate(stage: str) -> dict[str, Any]:
         )
     ):
         raise PermissionError("stage access is not a unique allowed prefix")
+    if tail_repairs:
+        repair = tail_repairs[0]
+        digest = repair.get("torn_sha256")
+        if (
+            set(repair)
+            != {
+                "stage",
+                "event",
+                "torn_bytes",
+                "torn_sha256",
+                "recovered_after_crash",
+            }
+            or repair.get("stage") != stage
+            or not isinstance(repair.get("torn_bytes"), int)
+            or repair.get("torn_bytes", 0) <= 0
+            or not isinstance(digest, str)
+            or len(digest) != 64
+            or any(character not in "0123456789abcdef" for character in digest)
+            or repair.get("recovered_after_crash") is not True
+            or value.get("status") != "TERMINAL_REFUSAL"
+        ):
+            raise PermissionError("torn journal recovery record differs")
     for event, key in zip(started, started_keys):
         record = records[key[0]]
         manifest = _manifest_file(record, key[1], MATRIX_MEMBER)
@@ -2997,9 +4022,155 @@ def validate(stage: str) -> dict[str, Any]:
             raise PermissionError("completed matrix GET binding differs")
     if failures and failure_keys != started_keys[-1:]:
         raise PermissionError("terminal GET failure is not the final request")
+    for event in parse_started:
+        if (
+            event.get("stage") != stage
+            or event.get("allow_integral_real") is not True
+            or (
+                "recovered_after_crash" in event
+                and event.get("recovered_after_crash") is not True
+            )
+        ):
+            raise PermissionError("matrix parse start binding differs")
+    for event in parse_finished:
+        if event.get("stage") != stage:
+            raise PermissionError("matrix parse finish binding differs")
+        _validate_matrix_audit(event.get("parser_audit"))
+        if event["parser_audit"].get("gzip_stream_exhausted") is not True:
+            raise PermissionError("matrix parse did not exhaust the gzip stream")
+    for parse_event, completed_event in zip(parse_finished, completed):
+        audit = parse_event["parser_audit"]
+        if (
+            audit.get("compressed_bytes") != completed_event.get("bytes")
+            or audit.get("compressed_sha256") != completed_event.get("sha256")
+            or audit.get("compressed_source_exhausted") is not True
+        ):
+            raise PermissionError("parsed stream differs from the completed GET")
+    for event in parse_failed:
+        partial = event.get("partial_audit")
+        recovered_after_crash = event.get("recovered_after_crash") is True
+        expected_code = (
+            "CRASH_RECOVERY"
+            if recovered_after_crash
+            else (
+                "MATRIX_PARSE_VALIDATION_REFUSAL"
+                if event.get("exception_class") == "GzipMatrixMarketValidationError"
+                else "MATRIX_PARSE_EXECUTION_REFUSAL"
+            )
+        )
+        if (
+            event.get("stage") != stage
+            or not isinstance(event.get("exception_class"), str)
+            or not event["exception_class"]
+            or event.get("refusal_code") != expected_code
+            or not isinstance(event.get("message"), str)
+            or not event["message"]
+            or (partial is not None and not isinstance(partial, dict))
+            or value.get("status") != "TERMINAL_REFUSAL"
+            or value.get("refusal_code") != event.get("refusal_code")
+            or (
+                recovered_after_crash
+                and (
+                    event.get("exception_class") != "CrashRecovery"
+                    or event.get("message") != CRASH_PARSE_MESSAGE
+                    or partial is not None
+                )
+            )
+            or (not recovered_after_crash and "recovered_after_crash" in event)
+        ):
+            raise PermissionError("matrix parse failure diagnostic differs")
+        if partial is not None and (
+            set(partial)
+            != {
+                "declared_nnz",
+                "parsed_nnz",
+                "compressed_bytes",
+                "compressed_sha256",
+                "compressed_source_exhausted",
+                "decompressed_bytes",
+                "decompressed_sha256",
+                "gzip_stream_exhausted",
+            }
+            or not isinstance(partial.get("parsed_nnz"), int)
+            or not isinstance(partial.get("compressed_bytes"), int)
+            or not isinstance(partial.get("compressed_sha256"), str)
+            or len(partial["compressed_sha256"]) != 64
+            or not isinstance(partial.get("compressed_source_exhausted"), bool)
+            or not isinstance(partial.get("decompressed_bytes"), int)
+            or not isinstance(partial.get("decompressed_sha256"), str)
+            or len(partial["decompressed_sha256"]) != 64
+            or not isinstance(partial.get("gzip_stream_exhausted"), bool)
+        ):
+            raise PermissionError("matrix parse partial audit differs")
+        if partial is not None:
+            completed_event = completed[completed_keys.index(parse_failed_keys[0])]
+            compressed_bytes = partial["compressed_bytes"]
+            complete_bytes = completed_event.get("bytes")
+            if (
+                partial["compressed_source_exhausted"] is True
+                or compressed_bytes == complete_bytes
+            ):
+                bound = compressed_bytes == completed_event.get("bytes") and partial[
+                    "compressed_sha256"
+                ] == completed_event.get("sha256")
+            else:
+                bound = 0 <= compressed_bytes < completed_event.get("bytes", -1)
+            if not bound:
+                raise PermissionError(
+                    "matrix parse partial audit differs from the completed GET"
+                )
+    if value.get("status") != "TERMINAL_REFUSAL":
+        evidence = _result_matrix_evidence(stage, value)
+        if len(evidence) != len(completed) or len(evidence) != len(parse_finished):
+            raise PermissionError("result matrix evidence count differs")
+        for (download, audit), completed_event, parse_event in zip(
+            evidence, completed, parse_finished
+        ):
+            if (
+                not isinstance(download, dict)
+                or set(download) != {"bytes", "sha256"}
+                or download.get("bytes") != completed_event.get("bytes")
+                or download.get("sha256") != completed_event.get("sha256")
+                or not isinstance(audit, dict)
+                or audit != parse_event.get("parser_audit")
+                or audit.get("compressed_bytes") != download.get("bytes")
+                or audit.get("compressed_sha256") != download.get("sha256")
+                or audit.get("compressed_source_exhausted") is not True
+            ):
+                raise PermissionError("download, parser, and result evidence differ")
+    positions = {
+        (event.get("event"), event.get("patient_id"), event.get("modality")): index
+        for index, event in enumerate(events)
+        if event.get("event") != "OPENED_BEFORE_MATRIX_ACCESS"
+    }
+    for key in started_keys:
+        started_at = positions[("GET_STARTED", *key)]
+        deleted_at = positions.get(("MATRIX_DELETED", *key))
+        if key in completed_keys:
+            completed_at = positions[("GET_COMPLETED", *key)]
+            parse_started_at = positions[("MATRIX_PARSE_STARTED", *key)]
+            outcome_name = (
+                "MATRIX_PARSE_FAILED"
+                if key in parse_failed_keys
+                else "MATRIX_PARSE_FINISHED"
+            )
+            outcome_at = positions[(outcome_name, *key)]
+            if deleted_at is None or not (
+                started_at < completed_at < parse_started_at < outcome_at < deleted_at
+            ):
+                raise PermissionError(
+                    "matrix acquisition, parse, or deletion order differs"
+                )
+        elif key in failure_keys:
+            failed_at = positions[("GET_FAILED_TERMINALLY", *key)]
+            if deleted_at is None or not (started_at < failed_at < deleted_at):
+                raise PermissionError("failed matrix GET deletion order differs")
     if value.get("status") != "TERMINAL_REFUSAL" and (
         started_keys != expected
         or completed_keys != expected
+        or parse_started_keys != expected
+        or parse_finished_keys != expected
+        or parse_failed_keys
         or deleted_keys != expected
         or failures
     ):
@@ -3014,10 +4185,12 @@ def validate(stage: str) -> dict[str, Any]:
         ),
         "score": (SCORE_ATTEMPT_TAG, SCORE_ATTEMPT, SCORE_TAG),
     }
-    _, attempt_path, final_tag = final_tags[stage]
+    _, final_attempt_path, final_tag = final_tags[stage]
+    if final_attempt_path != attempt_path:
+        raise AssertionError("stage attempt path mapping differs")
     consumed = _read_json(consumption)
     if (
-        consumed.get("schema") != f"gse313642-hcc-{stage}-consumption/2.0"
+        consumed.get("schema") != f"gse313642-hcc-{stage}-consumption/3.0"
         or consumed.get("status") != "CONSUMED_BEFORE_FIRST_MATRIX_REQUEST"
         or consumed.get("attempt_sha256") != _sha256(attempt_path)
         or consumed.get("rerun_permitted") is not False
@@ -3054,15 +4227,24 @@ def validate(stage: str) -> dict[str, Any]:
         final_tag, (attempt_path, consumption, access, result)
     )
     _require_ancestor(attempt_commit, final_commit)
+    success_status = {
+        "calibration": "FROZEN_BEFORE_ANY_PILOT_MATRIX_REQUEST",
+        "source": "SOURCE_PASS_REFIT_21",
+        "prediction": "PREDICTIONS_FROZEN_BEFORE_ANY_HELD_FB_ACCESS",
+        "score": "CONFIRMATION_PASS",
+    }[stage]
     return {
         "stage": stage,
         "status": value.get("status"),
+        "valid": True,
+        "stage_passed": value.get("status") == success_status,
         "result_sha256": _sha256(result),
         "completed_matrix_gets": len(completed),
         "matrix_deletions": len(deleted),
         "terminal_get_failures": len(failures),
+        "completed_matrix_parses": len(parse_finished),
+        "terminal_matrix_parse_failures": len(parse_failed),
         "final_commit": final_commit,
-        "passes": True,
     }
 
 

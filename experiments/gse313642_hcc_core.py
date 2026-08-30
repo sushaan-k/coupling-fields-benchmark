@@ -355,17 +355,26 @@ def _predict_residual_at_margins(
 
 
 def select_primary_configuration(
-    calibration_tables: np.ndarray, calibration_cohorts: Sequence[str]
+    calibration_tables: np.ndarray,
+    calibration_cohorts: Sequence[str],
+    *,
+    expected_patient_count: int = 11,
 ) -> tuple[PrimaryConfig, dict[PrimaryConfig, np.ndarray]]:
     """Select eta and transport by calibration-only leave-patient-out loss."""
 
     tables = np.asarray(calibration_tables)
     labels = tuple(calibration_cohorts)
-    if tables.shape != (11, len(MARKERS), len(MARKERS), 2, 2) or len(labels) != 11:
-        raise ValueError("calibration must contain the frozen eleven patients")
-    losses = {config: np.empty(11, dtype=float) for config in CONFIGURATIONS}
-    axis = np.arange(11)
-    for validation in range(11):
+    count = expected_patient_count
+    if isinstance(count, bool) or not isinstance(count, int) or count < 2:
+        raise ValueError("expected_patient_count must be an integer of at least two")
+    if (
+        tables.shape != (count, len(MARKERS), len(MARKERS), 2, 2)
+        or len(labels) != count
+    ):
+        raise ValueError(f"calibration must contain the frozen {count} patients")
+    losses = {config: np.empty(count, dtype=float) for config in CONFIGURATIONS}
+    axis = np.arange(count)
+    for validation in range(count):
         training = axis[axis != validation]
         for eta in (0.1, 1.0):
             representative = PrimaryConfig(eta, 0.75)
@@ -385,21 +394,30 @@ def select_primary_configuration(
 
 
 def select_comparator_alphas(
-    calibration_tables: np.ndarray, calibration_cohorts: Sequence[str]
+    calibration_tables: np.ndarray,
+    calibration_cohorts: Sequence[str],
+    *,
+    expected_patient_count: int = 11,
 ) -> tuple[dict[str, float], dict[str, dict[float, np.ndarray]]]:
     """Select matched comparator transport using calibration LOPO only."""
 
     tables = np.asarray(calibration_tables)
     labels = tuple(calibration_cohorts)
-    if tables.shape != (11, len(MARKERS), len(MARKERS), 2, 2) or len(labels) != 11:
-        raise ValueError("calibration must contain the frozen eleven patients")
+    count = expected_patient_count
+    if isinstance(count, bool) or not isinstance(count, int) or count < 2:
+        raise ValueError("expected_patient_count must be an integer of at least two")
+    if (
+        tables.shape != (count, len(MARKERS), len(MARKERS), 2, 2)
+        or len(labels) != count
+    ):
+        raise ValueError(f"calibration must contain the frozen {count} patients")
     methods = ("cohort_poisson", "cohort_signed_deviance")
     losses = {
-        method: {alpha: np.empty(11, dtype=float) for alpha in (0.75, 1.0)}
+        method: {alpha: np.empty(count, dtype=float) for alpha in (0.75, 1.0)}
         for method in methods
     }
-    axis = np.arange(11)
-    for validation in range(11):
+    axis = np.arange(count)
+    for validation in range(count):
         training = axis[axis != validation]
         training_tables = tables[training]
         training_labels = [labels[index] for index in training]
@@ -592,53 +610,6 @@ def _bootstrap(
     means = np.concatenate(distributions, axis=1).mean(axis=1)
     interval = np.quantile(means, (0.025, 0.975), method="linear")
     return float(interval[0]), float(interval[1])
-
-
-def source_gate(
-    losses: Mapping[str, np.ndarray], cohorts: Sequence[str]
-) -> dict[str, object]:
-    """Apply the untouched 12-patient pilot promotion gate."""
-
-    primary = np.asarray(losses["primary"], dtype=float)
-    labels = np.asarray(tuple(cohorts), dtype=object)
-    if (
-        primary.shape != (12,)
-        or labels.shape != primary.shape
-        or set(labels.tolist()) != set(COHORTS)
-        or not np.isfinite(primary).all()
-    ):
-        raise ValueError("source gate requires twelve finite pilot losses")
-    comparisons = {}
-    for method in SOURCE_GATE_COMPARATORS:
-        comparator = np.asarray(losses[method], dtype=float)
-        difference = primary - comparator
-        checks = {
-            "primary_mean_strictly_lower": float(difference.mean()) < 0.0,
-            "at_least_eight_of_twelve_favorable": int(
-                np.count_nonzero(difference < 0.0)
-            )
-            >= 8,
-            "A_mean_improvement_strictly_positive": float(
-                difference[labels == "A"].mean()
-            )
-            < 0.0,
-            "B_mean_improvement_strictly_positive": float(
-                difference[labels == "B"].mean()
-            )
-            < 0.0,
-        }
-        comparisons[method] = {
-            "primary_mean_loss": float(primary.mean()),
-            "comparator_mean_loss": float(comparator.mean()),
-            "mean_difference": float(difference.mean()),
-            "favorable_patients": int(np.count_nonzero(difference < 0.0)),
-            "checks": checks,
-            "passes": all(checks.values()),
-        }
-    return {
-        "comparisons": comparisons,
-        "passes": all(record["passes"] for record in comparisons.values()),
-    }
 
 
 def held_gate(

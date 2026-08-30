@@ -4,8 +4,9 @@ from __future__ import annotations
 
 from contextlib import contextmanager
 from dataclasses import dataclass
-import gzip
+from decimal import Decimal, InvalidOperation
 import hashlib
+import io
 from numbers import Integral
 from pathlib import Path
 import re
@@ -15,10 +16,16 @@ import zlib
 import numpy as np
 
 
-_BANNER = b"%%MatrixMarket matrix coordinate integer general"
+_INTEGER_BANNER = b"%%MatrixMarket matrix coordinate integer general"
+_REAL_BANNER = b"%%MatrixMarket matrix coordinate real general"
+_ALLOWED_BANNERS = frozenset((_INTEGER_BANNER, _REAL_BANNER))
 _UNSIGNED_INTEGER = re.compile(rb"\+?[0-9]+\Z")
+_REAL_NUMBER = re.compile(
+    rb"\+?(?:(?:[0-9]+(?:\.[0-9]*)?)|(?:\.[0-9]+))(?:[eE][+-]?[0-9]+)?\Z"
+)
 _INT64_MAX = int(np.iinfo(np.int64).max)
 _MAX_LINE_BYTES = 1_048_576
+_COMPRESSED_CHUNK_BYTES = 65_536
 
 
 @dataclass(frozen=True)
@@ -27,6 +34,9 @@ class GzipMatrixMarketPartialAudit:
 
     declared_nnz: int | None
     parsed_nnz: int
+    compressed_bytes: int
+    compressed_sha256: str
+    compressed_source_exhausted: bool
     decompressed_bytes: int
     decompressed_sha256: str
     gzip_stream_exhausted: bool
@@ -47,7 +57,7 @@ class GzipMatrixMarketValidationError(ValueError):
 
 @dataclass(frozen=True)
 class GzipMatrixMarketAudit:
-    """Evidence for validated decompressed content, not compressed-file identity."""
+    """Evidence binding validated matrix content to one complete gzip stream."""
 
     banner: str
     matrix_shape: tuple[int, int]
@@ -63,6 +73,9 @@ class GzipMatrixMarketAudit:
     selected_duplicate_entries: int
     global_value_sum: int
     selected_value_sum: int
+    compressed_bytes: int
+    compressed_sha256: str
+    compressed_source_exhausted: bool
     decompressed_bytes: int
     decompressed_sha256: str
     gzip_stream_exhausted: bool
@@ -88,8 +101,97 @@ class _DecompressedState:
         return self._digest.copy().hexdigest()
 
 
+class _CompressedState:
+    def __init__(self) -> None:
+        self.bytes_read = 0
+        self.source_exhausted = False
+        self._digest = hashlib.sha256()
+
+    def read(self, handle: BinaryIO) -> bytes:
+        chunk = handle.read(_COMPRESSED_CHUNK_BYTES)
+        if chunk:
+            self.bytes_read += len(chunk)
+            self._digest.update(chunk)
+        else:
+            self.source_exhausted = True
+        return chunk
+
+    def hexdigest(self) -> str:
+        return self._digest.copy().hexdigest()
+
+
+class _StrictGzipReader(io.RawIOBase):
+    """Stream one gzip member and reject every byte outside that member."""
+
+    def __init__(self, source: BinaryIO, state: _CompressedState) -> None:
+        super().__init__()
+        self._source = source
+        self._state = state
+        self._decompressor = zlib.decompressobj(16 + zlib.MAX_WBITS)
+        self._compressed_pending = b""
+        self._output = bytearray()
+        self._validated = False
+
+    def readable(self) -> bool:
+        return True
+
+    def readinto(self, buffer: bytearray | memoryview) -> int:
+        view = memoryview(buffer).cast("B")
+        written = 0
+        while written < len(view):
+            if self._output:
+                take = min(len(self._output), len(view) - written)
+                view[written : written + take] = self._output[:take]
+                del self._output[:take]
+                written += take
+                continue
+            if self._validated:
+                break
+            self._decompress_more(len(view) - written)
+        return written
+
+    def _drain_source(self) -> bool:
+        trailing = False
+        while not self._state.source_exhausted:
+            trailing |= bool(self._state.read(self._source))
+        return trailing
+
+    def _decompress_more(self, maximum_output: int) -> None:
+        while not self._output and not self._validated:
+            if self._compressed_pending:
+                compressed = self._compressed_pending
+                self._compressed_pending = b""
+            else:
+                compressed = self._state.read(self._source)
+                if not compressed:
+                    raise GzipMatrixMarketValidationError(
+                        "gzip stream failed validation: compressed member is truncated"
+                    )
+
+            try:
+                output = self._decompressor.decompress(compressed, maximum_output)
+            except zlib.error:
+                self._drain_source()
+                raise
+            self._output.extend(output)
+            self._compressed_pending = self._decompressor.unconsumed_tail
+
+            if self._decompressor.eof:
+                trailing = bool(
+                    self._decompressor.unused_data or self._compressed_pending
+                )
+                trailing |= self._drain_source()
+                if trailing:
+                    raise GzipMatrixMarketValidationError(
+                        "gzip stream failed validation: trailing data or "
+                        "concatenated members are not allowed"
+                    )
+                self._validated = True
+
+
 def _partial_audit(
-    state: _DecompressedState,
+    decompressed: _DecompressedState,
+    compressed: _CompressedState,
     *,
     declared_nnz: int | None,
     parsed_nnz: int,
@@ -98,8 +200,11 @@ def _partial_audit(
     return GzipMatrixMarketPartialAudit(
         declared_nnz=declared_nnz,
         parsed_nnz=parsed_nnz,
-        decompressed_bytes=state.bytes_read,
-        decompressed_sha256=state.hexdigest(),
+        compressed_bytes=compressed.bytes_read,
+        compressed_sha256=compressed.hexdigest(),
+        compressed_source_exhausted=compressed.source_exhausted,
+        decompressed_bytes=decompressed.bytes_read,
+        decompressed_sha256=decompressed.hexdigest(),
         gzip_stream_exhausted=gzip_stream_exhausted,
     )
 
@@ -190,6 +295,31 @@ def _uint64_token(
     return value
 
 
+def _integral_real_token(token: bytes, *, line_number: int) -> int:
+    if _REAL_NUMBER.fullmatch(token) is None:
+        raise GzipMatrixMarketValidationError(
+            f"matrix line {line_number} has invalid value; "
+            "expected a finite nonnegative integral real"
+        )
+    try:
+        parsed = Decimal(token.decode("ascii"))
+    except InvalidOperation as error:
+        raise GzipMatrixMarketValidationError(
+            f"matrix line {line_number} has invalid value; "
+            "expected a finite nonnegative integral real"
+        ) from error
+    if not parsed.is_finite() or parsed < 0 or parsed != parsed.to_integral_value():
+        raise GzipMatrixMarketValidationError(
+            f"matrix line {line_number} has invalid value; "
+            "expected a finite nonnegative integral real"
+        )
+    if parsed > _INT64_MAX:
+        raise GzipMatrixMarketValidationError(
+            f"matrix line {line_number} value exceeds int64 maximum"
+        )
+    return int(parsed)
+
+
 def _parse_dimensions(content: bytes, *, line_number: int) -> tuple[int, int, int]:
     tokens = _ascii_tokens(content, line_number=line_number)
     if len(tokens) != 3:
@@ -210,7 +340,11 @@ def _parse_dimensions(content: bytes, *, line_number: int) -> tuple[int, int, in
 
 
 def _parse_entry(
-    content: bytes, *, line_number: int, shape: tuple[int, int]
+    content: bytes,
+    *,
+    line_number: int,
+    shape: tuple[int, int],
+    real_field: bool,
 ) -> tuple[int, int, int]:
     tokens = _ascii_tokens(content, line_number=line_number)
     if len(tokens) != 3:
@@ -223,9 +357,12 @@ def _parse_entry(
     column = _uint64_token(
         tokens[1], label="column index", line_number=line_number, positive=True
     )
-    value = _uint64_token(
-        tokens[2], label="value", line_number=line_number, positive=False
-    )
+    if real_field:
+        value = _integral_real_token(tokens[2], line_number=line_number)
+    else:
+        value = _uint64_token(
+            tokens[2], label="value", line_number=line_number, positive=False
+        )
     if row > shape[0] or column > shape[1]:
         raise GzipMatrixMarketValidationError(
             f"matrix line {line_number} has an out-of-range coordinate"
@@ -250,11 +387,14 @@ def reduce_gzip_matrix_market(
     expected_shape: Sequence[int],
     selected_rows: Sequence[int],
     selected_columns: Sequence[int],
+    allow_integral_real: bool = False,
 ) -> tuple[np.ndarray, GzipMatrixMarketAudit]:
     """Validate a complete ``.mtx.gz`` stream and materialize one selected block.
 
     Source coordinates and selected indices are 1-based. Output rows and columns
     follow the supplied selection order. Duplicate coordinates are accumulated.
+    Real-field input is refused unless explicitly enabled, and even then every
+    stored value must encode an exact nonnegative integer.
     """
 
     shape = _expected_shape(expected_shape)
@@ -267,6 +407,7 @@ def reduce_gzip_matrix_market(
     block = np.zeros((len(rows), len(columns)), dtype=np.int64)
     selected_seen = np.zeros(block.shape, dtype=bool)
 
+    compressed_state = _CompressedState()
     decompressed = _DecompressedState()
     comment_lines = 0
     blank_lines = 0
@@ -277,18 +418,27 @@ def reduce_gzip_matrix_market(
     selected_entries = 0
     selected_total = 0
     global_total = 0
+    banner: bytes | None = None
 
     try:
         with _binary_source(source) as compressed:
-            with gzip.GzipFile(fileobj=compressed, mode="rb") as matrix:
+            raw_matrix = _StrictGzipReader(compressed, compressed_state)
+            with io.BufferedReader(raw_matrix) as matrix:
                 banner_line = decompressed.readline(matrix, line_number)
                 if not banner_line:
                     raise GzipMatrixMarketValidationError("matrix is empty")
-                if _content(banner_line) != _BANNER:
+                banner = _content(banner_line)
+                if banner not in _ALLOWED_BANNERS:
                     raise GzipMatrixMarketValidationError(
-                        "matrix banner must be exactly "
-                        "'%%MatrixMarket matrix coordinate integer general'"
+                        "matrix banner must be exactly either "
+                        "'%%MatrixMarket matrix coordinate integer general' or "
+                        "'%%MatrixMarket matrix coordinate real general'"
                     )
+                if banner == _REAL_BANNER and not allow_integral_real:
+                    raise GzipMatrixMarketValidationError(
+                        "real-field matrices require allow_integral_real=True"
+                    )
+                real_field = banner == _REAL_BANNER
 
                 matrix_shape: tuple[int, int] | None = None
                 while True:
@@ -338,7 +488,10 @@ def reduce_gzip_matrix_market(
                         continue
 
                     row, column, value = _parse_entry(
-                        content, line_number=line_number, shape=shape
+                        content,
+                        line_number=line_number,
+                        shape=shape,
+                        real_field=real_field,
                     )
                     parsed_nnz += 1
                     if parsed_nnz > declared_nnz:
@@ -376,15 +529,20 @@ def reduce_gzip_matrix_market(
             str(error),
             partial_audit=_partial_audit(
                 decompressed,
+                compressed_state,
                 declared_nnz=declared_nnz,
                 parsed_nnz=parsed_nnz,
             ),
         ) from error
-    except (EOFError, gzip.BadGzipFile, zlib.error) as error:
+    except zlib.error as error:
+        detail = (
+            "CRC check failed" if "incorrect data check" in str(error) else str(error)
+        )
         raise GzipMatrixMarketValidationError(
-            f"gzip stream failed validation: {error}",
+            f"gzip stream failed validation: {detail}",
             partial_audit=_partial_audit(
                 decompressed,
+                compressed_state,
                 declared_nnz=declared_nnz,
                 parsed_nnz=parsed_nnz,
             ),
@@ -392,11 +550,14 @@ def reduce_gzip_matrix_market(
 
     if declared_nnz is None:
         raise AssertionError("declared_nnz was not assigned")
+    if banner is None:
+        raise AssertionError("banner was not assigned")
     if parsed_nnz != declared_nnz:
         raise GzipMatrixMarketValidationError(
             f"matrix declares {declared_nnz} entries but contains {parsed_nnz}",
             partial_audit=_partial_audit(
                 decompressed,
+                compressed_state,
                 declared_nnz=declared_nnz,
                 parsed_nnz=parsed_nnz,
                 gzip_stream_exhausted=True,
@@ -405,7 +566,7 @@ def reduce_gzip_matrix_market(
 
     distinct_selected = int(selected_seen.sum())
     audit = GzipMatrixMarketAudit(
-        banner=_BANNER.decode("ascii"),
+        banner=banner.decode("ascii"),
         matrix_shape=shape,
         selected_rows=rows,
         selected_columns=columns,
@@ -419,6 +580,9 @@ def reduce_gzip_matrix_market(
         selected_duplicate_entries=selected_entries - distinct_selected,
         global_value_sum=global_total,
         selected_value_sum=selected_total,
+        compressed_bytes=compressed_state.bytes_read,
+        compressed_sha256=compressed_state.hexdigest(),
+        compressed_source_exhausted=compressed_state.source_exhausted,
         decompressed_bytes=decompressed.bytes_read,
         decompressed_sha256=decompressed.hexdigest(),
         gzip_stream_exhausted=True,

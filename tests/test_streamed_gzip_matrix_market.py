@@ -79,6 +79,106 @@ def test_unsorted_duplicate_coordinates_are_accumulated_and_fully_audited() -> N
     assert audit.output_dtype == "int64"
 
 
+def test_integral_real_field_is_accepted_exactly_and_audited() -> None:
+    compressed = _payload(
+        [
+            "4 5 3.0000000e+00",
+            "1 2 5e0",
+            "4 2 .0",
+            "1 2 6.00E+0",
+            "3 4 1.2300e2",
+            "2 3 9.007199254740993e15",
+        ],
+        banner="%%MatrixMarket matrix coordinate real general",
+    )
+
+    block, audit = _reduce(io.BytesIO(compressed), allow_integral_real=True)
+
+    np.testing.assert_array_equal(block, [[3, 0], [0, 11]])
+    assert audit.banner == "%%MatrixMarket matrix coordinate real general"
+    assert audit.global_value_sum == 9_007_199_254_741_130
+    assert audit.zero_value_entries == 1
+    assert audit.output_dtype == "int64"
+
+
+@pytest.mark.parametrize(
+    "value",
+    [
+        "-0.0",
+        "-1.0",
+        "1.5",
+        "nan",
+        "inf",
+        "1_0.0",
+        "0x1",
+        "1e",
+        "1e-1",
+        "1e999999999999999999999",
+        "1.0000000000000000001",
+    ],
+)
+def test_real_field_rejects_non_count_values(value: str) -> None:
+    compressed = _payload(
+        [f"1 2 {value}"], banner="%%MatrixMarket matrix coordinate real general"
+    )
+
+    with pytest.raises(
+        GzipMatrixMarketValidationError,
+        match="expected a finite nonnegative integral real",
+    ):
+        _reduce(io.BytesIO(compressed), allow_integral_real=True)
+
+
+def test_real_field_rejects_fractional_unselected_entry() -> None:
+    compressed = _payload(
+        ["2 3 1.5"], banner="%%MatrixMarket matrix coordinate real general"
+    )
+
+    with pytest.raises(
+        GzipMatrixMarketValidationError,
+        match="expected a finite nonnegative integral real",
+    ):
+        _reduce(io.BytesIO(compressed), allow_integral_real=True)
+
+
+def test_real_field_is_opt_in() -> None:
+    compressed = _payload(
+        ["1 2 1.0"], banner="%%MatrixMarket matrix coordinate real general"
+    )
+
+    with pytest.raises(
+        GzipMatrixMarketValidationError, match="require allow_integral_real=True"
+    ):
+        _reduce(io.BytesIO(compressed))
+
+
+def test_real_field_enforces_exact_int64_bound() -> None:
+    maximum = np.iinfo(np.int64).max
+    accepted = _payload(
+        [f"2 3 {maximum}.0"], banner="%%MatrixMarket matrix coordinate real general"
+    )
+    _, audit = _reduce(io.BytesIO(accepted), allow_integral_real=True)
+    assert audit.global_value_sum == maximum
+
+    rejected = _payload(
+        ["2 3 9.223372036854775808e18"],
+        banner="%%MatrixMarket matrix coordinate real general",
+    )
+    with pytest.raises(GzipMatrixMarketValidationError, match="exceeds int64"):
+        _reduce(io.BytesIO(rejected), allow_integral_real=True)
+
+
+def test_real_field_duplicate_accumulation_still_enforces_int64_bound() -> None:
+    maximum = np.iinfo(np.int64).max
+    compressed = _payload(
+        [f"1 2 {maximum}.0", "1 2 1.0"],
+        banner="%%MatrixMarket matrix coordinate real general",
+    )
+
+    with pytest.raises(GzipMatrixMarketValidationError, match="selected int64 cell"):
+        _reduce(io.BytesIO(compressed), allow_integral_real=True)
+
+
 def test_path_and_open_binary_stream_produce_identical_deterministic_audit(
     tmp_path: Path,
 ) -> None:
@@ -93,20 +193,53 @@ def test_path_and_open_binary_stream_produce_identical_deterministic_audit(
     np.testing.assert_array_equal(from_path[0], from_stream[0])
     assert asdict(from_path[1]) == asdict(from_stream[1])
     assert not stream.closed
+    assert from_path[1].compressed_bytes == len(compressed)
+    assert from_path[1].compressed_sha256 == hashlib.sha256(compressed).hexdigest()
+    assert from_path[1].compressed_source_exhausted
     assert from_path[1].decompressed_sha256 == (
         "d5092ad03efe3b35b8609ad552229dab0ca7b80bb517f8cb977ce43035a8e664"
     )
 
 
-def test_audit_hash_identifies_decompressed_content_not_compressed_identity() -> None:
+def test_audit_binds_both_compressed_identity_and_decompressed_content() -> None:
     compressed = _payload(["1 2 3"])
     decompressed = gzip.decompress(compressed)
 
     _, audit = _reduce(io.BytesIO(compressed))
 
+    assert audit.compressed_bytes == len(compressed)
+    assert audit.compressed_sha256 == hashlib.sha256(compressed).hexdigest()
+    assert audit.compressed_source_exhausted
     assert audit.decompressed_bytes == len(decompressed)
     assert audit.decompressed_sha256 == hashlib.sha256(decompressed).hexdigest()
     assert audit.decompressed_sha256 != hashlib.sha256(compressed).hexdigest()
+
+
+def test_compressed_audit_distinguishes_encodings_of_identical_content() -> None:
+    decompressed = gzip.decompress(_payload(["1 2 3"]))
+    first = gzip.compress(decompressed, mtime=0)
+    second = gzip.compress(decompressed, mtime=1)
+
+    _, first_audit = _reduce(io.BytesIO(first))
+    _, second_audit = _reduce(io.BytesIO(second))
+
+    assert first_audit.decompressed_sha256 == second_audit.decompressed_sha256
+    assert first_audit.compressed_sha256 != second_audit.compressed_sha256
+    assert first_audit.compressed_sha256 == hashlib.sha256(first).hexdigest()
+    assert second_audit.compressed_sha256 == hashlib.sha256(second).hexdigest()
+
+
+def test_stream_audit_starts_at_the_callers_current_position() -> None:
+    compressed = _payload(["1 2 3"])
+    prefix = b"bytes outside the supplied stream position"
+    stream = io.BytesIO(prefix + compressed)
+    stream.seek(len(prefix))
+
+    _, audit = _reduce(stream)
+
+    assert audit.compressed_bytes == len(compressed)
+    assert audit.compressed_sha256 == hashlib.sha256(compressed).hexdigest()
+    assert stream.tell() == len(prefix) + len(compressed)
 
 
 def test_selected_axis_order_controls_output_and_is_preserved_in_audit() -> None:
@@ -143,6 +276,34 @@ def test_valid_matrix_can_have_no_entries_in_selected_block() -> None:
             ),
             "banner must be exactly",
         ),
+        (
+            _payload(
+                ["1 1 1"],
+                banner="%%MatrixMarket matrix coordinate real symmetric",
+            ),
+            "banner must be exactly",
+        ),
+        (
+            _payload(
+                ["1 1 1"],
+                banner="%%MatrixMarket matrix coordinate complex general",
+            ),
+            "banner must be exactly",
+        ),
+        (
+            _payload(
+                ["1 1 1"],
+                banner="%%MatrixMarket matrix array real general",
+            ),
+            "banner must be exactly",
+        ),
+        (
+            _payload(
+                ["1 1 1"],
+                banner="%%MatrixMarket matrix coordinate pattern general",
+            ),
+            "banner must be exactly",
+        ),
         (_payload(["1 1 1"], shape=(5, 4)), "appear transposed"),
         (_payload(["1 1 1"], shape=(4, 6)), "do not match expected_shape"),
         (
@@ -161,6 +322,8 @@ def test_valid_matrix_can_have_no_entries_in_selected_block() -> None:
         (_payload(["5 1 1"]), "out-of-range coordinate"),
         (_payload(["1 6 1"]), "out-of-range coordinate"),
         (_payload(["1 1 -1"]), "invalid value"),
+        (_payload(["1 1 1.0"]), "invalid value"),
+        (_payload(["1 1 1e0"]), "invalid value"),
         (_payload(["1 1 1.5"]), "invalid value"),
         (_payload(["1 1 nan"]), "invalid value"),
         (_payload(["1 1 inf"]), "invalid value"),
@@ -228,28 +391,63 @@ def test_rejects_single_value_beyond_int64() -> None:
 
 def test_rejects_truncated_gzip_even_after_complete_declared_matrix() -> None:
     compressed = _payload(["1 2 3"])
+    truncated = compressed[:-3]
 
-    with pytest.raises(GzipMatrixMarketValidationError, match="gzip stream failed"):
-        _reduce(io.BytesIO(compressed[:-3]))
+    with pytest.raises(
+        GzipMatrixMarketValidationError, match="gzip stream failed"
+    ) as caught:
+        _reduce(io.BytesIO(truncated))
+
+    partial = caught.value.partial_audit
+    assert partial.compressed_bytes == len(truncated)
+    assert partial.compressed_sha256 == hashlib.sha256(truncated).hexdigest()
+    assert partial.compressed_source_exhausted
+    assert not partial.gzip_stream_exhausted
 
 
-def test_rejects_crc_corruption_discovered_only_at_stream_exhaustion() -> None:
+@pytest.mark.parametrize(
+    "suffix",
+    [b"trailing bytes", gzip.compress(b"", mtime=0)],
+    ids=["raw-trailing-data", "concatenated-gzip-member"],
+)
+def test_rejects_and_fully_identifies_content_after_the_single_member(
+    suffix: bytes,
+) -> None:
+    combined = _payload(["1 2 3"]) + suffix
+
+    with pytest.raises(
+        GzipMatrixMarketValidationError,
+        match="trailing data or concatenated members",
+    ) as caught:
+        _reduce(io.BytesIO(combined))
+
+    partial = caught.value.partial_audit
+    assert partial.compressed_bytes == len(combined)
+    assert partial.compressed_sha256 == hashlib.sha256(combined).hexdigest()
+    assert partial.compressed_source_exhausted
+    assert not partial.gzip_stream_exhausted
+
+
+def test_rejects_crc_corruption_with_complete_compressed_identity() -> None:
     original = _payload(["1 2 3"])
-    decompressed = gzip.decompress(original)
     compressed = bytearray(original)
     compressed[-8] ^= 1
+    corrupted = bytes(compressed)
 
     with pytest.raises(
         GzipMatrixMarketValidationError, match="CRC check failed"
     ) as caught:
-        _reduce(io.BytesIO(compressed))
+        _reduce(io.BytesIO(corrupted))
 
     partial = caught.value.partial_audit
     assert partial == GzipMatrixMarketPartialAudit(
-        declared_nnz=1,
-        parsed_nnz=1,
-        decompressed_bytes=len(decompressed),
-        decompressed_sha256=hashlib.sha256(decompressed).hexdigest(),
+        declared_nnz=None,
+        parsed_nnz=0,
+        compressed_bytes=len(corrupted),
+        compressed_sha256=hashlib.sha256(corrupted).hexdigest(),
+        compressed_source_exhausted=True,
+        decompressed_bytes=0,
+        decompressed_sha256=hashlib.sha256(b"").hexdigest(),
         gzip_stream_exhausted=False,
     )
 
@@ -268,6 +466,9 @@ def test_rejects_deterministic_corrupt_deflate_as_validation_failure() -> None:
     assert caught.value.partial_audit == GzipMatrixMarketPartialAudit(
         declared_nnz=None,
         parsed_nnz=0,
+        compressed_bytes=len(invalid_stream),
+        compressed_sha256=hashlib.sha256(invalid_stream).hexdigest(),
+        compressed_source_exhausted=True,
         decompressed_bytes=0,
         decompressed_sha256=hashlib.sha256(b"").hexdigest(),
         gzip_stream_exhausted=False,
@@ -290,12 +491,45 @@ def test_parse_failure_retains_immutable_prefix_audit() -> None:
     assert partial == GzipMatrixMarketPartialAudit(
         declared_nnz=3,
         parsed_nnz=1,
+        compressed_bytes=len(compressed),
+        compressed_sha256=hashlib.sha256(compressed).hexdigest(),
+        compressed_source_exhausted=True,
         decompressed_bytes=len(prefix),
         decompressed_sha256=hashlib.sha256(prefix).hexdigest(),
         gzip_stream_exhausted=False,
     )
     with pytest.raises(FrozenInstanceError):
         setattr(partial, "parsed_nnz", 2)
+
+
+def test_early_parse_failure_hashes_exactly_the_compressed_prefix_read() -> None:
+    suffix = b"".join(
+        hashlib.sha256(index.to_bytes(4, "big")).digest() for index in range(4096)
+    )
+    compressed = gzip.compress(b"invalid banner\n" + suffix, mtime=0)
+
+    class RecordingCappedStream(io.BytesIO):
+        def __init__(self, payload: bytes) -> None:
+            super().__init__(payload)
+            self.consumed = bytearray()
+
+        def read(self, size=-1):
+            chunk = super().read(min(size, 4096))
+            self.consumed.extend(chunk)
+            return chunk
+
+    stream = RecordingCappedStream(compressed)
+    with pytest.raises(
+        GzipMatrixMarketValidationError, match="banner must be exactly"
+    ) as caught:
+        _reduce(stream)
+
+    partial = caught.value.partial_audit
+    assert 0 < partial.compressed_bytes < len(compressed)
+    assert partial.compressed_bytes == len(stream.consumed)
+    assert partial.compressed_sha256 == hashlib.sha256(stream.consumed).hexdigest()
+    assert not partial.compressed_source_exhausted
+    assert not stream.closed
 
 
 def test_declared_nnz_failure_retains_complete_content_as_partial_audit() -> None:
@@ -310,6 +544,9 @@ def test_declared_nnz_failure_retains_complete_content_as_partial_audit() -> Non
     assert caught.value.partial_audit == GzipMatrixMarketPartialAudit(
         declared_nnz=2,
         parsed_nnz=1,
+        compressed_bytes=len(compressed),
+        compressed_sha256=hashlib.sha256(compressed).hexdigest(),
+        compressed_source_exhausted=True,
         decompressed_bytes=len(decompressed),
         decompressed_sha256=hashlib.sha256(decompressed).hexdigest(),
         gzip_stream_exhausted=True,
