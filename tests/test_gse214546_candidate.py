@@ -10,6 +10,10 @@ PROTOCOL = ROOT / "docs/GSE214546_TEASEQ_HELD_DONOR_CONFIRMATION_PROTOCOL_2026-0
 AMENDMENT = (
     ROOT / "data/confirmation/gse214546_teaseq/pre_access_schema_amendment_v1.json"
 )
+CLARIFICATION = (
+    ROOT
+    / "data/confirmation/gse214546_teaseq/pre_access_implementation_clarification_v1.json"
+)
 
 
 def _designation() -> dict:
@@ -99,3 +103,23 @@ def test_pre_access_amendment_uses_only_schema_and_string_axes() -> None:
             batch: sum(s["batch"] == batch for s in split)
             for batch in ("B065", "B069", "B076")
         } == {"B065": 2, "B069": 2, "B076": 4}
+
+
+def test_pre_access_clarification_fixes_axis_and_comparator_availability() -> None:
+    payload = json.loads(CLARIFICATION.read_text(encoding="utf-8"))
+    assert payload["numeric_count_or_sparse_value_dataset_read"] is False
+    assert payload["held_h5_requested_or_opened"] is False
+    assert payload["metadata_eligibility"] == {
+        "barcode_column": "barcodes",
+        "eligibility_column": "singlet",
+        "eligible_literal": "TRUE",
+        "comparison": "exact case-sensitive string equality",
+    }
+    axis = payload["source_axis_algorithm"]
+    assert axis["minimum_markers"] == 20
+    assert axis["maximum_markers"] == 24
+    assert axis["pseudocount"] is None
+    assert "strictly positive pooled 2x2 cells" in axis["selection"]
+    assert payload["classical_comparators"]["zero_cell_policy"].startswith(
+        "unavailable"
+    )

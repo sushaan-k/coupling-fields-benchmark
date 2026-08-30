@@ -1,0 +1,53 @@
+{
+  "schema": "gse214546-teaseq-pre-access-implementation-clarification/1.0",
+  "created_at_utc": "2026-08-30T06:24:59Z",
+  "numeric_count_or_sparse_value_dataset_read": false,
+  "held_h5_requested_or_opened": false,
+  "candidate_tag": "gse214546-teaseq-v1-candidate",
+  "schema_amendment_tag": "gse214546-teaseq-v1-pre-access-amendment",
+  "schema_amendment_sha256": "e675caf330934671cf28de3bc5795713b685fb75e8c82653ab6eb1424fd9cd58",
+  "context_estimator_commit": "b781f23",
+  "context_estimator_sha256": "5f1b5369ecf2ccc578075f3fcb8955cfa4ae705ae7225b9ddc51a69a456dc868",
+  "metadata_eligibility": {
+    "barcode_column": "barcodes",
+    "eligibility_column": "singlet",
+    "eligible_literal": "TRUE",
+    "comparison": "exact case-sensitive string equality"
+  },
+  "source_axis_algorithm": {
+    "candidate_axis": "53 marker mappings in pre_access_schema_amendment_v1.json",
+    "marginal_filter": "RNA positive count is from 4 through 508 in every source donor",
+    "ranking": "descending minimum across source donors of min(RNA-positive cells, RNA-negative cells), then ascending protein name",
+    "selection": "Traverse the ranking once. Accept a marker only if the complete cross-product of accepted markers plus the candidate has strictly positive pooled 2x2 cells in all eight sources, the four adult sources, and the four pediatric sources.",
+    "maximum_markers": 24,
+    "minimum_markers": 20,
+    "failure": "terminal source support refusal",
+    "pseudocount": null,
+    "purpose": "keep the standard global and age-stratified saturated Poisson interactions finite on exactly the primary coordinate axis"
+  },
+  "context_model": {
+    "design_columns": ["intercept", "pediatric_indicator"],
+    "donor_deviation_penalty_grid": [0.1, 1.0, 10.0],
+    "intercept_ridge": 0.01,
+    "age_coefficient_ridge_grid": [0.1, 1.0, 10.0],
+    "transport_grid": [0.75, 1.0],
+    "selection": "leave-one-source-donor-out mean deviance; lexicographic parameter order breaks exact ties",
+    "scaled_gradient_tolerance": 1e-8,
+    "maximum_condition_number": 1000000000000.0,
+    "graph_penalty": 0.0
+  },
+  "classical_comparators": {
+    "global": "unregularized saturated Poisson interaction from the donor-pooled source 2x2 table",
+    "age_stratified": "the same interaction fitted separately to adult-pooled and pediatric-pooled source tables",
+    "transport_grid": [0.75, 1.0, 1.25],
+    "recipient_reconstruction": "profile continuous recipient row and column parameters at the transported fixed interaction",
+    "zero_cell_policy": "unavailable; the source-axis algorithm removes such coordinates without a pseudocount"
+  },
+  "firewall": {
+    "source_stage": "may read source matrix/data, matrix/indices, matrix/indptr, ADT/data, ADT/indices, and ADT/indptr only after a public implementation tag and exclusive source claim",
+    "prediction_stage": "may read held matrix/data, matrix/indices, and matrix/indptr for frozen RNA rows only; held ADT value and sparse-index datasets remain forbidden",
+    "score_stage": "may read held RNA and ADT sparse values only after prediction publication and a separate public score authorization",
+    "sequential_deletion": true,
+    "rerun_permitted": false
+  }
+}
