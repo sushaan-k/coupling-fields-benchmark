@@ -10,6 +10,11 @@ from .coupling_fields import (
     fit_structured_coupling_fields,
     inverse_permutation_variance_weights,
 )
+from .context_conditional_coupling import (
+    ContextConditionalCouplingFit,
+    fit_context_conditional_log_odds,
+    predict_context_log_odds,
+)
 from .factorial_coupling import (
     FactorialCouplingDiagnostics,
     FactorialCouplingFit,
@@ -27,6 +32,7 @@ from .table_prediction import (
 
 __all__ = [
     "ConditionalAssociationEstimate",
+    "ContextConditionalCouplingFit",
     "CouplingFieldRefusal",
     "FactorialCouplingDiagnostics",
     "FactorialCouplingFit",
@@ -37,10 +43,12 @@ __all__ = [
     "conditional_association_coordinates",
     "factorial_association_contrast",
     "fit_factorial_coupling",
+    "fit_context_conditional_log_odds",
     "fit_structured_coupling_fields",
     "field_coordinates_to_table",
     "ipf_to_margins",
     "inverse_permutation_variance_weights",
     "multinomial_deviance_per_observation",
+    "predict_context_log_odds",
     "residual_coordinates_to_table",
 ]
