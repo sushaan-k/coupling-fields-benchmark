@@ -1,0 +1,15 @@
+{
+  "schema": "gse214546-teaseq-pre-access-cv-availability-clarification/1.0",
+  "created_at_utc": "2026-08-30T06:27:24Z",
+  "numeric_count_or_sparse_value_dataset_read": false,
+  "held_h5_requested_or_opened": false,
+  "prior_clarification_tag": "gse214546-teaseq-v1-implementation-clarification",
+  "prior_clarification_sha256": "54304d0829f74c684b4b10d41806bc2651832ca35b6d0328ecfeefabfe41ecea",
+  "clarification": "The strictly-positive pooled-cell criterion applies to every source pool that is actually fitted: the full global, adult, and pediatric pools and, within each of eight leave-one-donor-out folds, the training-global pool and each nonempty training age stratum.",
+  "reason": "A coordinate available in the full source pool can be unavailable in a seven-donor training pool if the omitted donor supplied its only positive cell. The frozen unregularized Poisson comparator must therefore be finite in every cross-validation fit as well as the final fit.",
+  "axis_order_or_cap_changed": false,
+  "estimator_or_grid_changed": false,
+  "comparator_changed": false,
+  "pseudocount": null,
+  "rerun_permitted": false
+}

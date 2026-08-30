@@ -14,6 +14,10 @@ CLARIFICATION = (
     ROOT
     / "data/confirmation/gse214546_teaseq/pre_access_implementation_clarification_v1.json"
 )
+CV_CLARIFICATION = (
+    ROOT
+    / "data/confirmation/gse214546_teaseq/pre_access_cv_availability_clarification_v1.json"
+)
 
 
 def _designation() -> dict:
@@ -123,3 +127,10 @@ def test_pre_access_clarification_fixes_axis_and_comparator_availability() -> No
     assert payload["classical_comparators"]["zero_cell_policy"].startswith(
         "unavailable"
     )
+
+    cv = json.loads(CV_CLARIFICATION.read_text(encoding="utf-8"))
+    assert cv["numeric_count_or_sparse_value_dataset_read"] is False
+    assert cv["held_h5_requested_or_opened"] is False
+    assert cv["pseudocount"] is None
+    assert "each of eight leave-one-donor-out folds" in cv["clarification"]
+    assert cv["estimator_or_grid_changed"] is False
