@@ -1,0 +1,53 @@
+{
+  "authorization": {
+    "authorization_path": "data/confirmation/kotliarov_pbmc_binary_v2/source_authorization_v2.json",
+    "authorization_sha256": "1b6fd95ae23d7cf7f5427eb1f21ee31461e0ed48973366356b924d7132fc5b81",
+    "public_authorization_commit": "b94322b43c359d58cec931ca2973e7e40deb251a",
+    "public_implementation_commit": "0cc77d9b869c29653f283959ed43651a703ae33f",
+    "runtime_contract": {
+      "h5py_version": "3.14.0",
+      "hdf5_built_version": "1.14.6",
+      "hdf5_built_version_tuple": [
+        1,
+        14,
+        6
+      ],
+      "hdf5_runtime_version": "1.14.6",
+      "hdf5_runtime_version_tuple": [
+        1,
+        14,
+        6
+      ],
+      "numpy_version": "2.0.2",
+      "pandas_version": "2.3.3",
+      "platform_machine": "arm64",
+      "platform_system": "Darwin",
+      "python_implementation": "CPython",
+      "python_version": "3.9.6",
+      "required_thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1"
+      },
+      "scipy_version": "1.13.1"
+    }
+  },
+  "created_at_utc": "2026-08-30T00:39:42Z",
+  "expected_input_identities": {
+    "array.h5": {
+      "bytes": 4708920,
+      "md5": "d74235cc89e0c8edbd9637731e53c8d6",
+      "sha256": "129e1da6986a7ac9b3aa3c1d7a147972c0b9d3e4691a0d83fd239a91c93f5362"
+    },
+    "matrix.h5": {
+      "bytes": 82850550,
+      "md5": "8778f578eced043bd993a474c8919139",
+      "sha256": "7360396001a67a1e187f10d3b1307f2c390a7788788f10efe9999337b5f810d4"
+    }
+  },
+  "held_adt_values_authorized": false,
+  "matrix_byte_access_begins_after_this_record": true,
+  "rerun_permitted": false,
+  "schema": "kotliarov-pbmc-binary-v2-source-attempt/2.0",
+  "status": "CLAIMED_ONE_SHOT_BEFORE_COUNT_DATASET_OPEN"
+}
