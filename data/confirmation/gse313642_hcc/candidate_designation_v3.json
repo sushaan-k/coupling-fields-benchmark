@@ -1,0 +1,84 @@
+{
+  "schema": "gse313642-hcc-citeseq-candidate-designation/3.0",
+  "status": "FROZEN_POST_FAILURE_BEFORE_PILOT_OR_HELD_NUMERIC_ACCESS",
+  "designated_at_utc": "2026-08-30T20:30:20Z",
+  "accession": "GSE313642",
+  "study": "HCC PBMC CITE-seq during sorafenib and checkpoint-inhibitor therapy",
+  "base_designation": {
+    "path": "data/confirmation/gse313642_hcc/candidate_designation_v2.json",
+    "sha256": "f8e43c78ec44f85ce8c1e6001a87529702df008caa5a5c9196e3e93182593adf"
+  },
+  "base_manifest": {
+    "path": "data/confirmation/gse313642_hcc/source_manifest_v2.json",
+    "sha256": "fa900ff433538117440e673081a0bf7c762b1bf4d750a0752adc31b962441344"
+  },
+  "prior_campaigns": {
+    "v1": {
+      "terminal_commit": "b814c6c33a068ae341f983d8d82ea40dddb36207",
+      "terminal_tag": "gse313642-hcc-v1-terminal-axis-refusal",
+      "result": "A33 duplicate-barcode axis refusal before matrix access"
+    },
+    "v2": {
+      "terminal_commit": "9d0b53421111a1c6633bf39bf5179b4e923c06ea",
+      "terminal_tag": "gse313642-hcc-v2-calibration",
+      "result": "A30 calibration execution refusal before pilot or held access"
+    },
+    "postterminal_debug": {
+      "commit": "fd939bd08dac5ed67f620bc6bf2c269eb4b8f2ca",
+      "tag": "gse313642-hcc-v2-postterminal-debug-disclosure",
+      "path": "data/confirmation/gse313642_hcc/postterminal_debug_disclosure_v2.json",
+      "sha256": "b88a3411712df72c91475a59faea25aa2d09b9ea39b3de67c0649f66bab5c58d"
+    }
+  },
+  "pre_v3_numeric_access": {
+    "exposed_development_patients": ["A30"],
+    "pilot_matrix_gets": 0,
+    "held_gex_matrix_gets": 0,
+    "held_fb_matrix_gets": 0,
+    "a30_use_in_v3": "excluded from calibration, refitting, prediction, scoring, and inference"
+  },
+  "v3_cohort": {
+    "patient_count": 33,
+    "calibration_count": 10,
+    "pilot_count": 11,
+    "held_count": 12,
+    "source_refit_count_after_promotion": 21,
+    "calibration": ["A12", "A08", "A32", "A34", "B15", "B23", "B17", "B04", "B08", "B03"],
+    "pilot": ["A04", "A03", "A35", "A31", "B02", "B07", "B06", "B05", "B21", "B01", "B12"],
+    "held": ["A05", "A02", "A07", "A21", "A36", "B11", "B14", "B13", "B22", "B18", "B09", "B10"]
+  },
+  "frozen_markers": ["CD4", "CD7", "CD14", "CD19", "CD33", "CD38", "CD44", "CD47", "CD52"],
+  "frozen_entity_count_per_patient": 81,
+  "inherited_without_change": [
+    "patient sample-selection rule",
+    "A/B-stratified split rule and salt",
+    "pilot and held patient identities",
+    "barcode selection and FB dichotomization",
+    "primary estimator and hyperparameter grid",
+    "classical comparators",
+    "pilot promotion gate",
+    "held decision criteria",
+    "bootstrap seed and draw count"
+  ],
+  "v3_only_changes": [
+    "exclude exposed development patient A30 without replacement",
+    "reduce calibration LOPO from 11 folds to 10 folds and source refit from 22 to 21 patients",
+    "opt in to exact count-preserving parsing of Matrix Market real-field values",
+    "record durable matrix-parse phase events and structured terminal diagnostics"
+  ],
+  "matrix_value_contract": {
+    "accepted_banners": [
+      "%%MatrixMarket matrix coordinate integer general",
+      "%%MatrixMarket matrix coordinate real general"
+    ],
+    "real_field_requirement": "every stored value, selected or unselected, must be an unsigned finite exact integer within int64",
+    "floating_point_rounding_permitted": false
+  },
+  "outcome_freeze": {
+    "calibration_except_a30_unopened_at_designation": true,
+    "pilot_unopened_at_designation": true,
+    "held_unopened_at_designation": true,
+    "pilot_and_held_numerical_rules_changed_after_v2": false,
+    "campaign_description": "pre-outcome frozen public-data holdout after a disclosed development-stage execution failure"
+  }
+}

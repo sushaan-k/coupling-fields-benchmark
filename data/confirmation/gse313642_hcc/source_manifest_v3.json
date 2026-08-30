@@ -1,0 +1,45 @@
+{
+  "schema": "gse313642-hcc-source-manifest/3.0",
+  "status": "FROZEN_OVERLAY_ON_V2_MANIFEST",
+  "created_at_utc": "2026-08-30T20:30:20Z",
+  "base_manifest": {
+    "path": "data/confirmation/gse313642_hcc/source_manifest_v2.json",
+    "sha256": "fa900ff433538117440e673081a0bf7c762b1bf4d750a0752adc31b962441344",
+    "record_count": 204
+  },
+  "selection_rule": "Retain every v2 record whose patient_id is not A30; preserve every URL, filename, byte count, role, modality, and member unchanged, then map the v2 stage label to its v3 counterpart below.",
+  "excluded_records": {
+    "patient_id": "A30",
+    "axis_records": 4,
+    "matrix_records": 2,
+    "reason": "numeric development exposure before v3 freeze"
+  },
+  "v3_counts": {
+    "patient_count": 33,
+    "record_count": 198,
+    "reused_axis_records": 132,
+    "calibration_matrix_records": 20,
+    "pilot_matrix_records": 22,
+    "held_gex_matrix_records": 12,
+    "held_fb_matrix_records": 12
+  },
+  "active_patients": {
+    "calibration": ["A12", "A08", "A32", "A34", "B15", "B23", "B17", "B04", "B08", "B03"],
+    "pilot": ["A04", "A03", "A35", "A31", "B02", "B07", "B06", "B05", "B21", "B01", "B12"],
+    "held": ["A05", "A02", "A07", "A21", "A36", "B11", "B14", "B13", "B22", "B18", "B09", "B10"]
+  },
+  "allowed_stage_mapping": {
+    "v2_reuse_only_no_get": "v3_reuse_only_no_get",
+    "source_calibration": "calibration",
+    "source_pilot_after_calibration_freeze": "source",
+    "held_gex_prediction": "prediction",
+    "held_fb_score_after_prediction_freeze": "score"
+  },
+  "network_contract": {
+    "series_raw_tar": "FORBIDDEN",
+    "one_get_per_authorized_matrix": true,
+    "automatic_retry": false,
+    "a30_matrix_get_authorized": false,
+    "new_axis_get_authorized": false
+  }
+}
