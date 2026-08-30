@@ -45,7 +45,11 @@ their prior procedural refusals. Eleven subsequent public source campaigns also
 terminated before held scoring and are enumerated in the panels ledger. The
 source-only Kotliarov binary-v2 replacement separately refused because no
 frozen configuration completed every source-held fold; it produced no
-comparison decision or held run. The recovery-amended unused-Cambridge run
+comparison decision or held run. The GSE179221 BMMC candidate then refused at
+the exact cognate-axis gate on its first source donor. It opened barcode and
+feature axes but no count dataset; the remaining seven source files and all ten
+held files were unrequested. No table, model, comparison, prediction, or score
+was formed. The recovery-amended unused-Cambridge run
 produced no prediction or score and is
 infrastructure-unevaluable. Its row contains no performance value and remains
 bound to the published terminal record; no scientific decision is assigned.
@@ -78,6 +82,7 @@ perturbation prediction or universal structured-estimator superiority.
 | Hao GSE164378 | Four development donors; three held donors | Predeclared aliases | Not scored; fewer than 12 markers passed frozen marginal support | Not evaluated | Not reached | **REFUSE support** |
 | Kotliarov PBMC | Ten batch-1 development donors; nine disjoint batch-2 held donors | 71 predeclared cognate markers | Not scored; fewer than four prespecified RNA-only lineages met the frozen 50-cell minimum in all 19 donors | Full Pearson and signed-deviance residual transfer not reached | Not reached | **REFUSE support** |
 | Kotliarov PBMC binary-v2 source replacement | Ten batch-1 development donors; nine disjoint batch-2 held donors reserved but not run | 81 ordered RNA--ADT pairs | Not scored; no frozen configuration completed every source-held fold | No comparison decision produced | Held ADT access remained unauthorized | **REFUSE source execution** |
+| GSE179221 BMMC held-donor campaign | Eight source donors; ten donor-disjoint held donors reserved but not run | 81 ordered RNA--ADT pairs | Not scored; exact cognate-axis uniqueness failed on the first source donor before count-matrix access | No estimator or comparison was formed | Seven remaining source files and all ten held files unrequested | **REFUSE source feature-axis preflight** |
 | NeurIPS 2021 BMMC CITE-seq | Two fit donors, one development donor, six held donors | 100 ordered RNA--ADT pairs | Not scored; exact conditional optimizer failed the final common-effect development refit after the frozen numerical-equivalence retry | Strongest signed Pearson or Poisson-deviance residual transfer not reached | Held pairing not opened | **REFUSE numerical development** |
 | GSE279451 adult sepsis CITE-seq | Nineteen development donors; 21 held donors | 81 ordered RNA--ADT pairs | Not scored; terminal evaluation refusal after development reduction because both common-effect control families were unavailable | Prespecified raw or exact-null-centered signed Pearson or Poisson-deviance residual transfer; no comparison decision produced | All 21 held matrices unopened | **REFUSE development evaluation** |
 | GSE299043 MLN CITE-seq | Ten Cambridge development donors; ten LiveOnNY/Columbia held donors | 81 ordered RNA--ADT pairs | Not scored; terminal feature-preflight refusal after 21 development-member reductions | Prespecified residual comparison not reached | All 151 held members unopened | **REFUSE acquisition** |
@@ -105,7 +110,7 @@ and sequence ledgers because they contain no performance estimate.
 | Hierarchical transfer adds beyond classical common-effect interaction models. | In the post-hoc audit, Stephenson improves on exact common-effect CMLE by 6.18% and pooled saturated Poisson by 3.39%. In GSE239452, pooled Poisson loses by 14.58%, but exact CMLE beats the primary by 2.20%. | **MIXED, POST-HOC** | The donor-varying transfer can outperform common-effect controls, but the direction is study-dependent and awaits a prospectively frozen classical comparison. |
 | The scGPT hypergraph contributes specific biological information. | The shuffled graph matches or exceeds the primary in PerturbSci and PerturbFate; no positive panel isolates a graph-specific gain. | **REFUSE** | scGPT supplies a frozen structural prior; its specific benefit was not established. |
 | Guide/observation-error correction is validated on public data. | `fit_factorial_coupling` is tested and stress-tested synthetically, but the completed public scripts use conditional empirical tables, not the guide-aware likelihood. | **REFUSE real-data claim** | Guide-aware identification and refusal are implemented and assessed in simulation. |
-| The public benchmark establishes a positive held biological replicate. | Stephenson passes its publicly frozen held-site gate across 56 physical samples. GSE239452 is positive but labeled post-access correction; the remaining held candidates refuse or stop before scoring. | **SUPPORTED once prospectively** | One prospectively frozen held-site confirmation passes; no second independent-study confirmation is claimed. |
+| The public benchmark establishes a positive held biological replicate. | Stephenson passes its publicly frozen held-site gate across 56 physical samples. GSE239452 is positive but labeled post-access correction; GSE179221 stopped at source feature-axis preflight before count access, and the remaining held candidates refuse or stop before scoring. | **SUPPORTED once prospectively** | One prospectively frozen held-site confirmation passes; no second independent-study confirmation is claimed. |
 | Corrected pathway/complex recovery validates the primary. | The strict PerturbSci rerun required high field norm in every held truth and prediction and exclusion under matched destroyed links. It selected no target; no Reactome or CORUM module could pass. | **REFUSE as confirmatory biology** | The earlier averaged-unit enrichments are exploratory; the strict replicated module analysis was negative. |
 | Predicted local neighborhoods recover biological relations. | Mean top-5 neighbor recovery was 0.064 [0.050, 0.079] versus 0.051 [0.041, 0.063] after link destruction; the difference interval included zero and the random-label permutation p-value was 0.283. Reactome edge enrichment refused. CORUM was nominal against random, p=0.0269, but not significant after family correction, q=0.0538. | **REFUSE** | No corrected local-neighborhood claim survives the predeclared controls. |
 | The method is state of the art for perturbation prediction. | No completed comparison establishes this, and the task is association-field reproducibility rather than standard unseen-perturbation response prediction. | **REFUSE** | Do not make a state-of-the-art or direct-superiority claim. |
@@ -147,6 +152,13 @@ heuristic because the same ten donors select and gate the model. Confirmatory
 inference is reserved for the untouched held-site donors.
 Neither estimator selection nor the classical-residual comparison was reached:
 the frozen source-member feature gate refused first.
+
+The GSE179221 protocol prospectively added a standard pooled saturated-Poisson
+interaction comparator reconstructed by refitting row and column nuisance
+parameters at recipient margins. The first source file failed exact cognate-axis
+uniqueness before any count dataset was opened, so neither that comparator nor
+the hierarchical estimator was fit. GSE179221 therefore contributes an audited
+procedural refusal, not a classical head-to-head result.
 
 Stephenson, GSE239452, GSE314416, and the adaptive BMMC/COMBAT audit use the
 same exact conditional interaction family. The Stephenson configuration was
@@ -229,6 +241,9 @@ Result and terminal-attempt artifact hashes at this snapshot:
 | `data/confirmation/kotliarov_pbmc_binary_v2/source_attempt_v2.json` | `8d276cc0c404fc2a379390d478ec1a14582f6aa6eaa469b915b15b70d6450b1a` |
 | `results/development/kotliarov_pbmc_binary_v2_source_v2.json` | `12aacf4dc05efabcd2d745abc0319f6a2676e5d26eb50054849005424b1a071c` |
 | `data/confirmation/kotliarov_pbmc_binary_v2/source_access_code_path_certificate_v2.json` | `1fed7f94958a07a71a195e80ce2b88f326ff2f47274733133c6b4f7dfd47d0d6` |
+| `data/confirmation/gse179221_bmmc/source_attempt_v1.json` | `e9785294eec3420c813006d88ed5a264de1ec1a119c3725b800aaf955d87f4ec` |
+| `data/confirmation/gse179221_bmmc/source_consumption_v1.json` | `95c0c640fddc6b70cb7dd4b509e27f0e0604186df89ad057eeff7bc93f2fd871` |
+| `results/development/gse179221_bmmc_source_v1.json` | `18982f0320c602dbc65df27a94675677dc006edd9951ac62fa3a1ad93e2a06f6` |
 | `results/development/scmmib_bmmc_exact_development_attempt_3_terminal_refusal.json` | `caf920719694487ba228dc64ac14ed4a6579619349f496f7154372920f3e128c` |
 | `data/confirmation/gse279451_sepsis/source_manifest_v1.json` | `c15fdc13c68cff14c45cfc16153cdbc309f6c2252457634fda8abdca677e4603` |
 | `data/development/gse279451_sepsis/development_attempt_v1.json` | `b8d7e745997e7b7ccd9a3bc8a7a7c3c7670b9e47c8b5d51e3d12fb70a5a8938d` |
@@ -245,8 +260,8 @@ hash before emitting a row, enforces unique panel/comparison identifiers and
 valid cross-references, and writes sorted deterministic ledgers. The standalone
 verifier rechecks row-level artifact hashes, metric finiteness, evidence counts,
 sequence order, the empty unused-Cambridge performance fields, manifest bytes,
-and `SHA256SUMS`. The release candidate contains 33 panel, 28 comparison, and
-56 sequence records.
+and `SHA256SUMS`. The release candidate contains 34 panel, 28 comparison, and
+63 sequence records.
 
 The structured consistency check parsed every audited JSON with non-finite JSON
 constants rejected; verified embedded hashes for the v4 runner, estimator, and
@@ -279,11 +294,11 @@ file has SHA-256
 `34facaeec5c4742decaa127a87ad9a7928bc6435fbd073bb00d13226929a2547`
 after later appendices; it is not byte-identical to the recorded run version.
 
-The aggregate release, artifact-integrity, Stephenson, GSE239452, GSE314416,
-adaptive binary head-to-head, and exact common-effect suites passed together:
-**81 passed**. A second deterministic build was byte-identical, the standalone
-release verifier returned `PUBLIC_BENCHMARK_RELEASE_VERIFICATION_PASS`, and Ruff
-reported no violations in the builder, verifier, or release tests.
+The release entry point completed with **512 passed, 4 deselected, and 12
+numerical warnings**; its isolated historical-estimator assertion also passed.
+A second deterministic build was byte-identical, the standalone verifier
+returned `PUBLIC_BENCHMARK_RELEASE_VERIFICATION_PASS`, and Ruff reported no
+violations in the builder, verifier, or focused release tests.
 
 ## Manuscript boundary
 
@@ -296,6 +311,8 @@ held-guide pairing signal and ReSisTrace's positive arm-level linkage beside
 their negative full decisions. Keep every procedural refusal and source-stage
 terminal record in the machine-readable benchmark. Treat unused Cambridge as
 infrastructure-unevaluable, with no scientific decision or performance value.
+Treat GSE179221 as a source feature-axis refusal with no numerical or held
+outcome: it does not supply a second confirmation or a classical comparison.
 Do not claim graph-prior superiority, a second independent-study confirmation,
 confirmatory pathway or neighborhood recovery, real-data validation of
 guide-error correction, universal estimator superiority, or state-of-the-art
