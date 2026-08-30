@@ -1,0 +1,8 @@
+{
+  "attempt_sha256": "612ad89e3ec4bffe8c6d460ef711a773b81918ec24b8a59c8f543e73a116d131",
+  "created_at_utc": "2026-08-30T04:38:05Z",
+  "process_id": 35361,
+  "rerun_permitted": false,
+  "schema": "gse342939-ra-bcell-source-consumption/1.0",
+  "status": "CONSUMED_EXCLUSIVELY_BEFORE_FIRST_NUMERIC_MATRIX_GET"
+}
