@@ -1,0 +1,70 @@
+{
+  "schema": "gse313642-hcc-postterminal-debug-disclosure/2.0",
+  "status": "RETROSPECTIVE_DISCLOSURE_TERMINAL",
+  "created_at_utc": "2026-08-30T20:24:16Z",
+  "authorization_published_before_access": false,
+  "scope": "Unplanned, non-confirmatory A30-only debugging after the immutable v2 terminal refusal",
+  "v2_terminal_record": {
+    "commit": "9d0b53421111a1c6633bf39bf5179b4e923c06ea",
+    "tag": "gse313642-hcc-v2-calibration",
+    "result_path": "results/development/gse313642_hcc_calibration_selection_v2.json",
+    "result_sha256": "94ab4f56755fffeb0e17e2389b65d2622e90b27932be3ef06a5cb25df14d115f",
+    "access_journal_path": "data/confirmation/gse313642_hcc/calibration_access_v2.jsonl",
+    "access_journal_sha256": "5bbd753015f033a0618456ec29ff525eb7639d18434c274ee336193720aeb1b5"
+  },
+  "postterminal_access": {
+    "journaled_before_access": false,
+    "automatic_retries": false,
+    "patient_id": "A30",
+    "matrices": [
+      {
+        "modality": "GEX",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9371nnn/GSM9371470/suppl/GSM9371470_A-30-01_01_GEX_matrix.mtx.gz",
+        "observed_local_mtime_utc": "2026-08-30T20:20:24Z",
+        "bytes": 26880287,
+        "sha256": "fdbfa7b3520e323c8d842ec3a3427b31643ee5675ccaf74c1921932a5cbed3df",
+        "prior_v2_sha256_matched": true,
+        "banner": "%%MatrixMarket matrix coordinate real general",
+        "declared_shape": [36601, 6266],
+        "declared_nnz": 7790689,
+        "first_two_entry_values": ["2.0000000e+00", "1.0000000e+00"]
+      },
+      {
+        "modality": "FB",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9371nnn/GSM9371567/suppl/GSM9371567_A-30-01_01_FB_matrix.mtx.gz",
+        "observed_local_mtime_utc": "2026-08-30T20:20:33Z",
+        "bytes": 3378462,
+        "sha256": "c236ca4bdcd4172679a114cb89aa333133b46f89b0fb5604de52c93cd6b27e24",
+        "prior_v2_sha256_matched": true,
+        "banner": "%%MatrixMarket matrix coordinate real general",
+        "declared_shape": [229, 6266],
+        "declared_nnz": 1080414,
+        "first_two_entry_values": ["4.0000000e+00", "1.0000000e+00"]
+      }
+    ],
+    "scratch_deleted_at_utc": "2026-08-30T20:24:22Z",
+    "scratch_deleted": true
+  },
+  "diagnosis": {
+    "reproduction_context": "Direct invocation of the frozen _reduce_patient path on the reaccessed A30 files",
+    "exception_type": "GzipMatrixMarketValidationError",
+    "exception_message": "matrix banner must be exactly '%%MatrixMarket matrix coordinate integer general'",
+    "failure_stage": "A30 GEX Matrix Market validation before a reduced patient table was returned",
+    "root_cause": "The deposited matrices declare the Matrix Market real field although their observed count entries use integral scientific notation; the frozen reducer accepted only the integer field banner.",
+    "v2_exception_recovery": "The exact v2 traceback was not retained; the postterminal reproduction identifies the same earliest reachable failure on byte-identical A30 inputs.",
+    "durable_reduced_tables_models_or_losses_recorded_by_v2": false
+  },
+  "outcome_access": {
+    "calibration_patients_with_numeric_matrix_access": ["A30"],
+    "pilot_matrix_gets": 0,
+    "held_gex_matrix_gets": 0,
+    "held_fb_matrix_gets": 0
+  },
+  "future_use": {
+    "v2_remains_terminal": true,
+    "a30_is_exposed_development_data": true,
+    "a30_excluded_from_formal_v3_calibration_and_refit": true,
+    "v3_must_be_a_separately_versioned_campaign": true,
+    "pilot_and_held_numerical_gates_must_remain_unchanged": true
+  }
+}
