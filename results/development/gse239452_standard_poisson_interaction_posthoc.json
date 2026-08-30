@@ -1,0 +1,655 @@
+{
+  "bindings": {
+    "frozen_prediction_sha256": "37a7eba3b3b514ccb9d80700f039b0442caf1d02c00a0b44d9bcef735328e020",
+    "frozen_score_sha256": "12c23d6502c9192b93838d27ebcae42c4ff92e1a3b68e27cc6584efb92f22e74",
+    "legacy_mislabeled_audit_sha256": "bc6efbb2ffe3404a294eae26b51e214054718113a8deeaf6b9f4e73ebf05f305",
+    "metadata_preflight_sha256": "6283bbe2a9a36f7c8548d78253a1c6101c88986ad77f7cf0eeb0cd6a40db7f60",
+    "reduced_development_sha256": "d60918c85b678cd97eb83dcd131194d985f790eca0225e4df55cd0acd4848783",
+    "runner_sha256": "dd903b20233f44427cf79a2eca4e7210543bffa527525d49989c2031e65d2816",
+    "source_manifest_sha256": "41e6a1242156354c99f2e75db8ffa398c9824a78cdc7bd56ff54cfb5b8504b23"
+  },
+  "confirmatory": false,
+  "development": {
+    "alpha_candidates": [
+      {
+        "alpha": 0.5,
+        "donor_equal_mean_loss": 0.01142221678167795,
+        "donor_losses": {
+          "1": 0.005167142674707422,
+          "103": 0.00540820647052517,
+          "182": 0.01252639470664388,
+          "325": 0.014643177125700282,
+          "350": 0.008140044763164149,
+          "382": 0.006964104319987221,
+          "50": 0.010542020511817301,
+          "94": 0.027986643680878172
+        }
+      },
+      {
+        "alpha": 0.75,
+        "donor_equal_mean_loss": 0.008715778474988872,
+        "donor_losses": {
+          "1": 0.004953501424688099,
+          "103": 0.003857760323878645,
+          "182": 0.009309449601780088,
+          "325": 0.01163210646767966,
+          "350": 0.006899777854731704,
+          "382": 0.0046942953013854,
+          "50": 0.0080289694162586,
+          "94": 0.02035036740950878
+        }
+      },
+      {
+        "alpha": 1.0,
+        "donor_equal_mean_loss": 0.00848658150196231,
+        "donor_losses": {
+          "1": 0.006256256552008675,
+          "103": 0.00411635407465448,
+          "182": 0.009455705998873035,
+          "325": 0.011644616555566464,
+          "350": 0.00847197036997629,
+          "382": 0.004164123888408885,
+          "50": 0.008102256784990951,
+          "94": 0.015681367791219702
+        }
+      },
+      {
+        "alpha": 1.25,
+        "donor_equal_mean_loss": 0.010413080169638017,
+        "donor_losses": {
+          "1": 0.00886575455246617,
+          "103": 0.005936763031014131,
+          "182": 0.012597654077412215,
+          "325": 0.014260720319343834,
+          "350": 0.012507464792656721,
+          "382": 0.005089268298593138,
+          "50": 0.010411202699463815,
+          "94": 0.013635813586154115
+        }
+      }
+    ],
+    "alpha_grid": [
+      0.5,
+      0.75,
+      1.0,
+      1.25
+    ],
+    "calibration_donors": [
+      "47",
+      "31",
+      "223",
+      "77",
+      "191",
+      "321",
+      "213"
+    ],
+    "calibration_fit_certificate": {
+      "closed_form": "theta=log(N00*N11/(N01*N10))",
+      "donors": 7,
+      "estimator": "donor-pooled saturated 2x2 Poisson log-linear interaction",
+      "maximum_absolute_saturated_cell_error": 6.821210263296962e-13,
+      "maximum_normalized_saturated_cell_error": 1.9032394707859825e-16,
+      "maximum_pooled_cell_count": 1783,
+      "minimum_pooled_cell_count": 9,
+      "model": "log(mu_ij)=intercept+row_i+column_j+theta*I(i=1,j=1)",
+      "normalized_saturated_cell_error_tolerance": 1e-10,
+      "saturated_tables_reconstructed": 81,
+      "structural_zeros": 0
+    },
+    "held_donors_used_for_selection": [],
+    "maximum_absolute_refit_difference_vs_legacy_coefficient": 2.6645352591003757e-15,
+    "pilot_donors": [
+      "94",
+      "103",
+      "350",
+      "182",
+      "1",
+      "325",
+      "382",
+      "50"
+    ],
+    "refit_certificate": {
+      "closed_form": "theta=log(N00*N11/(N01*N10))",
+      "donors": 15,
+      "estimator": "donor-pooled saturated 2x2 Poisson log-linear interaction",
+      "maximum_absolute_saturated_cell_error": 1.3642420526593924e-12,
+      "maximum_normalized_saturated_cell_error": 1.7763568394002506e-16,
+      "maximum_pooled_cell_count": 3828,
+      "minimum_pooled_cell_count": 12,
+      "model": "log(mu_ij)=intercept+row_i+column_j+theta*I(i=1,j=1)",
+      "normalized_saturated_cell_error_tolerance": 1e-10,
+      "saturated_tables_reconstructed": 81,
+      "structural_zeros": 0
+    },
+    "refit_interaction": [
+      [
+        1.4580438970162604,
+        -0.38230759790594515,
+        0.7225986269963371,
+        -0.17381570278599678,
+        0.8609858866835305,
+        0.35650010348020444,
+        0.4452957498568333,
+        0.5200539574032259,
+        0.07595651224079969
+      ],
+      [
+        -0.30832717467549653,
+        1.5819901889054675,
+        -0.9536363712330074,
+        -0.5075027805547228,
+        -1.035999938963335,
+        -0.6144091530918985,
+        -0.19891462797526405,
+        -0.2702108495620541,
+        0.27259106981229664
+      ],
+      [
+        0.5732355756063479,
+        -0.9447170859508294,
+        1.7659422839179086,
+        -0.07778694411959375,
+        1.9108371757409888,
+        1.2610514164120952,
+        0.47433830342597005,
+        0.3381021922704619,
+        -0.551450825513534
+      ],
+      [
+        -1.2120629688396019,
+        -1.176005605355753,
+        -0.6504479264912657,
+        3.77078660379092,
+        -0.5918078250912835,
+        -0.09939228190290539,
+        -0.29062549996762055,
+        0.3182373869426254,
+        0.5148760343440131
+      ],
+      [
+        0.9204902267302515,
+        -0.733232040326258,
+        1.4684754109990754,
+        -0.04540263834760605,
+        1.675203785339769,
+        0.9734308120981261,
+        0.4229730465977477,
+        0.30426015783640015,
+        -0.3970107306037818
+      ],
+      [
+        -0.3069305257903787,
+        0.211853213457192,
+        -0.14102021562241696,
+        -0.03521490629106694,
+        -0.046955978060843506,
+        1.024103874613048,
+        -0.0939499752985169,
+        -0.046955978060843506,
+        -0.20002414903388477
+      ],
+      [
+        0.2835303225275565,
+        -0.05661332761010929,
+        0.24983156818916274,
+        -0.04193451045243801,
+        0.3426048067067855,
+        0.25825268350919295,
+        0.30672170222280304,
+        0.13213773747316893,
+        0.06290470142753168
+      ],
+      [
+        0.035439995103773825,
+        0.2595756533120879,
+        -0.2818448860911893,
+        0.1041294843605316,
+        -0.3108259411534613,
+        -0.1285181081758724,
+        -0.039870321018663724,
+        -0.008859742696252226,
+        0.16179389511893127
+      ],
+      [
+        -0.02470704829002024,
+        0.23353581248661648,
+        -0.53651287360604,
+        0.1980107829098241,
+        -0.6141393077548001,
+        -0.5291687841646349,
+        0.02117731067604467,
+        0.049418300138622584,
+        0.8267361017994359
+      ]
+    ],
+    "selected_alpha": 1.0,
+    "selection_design": "fit_7_calibration_select_8_pilot_refit_15_development"
+  },
+  "held": {
+    "comparison": {
+      "bootstrap_draws": 20000,
+      "bootstrap_seed": 20260829,
+      "exact_one_sided_sign_test_p": 0.001953125,
+      "favorable_donors_primary_lower": 9,
+      "paired_difference_95_percentile_ci": [
+        -0.0018432289768730698,
+        -0.0011657521997510533
+      ],
+      "paired_difference_primary_minus_poisson": {
+        "101607-SEV": -0.0008777569423782782,
+        "105199-ASX": -0.0012372034172274185,
+        "324058-ASX": -0.0023978132814551217,
+        "644394-CTRL": -0.0023521667021056975,
+        "705385-SEV": -0.00112142851874585,
+        "729106-CTRL": -0.0016000342695216578,
+        "803763-ASX": -0.0012789947260836675,
+        "915348-SEV": -0.0014090390908834977,
+        "OB7-CTRL": -0.0010100032900873489
+      },
+      "post_hoc_nonconfirmatory": true,
+      "primary_mean_loss": 0.008506365049036143,
+      "relative_loss_reduction_95_percentile_ci": [
+        0.12184115234996165,
+        0.17369414932349705
+      ],
+      "relative_loss_reduction_primary_vs_poisson": 0.14786492732600487,
+      "standard_poisson_mean_loss": 0.009982413964423759,
+      "ties_counted_as_nonfavorable": true,
+      "unit": "physical donor",
+      "units": 9
+    },
+    "primary_donor_equal_mean_loss": 0.008506365049036143,
+    "samples": [
+      {
+        "donor": "OB7-CTRL",
+        "primary_loss": 0.007327250297252983,
+        "primary_prediction_sha256": "a6d0d0aee1caf7cfe45fec5d609bc3dd6473bb0faf8097d83b989156f950fa6b",
+        "reconstruction_certificate": {
+          "maximum_absolute_column_margin_error": 0.0,
+          "maximum_absolute_interaction_error": 6.981082378842984e-13,
+          "maximum_absolute_row_margin_error": 0.0,
+          "minimum_fitted_mean": 0.43369514973957735
+        },
+        "selected_barcode_axis_sha256": "fda07a011017e38f3417007dd9e1c00ba5bbc6a688ce9158b6740092bd680c6a",
+        "standard_poisson_loss": 0.008337253587340332,
+        "standard_poisson_prediction_sha256": "3243c65a1e16425ef1677f4a3d809b2aedfabb84d36f25c3bcb4a36b98494e9c",
+        "truth_table_sha256": "edae98995fe4590407612b2c5cc3edae81c5172dbeb81a8750d24cc835159b42"
+      },
+      {
+        "donor": "705385-SEV",
+        "primary_loss": 0.0074105753343016575,
+        "primary_prediction_sha256": "ded7482c7f06f631ba2a37e79e9df5cabbf26b33538d50edf53e931a07c83ffd",
+        "reconstruction_certificate": {
+          "maximum_absolute_column_margin_error": 0.0,
+          "maximum_absolute_interaction_error": 6.981082378842984e-13,
+          "maximum_absolute_row_margin_error": 0.0,
+          "minimum_fitted_mean": 0.43369514973957735
+        },
+        "selected_barcode_axis_sha256": "f0779c01a307e6c2558c34c1ad5ef6e823e1209cd12df8f5611c5310da4dc88e",
+        "standard_poisson_loss": 0.008532003853047507,
+        "standard_poisson_prediction_sha256": "8766add75e9c1f68757f23e2a0747cd50551af554067a10cfdf2ed7f50e5e914",
+        "truth_table_sha256": "42210a9490275080e05257d3524d8aacb029228561904974d1e9fe88eb1756de"
+      },
+      {
+        "donor": "803763-ASX",
+        "primary_loss": 0.013416741639486755,
+        "primary_prediction_sha256": "451a49277bab231ac6c6be261c3f5aca420fdc9fc5e195a558222497496cded6",
+        "reconstruction_certificate": {
+          "maximum_absolute_column_margin_error": 0.0,
+          "maximum_absolute_interaction_error": 2.4424906541753444e-14,
+          "maximum_absolute_row_margin_error": 0.0,
+          "minimum_fitted_mean": 2.030796892446574
+        },
+        "selected_barcode_axis_sha256": "c0014c37aba16c5aa8e20c52a2bc00cc9c12532dfc4f90abcdb90a82a0fefffc",
+        "standard_poisson_loss": 0.014695736365570422,
+        "standard_poisson_prediction_sha256": "c582d53459b9b2cc4e6199ca9d6b1e9aeb93415000b050a7e5abaee9afa93ba6",
+        "truth_table_sha256": "d3353c1294373fdd708ccee5e582d74edfa4bf295387e319fb909fb0b7bf1644"
+      },
+      {
+        "donor": "324058-ASX",
+        "primary_loss": 0.01211585132805384,
+        "primary_prediction_sha256": "d94feb08e8e62349d34f5b798bc0788fb2020049036162d15a10fcca00a6e629",
+        "reconstruction_certificate": {
+          "maximum_absolute_column_margin_error": 0.0,
+          "maximum_absolute_interaction_error": 2.5757174171303632e-14,
+          "maximum_absolute_row_margin_error": 0.0,
+          "minimum_fitted_mean": 1.3417978801060428
+        },
+        "selected_barcode_axis_sha256": "6d822a5bf8b24ce72fb0d033ba8af594a7da4ed49d57dcc9f48522f8e66bd9fe",
+        "standard_poisson_loss": 0.014513664609508961,
+        "standard_poisson_prediction_sha256": "44243ce8d936d6f818ae74324bad3dbf79a9cbd2e117c2c696e4303ef80adc6e",
+        "truth_table_sha256": "a42f4296a71c119028b2cdd6c1974bd7f385f70ae9d5c3cd20e9cd77dcbf8333"
+      },
+      {
+        "donor": "644394-CTRL",
+        "primary_loss": 0.009602910857842787,
+        "primary_prediction_sha256": "44a779dcf85e2cc67cac703e2ec67f3be9ce16c8ffafe0f2094c78367f6abd75",
+        "reconstruction_certificate": {
+          "maximum_absolute_column_margin_error": 0.0,
+          "maximum_absolute_interaction_error": 6.217248937900877e-14,
+          "maximum_absolute_row_margin_error": 0.0,
+          "minimum_fitted_mean": 0.35724337577940446
+        },
+        "selected_barcode_axis_sha256": "5ff27aa423dac1e337e835741f4cd535e2c3e42adf21e2040ba4034786495bbb",
+        "standard_poisson_loss": 0.011955077559948485,
+        "standard_poisson_prediction_sha256": "958e306cc0ead8c19d7ed5adff34f72693168f1be0062d26e4855e772e08f90a",
+        "truth_table_sha256": "3dec60e61bff61510019b9441c0db5548b4120dd765562ca1e550b42ff3a8697"
+      },
+      {
+        "donor": "915348-SEV",
+        "primary_loss": 0.009653831140741935,
+        "primary_prediction_sha256": "b0f2cf2576a101a7538e6a516e4516bc047682af775f60781e2acd7521b78319",
+        "reconstruction_certificate": {
+          "maximum_absolute_column_margin_error": 0.0,
+          "maximum_absolute_interaction_error": 3.952393967665557e-14,
+          "maximum_absolute_row_margin_error": 0.0,
+          "minimum_fitted_mean": 0.5384444372227222
+        },
+        "selected_barcode_axis_sha256": "8a7c848e6ce5f753ac75d5839d07b145d2536f655ae312f79a529869ece097ab",
+        "standard_poisson_loss": 0.011062870231625433,
+        "standard_poisson_prediction_sha256": "72589889194bd019a08a20eb0b7a6f99358a9a2b38a720f864c7fab56f5c04d8",
+        "truth_table_sha256": "fbd990f8a221510a7ee8d66b38e9afb7db8538e825e4587567599200e4b775f2"
+      },
+      {
+        "donor": "729106-CTRL",
+        "primary_loss": 0.006739207222330558,
+        "primary_prediction_sha256": "72ef94bfb232850020c6fbf0dd8dddad2090668e2dd96db62aa05d8a368619bc",
+        "reconstruction_certificate": {
+          "maximum_absolute_column_margin_error": 0.0,
+          "maximum_absolute_interaction_error": 2.4868995751603507e-14,
+          "maximum_absolute_row_margin_error": 0.0,
+          "minimum_fitted_mean": 0.9624518117897196
+        },
+        "selected_barcode_axis_sha256": "2514dcc15969ac605492a39be9129bf00db94aae83754eaa5c0e9815898e6d6a",
+        "standard_poisson_loss": 0.008339241491852216,
+        "standard_poisson_prediction_sha256": "618b613c9484807297be18483b14d6b891eb23a6d7185b0a4c7955f5f3bfa5c2",
+        "truth_table_sha256": "d5d5eb4670a9528765a5a699c59f51e10bb273c54bae4cf1f7827a76b0db8d3a"
+      },
+      {
+        "donor": "105199-ASX",
+        "primary_loss": 0.006496875009444414,
+        "primary_prediction_sha256": "e3588c8dbf1c0c53b1d58f905f91638ef897e0ebc4788a980e3b3570b077f960",
+        "reconstruction_certificate": {
+          "maximum_absolute_column_margin_error": 0.0,
+          "maximum_absolute_interaction_error": 2.7977620220553945e-14,
+          "maximum_absolute_row_margin_error": 0.0,
+          "minimum_fitted_mean": 0.6741149530138557
+        },
+        "selected_barcode_axis_sha256": "01848532a5475ac7933e7bb998a5b17be00bd29ea4c420c441b02f753b1bdd7d",
+        "standard_poisson_loss": 0.0077340784266718325,
+        "standard_poisson_prediction_sha256": "2cae44e4dc3d6299e60bbe24eeb6369bb2fd905d401b58a7112cc37f5d81dd43",
+        "truth_table_sha256": "da2cad0b5227965fe0b424db20324026233305bac0bec1ab9273eafb223bdd9f"
+      },
+      {
+        "donor": "101607-SEV",
+        "primary_loss": 0.003794042611870353,
+        "primary_prediction_sha256": "88fb8390c404bb655e275d6139324e6dac9ed224b19b5457285622ea0bc17b6f",
+        "reconstruction_certificate": {
+          "maximum_absolute_column_margin_error": 0.0,
+          "maximum_absolute_interaction_error": 1.3322676295501878e-14,
+          "maximum_absolute_row_margin_error": 0.0,
+          "minimum_fitted_mean": 1.2432806513692753
+        },
+        "selected_barcode_axis_sha256": "3cfeda31fc8a5580d57f3661525001b571e4d44115eb7dc7b8d18d0af66e6826",
+        "standard_poisson_loss": 0.004671799554248631,
+        "standard_poisson_prediction_sha256": "da9576f1c779d40ec1b742fd6f2f11c25730a3d6ba9f7f75bdf534b39d6c5e1c",
+        "truth_table_sha256": "e598f2ce173a09b140bc60db08583594268695da31da5eb76eac0799ebdfd2fc"
+      }
+    ],
+    "standard_poisson_donor_equal_mean_loss": 0.009982413964423759
+  },
+  "method": {
+    "fixed_total_equivalence": "With identical observed and fitted donor totals, Poisson nuisance terms cancel and the reported expression is the multinomial deviance.",
+    "held_aggregation": "equal weight per physical donor after averaging informative RNA--ADT pairs within donor",
+    "loss": "multinomial deviance per cell",
+    "noncentral_hypergeometric_reconstruction_used": false,
+    "recipient_reconstruction": "profile row and column nuisance terms at recipient margins with transported interaction fixed",
+    "source_fit": "donor-pooled saturated 2x2 Poisson interaction"
+  },
+  "reason_post_hoc": "The standard-Poisson reconstruction and comparison were defined after held outcomes had been accessed.",
+  "schema": "gse239452-standard-poisson-interaction-posthoc/1.0",
+  "status": "POST_HOC_NONCONFIRMATORY_HEAD_TO_HEAD",
+  "streaming_access": {
+    "held_truth_hashes_reproduced": 9,
+    "held_truth_tables_serialized": false,
+    "official_archive_and_h5ad_provenance": [
+      {
+        "donor": "OB7-CTRL",
+        "files": [
+          {
+            "archive_bytes": 132536667,
+            "archive_name": "GSM7665278_OB7-CTRL_GEX.h5ad.tar.gz",
+            "archive_sha256": "7567dfaa5ce43c031de96468360a5710aa62808e3a5899cf70af5f6a2576d3ca",
+            "h5ad_bytes": 483640114,
+            "h5ad_name": "OB7-CTRL_GEX.h5ad",
+            "h5ad_sha256": "94299a345c723f733b5bc8e7a806067917b064cf3c80e1f8e720380f9fc1b3d0",
+            "modality": "gex",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665278/suppl/GSM7665278_OB7-CTRL_GEX.h5ad.tar.gz"
+          },
+          {
+            "archive_bytes": 17180302,
+            "archive_name": "GSM7665253_OB7-CTRL_ADT.h5ad.tar.gz",
+            "archive_sha256": "1fb92386736ff8797df3adc83e7171777c933d2e66bc503205b89cc782beebec",
+            "h5ad_bytes": 90137629,
+            "h5ad_name": "OB7-CTRL_ADT.h5ad",
+            "h5ad_sha256": "2b79fec9e1c13a812663a3067ceda80b18b7e753b116c9d1bc6e17e724aa7894",
+            "modality": "adt",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665253/suppl/GSM7665253_OB7-CTRL_ADT.h5ad.tar.gz"
+          }
+        ],
+        "peak_bytes": 616176781
+      },
+      {
+        "donor": "705385-SEV",
+        "files": [
+          {
+            "archive_bytes": 181321011,
+            "archive_name": "GSM7665279_705385-SEV_GEX.h5ad.tar.gz",
+            "archive_sha256": "4ddfcf493a888b45986bb902df246f9924a957381a1cd543eea363382293e845",
+            "h5ad_bytes": 660361014,
+            "h5ad_name": "705385-SEV_GEX.h5ad",
+            "h5ad_sha256": "e63b7bd6060cd01d00d986b96b3b0ec6baf0abe15322a2e55a72f1920d987869",
+            "modality": "gex",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665279/suppl/GSM7665279_705385-SEV_GEX.h5ad.tar.gz"
+          },
+          {
+            "archive_bytes": 15170283,
+            "archive_name": "GSM7665254_705385-SEV_ADT.h5ad.tar.gz",
+            "archive_sha256": "7893d9fc8f39fe62510854669876f46d9df1495de777b51ee8552ab006bfaa53",
+            "h5ad_bytes": 78633560,
+            "h5ad_name": "705385-SEV_ADT.h5ad",
+            "h5ad_sha256": "c23a0ce511861f9c29c731d1e2607b42f21b4de032853b102a2a607894f26a76",
+            "modality": "adt",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665254/suppl/GSM7665254_705385-SEV_ADT.h5ad.tar.gz"
+          }
+        ],
+        "peak_bytes": 841682025
+      },
+      {
+        "donor": "803763-ASX",
+        "files": [
+          {
+            "archive_bytes": 149349761,
+            "archive_name": "GSM7665280_803763-ASX_GEX.h5ad.tar.gz",
+            "archive_sha256": "e2aa91b3d7e5757f46f097d5d7a15bd1f604adcbfb999511e356663cce9ded3c",
+            "h5ad_bytes": 540467588,
+            "h5ad_name": "803763-ASX_GEX.h5ad",
+            "h5ad_sha256": "0ff51efaea1012719844fafbc4ddce9cd7cc38cff8f3b840318b32a9b4fc9217",
+            "modality": "gex",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665280/suppl/GSM7665280_803763-ASX_GEX.h5ad.tar.gz"
+          },
+          {
+            "archive_bytes": 17160229,
+            "archive_name": "GSM7665255_803763-ASX_ADT.h5ad.tar.gz",
+            "archive_sha256": "46104bc2d142dcd5e5924546c238311ab2ac4be2ef485699ba47422b77736d06",
+            "h5ad_bytes": 89332298,
+            "h5ad_name": "803763-ASX_ADT.h5ad",
+            "h5ad_sha256": "90d3af1f6ba07b454d8267d28194ce0ee2ae36e8b4c5355536be5f8821ecc099",
+            "modality": "adt",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665255/suppl/GSM7665255_803763-ASX_ADT.h5ad.tar.gz"
+          }
+        ],
+        "peak_bytes": 689817349
+      },
+      {
+        "donor": "324058-ASX",
+        "files": [
+          {
+            "archive_bytes": 56240614,
+            "archive_name": "GSM7665281_324058-ASX_GEX.h5ad.tar.gz",
+            "archive_sha256": "a033a300c4e806a3bc2dd0c3b89b5be9f158629865eb67f80b299e80d01cd92d",
+            "h5ad_bytes": 203433562,
+            "h5ad_name": "324058-ASX_GEX.h5ad",
+            "h5ad_sha256": "30f3475d744d413bb69a3b5627017b1a0da96c14d79ce7a32b44d28ec5ea42ca",
+            "modality": "gex",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665281/suppl/GSM7665281_324058-ASX_GEX.h5ad.tar.gz"
+          },
+          {
+            "archive_bytes": 6554358,
+            "archive_name": "GSM7665256_324058-ASX_ADT.h5ad.tar.gz",
+            "archive_sha256": "bbc38bfe41cbba36f284604d95d1196b264c5642e09b2cea019a2a4830b067e7",
+            "h5ad_bytes": 33709035,
+            "h5ad_name": "324058-ASX_ADT.h5ad",
+            "h5ad_sha256": "61ace1ae4e4429608cb58e7b65c99730db80d257b51bdab188d53f026a3b3f2c",
+            "modality": "adt",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665256/suppl/GSM7665256_324058-ASX_ADT.h5ad.tar.gz"
+          }
+        ],
+        "peak_bytes": 259674176
+      },
+      {
+        "donor": "644394-CTRL",
+        "files": [
+          {
+            "archive_bytes": 45137345,
+            "archive_name": "GSM7665282_644394-CTRL_GEX.h5ad.tar.gz",
+            "archive_sha256": "070d599b9d16be8d1e17d8a9b0934b266f7523e824030a444190c6cd93cd5b55",
+            "h5ad_bytes": 163884357,
+            "h5ad_name": "644394-CTRL_GEX.h5ad",
+            "h5ad_sha256": "257d278ee0a5602b56b90e4de33bf4900e94dc410edbdd7e2b905edaaa5d9f70",
+            "modality": "gex",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665282/suppl/GSM7665282_644394-CTRL_GEX.h5ad.tar.gz"
+          },
+          {
+            "archive_bytes": 5114574,
+            "archive_name": "GSM7665257_644394-CTRL_ADT.h5ad.tar.gz",
+            "archive_sha256": "a7129fced8bef83a87cb2b79bf935d33b571c96c290b85ceb0a396a8745d45ec",
+            "h5ad_bytes": 26758992,
+            "h5ad_name": "644394-CTRL_ADT.h5ad",
+            "h5ad_sha256": "4fb6c3b966a418f76b17462f806932cf45442971f56efa5262a6ec8e9dfae575",
+            "modality": "adt",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665257/suppl/GSM7665257_644394-CTRL_ADT.h5ad.tar.gz"
+          }
+        ],
+        "peak_bytes": 209021702
+      },
+      {
+        "donor": "915348-SEV",
+        "files": [
+          {
+            "archive_bytes": 50098438,
+            "archive_name": "GSM7665283_915348-SEV_GEX.h5ad.tar.gz",
+            "archive_sha256": "cffd2ff93330bf2b3f5d6ac58c9b755b5519ff021f4663ec19d0b501e9457f55",
+            "h5ad_bytes": 178654933,
+            "h5ad_name": "915348-SEV_GEX.h5ad",
+            "h5ad_sha256": "8385b27ac9b92a307897f80cf9a36d6182edd38c56a24daba15eb5b76c546a73",
+            "modality": "gex",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665283/suppl/GSM7665283_915348-SEV_GEX.h5ad.tar.gz"
+          },
+          {
+            "archive_bytes": 5019763,
+            "archive_name": "GSM7665258_915348-SEV_ADT.h5ad.tar.gz",
+            "archive_sha256": "855f2e9cdad4f10edbd1834e192940a3eb3cacfeaf77e8a59b7de85ff02ad360",
+            "h5ad_bytes": 25775617,
+            "h5ad_name": "915348-SEV_ADT.h5ad",
+            "h5ad_sha256": "0fe0e5ae0ab26dbb816009bbb9511acb13e1f9e45a281c02d76885101602ac74",
+            "modality": "adt",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665258/suppl/GSM7665258_915348-SEV_ADT.h5ad.tar.gz"
+          }
+        ],
+        "peak_bytes": 228753371
+      },
+      {
+        "donor": "729106-CTRL",
+        "files": [
+          {
+            "archive_bytes": 157473364,
+            "archive_name": "GSM7665284_729106-CTRL_GEX.h5ad.tar.gz",
+            "archive_sha256": "d6b961ff2e6b950b5d23c5cf6854cdb9495c12f940231a2c93fdf4c790c2439d",
+            "h5ad_bytes": 569235875,
+            "h5ad_name": "729106-CTRL_GEX.h5ad",
+            "h5ad_sha256": "0f60b94b97687ec0f8bf0afbeabc89766ce5f3563e274954900a0daef8cd11ca",
+            "modality": "gex",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665284/suppl/GSM7665284_729106-CTRL_GEX.h5ad.tar.gz"
+          },
+          {
+            "archive_bytes": 14648208,
+            "archive_name": "GSM7665259_729106-CTRL_ADT.h5ad.tar.gz",
+            "archive_sha256": "0d9a285473be7a1818e25a647f2dd7adb64dd17a8773c3cd83929de57e26df41",
+            "h5ad_bytes": 74751136,
+            "h5ad_name": "729106-CTRL_ADT.h5ad",
+            "h5ad_sha256": "e2a0f341c0c4a710aea04ff200493426bb54e3c93874a81c2c936ff5bb79c27e",
+            "modality": "adt",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665259/suppl/GSM7665259_729106-CTRL_ADT.h5ad.tar.gz"
+          }
+        ],
+        "peak_bytes": 726709239
+      },
+      {
+        "donor": "105199-ASX",
+        "files": [
+          {
+            "archive_bytes": 168362359,
+            "archive_name": "GSM7665285_105199-ASX_GEX.h5ad.tar.gz",
+            "archive_sha256": "5d2e6047b132e66685a7305b78a39ed5745b64c16cda54b3056375d47d28df7f",
+            "h5ad_bytes": 607168887,
+            "h5ad_name": "105199-ASX_GEX.h5ad",
+            "h5ad_sha256": "820c635b943806a6cd10625d5385028f9e0e08218ee6da0e0e27870fa3bb1249",
+            "modality": "gex",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665285/suppl/GSM7665285_105199-ASX_GEX.h5ad.tar.gz"
+          },
+          {
+            "archive_bytes": 20763472,
+            "archive_name": "GSM7665260_105199-ASX_ADT.h5ad.tar.gz",
+            "archive_sha256": "84cd195ea65bbe59035c3b57999b9836fff837d714f3debf03ce5404b4050992",
+            "h5ad_bytes": 107468624,
+            "h5ad_name": "105199-ASX_ADT.h5ad",
+            "h5ad_sha256": "7df4839dbc187b86e7ec4dcef233b1297db5426abed290105054fbbd48c23b1d",
+            "modality": "adt",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665260/suppl/GSM7665260_105199-ASX_ADT.h5ad.tar.gz"
+          }
+        ],
+        "peak_bytes": 775531246
+      },
+      {
+        "donor": "101607-SEV",
+        "files": [
+          {
+            "archive_bytes": 20204584,
+            "archive_name": "GSM7665286_101607-SEV_GEX.h5ad.tar.gz",
+            "archive_sha256": "974381d427778b168e2fd5a676a7d358d7ed827eb893ad23ff491ad4bacba596",
+            "h5ad_bytes": 71238172,
+            "h5ad_name": "101607-SEV_GEX.h5ad",
+            "h5ad_sha256": "6e75e593ddef6ec0db0fa155ab8ff9091437ba4b5eef7bfb19e52e3d97338f67",
+            "modality": "gex",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665286/suppl/GSM7665286_101607-SEV_GEX.h5ad.tar.gz"
+          },
+          {
+            "archive_bytes": 14425300,
+            "archive_name": "GSM7665261_101607-SEV_ADT.h5ad.tar.gz",
+            "archive_sha256": "fa92fdb114933aaf08b245b9fae4c6532bfeefebdd72ba196b87f2eff799d1e4",
+            "h5ad_bytes": 72158986,
+            "h5ad_name": "101607-SEV_ADT.h5ad",
+            "h5ad_sha256": "02a6b40b8d701e53f0e31a93691ce2f5aa8ec00487413829098a832feb22c92e",
+            "modality": "adt",
+            "url": "https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM7665nnn/GSM7665261/suppl/GSM7665261_101607-SEV_ADT.h5ad.tar.gz"
+          }
+        ],
+        "peak_bytes": 157822458
+      }
+    ],
+    "official_individual_file_pairs": 9,
+    "raw_files_retained_after_each_donor": false,
+    "sequential_maximum_peak_bytes": 841682025
+  }
+}

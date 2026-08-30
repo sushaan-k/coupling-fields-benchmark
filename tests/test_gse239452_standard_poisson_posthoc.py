@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
 import tarfile
 from types import SimpleNamespace
@@ -241,3 +242,39 @@ def test_run_refuses_existing_output_before_any_download(
 
 def test_legacy_mislabeled_artifact_remains_byte_identical() -> None:
     assert subject._sha256(subject.LEGACY_AUDIT) == LEGACY_SHA256
+
+
+def test_published_posthoc_result_is_complete_and_nonconfirmatory() -> None:
+    payload = json.loads(subject.DEFAULT_OUTPUT.read_text())
+    held = payload["held"]
+    comparison = held["comparison"]
+    samples = held["samples"]
+
+    assert payload["status"] == "POST_HOC_NONCONFIRMATORY_HEAD_TO_HEAD"
+    assert payload["confirmatory"] is False
+    assert payload["method"]["noncentral_hypergeometric_reconstruction_used"] is False
+    assert payload["bindings"]["runner_sha256"] == _sha256(Path(subject.__file__))
+    assert payload["bindings"]["legacy_mislabeled_audit_sha256"] == LEGACY_SHA256
+    assert payload["development"]["selected_alpha"] == 1.0
+    assert (
+        payload["development"]["refit_certificate"][
+            "maximum_normalized_saturated_cell_error"
+        ]
+        <= 1e-10
+    )
+    assert [row["donor"] for row in samples] == list(subject.confirmation.HELD)
+    assert len({row["truth_table_sha256"] for row in samples}) == len(samples) == 9
+
+    primary = np.asarray([row["primary_loss"] for row in samples])
+    poisson = np.asarray([row["standard_poisson_loss"] for row in samples])
+    assert held["primary_donor_equal_mean_loss"] == pytest.approx(primary.mean())
+    assert held["standard_poisson_donor_equal_mean_loss"] == pytest.approx(
+        poisson.mean()
+    )
+    assert np.all(primary < poisson)
+    assert comparison["favorable_donors_primary_lower"] == 9
+    assert comparison["exact_one_sided_sign_test_p"] == 1 / 512
+    assert comparison["paired_difference_95_percentile_ci"][1] < 0.0
+    assert comparison["relative_loss_reduction_primary_vs_poisson"] == pytest.approx(
+        0.14786492732600487
+    )
