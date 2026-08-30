@@ -1,0 +1,210 @@
+{
+  "schema": "gse342939-ra-bcell-citeseq-pre-access-implementation-amendment/1.0",
+  "status": "FROZEN_BEFORE_ANY_NUMERIC_MATRIX_ACCESS",
+  "created_at_utc": "2026-08-30T02:26:16Z",
+  "base_repository_commit": "36a0139e78030f4ee2011f898cec6f2d2362e6fb",
+  "freeze_dependencies": {
+    "candidate_path": "data/confirmation/gse342939_ra_bcell/candidate_designation_v1.json",
+    "candidate_sha256": "26816d705f201227fb86fe1e6cb167fdc4879dbc9a02d24a3b00171c73911d9e",
+    "metadata_access_manifest_path": "data/confirmation/gse342939_ra_bcell/metadata_access_manifest_v1.json",
+    "metadata_access_manifest_sha256": "14a8389a97da0f0ec2581d6b72aa59ab8932522f314fdf8a205c8a768f20dd53",
+    "required_future_candidate_tag": "gse342939-ra-bcell-v1-candidate",
+    "required_future_amendment_tag": "gse342939-ra-bcell-v1-pre-access-amendment",
+    "tags_created_by_this_task": false
+  },
+  "purpose": "Bind the paired-visit conditional estimator, classical comparators, fold masks, MEX reduction, deterministic ties, numerical certificates, and one-shot access firewall before any numeric Matrix Market body is requested.",
+  "access_attestation": {
+    "official_metadata_and_nonnumeric_axis_response_bodies": 107,
+    "official_metadata_and_nonnumeric_axis_bytes": 98414933,
+    "numeric_matrix_response_bodies_requested": 0,
+    "matrix_market_headers_or_entries_read": 0,
+    "bcr_or_series_tar_response_bodies_requested": 0,
+    "rna_or_adt_assay_values_read": 0,
+    "joint_tables_associations_predictions_or_losses_computed": 0
+  },
+  "mex_input_contract": {
+    "allowed_numeric_files": "Only the exact 52 matrix.mtx.gz files bound in the candidate; source and held allowlists are stage-specific.",
+    "axis_orientation": "Rows are the bound feature-axis lines and columns are the bound barcode-axis lines. A Matrix Market header inconsistent with either axis is terminal.",
+    "gex_feature_axis_lines": 36617,
+    "cite_feature_axis_lines": 63,
+    "cite_unmapped_rule": "The exact final feature sentinel unmapped is never analyzed.",
+    "parser": "Stream gzip-compressed Matrix Market coordinate entries; validate one-based indices, declared nonzero count, bounds, finite nonnegative integer values, and sorted-independent duplicate accumulation. Never densify a full matrix.",
+    "duplicate_entries": "Sum repeated coordinates exactly in integer arithmetic; overflow or a noninteger token is terminal.",
+    "body_identity": "Verify requested URL, final URL host/path, expected bytes, observed bytes, SHA-256, gzip integrity, Matrix Market dimensions, and deletion before advancing."
+  },
+  "feature_and_barcode_contract": {
+    "panel": "The 45 ordered RNA/ADT mappings and exact ADT axis strings in the candidate are immutable.",
+    "rna_resolution": "For every GEX axis, each frozen RNA symbol must equal the second tab-separated field of exactly one Gene Expression line.",
+    "adt_resolution": "For every CITE axis, each frozen adt_axis_exact string must equal exactly one complete line. Splitting the final hyphen recovers the official tag sequence; case folding, punctuation folding, substrings, and post-freeze aliases are forbidden.",
+    "barcode_normalization": "Require one terminal -1 on every GEX barcode and remove exactly that suffix. CITE barcode cores are unchanged. Pair only exact unique cores within the same donor and visit.",
+    "pairing_scope": "No cross-visit, cross-donor, nearest, whitelist-completion, or fuzzy pairing is permitted.",
+    "rna_qc_scope": "Detected genes, total UMIs, and mitochondrial fraction use GEX rows only.",
+    "mitochondrial_rule": "A GEX feature is mitochondrial if and only if its exact symbol begins with MT-.",
+    "raw_value_rule": "Every dereferenced assay count must be finite, nonnegative, and integer-valued; no normalization precedes RNA detection or ADT ranking."
+  },
+  "deterministic_ordering": {
+    "encoding": "UTF-8 strings joined by one NUL byte; marker index is its zero-based base-10 ASCII representation.",
+    "cell_key": "SHA256(cell_selection_salt NUL physical_donor NUL visit NUL normalized_barcode), then normalized barcode bytes.",
+    "cell_output_order": "Let m be the eligible paired-barcode count; select the first min(512, 2*floor(m/2)) keys, require at least 128, then restore deposited GEX barcode order.",
+    "adt_tie_key": "raw ADT count, then SHA256(adt_tie_salt NUL physical_donor NUL visit NUL marker_index NUL normalized_barcode), then normalized barcode bytes.",
+    "destroyed_order": "cell_key order within donor-visit; shift the complete 45-marker ADT state vector forward by one position.",
+    "configuration_ties": "Resolve exact equal losses by explicit family order and then increasing numeric grid order; floating tolerances do not create ties."
+  },
+  "paired_visit_contract": {
+    "visit_code": {
+      "pre": -0.5,
+      "post": 0.5
+    },
+    "blocking": "A physical donor contributes both visits to one source fold or held block. No visit is an independent resampling unit.",
+    "loss_aggregation": "Average coordinate loss within visit, average the two visit losses within physical donor, then average physical donors equally.",
+    "missing_visit": "A missing or unsupported pre or post visit terminates that physical donor and therefore the campaign; visits cannot be substituted or singly analyzed.",
+    "bootstrap_and_sign_test": "Resample and count physical donors, preserving both visits and every within-donor contrast."
+  },
+  "fold_specific_comparison_masks": {
+    "source_fold_rule": "For each of seven leave-one-physical-donor-out folds, construct a fresh mask from the other six source donors and both of their visits only. The validation donor supplies only its two recipient margin pairs for mask intersection; its paired counts and association values cannot add or remove a coordinate.",
+    "final_rule": "Construct the held prediction mask independently from all seven source donors and their two visits only.",
+    "coordinate_universe": "All 2025 frozen ordered RNA-to-ADT pairs.",
+    "training_only_conditions_per_coordinate": [
+      "at least two training donors have nondegenerate fixed-margin support at pre",
+      "at least two training donors have nondegenerate fixed-margin support at post",
+      "the union of informative pre and post tables spans at least three physical training donors",
+      "the exact conditional common-effect maximum is finite and interior separately at pre and post",
+      "the table pooled over every training donor, including fixed-margin-degenerate tables, has four positive cells separately at pre and post"
+    ],
+    "recipient_support": "Intersect the training-only mask separately with each recipient visit margin-informative support. Recipient paired counts and association values never affect the mask.",
+    "minimum_scored_coordinates_per_visit": 256,
+    "same_mask_rule": "Every method is scored on the identical physical-donor/visit coordinate intersection.",
+    "primary_fit_scope": "Tables outside the fold-specific training mask are missing before fitting. Graphs may connect all 45 frozen markers, but excluded tables contribute no conditional likelihood."
+  },
+  "graph_contract": {
+    "neighbors": 2,
+    "rna_profile": "For each training donor-visit and RNA marker, the fraction of selected cells with positive raw RNA count.",
+    "adt_profile": "For each training donor-visit and ADT marker, the mean log1p raw antibody count across selected cells.",
+    "standardization": "For each marker separately, center its vector over all training donor-visits and divide by sample standard deviation with ddof=1.",
+    "distance_and_ties": "Euclidean distance between standardized marker profiles; order by distance then frozen marker index; use the undirected union of each marker two-nearest-neighbor edges.",
+    "incidence": "One column per lexicographically ordered undirected edge, with +1 and -1 at its ordered endpoints.",
+    "matrix_roughness": "For a 45 by 45 field Z, R(Z)=||D_RNA^T Z||_F^2 + ||Z D_ADT||_F^2.",
+    "zero_variance": "A graph-dependent candidate refuses if any profile is nonfinite or has zero variance. Graph penalty zero skips profile construction and uses zero roughness.",
+    "fold_rule": "Recompute graphs from the six training donors in each fold and from all seven source donors for the final fit. Validation and held profiles are forbidden."
+  },
+  "estimator_and_comparator_contract": {
+    "primary": {
+      "family": "paired longitudinal graph-regularized exact fixed-margin conditional coupling field",
+      "parameterization": "For donor d and visit code q in {-0.5,+0.5}, Theta_dq = Mu + q*Delta + B_d + q*C_d, with coordinatewise sums over source donors of B_d and C_d equal to zero.",
+      "likelihood": "Sum exact fixed-margin noncentral-hypergeometric negative log likelihoods for all retained training tables.",
+      "penalty": "0.5*population_ridge*(||Mu||_F^2+||Delta||_F^2) + 0.5*heterogeneity_penalty*sum_d(||B_d||_F^2+||C_d||_F^2) + 0.5*graph_penalty*(R(Mu)+R(Delta)+sum_d(R(B_d)+R(C_d))).",
+      "heterogeneity_penalty_grid": [
+        0.1,
+        1.0,
+        10.0
+      ],
+      "population_ridge_grid": [
+        0.01,
+        0.1
+      ],
+      "graph_penalty_grid": [
+        0.0,
+        0.03,
+        0.3
+      ],
+      "baseline_transport_grid": [
+        0.0,
+        0.5,
+        1.0,
+        1.5
+      ],
+      "visit_change_transport_grid": [
+        0.0,
+        0.5,
+        1.0,
+        1.5
+      ],
+      "recipient_coordinates": "Theta_pre = alpha0*Mu - 0.5*alpha_delta*Delta and Theta_post = alpha0*Mu + 0.5*alpha_delta*Delta; donor effects are not transported to an unseen donor.",
+      "recipient_reconstruction": "Exact noncentral-hypergeometric expected table at recipient margins."
+    },
+    "residual": {
+      "family_order": [
+        "signed Pearson",
+        "signed-root Poisson deviance"
+      ],
+      "coordinate": "At each visit separately and for donor-visit size n, compute the statistic on each informative training table, divide by sqrt(n), average physical donors equally, express the two visit coordinates as their mean and post-minus-pre contrast, apply the frozen baseline/change transport grid, multiply by sqrt(recipient n), and invert monotonically at recipient margins.",
+      "baseline_transport_grid": [
+        0.0,
+        0.5,
+        1.0,
+        1.5
+      ],
+      "visit_change_transport_grid": [
+        0.0,
+        0.5,
+        1.0,
+        1.5
+      ]
+    },
+    "common_effect_cmle": {
+      "fit": "Fit one exact conditional common log odds per retained coordinate separately at pre and post using informative training donors only.",
+      "transport": "Express the two visit estimates as mean and post-minus-pre contrast and use the same baseline/change transport grids.",
+      "held_role": "Point-loss ablation only; it is not an inferential confirmation comparator."
+    },
+    "pooled_saturated_poisson": {
+      "fit": "At each visit separately, sum every retained 2-by-2 table over every training donor, including fixed-margin-degenerate tables, and fit the saturated row-plus-column-plus-interaction Poisson model. The fixed interaction is log(n00*n11/(n01*n10)).",
+      "transport": "Express pre/post interactions as their mean and post-minus-pre contrast, then apply the same baseline/change transport grids.",
+      "recipient_reconstruction": "At each recipient visit margins, fix the transported interaction and solve the row and column nuisance parameters. Reconstruct the four continuous cells algebraically from the unique interior x00 having the requested margins and odds ratio.",
+      "forbidden_reconstruction": "Never pass the pooled Poisson interaction through a conditional noncentral-hypergeometric expectation.",
+      "certificates": "With both transport multipliers one and pooled training margins, each visit reconstruction matches its pooled table within normalized maximum cell error 1e-8; every recipient table has exact margins to floating-point roundoff; both multipliers zero equals independence."
+    },
+    "destroyed_link": {
+      "structure": "Within every source fold and the final fit, refit shifted donor-visit tables using the primary-selected graph, heterogeneity, ridge, graph, and transport configuration.",
+      "margins": "The cyclic shift preserves every RNA and ADT margin within donor-visit."
+    },
+    "independence": "Use the unique row-plus-column independence table at each recipient visit margins.",
+    "visit_agnostic_primary_ablation": "Set Delta and every C_d to zero, select remaining hyperparameters by the same donor-blocked folds, and report without using it in the confirmation intersection."
+  },
+  "selection_and_inference": {
+    "source_loss": "For each physical source donor, average its pre and post mean multinomial deviances per cell; select by the equal mean over seven held-out physical donors.",
+    "candidate_completeness": "Any candidate missing one of seven folds is ineligible. At least one complete candidate in every mandatory family and a valid final fit are required.",
+    "bootstrap": "Use numpy.random.default_rng(20260830), resample physical donors with replacement, preserve both visits, and report linear 0.025 and 0.975 quantiles of paired donor-mean loss differences over 20000 draws.",
+    "source_interval_role": "Selection-conditional source intervals serve only the frozen promotion gate.",
+    "held_sign_test": "A favorable physical donor has strictly lower two-visit mean loss. For six of six favorable held donors, the exact one-sided sign-test P is 1/64 = 0.015625.",
+    "multiple_comparators": "Confirmation is the intersection of separately frozen residual, pooled-Poisson, and destroyed-link requirements.",
+    "strata_and_visits": "Report stratum and visit means descriptively; neither defines an independent inferential unit."
+  },
+  "access_firewall": {
+    "future_cli_stages": [
+      "claim-source",
+      "run-source",
+      "claim-held-rna",
+      "run-held-rna",
+      "claim-held-adt",
+      "run-held-adt",
+      "predict-held",
+      "authorize-score",
+      "score-held"
+    ],
+    "future_public_tags": [
+      "gse342939-ra-bcell-v1-implementation",
+      "gse342939-ra-bcell-v1-source-attempt",
+      "gse342939-ra-bcell-v1-source",
+      "gse342939-ra-bcell-v1-held-rna-attempt",
+      "gse342939-ra-bcell-v1-held-rna-margins",
+      "gse342939-ra-bcell-v1-held-adt-attempt",
+      "gse342939-ra-bcell-v1-margins",
+      "gse342939-ra-bcell-v1-prediction",
+      "gse342939-ra-bcell-v1-score-authorization"
+    ],
+    "source_attempt": "An exclusive, fsync-complete attempt artifact must be committed and bound by a public annotated source-attempt tag before the first source matrix URL GET.",
+    "source_allowlist": "Only the exact 28 source matrix URLs may be requested. The raw tar, BCR files, every held matrix URL, and redirects outside the bound NCBI host/path are forbidden.",
+    "source_failure": "Any preflight, reduction, fit, certificate, or promotion failure atomically publishes a terminal source result and consumption record; every held matrix URL remains unreachable and no source rerun is permitted.",
+    "held_rna_stage": "After a public passing source result, a separate public attempt authorizes only the 12 held GEX matrices. Reduce sequentially into selected-barcode records, sealed RNA states, and public row margins; do not request CITE matrices or import joint-table code.",
+    "held_adt_stage": "After public RNA margins, a separate public attempt authorizes only the 12 held CITE matrices. It may read normalized selected barcodes and their hashes but cannot read RNA states. Reduce sequentially into sealed ADT states and public column margins; do not import joint-table code.",
+    "prediction_stage": "Read only public source coordinates plus public held row/column margins and publish all method predictions before score authorization.",
+    "score_stage": "After public authorization binds public predictions, run with networking disabled, load sealed RNA and ADT states, form the 2025 joint tables once, score every method, and publish one terminal result.",
+    "atomic_publication": "Every attempt, consumption, margin, prediction, authorization, and result uses exclusive temporary creation, file fsync, atomic rename, and parent-directory fsync. A canonical artifact is never partially visible.",
+    "partial_provenance": "Append URL, final URL, expected and observed bytes, SHA-256, axis and Matrix Market certificates, and deletion status after every file, including the file that fails.",
+    "no_rerun": "A consumed attempt or any canonical terminal artifact makes that stage permanently unreachable."
+  },
+  "decision_rule_change_after_numeric_access_permitted": false,
+  "donor_or_visit_split_change_after_numeric_access_permitted": false,
+  "panel_change_after_numeric_access_permitted": false,
+  "numeric_matrix_access_before_freeze": false
+}
