@@ -1,0 +1,34 @@
+{
+  "schema": "gse342939-ra-bcell-citeseq-pre-access-streaming-reduction-clarification/1.0",
+  "status": "FROZEN_BEFORE_ANY_NUMERIC_MATRIX_ACCESS",
+  "created_at_utc": "2026-08-30T04:10:00Z",
+  "candidate_sha256": "26816d705f201227fb86fe1e6cb167fdc4879dbc9a02d24a3b00171c73911d9e",
+  "metadata_access_manifest_sha256": "14a8389a97da0f0ec2581d6b72aa59ab8932522f314fdf8a205c8a768f20dd53",
+  "pre_access_implementation_amendment_sha256": "583890f90f0c89190cdb74a47170832d987a8d90b193a6acc3a1c923b031f0ab",
+  "purpose": "Clarify the implementation of the frozen Matrix Market duplicate and overflow contract without changing any donor, visit, marker, estimator, comparator, hyperparameter, loss, or promotion rule.",
+  "access_attestation": {
+    "numeric_matrix_response_bodies_requested": 0,
+    "matrix_market_headers_or_entries_read": 0,
+    "rna_or_adt_assay_values_read": 0,
+    "joint_tables_associations_predictions_or_losses_computed": 0
+  },
+  "streaming_reduction_contract": {
+    "body_validation": "Read and validate every declared Matrix Market entry through verified gzip EOF, including coordinates outside the retained sufficient statistics.",
+    "nonnegative_count_certificate": "Accumulate the sum of every body value in arbitrary-precision integer arithmetic and require the matrix-wide sum to be at most the signed int64 maximum. Because every value is nonnegative, this proves that every repeated-coordinate sum is int64-representable without materializing the coordinate set.",
+    "retained_duplicate_accumulation": "Sum every retained GEX total, mitochondrial count, RNA panel count, and selected CITE panel count exactly with checked int64 addition. Entry order cannot change any retained sufficient statistic.",
+    "detected_gene_duplicates": "Use one packed presence bit per authorized barcode and GEX feature. Increment detected genes only when a positive entry first sets its coordinate bit; zero and repeated positive entries cannot inflate detected-gene counts.",
+    "irrelevant_coordinates": "Coordinates outside the retained sufficient statistics are validated and included in the matrix-wide nonnegative-count certificate but are not individually materialized or coalesced.",
+    "forbidden_backends": [
+      "full dense matrix",
+      "full sparse coordinate set",
+      "temporary SQLite coordinate database"
+    ],
+    "maximum_authorized_gex_barcodes": 19683,
+    "gex_feature_rows": 36617,
+    "maximum_packed_detection_bitset_bytes": 90091552,
+    "maximum_compressed_matrix_bytes": 102854757,
+    "minimum_scratch_free_bytes_before_attempt_claim": 1176596581
+  },
+  "scientific_contract_changed": false,
+  "numeric_matrix_access_before_clarification": false
+}
