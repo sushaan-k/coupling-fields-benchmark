@@ -1,0 +1,25 @@
+{
+  "schema": "gse214546-teaseq-pre-access-sparse-access-clarification/1.0",
+  "created_at_utc": "2026-08-30T06:54:40Z",
+  "numeric_count_or_sparse_value_dataset_read": false,
+  "held_h5_requested_or_opened": false,
+  "prior_normalization_correction_tag": "gse214546-teaseq-v1-normalization-correction",
+  "prior_normalization_correction_sha256": "b469bd0e482c49a81537dfcc20930a7dfd25c5a9276119d4a4622403fc0e5938",
+  "clarification": {
+    "storage_format": "Each assay matrix is feature-by-cell CSC. Locating a frozen feature row in a selected cell requires the two column pointers and the row-index vector for that selected column.",
+    "authorized_index_access": "For each of the 512 frozen cells, a stage may read indptr[cell:cell+2] and indices[start:stop] to locate the frozen marker rows. This reveals the sparse row support of that selected column.",
+    "authorized_value_access": "A stage may read data only at absolute sparse positions whose row index is one of the frozen marker rows authorized for that stage.",
+    "prediction_stage": "Held prediction may perform the selected-column pointer and row-index scan for RNA and may read data values only for the frozen RNA marker rows. Every ADT dataset remains forbidden.",
+    "source_and_score_stages": "Source and authorized scoring may perform the same selected-column scan separately for RNA and ADT and may read data values only for their frozen marker rows.",
+    "forbidden": [
+      "reading an entire indptr, indices, or data dataset",
+      "reading any data value for an unselected feature row",
+      "reading any held ADT dataset during prediction",
+      "using unselected sparse support for marker choice, modeling, prediction, or scoring"
+    ]
+  },
+  "reason": "The earlier phrase 'frozen RNA rows only' fixes value access and analysis scope but does not describe the index scan required by CSC storage. This clarification makes that mechanical access explicit before any source count, sparse value, or held H5 access.",
+  "protocol_estimand_or_gate_changed": false,
+  "coordinate_axis_or_grid_changed": false,
+  "rerun_permitted": false
+}
