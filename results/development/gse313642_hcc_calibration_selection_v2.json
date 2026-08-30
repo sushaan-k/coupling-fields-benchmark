@@ -1,0 +1,7 @@
+{
+  "created_at_utc": "2026-08-30T20:17:54Z",
+  "refusal_code": "CALIBRATION_EXECUTION_FAILURE",
+  "rerun_permitted": false,
+  "schema": "gse313642-hcc-calibration-result/2.0",
+  "status": "TERMINAL_REFUSAL"
+}

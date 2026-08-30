@@ -1,1 +1,7 @@
 {"automatic_retries":false,"created_at_utc":"2026-08-30T20:16:56Z","event":"OPENED_BEFORE_MATRIX_ACCESS","http_redirects":false,"one_streaming_get_per_matrix":true,"runtime":{"operating_system":{"machine":"arm64","system":"Darwin"},"packages":{"numpy":"2.0.2","scipy":"1.13.1"},"python":{"implementation":"CPython","version":"3.9.6"},"thread_environment":{"MKL_NUM_THREADS":"1","NUMEXPR_NUM_THREADS":"1","OMP_NUM_THREADS":"1","OPENBLAS_NUM_THREADS":"1","VECLIB_MAXIMUM_THREADS":"1"}},"schema":"gse313642-hcc-access/2.0","stage":"calibration"}
+{"event":"GET_STARTED","expected_bytes":26880287,"modality":"GEX","patient_id":"A30","stage":"calibration","url":"https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9371nnn/GSM9371470/suppl/GSM9371470_A-30-01_01_GEX_matrix.mtx.gz"}
+{"bytes":26880287,"event":"GET_COMPLETED","modality":"GEX","patient_id":"A30","sha256":"fdbfa7b3520e323c8d842ec3a3427b31643ee5675ccaf74c1921932a5cbed3df","stage":"calibration"}
+{"event":"GET_STARTED","expected_bytes":3378462,"modality":"FB","patient_id":"A30","stage":"calibration","url":"https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9371nnn/GSM9371567/suppl/GSM9371567_A-30-01_01_FB_matrix.mtx.gz"}
+{"bytes":3378462,"event":"GET_COMPLETED","modality":"FB","patient_id":"A30","sha256":"c236ca4bdcd4172679a114cb89aa333133b46f89b0fb5604de52c93cd6b27e24","stage":"calibration"}
+{"body_existed":true,"event":"MATRIX_DELETED","modality":"GEX","patient_id":"A30","stage":"calibration"}
+{"body_existed":true,"event":"MATRIX_DELETED","modality":"FB","patient_id":"A30","stage":"calibration"}

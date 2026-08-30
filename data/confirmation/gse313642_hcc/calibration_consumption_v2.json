@@ -1,0 +1,8 @@
+{
+  "attempt_sha256": "de28ee6d03cc567425ab1b68956e82f7bdea1b0901e02d62c909b05a58266f45",
+  "consumed_at_utc": "2026-08-30T20:17:48Z",
+  "rerun_permitted": false,
+  "schema": "gse313642-hcc-calibration-consumption/2.0",
+  "scratch_identity_sha256": "91de31239991e444b7fb017264a536363e3045bfebfb3f8c4d6b6f3736a822bd",
+  "status": "CONSUMED_BEFORE_FIRST_MATRIX_REQUEST"
+}
