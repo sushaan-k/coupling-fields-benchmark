@@ -799,6 +799,60 @@ def _terminal_panels() -> list[dict[str, Any]]:
             }
         )
 
+    kotliarov_v2_path = "results/development/kotliarov_pbmc_binary_v2_source_v2.json"
+    kotliarov_v2 = _load_json(kotliarov_v2_path)
+    if kotliarov_v2["status"] != "TERMINAL_SOURCE_EXECUTION_REFUSAL":
+        raise ValueError("Kotliarov binary-v2 source status changed")
+    if kotliarov_v2["passes_source_promotion_gate"] is not False:
+        raise ValueError("Kotliarov binary-v2 source unexpectedly passed")
+    if kotliarov_v2["held_adt_access_authorized"] is not False:
+        raise ValueError("Kotliarov binary-v2 source authorized held ADT access")
+    if (
+        kotliarov_v2["reason"]
+        != "no frozen configuration completed every source-held fold"
+    ):
+        raise ValueError("Kotliarov binary-v2 terminal reason changed")
+    if "comparisons" in kotliarov_v2:
+        raise ValueError("Kotliarov binary-v2 source unexpectedly records comparisons")
+    attempt_path = "data/confirmation/kotliarov_pbmc_binary_v2/source_attempt_v2.json"
+    if _sha256(attempt_path) != kotliarov_v2["source_attempt_sha256"]:
+        raise ValueError("Kotliarov binary-v2 source-attempt hash changed")
+    authorization = kotliarov_v2["authorization"]
+    if _sha256(authorization["authorization_path"]) != authorization[
+        "authorization_sha256"
+    ]:
+        raise ValueError("Kotliarov binary-v2 authorization hash changed")
+    result_path, result_sha = _artifact_fields(kotliarov_v2_path)
+    panels.append(
+        {
+            "panel_id": "kotliarov_pbmc_binary_v2_source_terminal",
+            "panel": "Kotliarov PBMC binary-v2 source campaign",
+            "accession": "KotliarovPBMCData",
+            "assay_pair": "same-cell RNA and surface-protein binary states",
+            "analysis_phase": "source_development_gate",
+            "inference_role": "procedural_refusal",
+            "evaluation_unit": "physical donor",
+            "unit_count": 10,
+            "entity_count": 81,
+            "primary_method": "hierarchical_exact_conditional_coupling",
+            "primary_metric": "",
+            "metric_direction": "",
+            "primary_value": "",
+            "ci_95_low": "",
+            "ci_95_high": "",
+            "decision": kotliarov_v2["status"],
+            "outcome_scored": "NO",
+            "result_artifact": result_path,
+            "result_sha256": result_sha,
+            "notes": (
+                "No frozen configuration completed every source-held fold, so no "
+                "comparison decision was produced. Held ADT access remained "
+                "unauthorized; this is a procedural source-execution refusal, not "
+                "a scientific negative."
+            ),
+        }
+    )
+
     terminal_path = (
         "data/confirmation/stephenson_unused_cambridge/"
         "prediction_terminal_record_v1_1.json"
@@ -876,6 +930,7 @@ def _sequence(panels: list[dict[str, Any]]) -> list[dict[str, Any]]:
         "scmmib_bmmc_adaptive_development",
         "combat_oxford_adaptive_development",
         "combat_terminal_pilot",
+        "kotliarov_pbmc_binary_v2_source_terminal",
         "stephenson_unused_cambridge_terminal",
     }
     rows = [
@@ -1133,6 +1188,72 @@ def _sequence(panels: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "NOT_APPLICABLE",
                 "results/development/combat_citeseq_pilot_terminal_refusal.json",
                 notes="All held margins and pairings remained unopened.",
+            ),
+            _sequence_row(
+                "kotliarov_pbmc_binary_v2_source_terminal",
+                1,
+                "source_freeze",
+                "SOURCE_ONLY_DEVELOPMENT_FROZEN_BEFORE_ADT_COUNT_ACCESS",
+                "ADT_COUNT_DATASET_UNOPENED",
+                "YES",
+                "data/confirmation/kotliarov_pbmc_binary_v2/candidate_designation_v2.json",
+                "kotliarov-pbmc-binary-v2-source-freeze",
+            ),
+            _sequence_row(
+                "kotliarov_pbmc_binary_v2_source_terminal",
+                2,
+                "source_authorization",
+                "SOURCE_PAIRED_DEVELOPMENT_ACCESS_AUTHORIZED",
+                "DEVELOPMENT_PAIRED_VALUES_AUTHORIZED_HELD_ADT_DISABLED",
+                "YES",
+                "data/confirmation/kotliarov_pbmc_binary_v2/source_authorization_v2.json",
+                "b94322b43c359d58cec931ca2973e7e40deb251a",
+            ),
+            _sequence_row(
+                "kotliarov_pbmc_binary_v2_source_terminal",
+                3,
+                "source_attempt",
+                "CLAIMED_ONE_SHOT_BEFORE_COUNT_DATASET_OPEN",
+                "SOURCE_COUNT_ACCESS_BEGAN_AFTER_RECORD",
+                "NO",
+                "data/confirmation/kotliarov_pbmc_binary_v2/source_attempt_v2.json",
+                "8bf42230fb9b406aeba0a510daf9d30336448261",
+                notes=(
+                    "The one-shot attempt record was written locally before source "
+                    "count access and published with the terminal result."
+                ),
+            ),
+            _sequence_row(
+                "kotliarov_pbmc_binary_v2_source_terminal",
+                4,
+                "source_result",
+                "TERMINAL_SOURCE_EXECUTION_REFUSAL",
+                "DEVELOPMENT_ONLY_HELD_ADT_UNAUTHORIZED",
+                "NOT_APPLICABLE",
+                "results/development/kotliarov_pbmc_binary_v2_source_v2.json",
+                "8bf42230fb9b406aeba0a510daf9d30336448261",
+                notes=(
+                    "No frozen configuration completed every source-held fold; no "
+                    "comparisons or held run were produced."
+                ),
+            ),
+            _sequence_row(
+                "kotliarov_pbmc_binary_v2_source_terminal",
+                5,
+                "postrun_access_certificate",
+                "DETERMINISTIC_CODE_PATH_AUDIT_HELD_ADT_UNREACHABLE",
+                "HELD_ADT_VALUES_UNREACHED_BY_BOUND_CODE_PATH",
+                "NOT_APPLICABLE",
+                (
+                    "data/confirmation/kotliarov_pbmc_binary_v2/"
+                    "source_access_code_path_certificate_v2.json"
+                ),
+                "kotliarov-pbmc-binary-v2-source-terminal",
+                notes=(
+                    "Deterministic post-run code-path audit, explicitly not an "
+                    "instrumented runtime observation; the one-shot attempt and "
+                    "result remain unchanged."
+                ),
             ),
             _sequence_row(
                 "stephenson_unused_cambridge_terminal",
