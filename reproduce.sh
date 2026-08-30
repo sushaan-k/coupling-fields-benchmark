@@ -34,6 +34,7 @@ echo "Deselecting the BMMC deposited-axis assertion because its source is not re
   tests/test_scmmib_bmmc_exact_development.py \
   tests/test_heterogeneity_adaptive_coupling.py \
   tests/test_hierarchical_conditional_coupling.py \
+  tests/test_longitudinal_conditional_coupling.py \
   tests/test_gse279451_sepsis_confirmation.py \
   tests/test_evaluate_gse279451_sepsis_development.py \
   tests/test_reduce_gse299043_mln.py \
@@ -51,6 +52,7 @@ echo "Deselecting the BMMC deposited-axis assertion because its source is not re
   tests/test_gse179221_bmmc_confirmation.py \
   tests/test_exact_logodds_head_to_head.py \
   tests/test_common_effect_conditional.py \
+  tests/test_gse342939_confirmation.py \
   tests/test_gse342939_candidate.py \
   tests/test_public_benchmark_release_v2.py \
   tests/test_confirm_poki_gse143417.py \
