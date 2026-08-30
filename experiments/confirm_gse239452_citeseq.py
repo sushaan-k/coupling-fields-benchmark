@@ -724,8 +724,9 @@ def _classical_table(
                 [column_margin[0] - lower, row_margin[1] - column_margin[0] + lower],
             ]
         )
-    left = float(np.nextafter(lower, upper))
-    right = float(np.nextafter(upper, lower))
+    epsilon = min(1e-10, 0.25 * (upper - lower))
+    left = lower + epsilon
+    right = upper - epsilon
 
     def table_at(value: float) -> np.ndarray:
         return np.asarray(
