@@ -1,0 +1,77 @@
+{
+  "all_donor_tar_get_authorized": false,
+  "candidate_sha256": "93e839b6da7933c79437532c85576468f9c2d1ed896e461a61a8e3f854ca4e8f",
+  "created_at_utc": "2026-08-30T02:17:27Z",
+  "h5_get_begins_after_this_record": true,
+  "held_url_get_authorized": false,
+  "implementation_amendment_sha256": "04631dcb2cd89c6f29a2b1d24103f9d2740cc5f9ce78157a555618a738a3d25f",
+  "implementation_bindings": {
+    "experiments/confirm_gse179221_bmmc.py": "af85ec66566e30b27d0d132c74a7b8b3b2d2bd5c905e643ff67e9d0283bb99bc",
+    "experiments/confirm_gse309593_held_batches.py": "5c07237f24c7be36683e3d1940c2699b348b16a33ad76ee1faeeb8017ccb779b",
+    "mapreg/common_effect_conditional.py": "e8730bc5c072b66794d9d1c0f8fa8c93ba7e2bf9303a34bde98dfb7dea6ff2e9",
+    "mapreg/heterogeneity_adaptive_coupling.py": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e",
+    "mapreg/hierarchical_conditional_coupling.py": "7a2e067048d9151c969625e057e4ca310b36eddbc406155c2af55c3f073bfd5d",
+    "tests/test_gse179221_bmmc_confirmation.py": "9a20f67fce437b91e132e7a4b68b0d9e87de26aba5bd722bff7e0db0cf78537e"
+  },
+  "only_eight_source_urls_authorized": true,
+  "protocol_sha256": "5a7b8139cf45f6e8c3c92b2a6baf2a43ea054ee336516bb8e19de7ced1715588",
+  "public_freezes": {
+    "amendment_commit": "38ca2cad40851eb87e560706c8e4d3dca116de82",
+    "amendment_tag": "gse179221-bmmc-v1-pre-access-amendment",
+    "candidate_commit": "902fb43fc90066ac96749a3e5e87cd5e306d6321",
+    "candidate_tag": "gse179221-bmmc-v1-candidate",
+    "implementation_commit": "7f4bfc9ee21f27951220f673b8dbc0eb6de22c5c",
+    "implementation_tag": "gse179221-bmmc-v1-implementation"
+  },
+  "rerun_permitted": false,
+  "runtime": {
+    "hdf5": {
+      "built_against": "1.14.6",
+      "runtime": "1.14.6"
+    },
+    "operating_system": {
+      "machine": "arm64",
+      "release": "25.0.0",
+      "system": "Darwin"
+    },
+    "packages": {
+      "h5py": "3.14.0",
+      "numpy": "2.0.2",
+      "scipy": "1.13.1"
+    },
+    "python": {
+      "implementation": "CPython",
+      "resolved_executable": "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9",
+      "version": "3.9.6"
+    },
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "schema": "gse179221-bmmc-source-attempt/1.0",
+  "source_filename_axis": [
+    "GSM5411618_HD1_raw_feature_bc_matrix.h5",
+    "GSM5411619_HD2_raw_feature_bc_matrix.h5",
+    "GSM5411622_MGUS1_raw_feature_bc_matrix.h5",
+    "GSM5411623_MGUS2_raw_feature_bc_matrix.h5",
+    "GSM5411628_MGUS7_raw_feature_bc_matrix.h5",
+    "GSM5411629_WM_Pt1_raw_feature_bc_matrix.h5",
+    "GSM5411632_WM_Pt4_raw_feature_bc_matrix.h5",
+    "GSM5411635_WM_pt6_raw_feature_bc_matrix.h5"
+  ],
+  "source_gsm_axis": [
+    "GSM5411618",
+    "GSM5411619",
+    "GSM5411622",
+    "GSM5411623",
+    "GSM5411628",
+    "GSM5411629",
+    "GSM5411632",
+    "GSM5411635"
+  ],
+  "status": "CLAIMED_ONE_SHOT_BEFORE_ANY_H5_GET"
+}
