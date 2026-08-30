@@ -1,0 +1,71 @@
+{
+  "schema": "gse313642-hcc-axis-preflight-refusal/1.0",
+  "accession": "GSE313642",
+  "candidate": "HCC PBMC CITE-seq held-patient confirmation v1",
+  "recorded_at_utc": "2026-08-30T19:33:58Z",
+  "status": "TERMINAL_AXIS_REFUSAL",
+  "stage_reached": "ALL_PATIENT_AXIS_PREFLIGHT",
+  "refusal_code": "BARCODE_AXIS_NOT_UNIQUE",
+  "rerun_permitted": false,
+  "matrix_body_or_header_requested": false,
+  "calibration_claimed": false,
+  "prediction_written": false,
+  "outcome_scored": false,
+  "failure": {
+    "patient_id": "A33",
+    "deposited_patient_id": "A-33",
+    "pair_stem": "A-33-01_01",
+    "role": "pilot",
+    "check": "each deposited barcode axis must contain unique values",
+    "gex": {
+      "gsm": "GSM9371506",
+      "file": "GSM9371506_A-33-01_01_GEX_barcodes.tsv.gz",
+      "bytes": 15880,
+      "gzip_sha256": "cdbb2fa12e44e0513eb62ec1b5d047ff29ee63a6699ae8f9240952c161a766ab",
+      "row_count": 3282,
+      "unique_count": 3279,
+      "duplicate_rows_1based": {
+        "GAGGTGAGTCAGGACA-1": [1021, 2705],
+        "GGAATAAGTAAGGATT-1": [423, 2830],
+        "TATTACCCAAGAGGCT-1": [526, 3038]
+      }
+    },
+    "fb": {
+      "gsm": "GSM9371603",
+      "file": "GSM9371603_A-33-01_01_FB_barcodes.tsv.gz",
+      "bytes": 16844,
+      "gzip_sha256": "cf60746681920f8a310698ee017856024b2c54aa2976a979276c5c25612f5e40",
+      "row_count": 3282,
+      "unique_count": 3279,
+      "duplicate_rows_1based": {
+        "GAGGTGAGTCAGGACA-1": [1565, 2754],
+        "GGAATAAGTAAGGATT-1": [1477, 2365],
+        "TATTACCCAAGAGGCT-1": [96, 1387]
+      }
+    },
+    "interpretation": "The duplicated identifiers occur at different row positions in the two modalities, so the deposited axes do not define an unambiguous one-to-one GEX-to-FB cell match. The frozen protocol forbids deduplication, normalization, substitution, or candidate repair."
+  },
+  "axis_access": {
+    "journal": "data/confirmation/gse313642_hcc/axis_access_v1.jsonl",
+    "journal_bytes": 95965,
+    "journal_sha256": "2619458df75a219f1f2b21b8f00e7dc2c096b7309a06dc22caa8d6d5ca201555",
+    "axis_file_count": 140,
+    "get_started": 140,
+    "get_completed": 140,
+    "gzip_parse_succeeded": 140,
+    "failed_gets": 0,
+    "matrix_requests": 0
+  },
+  "frozen_provenance": {
+    "candidate_tag": "gse313642-hcc-v1-candidate",
+    "candidate_commit": "c5939704f8a3a090636cb5db101b0fc7c5883469",
+    "candidate_sha256": "d01a606cc056cdb236ae7d5739d492b1a53c85bd10871712868f74c5ae7d1258",
+    "implementation_tag": "gse313642-hcc-v1-implementation",
+    "implementation_commit": "b452a277985eaadbcae4c8464bc1692502e5a357",
+    "implementation_lock_sha256": "bf816277b61436d1cf2516ac96b2c7a9c345447bc68ab7409c98d483f5df1adf",
+    "source_manifest_sha256": "54c4af24444fb5bf6347003fdfbda8833779af2435f5209c77398ea3dd4d1d5b",
+    "protocol_sha256": "0689f8bd88a1e7d30892886aac8ee89a9c623fd5f867ca6c95635ddb9e11a599",
+    "runner_sha256": "c53bf020e0242d5440e449ee1b57fd0ebde318482f788ffc921bb32b67052241"
+  },
+  "interpretation": "This is a matrix-free input-integrity refusal. It supplies no evidence for or against predictive performance, and no v1 numeric stage may be run."
+}
