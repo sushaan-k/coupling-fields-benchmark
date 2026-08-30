@@ -312,7 +312,7 @@ def test_declared_nnz_failure_retains_complete_content_as_partial_audit() -> Non
         parsed_nnz=1,
         decompressed_bytes=len(decompressed),
         decompressed_sha256=hashlib.sha256(decompressed).hexdigest(),
-        gzip_stream_exhausted=False,
+        gzip_stream_exhausted=True,
     )
 
 

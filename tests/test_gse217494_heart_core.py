@@ -294,6 +294,15 @@ def test_conditional_prediction_preserves_margins_and_positive_field_increases_n
     np.testing.assert_allclose(prediction.sum(axis=-2), columns)
     assert prediction[1, 1, 1] > prediction[0, 1, 1]
     np.testing.assert_array_equal(prediction[2], [[256, 256], [0, 0]])
+    with (
+        np.errstate(over="ignore", invalid="ignore"),
+        pytest.raises(FloatingPointError, match="finite and nonnegative"),
+    ):
+        core.predict_conditional_tables(
+            np.asarray([np.finfo(float).max]),
+            np.asarray([[300, 212]]),
+            np.asarray([[256, 256]]),
+        )
 
 
 def test_standardized_pearson_fit_is_donor_order_invariant_and_predicts_at_margins():
@@ -421,6 +430,45 @@ def test_source_gate_requires_all_four_controls_fold_support_and_each_etiology()
     )
     assert refused["passes"] is False
 
+    with pytest.raises(ValueError, match="marker cap"):
+        core.evaluate_source_gate(
+            primary,
+            _mandatory(np.ones(14)),
+            labels,
+            [13] * 15,
+            all_reductions_and_fits_complete=True,
+        )
+
+
+def test_gates_reject_negative_deviance_values():
+    source_labels = (
+        *("Donor",) * 4,
+        *("AMI",) * 2,
+        *("ICM",) * 4,
+        *("NICM",) * 4,
+    )
+    primary = np.full(14, 0.8)
+    primary[0] = -0.1
+    with pytest.raises(ValueError, match="frozen donor panel"):
+        core.evaluate_source_gate(
+            primary,
+            _mandatory(np.ones(14)),
+            source_labels,
+            [9] * 15,
+            all_reductions_and_fits_complete=True,
+        )
+
+    comparators = _mandatory(np.ones(14))
+    comparators[core.MANDATORY_COMPARATORS[0]][0] = -0.1
+    with pytest.raises(ValueError, match="nonnegative finite vectors"):
+        core.evaluate_source_gate(
+            np.full(14, 0.8),
+            comparators,
+            source_labels,
+            [9] * 15,
+            all_reductions_and_fits_complete=True,
+        )
+
 
 def test_held_gate_applies_all_four_criteria_and_reports_exact_uncertainty():
     labels = tuple(value for value in core.ETIOLOGIES for _ in range(2))
@@ -459,3 +507,39 @@ def test_module_helpers_use_complete_ordered_pairs_and_exact_multiple_testing():
         core.benjamini_hochberg(np.asarray([0.01, 0.04, 0.03])),
         [0.03, 0.04, 0.04],
     )
+
+
+def test_neighbor_ranking_uses_symbol_ties_and_joint_permutation_is_frozen():
+    symbols = ("Z", "B", "A", "Y", "X")
+    fields = np.asarray(
+        [
+            [
+                [0.0, 0.0],
+                [1.0, 0.0],
+                [1.0, 0.0],
+                [3.0, 0.0],
+                [6.0, 0.0],
+            ],
+            [
+                [0.0, 1.0],
+                [1.0, 1.0],
+                [1.0, 1.0],
+                [3.0, 1.0],
+                [6.0, 1.0],
+            ],
+        ]
+    )
+    neighbors = core.nearest_neighbor_indices(fields, symbols, neighbors=1)
+    assert neighbors[:, 0, 0].tolist() == [2, 2]
+
+    first = core.neighbor_overlap_permutation(
+        fields, fields, symbols, neighbors=1, permutations=200, seed=91
+    )
+    second = core.neighbor_overlap_permutation(
+        fields, fields, symbols, neighbors=1, permutations=200, seed=91
+    )
+    assert first == second
+    assert first["mean_top_k_jaccard"] == 1.0
+    assert first["permutations"] == 200
+    assert first["joint_permutation"].startswith("one RNA-marker relabeling")
+    assert 0.0 < first["one_sided_monte_carlo_p"] <= 1.0

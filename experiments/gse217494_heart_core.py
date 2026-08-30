@@ -28,6 +28,8 @@ ETIOLOGIES = ("Donor", "AMI", "ICM", "NICM")
 KNN_NEIGHBORS = 3
 BOOTSTRAPS = 20_000
 BOOTSTRAP_SEED = 21_749_401
+NEIGHBOR_PERMUTATIONS = 10_000
+NEIGHBOR_SEED = 21_749_402
 MINIMUM_MARKERS = 9
 MAXIMUM_MARKERS = 12
 
@@ -551,6 +553,12 @@ def predict_conditional_tables(
         output[index] = expected_binary_table_from_log_odds(
             float(field[index]), rows[index], columns[index]
         )
+    if not np.isfinite(output).all() or np.any(output < 0.0):
+        raise FloatingPointError("conditional prediction is not finite and nonnegative")
+    if not np.allclose(
+        output.sum(axis=-1), rows, atol=1e-8, rtol=0.0
+    ) or not np.allclose(output.sum(axis=-2), columns, atol=1e-8, rtol=0.0):
+        raise FloatingPointError("conditional prediction changed a recipient margin")
     return output
 
 
@@ -836,6 +844,7 @@ def _validated_gate_panel(
         primary.shape != (expected_total,)
         or labels.shape != primary.shape
         or not np.isfinite(primary).all()
+        or np.any(primary < 0.0)
     ):
         raise ValueError("gate inputs differ from the frozen donor panel")
     if any(
@@ -851,9 +860,13 @@ def _validated_gate_panel(
     comparators = {}
     for name in MANDATORY_COMPARATORS:
         values = np.asarray(comparator_losses[name], dtype=float)
-        if values.shape != primary.shape or not np.isfinite(values).all():
+        if (
+            values.shape != primary.shape
+            or not np.isfinite(values).all()
+            or np.any(values < 0.0)
+        ):
             raise ValueError(
-                "mandatory comparator losses must be paired finite vectors"
+                "mandatory comparator losses must be paired nonnegative finite vectors"
             )
         if values.mean() <= 0.0:
             raise ValueError("mandatory comparator mean loss must be positive")
@@ -906,6 +919,8 @@ def evaluate_source_gate(
     support = tuple(int(value) for value in support_array)
     if len(support) != 15:
         raise ValueError("marker_counts must cover 14 folds and the final refit")
+    if any(value > MAXIMUM_MARKERS for value in support):
+        raise ValueError("marker_counts exceed the frozen marker cap")
     comparisons: dict[str, dict[str, object]] = {}
     for name, comparator in comparators.items():
         summary = _basic_comparison(primary, comparator, labels)
@@ -1006,6 +1021,102 @@ def module_pair_mask(
     return selected[:, None] & selected[None, :]
 
 
+def nearest_neighbor_indices(
+    fields: np.ndarray,
+    symbols: Sequence[str],
+    *,
+    neighbors: int = KNN_NEIGHBORS,
+) -> np.ndarray:
+    """Rank RNA-field rows by Euclidean distance with symbol tie breaks."""
+
+    values = np.asarray(fields, dtype=float)
+    axis = _symbols(symbols, "symbols")
+    if (
+        values.ndim != 3
+        or values.shape[1] != len(axis)
+        or values.shape[2] < 1
+        or not np.isfinite(values).all()
+    ):
+        raise ValueError("fields must be finite donor by RNA marker by feature arrays")
+    k = int(neighbors)
+    if k < 1 or k >= len(axis):
+        raise ValueError("neighbors must be positive and smaller than marker count")
+    output = np.empty((values.shape[0], len(axis), k), dtype=np.int64)
+    for donor in range(values.shape[0]):
+        for marker in range(len(axis)):
+            candidates = [index for index in range(len(axis)) if index != marker]
+            ranked = sorted(
+                candidates,
+                key=lambda candidate: (
+                    float(
+                        np.linalg.norm(values[donor, marker] - values[donor, candidate])
+                    ),
+                    axis[candidate],
+                ),
+            )
+            output[donor, marker] = ranked[:k]
+    return output
+
+
+def neighbor_overlap_permutation(
+    predicted_fields: np.ndarray,
+    observed_fields: np.ndarray,
+    symbols: Sequence[str],
+    *,
+    neighbors: int = KNN_NEIGHBORS,
+    permutations: int = NEIGHBOR_PERMUTATIONS,
+    seed: int = NEIGHBOR_SEED,
+) -> dict[str, object]:
+    """Compare directed neighbor sets to a joint cross-map label permutation."""
+
+    if np.asarray(predicted_fields).shape != np.asarray(observed_fields).shape:
+        raise ValueError("predicted and observed fields must have the same shape")
+    predicted = nearest_neighbor_indices(predicted_fields, symbols, neighbors=neighbors)
+    observed = nearest_neighbor_indices(observed_fields, symbols, neighbors=neighbors)
+    if predicted.shape != observed.shape:
+        raise ValueError(
+            "predicted and observed fields must share their donor and marker axes"
+        )
+    count = int(permutations)
+    if count < 1:
+        raise ValueError("permutations must be positive")
+    donors, markers, k = predicted.shape
+    predicted_adjacency = np.zeros((donors, markers, markers), dtype=bool)
+    observed_adjacency = np.zeros_like(predicted_adjacency)
+    donor_axis = np.arange(donors)[:, None, None]
+    marker_axis = np.arange(markers)[None, :, None]
+    predicted_adjacency[donor_axis, marker_axis, predicted] = True
+    observed_adjacency[donor_axis, marker_axis, observed] = True
+
+    def mean_jaccard(candidate: np.ndarray) -> float:
+        intersection = np.count_nonzero(candidate & observed_adjacency, axis=-1)
+        union = np.count_nonzero(candidate | observed_adjacency, axis=-1)
+        return float(np.mean(intersection / union))
+
+    observed_overlap = mean_jaccard(predicted_adjacency)
+    generator = np.random.default_rng(int(seed))
+    null = np.empty(count, dtype=float)
+    for draw in range(count):
+        old_for_new = np.argsort(generator.permutation(markers))
+        relabeled = predicted_adjacency[:, old_for_new][:, :, old_for_new]
+        null[draw] = mean_jaccard(relabeled)
+    interval = np.quantile(null, (0.025, 0.975), method="linear")
+    return {
+        "mean_top_k_jaccard": observed_overlap,
+        "neighbors": k,
+        "donors": donors,
+        "markers": markers,
+        "permutations": count,
+        "seed": int(seed),
+        "null_mean": float(np.mean(null)),
+        "null_interval": (float(interval[0]), float(interval[1])),
+        "one_sided_monte_carlo_p": float(
+            (1 + np.count_nonzero(null >= observed_overlap)) / (count + 1)
+        ),
+        "joint_permutation": "one RNA-marker relabeling shared across held donors",
+    }
+
+
 def exact_paired_sign_permutation(differences: np.ndarray) -> dict[str, float | int]:
     """Test a negative mean difference by all paired sign assignments."""
 
@@ -1069,6 +1180,8 @@ __all__ = [
     "FoldMarkerSelection",
     "KNN_NEIGHBORS",
     "MANDATORY_COMPARATORS",
+    "NEIGHBOR_PERMUTATIONS",
+    "NEIGHBOR_SEED",
     "MarkerGraph",
     "adt_high_states",
     "adt_mean_profile",
@@ -1090,6 +1203,8 @@ __all__ = [
     "marker_knn_graph",
     "module_knn_graph",
     "module_pair_mask",
+    "nearest_neighbor_indices",
+    "neighbor_overlap_permutation",
     "one_hot_context",
     "panel_deviances",
     "predict_conditional_tables",

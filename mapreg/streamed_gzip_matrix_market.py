@@ -93,13 +93,14 @@ def _partial_audit(
     *,
     declared_nnz: int | None,
     parsed_nnz: int,
+    gzip_stream_exhausted: bool = False,
 ) -> GzipMatrixMarketPartialAudit:
     return GzipMatrixMarketPartialAudit(
         declared_nnz=declared_nnz,
         parsed_nnz=parsed_nnz,
         decompressed_bytes=state.bytes_read,
         decompressed_sha256=state.hexdigest(),
-        gzip_stream_exhausted=False,
+        gzip_stream_exhausted=gzip_stream_exhausted,
     )
 
 
@@ -398,6 +399,7 @@ def reduce_gzip_matrix_market(
                 decompressed,
                 declared_nnz=declared_nnz,
                 parsed_nnz=parsed_nnz,
+                gzip_stream_exhausted=True,
             ),
         )
 
