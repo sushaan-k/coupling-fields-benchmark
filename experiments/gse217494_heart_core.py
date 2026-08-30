@@ -66,6 +66,14 @@ FROZEN_MODULES = {
 }
 
 
+class MarkerSupportRefusal(ValueError):
+    """The frozen marker rule leaves too little informative support."""
+
+
+class NoCompleteConfigurationError(ValueError):
+    """No candidate configuration completed every source fold."""
+
+
 @dataclass(frozen=True)
 class FoldMarkerSelection:
     """Marker axis selected from one training fold only."""
@@ -381,13 +389,13 @@ def select_fold_markers(
     if minimum < 1 or maximum < minimum:
         raise ValueError("marker limits must be positive and ordered")
     if len(ranked) < minimum:
-        raise ValueError(
+        raise MarkerSupportRefusal(
             f"fewer than {minimum} markers satisfy the training support rule"
         )
     selected = ranked[:maximum]
     selected_tables = tables[:, selected][:, :, selected]
     if not np.all(informative_fixed_margin_support(selected_tables)):
-        raise ValueError(
+        raise MarkerSupportRefusal(
             "a selected ordered pair has degenerate training-heart support"
         )
     return FoldMarkerSelection(
@@ -723,7 +731,9 @@ def select_cv_configuration(
         if np.isfinite(current).all():
             complete.append((configuration, current.copy()))
     if not complete:
-        raise ValueError("no configuration completed every validation fold")
+        raise NoCompleteConfigurationError(
+            "no configuration completed every validation fold"
+        )
     return min(complete, key=lambda item: (float(item[1].mean()), item[0]))
 
 

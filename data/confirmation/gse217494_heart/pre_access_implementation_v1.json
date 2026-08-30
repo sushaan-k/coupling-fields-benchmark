@@ -1,0 +1,87 @@
+{
+  "schema": "gse217494-heart-pre-access-implementation/1.0",
+  "status": "FROZEN_BEFORE_ANY_NUMERIC_GSE217494_MATRIX_ACCESS",
+  "created_at_utc": "2026-08-30T17:20:25Z",
+  "purpose": "Bind the complete executable analysis, classical Poisson comparison, one-shot access state machine, and validation code before the first GSE217494 Matrix Market body is requested.",
+  "required_cli_invocation": "python3 -m experiments.confirm_gse217494_heart",
+  "required_implementation_tag": "gse217494-heart-v1-implementation",
+  "required_runtime": {
+    "python": {
+      "implementation": "CPython",
+      "version": "3.9.6"
+    },
+    "operating_system": {
+      "system": "Darwin",
+      "machine": "arm64"
+    },
+    "packages": {
+      "numpy": "2.0.2",
+      "scipy": "1.13.1"
+    },
+    "thread_environment": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1"
+    }
+  },
+  "candidate_sha256": "bd35539fc61ffa771ea77df628eb4c918c44043896bcd2b058869e5d86032ba3",
+  "hardening_sha256": "e7816874f7863f92b22c5510a329e57491832033a7c706a47acfd3dea3d6aef6",
+  "protocol_sha256": "a37f2e9140e71a3d0a250cab7736df03fc49a446a537d6fef3a57a70d79f63ac",
+  "implementation_clarifications_sha256": "5df207ca5884be96adbd2fb2c42556a357f08e1c213c337bd98a3897fbfbdbe4",
+  "cognate_axis_sha256": "b12478eab2498a47fc7d3fe98aadf7fe5aef4caa167d1180abfab9d806f3b9a9",
+  "clarifications": {
+    "destroyed_selection": "rerun full selection and graphs; assert invariance to complete-vector permutation",
+    "secondary_module_graph_neighbors": "min(3, module_marker_count - 1)",
+    "exact_common_unavailability": "publish unavailable; residual and independence remain eligible"
+  },
+  "execution_firewall": {
+    "module_invocation_only": true,
+    "one_streaming_get_per_matrix": true,
+    "range_requests_permitted": false,
+    "automatic_retries_permitted": false,
+    "campaign_global_stage_lock": true,
+    "consumption_binds_scratch_identity_sha256": true,
+    "consumption_precedes_private_capability_deletion": true,
+    "recovery_requires_inactive_stage_lock": true,
+    "terminal_results_machine_validated": true
+  },
+  "pre_access_verification": {
+    "synthetic_14_heart_source_fit_completed": true,
+    "synthetic_source_fold_count": 14,
+    "synthetic_selected_marker_count": 12,
+    "synthetic_elapsed_seconds": 295.329,
+    "synthetic_data_only": true,
+    "network_access_during_verification": false
+  },
+  "implementation_files_sha256": {
+    "data/confirmation/gse217494_heart/candidate_designation_v1.json": "bd35539fc61ffa771ea77df628eb4c918c44043896bcd2b058869e5d86032ba3",
+    "data/confirmation/gse217494_heart/pre_access_hardening_v1.json": "e7816874f7863f92b22c5510a329e57491832033a7c706a47acfd3dea3d6aef6",
+    "data/confirmation/gse217494_heart/cognate_axis_v1.tsv": "b12478eab2498a47fc7d3fe98aadf7fe5aef4caa167d1180abfab9d806f3b9a9",
+    "docs/GSE217494_CARDIAC_CITESEQ_HELD_DONOR_PROTOCOL_2026-08-30.md": "a37f2e9140e71a3d0a250cab7736df03fc49a446a537d6fef3a57a70d79f63ac",
+    "docs/GSE217494_CARDIAC_CITESEQ_IMPLEMENTATION_CLARIFICATIONS_2026-08-30.md": "5df207ca5884be96adbd2fb2c42556a357f08e1c213c337bd98a3897fbfbdbe4",
+    "experiments/confirm_gse217494_heart.py": "412262d01368e2728159933fbfa8b040634371aa963913706b7e985749e854ce",
+    "experiments/gse217494_heart_core.py": "7f3808a7a84053dae19a731ce2a8bd48102590562d8a298c22f3d762d0a2290a",
+    "tests/test_gse217494_confirmation.py": "c2833eefd5c50fb24e8d4d7a15fbf6f0ad1e8196b66095e54fcb01191c23c6ef",
+    "tests/test_gse217494_heart_core.py": "46bb5e720242575051ebf3570f468be0b9daab2fa1a994f40e5c4081dddb06ab",
+    "mapreg/__init__.py": "61571a8ff98b61323f1a1986bb4f84f314396ddcff0c8751fa21ecdacb062bba",
+    "mapreg/classical_residuals.py": "35516883a56748f285e029927e606cd2a791a1bfa4c6b869cf84225df14a40f0",
+    "mapreg/coupling_fields.py": "06edd27c9cc52bcee1da1fc4a7a8fd86586d6263f9b32b2c6b0c5d16b0f01dc1",
+    "mapreg/structured_context_conditional.py": "2dfdc2c1e990bc547146584f609cee18eae910ed594a6bc1aa7a13a8194f7353",
+    "tests/test_structured_context_conditional.py": "79b6b5b8d2d81d660cb5e348c4d06d938952353cf0b7ccc85dd1da249b4de41d",
+    "mapreg/poisson_loglinear.py": "940d28fe3f4bd2c076025c2709a6d2d96eea5554acb8a20ef934be65a5d32b32",
+    "tests/test_poisson_loglinear.py": "4f9c20d4d6ac4955a508ad1dfc7301581c762e515760c8fa7a0a1dfaba61b427",
+    "mapreg/streamed_gzip_matrix_market.py": "a464b04987153d4862034b73a274fffc4495496007b8d5a6d9ae0e5b54269748",
+    "tests/test_streamed_gzip_matrix_market.py": "ca368a0e594eeccf7d005231af8cc421d0a4e3e225da76bd98043ef22fbc597c",
+    "mapreg/context_conditional_coupling.py": "51e02ee70320f192991e69622d206a36a86c77fb480f6ddec22a9bb0b7e1a652",
+    "mapreg/factorial_coupling.py": "c80afa0efc70de920bdd312420c0e680df3b290528b6aefd3b0a1b98cff3b79e",
+    "mapreg/heterogeneity_adaptive_coupling.py": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e",
+    "mapreg/common_effect_conditional.py": "e8730bc5c072b66794d9d1c0f8fa8c93ba7e2bf9303a34bde98dfb7dea6ff2e9",
+    "mapreg/table_prediction.py": "200c67ce0e7bb9dee11081e9748322929809a6a90cb4a6ba71e540411f80549e",
+    "pyproject.toml": "9c49aabfd3916de8f84a3a4c287483bd76f345c24b0c0a5a3f749832f4650991"
+  },
+  "numeric_matrix_body_header_or_entry_read": false,
+  "held_matrix_body_header_or_entry_requested": false,
+  "rerun_permitted": false
+}
