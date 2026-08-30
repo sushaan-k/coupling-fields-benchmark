@@ -1,0 +1,67 @@
+{
+  "audit_basis": {
+    "call_order": [
+      "run_source writes source_attempt_v2.json",
+      "run_source verifies the two frozen matrix identities",
+      "_source_records constructs development-only source columns and performs the sole ADT dataset read",
+      "_source_records returns records and access_audit",
+      "_develop evaluates the frozen leave-one-development-donor-out grids",
+      "_select_complete emits the terminal reason recorded in the source result"
+    ],
+    "development_only_adt_selection": {
+      "adt_read_call": "reader._read_dense_subset(adt_path, adt_rows, source_columns, (len(adt_names), 58654))",
+      "column_axis": "source_columns = cells['source_column'] from _selected_source_cells",
+      "eligible_donor_filter": "metadata['donor'].isin(DEVELOPMENT)",
+      "excluded_before_column_construction": [
+        "HELD",
+        "EXCLUDED"
+      ],
+      "source_donors": [
+        "200",
+        "207",
+        "212",
+        "233",
+        "237",
+        "245",
+        "256",
+        "261",
+        "273",
+        "277"
+      ]
+    },
+    "failure_location_certificate": {
+      "recorded_reason": "no frozen configuration completed every source-held fold",
+      "reason_origin": "_select_complete called from _develop",
+      "source_records_must_have_returned_before_reason": true
+    },
+    "frozen_test_evidence": {
+      "bound_test_file_sha256": "885ad63917f13a993dba53ed85ef72c37bb0e1e47d9b9093e6aef7c09014023d",
+      "test": "test_source_records_read_only_development_adt_columns_after_attempt"
+    }
+  },
+  "bindings": {
+    "authorization_commit": "b94322b43c359d58cec931ca2973e7e40deb251a",
+    "authorization_sha256": "1b6fd95ae23d7cf7f5427eb1f21ee31461e0ed48973366356b924d7132fc5b81",
+    "implementation_commit": "0cc77d9b869c29653f283959ed43651a703ae33f",
+    "result_commit": "8bf42230fb9b406aeba0a510daf9d30336448261",
+    "runner_sha256": "9120707433bd496583044a65f3e09d346772442ee697bb4eb44576d2b3a83ee8",
+    "source_attempt_sha256": "8d276cc0c404fc2a379390d478ec1a14582f6aa6eaa469b915b15b70d6450b1a",
+    "source_freeze_commit": "043280178740f6da299bff6e70aeed86d3f5fdbe",
+    "source_result_sha256": "12aacf4dc05efabcd2d745abc0319f6a2676e5d26eb50054849005424b1a071c"
+  },
+  "conclusion": {
+    "held_adt_columns_read_by_bound_source_path": 0,
+    "held_adt_dataset_values_read_by_bound_source_path": 0,
+    "held_adt_values_authorized": false,
+    "held_access_reachable_before_source_promotion": false
+  },
+  "created_at_utc": "2026-08-30T00:47:14Z",
+  "limitations": [
+    "This is a deterministic audit of the bound implementation and terminal control-flow location, not an instrumented runtime observation of HDF5 slice calls.",
+    "The terminal exception serializer omitted the access_audit object that _source_records had already returned, so the source result does not directly record held_adt_columns_read=0.",
+    "This certificate does not modify the one-shot attempt or result, authorize a rerun, or authorize held-donor ADT access."
+  ],
+  "schema": "kotliarov-pbmc-binary-v2-source-access-code-path-certificate/2.0",
+  "status": "DETERMINISTIC_CODE_PATH_AUDIT_HELD_ADT_UNREACHABLE",
+  "type": "DETERMINISTIC_CODE_PATH_AUDIT_NOT_INSTRUMENTED_RUNTIME_OBSERVATION"
+}
