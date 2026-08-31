@@ -378,7 +378,7 @@ def test_benchmark_manifest_records_v2_aggregate_release():
     assert manifest["schema"] == "coupling-fields-public-benchmark/2.0"
     assert manifest["release_name"] == "coupling-fields-v2-public-benchmark"
     assert manifest["release_status"] == "RELEASED"
-    assert manifest["intended_release_tag"] == "coupling-fields-v2-public-benchmark"
+    assert manifest["intended_release_tag"] == "coupling-fields-v2.0.1-public-benchmark"
     assert manifest["counts"] == {
         "comparison_records": 29,
         "panel_records": 37,

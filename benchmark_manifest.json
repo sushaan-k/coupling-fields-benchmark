@@ -3,9 +3,9 @@
   "archive_doi": null,
   "artifacts": [
     {
-      "bytes": 19572,
+      "bytes": 19576,
       "path": "README.md",
-      "sha256": "f726ec8b86abc3ace7414446211a69eae3fb1c04c695b208d61e33d27781489e"
+      "sha256": "a1b83dec1ee564d82e6712f5872c364e6aa8c73480f374287d0e1d29d1d84a16"
     },
     {
       "bytes": 7965,
@@ -238,9 +238,9 @@
       "sha256": "e078c6fd403a8b7431e451357ef5e4479b30f629087f4bb4a7cc00b8ceef9b15"
     },
     {
-      "bytes": 108848,
+      "bytes": 108852,
       "path": "experiments/build_public_benchmark_release.py",
-      "sha256": "c1c59ac18aa365ef2afe23c54f732dc6e0af4bd6658682729f0076e52a07ba96"
+      "sha256": "6853f1e861507a40d653fd9a8179292f62b476fcfbe4b5e9e1eb9be1bf9a813a"
     },
     {
       "bytes": 144069,
@@ -498,9 +498,9 @@
       "sha256": "7a183d4a2f55922dc07f8cbcdca904893710fe008e9169fdf618532ba06ea6e2"
     },
     {
-      "bytes": 10446,
+      "bytes": 10450,
       "path": "scripts/verify_public_benchmark_release.py",
-      "sha256": "1ddacb4dc5a9b5a657bb00ebbffa2d8ba9ea0f7186283c051259b31b15bf5c1e"
+      "sha256": "ff8afa5d1439626eaf4761ffe15414f87354ce89f7d1a1056fa24bad902e0311"
     },
     {
       "bytes": 25826,
@@ -544,7 +544,7 @@
     "scientific_decision": null,
     "terminal_record": "data/confirmation/stephenson_unused_cambridge/prediction_terminal_record_v1_1.json"
   },
-  "intended_release_tag": "coupling-fields-v2-public-benchmark",
+  "intended_release_tag": "coupling-fields-v2.0.1-public-benchmark",
   "ledgers": {
     "comparisons": "results/benchmark_comparisons_v2.tsv",
     "historical_v1_table": "results/final_public_benchmark_table.tsv",
