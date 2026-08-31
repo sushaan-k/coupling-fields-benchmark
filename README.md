@@ -3,7 +3,7 @@
 This repository is a public, source-visible benchmark for
 perturbation-specific dependence in linked single-cell assays. It preserves
 positive, negative, and refused analyses under explicit evidence roles. The
-version-2 release candidate contains 37 panel records: 12 scored held,
+version-2 release contains 37 panel records: 12 scored held,
 replicate, pilot, or nonheld-development analyses; 24 procedural refusals; and
 one published infrastructure-unevaluable attempt. These are analysis
 records rather than unique studies because BMMC and COMBAT each retain both a
@@ -126,8 +126,8 @@ python -m experiments.build_public_benchmark_release --check
 python -m scripts.verify_public_benchmark_release
 ```
 
-After the aggregate tag is published, a clean fresh clone can additionally
-verify that the local and public tag resolve to the checked-out commit and that
+At the aggregate tag, a clean fresh clone can additionally verify that the
+local and public tag resolve to the checked-out commit and that
 `SHA256SUMS` covers every tracked release byte:
 
 ```bash
@@ -306,10 +306,8 @@ input hashes, official source URLs, and derivation script are supplied in
 - `data/`: source manifests and metadata-only eligibility records.
 - `tests/`: integrity, estimator, comparator, and pairing-seal tests.
 
-The aggregate release target is tag `coupling-fields-v2-public-benchmark`.
-Until that tag and its GitHub release are created, the manifest status remains
-`RELEASE_CANDIDATE_READY_FOR_TAG`; the repository
-must not cite the target as an existing release. The GSE299043 plan is published at
+The aggregate release is tagged `coupling-fields-v2-public-benchmark`, and the
+manifest status is `RELEASED`. The GSE299043 plan is published at
 `https://github.com/sushaan-k/coupling-fields-benchmark` under tag
 `gse299043-mln-v1-protocol`. The immutable release and a fresh clone both
 verified at commit `87c15787f734b20d06c7b8cb0c66680b2fe5c1b0`; the record is

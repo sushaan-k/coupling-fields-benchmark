@@ -3,9 +3,9 @@
   "archive_doi": null,
   "artifacts": [
     {
-      "bytes": 19741,
+      "bytes": 19572,
       "path": "README.md",
-      "sha256": "7baab0a394132e6799ad25a651795c84e4324b313b67c3393da118ae12fd2ffb"
+      "sha256": "f726ec8b86abc3ace7414446211a69eae3fb1c04c695b208d61e33d27781489e"
     },
     {
       "bytes": 7965,
@@ -178,9 +178,9 @@
       "sha256": "4899751abdc1c0adf35935f7cc386c2cc2aa5fd6e8035ee2fbd870865c566a31"
     },
     {
-      "bytes": 37523,
+      "bytes": 37520,
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "50903e6d0700bdf1f86a881b7b734179312a11bf33f802d4867179f74cb63d84"
+      "sha256": "d5b43346e829747eb6d39fa43ade9bee572f88f549e96a299cc568f65d70b8f8"
     },
     {
       "bytes": 7139,
@@ -238,9 +238,9 @@
       "sha256": "e078c6fd403a8b7431e451357ef5e4479b30f629087f4bb4a7cc00b8ceef9b15"
     },
     {
-      "bytes": 108871,
+      "bytes": 108848,
       "path": "experiments/build_public_benchmark_release.py",
-      "sha256": "7d9fc11936b59ae198a4f63fa9676d6625a76657f514e735b6818073768e044f"
+      "sha256": "c1c59ac18aa365ef2afe23c54f732dc6e0af4bd6658682729f0076e52a07ba96"
     },
     {
       "bytes": 144069,
@@ -553,7 +553,7 @@
   },
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
   "release_name": "coupling-fields-v2-public-benchmark",
-  "release_status": "RELEASE_CANDIDATE_READY_FOR_TAG",
+  "release_status": "RELEASED",
   "schema": "coupling-fields-public-benchmark/2.0",
   "snapshot_date": "2026-08-31"
 }

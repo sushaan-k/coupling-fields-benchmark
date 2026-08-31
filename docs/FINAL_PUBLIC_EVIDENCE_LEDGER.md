@@ -339,7 +339,7 @@ hash before emitting a row, enforces unique panel/comparison identifiers and
 valid cross-references, and writes sorted deterministic ledgers. The standalone
 verifier rechecks row-level artifact hashes, metric finiteness, evidence counts,
 sequence order, the empty unused-Cambridge performance fields, manifest bytes,
-and `SHA256SUMS`. The release candidate contains 37 panel, 29 comparison, and
+and `SHA256SUMS`. The tagged release contains 37 panel, 29 comparison, and
 91 sequence records.
 
 The structured consistency check parsed every audited JSON with non-finite JSON

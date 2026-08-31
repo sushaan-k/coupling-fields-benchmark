@@ -2486,7 +2486,7 @@ def _write_manifest(
     record = {
         "schema": "coupling-fields-public-benchmark/2.0",
         "release_name": "coupling-fields-v2-public-benchmark",
-        "release_status": "RELEASE_CANDIDATE_READY_FOR_TAG",
+        "release_status": "RELEASED",
         "snapshot_date": "2026-08-31",
         "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
         "intended_release_tag": "coupling-fields-v2-public-benchmark",

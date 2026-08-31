@@ -373,20 +373,20 @@ def test_frozen_json_artifacts_have_expected_bytes_and_finite_numbers():
         _assert_finite(_load(relative_path))
 
 
-def test_benchmark_manifest_records_v2_aggregate_release_candidate():
+def test_benchmark_manifest_records_v2_aggregate_release():
     manifest = _load("benchmark_manifest.json")
     assert manifest["schema"] == "coupling-fields-public-benchmark/2.0"
     assert manifest["release_name"] == "coupling-fields-v2-public-benchmark"
-    assert manifest["release_status"] == "RELEASE_CANDIDATE_READY_FOR_TAG"
+    assert manifest["release_status"] == "RELEASED"
     assert manifest["intended_release_tag"] == "coupling-fields-v2-public-benchmark"
     assert manifest["counts"] == {
         "comparison_records": 29,
-        "panel_records": 36,
+        "panel_records": 37,
         "infrastructure_unevaluable_records": 1,
         "pending_records": 0,
-        "procedural_refusal_records": 23,
+        "procedural_refusal_records": 24,
         "scored_panel_records": 12,
-        "sequence_records": 83,
+        "sequence_records": 91,
     }
     assert manifest["archive_doi"] is None
     assert manifest["code_license"] is None
@@ -396,9 +396,9 @@ def test_benchmark_manifest_records_v2_aggregate_release_candidate():
     )
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 97
+    assert len(artifacts) == 105
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 97
+    assert len(by_path) == 105
     for relative in (
         "results/benchmark_panels_v2.tsv",
         "results/benchmark_comparisons_v2.tsv",
