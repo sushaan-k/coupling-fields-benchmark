@@ -7,10 +7,11 @@ is equivalent to fitting a positive table at each donor's observed margins
 with the interaction fixed.  The remaining score is one-dimensional and
 monotone.
 
-No continuity correction or penalty is used.  Degenerate-margin tables remain
-in the profile likelihood and contribute zero interaction score and
-information.  A group/entity fit is refused when its interaction MLE is on the
-boundary or otherwise non-finite.
+The unpenalized estimator uses no continuity correction or penalty.
+Degenerate-margin tables remain in its profile likelihood and contribute zero
+interaction score and information.  A separate mean-profile ridge estimator
+excludes zero-information tables from its donor mean and remains finite at
+separation.
 """
 
 from __future__ import annotations
@@ -26,19 +27,22 @@ from scipy.special import gammaln, xlogy
 
 _MAX_EXACT_FLOAT_INTEGER = 2**53 - 1
 _ROOT_XTOL = 1e-12
+_RIDGE_PROFILE_BRACKET = 16.0
 
 
 __all__ = [
     "PoissonLoglinearFit",
     "PoissonLoglinearReconstruction",
     "PoissonLoglinearRefusal",
+    "RidgeProfiledPoissonFit",
     "fit_poisson_loglinear_interaction",
+    "fit_ridge_profiled_poisson_interaction",
     "reconstruct_poisson_tables",
 ]
 
 
 class PoissonLoglinearRefusal(ValueError):
-    """Raised when an unpenalized finite interaction cannot be certified."""
+    """Raised when a profiled interaction cannot be certified."""
 
 
 @dataclass(frozen=True)
@@ -70,6 +74,46 @@ class PoissonLoglinearFit:
     score_tolerance: float
     certificate_tolerance: float
     pseudocount: float
+    converged: bool
+    estimator: str
+
+
+@dataclass(frozen=True)
+class RidgeProfiledPoissonFit:
+    """Finite mean-profile ridge interactions and numerical certificates.
+
+    Every array begins with the group axis. Zero-information group--entity
+    coordinates have interaction zero and status ``"NO_INFORMATION"``.
+    """
+
+    log_odds: np.ndarray
+    group_labels: tuple[object, ...]
+    status: np.ndarray
+    mean_profile_log_likelihood: np.ndarray
+    penalized_objective: np.ndarray
+    mean_score: np.ndarray
+    penalized_score: np.ndarray
+    mean_data_information: np.ndarray
+    penalized_information: np.ndarray
+    mean_margin_width: np.ndarray
+    informative_table_count: np.ndarray
+    degenerate_table_count: np.ndarray
+    included_table_count: np.ndarray
+    bracket_lower: np.ndarray
+    bracket_upper: np.ndarray
+    bracket_lower_score: np.ndarray
+    bracket_upper_score: np.ndarray
+    root_iterations: np.ndarray
+    maximum_absolute_penalized_score: float
+    maximum_scaled_penalized_score: float
+    maximum_absolute_row_margin_error: float
+    maximum_absolute_column_margin_error: float
+    maximum_absolute_log_odds_error: float
+    minimum_positive_fitted_mean: Optional[float]
+    ridge_penalty: float
+    score_tolerance: float
+    certificate_tolerance: float
+    bracket_bound: float
     converged: bool
     estimator: str
 
@@ -108,6 +152,27 @@ class _ProfiledTable:
     minimum_positive_mean: float
     iterations: int
     informative: bool
+
+
+@dataclass(frozen=True)
+class _RidgeProfiledEntity:
+    log_odds: float
+    status: str
+    evaluations: tuple[_ProfiledTable, ...]
+    mean_profile_log_likelihood: float
+    penalized_objective: float
+    mean_score: float
+    penalized_score: float
+    mean_data_information: float
+    penalized_information: float
+    mean_margin_width: float
+    informative_table_count: int
+    degenerate_table_count: int
+    bracket_lower: float
+    bracket_upper: float
+    bracket_lower_score: float
+    bracket_upper_score: float
+    root_iterations: int
 
 
 def _validated_tables(tables: np.ndarray) -> tuple[np.ndarray, tuple[int, ...]]:
@@ -312,6 +377,143 @@ def _profiled_table(observed: np.ndarray, log_odds: float) -> _ProfiledTable:
 
 def _profile_score(log_odds: float, tables: np.ndarray) -> float:
     return float(sum(_profiled_table(table, log_odds).score for table in tables))
+
+
+def _ridge_profile_evaluation(
+    log_odds: float, tables: np.ndarray, ridge_penalty: float
+) -> tuple[tuple[_ProfiledTable, ...], float, float]:
+    evaluations = tuple(_profiled_table(table, log_odds) for table in tables)
+    mean_score = float(np.mean([item.score for item in evaluations]))
+    return evaluations, mean_score, mean_score - ridge_penalty * log_odds
+
+
+def _fit_ridge_group_entity(
+    tables: np.ndarray, ridge_penalty: float, score_tolerance: float
+) -> _RidgeProfiledEntity:
+    informative = np.empty(len(tables), dtype=bool)
+    widths = np.empty(len(tables), dtype=float)
+    for index, table in enumerate(tables):
+        rows, columns = _margins(table)
+        _, lower, upper = _margin_interval(rows, columns)
+        informative[index] = lower < upper
+        widths[index] = upper - lower
+
+    selected = tables[informative]
+    informative_count = len(selected)
+    degenerate_count = len(tables) - informative_count
+    if informative_count == 0:
+        return _RidgeProfiledEntity(
+            log_odds=0.0,
+            status="NO_INFORMATION",
+            evaluations=(),
+            mean_profile_log_likelihood=0.0,
+            penalized_objective=0.0,
+            mean_score=0.0,
+            penalized_score=0.0,
+            mean_data_information=0.0,
+            penalized_information=ridge_penalty,
+            mean_margin_width=0.0,
+            informative_table_count=0,
+            degenerate_table_count=degenerate_count,
+            bracket_lower=0.0,
+            bracket_upper=0.0,
+            bracket_lower_score=0.0,
+            bracket_upper_score=0.0,
+            root_iterations=0,
+        )
+
+    mean_width = float(np.mean(widths[informative]))
+    zero_evaluations, zero_mean_score, zero_penalized_score = _ridge_profile_evaluation(
+        0.0, selected, ridge_penalty
+    )
+    scale = max(1.0, mean_width)
+    if abs(zero_penalized_score) <= score_tolerance * scale:
+        root = 0.0
+        evaluations = zero_evaluations
+        mean_score = zero_mean_score
+        penalized_score = zero_penalized_score
+        bracket_lower = bracket_upper = 0.0
+        bracket_lower_score = bracket_upper_score = zero_penalized_score
+        root_iterations = 0
+    else:
+        bracket_lower = -_RIDGE_PROFILE_BRACKET
+        bracket_upper = _RIDGE_PROFILE_BRACKET
+        _, _, bracket_lower_score = _ridge_profile_evaluation(
+            bracket_lower, selected, ridge_penalty
+        )
+        _, _, bracket_upper_score = _ridge_profile_evaluation(
+            bracket_upper, selected, ridge_penalty
+        )
+        if bracket_lower_score < 0.0 or bracket_upper_score > 0.0:
+            raise PoissonLoglinearRefusal(
+                "mean-profile ridge Poisson root lies outside the frozen bracket"
+            )
+        try:
+            root, result = brentq(
+                lambda value: _ridge_profile_evaluation(
+                    float(value), selected, ridge_penalty
+                )[2],
+                bracket_lower,
+                bracket_upper,
+                xtol=_ROOT_XTOL,
+                rtol=4.0 * np.finfo(float).eps,
+                maxiter=256,
+                full_output=True,
+                disp=False,
+            )
+        except (ValueError, FloatingPointError, OverflowError) as error:
+            raise PoissonLoglinearRefusal(
+                "mean-profile ridge Poisson root is not numerically finite"
+            ) from error
+        if not result.converged:
+            raise PoissonLoglinearRefusal(
+                "mean-profile ridge Poisson root solver did not converge"
+            )
+        root_iterations = int(result.iterations)
+        evaluations, mean_score, penalized_score = _ridge_profile_evaluation(
+            float(root), selected, ridge_penalty
+        )
+
+    mean_information = float(np.mean([item.information for item in evaluations]))
+    mean_log_likelihood = float(np.mean([item.log_likelihood for item in evaluations]))
+    penalized_information = mean_information + ridge_penalty
+    penalized_objective = -mean_log_likelihood + 0.5 * ridge_penalty * float(root) ** 2
+    if (
+        not math.isfinite(float(root))
+        or not math.isfinite(mean_score)
+        or not math.isfinite(penalized_score)
+        or not math.isfinite(mean_information)
+        or not math.isfinite(penalized_information)
+        or not math.isfinite(penalized_objective)
+        or mean_information <= 0.0
+        or penalized_information <= ridge_penalty
+    ):
+        raise PoissonLoglinearRefusal(
+            "mean-profile ridge Poisson solution lacks finite positive information"
+        )
+    if abs(penalized_score) > score_tolerance * scale:
+        raise PoissonLoglinearRefusal(
+            "mean-profile ridge Poisson solution misses the score certificate"
+        )
+    return _RidgeProfiledEntity(
+        log_odds=float(root),
+        status="FINITE",
+        evaluations=evaluations,
+        mean_profile_log_likelihood=mean_log_likelihood,
+        penalized_objective=penalized_objective,
+        mean_score=mean_score,
+        penalized_score=penalized_score,
+        mean_data_information=mean_information,
+        penalized_information=penalized_information,
+        mean_margin_width=mean_width,
+        informative_table_count=informative_count,
+        degenerate_table_count=degenerate_count,
+        bracket_lower=bracket_lower,
+        bracket_upper=bracket_upper,
+        bracket_lower_score=bracket_lower_score,
+        bracket_upper_score=bracket_upper_score,
+        root_iterations=root_iterations,
+    )
 
 
 def _bracket_profile_score(tables: np.ndarray) -> tuple[float, float]:
@@ -537,6 +739,152 @@ def fit_poisson_loglinear_interaction(
         pseudocount=0.0,
         converged=True,
         estimator=("unpenalized donor-profiled 2x2 Poisson log-linear interaction"),
+    )
+
+
+def fit_ridge_profiled_poisson_interaction(
+    tables: np.ndarray,
+    groups: Optional[np.ndarray] = None,
+    *,
+    ridge_penalty: float = 0.01,
+    score_tolerance: float = 1e-10,
+    certificate_tolerance: float = 1e-8,
+) -> RidgeProfiledPoissonFit:
+    """Fit finite group-specific interactions by mean-profile ridge Poisson.
+
+    The likelihood and score are averaged over informative donor tables before
+    applying the coefficient ridge. This gives every informative donor equal
+    weight and makes complete-panel duplication leave the estimate unchanged.
+    Zero-information group--entity coordinates return interaction zero.
+    """
+
+    values, entity_shape = _validated_tables(tables)
+    penalty = float(ridge_penalty)
+    if not math.isfinite(penalty) or penalty <= 0.0:
+        raise ValueError("ridge_penalty must be finite and positive")
+    threshold = _validated_log_odds_tolerance(score_tolerance, "score_tolerance")
+    certificate = _validated_log_odds_tolerance(
+        certificate_tolerance, "certificate_tolerance"
+    )
+    labels, group_index = _group_partition(groups, values.shape[0])
+    group_shape = (len(labels),) + entity_shape
+    log_odds = np.empty(group_shape, dtype=float)
+    status = np.empty(group_shape, dtype="<U14")
+    mean_log_likelihood = np.empty(group_shape, dtype=float)
+    penalized_objective = np.empty(group_shape, dtype=float)
+    mean_score = np.empty(group_shape, dtype=float)
+    penalized_score = np.empty(group_shape, dtype=float)
+    mean_information = np.empty(group_shape, dtype=float)
+    penalized_information = np.empty(group_shape, dtype=float)
+    mean_width = np.empty(group_shape, dtype=float)
+    informative_count = np.empty(group_shape, dtype=int)
+    degenerate_count = np.empty(group_shape, dtype=int)
+    included_count = np.empty(group_shape, dtype=int)
+    bracket_lower = np.empty(group_shape, dtype=float)
+    bracket_upper = np.empty(group_shape, dtype=float)
+    bracket_lower_score = np.empty(group_shape, dtype=float)
+    bracket_upper_score = np.empty(group_shape, dtype=float)
+    root_iterations = np.empty(group_shape, dtype=int)
+    maximum_row_error = 0.0
+    maximum_column_error = 0.0
+    maximum_log_odds_error = 0.0
+    minimum_positive_mean = math.inf
+
+    flattened = values.reshape((values.shape[0], -1, 2, 2))
+    for group in range(len(labels)):
+        donors = np.flatnonzero(group_index == group)
+        for entity in range(flattened.shape[1]):
+            fitted = _fit_ridge_group_entity(
+                flattened[donors, entity], penalty, threshold
+            )
+            output_index = (group,) + np.unravel_index(entity, entity_shape or (1,))
+            if not entity_shape:
+                output_index = (group,)
+            log_odds[output_index] = fitted.log_odds
+            status[output_index] = fitted.status
+            mean_log_likelihood[output_index] = fitted.mean_profile_log_likelihood
+            penalized_objective[output_index] = fitted.penalized_objective
+            mean_score[output_index] = fitted.mean_score
+            penalized_score[output_index] = fitted.penalized_score
+            mean_information[output_index] = fitted.mean_data_information
+            penalized_information[output_index] = fitted.penalized_information
+            mean_width[output_index] = fitted.mean_margin_width
+            informative_count[output_index] = fitted.informative_table_count
+            degenerate_count[output_index] = fitted.degenerate_table_count
+            included_count[output_index] = len(donors)
+            bracket_lower[output_index] = fitted.bracket_lower
+            bracket_upper[output_index] = fitted.bracket_upper
+            bracket_lower_score[output_index] = fitted.bracket_lower_score
+            bracket_upper_score[output_index] = fitted.bracket_upper_score
+            root_iterations[output_index] = fitted.root_iterations
+            for evaluation in fitted.evaluations:
+                maximum_row_error = max(maximum_row_error, evaluation.row_error)
+                maximum_column_error = max(
+                    maximum_column_error, evaluation.column_error
+                )
+                if evaluation.log_odds_error is not None:
+                    maximum_log_odds_error = max(
+                        maximum_log_odds_error, evaluation.log_odds_error
+                    )
+                minimum_positive_mean = min(
+                    minimum_positive_mean, evaluation.minimum_positive_mean
+                )
+
+    scaled_score = np.abs(penalized_score) / np.maximum(1.0, mean_width)
+    has_finite = bool(np.any(status == "FINITE"))
+    if (
+        not np.isfinite(log_odds).all()
+        or not np.isfinite(mean_log_likelihood).all()
+        or not np.isfinite(penalized_objective).all()
+        or not np.isfinite(mean_score).all()
+        or not np.isfinite(penalized_score).all()
+        or not np.isfinite(mean_information).all()
+        or not np.isfinite(penalized_information).all()
+        or not np.isfinite(mean_width).all()
+        or float(np.max(scaled_score)) > threshold
+        or maximum_row_error > certificate
+        or maximum_column_error > certificate
+        or maximum_log_odds_error > certificate
+        or (has_finite and not math.isfinite(minimum_positive_mean))
+        or (has_finite and minimum_positive_mean <= 0.0)
+    ):
+        raise PoissonLoglinearRefusal(
+            "mean-profile ridge Poisson fit misses its numerical certificate"
+        )
+    return RidgeProfiledPoissonFit(
+        log_odds=log_odds,
+        group_labels=labels,
+        status=status,
+        mean_profile_log_likelihood=mean_log_likelihood,
+        penalized_objective=penalized_objective,
+        mean_score=mean_score,
+        penalized_score=penalized_score,
+        mean_data_information=mean_information,
+        penalized_information=penalized_information,
+        mean_margin_width=mean_width,
+        informative_table_count=informative_count,
+        degenerate_table_count=degenerate_count,
+        included_table_count=included_count,
+        bracket_lower=bracket_lower,
+        bracket_upper=bracket_upper,
+        bracket_lower_score=bracket_lower_score,
+        bracket_upper_score=bracket_upper_score,
+        root_iterations=root_iterations,
+        maximum_absolute_penalized_score=float(np.max(np.abs(penalized_score))),
+        maximum_scaled_penalized_score=float(np.max(scaled_score)),
+        maximum_absolute_row_margin_error=maximum_row_error,
+        maximum_absolute_column_margin_error=maximum_column_error,
+        maximum_absolute_log_odds_error=maximum_log_odds_error,
+        minimum_positive_fitted_mean=(minimum_positive_mean if has_finite else None),
+        ridge_penalty=penalty,
+        score_tolerance=threshold,
+        certificate_tolerance=certificate,
+        bracket_bound=_RIDGE_PROFILE_BRACKET,
+        converged=True,
+        estimator=(
+            "finite donor-stratified mean-profile ridge 2x2 Poisson "
+            "log-linear interaction"
+        ),
     )
 
 

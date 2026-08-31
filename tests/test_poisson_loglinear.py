@@ -12,6 +12,7 @@ from mapreg.heterogeneity_adaptive_coupling import (
 from mapreg.poisson_loglinear import (
     PoissonLoglinearRefusal,
     fit_poisson_loglinear_interaction,
+    fit_ridge_profiled_poisson_interaction,
     reconstruct_poisson_tables,
 )
 
@@ -65,6 +66,64 @@ def _independent_poisson_glm(tables: np.ndarray) -> tuple[np.ndarray, float]:
     )
     assert np.max(np.abs(gradient(result.x))) < 2e-8
     return result.x, -objective(result.x)
+
+
+def _independent_ridge_poisson_glm(
+    tables: np.ndarray, ridge_penalty: float
+) -> tuple[np.ndarray, float]:
+    """Fit the mean-likelihood ridge model without profile formulas."""
+
+    values = np.asarray(tables, dtype=float)
+    donors = values.shape[0]
+    design = np.zeros((4 * donors, 3 * donors + 1), dtype=float)
+    response = values.reshape(-1)
+    for donor in range(donors):
+        for row in range(2):
+            for column in range(2):
+                observation = 4 * donor + 2 * row + column
+                design[observation, 3 * donor] = 1.0
+                design[observation, 3 * donor + 1] = row
+                design[observation, 3 * donor + 2] = column
+                design[observation, -1] = row * column
+
+    def objective(parameter: np.ndarray) -> float:
+        with np.errstate(over="ignore", invalid="ignore"):
+            linear = design @ parameter
+            mean = np.exp(linear)
+            likelihood = np.sum(mean - response * linear + gammaln(response + 1.0))
+            return float(likelihood / donors + 0.5 * ridge_penalty * parameter[-1] ** 2)
+
+    def gradient(parameter: np.ndarray) -> np.ndarray:
+        with np.errstate(over="ignore", invalid="ignore"):
+            output = design.T @ (np.exp(design @ parameter) - response) / donors
+            output[-1] += ridge_penalty * parameter[-1]
+            return output
+
+    def hessian(parameter: np.ndarray) -> np.ndarray:
+        with np.errstate(over="ignore", invalid="ignore", divide="ignore"):
+            mean = np.exp(design @ parameter)
+            output = design.T @ (mean[:, None] * design) / donors
+            output[-1, -1] += ridge_penalty
+            return output
+
+    start = np.zeros(design.shape[1], dtype=float)
+    for donor in range(donors):
+        rows = values[donor].sum(axis=1)
+        columns = values[donor].sum(axis=0)
+        total = values[donor].sum()
+        start[3 * donor] = math.log(rows[0] * columns[0] / total)
+        start[3 * donor + 1] = math.log(rows[1] / rows[0])
+        start[3 * donor + 2] = math.log(columns[1] / columns[0])
+    result = minimize(
+        objective,
+        start,
+        method="trust-exact",
+        jac=gradient,
+        hess=hessian,
+        options={"gtol": 1e-11, "maxiter": 1_000},
+    )
+    assert np.max(np.abs(gradient(result.x))) < 2e-8
+    return result.x, objective(result.x)
 
 
 def _independent_fixed_interaction_profile(
@@ -136,6 +195,167 @@ def test_profile_mle_matches_independently_parameterized_poisson_glm() -> None:
     assert fitted.certificate_tolerance == 1e-8
     assert fitted.pseudocount == 0.0
     assert fitted.converged
+
+
+def test_mean_profile_ridge_matches_independently_parameterized_poisson_glm() -> None:
+    tables = np.asarray(
+        [
+            [[12, 7], [9, 18]],
+            [[8, 11], [6, 17]],
+            [[15, 5], [13, 19]],
+            [[9, 8], [4, 14]],
+            [[11, 10], [7, 16]],
+        ],
+        dtype=np.int64,
+    )
+    fitted = fit_ridge_profiled_poisson_interaction(tables, ridge_penalty=0.01)
+    independent_parameter, independent_objective = _independent_ridge_poisson_glm(
+        tables, 0.01
+    )
+
+    assert fitted.log_odds.item() == pytest.approx(independent_parameter[-1], abs=2e-9)
+    assert fitted.penalized_objective.item() == pytest.approx(
+        independent_objective, abs=2e-9
+    )
+    assert fitted.mean_score.item() == pytest.approx(
+        0.01 * fitted.log_odds.item(), abs=1e-11
+    )
+    assert fitted.maximum_scaled_penalized_score <= fitted.score_tolerance
+    assert fitted.maximum_absolute_log_odds_error < 1e-11
+    assert fitted.status.item() == "FINITE"
+    assert fitted.ridge_penalty == 0.01
+    assert fitted.bracket_bound == 16.0
+    assert fitted.converged
+
+
+def test_donor_stratification_removes_simpson_margin_confounding() -> None:
+    tables = np.asarray(
+        [
+            [[81, 9], [9, 1]],
+            [[1, 9], [9, 81]],
+        ],
+        dtype=np.int64,
+    )
+    pooled = tables.sum(axis=0)
+    pooled_log_odds = math.log(
+        pooled[0, 0] * pooled[1, 1] / (pooled[0, 1] * pooled[1, 0])
+    )
+    fitted = fit_ridge_profiled_poisson_interaction(tables)
+
+    assert pooled_log_odds > 3.0
+    assert fitted.log_odds.item() == pytest.approx(0.0, abs=1e-14)
+    assert fitted.mean_score.item() == pytest.approx(0.0, abs=1e-14)
+    assert fitted.root_iterations.item() == 0
+
+
+@pytest.mark.parametrize(
+    ("table", "sign"),
+    [
+        (np.asarray([[128, 0], [0, 128]]), 1),
+        (np.asarray([[0, 128], [128, 0]]), -1),
+    ],
+)
+def test_mean_profile_ridge_is_finite_at_complete_separation(
+    table: np.ndarray, sign: int
+) -> None:
+    tables = np.repeat(table[None, ...], 3, axis=0)
+    with pytest.raises(PoissonLoglinearRefusal, match="boundary or infinite MLE"):
+        fit_poisson_loglinear_interaction(tables)
+
+    fitted = fit_ridge_profiled_poisson_interaction(tables)
+
+    assert fitted.status.item() == "FINITE"
+    assert 0.0 < sign * fitted.log_odds.item() < 16.0
+    assert fitted.bracket_lower.item() == -16.0
+    assert fitted.bracket_upper.item() == 16.0
+    assert fitted.bracket_lower_score.item() > 0.0
+    assert fitted.bracket_upper_score.item() < 0.0
+    assert fitted.maximum_scaled_penalized_score <= fitted.score_tolerance
+    assert fitted.maximum_absolute_log_odds_error <= fitted.certificate_tolerance
+
+
+def test_ridge_profile_reports_no_information_without_refusing_other_groups() -> None:
+    degenerate = np.asarray([[128, 128], [0, 0]], dtype=np.int64)
+    informative = np.asarray([[90, 38], [38, 90]], dtype=np.int64)
+    tables = np.asarray([degenerate, degenerate, informative, informative])
+    fitted = fit_ridge_profiled_poisson_interaction(
+        tables, np.asarray(["empty", "empty", "signal", "signal"])
+    )
+    by_group = {label: index for index, label in enumerate(fitted.group_labels)}
+    empty = by_group["empty"]
+    signal = by_group["signal"]
+
+    assert fitted.status[empty] == "NO_INFORMATION"
+    assert fitted.log_odds[empty] == 0.0
+    assert fitted.informative_table_count[empty] == 0
+    assert fitted.degenerate_table_count[empty] == 2
+    assert fitted.penalized_information[empty] == 0.01
+    assert fitted.penalized_objective[empty] == 0.0
+    assert fitted.root_iterations[empty] == 0
+    assert fitted.status[signal] == "FINITE"
+    assert fitted.informative_table_count[signal] == 2
+    assert fitted.minimum_positive_fitted_mean is not None
+
+
+def test_mean_profile_ridge_is_invariant_to_complete_panel_duplication() -> None:
+    informative = np.asarray(
+        [
+            [[12, 7], [9, 18]],
+            [[8, 11], [6, 17]],
+            [[15, 5], [13, 19]],
+        ],
+        dtype=np.int64,
+    )
+    degenerate = np.asarray([[[0, 0], [4, 6]]], dtype=np.int64)
+    tables = np.concatenate((informative, degenerate))
+    original = fit_ridge_profiled_poisson_interaction(tables)
+    duplicated = fit_ridge_profiled_poisson_interaction(
+        np.concatenate((tables, tables))
+    )
+
+    np.testing.assert_allclose(duplicated.log_odds, original.log_odds, atol=1e-13)
+    np.testing.assert_allclose(
+        duplicated.mean_profile_log_likelihood,
+        original.mean_profile_log_likelihood,
+        atol=1e-13,
+    )
+    np.testing.assert_allclose(
+        duplicated.penalized_objective, original.penalized_objective, atol=1e-13
+    )
+    np.testing.assert_allclose(
+        duplicated.mean_data_information,
+        original.mean_data_information,
+        atol=1e-13,
+    )
+    np.testing.assert_array_equal(
+        duplicated.informative_table_count, 2 * original.informative_table_count
+    )
+    np.testing.assert_array_equal(
+        duplicated.degenerate_table_count, 2 * original.degenerate_table_count
+    )
+    np.testing.assert_array_equal(
+        duplicated.included_table_count, 2 * original.included_table_count
+    )
+
+
+def test_zero_transport_removes_fitted_ridge_interaction() -> None:
+    tables = np.asarray(
+        [
+            [[90, 38], [38, 90]],
+            [[84, 44], [42, 86]],
+        ],
+        dtype=np.int64,
+    )
+    fitted = fit_ridge_profiled_poisson_interaction(tables)
+    rows = np.asarray([[91.0, 165.0]])
+    columns = np.asarray([[128.0, 128.0]])
+    transported = reconstruct_poisson_tables(
+        fitted.log_odds, rows, columns, transport_scale=0.0
+    )
+    expected = rows[..., :, None] * columns[..., None, :] / 256.0
+
+    np.testing.assert_allclose(transported.table, expected, atol=1e-13)
+    assert transported.transported_log_odds.item() == 0.0
 
 
 def test_recipient_profile_matches_independent_nuisance_fit_not_fisher_mean() -> None:
