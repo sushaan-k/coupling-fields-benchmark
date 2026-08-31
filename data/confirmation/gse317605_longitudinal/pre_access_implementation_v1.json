@@ -1,0 +1,33 @@
+{
+  "bindings": {
+    "data/confirmation/gse317605_longitudinal/axis_access_history_v1.json": "088fb812950310388dd80b27a672922d3b337208ed21407718893de0d20f3865",
+    "data/confirmation/gse317605_longitudinal/candidate_designation_v1.json": "05ba040b3c44c6dc4e9c7e89319a13b23f1ea0d33df4a409e2e29141ffadf844",
+    "data/confirmation/gse317605_longitudinal/protocol_v1.json": "b48e96a9b5e6bd4932f972ddbd9e1e1b1662005412a92d1ee8c07df36e16a5e3",
+    "data/confirmation/gse317605_longitudinal/sample_manifest_v1.json": "2cdbd3182cf41306e6adb71d409049ba8aa07e3f9d3129ecbc444545673dff8a",
+    "docs/GSE317605_LONGITUDINAL_CITESEQ_PROTOCOL_2026-08-30.md": "b84bd1363db2e4198d32650b67615159d89045483fa03ff741dd6c7a6c6794fc",
+    "experiments/confirm_gse317605_longitudinal.py": "f555cb6a25f05c8157337f4c8f918bee13770a1433d1cb359f37bd55f563049d",
+    "experiments/gse317605_longitudinal_core.py": "3510289dbe015650bb7f3568cc54e19810c41ccdafd1bd9e2e6c18319d674d7e",
+    "mapreg/coupling_fields.py": "06edd27c9cc52bcee1da1fc4a7a8fd86586d6263f9b32b2c6b0c5d16b0f01dc1",
+    "mapreg/heterogeneity_adaptive_coupling.py": "2d3e7574ee86f4b29c67c1ec3034243e76ca79082437aeb99ee4e7fcbaa75a1e",
+    "mapreg/poisson_loglinear.py": "cab6b703388d4fe302eff62d20f0d9eecac4dd32d1ce4c431f4b2eaf0924d350",
+    "mapreg/streamed_gzip_matrix_market.py": "23290796e12e387f4cd2e8e5d9bc168f5560b26b4729500470ee4ad17263a53a",
+    "pyproject.toml": "9c49aabfd3916de8f84a3a4c287483bd76f345c24b0c0a5a3f749832f4650991",
+    "requirements.txt": "4a142cb4493603181ec2184270c88b17377f2fe88e3651ed4690643db6682228",
+    "tests/test_gse317605_longitudinal.py": "f51013912c9206907de44c1fb768037bb00eceebd091a173d228a5d336dc376c"
+  },
+  "candidate_public_commit": "b6b493335d191ae43eb306f8990522fc1886ed2a",
+  "candidate_tag": "gse317605-longitudinal-v1-candidate",
+  "count_matrix_requests_before_freeze": 0,
+  "created_at_utc": "2026-08-31T11:09:59Z",
+  "implementation_parent_commit": "b6b493335d191ae43eb306f8990522fc1886ed2a",
+  "implementation_tag": "gse317605-longitudinal-v1-implementation",
+  "rerun_permitted": false,
+  "runtime_versions": {
+    "numpy": "2.0.2",
+    "python": "3.9.6",
+    "scipy": "1.13.1"
+  },
+  "schema": "gse317605-implementation-freeze/1.0",
+  "series_archive_requests_before_freeze": 0,
+  "status": "FROZEN_BEFORE_FIRST_COUNT_MATRIX_ACCESS"
+}
