@@ -317,7 +317,7 @@ GSE279451 plan remains under tag
 `gse279451-sepsis-v1-protocol`; its verification record is
 `docs/GSE279451_PUBLIC_FREEZE_VERIFICATION_2026-08-28.json`, and the later
 terminal development refusal is retained under `results/development/`. The prior Kotliarov
-freeze remains under tag `confirmatory-family-v3`. The repository has no
-archive DOI and grants no code license. It must not be called open source,
-DOI-archived, or registry-hosted preregistration. Upstream datasets and model
-weights remain governed by their own terms.
+freeze remains under tag `confirmatory-family-v3`. Repository-authored software
+is distributed under the MIT License. The release has no archive DOI and is not
+a registry-hosted preregistration. Upstream datasets and model weights remain
+governed by their own terms.

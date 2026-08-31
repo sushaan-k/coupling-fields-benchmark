@@ -7,6 +7,7 @@ name = "v2p2r-mapreg"
 version = "0.2.0"
 description = "Conditional coupling fields for linked single-cell assays"
 readme = "README.md"
+license = { file = "LICENSE" }
 requires-python = ">=3.9"
 dependencies = [
   "numpy==2.0.2",

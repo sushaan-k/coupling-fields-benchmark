@@ -2443,6 +2443,7 @@ def _artifact_manifest(
             str(SEQUENCE_PATH),
             "results/final_public_benchmark_table.tsv",
             "results/development/gse299043_mln_development_acquisition_refusal.json",
+            "LICENSE",
             "README.md",
             "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
             "experiments/build_public_benchmark_release.py",
@@ -2491,7 +2492,7 @@ def _write_manifest(
         "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
         "intended_release_tag": "coupling-fields-v2.0.1-public-benchmark",
         "archive_doi": None,
-        "code_license": None,
+        "code_license": "MIT",
         "analysis_plan_characterization": "public pre-outcome analysis plans; not registry-hosted preregistration",
         "ledgers": {
             "panels": str(PANELS_PATH),
@@ -2538,6 +2539,7 @@ def _checksum_paths() -> list[str]:
         "tests/test_gse239452_post_access_correction.py",
         "tests/test_public_benchmark_release_v2.py",
         "results/development/gse214546_teaseq_source_v1.json",
+        "LICENSE",
     }
     candidates = set(filter(None, tracked)) | generated
     candidates.discard(str(CHECKSUM_PATH))

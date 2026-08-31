@@ -548,7 +548,7 @@ def test_manifest_counts_and_claim_boundaries_match_ledgers() -> None:
         "sequence_records": 91,
     }
     assert manifest["archive_doi"] is None
-    assert manifest["code_license"] is None
+    assert manifest["code_license"] == "MIT"
     assert "not registry-hosted" in manifest["analysis_plan_characterization"]
     assert (
         manifest["infrastructure_unevaluable"]["performance_values_recorded"]

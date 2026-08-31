@@ -95,8 +95,10 @@ def verify(root: Path, *, require_clean: bool = False, require_tag: bool = False
         raise ValueError("unexpected public repository URL")
     if manifest["intended_release_tag"] != EXPECTED_TAG:
         raise ValueError("unexpected release tag")
-    if manifest["archive_doi"] is not None or manifest["code_license"] is not None:
-        raise ValueError("manifest invents an archive DOI or code license")
+    if manifest["archive_doi"] is not None:
+        raise ValueError("manifest invents an archive DOI")
+    if manifest["code_license"] != "MIT":
+        raise ValueError("manifest code license differs from the release license")
 
     ledgers = manifest["ledgers"]
     _, panels = _load_tsv(root / ledgers["panels"])

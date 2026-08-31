@@ -3,9 +3,14 @@
   "archive_doi": null,
   "artifacts": [
     {
-      "bytes": 19576,
+      "bytes": 1294,
+      "path": "LICENSE",
+      "sha256": "98851eeb759925f9bb815dade17188971698d7b62f28953e083f65e70f485027"
+    },
+    {
+      "bytes": 19573,
       "path": "README.md",
-      "sha256": "a1b83dec1ee564d82e6712f5872c364e6aa8c73480f374287d0e1d29d1d84a16"
+      "sha256": "9c13165d7439aca32efbde6a08bd9b914b2127e53b8050b6573e3d674e29a975"
     },
     {
       "bytes": 7965,
@@ -238,9 +243,9 @@
       "sha256": "e078c6fd403a8b7431e451357ef5e4479b30f629087f4bb4a7cc00b8ceef9b15"
     },
     {
-      "bytes": 108852,
+      "bytes": 108895,
       "path": "experiments/build_public_benchmark_release.py",
-      "sha256": "6853f1e861507a40d653fd9a8179292f62b476fcfbe4b5e9e1eb9be1bf9a813a"
+      "sha256": "61b20486931314331c090b41faeada33c5b7d1ecc6b1eacd10ff9afed49a9aca"
     },
     {
       "bytes": 144069,
@@ -498,9 +503,9 @@
       "sha256": "7a183d4a2f55922dc07f8cbcdca904893710fe008e9169fdf618532ba06ea6e2"
     },
     {
-      "bytes": 10450,
+      "bytes": 10519,
       "path": "scripts/verify_public_benchmark_release.py",
-      "sha256": "ff8afa5d1439626eaf4761ffe15414f87354ce89f7d1a1056fa24bad902e0311"
+      "sha256": "4a83693621b36b481edf37abf2ae3c55cecc58345edc8028747210bda5dcfe73"
     },
     {
       "bytes": 25826,
@@ -523,12 +528,12 @@
       "sha256": "2c9f025aab0259b8cbe8b4ee0f2766a00593ae98a06daf4337fc4b08566940f4"
     },
     {
-      "bytes": 21965,
+      "bytes": 21966,
       "path": "tests/test_public_benchmark_release_v2.py",
-      "sha256": "e26b51fabbac93e00ad787ab1d99d3ed2831e0aa43865c40f5147fa5996fefae"
+      "sha256": "d1c9ebafbac52e449b3d6ab478a2c84f29805804f3c762d6ac95af5dc67122ea"
     }
   ],
-  "code_license": null,
+  "code_license": "MIT",
   "counts": {
     "comparison_records": 29,
     "infrastructure_unevaluable_records": 1,

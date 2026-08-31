@@ -389,17 +389,18 @@ def test_benchmark_manifest_records_v2_aggregate_release():
         "sequence_records": 91,
     }
     assert manifest["archive_doi"] is None
-    assert manifest["code_license"] is None
+    assert manifest["code_license"] == "MIT"
     assert (
         manifest["infrastructure_unevaluable"]["performance_values_recorded"]
         is False
     )
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 105
+    assert len(artifacts) == 106
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 105
+    assert len(by_path) == 106
     for relative in (
+        "LICENSE",
         "results/benchmark_panels_v2.tsv",
         "results/benchmark_comparisons_v2.tsv",
         "results/benchmark_sequence_v2.tsv",
