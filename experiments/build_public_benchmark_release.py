@@ -206,6 +206,15 @@ ABSENT_GSE179221_DOWNSTREAM_PATHS = {
     "results/gse179221_bmmc_confirmation_v1.json",
 }
 
+GSE317605_RESULT_PATH = (
+    "data/confirmation/gse317605_longitudinal/calibration_result_v1.json"
+)
+GSE317605_RESULT_SHA256 = (
+    "9b3fcec43e38d876a312c8488292264ed747a9c70b4a75609f1d9ac18948040e"
+)
+GSE317605_RESULT_TAG = "gse317605-longitudinal-v1-calibration-result"
+GSE317605_RESULT_COMMIT = "7f229baca0b261e1a0ee832defcc5cfa96aad023"
+
 
 def _reject_nonfinite(token: str) -> None:
     raise ValueError(f"non-finite JSON number: {token}")
@@ -1003,6 +1012,83 @@ def _terminal_panels() -> list[dict[str, Any]]:
         }
     )
 
+    gse317605 = _load_json(GSE317605_RESULT_PATH)
+    selection = gse317605.get("selection", {})
+    losses = selection.get("losses", {})
+    gate = selection.get("gate", {})
+    poisson_gate = gate.get("comparisons", {}).get(
+        "classical_time_conditioned_ridge_poisson", {}
+    )
+    access = gse317605.get("access_ledger", {})
+    tag_commit = subprocess.check_output(
+        ["git", "rev-list", "-n", "1", GSE317605_RESULT_TAG],
+        cwd=ROOT,
+        text=True,
+    ).strip()
+    if (
+        _sha256(GSE317605_RESULT_PATH) != GSE317605_RESULT_SHA256
+        or tag_commit != GSE317605_RESULT_COMMIT
+        or gse317605.get("schema") != "gse317605-calibration-result/1.0"
+        or gse317605.get("stage") != "calibration"
+        or gse317605.get("status") != "CALIBRATION_FAIL"
+        or gse317605.get("rerun_permitted") is not False
+        or len(gse317605.get("patient_order", [])) != 7
+        or len(gse317605.get("visit_patient_axis", [])) != 28
+        or set(gse317605.get("visit_timepoint_axis", []))
+        != {"T01", "T02", "T03", "T04"}
+        or gse317605.get("pilot_matrix_requests") != 0
+        or gse317605.get("held_matrix_requests") != 0
+        or access.get("expected_files") != 210
+        or access.get("finished_files") != 210
+        or access.get("failed_files") != 0
+        or access.get("deleted_files") != 210
+        or access.get("exact_manifest_reconciliation_passes") is not True
+        or selection.get("selected_primary", {}).get("hypergraph_penalty") != 0.0
+        or selection.get("selected_primary") != selection.get("selected_graph_zero")
+        or losses.get("primary", {}).get("mean") != 0.006529760758433352
+        or losses.get("graph_zero_retuned_exact_coupling", {}).get("mean")
+        != losses.get("primary", {}).get("mean")
+        or losses.get("classical_time_conditioned_ridge_poisson", {}).get("mean")
+        != 0.006608620233208813
+        or poisson_gate.get("relative_reduction") != 0.011932819861426913
+        or poisson_gate.get("favorable_patients") != 6
+        or poisson_gate.get("passes") is not False
+        or gate.get("passes") is not False
+    ):
+        raise ValueError("GSE317605 terminal calibration record changed")
+    result_path, result_sha = _artifact_fields(GSE317605_RESULT_PATH)
+    panels.append(
+        {
+            "panel_id": "gse317605_longitudinal_calibration_terminal",
+            "panel": "GSE317605 longitudinal PBMC CITE-seq calibration campaign",
+            "accession": "GSE317605",
+            "assay_pair": "longitudinal same-cell RNA and surface-protein binary states",
+            "analysis_phase": "calibration_gate",
+            "inference_role": "procedural_refusal",
+            "evaluation_unit": "calibration patient",
+            "unit_count": 7,
+            "entity_count": 256,
+            "primary_method": "longitudinal_hypergraph_exact_conditional_coupling",
+            "primary_metric": "",
+            "metric_direction": "",
+            "primary_value": "",
+            "ci_95_low": "",
+            "ci_95_high": "",
+            "decision": gse317605["status"],
+            "outcome_scored": "NO",
+            "result_artifact": result_path,
+            "result_sha256": result_sha,
+            "notes": (
+                "Unscored calibration refusal. Primary loss was 0.0065297608 "
+                "versus 0.0066086202 for tuned time-conditioned ridge-Poisson "
+                "(1.193% reduction; 6/7 patients), below the frozen 5% gate. "
+                "The selected hypergraph penalty was zero and the primary "
+                "equaled the retuned graph-zero fit. Pilot and held matrices "
+                "were never requested."
+            ),
+        }
+    )
+
     kotliarov_v2_path = "results/development/kotliarov_pbmc_binary_v2_source_v2.json"
     kotliarov_v2 = _load_json(kotliarov_v2_path)
     if kotliarov_v2["status"] != "TERMINAL_SOURCE_EXECUTION_REFUSAL":
@@ -1520,6 +1606,7 @@ def _sequence(panels: list[dict[str, Any]]) -> list[dict[str, Any]]:
         "gse179221_bmmc_source_terminal",
         "gse214546_teaseq_source_terminal",
         "gse342939_ra_bcell_source_terminal",
+        "gse317605_longitudinal_calibration_terminal",
         "stephenson_unused_cambridge_terminal",
     }
     rows = [
@@ -1873,6 +1960,113 @@ def _sequence(panels: list[dict[str, Any]]) -> list[dict[str, Any]]:
                     "Deterministic post-run code-path audit, explicitly not an "
                     "instrumented runtime observation; the one-shot attempt and "
                     "result remain unchanged."
+                ),
+            ),
+            _sequence_row(
+                "gse317605_longitudinal_calibration_terminal",
+                1,
+                "protocol",
+                "FROZEN_BEFORE_ANY_COUNT_MATRIX_ACCESS",
+                "METADATA_AND_NONGATING_AXES_ONLY",
+                "YES",
+                "data/confirmation/gse317605_longitudinal/protocol_v1.json",
+                "gse317605-longitudinal-v1-candidate",
+            ),
+            _sequence_row(
+                "gse317605_longitudinal_calibration_terminal",
+                2,
+                "candidate_designation",
+                "DESIGNATED_BEFORE_ANY_COUNT_MATRIX_ACCESS",
+                "METADATA_AND_NONGATING_AXES_ONLY",
+                "YES",
+                (
+                    "data/confirmation/gse317605_longitudinal/"
+                    "candidate_designation_v1.json"
+                ),
+                "gse317605-longitudinal-v1-candidate",
+            ),
+            _sequence_row(
+                "gse317605_longitudinal_calibration_terminal",
+                3,
+                "sample_manifest",
+                "FROZEN_FROM_PUBLIC_METADATA_AND_AXES_BEFORE_COUNT_MATRIX_ACCESS",
+                "ALL_COUNT_MATRICES_UNOPENED",
+                "YES",
+                (
+                    "data/confirmation/gse317605_longitudinal/"
+                    "sample_manifest_v1.json"
+                ),
+                "gse317605-longitudinal-v1-candidate",
+            ),
+            _sequence_row(
+                "gse317605_longitudinal_calibration_terminal",
+                4,
+                "implementation",
+                "FROZEN_BEFORE_FIRST_COUNT_MATRIX_ACCESS",
+                "ALL_COUNT_MATRICES_UNOPENED",
+                "YES",
+                (
+                    "data/confirmation/gse317605_longitudinal/"
+                    "pre_access_implementation_v1.json"
+                ),
+                "gse317605-longitudinal-v1-implementation",
+            ),
+            _sequence_row(
+                "gse317605_longitudinal_calibration_terminal",
+                5,
+                "calibration_attempt",
+                "CLAIMED_BEFORE_FIRST_STAGE_FILE_GET",
+                "CALIBRATION_AUTHORIZED_PILOT_AND_HELD_DISABLED",
+                "YES",
+                (
+                    "data/confirmation/gse317605_longitudinal/"
+                    "calibration_attempt_v1.json"
+                ),
+                "gse317605-longitudinal-v1-calibration-attempt",
+            ),
+            _sequence_row(
+                "gse317605_longitudinal_calibration_terminal",
+                6,
+                "calibration_consumption",
+                "CALIBRATION_CAPABILITY_CONSUMED",
+                "CALIBRATION_ONLY_PILOT_AND_HELD_DISABLED",
+                "NO",
+                (
+                    "data/confirmation/gse317605_longitudinal/"
+                    "calibration_consumption_v1.json"
+                ),
+                GSE317605_RESULT_TAG,
+                notes=(
+                    "The exclusive calibration capability was consumed before "
+                    "the first file GET and published with the terminal result."
+                ),
+            ),
+            _sequence_row(
+                "gse317605_longitudinal_calibration_terminal",
+                7,
+                "calibration_access_journal",
+                "CALIBRATION_ACCESS_RECONCILED",
+                "210_CALIBRATION_FILES_DELETED_PILOT_AND_HELD_UNREQUESTED",
+                "NOT_APPLICABLE",
+                (
+                    "data/confirmation/gse317605_longitudinal/"
+                    "calibration_access_v1.jsonl"
+                ),
+                GSE317605_RESULT_TAG,
+            ),
+            _sequence_row(
+                "gse317605_longitudinal_calibration_terminal",
+                8,
+                "calibration_result",
+                "CALIBRATION_FAIL",
+                "CALIBRATION_ONLY_PILOT_AND_HELD_UNREQUESTED",
+                "NOT_APPLICABLE",
+                GSE317605_RESULT_PATH,
+                GSE317605_RESULT_TAG,
+                notes=(
+                    "The primary cleared the patient-count condition but its "
+                    "1.193% ridge-Poisson loss reduction missed the frozen 5% "
+                    "gate; the selected hypergraph penalty was zero."
                 ),
             ),
             _sequence_row(
@@ -2293,7 +2487,7 @@ def _write_manifest(
         "schema": "coupling-fields-public-benchmark/2.0",
         "release_name": "coupling-fields-v2-public-benchmark",
         "release_status": "RELEASE_CANDIDATE_READY_FOR_TAG",
-        "snapshot_date": "2026-08-30",
+        "snapshot_date": "2026-08-31",
         "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
         "intended_release_tag": "coupling-fields-v2-public-benchmark",
         "archive_doi": None,

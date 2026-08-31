@@ -3,8 +3,8 @@
 This repository is a public, source-visible benchmark for
 perturbation-specific dependence in linked single-cell assays. It preserves
 positive, negative, and refused analyses under explicit evidence roles. The
-version-2 release candidate contains 36 panel records: 12 scored held,
-replicate, pilot, or nonheld-development analyses; 23 procedural refusals; and
+version-2 release candidate contains 37 panel records: 12 scored held,
+replicate, pilot, or nonheld-development analyses; 24 procedural refusals; and
 one published infrastructure-unevaluable attempt. These are analysis
 records rather than unique studies because BMMC and COMBAT each retain both a
 frozen campaign outcome and a separately labeled retrospective adaptive
@@ -65,6 +65,13 @@ its first source donor, then refused because the second source donor had fewer
 than 512 matched singlets. The exact overlap count was not serialized. The
 remaining six source H5s and all eight held H5s remained unopened, and no model,
 comparison, prediction, or score was formed. The
+GSE317605 longitudinal PBMC campaign reached its public calibration gate on
+seven patients, 28 visits, and a 16-by-16 RNA--ADT marker field. Primary loss
+was 0.0065297608 versus 0.0066086202 for tuned time-conditioned ridge-Poisson,
+a 1.193% reduction with six of seven patients favorable. This missed the
+frozen 5% threshold. The selected hypergraph penalty was zero, and the primary
+equaled the retuned graph-zero fit. The campaign is therefore an unscored
+calibration refusal; no pilot or held matrix was requested. The
 recovery-amended unused-Cambridge attempt produced no prediction or score and is
 infrastructure-unevaluable; its published terminal record assigns no scientific
 decision and its performance fields remain empty.
@@ -165,6 +172,13 @@ The GSE214546 pre-access lineage and source attempt are published under the
 byte- and hash-verified source-only downloads: one complete reduction and one
 axis-only source H5 that failed the 512-cell support gate. It requested no held
 H5 and cannot be rerun.
+The GSE317605 protocol, candidate, implementation, and one-shot calibration
+attempt were published before the corresponding access stages. Tag
+`gse317605-longitudinal-v1-calibration-result` binds the terminal result to
+commit `7f229baca0b261e1a0ee832defcc5cfa96aad023`; the result SHA-256 is
+`9b3fcec43e38d876a312c8488292264ed747a9c70b4a75609f1d9ac18948040e`.
+Its access journal reconciles 210 completed and deleted calibration files and
+zero pilot or held requests.
 The GSE239452 numerical correction is preserved in
 `results/gse239452_citeseq_post_access_correction.json`. Its correction runner
 and focused test are checksum-bound, and the original sealed prediction and

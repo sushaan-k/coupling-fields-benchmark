@@ -2,12 +2,17 @@ from __future__ import annotations
 
 import csv
 import json
+import subprocess
 from pathlib import Path
 
 from experiments.build_public_benchmark_release import (
     ABSENT_GSE179221_DOWNSTREAM_PATHS,
     CHECKSUM_PATH,
     COMPARISONS_PATH,
+    GSE317605_RESULT_COMMIT,
+    GSE317605_RESULT_PATH,
+    GSE317605_RESULT_SHA256,
+    GSE317605_RESULT_TAG,
     MANIFEST_PATH,
     PANELS_PATH,
     SEQUENCE_PATH,
@@ -41,11 +46,11 @@ def test_metric_aware_ledgers_include_completed_and_refused_evidence() -> None:
     by_panel = {row["panel_id"]: row for row in panels}
     by_comparison = {row["comparison_id"]: row for row in comparisons}
 
-    assert len(panels) == 36
+    assert len(panels) == 37
     assert len(comparisons) == 29
-    assert len(sequence) == 83
+    assert len(sequence) == 91
     assert sum(row["outcome_scored"] == "YES" for row in panels) == 12
-    assert sum(row["inference_role"] == "procedural_refusal" for row in panels) == 23
+    assert sum(row["inference_role"] == "procedural_refusal" for row in panels) == 24
 
     stephenson = by_panel["stephenson_newcastle_confirmation"]
     assert stephenson["inference_role"] == "confirmatory"
@@ -122,6 +127,72 @@ def test_metric_aware_ledgers_include_completed_and_refused_evidence() -> None:
         and source_file["reduction_completed"]
         and source_file["deleted"]
         for source_file in gse342939_result["source_files"]
+    )
+
+    gse317605 = by_panel["gse317605_longitudinal_calibration_terminal"]
+    assert gse317605["analysis_phase"] == "calibration_gate"
+    assert gse317605["inference_role"] == "procedural_refusal"
+    assert gse317605["evaluation_unit"] == "calibration patient"
+    assert int(gse317605["unit_count"]) == 7
+    assert int(gse317605["entity_count"]) == 256
+    assert gse317605["decision"] == "CALIBRATION_FAIL"
+    assert gse317605["outcome_scored"] == "NO"
+    assert gse317605["primary_value"] == ""
+    assert gse317605["result_artifact"] == GSE317605_RESULT_PATH
+    assert gse317605["result_sha256"] == GSE317605_RESULT_SHA256
+    assert not any(
+        row["panel_id"] == gse317605["panel_id"] for row in comparisons
+    )
+
+    gse317605_result = json.loads(
+        (ROOT / GSE317605_RESULT_PATH).read_text(encoding="utf-8")
+    )
+    selected = gse317605_result["selection"]
+    assert selected["losses"]["primary"]["mean"] == 0.006529760758433352
+    assert selected["losses"]["classical_time_conditioned_ridge_poisson"][
+        "mean"
+    ] == 0.006608620233208813
+    poisson_gate = selected["gate"]["comparisons"][
+        "classical_time_conditioned_ridge_poisson"
+    ]
+    assert poisson_gate["relative_reduction"] == 0.011932819861426913
+    assert poisson_gate["favorable_patients"] == 6
+    assert poisson_gate["passes"] is False
+    assert selected["selected_primary"]["hypergraph_penalty"] == 0.0
+    assert selected["selected_primary"] == selected["selected_graph_zero"]
+    assert gse317605_result["pilot_matrix_requests"] == 0
+    assert gse317605_result["held_matrix_requests"] == 0
+
+    gse317605_sequence = [
+        row
+        for row in sequence
+        if row["panel_id"] == "gse317605_longitudinal_calibration_terminal"
+    ]
+    assert [row["stage"] for row in gse317605_sequence] == [
+        "protocol",
+        "candidate_designation",
+        "sample_manifest",
+        "implementation",
+        "calibration_attempt",
+        "calibration_consumption",
+        "calibration_access_journal",
+        "calibration_result",
+    ]
+    assert all(
+        row["public_commit_or_tag"] == GSE317605_RESULT_TAG
+        for row in gse317605_sequence[-3:]
+    )
+    assert gse317605_sequence[-1]["artifact_sha256"] == GSE317605_RESULT_SHA256
+    assert gse317605_sequence[-1]["outcome_access"] == (
+        "CALIBRATION_ONLY_PILOT_AND_HELD_UNREQUESTED"
+    )
+    assert (
+        subprocess.check_output(
+            ["git", "rev-list", "-n", "1", GSE317605_RESULT_TAG],
+            cwd=ROOT,
+            text=True,
+        ).strip()
+        == GSE317605_RESULT_COMMIT
     )
     legacy_pooled = by_comparison[
         "gse239452_held_post_access_correction__"
@@ -466,15 +537,15 @@ def test_unused_cambridge_terminal_row_contains_no_performance_claim() -> None:
 def test_manifest_counts_and_claim_boundaries_match_ledgers() -> None:
     manifest = json.loads((ROOT / MANIFEST_PATH).read_text(encoding="utf-8"))
     assert manifest["schema"] == "coupling-fields-public-benchmark/2.0"
-    assert manifest["snapshot_date"] == "2026-08-30"
+    assert manifest["snapshot_date"] == "2026-08-31"
     assert manifest["counts"] == {
         "comparison_records": 29,
-        "panel_records": 36,
+        "panel_records": 37,
         "infrastructure_unevaluable_records": 1,
         "pending_records": 0,
-        "procedural_refusal_records": 23,
+        "procedural_refusal_records": 24,
         "scored_panel_records": 12,
-        "sequence_records": 83,
+        "sequence_records": 91,
     }
     assert manifest["archive_doi"] is None
     assert manifest["code_license"] is None

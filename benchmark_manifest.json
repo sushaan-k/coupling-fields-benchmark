@@ -3,9 +3,9 @@
   "archive_doi": null,
   "artifacts": [
     {
-      "bytes": 18751,
+      "bytes": 19741,
       "path": "README.md",
-      "sha256": "02c08585868f0db67fbc002e401610bd8d00be4aeb7d05bd84f83f812225a5e0"
+      "sha256": "7baab0a394132e6799ad25a651795c84e4324b313b67c3393da118ae12fd2ffb"
     },
     {
       "bytes": 7965,
@@ -61,6 +61,46 @@
       "bytes": 3379,
       "path": "data/confirmation/gse214546_teaseq/source_attempt_v1.json",
       "sha256": "56a832e0f3b67ceae87e7a645275a7ec4607f350dd56456f37be9149c906795f"
+    },
+    {
+      "bytes": 193638,
+      "path": "data/confirmation/gse317605_longitudinal/calibration_access_v1.jsonl",
+      "sha256": "6ab1a7b3b6b749c9333c9fa7cf733ec5addde0afb7a77a30437d1f47b87ce2c8"
+    },
+    {
+      "bytes": 701,
+      "path": "data/confirmation/gse317605_longitudinal/calibration_attempt_v1.json",
+      "sha256": "9be86212c66384f23876c415d6000b1a92c8ff328d204b867c95fa9e7d14b255"
+    },
+    {
+      "bytes": 460,
+      "path": "data/confirmation/gse317605_longitudinal/calibration_consumption_v1.json",
+      "sha256": "0c7bce4a94a57336139d94579f6d2524feba12af89c5d560b237deb77040d8ba"
+    },
+    {
+      "bytes": 2434008,
+      "path": "data/confirmation/gse317605_longitudinal/calibration_result_v1.json",
+      "sha256": "9b3fcec43e38d876a312c8488292264ed747a9c70b4a75609f1d9ac18948040e"
+    },
+    {
+      "bytes": 13541,
+      "path": "data/confirmation/gse317605_longitudinal/candidate_designation_v1.json",
+      "sha256": "05ba040b3c44c6dc4e9c7e89319a13b23f1ea0d33df4a409e2e29141ffadf844"
+    },
+    {
+      "bytes": 2328,
+      "path": "data/confirmation/gse317605_longitudinal/pre_access_implementation_v1.json",
+      "sha256": "005e624b46f07e93f1b60835de7039ce4696e6fc93906bff1418d7f2b6651e06"
+    },
+    {
+      "bytes": 10573,
+      "path": "data/confirmation/gse317605_longitudinal/protocol_v1.json",
+      "sha256": "b48e96a9b5e6bd4932f972ddbd9e1e1b1662005412a92d1ee8c07df36e16a5e3"
+    },
+    {
+      "bytes": 225140,
+      "path": "data/confirmation/gse317605_longitudinal/sample_manifest_v1.json",
+      "sha256": "2cdbd3182cf41306e6adb71d409049ba8aa07e3f9d3129ecbc444545673dff8a"
     },
     {
       "bytes": 73089,
@@ -138,9 +178,9 @@
       "sha256": "4899751abdc1c0adf35935f7cc386c2cc2aa5fd6e8035ee2fbd870865c566a31"
     },
     {
-      "bytes": 35155,
+      "bytes": 37523,
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
-      "sha256": "d04aad7a7afd79eac842da5ae0b22ef24265c031f695cb74b857532a7bfbffa5"
+      "sha256": "50903e6d0700bdf1f86a881b7b734179312a11bf33f802d4867179f74cb63d84"
     },
     {
       "bytes": 7139,
@@ -198,9 +238,9 @@
       "sha256": "e078c6fd403a8b7431e451357ef5e4479b30f629087f4bb4a7cc00b8ceef9b15"
     },
     {
-      "bytes": 100433,
+      "bytes": 108871,
       "path": "experiments/build_public_benchmark_release.py",
-      "sha256": "9735650cf155dd97b2ad60a702bf19a7023ce245285270ca9bd5266af3305307"
+      "sha256": "7d9fc11936b59ae198a4f63fa9676d6625a76657f514e735b6818073768e044f"
     },
     {
       "bytes": 144069,
@@ -228,9 +268,9 @@
       "sha256": "dd903b20233f44427cf79a2eca4e7210543bffa527525d49989c2031e65d2816"
     },
     {
-      "bytes": 3604,
+      "bytes": 3645,
       "path": "reproduce.sh",
-      "sha256": "16fd2b4d10352698ffd875bb14fd2545520d44348738c59358758fff5595aa56"
+      "sha256": "f5e7df1049c3ff5088f47b15530f6d3f9276a2db871a2b8ae9ab66c0b938d31f"
     },
     {
       "bytes": 114491,
@@ -243,14 +283,14 @@
       "sha256": "e6aff4d206ac9b34bb3795fbd3febeb9c6b1aa76f3e034995febe45529441147"
     },
     {
-      "bytes": 21432,
+      "bytes": 22196,
       "path": "results/benchmark_panels_v2.tsv",
-      "sha256": "86b3b24b80b26f14907afe52d4ae32a07b7c4d2e5c2d8ba927b017adc495f9cf"
+      "sha256": "0c9c7a167534257510d424acb81eff16f99be3d761b7e9ecd7607c709fd835fc"
     },
     {
-      "bytes": 29343,
+      "bytes": 32821,
       "path": "results/benchmark_sequence_v2.tsv",
-      "sha256": "20e95865c5f6ecdf31f53c278fd828c25f8d3df4b0a2260f0f062a722949c1fc"
+      "sha256": "896ac91345a0d6e3079d2c3a29f1d5bc68a0aba486c014c6ce9b6aefd3b6712e"
     },
     {
       "bytes": 102047,
@@ -483,20 +523,20 @@
       "sha256": "2c9f025aab0259b8cbe8b4ee0f2766a00593ae98a06daf4337fc4b08566940f4"
     },
     {
-      "bytes": 19232,
+      "bytes": 21965,
       "path": "tests/test_public_benchmark_release_v2.py",
-      "sha256": "47d60d55c1024d6cc956853aec0e603753795b4206a9f83068b28bafd6a0b3a3"
+      "sha256": "e26b51fabbac93e00ad787ab1d99d3ed2831e0aa43865c40f5147fa5996fefae"
     }
   ],
   "code_license": null,
   "counts": {
     "comparison_records": 29,
     "infrastructure_unevaluable_records": 1,
-    "panel_records": 36,
+    "panel_records": 37,
     "pending_records": 0,
-    "procedural_refusal_records": 23,
+    "procedural_refusal_records": 24,
     "scored_panel_records": 12,
-    "sequence_records": 83
+    "sequence_records": 91
   },
   "infrastructure_unevaluable": {
     "panel_id": "stephenson_unused_cambridge_terminal",
@@ -515,5 +555,5 @@
   "release_name": "coupling-fields-v2-public-benchmark",
   "release_status": "RELEASE_CANDIDATE_READY_FOR_TAG",
   "schema": "coupling-fields-public-benchmark/2.0",
-  "snapshot_date": "2026-08-30"
+  "snapshot_date": "2026-08-31"
 }
