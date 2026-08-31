@@ -1,0 +1,10 @@
+{
+  "attempt_sha256": "9be86212c66384f23876c415d6000b1a92c8ff328d204b867c95fa9e7d14b255",
+  "consumed_before_first_file_get": true,
+  "created_at_utc": "2026-08-31T11:10:48Z",
+  "rerun_permitted": false,
+  "schema": "gse317605-stage-consumption/1.0",
+  "scratch_binding_sha256": "1be435c5db836eaa5c93216e5eebb4ce07eb9c3ddc4c5902bc702caddd47bdc6",
+  "stage": "calibration",
+  "token_sha256": "3c430ff636c090f62996e50c77059713d0e2727a39fa3340ee342e72f5205376"
+}
