@@ -1,0 +1,219 @@
+{
+  "schema": "gse317605-longitudinal-protocol/1.0",
+  "status": "FROZEN_BEFORE_ANY_COUNT_MATRIX_ACCESS",
+  "candidate": {
+    "path": "data/confirmation/gse317605_longitudinal/candidate_designation_v1.json",
+    "sha256": "05ba040b3c44c6dc4e9c7e89319a13b23f1ea0d33df4a409e2e29141ffadf844"
+  },
+  "sample_manifest": {
+    "path": "data/confirmation/gse317605_longitudinal/sample_manifest_v1.json",
+    "sha256": "2cdbd3182cf41306e6adb71d409049ba8aa07e3f9d3129ecbc444545673dff8a"
+  },
+  "axis_access_history": {
+    "path": "data/confirmation/gse317605_longitudinal/axis_access_history_v1.json",
+    "sha256": "088fb812950310388dd80b27a672922d3b337208ed21407718893de0d20f3865"
+  },
+  "implementation_tag": "gse317605-longitudinal-v1-implementation",
+  "candidate_tag": "gse317605-longitudinal-v1-candidate",
+  "public_origin": "https://github.com/sushaan-k/coupling-fields-benchmark.git",
+  "stage_order": [
+    "calibration",
+    "pilot_gex",
+    "pilot_adt",
+    "held_gex",
+    "held_adt"
+  ],
+  "stages": {
+    "calibration": {
+      "role": "calibration",
+      "modalities": [
+        "GEX",
+        "ADT"
+      ],
+      "requires": [
+        "public implementation freeze"
+      ],
+      "attempt_tag": "gse317605-longitudinal-v1-calibration-attempt",
+      "success_artifact": "calibration_result_v1.json",
+      "result_tag": "gse317605-longitudinal-v1-calibration-result",
+      "success_condition": "calibration gate passes",
+      "failure_closes": [
+        "pilot_gex",
+        "pilot_adt",
+        "held_gex",
+        "held_adt"
+      ]
+    },
+    "pilot_gex": {
+      "role": "pilot",
+      "modalities": [
+        "GEX"
+      ],
+      "requires": [
+        "passing public calibration result"
+      ],
+      "attempt_tag": "gse317605-longitudinal-v1-pilot-gex-attempt",
+      "success_artifact": "pilot_gex_predictions_v1.json",
+      "result_tag": "gse317605-longitudinal-v1-pilot-gex-result",
+      "forbidden_data": [
+        "pilot ADT matrix",
+        "held matrix"
+      ]
+    },
+    "pilot_adt": {
+      "role": "pilot",
+      "modalities": [
+        "ADT"
+      ],
+      "requires": [
+        "public pilot GEX predictions"
+      ],
+      "attempt_tag": "gse317605-longitudinal-v1-pilot-adt-attempt",
+      "success_artifact": "pilot_result_v1.json",
+      "result_tag": "gse317605-longitudinal-v1-pilot-adt-result",
+      "success_condition": "pilot gate passes",
+      "failure_closes": [
+        "held_gex",
+        "held_adt"
+      ]
+    },
+    "held_gex": {
+      "role": "held",
+      "modalities": [
+        "GEX"
+      ],
+      "requires": [
+        "passing public pilot result",
+        "fixed-hyperparameter refit on all ten complete source patients"
+      ],
+      "attempt_tag": "gse317605-longitudinal-v1-held-gex-attempt",
+      "success_artifact": "held_gex_predictions_v1.json",
+      "result_tag": "gse317605-longitudinal-v1-held-gex-result",
+      "forbidden_data": [
+        "held ADT matrix"
+      ]
+    },
+    "held_adt": {
+      "role": "held",
+      "modalities": [
+        "ADT"
+      ],
+      "requires": [
+        "public held GEX predictions"
+      ],
+      "attempt_tag": "gse317605-longitudinal-v1-held-adt-attempt",
+      "success_artifact": "held_result_v1.json",
+      "result_tag": "gse317605-longitudinal-v1-held-adt-result",
+      "success_condition": "held decision is replayed exactly once"
+    }
+  },
+  "access_mechanics": {
+    "attempt": "Create the stage attempt and header-only journal with O_CREAT|O_EXCL, fsync both files and their parent directory, then publish them under the frozen annotated attempt tag at the exact public origin before capability consumption.",
+    "pre_access_claim_rollback": "Claim construction is atomic. An exception before the attempt and header-only journal are both durable removes the just-created capability and every partial claim artifact, fsyncs their parent directories, and permits a fresh claim; this is the only rollback and it occurs before publication, capability consumption, or any GET.",
+    "capability": "Create a 32-byte private capability outside scratch. The run writes an exclusive fsynced consumption record and deletes the capability before the first GET.",
+    "journal": "Create one append-only JSONL journal before access; fsync every event and its parent directory.",
+    "private_bridge": "Pilot and held GEX stages store selected identifiers and cell-level RNA states only in a mode-0600 bridge outside the repository. Public artifacts contain its hash and byte count, marginal counts, and state hashes, never the bridge path or contents.",
+    "public_privacy": "Public artifacts contain no raw cell identifier, cell-level state vector, local filesystem path, or clinical free text.",
+    "failure_sanitization": "Public failure artifacts contain only an allowlisted refusal code and frozen hashes or counts. Exception messages, tracebacks, response bodies, URLs, raw identifiers, local paths, and clinical text are never serialized.",
+    "post_consumption_failure": "After durable capability consumption, every exception is converted into one sanitized terminal refusal result. Consumption, journal, and refusal remain durable, and the stage can never be retried.",
+    "network": "One complete HTTPS GET per designated file, no Range header, automatic retry, alternate mirror, or bundled archive.",
+    "scratch": "Delete each compressed file after complete parsing, fsync its parent directory, and append a durable deletion event before continuing.",
+    "success_ledger": "A success result is valid only when the journal contains exactly one ordered FILE_GET_STARTED, FILE_GET_FINISHED, and FILE_DELETED sequence for every manifest-designated feature, barcode, and matrix file for that stage, and no other GET. The result records the expected and observed file counts and binds the final journal hash.",
+    "public_result": "Before any dependent stage, the complete result is committed and published under its frozen annotated result tag at the exact public origin. Local and remote tag objects and peeled commits must agree, the result bytes must match the tagged bytes, and the result commit must descend from the candidate freeze, implementation freeze, its own public attempt, and every prerequisite public result.",
+    "rerun": "Any existing durable consumption, result, or post-header access journal refuses the stage. A published attempt is single-use."
+  },
+  "matrix_market": {
+    "format": "gzip-compressed coordinate Matrix Market",
+    "allowed_banners": [
+      "%%MatrixMarket matrix coordinate integer general",
+      "%%MatrixMarket matrix coordinate real general"
+    ],
+    "real_values": "Only finite, nonnegative, mathematically integral ASCII real values no larger than int64 maximum are accepted.",
+    "dimensions": {
+      "GEX_rows": 33538,
+      "ADT_rows": 99
+    },
+    "validation": "Revalidate the complete ordered feature axis before each matrix, then validate and hash the complete compressed and decompressed matrix streams, including every unselected entry. Accumulate duplicate coordinates with int64 overflow checks."
+  },
+  "stage_axes": {
+    "calibration": [
+      "23",
+      "16",
+      "14",
+      "11",
+      "10",
+      "12",
+      "17"
+    ],
+    "pilot_gex": [
+      "13",
+      "19",
+      "26"
+    ],
+    "pilot_adt": [
+      "13",
+      "19",
+      "26"
+    ],
+    "held_gex": [
+      "24",
+      "27",
+      "22",
+      "25",
+      "15",
+      "18",
+      "20",
+      "21"
+    ],
+    "held_adt": [
+      "24",
+      "27",
+      "22",
+      "25",
+      "15",
+      "18",
+      "20",
+      "21"
+    ]
+  },
+  "estimation": {
+    "objective_weighting": "Sum over timepoints of the mean over training visits at that timepoint of [sum over ordered marker pairs of exact fixed-margin conditional negative log likelihood plus (deviation ridge/2) times the squared visit-deviation norm]. Add the beta ridge, hypergraph, and temporal penalties once without visit-count scaling.",
+    "primary_beta_ridge": 0.01,
+    "poisson_ridge_grid": [
+      0.001,
+      0.01,
+      0.1,
+      1.0
+    ],
+    "transport_grid": [
+      0.0,
+      0.5,
+      0.75,
+      1.0,
+      1.25
+    ],
+    "poisson_selection": "Cross every Poisson ridge value with every transport value on the identical leave-one-physical-patient-out calibration folds.",
+    "selection_tie_break": "Compare exact patient-equal cross-validation means without tolerance, then choose the ascending lexicographically smallest full tuple: (deviation, hypergraph, temporal, transport) for exact-coupling candidates and (Poisson ridge, transport) for the classical Poisson baseline.",
+    "non_gating_sensitivities": {
+      "temporal_zero_retuned_exact_coupling": "Set temporal penalty to zero and reselect from the restricted exact-coupling grid.",
+      "structure_zero_exact_coupling": "Set hypergraph and temporal penalties to zero and reselect from the restricted exact-coupling grid.",
+      "poisson_interaction_conditional_reconstruction": "Use the tuned classical Poisson interaction coefficients with exact fixed-margin conditional reconstruction."
+    }
+  },
+  "decision_replay": {
+    "loss": "mean multinomial deviance per selected cell; average 256 marker-pair losses within visit, available visits within patient, then patients equally",
+    "prediction_estimands": {
+      "coupling_fields": "Exact fixed-margin conditional expectation at each observed recipient margin.",
+      "classical_time_conditioned_ridge_poisson": "Tuned classical Poisson log-linear reconstruction at each observed recipient margin using reconstruct_poisson_tables; conditional reconstruction is forbidden for this gating comparator."
+    },
+    "strict_comparison": "Equality is not favorable.",
+    "sign_test": "Fixed eight-patient one-sided Binomial(8, 0.5) upper tail; equal patient losses count as nonfavorable.",
+    "bootstrap": "Exhaust the Cartesian product of all 5^5 ordered complete-patient resamples and all 3^3 ordered partial-patient resamples with replacement. The 84,375 resamples use no random seed. For every gating comparator, report two-sided 95% type-7 linear empirical percentile intervals for the paired additive loss difference (primary minus comparator) and paired relative loss reduction ((comparator minus primary) divided by comparator); the gate remains an additive-difference upper endpoint below zero.",
+    "terminality": "The first complete held decision is terminal whether pass, fail, or refusal."
+  },
+  "series_archive": {
+    "name": "GSE317605_RAW.tar",
+    "bytes": 659916800,
+    "permitted": false
+  }
+}

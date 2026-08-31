@@ -1,0 +1,85 @@
+{
+  "schema": "gse317605-axis-access-history/1.0",
+  "accession": "GSE317605",
+  "status": "AXIS_AND_METADATA_ONLY_BEFORE_CANDIDATE_FREEZE",
+  "recorded_at_utc": "2026-08-31T01:52:41Z",
+  "scope": {
+    "series_metadata_read": true,
+    "supplementary_file_listing_read": true,
+    "feature_reference_workbook_read": true,
+    "gex_feature_axes_read": true,
+    "adt_feature_axes_read": true,
+    "paired_barcode_axes_read": true,
+    "matrix_market_headers_read": 0,
+    "matrix_market_entries_read": 0,
+    "matrix_bodies_downloaded": 0,
+    "series_archive_downloaded": false
+  },
+  "public_objects": [
+    {
+      "object": "GSE317605 family SOFT",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE317nnn/GSE317605/soft/GSE317605_family.soft.gz",
+      "bytes": 18631,
+      "sha256": "942b7637220eb70a957a6806f82cb098e68c2f3856cce6d9ab766b36d71a9762"
+    },
+    {
+      "object": "GSE317605 GEO supplementary-file listing",
+      "bytes": 37045,
+      "sha256": "a226dbb4742a930e3bcbb3e2751de69e222295756f512b33a8e160fd892d9d16"
+    },
+    {
+      "object": "GSE317605_feature_reference.csv.xlsx",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE317nnn/GSE317605/suppl/GSE317605_feature_reference.csv.xlsx",
+      "bytes": 14665,
+      "sha256": "f3255b9aa8c89e601b6e806b5c2af7c32bfed499eb3ff6a0c2a1990b5ffeddbe"
+    }
+  ],
+  "ordered_feature_axes": {
+    "hash_definition": "SHA-256 over each normalized UTF-8 feature row followed by one LF byte, in deposited order",
+    "GEX": {
+      "rows": 33538,
+      "sha256": "6bb91dd583b8ed7e4d6ea2efb6cb9b103b229573fec7ba2c1f7ba583994a21b1"
+    },
+    "ADT": {
+      "rows": 99,
+      "sha256": "95797e25f128965db196858b0abf9a56487894431c5b792e54bbb53ccddfa1da"
+    }
+  },
+  "barcode_axis_audit": {
+    "paired_gex_adt_replicates": 84,
+    "barcode_files_audited": 168,
+    "hash_definition": "SHA-256 over each normalized UTF-8 barcode row followed by one LF byte, in deposited order",
+    "comparison": "decompressed ordered barcode rows compared byte for byte within patient, timepoint, and technical replicate",
+    "equal_pairs": 84,
+    "unequal_pairs": 0,
+    "patient_timepoint_visits": 68,
+    "replicate_axis_rows": {"minimum": 29, "maximum": 3846},
+    "pooled_visit_rows": {"minimum": 255, "maximum": 3875},
+    "pooled_visits_with_at_least_192_rows": 68,
+    "all_pooled_visits_have_at_least_192_rows": true,
+    "replicate_axes_with_deposited_duplicate_barcode_strings": 14,
+    "duplicate_rows_beyond_first_occurrence_per_modality": 17,
+    "maximum_duplicate_rows_in_one_replicate_axis": 2,
+    "outcome_free_evidence": {
+      "bytes": 49981,
+      "sha256": "615c4cb356592675ce25522bb10fd32e83f17d4e0e81aca5539c51003033669f"
+    },
+    "retention": "No barcode value is embedded in the public contract. The sample manifest freezes rows, duplicate rows, compressed-file SHA-256, and ordered-axis SHA-256 for every GEX and ADT barcode file; each numeric stage revalidates those fields before count reduction."
+  },
+  "representative_axis_evidence": {
+    "patient_id": "10",
+    "timepoint": "T01",
+    "replicate": "1",
+    "ordered_barcode_rows": 255,
+    "gex_compressed_sha256": "02eb2e3205c1bd8c49470a1462ab3de114267d70e2576479c060f789ab619e05",
+    "adt_compressed_sha256": "1b327aa8d3c2ee5c5ba68377de8d890e84db38ea0270eb8a3f468c3392025ae5",
+    "decompressed_ordered_barcode_sha256": "dc616870897b438051ab8c7f81d41d4008fc4809f5b9889aa36e7516303dec01"
+  },
+  "forbidden_object": {
+    "name": "GSE317605_RAW.tar",
+    "bytes": 659916800,
+    "accessed": false,
+    "reason": "The bundled archive would collapse the staged modality and outcome boundaries."
+  },
+  "claim_boundary": "This record supports sample identity, public file identity, axes, visit completeness, and marker coordinates only. It contains no assay value or empirical result."
+}

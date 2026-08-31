@@ -36,6 +36,7 @@ echo "Deselecting the BMMC deposited-axis assertion because its source is not re
   tests/test_context_conditional_coupling.py \
   tests/test_hierarchical_conditional_coupling.py \
   tests/test_longitudinal_conditional_coupling.py \
+  tests/test_gse317605_longitudinal.py \
   tests/test_gse279451_sepsis_confirmation.py \
   tests/test_evaluate_gse279451_sepsis_development.py \
   tests/test_reduce_gse299043_mln.py \

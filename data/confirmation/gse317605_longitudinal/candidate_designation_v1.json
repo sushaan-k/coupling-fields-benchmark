@@ -1,0 +1,389 @@
+{
+  "schema": "gse317605-longitudinal-candidate/1.0",
+  "accession": "GSE317605",
+  "created_at_utc": "2026-08-31T01:52:41Z",
+  "status": "DESIGNATED_BEFORE_ANY_COUNT_MATRIX_ACCESS",
+  "question": "Does a longitudinal hypergraph coupling field learned from seven complete patients predict patient-disjoint RNA-protein dependence across treatment time better than a tuned classical time-conditioned Poisson interaction, independence, destroyed links, and a retuned graph-zero exact-coupling ablation?",
+  "inferential_unit": "physical patient",
+  "assay": "PBMC CITE-seq during pembrolizumab plus GM-CSF treatment for advanced biliary cancer",
+  "time_axis": [
+    "T01",
+    "T02",
+    "T03",
+    "T04"
+  ],
+  "source_artifacts": {
+    "sample_manifest": {
+      "path": "data/confirmation/gse317605_longitudinal/sample_manifest_v1.json",
+      "sha256": "2cdbd3182cf41306e6adb71d409049ba8aa07e3f9d3129ecbc444545673dff8a"
+    },
+    "axis_access_history": {
+      "path": "data/confirmation/gse317605_longitudinal/axis_access_history_v1.json",
+      "sha256": "088fb812950310388dd80b27a672922d3b337208ed21407718893de0d20f3865"
+    }
+  },
+  "split": {
+    "salt": "GSE317605-PATIENT-SPLIT-v1",
+    "complete_patient_rule": "Sort all 15 patients with T01-T04 by SHA256('GSE317605-PATIENT-SPLIT-v1|COMPLETE|<canonical integer patient id>'), then assign the first seven to calibration, next three to pilot, and final five to held.",
+    "partial_patient_rule": "Append the three remaining eligible patients to held in ascending integer patient order; do not use partial patients in model selection or fitting.",
+    "calibration": [
+      "23",
+      "16",
+      "14",
+      "11",
+      "10",
+      "12",
+      "17"
+    ],
+    "pilot": [
+      "13",
+      "19",
+      "26"
+    ],
+    "held_complete": [
+      "24",
+      "27",
+      "22",
+      "25",
+      "15"
+    ],
+    "held_partial": {
+      "18": [
+        "T01",
+        "T02",
+        "T03"
+      ],
+      "20": [
+        "T01",
+        "T02",
+        "T04"
+      ],
+      "21": [
+        "T01",
+        "T03"
+      ]
+    },
+    "counts": {
+      "calibration": 7,
+      "pilot": 3,
+      "held": 8
+    }
+  },
+  "cell_contract": {
+    "technical_replicates": "Pool technical replicates within the same physical patient and timepoint. A cell is identified by replicate, one-based deposited Matrix Market column, and deposited barcode string; duplicate barcode strings are permitted and remain distinct by column.",
+    "cell_identity": "(<replicate>, <one-based deposited Matrix Market column>, <deposited barcode string>)",
+    "cell_budget_per_patient_timepoint": 192,
+    "cell_selection_salt": "GSE317605-CELL-v2",
+    "cell_rank": "Ascending SHA256('GSE317605-CELL-v2\\0<patient>\\0<timepoint>\\0<replicate>\\0<one-based column>\\0<barcode>'); take the first 192.",
+    "rna_state": "one if selected-cell UMI count is positive, zero otherwise",
+    "adt_high_cells_per_marker_timepoint": 96,
+    "adt_tie_salt": "GSE317605-ADT-TIE-v2",
+    "adt_state": "For each patient, timepoint, and ADT marker, rank selected cells by descending count and then ascending SHA256('GSE317605-ADT-TIE-v2\\0<patient>\\0<timepoint>\\0<ADT marker>\\0<replicate>\\0<one-based column>\\0<barcode>'); label the first 96 high."
+  },
+  "feature_axes": {
+    "coordinate_convention": "one-based deposited Matrix Market row index",
+    "GEX": {
+      "rows": 33538,
+      "sha256": "6bb91dd583b8ed7e4d6ea2efb6cb9b103b229573fec7ba2c1f7ba583994a21b1"
+    },
+    "ADT": {
+      "rows": 99,
+      "sha256": "95797e25f128965db196858b0abf9a56487894431c5b792e54bbb53ccddfa1da"
+    }
+  },
+  "markers": [
+    {
+      "rna_symbol": "CD3E",
+      "ensembl": "ENSG00000198851",
+      "rna_row": 18652,
+      "adt_id": "CD3",
+      "adt_cognate": "CD3E",
+      "adt_row": 32
+    },
+    {
+      "rna_symbol": "CD4",
+      "ensembl": "ENSG00000010610",
+      "rna_row": 20240,
+      "adt_id": "CD4",
+      "adt_cognate": "CD4",
+      "adt_row": 31
+    },
+    {
+      "rna_symbol": "CD8A",
+      "ensembl": "ENSG00000153563",
+      "rna_row": 4006,
+      "adt_id": "CD8",
+      "adt_cognate": "CD8A",
+      "adt_row": 26
+    },
+    {
+      "rna_symbol": "MS4A1",
+      "ensembl": "ENSG00000156738",
+      "rna_row": 17796,
+      "adt_id": "CD20",
+      "adt_cognate": "MS4A1",
+      "adt_row": 7
+    },
+    {
+      "rna_symbol": "CD14",
+      "ensembl": "ENSG00000170458",
+      "rna_row": 9636,
+      "adt_id": "CD14",
+      "adt_cognate": "CD14",
+      "adt_row": 35
+    },
+    {
+      "rna_symbol": "FCGR3A",
+      "ensembl": "ENSG00000203747",
+      "rna_row": 2206,
+      "adt_id": "CD16",
+      "adt_cognate": "FCGR3A",
+      "adt_row": 50
+    },
+    {
+      "rna_symbol": "NCAM1",
+      "ensembl": "ENSG00000149294",
+      "rna_row": 18577,
+      "adt_id": "CD56",
+      "adt_cognate": "NCAM1",
+      "adt_row": 18
+    },
+    {
+      "rna_symbol": "IL7R",
+      "ensembl": "ENSG00000168685",
+      "rna_row": 8783,
+      "adt_id": "CD127",
+      "adt_cognate": "IL7R",
+      "adt_row": 27
+    },
+    {
+      "rna_symbol": "KLRD1",
+      "ensembl": "ENSG00000134539",
+      "rna_row": 20343,
+      "adt_id": "CD94",
+      "adt_cognate": "KLRD1",
+      "adt_row": 79
+    },
+    {
+      "rna_symbol": "SELL",
+      "ensembl": "ENSG00000188404",
+      "rna_row": 2300,
+      "adt_id": "CD62L",
+      "adt_cognate": "SELL",
+      "adt_row": 46
+    },
+    {
+      "rna_symbol": "CD27",
+      "ensembl": "ENSG00000139193",
+      "rna_row": 20214,
+      "adt_id": "CD27",
+      "adt_cognate": "CD27",
+      "adt_row": 24
+    },
+    {
+      "rna_symbol": "CD38",
+      "ensembl": "ENSG00000004468",
+      "rna_row": 7358,
+      "adt_id": "CD38",
+      "adt_cognate": "CD38",
+      "adt_row": 21
+    },
+    {
+      "rna_symbol": "ITGAM",
+      "ensembl": "ENSG00000169896",
+      "rna_row": 25807,
+      "adt_id": "CD11b",
+      "adt_cognate": "ITGAM",
+      "adt_row": 4
+    },
+    {
+      "rna_symbol": "CD2",
+      "ensembl": "ENSG00000116824",
+      "rna_row": 1641,
+      "adt_id": "CD2",
+      "adt_cognate": "CD2",
+      "adt_row": 28
+    },
+    {
+      "rna_symbol": "CD44",
+      "ensembl": "ENSG00000026508",
+      "rna_row": 17511,
+      "adt_id": "CD44",
+      "adt_cognate": "CD44",
+      "adt_row": 51
+    },
+    {
+      "rna_symbol": "CD7",
+      "ensembl": "ENSG00000173762",
+      "rna_row": 28465,
+      "adt_id": "CD7",
+      "adt_cognate": "CD7",
+      "adt_row": 40
+    }
+  ],
+  "estimators": {
+    "primary": "time-conditioned exact fixed-margin coupling field with donor-timepoint deviations, a fixed biological product-hypergraph penalty, temporal path smoothing, and a frozen transport multiplier",
+    "mandatory_comparators": [
+      "classical_time_conditioned_ridge_poisson",
+      "fixed_margin_independence",
+      "destroyed_link",
+      "graph_zero_retuned_exact_coupling"
+    ],
+    "coefficient_ridge": 0.01,
+    "fixed_marker_hypergraph": {
+      "edge_weights": "unit",
+      "ordered_hyperedges": {
+        "T": [
+          "CD3E",
+          "CD4",
+          "CD8A",
+          "IL7R",
+          "SELL",
+          "CD27",
+          "CD2",
+          "CD7"
+        ],
+        "B": [
+          "MS4A1",
+          "CD27",
+          "CD38"
+        ],
+        "NK": [
+          "FCGR3A",
+          "NCAM1",
+          "KLRD1",
+          "CD2",
+          "CD7"
+        ],
+        "myeloid": [
+          "CD14",
+          "FCGR3A",
+          "ITGAM",
+          "CD44"
+        ],
+        "activation_memory": [
+          "IL7R",
+          "SELL",
+          "CD27",
+          "CD38",
+          "CD44"
+        ]
+      },
+      "marker_operator": "L_H = I - D_v^(-1/2) H W D_e^(-1) H^T D_v^(-1/2), with unit W",
+      "ordered_pair_operator": "L_pair = L_H tensor I + I tensor L_H"
+    },
+    "temporal_operator": "Unit-edge path Laplacian on T01-T02-T03-T04",
+    "objective": "For each timepoint, average over its training visits the sum across ordered marker pairs of exact fixed-margin conditional negative log likelihood at beta[time,pair] + u[visit,pair] plus (eta/2) times the squared visit-deviation norm; then sum those four timepoint means. Add unscaled penalties (0.01/2) times the squared beta norm, (gamma/2) times sum_t beta_t^T L_pair beta_t, and (tau/2) times sum_t ||beta_(t+1)-beta_t||^2. Thus conditional likelihood and deviation ridge receive the same inverse visit count within each timepoint; all beta penalties are unscaled.",
+    "graph_zero_definition": "Set the marker hypergraph penalty to zero and reselect temporal, deviation, and transport values on the identical source-only folds.",
+    "non_gating_sensitivities": {
+      "temporal_zero_retuned_exact_coupling": "Set the temporal penalty to zero and reselect marker, deviation, and transport values on the identical source-only folds.",
+      "structure_zero_exact_coupling": "Set both marker and temporal penalties to zero and reselect deviation and transport values on the identical source-only folds.",
+      "poisson_interaction_conditional_reconstruction": "Take the interaction coefficients selected by the tuned classical Poisson baseline and reconstruct each target table by the exact fixed-margin conditional expectation instead of classical Poisson reconstruction."
+    },
+    "grids": {
+      "patient_deviation": [
+        0.1,
+        1.0,
+        10.0
+      ],
+      "hypergraph": [
+        0.0,
+        0.05,
+        0.2
+      ],
+      "temporal": [
+        0.0,
+        0.05,
+        0.2
+      ],
+      "transport": [
+        0.0,
+        0.5,
+        0.75,
+        1.0,
+        1.25
+      ],
+      "poisson_ridge": [
+        0.001,
+        0.01,
+        0.1,
+        1.0
+      ]
+    },
+    "poisson_selection": "Cross the four Poisson ridge values with all five transport multipliers on the identical leave-one-physical-patient-out folds.",
+    "selection_tie_break": "Compare the exact patient-equal cross-validation means without tolerance. On equality choose the ascending lexicographically smallest full frozen tuple: (deviation, hypergraph, temporal, transport) for every exact-coupling selection, including restricted sensitivities, and (Poisson ridge, transport) for the classical Poisson baseline. The destroyed-link control uses the selected primary tuple and is not selected separately."
+  },
+  "gates": {
+    "calibration": {
+      "evaluation": "leave-one-physical-patient-out across seven complete calibration patients",
+      "primary_mean_below_every_comparator": true,
+      "minimum_relative_reduction_vs_poisson": 0.05,
+      "minimum_relative_reduction_vs_destroyed": 0.05,
+      "minimum_favorable_patients_vs_each_comparator": 5,
+      "minimum_favorable_timepoints_vs_poisson": 3
+    },
+    "pilot": {
+      "patients": 3,
+      "all_patients_favorable_vs_poisson_and_destroyed": true,
+      "minimum_relative_reduction_vs_poisson": 0.05,
+      "minimum_relative_reduction_vs_destroyed": 0.05,
+      "primary_mean_below_every_comparator": true,
+      "minimum_favorable_timepoints_vs_poisson": 3
+    },
+    "held": {
+      "patients": 8,
+      "bootstrap_resamples": 84375,
+      "bootstrap_enumeration": "Exhaust all 5^5 ordered complete-patient resamples and all 3^3 ordered partial-patient resamples with replacement, then take their Cartesian product; no random seed is used.",
+      "bootstrap_strata": [
+        "complete",
+        "partial"
+      ],
+      "mandatory_pairwise_comparators": [
+        "classical_time_conditioned_ridge_poisson",
+        "graph_zero_retuned_exact_coupling",
+        "destroyed_link"
+      ],
+      "primary_mean_below_comparator": true,
+      "bootstrap_upper_95_percent_endpoint_below_zero": true,
+      "bootstrap_gate_estimand": "paired additive patient-equal mean loss difference, primary minus comparator",
+      "reported_bootstrap_estimands": [
+        "paired additive loss difference",
+        "paired relative loss reduction, (comparator minus primary) divided by comparator"
+      ],
+      "bootstrap_interval": "two-sided 95% empirical percentile interval using type-7 linear quantiles over all 84,375 resamples",
+      "minimum_favorable_patients": 7,
+      "maximum_one_sided_exact_sign_p": 0.05,
+      "complete_and_partial_mean_both_favorable": true,
+      "minimum_relative_reduction_vs_poisson": 0.05,
+      "minimum_relative_reduction_vs_destroyed": 0.05,
+      "minimum_favorable_timepoints_vs_poisson": 3,
+      "primary_mean_below_independence": true
+    }
+  },
+  "access_order": [
+    "candidate_and_implementation_public",
+    "calibration_GEX_then_ADT",
+    "calibration_source_result_public",
+    "pilot_GEX_predictions_public",
+    "pilot_ADT_terminal_result_public",
+    "fixed_hyperparameter_refit_on_all_ten_complete_source_patients",
+    "held_GEX_predictions_public",
+    "held_ADT_terminal_result_public"
+  ],
+  "prohibitions": [
+    "download or inspect GSE317605_RAW.tar",
+    "read any pilot ADT matrix before public pilot GEX predictions",
+    "read any held GEX matrix before a passing public pilot result",
+    "read any held ADT matrix before public held GEX predictions",
+    "write a raw cell identifier or cell-level state vector to a public artifact",
+    "change the split, markers, state rules, grids, gates, seeds, comparator set, or outcome after count access",
+    "rerun a consumed stage"
+  ],
+  "rerun_permitted": false,
+  "preregistration": {
+    "mechanism": "annotated public git tags before the first count-matrix request",
+    "candidate_tag": "gse317605-longitudinal-v1-candidate",
+    "implementation_tag": "gse317605-longitudinal-v1-implementation",
+    "external_registry": null
+  }
+}
