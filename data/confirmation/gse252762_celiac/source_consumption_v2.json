@@ -1,0 +1,27 @@
+{
+  "attempt_path": "data/confirmation/gse252762_celiac/source_attempt_v2.json",
+  "attempt_sha256": "8e3ff4e7eb29fc2321112aa998d9a7fb7c4d0ebc7f1e6aa3368c206f8d972e3d",
+  "consumed_at_utc": "2026-08-31T01:14:41Z",
+  "execution_id": "d5f15692261a9f2dedfd5a581eb33145",
+  "public_attempt_commit": "db861b40b6c5407e3dbb265cb422f7e01afa331c",
+  "rerun_permitted": false,
+  "runtime": {
+    "blas": "accelerate",
+    "lapack": "accelerate",
+    "machine": "arm64",
+    "numpy": "2.0.2",
+    "platform": "macOS-26.0.1-arm64-arm-64bit",
+    "python": "3.9.6",
+    "scipy": "1.13.1",
+    "thread_environment": {
+      "MKL_NUM_THREADS": null,
+      "NUMEXPR_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "VECLIB_MAXIMUM_THREADS": null
+    }
+  },
+  "schema": "gse252762-celiac-stage-consumption/2.0",
+  "stage": "source",
+  "status": "CONSUMED_BEFORE_FIRST_MATRIX_REQUEST"
+}
