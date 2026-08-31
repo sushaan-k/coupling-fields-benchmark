@@ -1,0 +1,25 @@
+{
+  "allowed_modalities": [
+    "GEX",
+    "ADT"
+  ],
+  "attempt_tag": "gse317605-longitudinal-v1-calibration-attempt",
+  "created_at_utc": "2026-08-31T11:10:21Z",
+  "dependency_sha256": null,
+  "expected_patients": [
+    "23",
+    "16",
+    "14",
+    "11",
+    "10",
+    "12",
+    "17"
+  ],
+  "implementation_public_commit": "ae189a8321d6c90e4050e8a6b7910297c994ba83",
+  "rerun_permitted": false,
+  "schema": "gse317605-stage-attempt/1.0",
+  "scratch_binding_sha256": "1be435c5db836eaa5c93216e5eebb4ce07eb9c3ddc4c5902bc702caddd47bdc6",
+  "stage": "calibration",
+  "status": "CLAIMED_BEFORE_FIRST_STAGE_FILE_GET",
+  "token_sha256": "3c430ff636c090f62996e50c77059713d0e2727a39fa3340ee342e72f5205376"
+}
