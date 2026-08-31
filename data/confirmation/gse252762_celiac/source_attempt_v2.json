@@ -1,0 +1,27 @@
+{
+  "authorization_commit": "b3d1c42782d680068cb14cc32ca9495959ec3c92",
+  "authorization_tag": "gse252762-celiac-v2-source-authorization",
+  "created_at_utc": "2026-08-31T01:13:36Z",
+  "implementation_commit": "d2626256f7fb0b51c51fa0fd98f609bdd7c39718",
+  "matrix_gets_authorized": 10,
+  "rerun_permitted": false,
+  "runtime": {
+    "blas": "accelerate",
+    "lapack": "accelerate",
+    "machine": "arm64",
+    "numpy": "2.0.2",
+    "platform": "macOS-26.0.1-arm64-arm-64bit",
+    "python": "3.9.6",
+    "scipy": "1.13.1",
+    "thread_environment": {
+      "MKL_NUM_THREADS": null,
+      "NUMEXPR_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "VECLIB_MAXIMUM_THREADS": null
+    }
+  },
+  "schema": "gse252762-celiac-stage-attempt/2.0",
+  "stage": "source",
+  "status": "CLAIMED_BEFORE_MATRIX_ACCESS"
+}
