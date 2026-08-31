@@ -1,6 +1,6 @@
 # Final public evidence ledger
 
-**Snapshot:** 29 August 2026
+**Snapshot:** 31 August 2026
 
 **Machine-readable ledgers:** `results/benchmark_panels_v2.tsv`,
 `results/benchmark_comparisons_v2.tsv`, and
@@ -76,6 +76,15 @@ produced no prediction or score and is
 infrastructure-unevaluable. Its row contains no performance value and remains
 bound to the published terminal record; no scientific decision is assigned.
 
+The GSE317605 longitudinal PBMC campaign reached a prospectively frozen
+calibration gate on seven patients, 28 visits, and 256 ordered RNA--ADT marker
+pairs. Primary loss was 0.0065297608 versus 0.0066086202 for tuned
+time-conditioned ridge-Poisson, a 1.193% reduction with six of seven patients
+favorable. This missed the frozen 5% threshold. The selected hypergraph penalty
+was zero, and the primary equaled the independently retuned graph-zero fit. The
+record is therefore an unscored calibration refusal, not a held confirmation;
+no pilot or held matrix was requested.
+
 The supported methods claim is precise: the framework estimates
 pairing-dependent interactions against fixed-margin and classical controls,
 can transfer those interactions in one prospectively frozen held-site panel,
@@ -106,6 +115,7 @@ perturbation prediction or universal structured-estimator superiority.
 | Kotliarov PBMC binary-v2 source replacement | Ten batch-1 development donors; nine disjoint batch-2 held donors reserved but not run | 81 ordered RNA--ADT pairs | Not scored; no frozen configuration completed every source-held fold | No comparison decision produced | Held ADT access remained unauthorized | **REFUSE source execution** |
 | GSE179221 BMMC held-donor campaign | Eight source donors; ten donor-disjoint held donors reserved but not run | 81 ordered RNA--ADT pairs | Not scored; exact cognate-axis uniqueness failed on the first source donor before count-matrix access | No estimator or comparison was formed | Seven remaining source files and all ten held files unrequested | **REFUSE source feature-axis preflight** |
 | GSE214546 TEA-seq held-donor campaign | Two of eight source donors accessed; eight held donors reserved but not run | 53 candidate matched RNA--protein markers | Not scored; the first donor completed its 512-cell reduction, and the second had fewer than 512 matched singlets | No estimator or comparison was formed | Six remaining source H5s and all eight held H5s unopened | **REFUSE source support** |
+| GSE317605 longitudinal PBMC CITE-seq | Seven calibration patients across 28 visits; three pilot and eight held patients reserved but not run | 256 ordered pairs from 16 RNA and 16 ADT markers | Calibration-only mean loss 0.006530; no held score | Tuned time-conditioned ridge-Poisson 0.006609; 1.193% reduction, 6/7 patients favorable, below frozen 5% gate | Retuned graph-zero exactly equaled the primary; selected hypergraph penalty zero | **REFUSE CALIBRATION; PILOT AND HELD UNREQUESTED** |
 | NeurIPS 2021 BMMC CITE-seq | Two fit donors, one development donor, six held donors | 100 ordered RNA--ADT pairs | Not scored; exact conditional optimizer failed the final common-effect development refit after the frozen numerical-equivalence retry | Strongest signed Pearson or Poisson-deviance residual transfer not reached | Held pairing not opened | **REFUSE numerical development** |
 | GSE279451 adult sepsis CITE-seq | Nineteen development donors; 21 held donors | 81 ordered RNA--ADT pairs | Not scored; terminal evaluation refusal after development reduction because both common-effect control families were unavailable | Prespecified raw or exact-null-centered signed Pearson or Poisson-deviance residual transfer; no comparison decision produced | All 21 held matrices unopened | **REFUSE development evaluation** |
 | GSE299043 MLN CITE-seq | Ten Cambridge development donors; ten LiveOnNY/Columbia held donors | 81 ordered RNA--ADT pairs | Not scored; terminal feature-preflight refusal after 21 development-member reductions | Prespecified residual comparison not reached | All 151 held members unopened | **REFUSE acquisition** |
@@ -131,9 +141,9 @@ and sequence ledgers because they contain no performance estimate.
 | Treatment-specific lineage fields reproduce biologically. | All three ReSisTrace lineage-bootstrap cosine intervals include zero; only two cultures are deposited. | **REFUSE** | No treatment-minus-control field met the replication criterion. |
 | The structured primary improves matched baselines. | Stephenson passes its frozen residual and destroyed-link comparisons. GSE239452 passes only as a post-access correction. The historical panels and GSE314416 do not pass; BMMC and COMBAT gains are adaptive development summaries. | **SUPPORTED in one prospective held-site panel** | The hierarchical exact-conditional transfer improved the selected residual in the frozen Stephenson confirmation; general superiority is not established. |
 | Hierarchical transfer adds beyond classical common-effect interaction models. | In post-hoc audits, Stephenson improves on exact common-effect CMLE by 6.18% and on pooled-table log odds with conditional reconstruction by 3.39%. In GSE239452, the primary is 14.7865% better than the true standard fixed-interaction Poisson comparator, but exact CMLE beats the primary by 2.20%. The older GSE239452 artifact's 14.58% comparison also used conditional reconstruction and is not labeled standard Poisson in the release ledger. | **MIXED, POST-HOC** | The donor-varying transfer can outperform common-effect controls, but the direction is study-dependent and awaits a prospectively frozen classical comparison. |
-| The scGPT hypergraph contributes specific biological information. | The shuffled graph matches or exceeds the primary in PerturbSci and PerturbFate; no positive panel isolates a graph-specific gain. | **REFUSE** | scGPT supplies a frozen structural prior; its specific benefit was not established. |
+| The scGPT hypergraph contributes specific biological information. | The shuffled graph matches or exceeds the primary in PerturbSci and PerturbFate; GSE317605 selected zero hypergraph penalty and exactly matched its retuned graph-zero fit. | **REFUSE** | scGPT supplies a frozen structural prior; its specific benefit was not established. |
 | Guide/observation-error correction is validated on public data. | `fit_factorial_coupling` is tested and stress-tested synthetically, but the completed public scripts use conditional empirical tables, not the guide-aware likelihood. | **REFUSE real-data claim** | Guide-aware identification and refusal are implemented and assessed in simulation. |
-| The public benchmark establishes a positive held biological replicate. | Stephenson passes its publicly frozen held-site gate across 56 physical samples. GSE239452 is positive but labeled post-access correction; GSE179221 stopped at source feature-axis preflight before count access, and the remaining held candidates refuse or stop before scoring. | **SUPPORTED once prospectively** | One prospectively frozen held-site confirmation passes; no second independent-study confirmation is claimed. |
+| The public benchmark establishes a positive held biological replicate. | Stephenson passes its publicly frozen held-site gate across 56 physical samples. GSE239452 is positive but labeled post-access correction; GSE317605 stopped at calibration, GSE179221 stopped at source feature-axis preflight, and the remaining held candidates refuse or stop before scoring. | **SUPPORTED once prospectively** | One prospectively frozen held-site confirmation passes; no second independent-study confirmation is claimed. |
 | Corrected pathway/complex recovery validates the primary. | The strict PerturbSci rerun required high field norm in every held truth and prediction and exclusion under matched destroyed links. It selected no target; no Reactome or CORUM module could pass. | **REFUSE as confirmatory biology** | The earlier averaged-unit enrichments are exploratory; the strict replicated module analysis was negative. |
 | Predicted local neighborhoods recover biological relations. | Mean top-5 neighbor recovery was 0.064 [0.050, 0.079] versus 0.051 [0.041, 0.063] after link destruction; the difference interval included zero and the random-label permutation p-value was 0.283. Reactome edge enrichment refused. CORUM was nominal against random, p=0.0269, but not significant after family correction, q=0.0538. | **REFUSE** | No corrected local-neighborhood claim survives the predeclared controls. |
 | The method is state of the art for perturbation prediction. | No completed comparison establishes this, and the task is association-field reproducibility rather than standard unseen-perturbation response prediction. | **REFUSE** | Do not make a state-of-the-art or direct-superiority claim. |
@@ -188,6 +198,15 @@ pooled and age-stratified fixed-interaction Poisson comparators. Its source
 support gate refused on the second donor before source fitting, so none of those
 estimators or comparisons was formed. GSE214546 contributes a source-support
 refusal, not a confirmation or head-to-head result.
+
+The GSE317605 protocol fitted time-conditioned population and patient-deviation
+fields with temporal and marker-hypergraph penalties, and compared them directly
+with tuned time-conditioned ridge-Poisson under leave-one-patient-out
+calibration. The 16-by-16 primary selected zero hypergraph penalty and exactly
+matched the retuned graph-zero fit. Its 1.193% loss reduction over ridge-Poisson
+failed the frozen 5% calibration gate, so the one-shot sequence terminated
+before pilot or held count-matrix access. This result supports neither a graph-specific gain
+nor a second confirmation.
 
 Stephenson, GSE239452, GSE314416, and the adaptive BMMC/COMBAT audit use the
 same exact conditional interaction family. The Stephenson configuration was
@@ -298,6 +317,7 @@ Result and terminal-attempt artifact hashes at this snapshot:
 | `results/development/gse179221_bmmc_source_v1.json` | `18982f0320c602dbc65df27a94675677dc006edd9951ac62fa3a1ad93e2a06f6` |
 | `data/confirmation/gse214546_teaseq/source_attempt_v1.json` | `56a832e0f3b67ceae87e7a645275a7ec4607f350dd56456f37be9149c906795f` |
 | `results/development/gse214546_teaseq_source_v1.json` | `fb7ed8218c926cbc41a105b21a94116d8f73de5fd823b98137ac094b20d410ba` |
+| `data/confirmation/gse317605_longitudinal/calibration_result_v1.json` | `9b3fcec43e38d876a312c8488292264ed747a9c70b4a75609f1d9ac18948040e` |
 | `results/development/scmmib_bmmc_exact_development_attempt_3_terminal_refusal.json` | `caf920719694487ba228dc64ac14ed4a6579619349f496f7154372920f3e128c` |
 | `data/confirmation/gse279451_sepsis/source_manifest_v1.json` | `c15fdc13c68cff14c45cfc16153cdbc309f6c2252457634fda8abdca677e4603` |
 | `data/development/gse279451_sepsis/development_attempt_v1.json` | `b8d7e745997e7b7ccd9a3bc8a7a7c3c7670b9e47c8b5d51e3d12fb70a5a8938d` |
@@ -309,13 +329,18 @@ Result and terminal-attempt artifact hashes at this snapshot:
 | `results/development/gse299043_mln_terminal_acquisition_audit.json` | `6b5ef33e765adfcd80b534113a3c59dec706b82739c2518342699019011a6475` |
 | `results/development/combat_citeseq_pilot_terminal_refusal.json` | `c41c6e46333c1dc56b460fec74a41f6d1a07a82105ca4894a273ce43dc48e2f9` |
 
+Annotated public tag `gse317605-longitudinal-v1-calibration-result` resolves to
+commit `7f229baca0b261e1a0ee832defcc5cfa96aad023`. The terminal result binds the
+one-shot attempt and consumption records, reconciled access journal, 210
+completed and deleted calibration files, and zero pilot or held requests.
+
 The aggregate builder rejects non-finite JSON, verifies every source artifact
 hash before emitting a row, enforces unique panel/comparison identifiers and
 valid cross-references, and writes sorted deterministic ledgers. The standalone
 verifier rechecks row-level artifact hashes, metric finiteness, evidence counts,
 sequence order, the empty unused-Cambridge performance fields, manifest bytes,
-and `SHA256SUMS`. The release candidate contains 36 panel, 29 comparison, and
-83 sequence records.
+and `SHA256SUMS`. The release candidate contains 37 panel, 29 comparison, and
+91 sequence records.
 
 The structured consistency check parsed every audited JSON with non-finite JSON
 constants rejected; verified embedded hashes for the v4 runner, estimator, and
@@ -373,6 +398,9 @@ outcome: it does not supply a second confirmation or a classical comparison.
 Treat GSE214546 as a source-support refusal with one complete source reduction,
 one axis-only failed source reduction, and no held access, fit, comparison, or
 confirmation.
+Treat GSE317605 as a calibration refusal: report the direct ridge-Poisson
+comparison, the zero selected hypergraph penalty, and the untouched pilot and
+held stages without promoting it to held evidence.
 Do not claim graph-prior superiority, a second independent-study confirmation,
 confirmatory pathway or neighborhood recovery, real-data validation of
 guide-error correction, universal estimator superiority, or state-of-the-art
