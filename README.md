@@ -306,7 +306,7 @@ input hashes, official source URLs, and derivation script are supplied in
 - `data/`: source manifests and metadata-only eligibility records.
 - `tests/`: integrity, estimator, comparator, and pairing-seal tests.
 
-The aggregate release is tagged `coupling-fields-v2.0.1-public-benchmark`, and the
+The aggregate release is tagged `coupling-fields-v2.0.2-public-benchmark`, and the
 manifest status is `RELEASED`. The GSE299043 plan is published at
 `https://github.com/sushaan-k/coupling-fields-benchmark` under tag
 `gse299043-mln-v1-protocol`. The immutable release and a fresh clone both

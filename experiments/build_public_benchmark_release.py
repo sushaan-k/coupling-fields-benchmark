@@ -2490,7 +2490,7 @@ def _write_manifest(
         "release_status": "RELEASED",
         "snapshot_date": "2026-08-31",
         "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
-        "intended_release_tag": "coupling-fields-v2.0.1-public-benchmark",
+        "intended_release_tag": "coupling-fields-v2.0.2-public-benchmark",
         "archive_doi": None,
         "code_license": "MIT",
         "analysis_plan_characterization": "public pre-outcome analysis plans; not registry-hosted preregistration",

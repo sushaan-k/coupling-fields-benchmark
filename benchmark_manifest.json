@@ -10,7 +10,7 @@
     {
       "bytes": 19573,
       "path": "README.md",
-      "sha256": "9c13165d7439aca32efbde6a08bd9b914b2127e53b8050b6573e3d674e29a975"
+      "sha256": "fadbb8d042e2a1a1a0f6e7cb18effcec7f540d6430d18dbef3229ede26a9d647"
     },
     {
       "bytes": 7965,
@@ -245,7 +245,7 @@
     {
       "bytes": 108895,
       "path": "experiments/build_public_benchmark_release.py",
-      "sha256": "61b20486931314331c090b41faeada33c5b7d1ecc6b1eacd10ff9afed49a9aca"
+      "sha256": "549f3b4a76b4d4c2851e067164520f47a6bd53ade08222761671e95a429af29a"
     },
     {
       "bytes": 144069,
@@ -505,7 +505,7 @@
     {
       "bytes": 10519,
       "path": "scripts/verify_public_benchmark_release.py",
-      "sha256": "4a83693621b36b481edf37abf2ae3c55cecc58345edc8028747210bda5dcfe73"
+      "sha256": "f021fd792e2f7275bf70e02c6fac2a8b54ca33b6443968b868c134732d2c3203"
     },
     {
       "bytes": 25826,
@@ -549,7 +549,7 @@
     "scientific_decision": null,
     "terminal_record": "data/confirmation/stephenson_unused_cambridge/prediction_terminal_record_v1_1.json"
   },
-  "intended_release_tag": "coupling-fields-v2.0.1-public-benchmark",
+  "intended_release_tag": "coupling-fields-v2.0.2-public-benchmark",
   "ledgers": {
     "comparisons": "results/benchmark_comparisons_v2.tsv",
     "historical_v1_table": "results/final_public_benchmark_table.tsv",
