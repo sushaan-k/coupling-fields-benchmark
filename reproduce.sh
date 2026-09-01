@@ -54,6 +54,8 @@ echo "Deselecting the BMMC deposited-axis assertion because its source is not re
   tests/test_gse179221_bmmc_confirmation.py \
   tests/test_exact_logodds_head_to_head.py \
   tests/test_common_effect_conditional.py \
+  tests/test_exact_conditional_heterogeneity_simulation.py \
+  tests/test_transfer_risk_bound_stress.py \
   tests/test_gse214546_candidate.py \
   tests/test_gse214546_confirmation.py \
   tests/test_gse342939_confirmation.py \

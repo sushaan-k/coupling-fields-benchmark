@@ -378,7 +378,7 @@ def test_benchmark_manifest_records_v2_aggregate_release():
     assert manifest["schema"] == "coupling-fields-public-benchmark/2.0"
     assert manifest["release_name"] == "coupling-fields-v2-public-benchmark"
     assert manifest["release_status"] == "RELEASED"
-    assert manifest["intended_release_tag"] == "coupling-fields-v2.0.2-public-benchmark"
+    assert manifest["intended_release_tag"] == "coupling-fields-v2.0.3-public-benchmark"
     assert manifest["counts"] == {
         "comparison_records": 29,
         "panel_records": 37,
@@ -396,9 +396,9 @@ def test_benchmark_manifest_records_v2_aggregate_release():
     )
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 106
+    assert len(artifacts) == 114
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 106
+    assert len(by_path) == 114
     for relative in (
         "LICENSE",
         "results/benchmark_panels_v2.tsv",
@@ -437,11 +437,19 @@ def test_benchmark_manifest_records_v2_aggregate_release():
         "data/confirmation/gse214546_teaseq/source_attempt_v1.json",
         "results/development/gse214546_teaseq_source_v1.json",
         "experiments/correct_gse239452_residual_inversion.py",
+        "experiments/development/simulate_exact_conditional_heterogeneity.py",
+        "experiments/development/stress_transfer_risk_bound.py",
         "experiments/evaluate_gse239452_standard_poisson_posthoc.py",
+        "results/development/exact_conditional_heterogeneity_simulation_v1.json",
+        "results/development/exact_conditional_heterogeneity_simulation_v1.tsv",
+        "results/development/transfer_risk_bound_stress_v1.json",
+        "results/development/transfer_risk_bound_stress_v1.tsv",
         "results/gse239452_citeseq_post_access_correction.json",
         "results/development/gse239452_standard_poisson_interaction_posthoc.json",
         "tests/test_gse239452_post_access_correction.py",
         "tests/test_gse239452_standard_poisson_posthoc.py",
+        "tests/test_exact_conditional_heterogeneity_simulation.py",
+        "tests/test_transfer_risk_bound_stress.py",
         "experiments/build_public_benchmark_release.py",
         "scripts/verify_public_benchmark_release.py",
         "tests/test_public_benchmark_release_v2.py",

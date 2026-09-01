@@ -14,7 +14,7 @@ from typing import Any
 
 
 EXPECTED_ORIGIN = "https://github.com/sushaan-k/coupling-fields-benchmark"
-EXPECTED_TAG = "coupling-fields-v2.0.2-public-benchmark"
+EXPECTED_TAG = "coupling-fields-v2.0.3-public-benchmark"
 NUMERIC_COMPARISON_FIELDS = {
     "primary_value",
     "comparator_value",

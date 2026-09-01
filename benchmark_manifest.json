@@ -10,7 +10,7 @@
     {
       "bytes": 19573,
       "path": "README.md",
-      "sha256": "fadbb8d042e2a1a1a0f6e7cb18effcec7f540d6430d18dbef3229ede26a9d647"
+      "sha256": "ac113c5d23342bab0b62ab31c00fd300c0e509bdfebf71dbfae52342f56b29f5"
     },
     {
       "bytes": 7965,
@@ -243,9 +243,9 @@
       "sha256": "e078c6fd403a8b7431e451357ef5e4479b30f629087f4bb4a7cc00b8ceef9b15"
     },
     {
-      "bytes": 108895,
+      "bytes": 110043,
       "path": "experiments/build_public_benchmark_release.py",
-      "sha256": "549f3b4a76b4d4c2851e067164520f47a6bd53ade08222761671e95a429af29a"
+      "sha256": "3de777e11fa2f57f9b41b9f73e69aac3da1d722059c0b03e9183356700c92a5f"
     },
     {
       "bytes": 144069,
@@ -268,14 +268,24 @@
       "sha256": "06cf66a299c404cd1d8e71a38a6fc5d276543cbaecb3703722de74a1495add7f"
     },
     {
+      "bytes": 31914,
+      "path": "experiments/development/simulate_exact_conditional_heterogeneity.py",
+      "sha256": "8df2771a8b0d93aaba6230a82e236cb2121d9e61fd74c4a0eacb55a43f57d990"
+    },
+    {
+      "bytes": 21278,
+      "path": "experiments/development/stress_transfer_risk_bound.py",
+      "sha256": "b78d4767135b621e3ad9eae7d639cb58af6c7cedc783a22152ebe442743fdfb6"
+    },
+    {
       "bytes": 29629,
       "path": "experiments/evaluate_gse239452_standard_poisson_posthoc.py",
       "sha256": "dd903b20233f44427cf79a2eca4e7210543bffa527525d49989c2031e65d2816"
     },
     {
-      "bytes": 3645,
+      "bytes": 3751,
       "path": "reproduce.sh",
-      "sha256": "f5e7df1049c3ff5088f47b15530f6d3f9276a2db871a2b8ae9ab66c0b938d31f"
+      "sha256": "0c7468e15bec45b1eb233cda2b53acb92e0ccb457a44a766989af3e842909d79"
     },
     {
       "bytes": 114491,
@@ -306,6 +316,16 @@
       "bytes": 55578,
       "path": "results/development/combat_citeseq_pilot_terminal_refusal.json",
       "sha256": "c41c6e46333c1dc56b460fec74a41f6d1a07a82105ca4894a273ce43dc48e2f9"
+    },
+    {
+      "bytes": 489035,
+      "path": "results/development/exact_conditional_heterogeneity_simulation_v1.json",
+      "sha256": "d7b25df1e6d1fdb09882a2a5c6c6c6ec93de05818168833c3da866cfc98c8f09"
+    },
+    {
+      "bytes": 5015,
+      "path": "results/development/exact_conditional_heterogeneity_simulation_v1.tsv",
+      "sha256": "afe38f0d35043fa69938c4e50bf2ab0ebb4fcd5eed80d189caa041e0615462a7"
     },
     {
       "bytes": 18896,
@@ -438,6 +458,16 @@
       "sha256": "9a4acf9d9ea8321398de9ddd7091aa782340db5b18e748d3a82c2c9f68177232"
     },
     {
+      "bytes": 99098,
+      "path": "results/development/transfer_risk_bound_stress_v1.json",
+      "sha256": "65d18243c8438ac1b3f63063714a9736df5047764372fc2efbc93b4cd9ea97fc"
+    },
+    {
+      "bytes": 14360,
+      "path": "results/development/transfer_risk_bound_stress_v1.tsv",
+      "sha256": "0c6b44ca79cefe49e91e7a8a123e4e1d37ef4eab69f3321c20305a7007378c0b"
+    },
+    {
       "bytes": 14969,
       "path": "results/final_public_benchmark_table.tsv",
       "sha256": "fe8b12fc107891b382fe73ace427c4bcdb256e242d19236e11c866b1a1e4cae2"
@@ -505,7 +535,12 @@
     {
       "bytes": 10519,
       "path": "scripts/verify_public_benchmark_release.py",
-      "sha256": "f021fd792e2f7275bf70e02c6fac2a8b54ca33b6443968b868c134732d2c3203"
+      "sha256": "1d1cc721d609513ca28a3479a3f46efc9ea6ca42d706357f082fac4d7ace5b0e"
+    },
+    {
+      "bytes": 5420,
+      "path": "tests/test_exact_conditional_heterogeneity_simulation.py",
+      "sha256": "a27269ddeee2d7ba4a8997ac2bc2abcde37677385dcf9638fdf79d9b5cbb1a3b"
     },
     {
       "bytes": 25826,
@@ -531,6 +566,11 @@
       "bytes": 21966,
       "path": "tests/test_public_benchmark_release_v2.py",
       "sha256": "d1c9ebafbac52e449b3d6ab478a2c84f29805804f3c762d6ac95af5dc67122ea"
+    },
+    {
+      "bytes": 5014,
+      "path": "tests/test_transfer_risk_bound_stress.py",
+      "sha256": "e3f53049a8f1640dc4b178f8d2cd32fb8dcf98c4dec2778a1400abafeb5990e9"
     }
   ],
   "code_license": "MIT",
@@ -549,7 +589,7 @@
     "scientific_decision": null,
     "terminal_record": "data/confirmation/stephenson_unused_cambridge/prediction_terminal_record_v1_1.json"
   },
-  "intended_release_tag": "coupling-fields-v2.0.2-public-benchmark",
+  "intended_release_tag": "coupling-fields-v2.0.3-public-benchmark",
   "ledgers": {
     "comparisons": "results/benchmark_comparisons_v2.tsv",
     "historical_v1_table": "results/final_public_benchmark_table.tsv",
