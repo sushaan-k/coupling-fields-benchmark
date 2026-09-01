@@ -4,6 +4,8 @@ __pycache__/
 *.pyc
 .pytest_cache/
 *.egg-info/
+.playwright-cli/
+output/playwright/
 
 # Upstream outcome matrices are acquired locally and never redistributed.
 data/**/*.Rds
