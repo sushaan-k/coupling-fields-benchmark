@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1200, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <title>Fixed-margin prediction social preview</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; margin: 0; overflow: hidden; }
+    body { color: #292a2d; background: #fff; font-family: "Noto Sans", Arial, sans-serif; }
+    .card { display: grid; grid-template-rows: 1fr 206px; width: 100%; height: 100%; padding: 58px 68px 46px; }
+    .paper-type { margin: 0 0 20px; color: #6f757a; font-size: 15px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { max-width: 1060px; margin: 0; font-family: "Google Sans", Arial, sans-serif; font-size: 62px; font-weight: 400; line-height: 1.08; letter-spacing: 0; }
+    h1 span { color: #0868ce; }
+    .authors { margin: 26px 0 0; color: #1267b0; font-family: "Google Sans", Arial, sans-serif; font-size: 20px; }
+    .evidence { display: grid; grid-template-columns: 1fr 312px; gap: 36px; align-items: stretch; padding-top: 28px; border-top: 1px solid #d9dee2; }
+    .transfer { display: grid; grid-template-columns: 185px 42px 220px 42px 185px; align-items: center; }
+    .step { text-align: center; }
+    .step strong { display: block; margin-bottom: 10px; font-size: 15px; }
+    .step small { display: block; margin-top: 9px; color: #747b80; font-size: 12px; }
+    .tables { position: relative; width: 98px; height: 88px; margin: auto; }
+    .table { position: absolute; display: grid; grid-template-columns: repeat(2, 34px); grid-template-rows: repeat(2, 34px); gap: 4px; padding: 6px; border: 1px solid #bfc8ce; background: #fff; }
+    .tables .table:first-child { top: 0; left: 0; opacity: .55; }
+    .tables .table:last-child { right: 0; bottom: 0; }
+    .table i:nth-child(1), .table i:nth-child(4) { background: #98bddb; }
+    .table i:nth-child(2), .table i:nth-child(3) { background: #d6e4ee; }
+    .recipient-table { position: static; margin: auto; }
+    .recipient-table i:nth-child(1), .recipient-table i:nth-child(4) { background: #8fc7c0; }
+    .recipient-table i:nth-child(2), .recipient-table i:nth-child(3) { background: #d6eae7; }
+    .arrow { position: relative; height: 2px; background: #7a858c; }
+    .arrow::after { content: ""; position: absolute; top: -5px; right: 0; width: 10px; height: 10px; border-top: 2px solid #7a858c; border-right: 2px solid #7a858c; transform: rotate(45deg); }
+    .estimate { text-align: center; }
+    .estimate span { display: block; color: #0b7972; font-size: 14px; font-weight: 700; }
+    .estimate b { display: block; margin: 12px 0 8px; font-family: Castoro, Georgia, serif; font-size: 22px; font-weight: 400; }
+    .estimate small { color: #747b80; font-size: 12px; }
+    .result { display: flex; flex-direction: column; justify-content: center; padding: 24px 28px; border-left: 4px solid #0868ce; background: #f4f7fa; }
+    .result strong { color: #0868ce; font-family: "Google Sans", Arial, sans-serif; font-size: 48px; font-weight: 400; line-height: 1; }
+    .result span { margin-top: 10px; font-size: 16px; font-weight: 700; line-height: 1.35; }
+    .result small { margin-top: 9px; color: #6f757a; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <section>
+      <p class="paper-type">Single-cell multi-omics &middot; Conditional likelihood &middot; CITE-seq</p>
+      <h1><span>Fixed-margin</span> prediction of RNA-protein association across cohorts</h1>
+      <p class="authors">Sushaan Kandukoori &middot; Pranava Kumar &middot; Shrikrishna Ramesh</p>
+    </section>
+    <section class="evidence">
+      <div class="transfer">
+        <div class="step">
+          <strong>36 Cambridge donors</strong>
+          <div class="tables" aria-hidden="true"><div class="table"><i></i><i></i><i></i><i></i></div><div class="table"><i></i><i></i><i></i><i></i></div></div>
+          <small>Linked source tables</small>
+        </div>
+        <i class="arrow" aria-hidden="true"></i>
+        <div class="estimate">
+          <span>Exact conditional likelihood</span>
+          <b>p(A | margins, &mu; + &delta;)</b>
+          <small>Population interaction with donor shrinkage</small>
+        </div>
+        <i class="arrow" aria-hidden="true"></i>
+        <div class="step">
+          <strong>56 Newcastle donors</strong>
+          <div class="table recipient-table" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <small>Recipient-specific margins</small>
+        </div>
+      </div>
+      <div class="result">
+        <strong>17.46%</strong>
+        <span>lower held-site deviance</span>
+        <small>50 of 56 donors favored fixed-margin prediction</small>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
