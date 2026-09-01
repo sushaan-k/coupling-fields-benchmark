@@ -1,260 +1,121 @@
 # Coupling-fields public benchmark data card
 
-**Release candidate:** `coupling-fields-v1`
-**Snapshot date:** 28 August 2026
-**Distribution status:** public GSE299043 terminal acquisition refusal; prior
-terminal refusals retained
+**Release:** `coupling-fields-v2.0.3-public-benchmark`<br>
+**Snapshot date:** 31 August 2026<br>
+**Repository:** <https://github.com/sushaan-k/coupling-fields-benchmark><br>
+**Status:** released public benchmark
 
-## Scope
+## Purpose
 
-This benchmark evaluates perturbation-specific dependence between linked
-single-cell measurements. It contains one row per declared public panel,
-machine-readable aggregate results, analysis protocols, source manifests,
-deterministic runners, the reference implementation, and integrity tests.
-Failed and refused panels are part of the benchmark.
+This benchmark evaluates whether association measured in a linked single-cell
+source cohort can predict a recipient joint table when only the recipient row
+and column margins are available. The main application is RNA-protein CITE-seq,
+but the table representation also covers other paired finite-state assays.
 
-The current snapshot covers seven scored public-data panels and seven
-procedural refusals. No prospective candidate is active:
+The benchmark is designed for methods that predict dependence at recipient
+abundance. It is not a benchmark for marginal protein abundance, causal effect,
+cell-type classification, or zero-shot perturbation ranking.
 
-| Study | Linked measurements | Evaluation unit | Decision |
+## Composition
+
+The release contains 37 analysis records, 29 matched comparisons, and 91
+chronology records. Twelve analyses have scored outcomes. Twenty-four are
+procedural refusals without a held performance value. One record is
+infrastructure-unevaluable and has no scientific decision.
+
+Analysis records are not synonymous with independent studies. Some studies
+contribute both a frozen campaign result and a separately labeled retrospective
+development analysis. `results/benchmark_panels_v2.tsv` gives the evidence role
+for every record.
+
+| Analysis | Evidence role | Evaluation unit | Status |
 |---|---|---|---|
-| PerturbSci-Kinetics, GSE218566 | pre-existing and nascent RNA | sequence-distinct guides | pairing signal only |
-| Frangieh Perturb-CITE-seq | RNA and surface protein | sequence-distinct guides | refuse |
-| Papalexi ECCITE-seq | RNA and surface protein | deposited treatment replicates | refuse |
-| MultiPerturb-seq, GSE277747 | RNA and chromatin accessibility | sequence-distinct guides | refuse |
-| PerturbFate, GSE291147 | labeled and unlabeled RNA | technical dates | refuse |
-| ReSisTrace, GSE223003 | linked pre/post lineage states | two deposited cultures | arm-level linkage only |
-| Arce T-cell Perturb-CITE-seq, GSE278572 | RNA and surface protein | held donor | refuse |
-| PoKI-seq, GSE143417 | RNA and chromatin accessibility | held donor | preflight refusal; not scored |
-| Lawlor HCA PBMC | RNA and surface protein | held donors | reducer refusal; not scored |
-| Hao, GSE164378 | RNA and surface protein | held donors | support refusal; not scored |
-| Kotliarov PBMC | RNA and surface protein | held batch and disjoint donors | support refusal; not scored |
-| NeurIPS 2021 BMMC CITE-seq | RNA and surface protein | held donors | terminal numerical development refusal; not scored |
-| GSE279451 adult sepsis CITE-seq | RNA and surface protein | 19 development and 21 held donors | terminal development-evaluation refusal; not scored |
-| GSE299043 MLN CITE-seq | RNA and surface protein | 10 Cambridge development and 10 LiveOnNY/Columbia held donors | terminal development-member feature refusal; not scored |
+| Stephenson Cambridge to Newcastle | confirmatory held site | 56 physical donors | pass |
+| GSE239452 nonpregnant to pregnant | post-access corrected cohort | 9 physical donors | pass |
+| GSE314416 DB1 to DB1/DB2 | development pilot | 20 physical donors | stopped at pilot |
+| COMBAT Oxford | retrospective adaptive development | 24 physical samples | development only |
+| BMMC bridge analysis | retrospective adaptive development | 4 batches from one donor | development only |
+| Seven linked perturbation panels | retrospective public benchmark | study-specific deposited units | mixed or refused |
 
-The exact values, uncertainty intervals, controls, decisions, and provenance
-are in `results/final_public_benchmark_table.tsv`. The evidence boundary is in
-`docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md`.
+The remaining records document source, support, numerical, or infrastructure
+stops before held scoring. They carry no held performance estimate.
 
-The Lawlor and Hao family is closed. Both candidates were executed under the
-public freeze but stopped before held joint-table scoring: Lawlor at the
-frozen reducer's unsupported deposited-object check and Hao at the frozen
-development marginal-support gate. Their refusal artifacts are included and
-are not predictive failures.
+## Inputs
 
-The preceding scoreable family contained one candidate, Kotliarov PBMC
-CITE-seq, bound in `KOTLIAROV_CANDIDATE_DESIGNATION.json`. It uses ten
-development donors from batch 1 and nine disjoint held donors from batch 2,
-excluding donor 209 from both because that donor occurs in both batches. Tag
-`confirmatory-family-v3` was independently verified from a fresh clone at
-commit `a034fd272ef631d70f39debc467570568ef8754a` before outcome access was
-authorized. Its one authorized preparation stopped when fewer than four of the
-five prespecified RNA-only lineages met the frozen requirement of at least 50
-retained cells in every one of 19 donors. The ADT file was byte-hashed for
-integrity, but its HDF5 count dataset was never opened. No held RNA-ADT
-pairing, joint table, prediction, score, or performance estimate was formed.
-The candidate is terminal and was not rerun.
+Each scored analysis uses linked observations from a public study and defines:
 
-The subsequent BMMC candidate ended after three recorded development attempts.
-The frozen exact conditional optimizer failed its final common-effect refit
-after the permitted numerical-equivalence repair. No prediction or held score
-was formed, all six held-donor count slices remained unopened, and BMMC cannot
-be revived.
+- a finite state for each assay
+- a biological or deposited evaluation unit
+- source joint tables
+- recipient marginal tables
+- a fixed entity-pair universe
+- matched comparators and controls
 
-`GSE279451_CANDIDATE_DESIGNATION.json` defined the final candidate. It fixed 19
-development donors, 21 disjoint held donors, nine
-RNA--ADT markers, 81 ordered interactions, and 1,024 deterministically selected
-cells per donor. The development gate and held gate compare the hierarchical
-exact conditional estimator directly with the strongest matched signed Pearson
-or Poisson-deviance residual transfer. One terminal attempt acquired and reduced
-the 19 development matrices. The evaluation refused because the declared
-`common_effect_graph` and `common_effect_ridge_only` control families were
-unavailable, so it issued no head-to-head decision. No prediction,
-authorization, held pairing, or held score was formed; all 21 held-donor matrix
-members remained unopened. The refusal prohibits a rerun.
+Raw matrices are not included. Study manifests record the public accession,
+source URL, file size, and checksum when one is available. Small derived arrays
+are included only when they are required to reproduce a reported result or a
+recorded refusal.
 
-The GSE299043 plan fixed mesenteric lymph node, 10x 5-prime v2 TotalSeq-C,
-ten donors per site, nine exact RNA--ADT marker pairs, and 81 ordered
-interactions. Its one development attempt completed 21 member reductions. The
-next file lacked an accepted MLN HTO ID, so the frozen feature gate refused
-before reading that member's matrix values. No model or comparator was fitted;
-all 151 held files remained unopened, and rerun is prohibited.
+## Outputs
 
-PoKI-seq is outside the current scoreable family. Its earlier frozen run
-failed the state-occupancy support gate before prediction and scoring. The
-refusal, retained designation, lock, cache, runner, and protocol are packaged
-at `results/gse143417_pokiseq_preflight_refusal.json` and their corresponding
-source paths. The refusal has `outcome_scored: false` and is neither a
-confirmatory test nor evidence for or against model performance.
+The benchmark reports predicted recipient joint tables or their aggregate
+scores, depending on the study. The binary conditional-transfer analyses use
+multinomial deviance per cell. Earlier multistate panels retain their original
+correlation, error, and link-destruction metrics. Metric direction and scale are
+explicit in the version-2 ledgers.
 
-## Intended use
+The release separates three kinds of machine-readable record:
 
-- Recompute the declared aggregate metrics and decision gates.
-- Compare estimators under identical target universes, held units, and
-  link-destruction controls.
-- Audit positive, negative, and refused results without outcome-based panel
-  deletion.
-- Add a prospectively designated held-donor or held-study confirmation under
-  the frozen protocol.
-- Audit the terminal GSE299043 feature refusal without treating it as predictive
-  evidence.
+- `results/benchmark_panels_v2.tsv` records the analysis-level endpoint.
+- `results/benchmark_comparisons_v2.tsv` records each matched comparator,
+  uncertainty interval, and decision.
+- `results/benchmark_sequence_v2.tsv` records the order of plans, data access,
+  predictions, scores, and refusals.
 
-This package is not a benchmark for ordinary marginal-response prediction,
-zero-shot perturbation ranking, causal direction, or population-level donor
-inference.
+## Evaluation units and uncertainty
 
-## Inputs and outputs
+Cells are never treated as biological replicates. Confirmatory CITE-seq results
+weight physical donors or samples equally. The Stephenson and GSE239452
+intervals use 20,000 paired donor-bootstrap draws. Retrospective perturbation
+panels use the deposited biological or technical units declared in their
+records. Development intervals are descriptive unless a panel is explicitly
+labeled confirmatory.
 
-Inputs are same-cell, same-nucleus, or explicitly lineage-linked measurements
-with perturbation and control labels. Each panel defines a finite state in both
-views using controls that are separate from evaluation observations. The
-primary output is a perturbation-by-interaction-coordinate matrix after
-fixed-margin permutation centering. Result files also report direct estimates,
-structured estimates, endpoint and cross-covariance baselines, destroyed-link
-controls, target-bootstrap intervals, support checks, and refusal decisions.
+## Controls
 
-Raw source matrices are not bundled. They remain at their upstream public
-repositories. Source manifests record accessions, URLs, sizes, and available
-checksums. The small checksum-bound PoKI preflight cache and Hao reducer
-provenance are retained solely to audit the recorded refusals. Raw candidate
-matrices are not included.
+Binary conditional-transfer analyses compare the estimator with matched
+signed Pearson or signed likelihood-ratio transfer at the same recipient
+margins. Fitted common-effect and Poisson interaction baselines are reported
+where available. The destroyed-link control permutes complete protein profiles
+within each donor, preserving assay margins and within-protein dependence while
+removing cell-level RNA-protein pairing.
 
-## Evaluation contract
+## Provenance and integrity
 
-Targets or deposited biological units are the replication units stated for
-each panel. Cells are never called biological replicates. The principal metrics
-are pooled Pearson correlation, standardized RMSE, paired target-level
-squared-error differences, and link-destruction contrasts. Ninety-five percent
-intervals use 2,000 deterministic target bootstrap draws for predictive panels.
-All declared panels remain in the table regardless of outcome.
+`benchmark_manifest.json` records release metadata and every artifact cited by
+the aggregate ledgers. `SHA256SUMS` covers all tracked release files except the
+checksum file itself. The deterministic builder recreates the three version-2
+ledgers and manifest; the verifier checks their schema, counts, artifact hashes,
+numeric fields, and stage order.
 
-The GSE279451 protocol fixed the donor split, marker panel, cell budget, state
-rules, graph construction, estimator grid, classical comparators, donor-equal
-loss, inference, one-shot seals, and refusal rules before count access. Every
-development configuration was to be selected by leave-one-donor-out prediction.
-The declared gate could not be evaluated because both common-effect control
-families were unavailable. Held truth was never opened.
-
-The unreached GSE299043 development screen selects every family by ten-fold
-leave-one-donor-out prediction. Because selection and promotion use the same ten
-development donors, its bootstrap interval is a promotion heuristic. The
-untouched held-site gate is confirmatory and requires wins over both the
-selected classical residual and destroyed-link coupling, at least 5% relative
-deviance reduction, a paired-bootstrap upper endpoint below zero, at least
-eight favorable donors, and an exact one-sided sign-flip `p <= 0.025` for each
-comparison.
-The terminal acquisition refusal occurred before this screen.
-
-## Classical interaction baseline
-
-The completed multi-state panels retain full signed Poisson-deviance and
-Pearson residual matrices from the independence model. The GSE279451 and
-GSE299043 head-to-heads use the one-degree-of-freedom signed square-root Pearson statistic
-and signed square-root Poisson deviance for each 2-by-2 table, with raw and
-exact-null-centered variants selected on the same development folds. Every
-method predicts the same held table from the same margins before held pairing
-is opened. The coupling field is a log-linear interaction coordinate; the
-comparison asks whether exact conditional estimation and cross-entity
-regularization improve prediction over the classical residual construction.
-
-## Integrity and reproducibility
-
-`benchmark_manifest.json` records the packaged path, source path, SHA-256, byte
-count, and role of every artifact. `SHA256SUMS` binds the manifest, this data
-card, all candidate designations, score-authorization templates, and all
-packaged files. The packager also verifies the internal hashes named by each
-designation and the no-score fields in the PoKI refusal. The distribution is
-validated directly by its checksum manifest and test entry point.
-
-The release entry point `./reproduce.sh` checks every distributed hash,
-committed aggregate result, and candidate suite. Its main pass deselects four
-assertions: two that certify earlier disabled phases, one BMMC assertion whose
-deposited axis is not redistributed, and one Kotliarov assertion bound to a
-historical estimator. The script reruns the Kotliarov assertion against those
-exact historical bytes; all four tests remain checksum-bound.
-Authorized prediction and full public-data reruns require locally acquired
-checksum-matched source objects, the checksum-matched embedding, or prepared
-caches as specified by each command.
-
-The historical Lawlor and Hao runners remain checksum-bound for audit. Their
-preflights require the omitted, checksum-matched scGPT embedding and are not
-part of the zero-download verification path.
-
-The Kotliarov runner and tests remain checksum-bound for audit. Lawlor, Hao,
-and Kotliarov are terminally closed; the frozen Kotliarov candidate permits no
-rerun. Its canonical refusal is
-`results/kotliarov_pbmc_public_refusal.json`.
-
-The three BMMC development records are checksum-bound and close that candidate
-without a held score. The GSE279451 protocol, source manifest, terminal
-acquisition and evaluation attempts, reduced development table, refusal,
-authorization template, acquisition/reducer/evaluator, one-shot scorer, and
-poison tests are also checksum-bound. The refusal records zero held-matrix
-access and forbids a rerun.
-
-The GSE299043 protocol, designation, 207-member source template, metadata
-preflight, family policy, authorization template, reducer, acquisition runner,
-development evaluator, held scorer, and four adversarial test suites are also
-checksum-bound. A separate publication template requires the later active
-authorization itself to be fetched byte-for-byte from an immutable public
-commit. The development-attempt seal, generated refusal, and aggregate terminal
-audit are checksum-bound. Cell-level intermediate reductions are omitted and
-deleted; no development model or held outcome artifact exists.
-
-The packaged runners expose separated prediction and scoring commands. They
-refuse to form held joint pairings until the exact prediction SHA-256 and byte
-count are bound at an immutable public URL and commit through the candidate's
-authorization and release files. This package contains the templates
-`LAWLOR_SCORE_AUTHORIZATION_TEMPLATE.json` and
-`HAO_SCORE_AUTHORIZATION_TEMPLATE.json` and
-`KOTLIAROV_SCORE_AUTHORIZATION_TEMPLATE.json` for historical audit, plus
-`GSE279451_SCORE_AUTHORIZATION_TEMPLATE.json` for the terminal GSE279451 audit,
-and `data/confirmation/gse299043_mln/score_authorization_template_v1.json` for
-the terminal GSE299043 audit, together with its authorization-publication
-template.
+The study protocols remain in `docs/`. They are retained as dated records of
+the declared analysis, including unsuccessful campaigns. The concise evidence
+boundary is `docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md`.
 
 ## Known limits
 
-Only PerturbSci supplies a held-guide pairing signal, and the structured
-estimator does not beat its strongest endpoint baseline. ReSisTrace supplies
-arm-level linkage evidence but not a replicated treatment contrast. The only
-completed held-donor panel, Arce, fails the full gate. Target-bootstrap
-intervals condition on the deposited biological units. State definitions and
-finite-sample association estimates remain representation-dependent.
-Lawlor, Hao, Kotliarov, PoKI-seq, BMMC, GSE279451, and GSE299043 have no held joint-table score and
-add no positive or negative held predictive evidence. They remain visible as
-procedural refusals. GSE279451 contributes no performance evidence: its
-development evaluation refused before a prediction or classical-comparator
-decision, and the held matrices remained unopened. GSE299043 also contributes
-no performance evidence: it stopped at development-member feature preflight
-before estimator fitting, and every held matrix remained unopened.
+The positive held evidence comes from observational RNA-protein CITE-seq. The
+main analyses use binary states, a fixed cell budget, and small marker panels.
+The benchmark does not establish perturbation causality, graph-regularization
+benefit, or performance on unlinked spatial summaries. The GSE239452 analysis
+is a post-access numerical correction, not a second prospective confirmation.
+Retrospective development and historical perturbation panels should not be
+combined with the Stephenson held-site result as equivalent evidence.
 
-The completed three-panel atlas was rerun with the current full-matrix
-classical residual implementation, SHA-256 `35516883a567...`. Coupling fields
-did not beat the classical representation uniformly; the completed result and
-benchmark table preserve those comparisons.
+## Distribution and licensing
 
-## Publication and licensing status
-
-The following fields state the distribution boundary of this snapshot:
-
-| Field | Status |
-|---|---|
-| Public repository URL | `https://github.com/sushaan-k/coupling-fields-benchmark` |
-| Prior immutable candidate-freeze tag | `confirmatory-family-v3` |
-| GSE279451 candidate-freeze tag | `gse279451-sepsis-v1-protocol` |
-| GSE299043 candidate-freeze tag | `gse299043-mln-v1-protocol` |
-| GSE299043 frozen commit | `87c15787f734b20d06c7b8cb0c66680b2fe5c1b0` |
-| GSE299043 release verification | immutable release and fresh-clone checks passed |
-| GSE299043 terminal-refusal tag | `gse299043-mln-v1-terminal-refusal` |
-| Archive DOI | not assigned |
-| Repository code license | none granted |
-| scGPT-derived embedding | omitted; checksum and derivation manifest supplied |
-| Raw public matrices | omitted; upstream URLs and checksums supplied |
-| Completed-result implementation provenance | historical run bytes archived and checksum-bound |
-
-This package is public and source-visible. It must not be described as open
-source, DOI-archived, or registry-hosted preregistration. A public
-commit-addressed release does not imply an archive DOI, an open-source license,
-or registry status.
+The code is available under the MIT License. Public source datasets retain
+their original licenses and access conditions. The benchmark does not
+redistribute raw matrices or participant identifiers. No archive DOI has been
+assigned, and the public commit history is not a registry-hosted
+preregistration.
