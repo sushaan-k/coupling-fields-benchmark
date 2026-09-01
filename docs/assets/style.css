@@ -46,8 +46,8 @@ h1 span { color: #0868ce; }
 .authors { margin: 0 0 10px; color: var(--blue); font-family: "Google Sans", sans-serif; font-size: 20px; }
 .authors span { display: inline-block; }
 .authors sup, .author-emails sup { margin-right: 2px; font-size: .62em; line-height: 0; vertical-align: super; }
-.author-emails { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; margin: 0 0 26px; font-size: 13px; }
-.author-emails a { color: var(--muted); text-decoration: none; }
+.author-emails { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 38px; margin: 0 0 26px; font-size: 13px; }
+.author-emails a { display: inline-flex; align-items: baseline; color: var(--muted); text-decoration: none; }
 .author-emails a:hover { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
 .publication-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 .publication-links a {
