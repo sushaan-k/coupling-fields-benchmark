@@ -1,7 +1,7 @@
-# Fixed-margin prediction of RNA-protein association across cohorts
+# Fixed-margin prediction of cell-level RNA-surface-protein dependence across cohorts
 
 This repository contains the reference implementation, public benchmark, and
-reproducibility files for fixed-margin prediction of cross-modal association in
+reproducibility files for fixed-margin prediction of cross-modal dependence in
 linked single-cell assays. The method estimates log-linear interaction from
 linked source donors and combines that estimate with the observed margins of a
 recipient cohort. The resulting table preserves recipient abundance instead of
