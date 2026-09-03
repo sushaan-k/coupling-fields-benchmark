@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Fixed-margin prediction of RNA-protein association across cohorts.">
+  <meta name="description" content="Fixed-margin prediction of cell-level RNA-surface-protein dependence across cohorts.">
   <meta name="theme-color" content="#ffffff">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Fixed-margin prediction of RNA-protein association across cohorts">
-  <meta property="og:description" content="Predicting RNA-protein association at recipient-specific abundance using exact conditional likelihood and donor shrinkage.">
+  <meta property="og:title" content="Fixed-margin prediction of cell-level RNA-surface-protein dependence across cohorts">
+  <meta property="og:description" content="Predicting unobserved RNA-surface-protein joint tables from linked source donors and recipient aggregate counts.">
   <meta property="og:url" content="https://sushaan-k.github.io/coupling-fields-benchmark/">
-  <meta property="og:image" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/social-preview.png?v=20260901-1">
-  <meta property="og:image:secure_url" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/social-preview.png?v=20260901-1">
+  <meta property="og:image" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/social-preview.png?v=20260903-1">
+  <meta property="og:image:secure_url" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/social-preview.png?v=20260903-1">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Fixed-margin prediction paper title, authors, method flow, and held-site result">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Fixed-margin prediction of RNA-protein association across cohorts">
-  <meta name="twitter:description" content="Predicting RNA-protein association at recipient-specific abundance using exact conditional likelihood and donor shrinkage.">
-  <meta name="twitter:image" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/social-preview.png?v=20260901-1">
-  <title>Fixed-margin prediction of RNA-protein association across cohorts</title>
+  <meta name="twitter:title" content="Fixed-margin prediction of cell-level RNA-surface-protein dependence across cohorts">
+  <meta name="twitter:description" content="Predicting unobserved RNA-surface-protein joint tables from linked source donors and recipient aggregate counts.">
+  <meta name="twitter:image" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/social-preview.png?v=20260903-1">
+  <title>Fixed-margin prediction of cell-level RNA-surface-protein dependence across cohorts</title>
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
   <main id="main">
     <section class="publication-hero">
       <div class="container hero-inner">
-        <h1><span>Fixed-margin</span> prediction of RNA-protein association across cohorts</h1>
+        <h1><span>Fixed-margin</span> prediction of cell-level RNA-surface-protein dependence across cohorts</h1>
         <p class="authors"><span>Sushaan Kandukoori<sup>1</sup></span>, <span>Pranava Kumar<sup>2</sup></span>, <span>Shrikrishna Ramesh<sup>3</sup></span></p>
         <p class="author-emails">
           <a href="mailto:sushaankandukoori@gmail.com"><sup>1</sup>sushaankandukoori@gmail.com</a>
@@ -51,18 +51,18 @@
     <section class="section" id="abstract">
       <div class="container reading">
         <h2>Abstract</h2>
-        <p><b>Background.</b> Linked single-cell assays resolve cross-modal dependence because they measure molecular states in the same cell. Recipient cohorts may provide the marginal state frequencies of both assays without preserving cell-level pairing. Copying a source joint distribution then confounds association with cohort-specific abundance.</p>
-        <p><b>Results.</b> We predict the missing recipient joint table by estimating its centered log-linear interaction at fixed margins. Penalized exact conditional likelihood estimates the population interaction and shrinks donor deviations; the estimate is then combined with each recipient's observed margins. Fitted on 36 Cambridge donors, the method achieved mean deviance per cell 0.01220 across 56 Newcastle donors, compared with 0.01478 for signed-root deviance-statistic transfer. The reduction was 17.46% (paired-donor 95% confidence interval for the loss difference, -0.00413 to -0.00080), with lower loss in 50/56 donors. Mean deviance for the destroyed-link control was 0.02274, and the intact-link method had lower loss in 51/56 donors. In fitted-baseline analyses, the estimator reduced deviance by 6.18% relative to the common-effect conditional estimate. Across 128 ground-truth simulations, fixed-margin reconstruction absorbed recipient abundance shift, and donor shrinkage improved prediction when source interactions were heterogeneous.</p>
-        <p><b>Conclusions.</b> Fixed-margin prediction separates cross-modal association from cohort-specific abundance. Across held donors and ground-truth simulations, recipient margins corrected abundance shift, whereas donor shrinkage helped when source interactions were heterogeneous.</p>
+        <p><b>Background.</b> Linked single-cell assays resolve cross-modal dependence because they measure molecular states in the same cell. A recipient cohort may retain the marginal state counts of both assays without preserving cell-level pairing. Its joint table is then unobserved and cannot be recovered from the margins alone.</p>
+        <p><b>Results.</b> We formulate prediction from paired source donors and unpaired recipient margins. Penalized exact conditional likelihood estimates donor-specific log odds and a shared population interaction; the predicted table is the conditional mean at the recipient margins. This table uniquely minimizes expected multinomial deviance under the conditional model, and a finite-sample bound separates source estimation error from recipient association drift. Using RNA detection and within-donor median-ranked surface-protein states in 512 cells per donor, a model fitted on 36 Cambridge donors achieved mean deviance per cell 0.01220 in 56 Newcastle donors. Paule-Mandel random-effects transfer of the signed-root deviance statistic reached 0.01478, a 17.46% reduction for the conditional estimator (paired-donor 95% confidence interval for the loss difference, -0.00413 to -0.00080; 50/56 donors favorable). Mean deviance after source linkage was destroyed was 0.02274. In post hoc fitted-baseline analyses, the estimator reduced deviance by 6.18% relative to the common-effect conditional estimate (95% confidence interval, 3.84% to 8.47%). Across 128 ground-truth simulations, conditioning absorbed recipient margin shift, and donor shrinkage improved prediction when source interactions were heterogeneous.</p>
+        <p><b>Conclusions.</b> Fixed-margin prediction reconstructs an unobserved cross-modal joint table from linked source donors and recipient aggregate counts. The held-site result supports transfer of RNA-surface-protein dependence for the studied marker panel, and the simulations identify when conditioning and donor shrinkage improve prediction.</p>
       </div>
     </section>
 
     <section class="section light" id="background">
       <div class="container reading">
         <h2>Background</h2>
-        <p>Linked single-cell assays measure RNA, chromatin, proteins, molecular age, and lineage in the same cell or experimentally related unit. Joint latent-variable models integrate paired measurements or predict a missing modality. We ask whether cross-modal association learned from linked source donors can predict a recipient joint distribution from its two observed margins.</p>
+        <p>Linked single-cell assays measure RNA, chromatin, proteins, molecular age, and lineage in the same cell or experimentally related unit. Joint latent-variable models integrate paired measurements or predict a missing modality. We consider a different information boundary: source donors have paired measurements, whereas a recipient provides only the aggregate state counts for each assay. The target is the recipient joint table that cell-level pairing would have revealed.</p>
         <p>Marginal frequencies change with cell composition, activation, sequencing depth, and assay scale. Copying a source table therefore transfers abundance together with dependence. Signed Pearson and likelihood-ratio statistics summarize departure from independence, but their scale and attainable range depend on the margins. A statistic pooled across donors can consequently change meaning at recipient margins.</p>
-        <p>Centered log-linear interactions and conditional odds-ratio estimation are established tools for observed contingency tables. We use them to predict an unobserved recipient table from linked source donors and the recipient margins. The method pools heterogeneous donor effects, then reconstructs each table at the abundance observed in its recipient.</p>
+        <p>Log-linear interactions, conditional odds-ratio estimation, and random-effects models are established tools for observed contingency tables. We join them in a predictive design for source-paired, recipient-unpaired studies. The method learns dependence from stratified source tables, combines it with each recipient's margins, and returns the conditional mean joint table.</p>
       </div>
     </section>
 
@@ -99,7 +99,7 @@
               <p>Combining this estimate with recipient margins reconstructs a feasible recipient table.</p>
             </article>
           </div>
-          <figcaption id="workflow-caption"><b>Conditional transport of pairwise association.</b> Linked measurements define donor-level joint tables. Conditioning on both margins isolates log-linear association, and donor shrinkage estimates the population component shared across donors. Combining this estimate with recipient margins reconstructs a feasible recipient table. Held comparisons use signed-statistic transfer and margin-preserving link destruction. Common-effect conditional and fixed-interaction Poisson baselines were evaluated post hoc.</figcaption>
+          <figcaption id="workflow-caption"><b>Conditional prediction of pairwise dependence.</b> Linked source measurements define donor-level joint tables. Conditioning on both margins isolates log-linear dependence, and donor shrinkage estimates the population component shared across donors. Combining that estimate with recipient margins reconstructs the missing recipient table. Held comparisons use random-effects signed-statistic transfer and margin-preserving link destruction; fitted analyses compare common-effect conditional and pooled-table estimates.</figcaption>
         </figure>
       </div>
     </section>
@@ -149,7 +149,7 @@
 
       <div class="container reading method-detail">
         <h3>Classical comparisons and controls</h3>
-        <p>The matched statistic comparator transfers either the signed root Pearson statistic or the signed root likelihood-ratio deviance from the row-plus-column independence model. We normalized statistics by table size, pooled them across source donors, rescaled them for each recipient, and inverted them at its margins. Both methods received the same recipient margins without recipient pairings.</p>
+        <p>The matched statistic comparator transfers either the signed root Pearson statistic or the signed root likelihood-ratio deviance from the row-plus-column independence model. We normalized statistics by table size, pooled them across source donors, rescaled them for each recipient, and inverted them at its margins. The Stephenson protocol used Paule-Mandel random-effects pooling. Both methods received the same recipient margins without recipient pairings.</p>
         <p>The destroyed-link control permuted complete protein profiles within each donor before joint tables were formed. This preserved RNA and protein margins and dependence within the protein panel but removed cell-level RNA-protein linkage. We refitted the selected conditional estimator to the permuted tables. Fixed-margin independence provided a further control.</p>
 
         <h3>Prespecified held evaluation</h3>
@@ -192,7 +192,7 @@
     <section class="section" id="discussion">
       <div class="container reading">
         <h2>Discussion</h2>
-        <p>Recipient margins and source heterogeneity govern different parts of the prediction. Fixed-margin reconstruction absorbed abundance shifts in simulation and transferred RNA-protein association from Cambridge to Newcastle without copying source composition. Donor shrinkage improved on common-effect conditional estimation at the held site and under simulated heterogeneity. Its advantage disappeared when simulated source effects were homogeneous, locating the gain in donor pooling rather than in the interaction coordinate alone.</p>
+        <p>Recipient margins and source heterogeneity govern different parts of the prediction. Fixed-margin reconstruction absorbed abundance shifts in simulation and transferred RNA-surface-protein dependence from Cambridge to Newcastle without copying source composition. Donor shrinkage improved on common-effect conditional estimation at the held site and under simulated heterogeneity. Its advantage disappeared when simulated source effects were homogeneous, locating the gain in donor pooling rather than in the interaction coordinate alone.</p>
         <p>Signed-statistic transfer was the prespecified comparator because it uses exactly the available information: linked source tables and unpaired recipient margins. Models such as totalVI and MultiVI solve missing-modality problems from paired recipient observations or cell-level covariates and cannot be fitted under this recipient-unpaired protocol without changing the task. The common-effect conditional estimate provides the closest fitted classical comparison under the same information boundary; hierarchical pooling reduced its held-site deviance by 6.18%.</p>
       </div>
     </section>
@@ -200,15 +200,15 @@
     <section class="section light" id="limitations">
       <div class="container reading">
         <h2>Limitations</h2>
-        <p>The held confirmation is an observational RNA-protein study and does not establish perturbation causality or a molecular mechanism. It uses binary states, 512 cells per donor, and nine RNA and nine protein markers. The 81 pairwise tables within a donor reuse cells and marker vectors. The estimand is conditional dependence, not zero-shot protein abundance. Broader panels, technologies, tissues, state resolutions, and marker sets require independent replication.</p>
-        <p>The held-site selection chose zero graph penalty, so the empirical claim concerns hierarchical conditional transfer without graph or hypergraph regularization. The fitted-interaction comparisons were specified after the held result and are descriptive. The additional file retains the complete public-study sequence, including unsuccessful transfers and the post-access corrected cohort analysis.</p>
+        <p>The held confirmation is an observational RNA-surface-protein study and does not establish perturbation causality, molecular binding, or a regulatory mechanism. It uses binary states, 512 cells per donor, and nine RNA and nine protein markers. Within-donor median ranks fix each recipient protein margin at 256/256. The held experiment therefore evaluates varying RNA prevalence and site-dependent association at one protein discretization; it does not test shifts in protein prevalence, natural protein thresholds, other quantiles, or other cell budgets. The 81 pairwise tables within a donor reuse cells and marker vectors. Broader panels, technologies, tissues, state resolutions, and marker sets require independent replication.</p>
+        <p>The held-site selection chose zero graph penalty, so the empirical claim concerns hierarchical conditional transfer without graph or hypergraph regularization. The prespecified Paule-Mandel comparator pools signed statistics rather than log odds; a separate random-effects log-linear comparator was not fitted for Stephenson. The fitted-interaction comparisons were specified after the held result and are descriptive. The additional file retains the complete public-study sequence, including unsuccessful transfers and the post-access corrected cohort analysis.</p>
       </div>
     </section>
 
     <section class="section conclusions" id="conclusions">
       <div class="container reading">
         <h2>Conclusions</h2>
-        <p class="lead">Fixed-margin interaction prediction reconstructs cross-modal association at recipient-specific abundance. It outperformed prespecified signed-statistic and destroyed-link controls in a held-site experiment. Recipient margins address abundance shift; source heterogeneity determines the value of donor shrinkage.</p>
+        <p class="lead">Fixed-margin prediction reconstructs cell-level cross-modal dependence from linked source donors and recipient aggregate counts. In the frozen held-site experiment, hierarchical conditional estimation improved on matched random-effects statistic transfer and destroyed source linkage. Recipient margins address abundance shift, and source heterogeneity determines the value of donor shrinkage.</p>
       </div>
     </section>
 
@@ -220,6 +220,6 @@
       </div>
     </section>
   </main>
-  <footer>Fixed-margin prediction of RNA-protein association across cohorts</footer>
+  <footer>Fixed-margin prediction of cell-level RNA-surface-protein dependence across cohorts</footer>
 </body>
 </html>
