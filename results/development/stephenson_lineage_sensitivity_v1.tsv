@@ -1,0 +1,4 @@
+lineage	source_cambridge_donors	held_newcastle_cell_eligible	held_newcastle_scored	primary_mean_loss	residual_mean_loss	relative_loss_reduction	relative_ci_low	relative_ci_high	difference_ci_low	difference_ci_high	favorable_donors	exact_one_sided_sign_p	status
+T_cells	34	54	7	0.0198187762082	0.0191654178132	-0.0340904853385	-0.0808032390209	0.00711840797275	-0.000134533930365	0.00151487347664	3	0.7734375	post_hoc_nonconfirmatory
+B_cells	34	52	10	0.0207043465642	0.0205432876096	-0.00783997954433	-0.0343160168503	0.0159079671728	-0.000323787252771	0.000695157711971	6	0.376953125	post_hoc_nonconfirmatory
+myeloid_cells	24	51	46	0.0231590618977	0.0274115322876	0.155134355326	0.0551043834543	0.246105803289	-0.00747764705886	-0.00136490128463	21	0.769304408932	post_hoc_nonconfirmatory

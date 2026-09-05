@@ -378,7 +378,7 @@ def test_benchmark_manifest_records_v2_aggregate_release():
     assert manifest["schema"] == "coupling-fields-public-benchmark/2.0"
     assert manifest["release_name"] == "coupling-fields-v2-public-benchmark"
     assert manifest["release_status"] == "RELEASED"
-    assert manifest["intended_release_tag"] == "coupling-fields-v2.0.3-public-benchmark"
+    assert manifest["intended_release_tag"] == "coupling-fields-v2.0.4-public-benchmark"
     assert manifest["counts"] == {
         "comparison_records": 29,
         "panel_records": 37,
@@ -396,9 +396,14 @@ def test_benchmark_manifest_records_v2_aggregate_release():
     )
 
     artifacts = manifest["artifacts"]
-    assert len(artifacts) == 114
+    assert len(artifacts) == 131
     by_path = {record["path"]: record for record in artifacts}
-    assert len(by_path) == 114
+    assert len(by_path) == 131
+    extension = manifest["post_hoc_extensions"]
+    assert extension["confirmatory"] is False
+    assert extension["included_in_original_panel_count"] is False
+    assert len(extension["results"]) == 4
+    assert all(path in by_path for path in extension["results"])
     for relative in (
         "LICENSE",
         "results/benchmark_panels_v2.tsv",

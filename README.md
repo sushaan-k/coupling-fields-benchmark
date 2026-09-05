@@ -4,8 +4,9 @@ This repository contains the reference implementation, public benchmark, and
 reproducibility files for fixed-margin prediction of cross-modal dependence in
 linked single-cell assays. The method estimates log-linear interaction from
 linked source donors and combines that estimate with the observed margins of a
-recipient cohort. The resulting table preserves recipient abundance instead of
-copying source composition.
+recipient sample. The margins describe the same cell sample with its cross-modal
+pairing withheld. Reconstruction preserves those margins instead of copying
+source marginal frequencies.
 
 The public paper and interactive results are available at
 <https://sushaan-k.github.io/coupling-fields-benchmark/>.
@@ -20,6 +21,19 @@ confidence interval for the loss difference was -0.00413 to -0.00080, and 50
 of 56 donors favored fixed-margin prediction. A margin-preserving destroyed-link
 control had mean deviance 0.02274.
 
+A matched post hoc comparison favors calibrated normal random-effects
+prediction. Its predictive mixture reduces deviance by 8.46% relative to the
+original hierarchy (95% paired-donor interval, 5.42-11.55%) and by 11.79%
+relative to common conditional estimation with the same ridge penalty
+(7.43-16.10%). Integrating the fitted distribution improves on its population
+plug-in by 1.33% (0.72-1.96%). The advantage persists after excluding two
+recipients with almost no counts across the selected protein panel.
+
+These results support classical random-effects estimation, calibration, and
+predictive integration in this setting, not superiority of the original
+hierarchy. Predictive count-interval coverage improves from 70.01% to 83.17%,
+still below the nominal 95% level.
+
 The benchmark also includes a corrected held-cohort analysis of GSE239452,
 development studies, retrospective linked-assay panels, and every procedural
 refusal from the public study sequence. These records have different evidence
@@ -27,7 +41,7 @@ roles and should not be pooled as independent confirmations.
 
 ## Release contents
 
-Version 2.0.3 contains 37 analysis records:
+The original version-2.0.3 benchmark contains 37 analysis records:
 
 - 12 scored records
 - 24 procedural refusals without a held performance value
@@ -45,6 +59,16 @@ The main ledgers are:
 `results/final_public_benchmark_table.tsv` is retained only as a historical
 version-1 input. New analyses should use the version-2 ledgers.
 
+Version 2.0.4 adds the predictive reanalysis, recipient-heterogeneity simulations,
+composition-preserving controls, a source-defined protein-threshold sensitivity,
+and a selected-panel quality-control sensitivity. These post hoc analyses are
+stored separately in `results/development/`; they do not replace or increase the
+number of original confirmations.
+
+Small aggregate tables in `data/development/` support zero-download reanalysis.
+The [replay instructions](docs/reanalysis_provenance/README.md) describe the
+optional R dependencies and the exact random-effects comparison.
+
 ## Code layout
 
 - `mapreg/`: estimators, fixed-margin table reconstruction, and classical comparators
@@ -57,6 +81,25 @@ version-1 input. New analyses should use the version-2 ledgers.
 The public API is exposed from `mapreg`. The primary binary estimator is in
 `mapreg/hierarchical_conditional_coupling.py`; recipient tables are reconstructed
 in `mapreg/table_prediction.py`.
+
+For a normal distribution of recipient log odds, integrate the conditional
+prediction instead of evaluating it at the mean parameter:
+
+```python
+from mapreg.predictive_conditional import normal_mixture_prediction
+
+prediction = normal_mixture_prediction(
+    mu=1.0, tau2=1.44, row_totals=[20, 108], column_totals=[100, 28]
+)
+table = prediction.mean_table
+count_interval = prediction.count_interval(level=0.95)
+```
+
+The interval concerns the upper-left count and holds the fitted source
+parameters fixed. `docs/FIXED_MARGIN_PREDICTIVE_REANALYSIS.md` specifies the
+post hoc comparison with exact conditional random-effects estimation and the
+cell-composition and threshold sensitivities. The original confirmation is
+unchanged.
 
 ## Installation
 
@@ -109,8 +152,8 @@ panels by outcome.
 
 Raw matrices are not redistributed. `data/manifests/sources.json` and the
 study-specific source manifests record accessions, URLs, sizes, and checksums
-when available. Derived artifacts in this repository contain no participant
-identifiers.
+when available. Derived artifacts retain study-provided, de-identified donor
+labels, not names or direct participant identifiers.
 
 The code is released under the MIT License. Source datasets retain their
 original terms. The release has no assigned archive DOI and is not a

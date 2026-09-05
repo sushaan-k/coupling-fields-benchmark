@@ -1,5 +1,5 @@
 {
-  "analysis_plan_characterization": "public pre-outcome analysis plans; not registry-hosted preregistration",
+  "analysis_plan_characterization": "original pre-outcome plans and separately identified post hoc specifications; not registry-hosted preregistration",
   "archive_doi": null,
   "artifacts": [
     {
@@ -8,9 +8,9 @@
       "sha256": "98851eeb759925f9bb815dade17188971698d7b62f28953e083f65e70f485027"
     },
     {
-      "bytes": 4937,
+      "bytes": 7162,
       "path": "README.md",
-      "sha256": "ac703fc753d478e4943e823033381caed57af52b4797210b499243569272efc1"
+      "sha256": "a4fe4f40f95e6b07fecbab9a1d94946a2ffbad086a460ff6326479e4fc002d95"
     },
     {
       "bytes": 7965,
@@ -178,6 +178,21 @@
       "sha256": "dc6206cba4186ede6a2d9a178d6f9adb9e09e402983e32dda611b0be11ac00ad"
     },
     {
+      "bytes": 15485,
+      "path": "data/development/stephenson_assay_qc_diagnostics.json",
+      "sha256": "a6bc907210888cd2dc311b7fd50f8a5e42b5773b583bd189d7b2aad22a2ad80b"
+    },
+    {
+      "bytes": 221185,
+      "path": "data/development/stephenson_biological_sufficient_tables.npz",
+      "sha256": "15ae45328786a111694ba94b5d0f63c89d9d62e1859dabd3f3030cc4ed2b939d"
+    },
+    {
+      "bytes": 44657,
+      "path": "data/development/stephenson_sufficient_tables.npz",
+      "sha256": "67ce1e33382548d1d039fe72414aa368847ec81e6bac9790f47158c9d4a7c841"
+    },
+    {
       "bytes": 22668,
       "path": "docs/COMBAT_CITESEQ_HELD_CONFIRMATION_PROTOCOL_2026-08-28.md",
       "sha256": "4899751abdc1c0adf35935f7cc386c2cc2aa5fd6e8035ee2fbd870865c566a31"
@@ -186,6 +201,11 @@
       "bytes": 37520,
       "path": "docs/FINAL_PUBLIC_EVIDENCE_LEDGER.md",
       "sha256": "d5b43346e829747eb6d39fa43ade9bee572f88f549e96a299cc568f65d70b8f8"
+    },
+    {
+      "bytes": 9644,
+      "path": "docs/FIXED_MARGIN_PREDICTIVE_REANALYSIS.md",
+      "sha256": "b329b74c9f96ec7c046eb15abe3bb056edfd7cfae096f3f7ecbb453189bc394d"
     },
     {
       "bytes": 7139,
@@ -243,9 +263,9 @@
       "sha256": "e078c6fd403a8b7431e451357ef5e4479b30f629087f4bb4a7cc00b8ceef9b15"
     },
     {
-      "bytes": 110043,
+      "bytes": 111835,
       "path": "experiments/build_public_benchmark_release.py",
-      "sha256": "3de777e11fa2f57f9b41b9f73e69aac3da1d722059c0b03e9183356700c92a5f"
+      "sha256": "a72782bbdd13297bd6aa7a55cca1b3fc9a1587d1df71b4ad79afff3028f14d89"
     },
     {
       "bytes": 144069,
@@ -268,9 +288,34 @@
       "sha256": "06cf66a299c404cd1d8e71a38a6fc5d276543cbaecb3703722de74a1495add7f"
     },
     {
+      "bytes": 6281,
+      "path": "experiments/development/assay_qc_sensitivity.py",
+      "sha256": "e17724e141356204d1bc71b5654e01e0caed67de38e79c05a29bc9c2f33bf94b"
+    },
+    {
+      "bytes": 12214,
+      "path": "experiments/development/fit_conditional_random_effects.R",
+      "sha256": "edf1456f9d0fe067126790e346038a0d3b3b81c3fd384d6ecbf05ece7b589066"
+    },
+    {
+      "bytes": 18603,
+      "path": "experiments/development/fixed_margin_biology.py",
+      "sha256": "c25023021191f02ed8f067462bb352102f5fc631bb6eeca92439ee8bb05913c9"
+    },
+    {
+      "bytes": 23009,
+      "path": "experiments/development/reanalyze_stephenson_prediction.py",
+      "sha256": "308fc6dcc2fb66f9a507753f2f830cd40b23eff7eefaf64ccc71f320cc26d36a"
+    },
+    {
       "bytes": 31914,
       "path": "experiments/development/simulate_exact_conditional_heterogeneity.py",
       "sha256": "8df2771a8b0d93aaba6230a82e236cb2121d9e61fd74c4a0eacb55a43f57d990"
+    },
+    {
+      "bytes": 13540,
+      "path": "experiments/development/simulate_recipient_heterogeneity.py",
+      "sha256": "245a08b7b8e22a434444bc36c110d16787ab9607b5951d87af2320244f065ff5"
     },
     {
       "bytes": 21278,
@@ -283,9 +328,14 @@
       "sha256": "dd903b20233f44427cf79a2eca4e7210543bffa527525d49989c2031e65d2816"
     },
     {
-      "bytes": 3751,
+      "bytes": 4271,
+      "path": "mapreg/predictive_conditional.py",
+      "sha256": "d84d3f9a5d06573c607cafe98fe76703cbdb860de26b7e8950f174730374eda8"
+    },
+    {
+      "bytes": 4196,
       "path": "reproduce.sh",
-      "sha256": "0c7468e15bec45b1eb233cda2b53acb92e0ccb457a44a766989af3e842909d79"
+      "sha256": "a0fd9607db20fe99522e4905339ba2a499d682317b14dd29163dd498bae0adfb"
     },
     {
       "bytes": 114491,
@@ -438,6 +488,11 @@
       "sha256": "cdf0c2cf66facfbbdfb03ac7a20c97d4cdaf4fc0bc9c63025e825dbeb1715c26"
     },
     {
+      "bytes": 2700077,
+      "path": "results/development/recipient_heterogeneity_reanalysis.json",
+      "sha256": "6770d5338719f8e25925cdd1a443640101dc82a1b7d019d93b2d7f586ba4d70e"
+    },
+    {
       "bytes": 1603,
       "path": "results/development/scmmib_bmmc_exact_development_attempt_1_refusal.json",
       "sha256": "72d3a2a25d4aa7d51f9e341668dbef3043acf3190284baa930c37c77950bb697"
@@ -451,6 +506,36 @@
       "bytes": 1609,
       "path": "results/development/scmmib_bmmc_exact_development_attempt_3_terminal_refusal.json",
       "sha256": "caf920719694487ba228dc64ac14ed4a6579619349f496f7154372920f3e128c"
+    },
+    {
+      "bytes": 39855,
+      "path": "results/development/stephenson_assay_qc_sensitivity.json",
+      "sha256": "addfdc662adaa0d329a657458b309ffe0175f2ca228250a56a76e16302358a13"
+    },
+    {
+      "bytes": 2012663,
+      "path": "results/development/stephenson_biological_reanalysis.json",
+      "sha256": "2916dc34d9c79e783d320f1c3b4afb4e0330f7d96d8b26f06a7430c84cde1785"
+    },
+    {
+      "bytes": 1985017,
+      "path": "results/development/stephenson_biological_reanalysis_replay.json",
+      "sha256": "287a7cb64b0f750d698a8ab28e5fbfc5e81361591a9ce0398b9705b9be921b76"
+    },
+    {
+      "bytes": 147,
+      "path": "results/development/stephenson_predictive_environment.json",
+      "sha256": "34d34846fabb5bc79cd9518d49be9f84abb6902e4d86c5075e24162205dbf994"
+    },
+    {
+      "bytes": 2989946,
+      "path": "results/development/stephenson_predictive_reanalysis.json",
+      "sha256": "49ce3d721ee2c1effcb7559c17a4ce9f9e0da834da21f823039913b900c7bc2c"
+    },
+    {
+      "bytes": 87525,
+      "path": "results/development/stephenson_predictive_reanalysis_summary.json",
+      "sha256": "c6672a5f8b5f5ae7e1fa465bd4f0b65cdeb8843b5d5f675d3a54dfced26a7274"
     },
     {
       "bytes": 2283,
@@ -535,7 +620,7 @@
     {
       "bytes": 10519,
       "path": "scripts/verify_public_benchmark_release.py",
-      "sha256": "1d1cc721d609513ca28a3479a3f46efc9ea6ca42d706357f082fac4d7ace5b0e"
+      "sha256": "958c93e7e511571fa9223f0665f2d4a2b3396d2949249af5a53a5b02dd50875b"
     },
     {
       "bytes": 5420,
@@ -565,7 +650,7 @@
     {
       "bytes": 21966,
       "path": "tests/test_public_benchmark_release_v2.py",
-      "sha256": "d1c9ebafbac52e449b3d6ab478a2c84f29805804f3c762d6ac95af5dc67122ea"
+      "sha256": "773e258a25fedfc2f554d1522e0f4ef0eadb8c4593e04bac281c45e5a994074e"
     },
     {
       "bytes": 5014,
@@ -589,16 +674,27 @@
     "scientific_decision": null,
     "terminal_record": "data/confirmation/stephenson_unused_cambridge/prediction_terminal_record_v1_1.json"
   },
-  "intended_release_tag": "coupling-fields-v2.0.3-public-benchmark",
+  "intended_release_tag": "coupling-fields-v2.0.4-public-benchmark",
   "ledgers": {
     "comparisons": "results/benchmark_comparisons_v2.tsv",
     "historical_v1_table": "results/final_public_benchmark_table.tsv",
     "panels": "results/benchmark_panels_v2.tsv",
     "sequence": "results/benchmark_sequence_v2.tsv"
   },
+  "post_hoc_extensions": {
+    "confirmatory": false,
+    "included_in_original_panel_count": false,
+    "results": [
+      "results/development/stephenson_predictive_reanalysis.json",
+      "results/development/stephenson_biological_reanalysis.json",
+      "results/development/stephenson_assay_qc_sensitivity.json",
+      "results/development/recipient_heterogeneity_reanalysis.json"
+    ],
+    "specification": "docs/FIXED_MARGIN_PREDICTIVE_REANALYSIS.md"
+  },
   "public_repository_url": "https://github.com/sushaan-k/coupling-fields-benchmark",
   "release_name": "coupling-fields-v2-public-benchmark",
   "release_status": "RELEASED",
   "schema": "coupling-fields-public-benchmark/2.0",
-  "snapshot_date": "2026-08-31"
+  "snapshot_date": "2026-09-04"
 }

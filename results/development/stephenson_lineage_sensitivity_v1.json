@@ -1,0 +1,4990 @@
+{
+  "common_cell_budget": 64,
+  "confirmatory": false,
+  "created_at_utc": "2026-08-29T00:34:33Z",
+  "donor_split": "frozen 12 calibration plus 24 pilot source donors versus 56 held-site donors",
+  "fixed_primary_configuration": {
+    "gradient_tolerance": 1e-08,
+    "graph_neighbors": 1,
+    "graph_penalty": 0.0,
+    "heterogeneity_penalty": 0.1,
+    "maximum_condition_number": 1000000000000.0,
+    "minimum_informative_donors": 2,
+    "ridge_penalty": 0.01,
+    "transport_alpha": 1.0
+  },
+  "fixed_residual_configuration": {
+    "centered": false,
+    "family": "signed-root Poisson deviance",
+    "transport_alpha": 0.75
+  },
+  "held_site": "Newcastle",
+  "lineages": {
+    "B_cells": {
+      "candidate_budget_per_method": 1,
+      "cell_type_labels": [
+        "B"
+      ],
+      "cells_per_donor": 64,
+      "comparison": {
+        "bootstrap_draws": 20000,
+        "bootstrap_seed": 6127388416794193937,
+        "bootstrap_unit": "physical donor",
+        "donors": 10,
+        "exact_one_sided_sign_p": 0.376953125,
+        "favorable_donors": 6,
+        "paired_difference_95_ci": [
+          -0.0003237872527710655,
+          0.000695157711971223
+        ],
+        "paired_difference_primary_minus_residual": 0.00016105895463215496,
+        "post_hoc_inference": true,
+        "primary_mean_deviance_per_cell": 0.020704346564194252,
+        "relative_loss_reduction": -0.007839979544325137,
+        "relative_loss_reduction_paired_bootstrap_95_ci": [
+          -0.03431601685029016,
+          0.015907967172802417
+        ],
+        "residual_mean_deviance_per_cell": 0.020543287609562096
+      },
+      "donor_inventory": [
+        {
+          "available_lineage_cells": 200,
+          "donor": "CV0025",
+          "role": "pilot",
+          "sample": "BGCV01_CV0025",
+          "selected_barcode_sha256": "45f743d969d703d3f6f336905690475ef95629a209b64c0e0fec1e6f4465f16b",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 341,
+          "donor": "CV0037",
+          "role": "pilot",
+          "sample": "BGCV06_CV0037",
+          "selected_barcode_sha256": "43f3918a087cd7b7780a3f7ed4789ca0fa96a6d98879cd01a8df92a5714a563a",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 75,
+          "donor": "CV0050",
+          "role": "pilot",
+          "sample": "BGCV11_CV0050",
+          "selected_barcode_sha256": "4c5178de76a5a6e30b0ea0c911f4b4fbee62c264e2af75e82b6b313a4469b220",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 400,
+          "donor": "CV0052",
+          "role": "calibration",
+          "sample": "BGCV02_CV0052",
+          "selected_barcode_sha256": "a8f5dd3fe302fc4b7122f90149670dcdc583b7124001c8be6ab58b6a2625e221",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 158,
+          "donor": "CV0058",
+          "role": "pilot",
+          "sample": "BGCV11_CV0058",
+          "selected_barcode_sha256": "af8b42efede32f1aaf6d2a59ed12d72a00e57b185c9875ba0c0aa9c3d4d3bf4b",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 151,
+          "donor": "CV0059",
+          "role": "pilot",
+          "sample": "BGCV02_CV0059",
+          "selected_barcode_sha256": "e24140086daf970b030da8bc68ad452fcff9ea906b373b065df9aa3accd99e6d",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 285,
+          "donor": "CV0062",
+          "role": "calibration",
+          "sample": "BGCV12_CV0062",
+          "selected_barcode_sha256": "9f87db46f224c91bba94a4fad5b98984e4bae1afa47903583f9adad024c9c60f",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 339,
+          "donor": "CV0068",
+          "role": "pilot",
+          "sample": "BGCV02_CV0068",
+          "selected_barcode_sha256": "ca713afbf741e749b9c236b5c7063c9f5760efd2f19676f7773e0462acb66723",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 983,
+          "donor": "CV0074",
+          "role": "pilot",
+          "sample": "BGCV03_CV0074",
+          "selected_barcode_sha256": "2a5c933e9b1d36ee2d09ec63b948001126b5478c2f3bee721aa0847bf4d76184",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 31,
+          "donor": "CV0084",
+          "role": "calibration",
+          "sample": "BGCV03_CV0084",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 62,
+          "donor": "CV0104",
+          "role": "pilot",
+          "sample": "BGCV07_CV0104",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 75,
+          "donor": "CV0120",
+          "role": "pilot",
+          "sample": "BGCV05_CV0120",
+          "selected_barcode_sha256": "fc8eb3a30a0098fd2a71e96dfb0cc8e072dbe2c1b761d40f9d773fb6fac1bf56",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 413,
+          "donor": "CV0128",
+          "role": "pilot",
+          "sample": "BGCV05_CV0128",
+          "selected_barcode_sha256": "7b3b8a4a21ea5d271243f9086bf5b08674a5e071c511a0a009f06e0f281ef70f",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 216,
+          "donor": "CV0137",
+          "role": "pilot",
+          "sample": "BGCV07_CV0137",
+          "selected_barcode_sha256": "341ed2654cd5fc1915bd90bda417bdbff07b4f6a2a63d6b2c9deedb045ca596f",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 122,
+          "donor": "CV0144",
+          "role": "pilot",
+          "sample": "BGCV01_CV0144",
+          "selected_barcode_sha256": "d17f9a3649ccc7b97ecc17fbd18320adf25e4cf67d986d19833808c5f2f89211",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 316,
+          "donor": "CV0155",
+          "role": "pilot",
+          "sample": "BGCV08_CV0155",
+          "selected_barcode_sha256": "4120499a575162e616a161980c7ac56049d03db32ffeac6eb70a29d40ac649da",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 291,
+          "donor": "CV0160",
+          "role": "pilot",
+          "sample": "BGCV10_CV0160",
+          "selected_barcode_sha256": "8aeceddc192fa06496713c66ca02dbc0d1be41dffe9a8239dd10cb28ff83b887",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 205,
+          "donor": "CV0164",
+          "role": "pilot",
+          "sample": "BGCV04_CV0164",
+          "selected_barcode_sha256": "def4378e416b84d17eb095fd7d43d5a27ceca01e0d2f026078ba70629641f653",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 539,
+          "donor": "CV0171",
+          "role": "calibration",
+          "sample": "BGCV13_CV0171",
+          "selected_barcode_sha256": "827972cb9cd11c767d9e994b3315c6a424eecc17d9f56e897005be1b9427dee9",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 366,
+          "donor": "CV0178",
+          "role": "pilot",
+          "sample": "BGCV06_CV0178",
+          "selected_barcode_sha256": "ae32d9705a0d370309c09efe4412d287c7342180792a29d1d35d9f9774b22d32",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2277,
+          "donor": "CV0198",
+          "role": "pilot",
+          "sample": "BGCV10_CV0198",
+          "selected_barcode_sha256": "e315549b0c96c82d874a7fde4f9153962ecd906404af012f90184cd1c8188188",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 244,
+          "donor": "CV0231",
+          "role": "calibration",
+          "sample": "BGCV10_CV0231",
+          "selected_barcode_sha256": "b956a4a5e4d6a29679781348172f3ac4ca1e4db8cd9ccc825aac74cceca29c20",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 458,
+          "donor": "CV0234",
+          "role": "pilot",
+          "sample": "BGCV06_CV0234",
+          "selected_barcode_sha256": "67a9b2df5aba6f8987878b113b5ea07bb621407bcdbb5aa5d792ad757148555d",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 328,
+          "donor": "CV0262",
+          "role": "calibration",
+          "sample": "BGCV04_CV0262",
+          "selected_barcode_sha256": "303620f727133b42a9f2b8a43e02d8208da3cfb807f2ab872c0ef45dc10edc80",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 357,
+          "donor": "CV0279",
+          "role": "calibration",
+          "sample": "BGCV09_CV0279",
+          "selected_barcode_sha256": "8a6e24104a0442d659406bd5ac71b332c25692a568d8af54b638a197b1ac318f",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 249,
+          "donor": "CV0284",
+          "role": "calibration",
+          "sample": "BGCV14_CV0284",
+          "selected_barcode_sha256": "e57c170728fee4853d85ede8f5476eb561156d9e2bfc18e4e5a16447be7b86d5",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 249,
+          "donor": "CV0326",
+          "role": "calibration",
+          "sample": "BGCV13_CV0326",
+          "selected_barcode_sha256": "f0ccc53cfb4883157da819214cbe18520598c4d7dfb08857b04310510f614a6c",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 241,
+          "donor": "CV0902",
+          "role": "calibration",
+          "sample": "BGCV01_CV0902",
+          "selected_barcode_sha256": "e0e3b908953e846aa9cac8bed6bcb093e01a7b9945c86f78f53cfc3c979739f1",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 394,
+          "donor": "CV0904",
+          "role": "pilot",
+          "sample": "BGCV01_CV0904",
+          "selected_barcode_sha256": "a2c7e6abe1dcc6ff76bc2d24916f5f8a1f6b2f9c8406ff879a2876f7f76763db",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 159,
+          "donor": "CV0915",
+          "role": "pilot",
+          "sample": "BGCV08_CV0915",
+          "selected_barcode_sha256": "525c03d2616489bfb5d0057edaeff9110636b417eadde165fcf3accdef9c641b",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 157,
+          "donor": "CV0917",
+          "role": "pilot",
+          "sample": "BGCV09_CV0917",
+          "selected_barcode_sha256": "51b3da55c45c027ffba02df91279871c978362f770f302cdaa215d82fb10d8d6",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 160,
+          "donor": "CV0926",
+          "role": "calibration",
+          "sample": "BGCV12_CV0926",
+          "selected_barcode_sha256": "aff1b9bbb6908544c17bc281de72fc344e060b874728c78c6bdf23d9ca54e276",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 313,
+          "donor": "CV0929",
+          "role": "pilot",
+          "sample": "BGCV05_CV0929",
+          "selected_barcode_sha256": "160fa21e47abfd997e852a689f2d3859eb4b7affcabe91a76683e0fcef50cba1",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 292,
+          "donor": "CV0934",
+          "role": "calibration",
+          "sample": "BGCV13_CV0934",
+          "selected_barcode_sha256": "8a7e2a44d90c556602ae1d95067c71f6803f75074846644b766a6f4cee0e688e",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 148,
+          "donor": "CV0939",
+          "role": "pilot",
+          "sample": "BGCV10_CV0939",
+          "selected_barcode_sha256": "f4098ac3fec7716e46f9216425857e872318b594c5e1d1ff2a7abc755dfdc759",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 89,
+          "donor": "CV0944",
+          "role": "pilot",
+          "sample": "BGCV15_CV0944",
+          "selected_barcode_sha256": "c56aa0d7eea8248e61b484f20a582fa5ab6d05caf9cfd63bf4d81282a6c6ca03",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 270,
+          "donor": "C-8816",
+          "role": "held_site",
+          "sample": "MH9143270",
+          "selected_barcode_sha256": "abcbd790768d61ed755c434bd91f572dd4b4bd56a56b1f584282095a2e9013f2",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 739,
+          "donor": "C-8820",
+          "role": "held_site",
+          "sample": "MH9143320",
+          "selected_barcode_sha256": "d3a412edadc072aed7839a760b34ac38760bc40bc9d19373dbce4962073553ca",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 379,
+          "donor": "C-8821",
+          "role": "held_site",
+          "sample": "MH9179821",
+          "selected_barcode_sha256": "b2e797f6e82a76085d569c359d75ef51b57e0624f835df6fddde6f0f0ffb8f3c",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1015,
+          "donor": "C-8822",
+          "role": "held_site",
+          "sample": "MH9179822",
+          "selected_barcode_sha256": "9ef0794058a98b5a9bf8ec8fec16a15d698fa2f712d37b12b350da293ab178cf",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 605,
+          "donor": "C-8823",
+          "role": "held_site",
+          "sample": "MH8919326",
+          "selected_barcode_sha256": "82fc8651523cdf600075ed95e3f49c53d82a0d0ce882a786a6b71ad93a1ce567",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1225,
+          "donor": "C-8825",
+          "role": "held_site",
+          "sample": "MH9143321",
+          "selected_barcode_sha256": "54048a13a7c7ebbbfba2ff1915cb8cc765e96e9349f98dc807f186d548510551",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1231,
+          "donor": "C-8826",
+          "role": "held_site",
+          "sample": "MH9143420",
+          "selected_barcode_sha256": "43896b53caa5124cc2b44f0d822c87faa3f0d2a835c687bfc13907c67425a1cf",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 501,
+          "donor": "C-8827",
+          "role": "held_site",
+          "sample": "MH9143271",
+          "selected_barcode_sha256": "eebbffcccdc5e4aa5c543a24521c7aa3c685ff4e3b5329c65f44051f4d83c40a",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 650,
+          "donor": "C-8828",
+          "role": "held_site",
+          "sample": "MH9179823",
+          "selected_barcode_sha256": "b0d7a41ce755c250f46a316524650569c07a80344e8ec46cfc66aeb4d63b7bb5",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 995,
+          "donor": "C-8829",
+          "role": "held_site",
+          "sample": "MH9179824",
+          "selected_barcode_sha256": "aaeec2094b796ec785321d7e23398a31a84299a6d88c6c4e4fcba926f7bbbaa4",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 508,
+          "donor": "C-8882",
+          "role": "held_site",
+          "sample": "MH9143322",
+          "selected_barcode_sha256": "5b7f51ac6ce9023b443bdaebf31628f54acfdab8600301b2052369b774fc8b45",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 310,
+          "donor": "C-8883",
+          "role": "held_site",
+          "sample": "newcastle20",
+          "selected_barcode_sha256": "8d2a7c6f3f6cafb70b35c0d91786d3cd68a30eae3952faac887dce45ec03c635",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 134,
+          "donor": "C-8884",
+          "role": "held_site",
+          "sample": "newcastle21",
+          "selected_barcode_sha256": "c48dcd39f8b3826c2d53819c0fa553d6e703163797a0982db0d24107aa8b673c",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1546,
+          "donor": "C-8885",
+          "role": "held_site",
+          "sample": "MH9143421",
+          "selected_barcode_sha256": "65abccfa3ee3384e962295c596b39d7d89ea1e2e6ce69727ca4122e9d7445705",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 842,
+          "donor": "C-8886",
+          "role": "held_site",
+          "sample": "MH9143272",
+          "selected_barcode_sha256": "0448d49b32674dc6f98747b74b435d1c489d0504225af6daf2c5eb74c50ef248",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1402,
+          "donor": "C-8887",
+          "role": "held_site",
+          "sample": "MH9179826",
+          "selected_barcode_sha256": "92ac877f29ffd77003a43762a076299060c027f88dff414622f3c84d484da05f",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 905,
+          "donor": "C-8890",
+          "role": "held_site",
+          "sample": "MH9143323",
+          "selected_barcode_sha256": "e233d545228f7f4e5135c96b25c05bf50a63e229324b5e618e41a82be7cb6c6e",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 34,
+          "donor": "C-8892",
+          "role": "held_site",
+          "sample": "MH9143370",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Ncl",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 617,
+          "donor": "C-8893",
+          "role": "held_site",
+          "sample": "MH9143324",
+          "selected_barcode_sha256": "ce1355689d07f670a6d2b1ae1ce5d805b2f007cad24a4f2f5d1629665359a768",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 774,
+          "donor": "C-8895",
+          "role": "held_site",
+          "sample": "MH9179825",
+          "selected_barcode_sha256": "c4f83d7b35555b1fe99b1ecb394752ff7b22b7cdbc8f2025df4e2fa45a2b7fcc",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 408,
+          "donor": "C-8896",
+          "role": "held_site",
+          "sample": "MH8919327",
+          "selected_barcode_sha256": "35b85297093a541b48a0bcd48c982f0319803975d8b8bccf96dc30ad9cffcbec",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 956,
+          "donor": "C-8897",
+          "role": "held_site",
+          "sample": "MH9143422",
+          "selected_barcode_sha256": "7f51dca960a99e649fe951d306b2ed5b14d21b52e06ec2ce644bb9b8e19a1a0a",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 241,
+          "donor": "C-8898",
+          "role": "held_site",
+          "sample": "MH9143371",
+          "selected_barcode_sha256": "8a7242fe9b68404a98dff57a66b4410c1f6d09c195295dc6ce44e5aaf6932273",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1209,
+          "donor": "C-8899",
+          "role": "held_site",
+          "sample": "MH9143325",
+          "selected_barcode_sha256": "ae0607bb6375d025b1ea9b6a26937af59609d67372549e1d1434a40b36432012",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 772,
+          "donor": "C-8902",
+          "role": "held_site",
+          "sample": "MH9143423",
+          "selected_barcode_sha256": "d7164a1d2bdab81fa64650283c33f0aadf4efcd09489eb965cfe50b7e1786bbf",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 147,
+          "donor": "C-8903",
+          "role": "held_site",
+          "sample": "MH9143274",
+          "selected_barcode_sha256": "9f8c46a8bd3808c7ae6ffe5319a1f75133adfa487d74831298fd799829bc10e5",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1579,
+          "donor": "C-8905",
+          "role": "held_site",
+          "sample": "MH9143424",
+          "selected_barcode_sha256": "2d00eaebaf6ce5efd4431b1cf9865a96e229d081b8b2789755b1161b90824780",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1305,
+          "donor": "C-8909",
+          "role": "held_site",
+          "sample": "MH9143426",
+          "selected_barcode_sha256": "98f09847c5ee8d6ddd518e21813399b7b19a3e383babecd4924b2a113ec47aa2",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 151,
+          "donor": "C-8910",
+          "role": "held_site",
+          "sample": "newcastle49",
+          "selected_barcode_sha256": "b9baf0223e83e2977e8a9fd02ecabbe41f2fd99b85535ddfdbec631cd7c995be",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 193,
+          "donor": "C-8912",
+          "role": "held_site",
+          "sample": "MH8919329",
+          "selected_barcode_sha256": "a4cecaf1dcc250c58bd59264dd804649b2e5ef626a86199d0b650c5502ad779b",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 31,
+          "donor": "C-8913",
+          "role": "held_site",
+          "sample": "MH9179827",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Ncl",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 138,
+          "donor": "C-8914",
+          "role": "held_site",
+          "sample": "MH8919226",
+          "selected_barcode_sha256": "3cdf47017f55f7a79c71a438b91d127024ae27e4872b0d772edbe4e40aeee5b0",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 434,
+          "donor": "C-8915",
+          "role": "held_site",
+          "sample": "MH8919330",
+          "selected_barcode_sha256": "2c3dbb9f71f96ab5849f5f56b907e64f54c8338cfd49089516e8f9c05b9a1415",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1983,
+          "donor": "C-8918",
+          "role": "held_site",
+          "sample": "MH9143275",
+          "selected_barcode_sha256": "aed74deb347aad4a5a554064cd790526a00cb2368cd27ce502a60802383db458",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 167,
+          "donor": "C-8921",
+          "role": "held_site",
+          "sample": "MH9143427",
+          "selected_barcode_sha256": "b44bddc0ad01687977dec1278e7facaea81ba3da0f5a696db74a2d5739969440",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 203,
+          "donor": "C-8922",
+          "role": "held_site",
+          "sample": "MH9143425",
+          "selected_barcode_sha256": "f9e4628df628741c3a23ec0f28fefd54038f49c618fe5644b30851adc6944a26",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 770,
+          "donor": "C-8923",
+          "role": "held_site",
+          "sample": "MH9179828",
+          "selected_barcode_sha256": "d3fa2280b8ab4008a1236049de8f7bb828994660d71168d2913706dfa8a60bff",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 509,
+          "donor": "C-8926",
+          "role": "held_site",
+          "sample": "MH8919331",
+          "selected_barcode_sha256": "3d931d0a67e4316b3502eaf99cb01a90d45b31511bd769c2c2db0c57f517d53f",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 238,
+          "donor": "C-8927",
+          "role": "held_site",
+          "sample": "MH9143372",
+          "selected_barcode_sha256": "cd667515edbc7706c42359aa2323bedb1ba96045eb2ce07cd9c1da3c1119e33d",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 990,
+          "donor": "C-8928",
+          "role": "held_site",
+          "sample": "MH8919178",
+          "selected_barcode_sha256": "0ecad7d72b2a8bca5057a11c0d778bcfc428640a8274a843eae4caa06e9c19a4",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 589,
+          "donor": "C-8929",
+          "role": "held_site",
+          "sample": "MH9143276",
+          "selected_barcode_sha256": "f7ab1faf34c6a3fecd9b15ee36d6662e76117de5b5d3dca582780da8a805ad08",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 179,
+          "donor": "C-8930",
+          "role": "held_site",
+          "sample": "MH8919179",
+          "selected_barcode_sha256": "ead1946edf5294c711c8ca0a54d068a10f8885fc647b5f50403977ca2b0d4207",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 126,
+          "donor": "C-8931",
+          "role": "held_site",
+          "sample": "newcastle59",
+          "selected_barcode_sha256": "fec62db9956663269acfa9139e5c32bb16e13d1e15d73eadf276369aeb1886ed",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 167,
+          "donor": "C-8933",
+          "role": "held_site",
+          "sample": "MH9143373",
+          "selected_barcode_sha256": "af826c0565fffb2d678b4d4958ab0351d31a1bad35b7958c088f1ae4b4c83b12",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 0,
+          "donor": "C-8934",
+          "role": "held_site",
+          "sample": "MH9143326",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Ncl",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 497,
+          "donor": "C-8935",
+          "role": "held_site",
+          "sample": "MH9143327",
+          "selected_barcode_sha256": "0735f49672475fda1a71f37a0968324ea3980c1e5e761223c130c028af54de11",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 531,
+          "donor": "C-8936",
+          "role": "held_site",
+          "sample": "newcastle74",
+          "selected_barcode_sha256": "d8ac27739733cd798c0de72d42d278e3194bea8bfdb4e358e7894536916e545e",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 131,
+          "donor": "C-8937",
+          "role": "held_site",
+          "sample": "newcastle65",
+          "selected_barcode_sha256": "5d1ec68882afe6fceed6f92fca1505e88d9d3b2d797c54ea58669d0cc116757f",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 67,
+          "donor": "C-8938",
+          "role": "held_site",
+          "sample": "MH8919176",
+          "selected_barcode_sha256": "8a4f11b0c5d52e2205c745fd9f430ce3388409767c880f87c2a72d0e1c44ec4e",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 288,
+          "donor": "C-8939",
+          "role": "held_site",
+          "sample": "MH8919227",
+          "selected_barcode_sha256": "1ed0751d37469a6aee3c98e15c28b47bcf943c5945ca322970117c933e07875d",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 183,
+          "donor": "C-8940",
+          "role": "held_site",
+          "sample": "MH8919332",
+          "selected_barcode_sha256": "596469634d5d1989b34a7a6ff1c16f6a002201e9f80aef4efe497e9f41089bff",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 45,
+          "donor": "C-8941",
+          "role": "held_site",
+          "sample": "MH8919177",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Ncl",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 367,
+          "donor": "C-8942",
+          "role": "held_site",
+          "sample": "MH8919282",
+          "selected_barcode_sha256": "649d1ee01a3070babab7dfdeceb765ca5a8719d626370c21197855f7575a6510",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 864,
+          "donor": "C-8943",
+          "role": "held_site",
+          "sample": "MH8919283",
+          "selected_barcode_sha256": "c61ca4f6fd28599fc635aff1da2e046af3c1cc46545b6ab62acc0870299b70fa",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3280,
+          "donor": "C-8944",
+          "role": "held_site",
+          "sample": "MH9143277",
+          "selected_barcode_sha256": "ec59524075fc18583d579f2f36ad76ab65063f480002ab1f7aef29abe3438adf",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1358,
+          "donor": "C-8946",
+          "role": "held_site",
+          "sample": "MH8919333",
+          "selected_barcode_sha256": "cb7363373877c1d2334f5f06e41adafcc67301b67a17421897f32d5095d3f206",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        }
+      ],
+      "held_newcastle_donors_cell_eligible": 52,
+      "held_newcastle_donors_pair_support_excluded": 42,
+      "held_newcastle_donors_scored": 10,
+      "held_primary_results": [
+        {
+          "donor": "C-8816",
+          "informative_pairs": 72,
+          "loss": 0.02171438071902985,
+          "sample": "MH9143270",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8820",
+          "informative_pairs": 63,
+          "sample": "MH9143320",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8821",
+          "informative_pairs": 54,
+          "sample": "MH9179821",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8822",
+          "informative_pairs": 63,
+          "sample": "MH9179822",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8823",
+          "informative_pairs": 54,
+          "sample": "MH8919326",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8825",
+          "informative_pairs": 54,
+          "sample": "MH9143321",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8826",
+          "informative_pairs": 54,
+          "sample": "MH9143420",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8827",
+          "informative_pairs": 72,
+          "loss": 0.017087523157020803,
+          "sample": "MH9143271",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8828",
+          "informative_pairs": 63,
+          "sample": "MH9179823",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8829",
+          "informative_pairs": 54,
+          "sample": "MH9179824",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8882",
+          "informative_pairs": 63,
+          "sample": "MH9143322",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8883",
+          "informative_pairs": 45,
+          "sample": "newcastle20",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8884",
+          "informative_pairs": 45,
+          "sample": "newcastle21",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8885",
+          "informative_pairs": 54,
+          "sample": "MH9143421",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8886",
+          "informative_pairs": 45,
+          "sample": "MH9143272",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8887",
+          "informative_pairs": 54,
+          "sample": "MH9179826",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8890",
+          "informative_pairs": 63,
+          "sample": "MH9143323",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8893",
+          "informative_pairs": 63,
+          "sample": "MH9143324",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8895",
+          "informative_pairs": 63,
+          "sample": "MH9179825",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8896",
+          "informative_pairs": 45,
+          "sample": "MH8919327",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8897",
+          "informative_pairs": 54,
+          "sample": "MH9143422",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8898",
+          "informative_pairs": 72,
+          "loss": 0.01975063477416887,
+          "sample": "MH9143371",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8899",
+          "informative_pairs": 54,
+          "sample": "MH9143325",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8902",
+          "informative_pairs": 54,
+          "sample": "MH9143423",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8903",
+          "informative_pairs": 63,
+          "sample": "MH9143274",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8905",
+          "informative_pairs": 45,
+          "sample": "MH9143424",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8909",
+          "informative_pairs": 45,
+          "sample": "MH9143426",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8910",
+          "informative_pairs": 54,
+          "sample": "newcastle49",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8912",
+          "informative_pairs": 45,
+          "sample": "MH8919329",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8914",
+          "informative_pairs": 72,
+          "loss": 0.022419718424801893,
+          "sample": "MH8919226",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8915",
+          "informative_pairs": 63,
+          "sample": "MH8919330",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8918",
+          "informative_pairs": 54,
+          "sample": "MH9143275",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8921",
+          "informative_pairs": 45,
+          "sample": "MH9143427",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8922",
+          "informative_pairs": 63,
+          "sample": "MH9143425",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8923",
+          "informative_pairs": 72,
+          "loss": 0.024911168637752768,
+          "sample": "MH9179828",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8926",
+          "informative_pairs": 45,
+          "sample": "MH8919331",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8927",
+          "informative_pairs": 81,
+          "loss": 0.01776755235242052,
+          "sample": "MH9143372",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8928",
+          "informative_pairs": 72,
+          "loss": 0.02342267743557607,
+          "sample": "MH8919178",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8929",
+          "informative_pairs": 72,
+          "loss": 0.021853010674134525,
+          "sample": "MH9143276",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8930",
+          "informative_pairs": 63,
+          "sample": "MH8919179",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8931",
+          "informative_pairs": 72,
+          "loss": 0.0188414257339057,
+          "sample": "newcastle59",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8933",
+          "informative_pairs": 63,
+          "sample": "MH9143373",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8935",
+          "informative_pairs": 45,
+          "sample": "MH9143327",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8936",
+          "informative_pairs": 36,
+          "sample": "newcastle74",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8937",
+          "informative_pairs": 72,
+          "loss": 0.019275373733131495,
+          "sample": "newcastle65",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8938",
+          "informative_pairs": 63,
+          "sample": "MH8919176",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8939",
+          "informative_pairs": 63,
+          "sample": "MH8919227",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8940",
+          "informative_pairs": 54,
+          "sample": "MH8919332",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8942",
+          "informative_pairs": 54,
+          "sample": "MH8919282",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8943",
+          "informative_pairs": 36,
+          "sample": "MH8919283",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8944",
+          "informative_pairs": 54,
+          "sample": "MH9143277",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8946",
+          "informative_pairs": 54,
+          "sample": "MH8919333",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        }
+      ],
+      "held_residual_results": [
+        {
+          "donor": "C-8816",
+          "informative_pairs": 72,
+          "loss": 0.020878589786538733,
+          "sample": "MH9143270",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8820",
+          "informative_pairs": 63,
+          "sample": "MH9143320",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8821",
+          "informative_pairs": 54,
+          "sample": "MH9179821",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8822",
+          "informative_pairs": 63,
+          "sample": "MH9179822",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8823",
+          "informative_pairs": 54,
+          "sample": "MH8919326",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8825",
+          "informative_pairs": 54,
+          "sample": "MH9143321",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8826",
+          "informative_pairs": 54,
+          "sample": "MH9143420",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8827",
+          "informative_pairs": 72,
+          "loss": 0.0176645037056116,
+          "sample": "MH9143271",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8828",
+          "informative_pairs": 63,
+          "sample": "MH9179823",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8829",
+          "informative_pairs": 54,
+          "sample": "MH9179824",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8882",
+          "informative_pairs": 63,
+          "sample": "MH9143322",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8883",
+          "informative_pairs": 45,
+          "sample": "newcastle20",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8884",
+          "informative_pairs": 45,
+          "sample": "newcastle21",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8885",
+          "informative_pairs": 54,
+          "sample": "MH9143421",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8886",
+          "informative_pairs": 45,
+          "sample": "MH9143272",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8887",
+          "informative_pairs": 54,
+          "sample": "MH9179826",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8890",
+          "informative_pairs": 63,
+          "sample": "MH9143323",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8893",
+          "informative_pairs": 63,
+          "sample": "MH9143324",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8895",
+          "informative_pairs": 63,
+          "sample": "MH9179825",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8896",
+          "informative_pairs": 45,
+          "sample": "MH8919327",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8897",
+          "informative_pairs": 54,
+          "sample": "MH9143422",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8898",
+          "informative_pairs": 72,
+          "loss": 0.020125344891249248,
+          "sample": "MH9143371",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8899",
+          "informative_pairs": 54,
+          "sample": "MH9143325",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8902",
+          "informative_pairs": 54,
+          "sample": "MH9143423",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8903",
+          "informative_pairs": 63,
+          "sample": "MH9143274",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8905",
+          "informative_pairs": 45,
+          "sample": "MH9143424",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8909",
+          "informative_pairs": 45,
+          "sample": "MH9143426",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8910",
+          "informative_pairs": 54,
+          "sample": "newcastle49",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8912",
+          "informative_pairs": 45,
+          "sample": "MH8919329",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8914",
+          "informative_pairs": 72,
+          "loss": 0.021260608905558715,
+          "sample": "MH8919226",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8915",
+          "informative_pairs": 63,
+          "sample": "MH8919330",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8918",
+          "informative_pairs": 54,
+          "sample": "MH9143275",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8921",
+          "informative_pairs": 45,
+          "sample": "MH9143427",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8922",
+          "informative_pairs": 63,
+          "sample": "MH9143425",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8923",
+          "informative_pairs": 72,
+          "loss": 0.025024714091923743,
+          "sample": "MH9179828",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8926",
+          "informative_pairs": 45,
+          "sample": "MH8919331",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8927",
+          "informative_pairs": 81,
+          "loss": 0.018370758444637092,
+          "sample": "MH9143372",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8928",
+          "informative_pairs": 72,
+          "loss": 0.022695411424229442,
+          "sample": "MH8919178",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8929",
+          "informative_pairs": 72,
+          "loss": 0.02215566038907456,
+          "sample": "MH9143276",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8930",
+          "informative_pairs": 63,
+          "sample": "MH8919179",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8931",
+          "informative_pairs": 72,
+          "loss": 0.01714359042651351,
+          "sample": "newcastle59",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8933",
+          "informative_pairs": 63,
+          "sample": "MH9143373",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8935",
+          "informative_pairs": 45,
+          "sample": "MH9143327",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8936",
+          "informative_pairs": 36,
+          "sample": "newcastle74",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8937",
+          "informative_pairs": 72,
+          "loss": 0.020113694030284304,
+          "sample": "newcastle65",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8938",
+          "informative_pairs": 63,
+          "sample": "MH8919176",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8939",
+          "informative_pairs": 63,
+          "sample": "MH8919227",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8940",
+          "informative_pairs": 54,
+          "sample": "MH8919332",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8942",
+          "informative_pairs": 54,
+          "sample": "MH8919282",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8943",
+          "informative_pairs": 36,
+          "sample": "MH8919283",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8944",
+          "informative_pairs": 54,
+          "sample": "MH9143277",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8946",
+          "informative_pairs": 54,
+          "sample": "MH8919333",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        }
+      ],
+      "hyperparameter_selection": "one frozen whole-cohort configuration per method; no lineage-specific tuning",
+      "primary_prediction_boundary_events": 0,
+      "residual_prediction_boundary_events": 0,
+      "source_cambridge_donors_eligible": 34,
+      "source_cambridge_eligible_by_role": {
+        "calibration": 11,
+        "pilot": 23
+      },
+      "source_fit_certificate": {
+        "converged": true,
+        "gradient_tolerance": 1e-08,
+        "iterations": 5,
+        "scaled_gradient_norm": 4.7903576474333085e-14,
+        "schur_condition_number": 23.103784031651085,
+        "support_count_range": [
+          2,
+          34
+        ]
+      },
+      "status": "POST_HOC_LINEAGE_SENSITIVITY"
+    },
+    "T_cells": {
+      "candidate_budget_per_method": 1,
+      "cell_type_labels": [
+        "T"
+      ],
+      "cells_per_donor": 64,
+      "comparison": {
+        "bootstrap_draws": 20000,
+        "bootstrap_seed": 10031759639622826152,
+        "bootstrap_unit": "physical donor",
+        "donors": 7,
+        "exact_one_sided_sign_p": 0.7734375,
+        "favorable_donors": 3,
+        "paired_difference_95_ci": [
+          -0.00013453393036524385,
+          0.0015148734766436986
+        ],
+        "paired_difference_primary_minus_residual": 0.0006533583949688738,
+        "post_hoc_inference": true,
+        "primary_mean_deviance_per_cell": 0.01981877620820308,
+        "relative_loss_reduction": -0.03409048533853065,
+        "relative_loss_reduction_paired_bootstrap_95_ci": [
+          -0.08080323902091369,
+          0.0071184079727527605
+        ],
+        "residual_mean_deviance_per_cell": 0.019165417813234203
+      },
+      "donor_inventory": [
+        {
+          "available_lineage_cells": 2101,
+          "donor": "CV0025",
+          "role": "pilot",
+          "sample": "BGCV01_CV0025",
+          "selected_barcode_sha256": "8fbaba8fbc96016d4e452b98eca90e8d7631c4a66c8837e4470b595008267992",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1689,
+          "donor": "CV0037",
+          "role": "pilot",
+          "sample": "BGCV06_CV0037",
+          "selected_barcode_sha256": "96751b128f3af2c18c2b554555a49a830a5ad1acc558d7c5704579bc1d314581",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 407,
+          "donor": "CV0050",
+          "role": "pilot",
+          "sample": "BGCV11_CV0050",
+          "selected_barcode_sha256": "8086d26c7e71e4883c5bbb00989d89c30ef7e0c9d3046b84d5b96c5586896b18",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1614,
+          "donor": "CV0052",
+          "role": "calibration",
+          "sample": "BGCV02_CV0052",
+          "selected_barcode_sha256": "3b44763cc2a63c376b69bf7ef3bcb5166042735d2cf89c526de60e0608aefd75",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1267,
+          "donor": "CV0058",
+          "role": "pilot",
+          "sample": "BGCV11_CV0058",
+          "selected_barcode_sha256": "4a1ca2941d2c4eba558ff8307b444b0857187532d9df3f54717240a5148086cb",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1874,
+          "donor": "CV0059",
+          "role": "pilot",
+          "sample": "BGCV02_CV0059",
+          "selected_barcode_sha256": "77529da413d49c2f19848cf0f0d277a42be94cc9e6e7f185fb21c8fc8a2d83a2",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1504,
+          "donor": "CV0062",
+          "role": "calibration",
+          "sample": "BGCV12_CV0062",
+          "selected_barcode_sha256": "cd273263f53bd676e1a46fdd8565ef3ae16ff55db9b9ed84fb82e9cdcd5b7afb",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1806,
+          "donor": "CV0068",
+          "role": "pilot",
+          "sample": "BGCV02_CV0068",
+          "selected_barcode_sha256": "8e91d210d9cea7f85e11e5ed8965017e527c666f17ac4854f9fe7cb6fe55dd2b",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3853,
+          "donor": "CV0074",
+          "role": "pilot",
+          "sample": "BGCV03_CV0074",
+          "selected_barcode_sha256": "6a43265d7b2f28e379d676e359e51b687377995a8e407ae2578a1fcf1b240dc9",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 893,
+          "donor": "CV0084",
+          "role": "calibration",
+          "sample": "BGCV03_CV0084",
+          "selected_barcode_sha256": "0fa52b78dd1fa3dbc163bd6e661e07497ee90ada5bb5fa5a898885ea6b07a033",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 666,
+          "donor": "CV0104",
+          "role": "pilot",
+          "sample": "BGCV07_CV0104",
+          "selected_barcode_sha256": "668a9bd981f10ef7de787ff4f33c15ced23a6e9c9ffeb9ed00f647d29eae8097",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1195,
+          "donor": "CV0120",
+          "role": "pilot",
+          "sample": "BGCV05_CV0120",
+          "selected_barcode_sha256": "21e7b8b825fcaf7f3fca89f216037b6156beb433f1eea63bad78be3535faeecd",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1549,
+          "donor": "CV0128",
+          "role": "pilot",
+          "sample": "BGCV05_CV0128",
+          "selected_barcode_sha256": "1f6de291153e65b64aef72bc69a4c3e58341a6b7bff163f5675ac4679cfe3642",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 869,
+          "donor": "CV0137",
+          "role": "pilot",
+          "sample": "BGCV07_CV0137",
+          "selected_barcode_sha256": "cb8d72a8dbb571c6b5637246514faa1f3d668e05d59e869f5893e90aeb19700c",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 513,
+          "donor": "CV0144",
+          "role": "pilot",
+          "sample": "BGCV01_CV0144",
+          "selected_barcode_sha256": "6d0b6094e97fb7850ff80b8a465b205841c31c18cab5b708dd2dc4b062cbdb19",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1780,
+          "donor": "CV0155",
+          "role": "pilot",
+          "sample": "BGCV08_CV0155",
+          "selected_barcode_sha256": "86edfe518428237b55ed974072df8274f897621267e8e2b99319006461d92d89",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1036,
+          "donor": "CV0160",
+          "role": "pilot",
+          "sample": "BGCV10_CV0160",
+          "selected_barcode_sha256": "ecaff976f91c49beae2b9b8fbf227e9672474f3a3f16ac36eba5393cb6ec6dd5",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1927,
+          "donor": "CV0164",
+          "role": "pilot",
+          "sample": "BGCV04_CV0164",
+          "selected_barcode_sha256": "5ea655fe8ab060dc09bfa7be9957f2119cc4c232b24beb69ae5346b9e04274e4",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1174,
+          "donor": "CV0171",
+          "role": "calibration",
+          "sample": "BGCV13_CV0171",
+          "selected_barcode_sha256": "6078c44e7ceaf49d9d4d44969085092cf96608b5450c2dcb7572e3000a9b31f3",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 417,
+          "donor": "CV0178",
+          "role": "pilot",
+          "sample": "BGCV06_CV0178",
+          "selected_barcode_sha256": "29254469f2c0a65f34d18c799586ad28c8f4b556bf29cfe38c55da73a13dd3fa",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1,
+          "donor": "CV0198",
+          "role": "pilot",
+          "sample": "BGCV10_CV0198",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 1295,
+          "donor": "CV0231",
+          "role": "calibration",
+          "sample": "BGCV10_CV0231",
+          "selected_barcode_sha256": "f3942531beea1a9caf7450ebb9688484bfb865d9a0e43d003c0cbeb1cbd74174",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1218,
+          "donor": "CV0234",
+          "role": "pilot",
+          "sample": "BGCV06_CV0234",
+          "selected_barcode_sha256": "5c7d4cf8250a8b63d13c0ea090292288cc652fe1ca78fcc6ecfa5cce3fb593c4",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1658,
+          "donor": "CV0262",
+          "role": "calibration",
+          "sample": "BGCV04_CV0262",
+          "selected_barcode_sha256": "c9888899c41750fab8ef5b34c235aa743eff07e7dba41a27d69ba86b59840d36",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1698,
+          "donor": "CV0279",
+          "role": "calibration",
+          "sample": "BGCV09_CV0279",
+          "selected_barcode_sha256": "ddb1cc87ad8749ebf7519a651da8a596c1d91c01295526754ef18e2955c577e1",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1816,
+          "donor": "CV0284",
+          "role": "calibration",
+          "sample": "BGCV14_CV0284",
+          "selected_barcode_sha256": "638f317d7bc773c15bb209dc9f01f352b089ddcee6a41b93d755ed2d3fb469d3",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 143,
+          "donor": "CV0326",
+          "role": "calibration",
+          "sample": "BGCV13_CV0326",
+          "selected_barcode_sha256": "d12c0e5889aff9abe9f03a7018f7f68c3b8b99cbb6bd3505a11980c3546f4d13",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 4,
+          "donor": "CV0902",
+          "role": "calibration",
+          "sample": "BGCV01_CV0902",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 5061,
+          "donor": "CV0904",
+          "role": "pilot",
+          "sample": "BGCV01_CV0904",
+          "selected_barcode_sha256": "aa81d8ded99f9d510bc7e31a0d94f060814332880f1550cb584c2ac4db494bfc",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1279,
+          "donor": "CV0915",
+          "role": "pilot",
+          "sample": "BGCV08_CV0915",
+          "selected_barcode_sha256": "003c348d12d0726361c5eaa19bd034c5d0a7bb2b9e247f87b94066452b175742",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2042,
+          "donor": "CV0917",
+          "role": "pilot",
+          "sample": "BGCV09_CV0917",
+          "selected_barcode_sha256": "9f32666b5c26d22407a5dc4edfc2e3f25ea4f315242acd5427f8d0e8f60aff44",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1681,
+          "donor": "CV0926",
+          "role": "calibration",
+          "sample": "BGCV12_CV0926",
+          "selected_barcode_sha256": "a4d6993d75c6e8bab2d5c2fa79a04b1c53d172faa2841da55381fb517e42988b",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 676,
+          "donor": "CV0929",
+          "role": "pilot",
+          "sample": "BGCV05_CV0929",
+          "selected_barcode_sha256": "15d8405aec7c774f009a22c1b774c4a9c18826229d70612bc32bdc0ea5cd8dd2",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2581,
+          "donor": "CV0934",
+          "role": "calibration",
+          "sample": "BGCV13_CV0934",
+          "selected_barcode_sha256": "5b1596f249f2595af0a849bf6f0c2b72380e578816fd1999d6e4f07eec80b8cc",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1063,
+          "donor": "CV0939",
+          "role": "pilot",
+          "sample": "BGCV10_CV0939",
+          "selected_barcode_sha256": "c938c2be97d06320c9c1ef2c37484e3834285105926615540e6990c5adac20c2",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 335,
+          "donor": "CV0944",
+          "role": "pilot",
+          "sample": "BGCV15_CV0944",
+          "selected_barcode_sha256": "4c4312ea78f68b1c36a7a9b71aa06506d23f569a3436be3f14ac04f29882938a",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3183,
+          "donor": "C-8816",
+          "role": "held_site",
+          "sample": "MH9143270",
+          "selected_barcode_sha256": "874ec36a992dc1d79f7c896c27f6b4cc9b90ad60597e40a6ecd3a8183d76f287",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1098,
+          "donor": "C-8820",
+          "role": "held_site",
+          "sample": "MH9143320",
+          "selected_barcode_sha256": "09a011856f0995fa082b892067bb80b1569f8ea9df1b6df3b27996ab06f39857",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2996,
+          "donor": "C-8821",
+          "role": "held_site",
+          "sample": "MH9179821",
+          "selected_barcode_sha256": "5bc388e85d99589a87021a55775a0a6924f2f349e2ff2d015b93af3fdc6b0fd8",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1755,
+          "donor": "C-8822",
+          "role": "held_site",
+          "sample": "MH9179822",
+          "selected_barcode_sha256": "8f3b42b5b7406c1df9f2b1d75f80c2383f39593d156a406e01c41ea5db08eb45",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2548,
+          "donor": "C-8823",
+          "role": "held_site",
+          "sample": "MH8919326",
+          "selected_barcode_sha256": "cfab8d0e00c78f25abaf3820acca8dbb8df256dcbd06289f5fa21b36a32ec053",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3124,
+          "donor": "C-8825",
+          "role": "held_site",
+          "sample": "MH9143321",
+          "selected_barcode_sha256": "9f251deb25040fa6b43a8a30df7b38f91b32f00843215f99c530fe9a1872981d",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3779,
+          "donor": "C-8826",
+          "role": "held_site",
+          "sample": "MH9143420",
+          "selected_barcode_sha256": "f456eac01fb09bb7a4c0df671a283917ad63be615ec9ab5b071d15a078aeef1a",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3457,
+          "donor": "C-8827",
+          "role": "held_site",
+          "sample": "MH9143271",
+          "selected_barcode_sha256": "fb06d42002175a70585d813c4fed2bac2b01ed83936337a9348b846b985279ac",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3069,
+          "donor": "C-8828",
+          "role": "held_site",
+          "sample": "MH9179823",
+          "selected_barcode_sha256": "6b7b03ee6e09e54fc6b196087de39b696c4cae22b3467cc4581ff93d199271d4",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3947,
+          "donor": "C-8829",
+          "role": "held_site",
+          "sample": "MH9179824",
+          "selected_barcode_sha256": "75859eba2f541e5c76ee20eefd5636073e70c7be2d2bec099339ae19f7aebd5d",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2800,
+          "donor": "C-8882",
+          "role": "held_site",
+          "sample": "MH9143322",
+          "selected_barcode_sha256": "219d0655e86001fa540b0533309c1fb63616e1163b27de94cacc3d5ad9bc88b6",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1719,
+          "donor": "C-8883",
+          "role": "held_site",
+          "sample": "newcastle20",
+          "selected_barcode_sha256": "b4f03923541f4829b987861698bcab50308e73fb63fb992b93e2bcc4ec5573e2",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2818,
+          "donor": "C-8884",
+          "role": "held_site",
+          "sample": "newcastle21",
+          "selected_barcode_sha256": "1ca59dbce794261b2324a729d4e15a8d4bd356589cbe9ab6a9bc01a7a2392fcb",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1869,
+          "donor": "C-8885",
+          "role": "held_site",
+          "sample": "MH9143421",
+          "selected_barcode_sha256": "d55ee97c345c17f294d449e8cfaacab4f7187b67294058e03bd008edcbfc4c7a",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 5024,
+          "donor": "C-8886",
+          "role": "held_site",
+          "sample": "MH9143272",
+          "selected_barcode_sha256": "5a7fff79db003b72d5efabf9b6e61c5498b8eae3d520fea34cfcb08906978aa3",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1057,
+          "donor": "C-8887",
+          "role": "held_site",
+          "sample": "MH9179826",
+          "selected_barcode_sha256": "1c88bbc9fdfea06320c20269bc93983b563b87f4cb8821acef5d4b19d098e9f6",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3912,
+          "donor": "C-8890",
+          "role": "held_site",
+          "sample": "MH9143323",
+          "selected_barcode_sha256": "c5ccffd4493dfba45e18cde1825f245eaeac3c289d01de46b95655dd78ab2536",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1282,
+          "donor": "C-8892",
+          "role": "held_site",
+          "sample": "MH9143370",
+          "selected_barcode_sha256": "f19d96d8a7dbc42e136db27cc06ddcd184ef97cdf440e34972317b4cb61291b7",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2578,
+          "donor": "C-8893",
+          "role": "held_site",
+          "sample": "MH9143324",
+          "selected_barcode_sha256": "d4c12a828d4a6e870ec1de719d967efd1e2ae2a5a3646c357d69ff5322ba66a6",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 4259,
+          "donor": "C-8895",
+          "role": "held_site",
+          "sample": "MH9179825",
+          "selected_barcode_sha256": "b1b01b224e995cfab6bfa59718e03f9b2329ea4758bc1a2013e7d735086f4e02",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3367,
+          "donor": "C-8896",
+          "role": "held_site",
+          "sample": "MH8919327",
+          "selected_barcode_sha256": "c3f5f4a17dfab9612dbda4c647f68df373d0926db017d70ad92cd7ec1cbc4be4",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3706,
+          "donor": "C-8897",
+          "role": "held_site",
+          "sample": "MH9143422",
+          "selected_barcode_sha256": "4a59b54a858faaf6170781f053d714163ba2ade0edea705f22c3d9b5b80e4cc7",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1025,
+          "donor": "C-8898",
+          "role": "held_site",
+          "sample": "MH9143371",
+          "selected_barcode_sha256": "57d9583c3275e5ef2d0846ecd5fee00fe1759bb647c61d60e2fb7be602dfddbc",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2436,
+          "donor": "C-8899",
+          "role": "held_site",
+          "sample": "MH9143325",
+          "selected_barcode_sha256": "ec90bcee768e658dfb6f48b4b8a1f1392c0d4cb8b6be1f1667533ec773ad1d7d",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2466,
+          "donor": "C-8902",
+          "role": "held_site",
+          "sample": "MH9143423",
+          "selected_barcode_sha256": "310163e3b8d5cdbe33eecac39f3cd26aaaad48b08eb13e867a08506630e5e39a",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 4355,
+          "donor": "C-8903",
+          "role": "held_site",
+          "sample": "MH9143274",
+          "selected_barcode_sha256": "91a09876c0d4d4a79da57ada0138a0b69394788e8259a3c3bcdd92a06b0f2adb",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 4149,
+          "donor": "C-8905",
+          "role": "held_site",
+          "sample": "MH9143424",
+          "selected_barcode_sha256": "78c00d7a58e19b01396346c2da61ec726f411cb663f7f588777eba0cdfa5ba74",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2408,
+          "donor": "C-8909",
+          "role": "held_site",
+          "sample": "MH9143426",
+          "selected_barcode_sha256": "79d99b775fc1b2a7dc620cc81a6646fc3a0aa0b3915a901ae52806298a198ccd",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2652,
+          "donor": "C-8910",
+          "role": "held_site",
+          "sample": "newcastle49",
+          "selected_barcode_sha256": "3ce43b1950a31fbc16fbf00c8b9a1a181d2a1cbc7582094daf3ba070a0fccd09",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3518,
+          "donor": "C-8912",
+          "role": "held_site",
+          "sample": "MH8919329",
+          "selected_barcode_sha256": "816fd991ce63c92528dedbaa05721f89e31a118deb9d05b2c2d501af7ba65fe6",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2049,
+          "donor": "C-8913",
+          "role": "held_site",
+          "sample": "MH9179827",
+          "selected_barcode_sha256": "7ecd010ac2904f81c281584557def0b82ca8950be0d82a40f3d429255835fac0",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 7,
+          "donor": "C-8914",
+          "role": "held_site",
+          "sample": "MH8919226",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Ncl",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 2761,
+          "donor": "C-8915",
+          "role": "held_site",
+          "sample": "MH8919330",
+          "selected_barcode_sha256": "1c7f2a4d247edfba96e94c20e4831ef3834268d645f58a88aa9f220f63af339a",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 889,
+          "donor": "C-8918",
+          "role": "held_site",
+          "sample": "MH9143275",
+          "selected_barcode_sha256": "211944ab7daffe0b52b6012eb65e0321cc63945ca9ee223edb0f7e85cdd93dcf",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 4966,
+          "donor": "C-8921",
+          "role": "held_site",
+          "sample": "MH9143427",
+          "selected_barcode_sha256": "c1abe64f3f38a6325e65df2587718a2294a25db95a25055ad3e29f8c73124871",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 601,
+          "donor": "C-8922",
+          "role": "held_site",
+          "sample": "MH9143425",
+          "selected_barcode_sha256": "ab02d98057bc37f355f7abceba106ab49d1f923d8a56c2f3213852518d190ecd",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2038,
+          "donor": "C-8923",
+          "role": "held_site",
+          "sample": "MH9179828",
+          "selected_barcode_sha256": "9064ed79c354a4ebc073c81eddabbbafd2e519724d7736cd599b132c306f8418",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3865,
+          "donor": "C-8926",
+          "role": "held_site",
+          "sample": "MH8919331",
+          "selected_barcode_sha256": "26607e8128d3548644f704ae92e47a07312d0c80ab8f1641b25f0c37e95de705",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2504,
+          "donor": "C-8927",
+          "role": "held_site",
+          "sample": "MH9143372",
+          "selected_barcode_sha256": "03552202ced4ae26038d0f410e4f1570d259283c72113fbbf3d2fb7da291c394",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2903,
+          "donor": "C-8928",
+          "role": "held_site",
+          "sample": "MH8919178",
+          "selected_barcode_sha256": "62ffc70edf9ae9507d192dc1802eb27011a240d0abfcd7995ab2465efa725ed5",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 4954,
+          "donor": "C-8929",
+          "role": "held_site",
+          "sample": "MH9143276",
+          "selected_barcode_sha256": "3ca5657cd44a1382e0b33dd4afde63a6aeb83148a8cf150e27a5be1472e04bbe",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2599,
+          "donor": "C-8930",
+          "role": "held_site",
+          "sample": "MH8919179",
+          "selected_barcode_sha256": "8cb4f09858acc8a8b2676080ccaff7b02ef3fc72c7d763b87cfe914ed5295449",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1122,
+          "donor": "C-8931",
+          "role": "held_site",
+          "sample": "newcastle59",
+          "selected_barcode_sha256": "a4768aa1124ad5751e7039ca7dd648f192e85876958e3004dab933083ba580e5",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 892,
+          "donor": "C-8933",
+          "role": "held_site",
+          "sample": "MH9143373",
+          "selected_barcode_sha256": "3b2cc2988661fc0854d6e95865d7d48af7520302aa4a20453b218aec6c9e9aa2",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1764,
+          "donor": "C-8934",
+          "role": "held_site",
+          "sample": "MH9143326",
+          "selected_barcode_sha256": "2cb8e86f227664bc21723a497e717a9506b7c70a51c2af832d8f8ac728e3108c",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2286,
+          "donor": "C-8935",
+          "role": "held_site",
+          "sample": "MH9143327",
+          "selected_barcode_sha256": "11478d237f300f41f9fc2352d7e554eaac3da85913cd4089c1de24f6f76b8be3",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3808,
+          "donor": "C-8936",
+          "role": "held_site",
+          "sample": "newcastle74",
+          "selected_barcode_sha256": "2517cbb2962149b2489070274aed04933ec6f9ce8fe166013a6ba1840337e857",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 4056,
+          "donor": "C-8937",
+          "role": "held_site",
+          "sample": "newcastle65",
+          "selected_barcode_sha256": "de95ce970bc26a0263c7bf2a52aa6e49983ff3be31bff9f118d7e58af32e87af",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2269,
+          "donor": "C-8938",
+          "role": "held_site",
+          "sample": "MH8919176",
+          "selected_barcode_sha256": "1df085270709323e9af5884384901616d768667b425c638c28bbfcfb0234b25b",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 7,
+          "donor": "C-8939",
+          "role": "held_site",
+          "sample": "MH8919227",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Ncl",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 4638,
+          "donor": "C-8940",
+          "role": "held_site",
+          "sample": "MH8919332",
+          "selected_barcode_sha256": "26759e42106cb8e05d76b74af5155c3bef2d5077102a248919dec7d3a0ee9538",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1281,
+          "donor": "C-8941",
+          "role": "held_site",
+          "sample": "MH8919177",
+          "selected_barcode_sha256": "7002f306eb28743210ff0f4c47af5f8c15b6d4a2824b5b57a2b0f3e641c6e99e",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3976,
+          "donor": "C-8942",
+          "role": "held_site",
+          "sample": "MH8919282",
+          "selected_barcode_sha256": "e29ba56acb4cddb1e0bd4df4f66bacdab97312d96374f0515eee380b7fea2f67",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 4678,
+          "donor": "C-8943",
+          "role": "held_site",
+          "sample": "MH8919283",
+          "selected_barcode_sha256": "6dc4976bc790ceb34882806a8d629a7c1d4c1141b8fa95e2d61e338bcea6a05c",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3075,
+          "donor": "C-8944",
+          "role": "held_site",
+          "sample": "MH9143277",
+          "selected_barcode_sha256": "f545f83424161a87603d18971ccb8878f1d704ebb8a2d97548ceab54274a723a",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 5581,
+          "donor": "C-8946",
+          "role": "held_site",
+          "sample": "MH8919333",
+          "selected_barcode_sha256": "0310bba589c4a1e642045f33dcf61ab9161bb60b1fe49f7e39017e2f23c03fcc",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        }
+      ],
+      "held_newcastle_donors_cell_eligible": 54,
+      "held_newcastle_donors_pair_support_excluded": 47,
+      "held_newcastle_donors_scored": 7,
+      "held_primary_results": [
+        {
+          "donor": "C-8816",
+          "informative_pairs": 72,
+          "loss": 0.019435047808785504,
+          "sample": "MH9143270",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8820",
+          "informative_pairs": 63,
+          "sample": "MH9143320",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8821",
+          "informative_pairs": 63,
+          "sample": "MH9179821",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8822",
+          "informative_pairs": 63,
+          "sample": "MH9179822",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8823",
+          "informative_pairs": 63,
+          "sample": "MH8919326",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8825",
+          "informative_pairs": 54,
+          "sample": "MH9143321",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8826",
+          "informative_pairs": 63,
+          "sample": "MH9143420",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8827",
+          "informative_pairs": 63,
+          "sample": "MH9143271",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8828",
+          "informative_pairs": 63,
+          "sample": "MH9179823",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8829",
+          "informative_pairs": 72,
+          "loss": 0.016388871364236723,
+          "sample": "MH9179824",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8882",
+          "informative_pairs": 63,
+          "sample": "MH9143322",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8883",
+          "informative_pairs": 54,
+          "sample": "newcastle20",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8884",
+          "informative_pairs": 63,
+          "sample": "newcastle21",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8885",
+          "informative_pairs": 63,
+          "sample": "MH9143421",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8886",
+          "informative_pairs": 63,
+          "sample": "MH9143272",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8887",
+          "informative_pairs": 63,
+          "sample": "MH9179826",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8890",
+          "informative_pairs": 63,
+          "sample": "MH9143323",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8892",
+          "informative_pairs": 63,
+          "sample": "MH9143370",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8893",
+          "informative_pairs": 81,
+          "loss": 0.022130807183029486,
+          "sample": "MH9143324",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8895",
+          "informative_pairs": 63,
+          "sample": "MH9179825",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8896",
+          "informative_pairs": 63,
+          "sample": "MH8919327",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8897",
+          "informative_pairs": 54,
+          "sample": "MH9143422",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8898",
+          "informative_pairs": 72,
+          "loss": 0.01929188253719985,
+          "sample": "MH9143371",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8899",
+          "informative_pairs": 63,
+          "sample": "MH9143325",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8902",
+          "informative_pairs": 63,
+          "sample": "MH9143423",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8903",
+          "informative_pairs": 54,
+          "sample": "MH9143274",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8905",
+          "informative_pairs": 63,
+          "sample": "MH9143424",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8909",
+          "informative_pairs": 63,
+          "sample": "MH9143426",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8910",
+          "informative_pairs": 63,
+          "sample": "newcastle49",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8912",
+          "informative_pairs": 54,
+          "sample": "MH8919329",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8913",
+          "informative_pairs": 54,
+          "sample": "MH9179827",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8915",
+          "informative_pairs": 63,
+          "sample": "MH8919330",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8918",
+          "informative_pairs": 63,
+          "sample": "MH9143275",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8921",
+          "informative_pairs": 54,
+          "sample": "MH9143427",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8922",
+          "informative_pairs": 54,
+          "sample": "MH9143425",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8923",
+          "informative_pairs": 63,
+          "sample": "MH9179828",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8926",
+          "informative_pairs": 63,
+          "sample": "MH8919331",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8927",
+          "informative_pairs": 54,
+          "sample": "MH9143372",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8928",
+          "informative_pairs": 54,
+          "sample": "MH8919178",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8929",
+          "informative_pairs": 63,
+          "sample": "MH9143276",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8930",
+          "informative_pairs": 54,
+          "sample": "MH8919179",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8931",
+          "informative_pairs": 63,
+          "sample": "newcastle59",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8933",
+          "informative_pairs": 54,
+          "sample": "MH9143373",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8934",
+          "informative_pairs": 72,
+          "loss": 0.021707630659960547,
+          "sample": "MH9143326",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8935",
+          "informative_pairs": 54,
+          "sample": "MH9143327",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8936",
+          "informative_pairs": 54,
+          "sample": "newcastle74",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8937",
+          "informative_pairs": 72,
+          "loss": 0.020170933801707945,
+          "sample": "newcastle65",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8938",
+          "informative_pairs": 72,
+          "loss": 0.019606260102501504,
+          "sample": "MH8919176",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8940",
+          "informative_pairs": 54,
+          "sample": "MH8919332",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8941",
+          "informative_pairs": 54,
+          "sample": "MH8919177",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8942",
+          "informative_pairs": 63,
+          "sample": "MH8919282",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8943",
+          "informative_pairs": 54,
+          "sample": "MH8919283",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8944",
+          "informative_pairs": 54,
+          "sample": "MH9143277",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8946",
+          "informative_pairs": 45,
+          "sample": "MH8919333",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        }
+      ],
+      "held_residual_results": [
+        {
+          "donor": "C-8816",
+          "informative_pairs": 72,
+          "loss": 0.018244851398025716,
+          "sample": "MH9143270",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8820",
+          "informative_pairs": 63,
+          "sample": "MH9143320",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8821",
+          "informative_pairs": 63,
+          "sample": "MH9179821",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8822",
+          "informative_pairs": 63,
+          "sample": "MH9179822",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8823",
+          "informative_pairs": 63,
+          "sample": "MH8919326",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8825",
+          "informative_pairs": 54,
+          "sample": "MH9143321",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8826",
+          "informative_pairs": 63,
+          "sample": "MH9143420",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8827",
+          "informative_pairs": 63,
+          "sample": "MH9143271",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8828",
+          "informative_pairs": 63,
+          "sample": "MH9179823",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8829",
+          "informative_pairs": 72,
+          "loss": 0.01694780320268116,
+          "sample": "MH9179824",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8882",
+          "informative_pairs": 63,
+          "sample": "MH9143322",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8883",
+          "informative_pairs": 54,
+          "sample": "newcastle20",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8884",
+          "informative_pairs": 63,
+          "sample": "newcastle21",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8885",
+          "informative_pairs": 63,
+          "sample": "MH9143421",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8886",
+          "informative_pairs": 63,
+          "sample": "MH9143272",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8887",
+          "informative_pairs": 63,
+          "sample": "MH9179826",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8890",
+          "informative_pairs": 63,
+          "sample": "MH9143323",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8892",
+          "informative_pairs": 63,
+          "sample": "MH9143370",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8893",
+          "informative_pairs": 81,
+          "loss": 0.021871836618760576,
+          "sample": "MH9143324",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8895",
+          "informative_pairs": 63,
+          "sample": "MH9179825",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8896",
+          "informative_pairs": 63,
+          "sample": "MH8919327",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8897",
+          "informative_pairs": 54,
+          "sample": "MH9143422",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8898",
+          "informative_pairs": 72,
+          "loss": 0.01741985381856628,
+          "sample": "MH9143371",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8899",
+          "informative_pairs": 63,
+          "sample": "MH9143325",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8902",
+          "informative_pairs": 63,
+          "sample": "MH9143423",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8903",
+          "informative_pairs": 54,
+          "sample": "MH9143274",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8905",
+          "informative_pairs": 63,
+          "sample": "MH9143424",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8909",
+          "informative_pairs": 63,
+          "sample": "MH9143426",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8910",
+          "informative_pairs": 63,
+          "sample": "newcastle49",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8912",
+          "informative_pairs": 54,
+          "sample": "MH8919329",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8913",
+          "informative_pairs": 54,
+          "sample": "MH9179827",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8915",
+          "informative_pairs": 63,
+          "sample": "MH8919330",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8918",
+          "informative_pairs": 63,
+          "sample": "MH9143275",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8921",
+          "informative_pairs": 54,
+          "sample": "MH9143427",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8922",
+          "informative_pairs": 54,
+          "sample": "MH9143425",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8923",
+          "informative_pairs": 63,
+          "sample": "MH9179828",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8926",
+          "informative_pairs": 63,
+          "sample": "MH8919331",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8927",
+          "informative_pairs": 54,
+          "sample": "MH9143372",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8928",
+          "informative_pairs": 54,
+          "sample": "MH8919178",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8929",
+          "informative_pairs": 63,
+          "sample": "MH9143276",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8930",
+          "informative_pairs": 54,
+          "sample": "MH8919179",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8931",
+          "informative_pairs": 63,
+          "sample": "newcastle59",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8933",
+          "informative_pairs": 54,
+          "sample": "MH9143373",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8934",
+          "informative_pairs": 72,
+          "loss": 0.01918833270187874,
+          "sample": "MH9143326",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8935",
+          "informative_pairs": 54,
+          "sample": "MH9143327",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8936",
+          "informative_pairs": 54,
+          "sample": "newcastle74",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8937",
+          "informative_pairs": 72,
+          "loss": 0.020427322531823985,
+          "sample": "newcastle65",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8938",
+          "informative_pairs": 72,
+          "loss": 0.020057924420902984,
+          "sample": "MH8919176",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8940",
+          "informative_pairs": 54,
+          "sample": "MH8919332",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8941",
+          "informative_pairs": 54,
+          "sample": "MH8919177",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8942",
+          "informative_pairs": 63,
+          "sample": "MH8919282",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8943",
+          "informative_pairs": 54,
+          "sample": "MH8919283",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8944",
+          "informative_pairs": 54,
+          "sample": "MH9143277",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8946",
+          "informative_pairs": 45,
+          "sample": "MH8919333",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        }
+      ],
+      "hyperparameter_selection": "one frozen whole-cohort configuration per method; no lineage-specific tuning",
+      "primary_prediction_boundary_events": 0,
+      "residual_prediction_boundary_events": 0,
+      "source_cambridge_donors_eligible": 34,
+      "source_cambridge_eligible_by_role": {
+        "calibration": 11,
+        "pilot": 23
+      },
+      "source_fit_certificate": {
+        "converged": true,
+        "gradient_tolerance": 1e-08,
+        "iterations": 5,
+        "scaled_gradient_norm": 2.5245223316578558e-09,
+        "schur_condition_number": 23.075054496220048,
+        "support_count_range": [
+          4,
+          34
+        ]
+      },
+      "status": "POST_HOC_LINEAGE_SENSITIVITY"
+    },
+    "myeloid_cells": {
+      "candidate_budget_per_method": 1,
+      "cell_type_labels": [
+        "MNP"
+      ],
+      "cells_per_donor": 64,
+      "comparison": {
+        "bootstrap_draws": 20000,
+        "bootstrap_seed": 11932077729285421337,
+        "bootstrap_unit": "physical donor",
+        "donors": 46,
+        "exact_one_sided_sign_p": 0.7693044089316174,
+        "favorable_donors": 21,
+        "paired_difference_95_ci": [
+          -0.0074776470588644225,
+          -0.0013649012846285767
+        ],
+        "paired_difference_primary_minus_residual": -0.004252470389941588,
+        "post_hoc_inference": true,
+        "primary_mean_deviance_per_cell": 0.023159061897680844,
+        "relative_loss_reduction": 0.15513435532612574,
+        "relative_loss_reduction_paired_bootstrap_95_ci": [
+          0.055104383454327034,
+          0.24610580328896225
+        ],
+        "residual_mean_deviance_per_cell": 0.02741153228762243
+      },
+      "donor_inventory": [
+        {
+          "available_lineage_cells": 13,
+          "donor": "CV0025",
+          "role": "pilot",
+          "sample": "BGCV01_CV0025",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 63,
+          "donor": "CV0037",
+          "role": "pilot",
+          "sample": "BGCV06_CV0037",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 47,
+          "donor": "CV0050",
+          "role": "pilot",
+          "sample": "BGCV11_CV0050",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 98,
+          "donor": "CV0052",
+          "role": "calibration",
+          "sample": "BGCV02_CV0052",
+          "selected_barcode_sha256": "27adc4270639f6c8014e4bf8520b600d4c332a4910f7c1a28e0f8c8586c9ac26",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 35,
+          "donor": "CV0058",
+          "role": "pilot",
+          "sample": "BGCV11_CV0058",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 125,
+          "donor": "CV0059",
+          "role": "pilot",
+          "sample": "BGCV02_CV0059",
+          "selected_barcode_sha256": "be5a343d1b9a06b2fb971b9b34050bfeaaca40f0dc1af958c77864c141697411",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 66,
+          "donor": "CV0062",
+          "role": "calibration",
+          "sample": "BGCV12_CV0062",
+          "selected_barcode_sha256": "103ba46e7713ee619af7d1f0911783b72d968748fc7ff76ca21666fb6384a5a9",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 166,
+          "donor": "CV0068",
+          "role": "pilot",
+          "sample": "BGCV02_CV0068",
+          "selected_barcode_sha256": "5ce8678bf4ea1ec70a0e55b84569152a8ba51a0c1d2552dab7876eaf635969ef",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 131,
+          "donor": "CV0074",
+          "role": "pilot",
+          "sample": "BGCV03_CV0074",
+          "selected_barcode_sha256": "7fb410e50ff4f680442cd155fcbe6aa4c9669cff146d28723fc3324115034a25",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 98,
+          "donor": "CV0084",
+          "role": "calibration",
+          "sample": "BGCV03_CV0084",
+          "selected_barcode_sha256": "4219a4072e745913cf809059d07a90d1d4861ba6e9d61c23c0d39fe55563b94f",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 131,
+          "donor": "CV0104",
+          "role": "pilot",
+          "sample": "BGCV07_CV0104",
+          "selected_barcode_sha256": "d53316c690ef99a401a51bde61f6a6c202b33406226e3fb68c40812aa6b61bcb",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 179,
+          "donor": "CV0120",
+          "role": "pilot",
+          "sample": "BGCV05_CV0120",
+          "selected_barcode_sha256": "7bb4716efb455f333e59037f630028d8eff0da72c58e515b35be5723c1c8bf9c",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 90,
+          "donor": "CV0128",
+          "role": "pilot",
+          "sample": "BGCV05_CV0128",
+          "selected_barcode_sha256": "52be2a165732162adbcefa94c7c93d3e09076123e8824b8d94f2ec00dd23ec3d",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 38,
+          "donor": "CV0137",
+          "role": "pilot",
+          "sample": "BGCV07_CV0137",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 11,
+          "donor": "CV0144",
+          "role": "pilot",
+          "sample": "BGCV01_CV0144",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 192,
+          "donor": "CV0155",
+          "role": "pilot",
+          "sample": "BGCV08_CV0155",
+          "selected_barcode_sha256": "990d9d907a4602ace8d293a7fc1a26e90d4e48ba6e12f0786329df8cf5702e46",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 44,
+          "donor": "CV0160",
+          "role": "pilot",
+          "sample": "BGCV10_CV0160",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 180,
+          "donor": "CV0164",
+          "role": "pilot",
+          "sample": "BGCV04_CV0164",
+          "selected_barcode_sha256": "5408657073e4105923ce35a9862920d66a88d93ec44f2cdc9b01b2d8c302bb1e",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 82,
+          "donor": "CV0171",
+          "role": "calibration",
+          "sample": "BGCV13_CV0171",
+          "selected_barcode_sha256": "6513676a61b7acc591197f924ee7a8c7dbef6d68652c69c781ae631beb2bbc20",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 40,
+          "donor": "CV0178",
+          "role": "pilot",
+          "sample": "BGCV06_CV0178",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 13,
+          "donor": "CV0198",
+          "role": "pilot",
+          "sample": "BGCV10_CV0198",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 79,
+          "donor": "CV0231",
+          "role": "calibration",
+          "sample": "BGCV10_CV0231",
+          "selected_barcode_sha256": "4758e01973a3a54533ac4647f3441cd691359d0463682072d40c19d73ab98042",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 148,
+          "donor": "CV0234",
+          "role": "pilot",
+          "sample": "BGCV06_CV0234",
+          "selected_barcode_sha256": "c5a613e30d1736499bdf025a5c9caa188827b869f6f83d54902d31835a23d916",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 212,
+          "donor": "CV0262",
+          "role": "calibration",
+          "sample": "BGCV04_CV0262",
+          "selected_barcode_sha256": "d76a490cd949cdeecef248c84966887d7a6107d42144d6d5a1924ffb02757546",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 122,
+          "donor": "CV0279",
+          "role": "calibration",
+          "sample": "BGCV09_CV0279",
+          "selected_barcode_sha256": "f6cdd087c177c5d33d1b02117e91b393264167699cbbd8e633ef4002d6bf4b79",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 552,
+          "donor": "CV0284",
+          "role": "calibration",
+          "sample": "BGCV14_CV0284",
+          "selected_barcode_sha256": "8a360ab969526dfd53ecb08534a1a64dd2b35fe1bc1ae070cf13e85e9722bb1a",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 13,
+          "donor": "CV0326",
+          "role": "calibration",
+          "sample": "BGCV13_CV0326",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 75,
+          "donor": "CV0902",
+          "role": "calibration",
+          "sample": "BGCV01_CV0902",
+          "selected_barcode_sha256": "b9023e05b0c6523a2e7f3fe6e7260322be4049f99886120c6e64068d968544c5",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 45,
+          "donor": "CV0904",
+          "role": "pilot",
+          "sample": "BGCV01_CV0904",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 134,
+          "donor": "CV0915",
+          "role": "pilot",
+          "sample": "BGCV08_CV0915",
+          "selected_barcode_sha256": "5595a5b5f4bbe8799eea03152bf96bd95a5dce186b8622a14e0bec868eac3f9c",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 318,
+          "donor": "CV0917",
+          "role": "pilot",
+          "sample": "BGCV09_CV0917",
+          "selected_barcode_sha256": "fdfa6736359b4c9a9837f196927b4d70daa8c5ab157b24c759ea9994f91dc9a8",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 303,
+          "donor": "CV0926",
+          "role": "calibration",
+          "sample": "BGCV12_CV0926",
+          "selected_barcode_sha256": "0eb717b435474cd6e043fa010dcbe6ad73a596b8d0b4eaaf465341e9ceeec66a",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 252,
+          "donor": "CV0929",
+          "role": "pilot",
+          "sample": "BGCV05_CV0929",
+          "selected_barcode_sha256": "9aa3d9a02efc560fe7062248fabffb7eda478ed3a7e174d448b43018e7c71058",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 222,
+          "donor": "CV0934",
+          "role": "calibration",
+          "sample": "BGCV13_CV0934",
+          "selected_barcode_sha256": "5f61e793cbd4eb77946a2aace0d5d25b8894e4bd413049e7755d3b4ffe404197",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 259,
+          "donor": "CV0939",
+          "role": "pilot",
+          "sample": "BGCV10_CV0939",
+          "selected_barcode_sha256": "8c7e7b3e4dae292f59935e2eedfa384f49b173635d53bcd851b6580a6003792d",
+          "selected_cells": 64,
+          "site": "Cambridge",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 40,
+          "donor": "CV0944",
+          "role": "pilot",
+          "sample": "BGCV15_CV0944",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Cambridge",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 5857,
+          "donor": "C-8816",
+          "role": "held_site",
+          "sample": "MH9143270",
+          "selected_barcode_sha256": "769a764e7800a56771a47461c1b9f08dfeef58a9ca2381bb53031a256b0fed56",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1411,
+          "donor": "C-8820",
+          "role": "held_site",
+          "sample": "MH9143320",
+          "selected_barcode_sha256": "a2a430e16b41ff94ba8f8b96ef797b2abf9e84a4fd1213df3d8d3dc8eb5583f3",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 694,
+          "donor": "C-8821",
+          "role": "held_site",
+          "sample": "MH9179821",
+          "selected_barcode_sha256": "f9d6ae730f9551f70ec41e2d257b8c37d7c1c0d3dd1d4613625f2ed722251478",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 694,
+          "donor": "C-8822",
+          "role": "held_site",
+          "sample": "MH9179822",
+          "selected_barcode_sha256": "b59cb0c1bc57be931fd5ad7a49e61ef403eae691ece56bf42d86f6a15787f6f2",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3236,
+          "donor": "C-8823",
+          "role": "held_site",
+          "sample": "MH8919326",
+          "selected_barcode_sha256": "e28d9042f00f119f2425de8f122ba03785f1f66dfd58374db36a1ee2ef31389c",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2099,
+          "donor": "C-8825",
+          "role": "held_site",
+          "sample": "MH9143321",
+          "selected_barcode_sha256": "540cd73647720aeffd880914d9a5a90d32a2fb80a32a180309d64f32ac534dc9",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1944,
+          "donor": "C-8826",
+          "role": "held_site",
+          "sample": "MH9143420",
+          "selected_barcode_sha256": "f8c1169212ab1ab8e63915139e957f3dee34b9ea882e2d70b02a1829af9d053d",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 4247,
+          "donor": "C-8827",
+          "role": "held_site",
+          "sample": "MH9143271",
+          "selected_barcode_sha256": "7e51618b4f17ea4492af780291c9810a36839cde12f76994f2d8939dc00a4e77",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 947,
+          "donor": "C-8828",
+          "role": "held_site",
+          "sample": "MH9179823",
+          "selected_barcode_sha256": "8e8dd25fe61216230e1791e765390f668e01ff2560a391b180cf69dddabf3b0f",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2167,
+          "donor": "C-8829",
+          "role": "held_site",
+          "sample": "MH9179824",
+          "selected_barcode_sha256": "76fddfd32bd0fae2c46f5f84d99069327d9a7eb4271936a220424dbc4245b3a8",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2467,
+          "donor": "C-8882",
+          "role": "held_site",
+          "sample": "MH9143322",
+          "selected_barcode_sha256": "cd09466c112ed0a03ff15619d9849d905c065adc41ff6f61d350249eccae0f2a",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 760,
+          "donor": "C-8883",
+          "role": "held_site",
+          "sample": "newcastle20",
+          "selected_barcode_sha256": "3cf37149e0363755cdde35e75c1f035df0599ae212e239a81da35d68c9161ab9",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 639,
+          "donor": "C-8884",
+          "role": "held_site",
+          "sample": "newcastle21",
+          "selected_barcode_sha256": "61182cb42126713ffaab2e60921df6090ee49bfd6beb120f105c8ed3e415a032",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1998,
+          "donor": "C-8885",
+          "role": "held_site",
+          "sample": "MH9143421",
+          "selected_barcode_sha256": "a899323e53159e7e7071b497974a92d2931113f485564a81b0d240f26b042196",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1539,
+          "donor": "C-8886",
+          "role": "held_site",
+          "sample": "MH9143272",
+          "selected_barcode_sha256": "169af56ca646bd0c858a1acb1f49d96e288e7d5c0b0001b498e34dd117c60b57",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1914,
+          "donor": "C-8887",
+          "role": "held_site",
+          "sample": "MH9179826",
+          "selected_barcode_sha256": "8d2f6a5214bd84952c1f111f31e0808691f2cc838f1763ba8135fc644a40d56f",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3008,
+          "donor": "C-8890",
+          "role": "held_site",
+          "sample": "MH9143323",
+          "selected_barcode_sha256": "7ccaf1ba2cd235a07113aa7ec4a4fe1e950d6e6bdf2188c073672d6e1acdcc03",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1,
+          "donor": "C-8892",
+          "role": "held_site",
+          "sample": "MH9143370",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Ncl",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 5015,
+          "donor": "C-8893",
+          "role": "held_site",
+          "sample": "MH9143324",
+          "selected_barcode_sha256": "10aac98ee28cd23a22f99b4e6eaa5f269bc74543aa4339391b517cafe2244bae",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3002,
+          "donor": "C-8895",
+          "role": "held_site",
+          "sample": "MH9179825",
+          "selected_barcode_sha256": "0a504046f60f52c5470e3a270714aa855c6a3a045f563f53250f177b281b3e9e",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2008,
+          "donor": "C-8896",
+          "role": "held_site",
+          "sample": "MH8919327",
+          "selected_barcode_sha256": "8894f3c3d86868bccdcc3d66970a18a480b49c5cc719eb1ebe2e98c93d544536",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2731,
+          "donor": "C-8897",
+          "role": "held_site",
+          "sample": "MH9143422",
+          "selected_barcode_sha256": "9465bf505645cce107b4e535cb7899fca91008001abfecc9aa66eac05381fccd",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 4657,
+          "donor": "C-8898",
+          "role": "held_site",
+          "sample": "MH9143371",
+          "selected_barcode_sha256": "9a46aa480aef9b665c3116108944dbc163bba641e283f60ec9c3df271043be5e",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2423,
+          "donor": "C-8899",
+          "role": "held_site",
+          "sample": "MH9143325",
+          "selected_barcode_sha256": "9db35ba2e278ef774f80a7cbf04a1cb5c8c4dafe1b946b082436f7d8ca7f091f",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3020,
+          "donor": "C-8902",
+          "role": "held_site",
+          "sample": "MH9143423",
+          "selected_barcode_sha256": "2ebdefd733eca32854412f04031768f0fed38258df8435f12b065fa84be54193",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1848,
+          "donor": "C-8903",
+          "role": "held_site",
+          "sample": "MH9143274",
+          "selected_barcode_sha256": "8c9dea1521bc8dd704bc19a76c223636b992e1ec05d039a4801aefa4d7913a71",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 483,
+          "donor": "C-8905",
+          "role": "held_site",
+          "sample": "MH9143424",
+          "selected_barcode_sha256": "c2453874c9b1be6193a6bf38958ef58ab1f3708a3139467fbd85fd284927e2fe",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1967,
+          "donor": "C-8909",
+          "role": "held_site",
+          "sample": "MH9143426",
+          "selected_barcode_sha256": "c5f9c13eb9320fb0690f3092e72ab0cac39e950d2e61520a138f4bf4e1c7e862",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 4186,
+          "donor": "C-8910",
+          "role": "held_site",
+          "sample": "newcastle49",
+          "selected_barcode_sha256": "bd87a0463106af44683809bf8a9b8255df93db3e03a5c5b5ac084423cbe875f1",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 246,
+          "donor": "C-8912",
+          "role": "held_site",
+          "sample": "MH8919329",
+          "selected_barcode_sha256": "3f47ac1575c63beca76d1cdef3e83079ef7c9536b8e6c773ba4e3180cf9e76de",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 0,
+          "donor": "C-8913",
+          "role": "held_site",
+          "sample": "MH9179827",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Ncl",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 642,
+          "donor": "C-8914",
+          "role": "held_site",
+          "sample": "MH8919226",
+          "selected_barcode_sha256": "d9db849f1c3d35e269bc506f778bd81b82a886cb45fe5964f0f0d08535f614c4",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2402,
+          "donor": "C-8915",
+          "role": "held_site",
+          "sample": "MH8919330",
+          "selected_barcode_sha256": "2fb139e78b579e5148774c59cf04086647dc48a2c7bfcf03e7515c06bba0f0a5",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3573,
+          "donor": "C-8918",
+          "role": "held_site",
+          "sample": "MH9143275",
+          "selected_barcode_sha256": "13924c641bf5a7dd4a492d62c390c06657fb991566b4b5501c43e7dbfe712baa",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 5463,
+          "donor": "C-8921",
+          "role": "held_site",
+          "sample": "MH9143427",
+          "selected_barcode_sha256": "3a03189d9373569ce5ce30a75b75fcd4f578e8a4e1f9778f7f41fa7e9d2f5db1",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 4811,
+          "donor": "C-8922",
+          "role": "held_site",
+          "sample": "MH9143425",
+          "selected_barcode_sha256": "631d31ec6d5ad306c50fe000a8238e900cc5360ea622defbc6c911ca5ae9bbaf",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 0,
+          "donor": "C-8923",
+          "role": "held_site",
+          "sample": "MH9179828",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Ncl",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 1396,
+          "donor": "C-8926",
+          "role": "held_site",
+          "sample": "MH8919331",
+          "selected_barcode_sha256": "daa60feb31546b17a473b0bf44c25731d294eb12332eea347cfa8e4396749fc9",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 2,
+          "donor": "C-8927",
+          "role": "held_site",
+          "sample": "MH9143372",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Ncl",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 2334,
+          "donor": "C-8928",
+          "role": "held_site",
+          "sample": "MH8919178",
+          "selected_barcode_sha256": "b3c20fe20ab43d63b7ca090b10652d9ead3edd7becccba1a255acbf2fa7b0d29",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3492,
+          "donor": "C-8929",
+          "role": "held_site",
+          "sample": "MH9143276",
+          "selected_barcode_sha256": "85766528bbe2539ecee79024d3789b4cd3e3af845f99e3ce31f9888ec3f8c105",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 886,
+          "donor": "C-8930",
+          "role": "held_site",
+          "sample": "MH8919179",
+          "selected_barcode_sha256": "b628793f5e2eb550b1722ba7b56055a17f0052b2663e8cde524f8849bce5927d",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3076,
+          "donor": "C-8931",
+          "role": "held_site",
+          "sample": "newcastle59",
+          "selected_barcode_sha256": "5b78944b24a9f2defbaef0b1da53c62b3447ed88159bdb2ba8ff244286a0c43e",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 0,
+          "donor": "C-8933",
+          "role": "held_site",
+          "sample": "MH9143373",
+          "selected_barcode_sha256": null,
+          "selected_cells": 0,
+          "site": "Ncl",
+          "status": "EXCLUDED_CELL_SUPPORT"
+        },
+        {
+          "available_lineage_cells": 6956,
+          "donor": "C-8934",
+          "role": "held_site",
+          "sample": "MH9143326",
+          "selected_barcode_sha256": "7ac48cd9695342fc95998d1cbd2624ddd57ab3f3aa43bc3c4944688251dfd4ae",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 4548,
+          "donor": "C-8935",
+          "role": "held_site",
+          "sample": "MH9143327",
+          "selected_barcode_sha256": "50a143deefb9d744e02f3edb1587e75034d7d65d927493028143e1affeb6b0af",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1001,
+          "donor": "C-8936",
+          "role": "held_site",
+          "sample": "newcastle74",
+          "selected_barcode_sha256": "a13ee57f4927188ad1a980604007c705de7dd9924c664d3fe1d64621f14d9d64",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 770,
+          "donor": "C-8937",
+          "role": "held_site",
+          "sample": "newcastle65",
+          "selected_barcode_sha256": "80f5bc4aa3dd87235c16f8129a37085ff25d3c4581d8e7aff7be6089cc8d9f5b",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 294,
+          "donor": "C-8938",
+          "role": "held_site",
+          "sample": "MH8919176",
+          "selected_barcode_sha256": "3043589a7b0609f413b7b6af731a363d7ddc9e081f9d2cd204b106ee1eebee1b",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 846,
+          "donor": "C-8939",
+          "role": "held_site",
+          "sample": "MH8919227",
+          "selected_barcode_sha256": "38792d9db168522534e07e2730e01dc77840fb74a8a234e11118a4a3bca89bdd",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1852,
+          "donor": "C-8940",
+          "role": "held_site",
+          "sample": "MH8919332",
+          "selected_barcode_sha256": "0b36f8c410871a67099a76c8983f404c5a9e207aab693899d167ec746e7ac6b1",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 506,
+          "donor": "C-8941",
+          "role": "held_site",
+          "sample": "MH8919177",
+          "selected_barcode_sha256": "6780727ccd41206c1abcd1a6e4810532e8f6b7345a75a0d5b8a711c97641b3a3",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 1027,
+          "donor": "C-8942",
+          "role": "held_site",
+          "sample": "MH8919282",
+          "selected_barcode_sha256": "0d74b2e5dd541d3d35284aa6730b2c4b4a96db852b2cc25c06b2e373f7ef6bce",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 826,
+          "donor": "C-8943",
+          "role": "held_site",
+          "sample": "MH8919283",
+          "selected_barcode_sha256": "7c03947c4ba2bd057263f7dbb53c4d247ca05580945c838b43847f4f6bcc1fc1",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 4006,
+          "donor": "C-8944",
+          "role": "held_site",
+          "sample": "MH9143277",
+          "selected_barcode_sha256": "b5ed5d1c701c765cef6a8820c5c00e519f33f04c2a06e844ecd524d44127cd71",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        },
+        {
+          "available_lineage_cells": 3229,
+          "donor": "C-8946",
+          "role": "held_site",
+          "sample": "MH8919333",
+          "selected_barcode_sha256": "361389796b392a6c07e646daff93344300ded1363d2740ee899cb413129c5cb5",
+          "selected_cells": 64,
+          "site": "Ncl",
+          "status": "ELIGIBLE"
+        }
+      ],
+      "held_newcastle_donors_cell_eligible": 51,
+      "held_newcastle_donors_pair_support_excluded": 5,
+      "held_newcastle_donors_scored": 46,
+      "held_primary_results": [
+        {
+          "donor": "C-8816",
+          "informative_pairs": 81,
+          "loss": 0.02365321720058644,
+          "sample": "MH9143270",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8820",
+          "informative_pairs": 72,
+          "loss": 0.020550425448565,
+          "sample": "MH9143320",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8821",
+          "informative_pairs": 72,
+          "loss": 0.022702093953350974,
+          "sample": "MH9179821",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8822",
+          "informative_pairs": 72,
+          "loss": 0.018033894364871145,
+          "sample": "MH9179822",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8823",
+          "informative_pairs": 72,
+          "loss": 0.013030289956467779,
+          "sample": "MH8919326",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8825",
+          "informative_pairs": 81,
+          "loss": 0.02173980563461845,
+          "sample": "MH9143321",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8826",
+          "informative_pairs": 63,
+          "sample": "MH9143420",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8827",
+          "informative_pairs": 63,
+          "sample": "MH9143271",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8828",
+          "informative_pairs": 72,
+          "loss": 0.019381243823810314,
+          "sample": "MH9179823",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8829",
+          "informative_pairs": 72,
+          "loss": 0.017205059469477937,
+          "sample": "MH9179824",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8882",
+          "informative_pairs": 72,
+          "loss": 0.020631729271990615,
+          "sample": "MH9143322",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8883",
+          "informative_pairs": 72,
+          "loss": 0.02322428602368426,
+          "sample": "newcastle20",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8884",
+          "informative_pairs": 72,
+          "loss": 0.021940157940121757,
+          "sample": "newcastle21",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8885",
+          "informative_pairs": 72,
+          "loss": 0.016885693990712144,
+          "sample": "MH9143421",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8886",
+          "informative_pairs": 72,
+          "loss": 0.02062652253206448,
+          "sample": "MH9143272",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8887",
+          "informative_pairs": 72,
+          "loss": 0.026555293670948117,
+          "sample": "MH9179826",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8890",
+          "informative_pairs": 72,
+          "loss": 0.023706713587408376,
+          "sample": "MH9143323",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8893",
+          "informative_pairs": 72,
+          "loss": 0.031467641780686235,
+          "sample": "MH9143324",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8895",
+          "informative_pairs": 72,
+          "loss": 0.01866802116431056,
+          "sample": "MH9179825",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8896",
+          "informative_pairs": 72,
+          "loss": 0.019936242432493638,
+          "sample": "MH8919327",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8897",
+          "informative_pairs": 72,
+          "loss": 0.020782286200952016,
+          "sample": "MH9143422",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8898",
+          "informative_pairs": 72,
+          "loss": 0.019641483035838417,
+          "sample": "MH9143371",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8899",
+          "informative_pairs": 63,
+          "sample": "MH9143325",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8902",
+          "informative_pairs": 72,
+          "loss": 0.024335074532889467,
+          "sample": "MH9143423",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8903",
+          "informative_pairs": 63,
+          "sample": "MH9143274",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8905",
+          "informative_pairs": 81,
+          "loss": 0.019989060502270953,
+          "sample": "MH9143424",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8909",
+          "informative_pairs": 72,
+          "loss": 0.026813416642953548,
+          "sample": "MH9143426",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8910",
+          "informative_pairs": 81,
+          "loss": 0.022740879006492864,
+          "sample": "newcastle49",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8912",
+          "informative_pairs": 72,
+          "loss": 0.025516985619032588,
+          "sample": "MH8919329",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8914",
+          "informative_pairs": 72,
+          "loss": 0.035705783216833806,
+          "sample": "MH8919226",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8915",
+          "informative_pairs": 72,
+          "loss": 0.02099697695442965,
+          "sample": "MH8919330",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8918",
+          "informative_pairs": 72,
+          "loss": 0.0217858722709913,
+          "sample": "MH9143275",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8921",
+          "informative_pairs": 72,
+          "loss": 0.01894607797794727,
+          "sample": "MH9143427",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8922",
+          "informative_pairs": 72,
+          "loss": 0.02810092848910631,
+          "sample": "MH9143425",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8926",
+          "informative_pairs": 72,
+          "loss": 0.02019279814481105,
+          "sample": "MH8919331",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8928",
+          "informative_pairs": 81,
+          "loss": 0.024747959585552003,
+          "sample": "MH8919178",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8929",
+          "informative_pairs": 72,
+          "loss": 0.020836981234106582,
+          "sample": "MH9143276",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8930",
+          "informative_pairs": 72,
+          "loss": 0.03145928246778413,
+          "sample": "MH8919179",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8931",
+          "informative_pairs": 72,
+          "loss": 0.022892014772096805,
+          "sample": "newcastle59",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8934",
+          "informative_pairs": 72,
+          "loss": 0.0273577581943251,
+          "sample": "MH9143326",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8935",
+          "informative_pairs": 72,
+          "loss": 0.024453726854957083,
+          "sample": "MH9143327",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8936",
+          "informative_pairs": 72,
+          "loss": 0.03054894165493338,
+          "sample": "newcastle74",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8937",
+          "informative_pairs": 81,
+          "loss": 0.024427070579461134,
+          "sample": "newcastle65",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8938",
+          "informative_pairs": 81,
+          "loss": 0.020710003724068393,
+          "sample": "MH8919176",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8939",
+          "informative_pairs": 72,
+          "loss": 0.03520905319377595,
+          "sample": "MH8919227",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8940",
+          "informative_pairs": 72,
+          "loss": 0.0235412948957521,
+          "sample": "MH8919332",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8941",
+          "informative_pairs": 72,
+          "loss": 0.020369455004599697,
+          "sample": "MH8919177",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8942",
+          "informative_pairs": 72,
+          "loss": 0.018518609945748294,
+          "sample": "MH8919282",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8943",
+          "informative_pairs": 63,
+          "sample": "MH8919283",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8944",
+          "informative_pairs": 81,
+          "loss": 0.02769864421947474,
+          "sample": "MH9143277",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8946",
+          "informative_pairs": 72,
+          "loss": 0.027060096125966007,
+          "sample": "MH8919333",
+          "status": "SCORED"
+        }
+      ],
+      "held_residual_results": [
+        {
+          "donor": "C-8816",
+          "informative_pairs": 81,
+          "loss": 0.04056874572479674,
+          "sample": "MH9143270",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8820",
+          "informative_pairs": 72,
+          "loss": 0.019231993242120535,
+          "sample": "MH9143320",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8821",
+          "informative_pairs": 72,
+          "loss": 0.024189428554878482,
+          "sample": "MH9179821",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8822",
+          "informative_pairs": 72,
+          "loss": 0.020737063703432583,
+          "sample": "MH9179822",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8823",
+          "informative_pairs": 72,
+          "loss": 0.012251071892768377,
+          "sample": "MH8919326",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8825",
+          "informative_pairs": 81,
+          "loss": 0.01945174572720482,
+          "sample": "MH9143321",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8826",
+          "informative_pairs": 63,
+          "sample": "MH9143420",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8827",
+          "informative_pairs": 63,
+          "sample": "MH9143271",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8828",
+          "informative_pairs": 72,
+          "loss": 0.02214259000302788,
+          "sample": "MH9179823",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8829",
+          "informative_pairs": 72,
+          "loss": 0.038624053455830774,
+          "sample": "MH9179824",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8882",
+          "informative_pairs": 72,
+          "loss": 0.02892473943257375,
+          "sample": "MH9143322",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8883",
+          "informative_pairs": 72,
+          "loss": 0.051606781388604,
+          "sample": "newcastle20",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8884",
+          "informative_pairs": 72,
+          "loss": 0.02356152052440978,
+          "sample": "newcastle21",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8885",
+          "informative_pairs": 72,
+          "loss": 0.026092526899031708,
+          "sample": "MH9143421",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8886",
+          "informative_pairs": 72,
+          "loss": 0.018684228027100354,
+          "sample": "MH9143272",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8887",
+          "informative_pairs": 72,
+          "loss": 0.028320701032275884,
+          "sample": "MH9179826",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8890",
+          "informative_pairs": 72,
+          "loss": 0.021007893155960848,
+          "sample": "MH9143323",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8893",
+          "informative_pairs": 72,
+          "loss": 0.027769613773956446,
+          "sample": "MH9143324",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8895",
+          "informative_pairs": 72,
+          "loss": 0.027850642500586817,
+          "sample": "MH9179825",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8896",
+          "informative_pairs": 72,
+          "loss": 0.020428053069960032,
+          "sample": "MH8919327",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8897",
+          "informative_pairs": 72,
+          "loss": 0.020072037569362204,
+          "sample": "MH9143422",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8898",
+          "informative_pairs": 72,
+          "loss": 0.04743109199679398,
+          "sample": "MH9143371",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8899",
+          "informative_pairs": 63,
+          "sample": "MH9143325",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8902",
+          "informative_pairs": 72,
+          "loss": 0.04051328325035225,
+          "sample": "MH9143423",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8903",
+          "informative_pairs": 63,
+          "sample": "MH9143274",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8905",
+          "informative_pairs": 81,
+          "loss": 0.020079178077008514,
+          "sample": "MH9143424",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8909",
+          "informative_pairs": 72,
+          "loss": 0.024905795585029627,
+          "sample": "MH9143426",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8910",
+          "informative_pairs": 81,
+          "loss": 0.021690724006509045,
+          "sample": "newcastle49",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8912",
+          "informative_pairs": 72,
+          "loss": 0.02153396234491307,
+          "sample": "MH8919329",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8914",
+          "informative_pairs": 72,
+          "loss": 0.02968417790259849,
+          "sample": "MH8919226",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8915",
+          "informative_pairs": 72,
+          "loss": 0.019603576744803137,
+          "sample": "MH8919330",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8918",
+          "informative_pairs": 72,
+          "loss": 0.023389838852235348,
+          "sample": "MH9143275",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8921",
+          "informative_pairs": 72,
+          "loss": 0.021114088026921093,
+          "sample": "MH9143427",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8922",
+          "informative_pairs": 72,
+          "loss": 0.057668426128775985,
+          "sample": "MH9143425",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8926",
+          "informative_pairs": 72,
+          "loss": 0.019642556292785614,
+          "sample": "MH8919331",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8928",
+          "informative_pairs": 81,
+          "loss": 0.022165393337967545,
+          "sample": "MH8919178",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8929",
+          "informative_pairs": 72,
+          "loss": 0.018937943422362147,
+          "sample": "MH9143276",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8930",
+          "informative_pairs": 72,
+          "loss": 0.029189781444133082,
+          "sample": "MH8919179",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8931",
+          "informative_pairs": 72,
+          "loss": 0.022809929220051133,
+          "sample": "newcastle59",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8934",
+          "informative_pairs": 72,
+          "loss": 0.054245622479086084,
+          "sample": "MH9143326",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8935",
+          "informative_pairs": 72,
+          "loss": 0.06109631847973133,
+          "sample": "MH9143327",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8936",
+          "informative_pairs": 72,
+          "loss": 0.02974733871591709,
+          "sample": "newcastle74",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8937",
+          "informative_pairs": 81,
+          "loss": 0.02355996071081098,
+          "sample": "newcastle65",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8938",
+          "informative_pairs": 81,
+          "loss": 0.020095900022549868,
+          "sample": "MH8919176",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8939",
+          "informative_pairs": 72,
+          "loss": 0.02827386963232993,
+          "sample": "MH8919227",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8940",
+          "informative_pairs": 72,
+          "loss": 0.02325756559411382,
+          "sample": "MH8919332",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8941",
+          "informative_pairs": 72,
+          "loss": 0.01923768360388877,
+          "sample": "MH8919177",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8942",
+          "informative_pairs": 72,
+          "loss": 0.016067034314429872,
+          "sample": "MH8919282",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8943",
+          "informative_pairs": 63,
+          "sample": "MH8919283",
+          "status": "EXCLUDED_PAIR_SUPPORT"
+        },
+        {
+          "donor": "C-8944",
+          "informative_pairs": 81,
+          "loss": 0.02479421684481092,
+          "sample": "MH9143277",
+          "status": "SCORED"
+        },
+        {
+          "donor": "C-8946",
+          "informative_pairs": 72,
+          "loss": 0.02867979852184119,
+          "sample": "MH8919333",
+          "status": "SCORED"
+        }
+      ],
+      "hyperparameter_selection": "one frozen whole-cohort configuration per method; no lineage-specific tuning",
+      "primary_prediction_boundary_events": 0,
+      "residual_prediction_boundary_events": 13,
+      "source_cambridge_donors_eligible": 24,
+      "source_cambridge_eligible_by_role": {
+        "calibration": 11,
+        "pilot": 13
+      },
+      "source_fit_certificate": {
+        "converged": true,
+        "gradient_tolerance": 1e-08,
+        "iterations": 6,
+        "scaled_gradient_norm": 2.3638234227161816e-14,
+        "schur_condition_number": 3.277840420251635,
+        "support_count_range": [
+          13,
+          24
+        ]
+      },
+      "status": "POST_HOC_LINEAGE_SENSITIVITY"
+    }
+  },
+  "lineages_reported": [
+    "T_cells",
+    "B_cells",
+    "myeloid_cells"
+  ],
+  "lineages_requested": [
+    "T_cells",
+    "B_cells",
+    "myeloid_cells"
+  ],
+  "provenance": {
+    "cell_vectors_serialized": false,
+    "frozen_confirmation_sha256": "5eb5fd2b41df7f4f7d822a92765ffe69854dcbe5f572f2db35cf433d7dd0adb1",
+    "frozen_development_sha256": "2a8b535a0581b51a2a1eff8c764038a11cac7db08b67217c9b9dae22157e3e72",
+    "frozen_prediction_sha256": "7a183d4a2f55922dc07f8cbcdca904893710fe008e9169fdf618532ba06ea6e2",
+    "full_h5ad_matrix_loaded": false,
+    "numeric_matrix_columns_read": 18,
+    "numeric_matrix_rows_read": 60670,
+    "script_sha256": "40dc6c7c88e4580ac65ddd4dd5196760684ae1a73118ecae8dec24cf421b05a9",
+    "sealed_h5ad_sha256": "ec48f328f2e884c23376c8aa1f26041e11625762be5c30b0bd0869aa8bb1a334",
+    "source_manifest_sha256": "431e8a370bc9b08a207ab0ff8d3581f80abaf0f36b55eba4accedc5685a3d3cd"
+  },
+  "schema": "stephenson-major-lineage-sensitivity/1.0",
+  "source_site": "Cambridge",
+  "status": "POST_HOC_ROBUSTNESS_COMPLETE"
+}

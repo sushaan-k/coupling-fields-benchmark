@@ -1,0 +1,973 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.72in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{array,booktabs,longtable,seqsplit,tabularx}
+\usepackage{float,needspace,placeins}
+\usepackage{xurl}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\usepackage[numbers]{natbib}
+\usepackage{microtype}
+\providecommand{\bibcommenthead}{}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\renewcommand{\thecorollary}{S\arabic{corollary}}
+\renewcommand{\theproposition}{S\arabic{proposition}}
+\newcommand{\field}{\Theta}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\input{manuscript_results_macros.tex}
+\title{Additional file 1\\[4pt]\large Fixed-margin prediction of cell-level RNA--surface-protein dependence across cohorts}
+\author{Anonymous Authors}
+\date{}
+\hypersetup{
+  pdftitle={Additional file 1: Fixed-margin prediction of cell-level RNA--surface-protein dependence across cohorts},
+  pdfauthor={Anonymous Authors}
+}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Coupling coordinates}
+
+\subsection{Definition}
+
+Let $P\in(0,1)^{r\times s}$ be a joint probability table, and let $B_r\in\R^{r\times(r-1)}$ and $B_s\in\R^{s\times(s-1)}$ have orthonormal columns spanning the complements of the all-ones vectors. The population coupling field is
+\begin{equation}
+  \field(P)=B_r^{\mathsf T}\log(P)B_s.
+  \label{eq:s-field}
+\end{equation}
+We use Helmert bases. Other orthonormal contrast bases rotate the $(r-1)(s-1)$ coordinates without changing Frobenius norms or pairwise Frobenius distances.
+
+\begin{proposition}[Marginal invariance and independence]
+For positive vectors $a\in\R^r$ and $b\in\R^s$, define
+\[
+P'=\frac{\operatorname{diag}(a)P\operatorname{diag}(b)}
+{\sum_{u,v}a_uP_{uv}b_v}.
+\]
+Then $\field(P')=\field(P)$. Moreover, $\field(P)=0$ if and only if $P$ is an independent joint law.
+\end{proposition}
+
+\begin{proof}
+Writing $c$ for the normalizing constant gives
+\[
+\log P'=\log P+(\log a)\mathbf 1_s^{\mathsf T}
++\mathbf 1_r(\log b)^{\mathsf T}-\log(c)\mathbf 1_r\mathbf 1_s^{\mathsf T}.
+\]
+The added terms are annihilated on the left by $B_r^{\mathsf T}$ or on the right by $B_s$, proving invariance. Factorization $P_{uv}=p_uq_v$ makes $\log P$ a sum of row and column terms, so $\field(P)=0$. Conversely, $\field(P)=0$ removes the interaction component in the orthogonal decomposition into row and column terms. Hence $\log P_{uv}=\alpha_u+\beta_v$, and $P$ factorizes after normalization.
+\end{proof}
+
+\section{Binary fixed-margin estimator}
+
+The primary estimator conditions binary RNA-protein tables on their observed margins, which eliminates nuisance marginal parameters. Predictions use the recipient margins without a pseudocount.
+
+\subsection{Binary scaling identity}
+
+For
+\[
+P=\begin{pmatrix}p_{00}&p_{01}\\p_{10}&p_{11}\end{pmatrix},
+\qquad
+B_2=2^{-1/2}(1,-1)^{\mathsf T},
+\]
+Eq.~\eqref{eq:s-field} is scalar and satisfies
+\begin{equation}
+  \field(P)=\frac12\log\frac{p_{00}p_{11}}{p_{01}p_{10}}.
+  \label{eq:binary-helmert}
+\end{equation}
+The conventional log odds ratio is therefore $\theta=2\field(P)$. Estimation uses $\theta$; reported field coordinates use the Helmert scale in Eq.~\eqref{eq:binary-helmert}.
+
+\subsection{Fixed-margin likelihood}
+
+For donor $d$ and ordered RNA-protein pair $e$, write the $2\times2$ table as
+\[
+N_{de}=\begin{pmatrix}
+A_{de}&r_{0,de}-A_{de}\\
+c_{0,de}-A_{de}&n_{de}-r_{0,de}-c_{0,de}+A_{de}
+\end{pmatrix},
+\]
+where $r_{0,de}$ and $c_{0,de}$ are the first row and column totals and $c_{1,de}=n_{de}-c_{0,de}$. Conditional on these margins,
+\begin{equation}
+ \Pr_{\theta_{de}}(A=a\mid r_0,c_0,n)
+ =\frac{\binom{c_0}{a}\binom{c_1}{r_0-a}\exp(\theta_{de}a)}
+ {Z_{de}(\theta_{de})},
+ \quad
+ Z_{de}(\theta)=\sum_{a\in\mathcal A_{de}}
+ \binom{c_0}{a}\binom{c_1}{r_0-a}\exp(\theta a),
+ \label{eq:conditional-nchg}
+\end{equation}
+on the feasible integer support $\mathcal A_{de}$. Omitting a constant independent of $\theta$, the negative log likelihood is
+\begin{equation}
+ \ell_{de}(\theta)=\log Z_{de}(\theta)-A_{de}\theta,
+ \qquad
+ \ell'_{de}(\theta)=\E_\theta[A]-A_{de},
+ \qquad
+ \ell''_{de}(\theta)=\operatorname{Var}_\theta(A).
+ \label{eq:conditional-derivatives}
+\end{equation}
+An informative table has at least two values in $\mathcal A_{de}$, making $\ell''_{de}>0$ and the conditional odds ratio identifiable.
+
+Hierarchical conditional and random-effects log-linear models share odds-ratio information across $2\times2$ strata~\cite{liao1999,coullagresti2003,stijnen2010}. We estimate donor-specific and population log odds jointly across the entity panel, then predict recipient tables at their observed margins.
+
+\subsection{Hierarchical transfer objective}
+
+Let $D$ denote source donors, $E$ the ordered marker pairs, $\theta_{de}$ a donor-specific log odds ratio, and $\mu_e$ the transferable population log odds. Two marker hypergraphs induce normalized Laplacians $L_R$ and $L_A$ for the RNA and protein axes. Their product-space penalty is
+\begin{equation}
+ L=L_R\otimes I+I\otimes L_A.
+ \label{eq:product-laplacian}
+\end{equation}
+The estimator minimizes the penalized composite conditional objective
+\begin{equation}
+ Q(\theta,\mu)=\frac1D\sum_{d=1}^{D}\sum_{e=1}^{E}\ell_{de}(\theta_{de})
+ +\frac{\gamma}{2}\sum_{d,e}(\theta_{de}-\mu_e)^2
+ +\frac{\rho}{2}\norm{\mu}_2^2
+ +\frac{\tau}{2}\mu^{\mathsf T}L\mu.
+ \label{eq:exact-objective}
+\end{equation}
+The likelihood sum is composite because entity pairs within a donor share cells and markers. We express the penalty grid through dimensionless inputs
+\[
+ \gamma=\eta s_\eta/D,
+ \qquad \rho=\lambda_0s_\mu,
+ \qquad \tau=\lambda_Gs_\mu,
+\]
+where $s_\eta$ is the median null Fisher information across informative donor-entity tables and $s_\mu$ is the median information after donor averaging. This scaling makes the grid invariant to duplication of the complete donor panel.
+
+Its gradients are
+\begin{align}
+ \frac{\partial Q}{\partial\theta_{de}}
+ &=\frac{\E_{\theta_{de}}[A]-A_{de}}{D}
+   +\gamma(\theta_{de}-\mu_e),\\
+ \nabla_\mu Q
+ &=-\gamma\sum_d(\theta_d-\mu)+\rho\mu+\tau L\mu.
+ \label{eq:exact-gradients}
+\end{align}
+The Hessian has diagonal $\theta$ block
+$\operatorname{diag}\{\operatorname{Var}_{\theta_{de}}(A)/D+\gamma\}$,
+$\theta$-$\mu$ entries $-\gamma$, and $\mu$ block
+$D\gamma I+\rho I+\tau L$. Its quadratic form is
+\begin{equation}
+ \sum_{d,e}\frac{\operatorname{Var}_{\theta_{de}}(A)}{D}u_{de}^2
+ +\gamma\sum_{d,e}(u_{de}-v_e)^2
+ +\rho\norm{v}_2^2+\tau v^{\mathsf T}Lv.
+ \label{eq:exact-hessian-form}
+\end{equation}
+
+\begin{proposition}[Finite identifiable fit]
+If $\gamma>0$, $\rho>0$, and $\tau\ge0$, Eq.~\eqref{eq:exact-objective} has a unique finite minimizer. For every informative donor-entity table, its unpenalized conditional parameter is identifiable.
+\end{proposition}
+
+\begin{proof}
+Each likelihood term is convex by Eq.~\eqref{eq:conditional-derivatives}, and the product Laplacian is positive semidefinite. Equality to zero in Eq.~\eqref{eq:exact-hessian-form} requires $u_{de}=v_e$ through the $\gamma$ term and $v=0$ through the $\rho$ term, hence $u=0$. The objective is strictly convex and coercive. The final statement follows from $\ell''_{de}>0$ on every informative support.
+\end{proof}
+
+Newton updates eliminate donor-specific parameters by the Schur complement. The population diagonal then receives
+\[
+ \sum_d\frac{\gamma\{\operatorname{Var}_{\theta_{de}}(A)/D\}}
+ {\gamma+\operatorname{Var}_{\theta_{de}}(A)/D}
+\]
+in addition to $\rho I+\tau L$. Backtracking enforces descent, and fits that exceed prespecified gradient-norm or condition-number thresholds are rejected.
+
+For a recipient donor, Eq.~\eqref{eq:conditional-nchg} with log odds $\alpha\widehat\mu_e$ and the recipient margins yields a conditional-expectation prediction that preserves both margins. Development donors determine $\alpha$ and all penalties.
+
+\subsection{Source-only graphs and tuning grids}
+
+Graphs used only samples available at the corresponding selection stage. Stephenson and COMBAT represented markers by RNA detection prevalence and mean log-transformed ADT panel fractions across source sample-by-cell-type strata. GSE239452 used the corresponding donor-level profiles. Standardized profiles defined Euclidean $k$-nearest-neighbor graphs; the union of directed neighbor relations formed undirected two-vertex hyperedges. BMMC used prevalence across source donor-by-lineage strata, with each marker and its $k$ nearest neighbors forming one unweighted hyperedge. The resulting normalized RNA and ADT hypergraph Laplacians entered Eq.~\eqref{eq:product-laplacian}. Cross-validation rebuilt both graphs within each calibration fold, and the final fit used all permitted development samples.
+
+Table~\ref{tab:s-binary-grids} gives the complete binary grids. Redundant values of $k$ were omitted when $\lambda_G=0$. The statistic comparator crossed Pearson and deviance statistics, raw and conditional-null-centered forms, and the same transport grid; GSE239452 evaluated raw statistics only.
+
+\begin{table}[ht]
+\centering
+\caption{Binary estimator grids used for the reported analyses.}
+\label{tab:s-binary-grids}
+\small
+\begin{tabularx}{\textwidth}{@{}Y Y Y Y Y Y@{}}
+\toprule
+Analysis & Neighbors $k$ & Heterogeneity $\eta$ & Ridge $\lambda_0$ & Graph $\lambda_G$ & Transport $\alpha$ \\
+\midrule
+Stephenson & 1, 2 & 0.1, 1, 10 & 0.01, 0.1 & 0, 0.1, 1 & 0.5, 0.75, 1, 1.25 \\
+GSE239452 & 1, 2 & 0.1, 1, 10 & 0.01, 0.1 & 0, 0.1, 0.3, 1 & 0.5, 0.75, 1, 1.25 \\
+COMBAT development & 1, 2 & 0.1, 1, 10 & 0.01, 0.1 & 0, 0.1, 0.3, 1 & 0.5, 0.75, 1, 1.25 \\
+BMMC development & 1, 2, 3 & 0.1, 1, 10 & 0.01, 0.1 & 0, 0.1, 0.3, 1 & 0.5, 0.75, 1, 1.25 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Transfer risk and recipient drift}
+
+To separate source estimation error from recipient variation, fix informative margins $M=(r_0,r_1,c_0,c_1)$ with total $N$ and endpoints
+\[
+  L_M=\max(0,r_0+c_0-N),
+  \qquad
+  U_M=\min(r_0,c_0)
+\]
+for the feasible upper-left count. Write Eq.~\eqref{eq:conditional-nchg} as
+\[
+  p_\theta(a\mid M)=h_M(a)\exp\{\theta a-\psi_M(\theta)\},
+  \qquad
+  I_M(\theta)=\psi_M''(\theta)=\operatorname{Var}_\theta(A\mid M).
+\]
+
+\begin{proposition}[Fixed-margin transfer risk]
+Let $\mathcal S$ contain all source information, and suppose a recipient log odds satisfies
+\[
+  \theta_q=\mu+\xi_q,
+  \qquad
+  \E(\xi_q\mid\mathcal S,M)=0,
+  \qquad
+  \E(\xi_q^2\mid\mathcal S,M)=\sigma_M^2.
+\]
+The source estimate $\widehat\mu$ and multiplier $\alpha$ are $\mathcal S$-measurable, and the recipient prediction uses $\widehat\theta=\alpha\widehat\mu$. Assume that $\theta_q$ and $\widehat\theta$ lie almost surely in a compact interval $\mathcal T$. Define
+\[
+  \underline I_M=\inf_{\theta\in\mathcal T}I_M(\theta),
+  \qquad
+  \overline I_M=\sup_{\theta\in\mathcal T}I_M(\theta).
+\]
+Then the conditional excess log loss
+\[
+  \mathcal R_M=
+  \E\!\left[
+    \operatorname{KL}\{p_{\theta_q}(\cdot\mid M)\,\|\,
+    p_{\widehat\theta}(\cdot\mid M)\}
+    \mid\mathcal S,M
+  \right]
+\]
+satisfies
+\begin{equation}
+  \frac{\underline I_M}{2}
+  \left\{(\alpha\widehat\mu-\mu)^2+\sigma_M^2\right\}
+  \leq \mathcal R_M \leq
+  \frac{\overline I_M}{2}
+  \left\{(\alpha\widehat\mu-\mu)^2+\sigma_M^2\right\}.
+  \label{eq:transfer-risk-bound}
+\end{equation}
+Moreover, $I_M(\theta)\leq(U_M-L_M)^2/4$ for every finite $\theta$, so
+\begin{equation}
+  \mathcal R_M\leq
+  \frac{(U_M-L_M)^2}{8}
+  \left\{(\alpha\widehat\mu-\mu)^2+\sigma_M^2\right\}.
+  \label{eq:finite-margin-risk-bound}
+\end{equation}
+Divide these bounds by $N$ for excess log loss per cell.
+\end{proposition}
+
+\begin{proof}
+For canonical parameters $\theta$ and $\eta$,
+\[
+  \operatorname{KL}(p_\theta\|p_\eta)
+  =\psi_M(\eta)-\psi_M(\theta)-\psi_M'(\theta)(\eta-\theta).
+\]
+Taylor's theorem with integral remainder gives
+\[
+  \operatorname{KL}(p_\theta\|p_\eta)
+  =(\eta-\theta)^2\int_0^1(1-t)
+  I_M\{\theta+t(\eta-\theta)\}\,dt.
+\]
+Bounding the information along the segment from $\theta$ to $\eta$, substituting $\theta=\mu+\xi_q$ and $\eta=\alpha\widehat\mu$, and taking the conditional expectation prove Eq.~\eqref{eq:transfer-risk-bound}. Popoviciu's inequality gives $I_M(\theta)=\operatorname{Var}_\theta(A\mid M)\leq(U_M-L_M)^2/4$, which proves Eq.~\eqref{eq:finite-margin-risk-bound}. For informative margins, $I_M$ is continuous and positive on the compact interval $\mathcal T$, hence $\underline I_M>0$.
+\end{proof}
+
+If $\alpha$ is fixed across source repetitions and $b=\E(\widehat\mu)-\mu$, the reducible term in Eq.~\eqref{eq:transfer-risk-bound} decomposes as
+\begin{equation}
+  \E(\alpha\widehat\mu-\mu)^2
+  =\alpha^2\operatorname{Var}(\widehat\mu)
+  +\{\alpha b+(\alpha-1)\mu\}^2.
+  \label{eq:source-risk-decomposition}
+\end{equation}
+As source estimation becomes consistent and $\alpha$ approaches one, $\sigma_M^2$ remains in the conditional log loss of a single transported parameter relative to the donor-specific conditional law. This comparison does not imply a positive lower bound on mean-table prediction regret.
+
+\subsection{Decision rule for table prediction}
+
+The conditional model defines a distribution over integer tables with the recipient margins. The prediction used in the paper is its mean table.
+
+\begin{proposition}[Conditional mean minimizes expected deviance]
+Let $N$ be a random contingency table with fixed margins $M$ and total $n$, and let $\overline N=\E(N\mid M)$. For any nonnegative table $Q$ with margins $M$ and $Q_{ij}>0$ whenever $\overline N_{ij}>0$,
+\begin{equation}
+  \E\{D(N,Q)\mid M\}-\E\{D(N,\overline N)\mid M\}
+  =\frac{2}{n}\sum_{i,j:\overline N_{ij}>0}
+  \overline N_{ij}\log\frac{\overline N_{ij}}{Q_{ij}}\geq0.
+  \label{eq:mean-deviance-decision}
+\end{equation}
+The conditional mean is the unique minimizer on cells with positive conditional mean.
+\end{proposition}
+
+\begin{proof}
+For any admissible $Q$,
+\[
+  \E\{D(N,Q)\mid M\}
+  =\frac{2}{n}\E\!\left(\sum_{i,j:N_{ij}>0}N_{ij}\log N_{ij}\,\middle|\,M\right)
+  -\frac{2}{n}\sum_{i,j}\overline N_{ij}\log Q_{ij}.
+\]
+The first term is independent of $Q$. Subtracting the same expression evaluated at $\overline N$ gives Eq.~\eqref{eq:mean-deviance-decision}. Because $Q/n$ and $\overline N/n$ are probability tables, the right side is twice their Kullback--Leibler divergence. It is nonnegative and vanishes only when $Q=\overline N$ on the support of $\overline N$. Every table in the conditional support has margins $M$, so linearity of expectation gives the same margins to $\overline N$.
+\end{proof}
+
+For a predictive interaction law $G$, linearity gives the mean table
+$Q_G=\int\E_\theta(N\mid M)\,dG(\theta)$. Proposition S4 applies to this
+mixture as well as to a single interaction. The following consequence connects
+error in the interaction distribution to the table loss.
+
+\begin{corollary}[Distribution error and table prediction]
+Fix binary margins $M$ with total $n>0$ and feasible upper-left counts
+$\{L,\ldots,U\}$; write $w=U-L$. For probability laws $G,H$ on real log
+odds with finite second moments, define
+\[
+ P_G(a)=\int p_\theta(a\mid M)\,dG(\theta),\qquad Q_G=\E_{P_G}(N),
+\]
+and define $P_H,Q_H$ analogously. Then
+\begin{align*}
+ \E_{P_G}\{D(N,Q_H)-D(N,Q_G)\}
+ &=2\operatorname{KL}(Q_G/n\,\|\,Q_H/n)\\
+ &\leq2\operatorname{KL}(P_G\,\|\,P_H)\\
+ &\leq\frac{w^2}{4}W_2^2(G,H),
+\end{align*}
+where $W_2$ is the quadratic Wasserstein distance. Structural zero cells
+contribute zero. If $w=0$, all quantities vanish. For normal laws, including
+zero variances, $W_2^2(G,H)=(\mu_G-\mu_H)^2+(\sigma_G-\sigma_H)^2$.
+\end{corollary}
+
+\begin{proof}
+Proposition S4 gives the equality. Selecting a cell category with probability
+$N_{ij}(a)/n$ maps $P_G,P_H$ to $Q_G/n,Q_H/n$, so data processing gives the
+first inequality. The fixed-margin log-partition function satisfies
+$\psi''(\theta)\leq w^2/4$; its Taylor remainder gives
+$\operatorname{KL}(p_\theta\|p_\eta)\leq w^2(\theta-\eta)^2/8$.
+For any coupling $\pi$ of $G,H$, joint convexity therefore yields
+\[
+ \operatorname{KL}(P_G\|P_H)
+ \leq\int\operatorname{KL}(p_\theta\|p_\eta)\,d\pi
+ \leq\frac{w^2}{8}\int(\theta-\eta)^2\,d\pi.
+\]
+Taking the infimum over couplings proves the bound. The normal-law expression
+follows from their monotone quantile coupling.
+\end{proof}
+
+Different interaction laws can yield the same mean table, so positive
+heterogeneity need not produce positive table regret.
+
+\subsection{Matched signed-statistic transfer}
+
+The matched statistic-transfer comparator uses the same binary tables, donors, splits, recipient margins, selection stage, and deviance-per-cell outcome. Stephenson pools donor statistics with the Paule--Mandel random-effects estimator~\cite{paule1982}. For determinant $D_N=N_{00}N_{11}-N_{01}N_{10}$, the signed root Pearson statistic is
+\begin{equation}
+ R_P=\operatorname{sign}(D_N)\sqrt{X^2}
+ =D_N\sqrt{\frac{n}{r_0r_1c_0c_1}}.
+\end{equation}
+The signed root likelihood-ratio deviance statistic is
+\begin{equation}
+ R_G=\operatorname{sign}(D_N)
+ \left\{2\sum_{i,j:N_{ij}>0}N_{ij}\log(N_{ij}/E_{ij})\right\}^{1/2},
+ \qquad E_{ij}=r_ic_j/n.
+\end{equation}
+Statistics are divided by $\sqrt n$ before donor pooling, multiplied by $\alpha$, and restored to the recipient $\sqrt n$ scale before fixed-margin reconstruction. Stephenson used Paule--Mandel pooling with inverse-variance-plus-heterogeneity weights and selected the statistic, its raw or conditional-null-centered form, and $\alpha$ on the pilot. GSE239452 used equal donor means and selected a raw statistic and $\alpha$ by calibration cross-validation. COMBAT and BMMC used equal donor means and evaluated both centering rules. The hierarchical method transported conditional log odds and reconstructed the noncentral-hypergeometric expectation.
+
+\subsection{Fitted interaction baselines}
+
+For each entity $e$, the common-effect conditional maximum-likelihood estimate solves
+\[
+  \sum_d \mathbb E_{\theta_e}[A_{de}\mid m_{de}]
+  =\sum_d A_{de}
+\]
+The implementation returns the corresponding extended estimate at a support boundary and otherwise requires an absolute score below $10^{-8}$. This estimator has no donor deviations, ridge penalty, or graph penalty.
+
+The pooled-table baseline first sums the source-donor tables for each entity and computes the interaction coefficient from the saturated model
+\[
+  \log \mathbb E[N_{ij}]=\beta_0+\beta_i^{R}+\beta_j^{C}
+  +\beta^{I}\mathbb 1\{i=1,j=1\}.
+\]
+For a $2\times2$ table, $\beta^{I}$ is the pooled sample log odds ratio, which differs from the stratified conditional estimate when donor margins vary. In the original post hoc comparison, both fitted coefficients select $\alpha$ on development donors and reconstruct held tables with Eq.~\eqref{eq:conditional-nchg}. The pooled method is therefore pooled-table log odds with conditional reconstruction, not a Poisson plug-in prediction.
+
+A separate post hoc comparator fixes the same pooled saturated-model interaction and profiles recipient row and column parameters. This gives the unique positive continuous table with the recipient margins and transported odds ratio, without Eq.~\eqref{eq:conditional-nchg}. The original calibration and pilot donors select $\alpha$ before the interaction is refitted on all development donors.
+
+\subsection{Conditional random-effects prediction}
+
+For each marker pair, the classical random-effects model assumes
+$\theta_{de}\sim\mathcal N(\mu_e,\tau_e^2)$ and estimates its parameters
+by conditional marginal likelihood \cite{jackson2018}:
+\[
+ (\widehat\mu_e,\widehat\tau_e^2)
+ =\arg\max_{\mu,\tau^2\geq0}
+ \sum_d\log\int p(A_{de}\mid m_{de},\theta)
+ \,d\mathcal N(\mu,\tau^2)(\theta).
+\]
+The common-effect model is the boundary $\tau_e^2=0$. Two predictions from
+the fitted random-effects distribution were compared: conditional expectation
+at $\alpha\widehat\mu_e$ and the mean of conditional expectations over
+$\mathcal N(\alpha\widehat\mu_e,\alpha^2\widehat\tau_e^2)$.
+
+The reanalysis retained the original 12-donor calibration, 24-donor pilot,
+and 56-donor recipient split. The pilot selected $\alpha$ separately for
+each prediction rule from $\{0.5,0.75,1,1.25\}$; final fits used all
+36 source donors. Predictions with $\alpha=1$ were also retained. The
+hierarchy used its original penalties, and the common-ridge comparison
+used the same population penalty of 0.01. All comparisons are post hoc.
+
+Predictive upper-left-count intervals were equal-tail intervals from the
+conditional or mixture law. Coverage and interval width were averaged over
+informative pairs within each recipient, then equally over recipients.
+The fitted source parameters were held fixed. Paired bootstrap intervals for
+loss comparisons used 20,000 physical-donor resamples.
+
+\subsection{Ground-truth estimator simulation}
+
+The factorial simulation crossed donor heterogeneity with recipient-margin shift. Each of 128 seeded replicates contained 12 source donors, 12 recipients, 16 independent binary entity tables per donor, and 128 observations per table. Counts followed the Fisher noncentral-hypergeometric distribution at known population log odds. Source donor log odds either equaled the population value or had independent normal deviations with standard deviation 1.2; recipient log odds equaled the population value without donor deviations. Recipient margins were source-like or shifted toward opposing row and column prevalences, using common random streams across margin conditions.
+
+Across scenarios, the hierarchical estimator used heterogeneity penalty 0.1, ridge penalty 0.01, graph penalty zero, and $\alpha=1$. The common-effect estimator fitted one conditional log odds across source donors with the same scaled population ridge penalty of 0.01; raw and conditional-null-centered signed-root deviance statistics also used $\alpha=1$. Recipient outcomes entered only the final deviance calculation. Intervals used 20,000 paired bootstrap draws over replicates.
+
+\begin{table}[ht]
+\centering
+\caption{Ground-truth simulation: mean recipient multinomial deviance per cell. Parentheses give paired 95\% bootstrap intervals; lower is better.}
+\label{tab:s-ground-truth}
+\small
+\begin{tabularx}{\textwidth}{@{}Y Y r r r Y@{}}
+\toprule
+Donor effects & Recipient margins & Hierarchical & Common conditional & Raw statistic & Hierarchical comparison \\
+\midrule
+Heterogeneous & source-like & 0.014931 & 0.015212 & 0.015508 & 1.85\% below common (1.52 to 2.18\%); 3.72\% below statistic transfer (3.28 to 4.15\%) \\
+Heterogeneous & shifted & 0.011591 & 0.011714 & 0.033587 & 1.05\% below common (0.84 to 1.26\%); 65.49\% below statistic transfer (63.02 to 67.72\%) \\
+Homogeneous & source-like & 0.008752 & 0.008660 & 0.008688 & 1.06\% above common (0.61 to 1.51\%); 0.75\% above statistic transfer (0.21 to 1.28\%) \\
+Homogeneous & shifted & 0.008674 & 0.008640 & 0.029427 & 0.40\% above common (0.13 to 0.67\%); 70.52\% below statistic transfer (69.21 to 71.74\%) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Recipient heterogeneity}
+
+The extension crossed source and recipient log-odds standard deviations of
+0 and 1.2 with both margin conditions. Each scenario used 128 replicates.
+The source draws and estimator settings were unchanged; all 256 source fits
+converged. Oracle predictions used the known population mean and recipient
+standard deviation, with Gauss--Hermite integration over recipient log odds.
+
+\begin{table}[ht]
+\centering\small
+\caption{Recipient-heterogeneity extension. Relative reductions in deviance
+with paired-replicate 95\% intervals; positive values favor the first method.
+Oracle comparisons use known parameters, not fitted estimates.}
+\label{tab:s-recipient-heterogeneity}
+\begin{tabular}{@{}cccll@{}}
+\toprule
+Source SD & Recipient SD & Margins & Hierarchy vs. common ridge & Oracle mixture vs. plug-in\\
+\midrule
+0 & 0 & source-like & $-1.06\%$ ($-1.51$, $-0.61$) & $0\%$\\
+0 & 0 & shifted & $-0.40\%$ ($-0.67$, $-0.13$) & $0\%$\\
+0 & 1.2 & source-like & $0.31\%$ ($0.20$, $0.42$) & $0.26\%$ ($0.14$, $0.37$)\\
+0 & 1.2 & shifted & $0.28\%$ ($0.17$, $0.39$) & $2.21\%$ ($1.89$, $2.54$)\\
+1.2 & 0 & source-like & $1.85\%$ ($1.52$, $2.19$) & $0\%$\\
+1.2 & 0 & shifted & $1.05\%$ ($0.83$, $1.26$) & $0\%$\\
+1.2 & 1.2 & source-like & $0.41\%$ ($0.33$, $0.49$) & $0.32\%$ ($0.22$, $0.42$)\\
+1.2 & 1.2 & shifted & $0.39\%$ ($0.31$, $0.47$) & $2.25\%$ ($1.88$, $2.61$)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Transfer-risk stress test}
+
+The stress test fixed the source field at its known value and crossed bounded mean-zero recipient drift, transport multipliers $\{0.5,0.75,1,1.25\}$, drift standard deviations $\{0,0.25,0.5,1\}$, and three informative margins. Finite-support summation gave the expected conditional KL risk, numerical quadrature evaluated its curvature-integral form, and $10^6$ seeded conditional draws per drift state gave an independent Monte Carlo estimate.
+
+All \RiskStressEnvelopePass{} conditions satisfied the Fisher-information and finite-support envelopes. Exact KL and its curvature integral differed by at most $\RiskStressIntegralError{}$. Monte Carlo intervals covered the exact risk in \RiskStressCoverage{} conditions, with maximum absolute $z=\RiskStressMaxZ$. At $\alpha=1$, increasing the drift standard deviation from 0 to 1 raised count-level expected log loss from 0 to 2.835 for balanced margins, 1.504 for row-sparse margins, and 1.322 for overlap-shifted margins; each table contained 96 observations.
+
+\section{Secondary multistate methods}
+
+\subsection{Permutation-centered fields}
+
+For linked state vectors $(U_i,V_i)_{i=1}^n$, let $h_\alpha(U,V)$ denote Eq.~\eqref{eq:s-field} applied to the joint count table after adding pseudocount $\alpha$. With $B$ independent permutations of the $V$ labels, the centered field is
+\begin{equation}
+\widehat\field=h_\alpha(U,V)-B^{-1}\sum_{b=1}^B h_\alpha(U,V^{(b)}).
+\label{eq:s-permutation-field}
+\end{equation}
+Under the fixed-margin link null, observed and permuted matchings are identically distributed conditional on both label multisets, so Eq.~\eqref{eq:s-permutation-field} has conditional mean zero. If $S^2$ is the coordinatewise sample variance of the $B$ reference fields, $(1+1/B)S^2$ is an unbiased estimator of the variance of an observed-minus-reference field. Multistate analyses use $B=64$, $\alpha=0.5$, and one independent destroyed-link permutation.
+
+For perturbation $g$ and control $0$ under challenge $1$ and vehicle $0$, the factorial field is $(\field_{g1}-\field_{g0})-(\field_{01}-\field_{00})$. Independent arm-permutation variances are added before converting them to clipped relative precision,
+\[
+w_{gj}=\operatorname{clip}\left(
+\frac{1/v_{gj}}{\operatorname{median}_{g,j}(1/v_{gj})},0.05,20
+\right).
+\]
+
+\subsection{Structured field estimator}
+
+For target-by-coordinate matrix $Y$, positive weight matrix $W$, positive-semidefinite hypergraph Laplacian $L_H$, and nonnegative penalties, the estimator minimizes
+\begin{equation}
+ F_Y(M)=\frac12\norm{Y-M}_{W}^{2}
+ +\lambda_*\norm{M}_*+\lambda_G\operatorname{tr}(M^{\mathsf T}L_HM),
+ \label{eq:s-objective}
+\end{equation}
+where $\norm{A}_W^2=\sum_{g,j}W_{gj}A_{gj}^2$. The normalized hypergraph Laplacian is
+\[
+L_H=I-D_v^{-1/2}HD_e^{-1}W_eH^{\mathsf T}D_v^{-1/2}.
+\]
+Isolated vertices receive zero rows and columns and are unaffected by the graph penalty.
+
+Each covered target formed an unweighted hyperedge with its five highest-cosine covered neighbors. The benchmark used frozen scGPT and gene2vec embeddings; label-permuted scGPT supplied the shuffled-graph control, and targets absent from an embedding were isolated. In PerturbSci, Frangieh, and Papalexi rotations, the other two units selected penalties by symmetric cross-prediction mean squared error. The nuclear penalty was a fraction of the largest training-matrix singular value, on grid $\{0,0.01,0.03,0.1,0.3,0.6,1\}$; the graph grid was $\{0,0.05,0.2,1,5,20\}$. Nuclear-only, graph-only, and joint fits used the corresponding grids. The fixed variance-weighted fit used nuclear fraction 0.1 and graph penalty 5; scalar shrinkage used 26 multipliers from 0 to 1.25, and endpoint ridge used $\{10^{-4},10^{-3},10^{-2},0.1,1,10,100\}$. MultiPerturb, PerturbFate, and Arce used the same five-neighbor graph and fixed penalties.
+
+\begin{proposition}[Uniqueness and nonexpansive stability]
+If $\min_{g,j}W_{gj}>0$, Eq.~\eqref{eq:s-objective} has a unique minimizer. For two input matrices $Y_1,Y_2$ with the same weights, hypergraph, and penalties, their minimizers satisfy
+\begin{equation}
+  \norm{\widehat M_1-\widehat M_2}_W
+  \le \norm{Y_1-Y_2}_W.
+  \label{eq:nonexpansive}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The weighted quadratic loss is strongly convex and both penalties are convex, so their sum has a unique minimizer. Let $R$ denote the combined penalty and choose $G_k\in\partial R(\widehat M_k)$. From $W\odot(\widehat M_k-Y_k)+G_k=0$, subtracting the two optimality equations and taking the Frobenius inner product with $\widehat M_1-\widehat M_2$ gives, by monotonicity of the convex subdifferential,
+\[
+\norm{\widehat M_1-\widehat M_2}_W^2
+\le \langle W\odot(Y_1-Y_2),\widehat M_1-\widehat M_2\rangle.
+\]
+Weighted Cauchy-Schwarz proves Eq.~\eqref{eq:nonexpansive}.
+\end{proof}
+
+Accelerated proximal gradient descent soft-thresholds singular values in the proximal step and handles the weighted residual and graph quadratic form in the smooth gradient. Iteration stops at a relative Frobenius step below $10^{-8}$; nonconverged estimates are rejected.
+
+\FloatBarrier
+\Needspace{5\baselineskip}
+\section{Public binary studies}
+
+\begin{longtable}{@{}P{2.7cm}P{2.4cm}P{3.1cm}P{2.0cm}P{5.0cm}@{}}
+\caption{Binary RNA-protein studies.}\label{tab:s-data}\\
+\toprule
+Study & Accession & Linked object & Retained set & Unit and support rule \\
+\midrule
+\endfirsthead
+\toprule
+Study & Accession & Linked object & Retained set & Unit and support rule \\
+\midrule
+\endhead
+COMBAT & Zenodo 6120249 & RNA-ADT states in one cell & 81 ordered pairs & 12 Oxford calibration and 24 Oxford pilot samples; development comparison only \\
+BMMC & GSE194122 & RNA-ADT states in one cell & 100 ordered pairs & two fit donors and four bridge-donor batches; development comparison only \\
+Stephenson & E-MTAB-10026 & RNA-ADT states in one cell & 81 ordered pairs & 12 Cambridge calibration, 24 Cambridge pilot, and 56 Newcastle held donors \\
+Oh pregnancy cohort & GSE239452 & RNA-ADT states in one cell & 81 ordered pairs & 7 nonpregnant calibration, 8 nonpregnant pilot, and 9 pregnant held donors; post-access corrected replication \\
+Babdor immunomicrobiome & GSE314416 & RNA-ADT states in one cell & 81 primary and 576 secondary ordered pairs & 12 DB1 calibration and 20 pilot donors from DB1 and DB2; 77 donors from DB3 to DB7 remained unevaluated after the pilot criterion failed \\
+Kelley biliary-cancer trial & GSE317605 & RNA-ADT states in one cell & 256 ordered pairs & 7 calibration patients at four visits; 3 pilot and 8 held patients remained unevaluated after the calibration criterion failed \\
+\bottomrule
+\end{longtable}
+
+\subsection{COMBAT and BMMC development panels}
+
+The COMBAT analysis used the official linked RNA-ADT object and sample manifest~\cite{combat2022}. Metadata-only stratification assigned 12 Oxford samples to calibration and 24 to development. Each contributed 512 cells selected deterministically without using assay counts and 81 ordered pairs from nine matched markers.
+
+The BMMC analysis used GSE194122 as distributed with SCMMIB~\cite{luecken2021sandbox}. Donors 11466 and 19593 supplied the fit, and four batches from bridge donor 15078 supplied development evaluation. It included 4,607 cells and 100 ordered pairs from ten matched markers. Evaluation units in both panels participated in model selection.
+
+\subsection{Stephenson held-site confirmation}
+
+The Stephenson study profiled COVID-19 immune responses across UK sites~\cite{stephenson2021}. Cambridge and Newcastle used BioLegend TotalSeq-C panel 99813; the protocol excluded 11 Sanger/London donors assayed with panel 99814 and six LPS-stimulated Newcastle donors. For each eligible donor, a deterministic rule independent of assay counts selected 512 cells. RNA state was raw UMI count above zero, and within-sample median splitting of each ADT marker fixed its margin at 256/256. Nine matched markers defined 81 ordered pairs, of which at least 64 had to be informative.
+
+The prespecified split contained 12 Cambridge calibration donors (nine COVID-19 and three normal), 24 Cambridge pilot donors (18 COVID-19 and six normal), 11 unused Cambridge donors, and 56 Newcastle held donors. From the grid in Table~\ref{tab:s-binary-grids}, the pilot selected heterogeneity 0.1, ridge 0.01, graph 0, and $\alpha=1$; the strongest statistic method was uncentered signed-root deviance with $\alpha=0.75$. The final source fit used all 36 development donors.
+
+Pilot mean deviance per cell was 0.005079 for the hierarchical estimator and 0.007761 for the selected statistic, a 34.55\% reduction (paired donor-bootstrap loss-difference interval $-0.003568$ to $-0.001827$; 21/24 donors favorable). Relative to destroyed links, the reduction was 71.88\% ($-0.015650$ to $-0.009901$; 23/24 favorable). Prediction then used Newcastle RNA and protein margins alone; paired Newcastle measurements entered once, during evaluation.
+
+\subsection{Matched predictive reanalysis}
+
+All 81 marker pairs yielded conditional random-effects fits in both the
+12-donor calibration set and the full 36-donor source set. The pilot
+selected $\alpha=0.75$ for both random-effects prediction rules and
+$\alpha=1$ for the hierarchy and common-ridge model. Table~\ref{tab:s-predictive-loss}
+reports every fitted comparison, including the unscaled predictions.
+
+The calibrated mixture reduced mean deviance by 8.46\% relative to the
+original hierarchy (95\% paired-donor interval, 5.42--11.55\%), by
+11.79\% relative to common ridge (7.43--16.10\%), and by 24.44\%
+relative to the original signed-statistic comparator (16.03--31.16\%).
+At the same fitted distribution and multiplier, integration reduced loss
+by 1.33\% relative to the population plug-in (0.72--1.96\%); 38/56 donors
+were favorable (one-sided sign-test $P=0.00523$). The paired loss-difference
+interval was $-0.000236$ to $-0.0000771$.
+
+\begin{table}[ht]
+\centering\small
+\caption{Post hoc predictive comparison on the original 56 recipients and
+the 54-recipient selected-panel sensitivity. The latter removes two donors
+without changing fits, multipliers, or predictions. Loss is mean deviance
+per cell.}
+\label{tab:s-predictive-loss}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Estimator and prediction & $\alpha$ & 56-donor loss & 54-donor loss\\
+\midrule
+Original hierarchy & 1 & 0.012197 & 0.011393\\
+Common conditional, ridge 0.01 & 1 & 0.012657 & 0.011713\\
+Common conditional, unpenalized & 1 & 0.013000 & 0.011965\\
+Normal random effects, plug-in & 0.75 & 0.011315 & 0.010723\\
+Normal random effects, mixture & 0.75 & 0.011165 & 0.010622\\
+Normal random effects, plug-in & 1 & 0.013865 & 0.012711\\
+Normal random effects, mixture & 1 & 0.013137 & 0.012098\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+After the selected-panel exclusion, the calibrated mixture improved on the
+original hierarchy by 6.77\% (4.41--9.26\%), common ridge by 9.31\%
+(5.91--12.85\%), and signed-statistic transfer by 28.86\%
+(24.44--33.32\%). The matched integration gain was 0.95\%
+(0.55--1.36\%), with 36/54 donors favorable ($P=0.00992$).
+
+Integration widened count intervals and increased coverage
+(Table~\ref{tab:s-predictive-coverage}). On the full recipient set, coverage
+rose from 70.01\% to 83.17\%, with mean interval width increasing from
+15.74 to 22.90 cells. The 54-donor sensitivity gave 70.43\% and 83.62\%
+coverage, with widths of 15.66 and 22.69 cells.
+
+\begin{table}[ht]
+\centering\small
+\caption{Coverage and width of nominal 95\% predictive count intervals on
+56 recipients. Parentheses give 95\% donor-bootstrap intervals. Each
+recipient contributes equally after averaging over informative marker pairs.}
+\label{tab:s-predictive-coverage}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+Calibrated random-effects prediction & Coverage (\%) & Width (cells)\\
+\midrule
+Population plug-in & 70.01 (67.04--73.04) & 15.74 (15.38--16.09)\\
+Predictive mixture & 83.17 (80.72--85.60) & 22.90 (22.02--23.74)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{GSE239452 cohort replication}
+
+GSE239452 measured pregnancy-specific immunity after SARS-CoV-2 infection~\cite{oh2024} and links GSE239450 gene expression with GSE239449 antibody-derived tags. Eligibility criteria excluded donor 100 for fewer than 512 shared cells and donor 78 for missing ADT data. The remaining split comprised seven nonpregnant calibration donors, eight nonpregnant pilot donors, and nine pregnant recipients: three controls, three asymptomatic infections, and three severe infections.
+
+A deterministic rule independent of assay counts selected 512 shared barcodes per donor; state definitions, marker panel, pair set, and support threshold matched Stephenson. Seven-fold calibration selected heterogeneity 1, ridge 0.01, graph 0, and $\alpha=1$; the comparator was uncentered signed-root deviance with $\alpha=0.75$. After correction of its inverse reconstruction, pilot mean deviance was 0.008197 versus 0.010247, a 20.01\% reduction ($-0.004348$ to $-0.000546$; 7/8 donors favorable). The destroyed-link reduction was 68.81\% ($-0.025268$ to $-0.012083$; 8/8 favorable). The post-access correction changed only statistic-transfer predictions; primary and destroyed-link predictions and held tables were unchanged. GSE239452 is therefore a post-access corrected cohort replication.
+
+The fixed-interaction Poisson analysis selected $\alpha=1$ on 15 development donors. Its saturated source fit reconstructed all 81 pooled tables with maximum normalized cell error $1.78\times10^{-16}$.
+
+\subsection{GSE314416 held-pool attempt}
+
+GSE314416 profiled healthy participants across seven acquisition pools~\cite{babdor2026}. The prespecified split assigned 12 DB1 donors to calibration, 20 donors from DB1 and DB2 to the pilot, and 77 donors from DB3 to DB7 to held-pool evaluation. The primary 81-pair panel matched Stephenson; a secondary 24-marker panel contained 576 ordered pairs. Selection independent of assay counts retained 512 cells per donor.
+
+Primary pilot loss was \GSEThreeOneFourPrimaryLoss{}, versus \GSEThreeOneFourResidualLoss{} for selected signed Pearson-statistic transfer: a \GSEThreeOneFourResidualReduction{} reduction (paired donor interval \GSEThreeOneFourResidualCILo{} to \GSEThreeOneFourResidualCIHi{}; \GSEThreeOneFourResidualFav{} favorable). The destroyed-link reduction was \GSEThreeOneFourDestroyedReduction{} (\GSEThreeOneFourDestroyedCILo{} to \GSEThreeOneFourDestroyedCIHi{}; \GSEThreeOneFourDestroyedFav{} favorable), and the secondary panel reduced statistic-transfer loss by \GSEThreeOneFourBroadReduction{}. Neither panel reached the fixed 5\% threshold, so the 77 held donors were not evaluated.
+
+\subsection{GSE317605 longitudinal calibration}
+
+GSE317605 profiled longitudinal PBMC RNA and surface proteins during a phase II trial of pembrolizumab plus granulocyte-macrophage colony-stimulating factor in advanced biliary cancer \cite{kelley2026}. The split, fixed before assay-value access, assigned seven complete patients to calibration, three complete patients to the pilot, and eight patients to held evaluation. Five held patients had complete visit series and three had partial series. Each calibration visit retained 192 cells selected independently of assay counts and 256 ordered pairs from 16 matched RNA and ADT markers.
+
+For visit $v$ at time $t(v)$ and marker pair $e$, the longitudinal model decomposed the log odds into a time-specific population field $\beta_{t(v),e}$ and visit deviation $u_{ve}$. With $V_t$ denoting visits at time $t$, it minimized
+\begin{equation}
+\begin{aligned}
+Q_{\mathrm{long}}={}&\sum_t\frac{1}{|V_t|}\sum_{v\in V_t}
+\left\{\sum_e\ell_{ve}(\beta_{te}+u_{ve})
++\frac{\eta}{2}\norm{u_v}_2^2\right\}
++\frac{0.01}{2}\norm{\beta}_F^2\\
+&+\frac{\gamma}{2}\sum_t\beta_t^{\mathsf T}L_{\mathrm{pair}}\beta_t
++\frac{\tau}{2}\sum_{t=1}^{3}\norm{\beta_{t+1}-\beta_t}_2^2,
+\end{aligned}
+\label{eq:s-longitudinal-objective}
+\end{equation}
+where $\ell_{ve}$ is the exact fixed-margin negative log likelihood. The marker operator was $L_{\mathrm{pair}}=L_H\otimes I+I\otimes L_H$, with $L_H$ the normalized Laplacian of a fixed marker hypergraph; temporal smoothing followed the path from T01 to T04. The direct comparator fitted one time-specific interaction per pair by ridge-penalized profiled Poisson likelihood, then profiled row and column terms at each target margin. Both methods used identical patient-disjoint folds and transport grids. Loss was averaged across pairs within each visit, then across visits within each patient, with patients weighted equally.
+
+Leave-one-patient-out calibration crossed donor-deviation penalties $\{0.1,1,10\}$, hypergraph and temporal penalties $\{0,0.05,0.2\}$, and transport multipliers $\{0,0.5,0.75,1,1.25\}$. The matched classical comparator crossed ridge penalties $\{0.001,0.01,0.1,1\}$ with the same transport grid. The selected field fit used deviation penalty 0.1, temporal penalty 0.2, hypergraph penalty zero, and transport 0.75. The Poisson fit selected ridge penalty 1 and transport 0.75. Mean deviance was \GSEThreeOneSevenPrimaryLoss{}, compared with \GSEThreeOneSevenPoissonLoss{} for Poisson prediction. The reduction was \GSEThreeOneSevenPoissonReduction{}, with favorable results in \GSEThreeOneSevenPoissonFav{} patients and \GSEThreeOneSevenTimeFav{} time points. Relative to destroyed links, deviance fell by \GSEThreeOneSevenDestroyedReduction{}, with favorable results in \GSEThreeOneSevenDestroyedFav{} patients. Progression required at least 5\% improvement over Poisson and strict improvement over a separately retuned graph-zero fit. The primary and graph-zero fits were identical, so the calibration criterion was not met and the pilot and held assay values were not accessed.
+
+\section{Binary conditional transfer results}
+
+\subsection{Held outcomes}
+
+The Stephenson pilot required at least 5\% lower donor-equal mean deviance than both statistic-transfer and destroyed-link controls, a 20,000-draw paired donor-bootstrap interval with upper endpoint below zero, and at least 19/24 favorable donors. Held-site confirmation further required at least 45/56 favorable donors and one-sided sign-test $P\leq0.025$. GSE239452 used corresponding favorable-donor thresholds of 7/8 in pilot and 8/9 in held evaluation; its corrected statistic comparison is descriptive because repair followed outcome access.
+
+\begin{table}[ht]
+\centering
+\caption{Held comparison with selected signed-statistic transfer.}
+\label{tab:s-held-residual}
+\begin{tabularx}{\textwidth}{@{}Y r r r Y Y@{}}
+\toprule
+Study and evidence role & Hierarchical & Statistic transfer & Reduction & Difference interval & Favorable donors \\
+\midrule
+Stephenson, pre-outcome held site & \StephPrimaryLoss & \StephResidualLoss & \StephResidualReduction & \StephResidualCILo{} to \StephResidualCIHi & \StephResidualFav; sign $P=\StephSignP$ \\
+GSE239452, post-access corrected replication & \GSEPrimaryLoss & \GSEResidualLoss & \GSEResidualReduction & \GSEResidualCILo{} to \GSEResidualCIHi & \GSEResidualFav \\
+\bottomrule
+\multicolumn{6}{@{}p{0.97\textwidth}@{}}{\footnotesize Intervals are 20,000-draw paired physical-donor bootstrap intervals for hierarchical-minus-comparator mean deviance per cell.}\\
+\end{tabularx}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Held comparison with destroyed links.}
+\label{tab:s-held-destroyed}
+\begin{tabularx}{\textwidth}{@{}Y r r r Y Y@{}}
+\toprule
+Study and evidence role & Hierarchical & Destroyed & Reduction & Difference interval & Favorable donors \\
+\midrule
+Stephenson, pre-outcome held site & \StephPrimaryLoss & \StephDestroyedLoss & \StephDestroyedReduction & \StephDestroyedCILo{} to \StephDestroyedCIHi & \StephDestroyedFav \\
+GSE239452, post-access corrected replication & \GSEPrimaryLoss & \GSEDestroyedLoss & \GSEDestroyedReduction & \GSEDestroyedCILo{} to \GSEDestroyedCIHi & \GSEDestroyedFav \\
+\bottomrule
+\multicolumn{6}{@{}p{0.97\textwidth}@{}}{\footnotesize Intervals and loss definitions follow Table~\ref{tab:s-held-residual}.}\\
+\end{tabularx}
+\end{table}
+
+Both studies selected $\lambda_G=0$, making the graph-zero diagnostic identical to the selected fit.
+
+\subsection{Stephenson linkage and lineage sensitivity}
+
+The prespecified destroyed-link control deterministically permuted complete ADT profiles within each source donor. Of 32 independent post hoc repetitions, 29 met the numerical criterion, and every retained permutation had higher mean held loss than intact linkage. Against the donor-wise mean of retained controls, intact linkage reduced loss by \StephRepeatedDestroyedReduction{} (paired donor interval \StephRepeatedDestroyedReductionLo{} to \StephRepeatedDestroyedReductionHi{}; loss-difference interval \StephRepeatedDestroyedDiffLo{} to \StephRepeatedDestroyedDiffHi{}; \StephRepeatedDestroyedFav{} favorable, $P=\StephRepeatedDestroyedP$). Nested resampling over source permutations and held donors gave a loss-difference interval of $-0.01371$ to $-0.00791$.
+
+At a common 64-cell donor budget, the same fixed configurations reduced loss by \StephTLineageReduction{} in seven scorable T-cell donors and \StephBLineageReduction{} in ten B-cell donors. Among 46 myeloid donors, the reduction was \StephMyeloidReduction{} (\StephMyeloidReductionLo{} to \StephMyeloidReductionHi{}), with \StephMyeloidFav{} favorable ($P=\StephMyeloidSignP$). Only cell support changed; the site split and estimator settings remained fixed.
+
+\subsection{Composition-preserving and protein-threshold sensitivities}
+
+Eight additional source permutations shuffled intact nine-protein vectors within
+each donor and annotated cell type. All eight hierarchical fits converged.
+Their mean held-site loss was 0.011867, compared with 0.012197 for intact
+linkage. The relative reduction for intact linkage was $-2.78\%$
+(paired-donor 95\% interval, $-9.05$ to $2.87\%$); 31/56 donors favored
+intact linkage ($P=0.252$, one-sided sign test). Each permutation had lower
+mean loss than intact linkage, with every paired loss-difference interval
+including zero. Joint resampling of source permutations and held donors gave
+a difference interval of $-0.000336$ to $0.001087$.
+
+Fixed source thresholds were raw ADT counts greater than 22, 4, 1, 3, 1, 9, 3,
+30, and 46 for CD4, CD7, CD14, CD19, CD33, CD38, CD44, CD47, and CD52,
+respectively. These values were pooled source medians. All 81 pairs met the
+source-support criterion. Among 54 scorable recipients, hierarchical loss
+was 0.007927 and common conditional loss was 0.008147, a 2.70\% reduction
+(95\% interval, 0.72--4.73\%). The loss-difference interval was
+$-0.000396$ to $-0.0000567$; 31/54 donors were favorable ($P=0.170$).
+
+\subsection{Selected-panel signal sensitivity}
+
+The two recipients without informative threshold-based pairs were C-8914
+(sample MH8919226) and C-8939 (MH8919227). Across 512 cells and the nine
+selected protein markers, their raw ADT totals were 3 and 0. C-8914 had one
+count each for CD4, CD14, and CD52, in three separate cells; the other
+selected markers were zero. All selected ADT counts in C-8939 were zero.
+The next-lowest selected-panel total across the other 90 source and recipient
+donors was 6,560. These totals concern the selected markers, not the full
+deposited ADT panel.
+
+A post hoc sensitivity excluded these two donors without refitting models or
+changing any prediction. The original 56-donor confirmation was retained.
+On the remaining 54 donors, hierarchical deviance was 0.011393, compared with
+0.014930 for signed-statistic transfer, 0.011965 for common conditional
+estimation, and 0.011644 for pooled-table conditional reconstruction.
+Corresponding reductions were 23.69\% (95\% interval, 17.86--28.99\%),
+4.77\% (2.99--6.53\%), and 2.15\% (0.72--3.62\%). Favorable-donor
+counts were 50, 44, and 36; one-sided sign-test values were
+$1.90\times10^{-11}$, $1.69\times10^{-6}$, and 0.00992.
+
+\subsection{Fitted interaction baselines}
+
+Post hoc fitted-interaction comparisons included a stratified common-effect estimate, pooled-table log odds with conditional reconstruction, and a fixed-interaction Poisson model that profiles recipient marginal parameters.
+
+\begin{table}[ht]
+\centering
+\caption{Held comparisons with fitted interaction baselines.}
+\label{tab:s-fitted-baselines}
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}P{1.65cm} P{2.45cm} P{2.30cm} Y P{2.50cm} P{2.25cm}@{}}
+\toprule
+Study & Comparator & Loss, hierarchy; comparator & Relative change (95\% CI) & Loss-difference 95\% CI & Favorable; exact $P$ \\
+\midrule
+Stephenson & exact common conditional & \StephPrimaryLoss; \StephCommonExactLoss & \StephCommonExactReduction{} lower (\StephCommonExactReductionLo{} to \StephCommonExactReductionHi{}) & \StephCommonExactCILo{} to \StephCommonExactCIHi & \StephCommonExactFav; $\StephCommonExactSignP$ \\
+Stephenson & pooled-table log odds, conditional reconstruction & \StephPrimaryLoss; \StephPooledPoissonLoss & \StephPooledPoissonReduction{} lower (\StephPooledPoissonReductionLo{} to \StephPooledPoissonReductionHi{}) & \StephPooledPoissonCILo{} to \StephPooledPoissonCIHi & \StephPooledPoissonFav; $\StephPooledPoissonSignP$ \\
+GSE239452 & exact common conditional & \GSEPrimaryLoss; \GSECommonExactLoss & \GSECommonExactAdvantage{} higher (1.34\% to 3.03\%) & \GSECommonExactCILo{} to \GSECommonExactCIHi & \GSECommonExactFav; $\GSECommonExactSignP$ \\
+GSE239452 & pooled-table log odds, conditional reconstruction & \GSEPrimaryLoss; \GSEPooledPoissonLoss & \GSEPooledPoissonReduction{} lower (\GSEPooledPoissonReductionLo{} to \GSEPooledPoissonReductionHi{}) & \GSEPooledPoissonCILo{} to \GSEPooledPoissonCIHi & \GSEPooledPoissonFav; $\GSEPooledPoissonSignP$ \\
+GSE239452 & fixed-interaction Poisson prediction & \GSEPrimaryLoss; \GSEStandardPoissonLoss & \GSEStandardPoissonReduction{} lower (\GSEStandardPoissonReductionLo{} to \GSEStandardPoissonReductionHi{}) & \GSEStandardPoissonCILo{} to \GSEStandardPoissonCIHi & \GSEStandardPoissonFav; $\GSEStandardPoissonSignP$ \\
+\bottomrule
+\multicolumn{6}{@{}p{0.97\textwidth}@{}}{\scriptsize Relative and loss-difference intervals use 20,000 paired donor-bootstrap draws. Differences are hierarchical-minus-comparator deviance per cell. Exact $P$ values are one-sided binomial sign tests with zero differences counted as nonfavorable. All comparisons are post hoc and descriptive.}\\
+\end{tabularx}
+\end{table}
+
+\subsection{Matched development comparisons}
+
+Table~\ref{tab:s-development-exact} compares the conditional estimator with signed-statistic transfer in two adaptive development panels; reported units participated in selection, and intervals are descriptive.
+
+\begin{table}[ht]
+\centering
+\caption{Adaptive conditional-versus-statistic comparisons.}
+\label{tab:s-development-exact}
+\begin{tabularx}{\textwidth}{@{}Y r r r Y Y@{}}
+\toprule
+Panel & Hierarchical & Selected statistic transfer & Reduction & Difference interval & Favorable units \\
+\midrule
+COMBAT, 24 Oxford pilot samples & 0.011558 & uncentered deviance, 0.015605 & 25.94\% & $-0.005967$ to $-0.002248$ & 17/24 samples \\
+BMMC, 4 bridge-donor batches & 0.010851 & centered deviance, 0.013148 & 17.47\% & $-0.005036$ to $-0.000385$ & 4/4 batches \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The corresponding destroyed-link losses were 0.046395 in COMBAT and 0.013351 in BMMC, reductions of 75.09\% and 18.73\%. Both selected graph penalty zero; the best positive-graph configurations were 1.9\% and 5.6\% worse, respectively.
+
+\subsection{Public analysis sequence}
+
+Each analysis separated development selection, prediction from recipient margins, and evaluation (Table~\ref{tab:s-public-sequence}).
+
+\begin{table}[H]
+\centering
+\caption{Public analysis plans and study outcomes.}
+\label{tab:s-public-sequence}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}P{2.0cm} P{3.2cm} P{3.3cm} Y@{}}
+\toprule
+Study & Planned split & Evaluation status & Result or stopping reason \\
+\midrule
+Stephenson & 12 calibration, 24 pilot, 56 held-site donors & Pre-outcome held-site evaluation & Passed both prespecified comparators and donor-level criteria. \\
+GSE239452 & 7 calibration, 8 pilot, 9 cohort-shift donors & Post-access corrected comparison & Corrected statistic inversion; reported as descriptive replication. \\
+GSE314416 & 12 calibration, 20 pilot, 77 held-pool donors & Pilot evaluation & Missed the 5\% and favorable-donor criteria; held pools were not evaluated. \\
+GSE317605 & 7 calibration, 3 pilot, 8 held patients & Calibration evaluation & Missed the Poisson and graph-zero criteria; later stages were not evaluated. \\
+GSE179221 & Donor-disjoint source, development, and held sets & Eligibility assessment & Cognate feature-axis uniqueness failed before model fitting. \\
+GSE342939 & 28 source and 6 held donors & Source evaluation & Every tested configuration failed in at least one source fold; held donors were not evaluated. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Secondary multistate results}
+
+\subsection{Data and preprocessing}
+
+\begin{longtable}{@{}P{2.5cm}P{2.6cm}P{4.2cm}P{6.2cm}@{}}
+\caption{Multistate studies and evaluation units.}\label{tab:s-multistate-data}\\
+\toprule
+Study & Accession & Linked object & Evaluation unit and support \\
+\midrule
+\endfirsthead
+\toprule
+Study & Accession & Linked object & Evaluation unit and support \\
+\midrule
+\endhead
+PerturbSci-Kinetics~\cite{perturbsci2023} & GSE218566 & old and new RNA in one cell & three sequence-distinct guide rotations; 85 targets \\
+Frangieh~\cite{frangieh2021} & scPerturb, Zenodo 13350497 & RNA and surface protein in one cell & three guides per target and at least 20 cells per context; 179 targets \\
+Papalexi~\cite{papalexi2021} & scPerturb, Zenodo 13350497 & RNA and surface protein in one cell & three deposited replicates and at least 20 cells per target; 24 targets \\
+MultiPerturb\linebreak\cite{multiperturb2024} & GSE277747 & RNA and ATAC in one nucleus & two sequence-distinct guides and at least 30 cells per guide; 35 targets \\
+PerturbFate~\cite{perturbfate2026} & GSE291147 & pre-existing and nascent RNA in one cell & four technical dates and at least 20 cells in every arm; 49 targets \\
+Arce~\cite{arce2024} & GSE278572 & cognate RNA-ADT states in one cell & donor A development and donor B evaluation; 28 targets \\
+ReSisTrace~\cite{resistrace2024} & GSE223003 & barcode-linked sister lineages & two biological replicates; 186 to 420 lineages per arm \\
+\bottomrule
+\end{longtable}
+
+PerturbSci used archived old- and new-RNA states from an encoder fitted to pooled non-targeting controls; guide sequences and controls were divided deterministically into three rotations. Frangieh and Papalexi used harmonized scPerturb RNA and protein objects~\cite{scperturb2024}, with separate principal-component and three-state $k$-means encoders fitted to control cells. MultiPerturb used archived RNA and ATAC states in reciprocal held-guide directions. PerturbFate fitted a three-state encoder to pooled non-targeting controls across 108,114 cells. After Souporcell exclusions, Arce included 100,086 cells and 112 cognate RNA-ADT features; donor A fixed the estimator and donor B supplied evaluation.
+
+ReSisTrace used the 128 highest-variance pretreatment genes and an eight-component principal-component analysis fitted across pretreatment libraries. Three states were fitted to 507 control lineages. Barcode-defined lineages linked pre- and post-treatment states within each condition and replicate; treatment fields subtracted handling-control fields. Intervals used 2,000 bootstrap draws over linked lineages within each deposited replicate.
+
+\subsection{Predictive comparisons}
+
+Table~\ref{tab:s-comparators} reports the structured estimator, strongest observed standardized-RMSE baseline, and destroyed-link control for each predictive multistate panel. PerturbSci passed guide replication but not the strongest observed RMSE comparison.
+
+\begingroup
+\renewcommand{\arraystretch}{1.08}
+\begin{longtable}{@{}P{2.3cm}P{4.0cm}P{4.2cm}P{3.6cm}@{}}
+\caption{Matched multistate comparisons.}\label{tab:s-comparators}\\
+\toprule
+Panel & Method & Pearson $r$ (interval) & Standardized RMSE (interval) \\
+\midrule
+\endfirsthead
+\toprule
+Panel & Method & Pearson $r$ (interval) & Standardized RMSE (interval) \\
+\midrule
+\endhead
+PerturbSci & structured field & 0.525 (0.483, 0.566) & 0.844 (0.819, 0.868) \\
+ & marginal + structured residual & 0.545 (0.507, 0.584) & 0.831 (0.801, 0.862) \\
+ & destroyed link & 0.074 (0.003, 0.144) & 1.106 (1.071, 1.141) \\
+\addlinespace
+Frangieh & structured field & 0.040 (0.013, 0.066) & 1.009 (1.002, 1.017) \\
+ & scalar shrinkage & 0.007 ($-0.026$, 0.041) & 0.999 (0.998, 1.001) \\
+ & destroyed link & 0.092 (0.064, 0.122) & 1.187 (1.164, 1.210) \\
+\addlinespace
+Papalexi & structured field & $-0.025$ ($-0.150$, 0.096) & 1.037 (1.006, 1.076) \\
+ & zero field & NA & 1.000 (1.000, 1.000) \\
+ & destroyed link & $-0.044$ ($-0.158$, 0.058) & 1.223 (1.139, 1.317) \\
+\addlinespace
+MultiPerturb & structured field & $-0.224$ ($-0.330$, $-0.124$) & 1.047 (1.005, 1.095) \\
+ & zero field & NA & 1.000 (1.000, 1.000) \\
+ & destroyed link & $-0.011$ ($-0.065$, 0.059) & 1.218 (1.145, 1.299) \\
+\addlinespace
+PerturbFate & structured field & $-0.092$ ($-0.152$, $-0.035$) & 1.023 (1.010, 1.035) \\
+ & linear cross-covariance & $-0.011$ ($-0.122$, 0.092) & 1.000 (0.995, 1.004) \\
+ & destroyed link & $-0.011$ ($-0.078$, 0.056) & 1.125 (1.089, 1.167) \\
+\addlinespace
+Arce donor B & structured field & 0.412 (0.331, 0.494) & 1.093 (1.012, 1.185) \\
+ & linear cross-covariance & 0.304 (0.195, 0.404) & 0.993 (0.989, 0.996) \\
+ & destroyed link & 0.170 (0.049, 0.299) & 1.194 (1.081, 1.317) \\
+\bottomrule
+\multicolumn{4}{@{}p{0.97\textwidth}@{}}{\footnotesize Parentheses give 95\% target-resampling intervals.}\\
+\end{longtable}
+\endgroup
+
+All eight ReSisTrace condition-by-replicate arms had fixed-margin Monte Carlo randomization $P=1/65$ and Benjamini-Hochberg (BH) $q=0.0154$. Each observed statistic and 64 disjoint test permutations was centered against the same independent 64-permutation reference mean. No treatment contrast had a positive lineage-bootstrap lower limit.
+
+\begin{table}[ht]
+\centering
+\caption{ReSisTrace treatment-minus-control replication.}
+\label{tab:s-resis}
+\begin{tabular}{lrrrr}
+\toprule
+Treatment & Replicate cosine & 2,000-draw lineage-bootstrap 95\% interval & Link $P$ & BH $q$ \\
+\midrule
+Carboplatin & -0.674 & -0.965, 0.729 & 0.877 & 0.877 \\
+Olaparib & 0.223 & -0.876, 0.925 & 0.354 & 0.531 \\
+NK & 0.952 & -0.801, 0.968 & 0.015 & 0.046 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\subsection{PerturbSci sensitivity and functional analysis}
+
+\begin{table}[H]
+\centering
+\caption{PerturbSci performance in each held guide rotation.}
+\label{tab:s-perturbsci-folds}
+\begin{tabular}{rrrr}
+\toprule
+Held rotation & Pooled Pearson $r$ & Mean target cosine & Standardized RMSE \\
+\midrule
+0 & 0.506 & 0.539 & 0.857 \\
+1 & 0.540 & 0.579 & 0.843 \\
+2 & 0.544 & 0.544 & 0.830 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{PerturbSci sensitivity of pooled held-guide correlation.}
+\label{tab:s-sensitivity}
+\begin{tabular}{llr}
+\toprule
+Parameter & Value & Pooled $r$ \\
+\midrule
+States per assay & 2 & -0.121 \\
+ & 3 & 0.525 \\
+ & 4 & 0.640 \\
+Reference permutations & 16 & 0.494 \\
+ & 32 & 0.508 \\
+ & 64 & 0.525 \\
+ & 128 & 0.523 \\
+Pseudocount & 0.25 & 0.339 \\
+ & 0.50 & 0.525 \\
+ & 1.00 & 0.718 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Module analysis required each target to enter the top field-norm quintile in every held truth and prediction, excluding targets that also passed after link destruction. No target qualified, so pathway and complex enrichment were not tested; XRN2 passed only in the destroyed control.
+
+Mean top-five cosine-neighbor recovery was 0.064 (95\% target-resampling interval 0.050 to 0.079) for the structured fit and 0.051 (0.041 to 0.063) after link destruction. The paired difference was 0.013 ($-0.003$ to $0.030$; 10,000-draw target-label permutation $P=0.283$). Reactome neighbor-edge enrichment failed its controls. CORUM edge enrichment exceeded destroyed links by 0.018 (0.008 to 0.029) and was nominal against random labels ($P=0.0269$), but not after correction across two annotation families ($q=0.0538$). No module, neighborhood, or individual edge met all criteria.
+
+\FloatBarrier
+\section{Limitations}
+
+The 81 within-donor pair tables reuse cells and marker vectors, but the composite objective does not model their joint covariance. Held-donor bootstraps condition on the fitted source field, selected configuration, and deterministic cell subsamples. The original within-donor median ranks fixed every Stephenson protein margin at 256/256, including two recipients with almost no counts across the selected protein panel. The source-fixed threshold analysis permits protein-margin variation but does not establish biologically validated positivity thresholds. Both this analysis and the selected-panel exclusion followed outcome access.
+
+Each primary destroyed-link comparison uses one deterministic within-donor permutation; the repeated-permutation sensitivity retained 29 of 32 fits, and three did not meet the convergence criterion. The eight within-cell-type permutations address a different null, preserving broad cell composition. Neither predictive interval family attained nominal 95\% coverage. These intervals treat fitted interaction distributions as known and assume their transportability; they omit source-parameter uncertainty. The simulations use 16 independent entity tables and deliberately strong margin shift. Recipient interactions equal the population parameter in the original four scenarios and vary around it in the extension. Neither simulation defines a multivariate cell-level generative law.
+
+Conditional likelihood removes row and column nuisance parameters but can lose finite-sample information about the odds ratio when one or both margins are random under the sampling design. The lost fraction tends to zero under standard large-sample conditions~\cite{schervish2025}. We did not estimate its magnitude in the sparse marker tables used here.
+
+The original GSE239452 statistic inversion mishandled negative values near the lower feasible endpoint, producing 80 coordinate mismatches among 729 reconstructed tables. The corrected inverse produced none at tolerance $10^{-8}$ and maximum absolute coordinate error below $4.0\times10^{-12}$. It recomputed only statistic-transfer predictions; primary and destroyed-link predictions and held tables were unchanged. Because repair followed outcome access, GSE239452 is a post-access corrected replication, not a second pre-outcome confirmation.
+
+\section{Implementation and reproducibility}
+\label{sec:provenance}
+
+The \href{https://github.com/sushaan-k/coupling-fields-benchmark/releases/tag/coupling-fields-v2.0.4-public-benchmark}{v2.0.4 public release} contains the MIT-licensed estimator, analysis protocols, cohort and simulation results, study records, and method grids. Its verification tests reproduce the reported tables and figures from the derived results. Raw matrices remain available from the accessions in Tables~\ref{tab:s-data} and~\ref{tab:s-multistate-data} under their source licenses and are not redistributed.
+
+The reanalysis uses the original 92 donor samples, 512 selected cells per donor, and nine markers per modality. Recovering their selected counts from the public source reproduced all 56 primary held-donor losses to a maximum absolute difference of $5.7\times10^{-15}$. Released aggregate contingency tables reproduce the biological sensitivities without downloading cell-level data. Assay-quality diagnostics and the unchanged original prediction losses reproduce the selected-panel exclusion. The analysis specification and computational provenance distinguish these post hoc analyses from the original held-site protocol.
+
+The recipient-heterogeneity simulation reproduced the original zero-variance losses within $7.0\times10^{-18}$; 40- and 80-node quadrature means agreed within $8.7\times10^{-13}$. Tests check predictive mixtures against independent adaptive integration, degenerate margins, zero variance, convergence failure, and the distribution-to-table regret bound.
+
+The classical random-effects implementation uses \texttt{metafor} 5.0.1's exact conditional model, \texttt{CM.EL}, with no count correction. Tables with singleton support contribute likelihood one and were omitted from the optimizer input to avoid undefined initialization offsets. Fits were compared at two integration tolerances and checked against independent finite-support likelihood calculations. Identical informative donor tables admit an analytic zero-variance solution. Other near-boundary fits used additional optimizers, the one-sided variance score, and a fixed variance profile; this profile is a numerical check, not a global-optimality proof. An initializer retry changed only the preliminary approximate fit. Archived source versions identify retained fits across these numerical repairs. Predictive intervals do not use the ancillary parameter standard errors. For the common-ridge calibration fit, solving the score equations recovered the same strictly convex objective after optimizer nonconvergence, with maximum absolute gradient $9.2\times10^{-11}$; the penalty and selection grid were unchanged.
+
+\small
+\bibliographystyle{sn-vancouver-num}
+\bibliography{references}
+
+\end{document}

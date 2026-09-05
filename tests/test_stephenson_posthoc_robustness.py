@@ -1,3 +1,5 @@
+import csv
+import hashlib
 import json
 from pathlib import Path
 
@@ -114,10 +116,21 @@ def test_posthoc_artifacts_report_all_lineages_and_all_permutations():
         / "results/development/"
         "stephenson_destroyed_link_permutation_robustness_v1.json"
     )
-    if not lineage_path.exists() or not permutation_path.exists():
-        return
     lineage = json.loads(lineage_path.read_text())
     permutations = json.loads(permutation_path.read_text())
+    bindings = {
+        "frozen_confirmation_sha256": "results/stephenson_citeseq_confirmation.json",
+        "frozen_development_sha256": "results/development/stephenson_citeseq_development.json",
+        "frozen_prediction_sha256": "results/stephenson_citeseq_predictions.json",
+        "source_manifest_sha256": "data/confirmation/stephenson_citeseq/source_manifest_v1.json",
+        "script_sha256": "experiments/development/analyze_stephenson_posthoc_robustness.py",
+    }
+    for artifact in (lineage, permutations):
+        assert artifact["confirmatory"] is False
+        for key, path in bindings.items():
+            assert artifact["provenance"][key] == hashlib.sha256(
+                (ROOT / path).read_bytes()
+            ).hexdigest()
     assert lineage["lineages_requested"] == list(posthoc.LINEAGES)
     assert lineage["lineages_reported"] == list(posthoc.LINEAGES)
     assert set(lineage["lineages"]) == set(posthoc.LINEAGES)
@@ -128,8 +141,31 @@ def test_posthoc_artifacts_report_all_lineages_and_all_permutations():
     draws = permutations["independent_draws"]
     assert len(draws) == posthoc.INDEPENDENT_PERMUTATIONS
     assert len({row["permutation_sha256"] for row in draws}) == len(draws)
-    assert sum(row["status"] == "EVALUATED" for row in draws) >= 20
+    assert sum(row["status"] == "EVALUATED" for row in draws) == 29
     assert sum(row["status"] != "EVALUATED" for row in draws) == permutations[
         "independent_draw_distribution"
     ]["independent_permutations_refused"]
     assert max(permutations["replay_checks"].values()) < 1e-12
+    with lineage_path.with_suffix(".tsv").open() as stream:
+        rows = list(csv.DictReader(stream, delimiter="\t"))
+    assert {row["lineage"] for row in rows} == set(posthoc.LINEAGES)
+    for row in rows:
+        result = lineage["lineages"][row["lineage"]]
+        comparison = result["comparison"]
+        assert int(row["held_newcastle_scored"]) == comparison["donors"]
+        assert int(row["favorable_donors"]) == comparison["favorable_donors"]
+        assert np.isclose(
+            float(row["relative_loss_reduction"]),
+            1 - comparison["primary_mean_deviance_per_cell"]
+            / comparison["residual_mean_deviance_per_cell"],
+        )
+    assert [lineage["lineages"][name]["held_newcastle_donors_scored"]
+            for name in posthoc.LINEAGES] == [7, 10, 46]
+    with permutation_path.with_suffix(".tsv").open() as stream:
+        rows = list(csv.DictReader(stream, delimiter="\t"))
+    assert len(rows) == 33
+    assert sum(row["status"] == "EVALUATED" for row in rows) == 30
+    comparison = permutations["intact_vs_mean_independent_destroyed_control"]
+    assert comparison["donors"] == 56
+    assert comparison["favorable_donors"] == 51
+    assert np.isclose(comparison["relative_loss_reduction"], 0.4729847869432051)

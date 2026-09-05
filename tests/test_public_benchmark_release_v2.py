@@ -537,7 +537,7 @@ def test_unused_cambridge_terminal_row_contains_no_performance_claim() -> None:
 def test_manifest_counts_and_claim_boundaries_match_ledgers() -> None:
     manifest = json.loads((ROOT / MANIFEST_PATH).read_text(encoding="utf-8"))
     assert manifest["schema"] == "coupling-fields-public-benchmark/2.0"
-    assert manifest["snapshot_date"] == "2026-08-31"
+    assert manifest["snapshot_date"] == "2026-09-04"
     assert manifest["counts"] == {
         "comparison_records": 29,
         "panel_records": 37,

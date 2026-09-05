@@ -1,0 +1,719 @@
+{
+  "schema": "stephenson-selected-panel-adt-diagnostics-v1",
+  "cells_per_donor": 512,
+  "markers": [
+    "CD4",
+    "CD7",
+    "CD14",
+    "CD19",
+    "CD33",
+    "CD38",
+    "CD44",
+    "CD47",
+    "CD52"
+  ],
+  "donors": [
+    {
+      "donor": "CV0025",
+      "sample": "BGCV01_CV0025",
+      "role": "pilot",
+      "total_adt_counts": 36872
+    },
+    {
+      "donor": "CV0037",
+      "sample": "BGCV06_CV0037",
+      "role": "pilot",
+      "total_adt_counts": 119519
+    },
+    {
+      "donor": "CV0050",
+      "sample": "BGCV11_CV0050",
+      "role": "pilot",
+      "total_adt_counts": 109746
+    },
+    {
+      "donor": "CV0052",
+      "sample": "BGCV02_CV0052",
+      "role": "calibration",
+      "total_adt_counts": 56283
+    },
+    {
+      "donor": "CV0058",
+      "sample": "BGCV11_CV0058",
+      "role": "pilot",
+      "total_adt_counts": 115263
+    },
+    {
+      "donor": "CV0059",
+      "sample": "BGCV02_CV0059",
+      "role": "pilot",
+      "total_adt_counts": 54027
+    },
+    {
+      "donor": "CV0062",
+      "sample": "BGCV12_CV0062",
+      "role": "calibration",
+      "total_adt_counts": 161831
+    },
+    {
+      "donor": "CV0068",
+      "sample": "BGCV02_CV0068",
+      "role": "pilot",
+      "total_adt_counts": 53159
+    },
+    {
+      "donor": "CV0074",
+      "sample": "BGCV03_CV0074",
+      "role": "pilot",
+      "total_adt_counts": 60312
+    },
+    {
+      "donor": "CV0084",
+      "sample": "BGCV03_CV0084",
+      "role": "calibration",
+      "total_adt_counts": 44011
+    },
+    {
+      "donor": "CV0104",
+      "sample": "BGCV07_CV0104",
+      "role": "pilot",
+      "total_adt_counts": 40023
+    },
+    {
+      "donor": "CV0120",
+      "sample": "BGCV05_CV0120",
+      "role": "pilot",
+      "total_adt_counts": 89218
+    },
+    {
+      "donor": "CV0128",
+      "sample": "BGCV05_CV0128",
+      "role": "pilot",
+      "total_adt_counts": 83986
+    },
+    {
+      "donor": "CV0137",
+      "sample": "BGCV07_CV0137",
+      "role": "pilot",
+      "total_adt_counts": 41438
+    },
+    {
+      "donor": "CV0144",
+      "sample": "BGCV01_CV0144",
+      "role": "pilot",
+      "total_adt_counts": 33688
+    },
+    {
+      "donor": "CV0155",
+      "sample": "BGCV08_CV0155",
+      "role": "pilot",
+      "total_adt_counts": 103237
+    },
+    {
+      "donor": "CV0160",
+      "sample": "BGCV10_CV0160",
+      "role": "pilot",
+      "total_adt_counts": 242968
+    },
+    {
+      "donor": "CV0164",
+      "sample": "BGCV04_CV0164",
+      "role": "pilot",
+      "total_adt_counts": 203875
+    },
+    {
+      "donor": "CV0171",
+      "sample": "BGCV13_CV0171",
+      "role": "calibration",
+      "total_adt_counts": 101068
+    },
+    {
+      "donor": "CV0178",
+      "sample": "BGCV06_CV0178",
+      "role": "pilot",
+      "total_adt_counts": 110751
+    },
+    {
+      "donor": "CV0198",
+      "sample": "BGCV10_CV0198",
+      "role": "pilot",
+      "total_adt_counts": 200748
+    },
+    {
+      "donor": "CV0231",
+      "sample": "BGCV10_CV0231",
+      "role": "calibration",
+      "total_adt_counts": 263114
+    },
+    {
+      "donor": "CV0234",
+      "sample": "BGCV06_CV0234",
+      "role": "pilot",
+      "total_adt_counts": 108712
+    },
+    {
+      "donor": "CV0262",
+      "sample": "BGCV04_CV0262",
+      "role": "calibration",
+      "total_adt_counts": 198930
+    },
+    {
+      "donor": "CV0279",
+      "sample": "BGCV09_CV0279",
+      "role": "calibration",
+      "total_adt_counts": 88526
+    },
+    {
+      "donor": "CV0284",
+      "sample": "BGCV14_CV0284",
+      "role": "calibration",
+      "total_adt_counts": 81348
+    },
+    {
+      "donor": "CV0326",
+      "sample": "BGCV13_CV0326",
+      "role": "calibration",
+      "total_adt_counts": 115234
+    },
+    {
+      "donor": "CV0902",
+      "sample": "BGCV01_CV0902",
+      "role": "calibration",
+      "total_adt_counts": 29450
+    },
+    {
+      "donor": "CV0904",
+      "sample": "BGCV01_CV0904",
+      "role": "pilot",
+      "total_adt_counts": 41199
+    },
+    {
+      "donor": "CV0915",
+      "sample": "BGCV08_CV0915",
+      "role": "pilot",
+      "total_adt_counts": 109155
+    },
+    {
+      "donor": "CV0917",
+      "sample": "BGCV09_CV0917",
+      "role": "pilot",
+      "total_adt_counts": 86460
+    },
+    {
+      "donor": "CV0926",
+      "sample": "BGCV12_CV0926",
+      "role": "calibration",
+      "total_adt_counts": 202656
+    },
+    {
+      "donor": "CV0929",
+      "sample": "BGCV05_CV0929",
+      "role": "pilot",
+      "total_adt_counts": 86606
+    },
+    {
+      "donor": "CV0934",
+      "sample": "BGCV13_CV0934",
+      "role": "calibration",
+      "total_adt_counts": 109931
+    },
+    {
+      "donor": "CV0939",
+      "sample": "BGCV10_CV0939",
+      "role": "pilot",
+      "total_adt_counts": 259155
+    },
+    {
+      "donor": "CV0944",
+      "sample": "BGCV15_CV0944",
+      "role": "pilot",
+      "total_adt_counts": 286818
+    },
+    {
+      "donor": "C-8816",
+      "sample": "MH9143270",
+      "role": "held_site",
+      "total_adt_counts": 34649
+    },
+    {
+      "donor": "C-8820",
+      "sample": "MH9143320",
+      "role": "held_site",
+      "total_adt_counts": 21832
+    },
+    {
+      "donor": "C-8821",
+      "sample": "MH9179821",
+      "role": "held_site",
+      "total_adt_counts": 19695
+    },
+    {
+      "donor": "C-8822",
+      "sample": "MH9179822",
+      "role": "held_site",
+      "total_adt_counts": 28928
+    },
+    {
+      "donor": "C-8823",
+      "sample": "MH8919326",
+      "role": "held_site",
+      "total_adt_counts": 23939
+    },
+    {
+      "donor": "C-8825",
+      "sample": "MH9143321",
+      "role": "held_site",
+      "total_adt_counts": 15679
+    },
+    {
+      "donor": "C-8826",
+      "sample": "MH9143420",
+      "role": "held_site",
+      "total_adt_counts": 23306
+    },
+    {
+      "donor": "C-8827",
+      "sample": "MH9143271",
+      "role": "held_site",
+      "total_adt_counts": 54496
+    },
+    {
+      "donor": "C-8828",
+      "sample": "MH9179823",
+      "role": "held_site",
+      "total_adt_counts": 25597
+    },
+    {
+      "donor": "C-8829",
+      "sample": "MH9179824",
+      "role": "held_site",
+      "total_adt_counts": 34265
+    },
+    {
+      "donor": "C-8882",
+      "sample": "MH9143322",
+      "role": "held_site",
+      "total_adt_counts": 19991
+    },
+    {
+      "donor": "C-8883",
+      "sample": "newcastle20",
+      "role": "held_site",
+      "total_adt_counts": 17961
+    },
+    {
+      "donor": "C-8884",
+      "sample": "newcastle21",
+      "role": "held_site",
+      "total_adt_counts": 16342
+    },
+    {
+      "donor": "C-8885",
+      "sample": "MH9143421",
+      "role": "held_site",
+      "total_adt_counts": 17105
+    },
+    {
+      "donor": "C-8886",
+      "sample": "MH9143272",
+      "role": "held_site",
+      "total_adt_counts": 17672
+    },
+    {
+      "donor": "C-8887",
+      "sample": "MH9179826",
+      "role": "held_site",
+      "total_adt_counts": 21627
+    },
+    {
+      "donor": "C-8890",
+      "sample": "MH9143323",
+      "role": "held_site",
+      "total_adt_counts": 17063
+    },
+    {
+      "donor": "C-8892",
+      "sample": "MH9143370",
+      "role": "held_site",
+      "total_adt_counts": 31526
+    },
+    {
+      "donor": "C-8893",
+      "sample": "MH9143324",
+      "role": "held_site",
+      "total_adt_counts": 23151
+    },
+    {
+      "donor": "C-8895",
+      "sample": "MH9179825",
+      "role": "held_site",
+      "total_adt_counts": 20455
+    },
+    {
+      "donor": "C-8896",
+      "sample": "MH8919327",
+      "role": "held_site",
+      "total_adt_counts": 11819
+    },
+    {
+      "donor": "C-8897",
+      "sample": "MH9143422",
+      "role": "held_site",
+      "total_adt_counts": 21565
+    },
+    {
+      "donor": "C-8898",
+      "sample": "MH9143371",
+      "role": "held_site",
+      "total_adt_counts": 45570
+    },
+    {
+      "donor": "C-8899",
+      "sample": "MH9143325",
+      "role": "held_site",
+      "total_adt_counts": 21822
+    },
+    {
+      "donor": "C-8902",
+      "sample": "MH9143423",
+      "role": "held_site",
+      "total_adt_counts": 15121
+    },
+    {
+      "donor": "C-8903",
+      "sample": "MH9143274",
+      "role": "held_site",
+      "total_adt_counts": 20664
+    },
+    {
+      "donor": "C-8905",
+      "sample": "MH9143424",
+      "role": "held_site",
+      "total_adt_counts": 21333
+    },
+    {
+      "donor": "C-8909",
+      "sample": "MH9143426",
+      "role": "held_site",
+      "total_adt_counts": 27269
+    },
+    {
+      "donor": "C-8910",
+      "sample": "newcastle49",
+      "role": "held_site",
+      "total_adt_counts": 11305
+    },
+    {
+      "donor": "C-8912",
+      "sample": "MH8919329",
+      "role": "held_site",
+      "total_adt_counts": 13993
+    },
+    {
+      "donor": "C-8913",
+      "sample": "MH9179827",
+      "role": "held_site",
+      "total_adt_counts": 15210
+    },
+    {
+      "donor": "C-8914",
+      "sample": "MH8919226",
+      "role": "held_site",
+      "total_adt_counts": 3,
+      "markers": [
+        {
+          "marker": "CD4",
+          "minimum": 0,
+          "maximum": 1,
+          "total_counts": 1,
+          "nonzero_cells": 1,
+          "nonzero_fraction": 0.001953125
+        },
+        {
+          "marker": "CD7",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        },
+        {
+          "marker": "CD14",
+          "minimum": 0,
+          "maximum": 1,
+          "total_counts": 1,
+          "nonzero_cells": 1,
+          "nonzero_fraction": 0.001953125
+        },
+        {
+          "marker": "CD19",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        },
+        {
+          "marker": "CD33",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        },
+        {
+          "marker": "CD38",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        },
+        {
+          "marker": "CD44",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        },
+        {
+          "marker": "CD47",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        },
+        {
+          "marker": "CD52",
+          "minimum": 0,
+          "maximum": 1,
+          "total_counts": 1,
+          "nonzero_cells": 1,
+          "nonzero_fraction": 0.001953125
+        }
+      ],
+      "cells_with_any_panel_adt": 3
+    },
+    {
+      "donor": "C-8915",
+      "sample": "MH8919330",
+      "role": "held_site",
+      "total_adt_counts": 24170
+    },
+    {
+      "donor": "C-8918",
+      "sample": "MH9143275",
+      "role": "held_site",
+      "total_adt_counts": 19948
+    },
+    {
+      "donor": "C-8921",
+      "sample": "MH9143427",
+      "role": "held_site",
+      "total_adt_counts": 14516
+    },
+    {
+      "donor": "C-8922",
+      "sample": "MH9143425",
+      "role": "held_site",
+      "total_adt_counts": 12790
+    },
+    {
+      "donor": "C-8923",
+      "sample": "MH9179828",
+      "role": "held_site",
+      "total_adt_counts": 12232
+    },
+    {
+      "donor": "C-8926",
+      "sample": "MH8919331",
+      "role": "held_site",
+      "total_adt_counts": 24983
+    },
+    {
+      "donor": "C-8927",
+      "sample": "MH9143372",
+      "role": "held_site",
+      "total_adt_counts": 57720
+    },
+    {
+      "donor": "C-8928",
+      "sample": "MH8919178",
+      "role": "held_site",
+      "total_adt_counts": 13179
+    },
+    {
+      "donor": "C-8929",
+      "sample": "MH9143276",
+      "role": "held_site",
+      "total_adt_counts": 41037
+    },
+    {
+      "donor": "C-8930",
+      "sample": "MH8919179",
+      "role": "held_site",
+      "total_adt_counts": 6560
+    },
+    {
+      "donor": "C-8931",
+      "sample": "newcastle59",
+      "role": "held_site",
+      "total_adt_counts": 15136
+    },
+    {
+      "donor": "C-8933",
+      "sample": "MH9143373",
+      "role": "held_site",
+      "total_adt_counts": 36443
+    },
+    {
+      "donor": "C-8934",
+      "sample": "MH9143326",
+      "role": "held_site",
+      "total_adt_counts": 25826
+    },
+    {
+      "donor": "C-8935",
+      "sample": "MH9143327",
+      "role": "held_site",
+      "total_adt_counts": 22424
+    },
+    {
+      "donor": "C-8936",
+      "sample": "newcastle74",
+      "role": "held_site",
+      "total_adt_counts": 10914
+    },
+    {
+      "donor": "C-8937",
+      "sample": "newcastle65",
+      "role": "held_site",
+      "total_adt_counts": 16683
+    },
+    {
+      "donor": "C-8938",
+      "sample": "MH8919176",
+      "role": "held_site",
+      "total_adt_counts": 7840
+    },
+    {
+      "donor": "C-8939",
+      "sample": "MH8919227",
+      "role": "held_site",
+      "total_adt_counts": 0,
+      "markers": [
+        {
+          "marker": "CD4",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        },
+        {
+          "marker": "CD7",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        },
+        {
+          "marker": "CD14",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        },
+        {
+          "marker": "CD19",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        },
+        {
+          "marker": "CD33",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        },
+        {
+          "marker": "CD38",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        },
+        {
+          "marker": "CD44",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        },
+        {
+          "marker": "CD47",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        },
+        {
+          "marker": "CD52",
+          "minimum": 0,
+          "maximum": 0,
+          "total_counts": 0,
+          "nonzero_cells": 0,
+          "nonzero_fraction": 0.0
+        }
+      ],
+      "cells_with_any_panel_adt": 0
+    },
+    {
+      "donor": "C-8940",
+      "sample": "MH8919332",
+      "role": "held_site",
+      "total_adt_counts": 21724
+    },
+    {
+      "donor": "C-8941",
+      "sample": "MH8919177",
+      "role": "held_site",
+      "total_adt_counts": 12130
+    },
+    {
+      "donor": "C-8942",
+      "sample": "MH8919282",
+      "role": "held_site",
+      "total_adt_counts": 20520
+    },
+    {
+      "donor": "C-8943",
+      "sample": "MH8919283",
+      "role": "held_site",
+      "total_adt_counts": 12125
+    },
+    {
+      "donor": "C-8944",
+      "sample": "MH9143277",
+      "role": "held_site",
+      "total_adt_counts": 26307
+    },
+    {
+      "donor": "C-8946",
+      "sample": "MH8919333",
+      "role": "held_site",
+      "total_adt_counts": 16355
+    }
+  ]
+}

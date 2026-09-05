@@ -1,0 +1,110 @@
+\begin{tikzpicture}[
+  x=1cm,y=1cm,
+  font=\sffamily\fontsize{8.0}{9.0}\selectfont,
+  >={Latex[length=1.8mm,width=1.2mm]},
+  panel/.style={draw=MapGray!52,line width=.55pt,rounded corners=1.1pt,fill=white},
+  head/.style={font=\sffamily\bfseries\fontsize{9.0}{10.0}\selectfont,text=MapInk,anchor=west},
+  subhead/.style={font=\sffamily\bfseries\fontsize{8.0}{9.0}\selectfont,text=MapInk},
+  muted/.style={font=\sffamily\fontsize{8.0}{9.0}\selectfont,text=MapGray,align=center},
+  mathnote/.style={font=\fontsize{8.0}{9.0}\selectfont,text=MapInk,align=center},
+  flow/.style={->,draw=MapInk!72,line width=.75pt},
+  inset/.style={draw=MapGray!45,line width=.45pt,rounded corners=.7pt,fill=MapGray!3}
+]
+
+% Five steps in the transfer protocol.
+\node[panel,minimum width=2.35cm,minimum height=3.95cm,anchor=north west] (linked) at (0,4.08) {};
+\node[panel,minimum width=2.65cm,minimum height=3.95cm,anchor=north west] (field) at (2.70,4.08) {};
+\node[panel,minimum width=3.75cm,minimum height=3.95cm,anchor=north west] (estimate) at (5.70,4.08) {};
+\node[panel,minimum width=3.15cm,minimum height=3.95cm,anchor=north west] (predict) at (9.80,4.08) {};
+\node[panel,minimum width=3.30cm,minimum height=3.95cm,anchor=north west] (controls) at (13.30,4.08) {};
+
+\node[head] at (0,4.40) {a\quad Linked assays};
+\node[head] at (2.70,4.40) {b\quad Fixed margins};
+\node[head] at (5.70,4.40) {c\quad Population fit};
+\node[head] at (9.80,4.40) {d\quad Recipient table};
+\node[head] at (13.30,4.40) {e\quad Evaluation};
+
+% a: linked measurements of the same biological unit.
+\node[subhead,text=MapBlue] at (.55,3.66) {assay $U$};
+\node[subhead,text=MapTeal] at (1.78,3.66) {assay $V$};
+\foreach \yy/\ua/\vb in {3.16/MapBlue/MapTeal,2.67/MapBlue/MapGold,2.18/MapGold/MapTeal,1.69/MapBlue/MapTeal,1.20/MapGold/MapGold}{
+  \draw[MapGray!46,line width=.42pt] (.66,\yy) -- (1.69,\yy);
+  \fill[\ua!86] (.55,\yy) circle (.10);
+  \fill[\vb!86] (1.80,\yy) circle (.10);
+}
+\draw[decorate,decoration={brace,amplitude=2.4pt},MapGray!75,line width=.45pt]
+  (.28,3.34) -- (.28,1.02);
+\node[muted,rotate=90] at (.08,2.18) {paired units};
+\node[muted,text width=1.95cm] at (1.18,.56) {cell, lineage, or\\experimental unit};
+
+% b: margins and the binary interaction are separated.
+\node[muted] at (4.03,3.69) {donor-pair table $N_{de}$};
+\foreach \i in {0,1}{\foreach \j in {0,1}{
+  \pgfmathtruncatemacro{\shade}{28+20*mod(2*\i+\j,3)}
+  \fill[MapBlue!\shade] (3.48+.48*\j,3.28-.48*\i) rectangle ++(.39,-.39);
+}}
+\draw[MapGray!70,line width=.4pt] (3.40,3.36) rectangle (4.43,2.33);
+\foreach \i in {0,1}{
+  \fill[MapGold!66] (4.57,3.28-.48*\i) rectangle ++(.18,-.39);
+  \fill[MapTeal!66] (3.48+.48*\i,2.14) rectangle ++(.39,-.18);
+}
+\node[mathnote,text width=2.35cm] at (4.03,1.65)
+  {log odds $\theta_{de}$};
+\draw[MapTeal,line width=1.0pt] (3.22,1.25) -- (4.84,1.25);
+\node[muted,text width=2.20cm] at (4.03,.77) {condition on both margins};
+
+% c: exact conditional likelihood plus donor shrinkage.
+\node[inset,minimum width=3.35cm,minimum height=1.35cm,anchor=north] at (7.58,3.69) {};
+\node[subhead,text=MapTeal] at (7.58,3.45) {Conditional likelihood};
+\node[mathnote] at (7.58,3.02)
+  {$p(A_{de}\mid m_{de},\theta_{de})$};
+
+\node[inset,minimum width=3.35cm,minimum height=1.56cm,anchor=north] at (7.58,2.08) {};
+\node[subhead,text=MapBlue] at (7.58,1.84) {Donor shrinkage};
+\foreach \x/\yy in {6.33/1.35,6.85/1.18,7.37/1.44,7.89/1.12,8.41/1.32}{
+  \fill[MapBlue!76] (\x,\yy) circle (.065);
+  \draw[->,MapGray!65,line width=.38pt] (\x,\yy-.08) -- (7.37,.85);
+}
+\fill[MapTeal] (7.37,.85) circle (.085);
+\node[muted,anchor=west] at (7.55,.85) {$\widehat\mu_e$};
+\node[muted,text width=3.00cm] at (7.58,.30) {$\theta_{de}=\mu_e+\delta_{de}$};
+
+% d: combine the fitted field with observed recipient margins.
+\node[inset,minimum width=1.02cm,minimum height=.66cm] (theta) at (10.55,3.00) {$\widehat G_e$};
+\node[inset,minimum width=1.22cm,minimum height=.66cm] (margins) at (12.17,3.00) {$r_*,c_*$};
+\node[muted,text width=1.34cm] at (10.55,3.68) {interaction\\law};
+\node[muted,text width=1.12cm] at (12.17,3.68) {recipient\\margins};
+\draw[flow] (theta.south) -- ++(0,-.35) -| (11.36,2.18);
+\draw[flow] (margins.south) -- ++(0,-.35) -| (11.36,2.18);
+\node[mathnote,text width=3.00cm] at (11.36,1.88)
+  {$\widehat N_*=\mathbb E_{\widehat G_e}[N\mid m_*]$};
+\foreach \i in {0,1}{\foreach \j in {0,1}{
+  \pgfmathtruncatemacro{\shade}{25+25*mod(\i+2*\j,3)}
+  \fill[MapTeal!\shade] (10.64+.40*\j,1.25-.40*\i) rectangle ++(.33,-.33);
+}}
+\draw[MapGray!75,line width=.45pt] (10.58,1.31) rectangle (11.41,.48);
+\node[muted,anchor=west,text width=1.25cm] at (11.55,.88) {predicted\\recipient table};
+
+% e: prespecified held controls are separated from post hoc baselines.
+\node[inset,minimum width=2.82cm,minimum height=2.12cm,anchor=north] at (14.95,3.69) {};
+\node[subhead,text=MapBlue] at (14.95,3.45) {Prespecified controls};
+\node[muted,anchor=west,align=left] at (13.69,3.10) {statistic transfer};
+\node[muted,anchor=west,align=left,text=MapGold!85!black] at (13.69,2.79)
+  {destroyed linkage};
+\node[subhead,text=MapTeal] at (14.95,2.40) {Post hoc baselines};
+\node[muted,anchor=west,align=left] at (13.69,2.07) {common log odds};
+\node[muted,anchor=west,align=left] at (13.69,1.76) {random-effects fit};
+\draw[MapInk!35,line width=.45pt] (13.69,1.45) -- (16.21,1.45);
+\node[mathnote,text width=2.72cm] at (14.95,1.10) {held-donor deviance};
+\draw[MapTeal,line width=1.15pt] (13.78,.69) -- (15.52,.69);
+\draw[MapTeal,line width=.65pt] (13.78,.58) -- (13.78,.80);
+\draw[MapTeal,line width=.65pt] (15.52,.58) -- (15.52,.80);
+\fill[MapTeal] (14.58,.69) circle (.085);
+\node[muted,anchor=east] at (16.26,.35) {paired 95\% interval};
+
+% Flow is explicit but visually subordinate to the scientific objects.
+\draw[flow] (2.39,2.10) -- (2.61,2.10);
+\draw[flow] (5.39,2.10) -- (5.61,2.10);
+\draw[flow] (9.49,3.06) -- (9.71,3.06);
+\draw[flow] (12.99,2.10) -- (13.21,2.10);
+\end{tikzpicture}

@@ -46,6 +46,7 @@ echo "Deselecting the BMMC deposited-axis assertion because its source is not re
   tests/test_combat_citeseq_preflight.py \
   tests/test_combat_citeseq_confirmation.py \
   tests/test_stephenson_citeseq_confirmation.py \
+  tests/test_stephenson_posthoc_robustness.py \
   tests/test_gse239452_citeseq_confirmation.py \
   tests/test_gse239452_post_access_correction.py \
   tests/test_gse239452_standard_poisson_posthoc.py \
@@ -56,6 +57,15 @@ echo "Deselecting the BMMC deposited-axis assertion because its source is not re
   tests/test_common_effect_conditional.py \
   tests/test_exact_conditional_heterogeneity_simulation.py \
   tests/test_transfer_risk_bound_stress.py \
+  tests/test_predictive_conditional.py \
+  tests/test_conditional_random_effects_r.py \
+  tests/test_stephenson_predictive_reanalysis.py \
+  tests/test_stephenson_predictive_result.py \
+  tests/test_fixed_margin_biology.py \
+  tests/test_recipient_heterogeneity_simulation.py \
+  tests/test_distribution_table_regret.py \
+  tests/test_sparse_http_cache.py \
+  tests/test_assay_qc_sensitivity.py \
   tests/test_gse214546_candidate.py \
   tests/test_gse214546_confirmation.py \
   tests/test_gse342939_confirmation.py \
