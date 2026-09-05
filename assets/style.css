@@ -237,6 +237,7 @@ footer { padding: 30px 20px; border-top: 1px solid var(--line); color: var(--mut
 
 @media (max-width: 440px) {
   body { font-size: 15px; }
+  .equation math { font-size: 18px; }
   .container { width: min(calc(100% - 28px), var(--wide)); }
   h1 { font-size: 34px; }
   h2 { font-size: 29px; }
