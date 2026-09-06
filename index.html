@@ -3,36 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Fixed-margin prediction of cell-level RNA-surface-protein dependence across cohorts.">
+  <meta name="description" content="Recipient coexpression supports dependence predictions that individual marker frequencies and larger pooled samples do not recover.">
   <meta name="theme-color" content="#ffffff">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Fixed-margin prediction of cell-level RNA-surface-protein dependence across cohorts">
-  <meta property="og:description" content="Predicting unobserved RNA-surface-protein joint tables from linked source donors and recipient aggregate counts.">
+  <meta property="og:title" content="Assay resolution governs the transfer of molecular dependence">
+  <meta property="og:description" content="Recipient coexpression supports dependence predictions that individual marker frequencies and larger pooled samples do not recover.">
   <meta property="og:url" content="https://sushaan-k.github.io/coupling-fields-benchmark/">
-  <meta property="og:image" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/social-preview.png?v=20260903-1">
-  <meta property="og:image:secure_url" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/social-preview.png?v=20260903-1">
+  <meta property="og:image" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/assay-resolution-preview.png">
+  <meta property="og:image:secure_url" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/assay-resolution-preview.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Fixed-margin prediction paper title, authors, method flow, and held-site result">
+  <meta property="og:image:alt" content="Assay resolution governs the transfer of molecular dependence. Sushaan Kandukoori, Pranava Kumar, Shrikrishna Ramesh.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Fixed-margin prediction of cell-level RNA-surface-protein dependence across cohorts">
-  <meta name="twitter:description" content="Predicting unobserved RNA-surface-protein joint tables from linked source donors and recipient aggregate counts.">
-  <meta name="twitter:image" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/social-preview.png?v=20260903-1">
-  <title>Fixed-margin prediction of cell-level RNA-surface-protein dependence across cohorts</title>
+  <meta name="twitter:title" content="Assay resolution governs the transfer of molecular dependence">
+  <meta name="twitter:description" content="Recipient coexpression supports dependence predictions that individual marker frequencies and larger pooled samples do not recover.">
+  <meta name="twitter:image" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/assay-resolution-preview.png">
+  <title>Assay resolution governs the transfer of molecular dependence</title>
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=20260904-1">
-  <script defer src="assets/script.js"></script>
+  <link rel="stylesheet" href="assets/style.css?v=20260906">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <main id="main">
     <section class="publication-hero">
       <div class="container hero-inner">
-        <h1><span>Fixed-margin</span> prediction of cell-level RNA-surface-protein dependence across cohorts</h1>
+        <h1><span>Assay resolution</span> governs the transfer of molecular dependence</h1>
         <p class="authors"><span>Sushaan Kandukoori<sup>1</sup></span>, <span>Pranava Kumar<sup>2</sup></span>, <span>Shrikrishna Ramesh<sup>3</sup></span></p>
         <p class="author-emails">
           <a href="mailto:sushaankandukoori@gmail.com"><sup>1</sup>sushaankandukoori@gmail.com</a>
@@ -40,10 +39,10 @@
           <a href="mailto:shrikrish.ramesh@gmail.com"><sup>3</sup>shrikrish.ramesh@gmail.com</a>
         </p>
         <div class="publication-links" aria-label="Paper resources">
-          <a href="assets/papers/fixed-margin-prediction.pdf">Paper</a>
-          <a href="assets/papers/additional-file-1.pdf">Additional file</a>
-          <a href="https://github.com/sushaan-k/coupling-fields-benchmark/tree/coupling-fields-v2.0.4-public-benchmark">Code</a>
-          <a href="https://github.com/sushaan-k/coupling-fields-benchmark/releases/tag/coupling-fields-v2.0.4-public-benchmark">Data</a>
+          <a href="assets/papers/assay-resolution.pdf">Paper</a>
+          <a href="assets/papers/assay-resolution-additional-file-1.pdf">Additional file</a>
+          <a href="https://github.com/sushaan-k/coupling-fields-benchmark/tree/main/paper/assay-resolution">Manuscript source</a>
+          <a href="https://github.com/sushaan-k/coupling-fields-benchmark/releases/tag/coupling-fields-v2.0.4-public-benchmark">Original benchmark</a>
         </div>
       </div>
     </section>
@@ -51,206 +50,115 @@
     <section class="section" id="abstract">
       <div class="container reading">
         <h2>Abstract</h2>
-        <p><b>Background.</b> Linked single-cell assays resolve cross-modal dependence because they measure molecular states in the same cell. A recipient cohort may retain the marginal state counts of both assays without preserving cell-level pairing. Its joint table is then unobserved and cannot be recovered from the margins alone.</p>
-        <p><b>Results.</b> We formulate fixed-margin prediction from paired source donors and unpaired recipient counts. Conditional models estimate source log odds; averaging over their transported distribution gives the table minimizing expected multinomial deviance under the transported model. In a prespecified CITE-seq study of nine RNA and nine protein markers, hierarchical transfer from 36 Cambridge donors reduced deviance by 17.46% versus signed-statistic transfer across 56 Newcastle donors (paired-donor 95% interval for the loss difference, -0.00413 to -0.00080). A matched post hoc comparison favored calibrated normal random-effects prediction. Its predictive mixture reduced deviance by 8.46% relative to the original hierarchy (95% interval, 5.42&ndash;11.55%) and by 1.33% relative to the same fit's population plug-in (0.72&ndash;1.96%). With source-defined protein thresholds, hierarchical transfer retained a 2.70% gain over common conditional estimation in 54 recipients (0.72&ndash;4.73%). Cell-type-preserving permutations gave similar prediction loss. Ground-truth simulations separated the effects of margin shift, donor pooling, and predictive integration.</p>
-        <p><b>Conclusions.</b> Linked source donors and recipient marginal counts support prediction of cross-modal joint tables. Conditioning separates marginal abundance from association; calibration and integration over donor variation improve the transported prediction.</p>
+        <p><b>Background.</b> Separate molecular assays retain within-assay coexpression when cross-modal pairing is unavailable. We ask which aspects of this structure support RNA&ndash;protein dependence prediction from a paired reference.</p>
+        <p><b>Results.</b> We derive a sharp range and minimax predictor for binary association after coarsening a fixed fine-scale interaction. An expansion of the predicted covariance gives a query-ranking rule that requires no recipient pairings. In retrospective analyses of 24 Cambridge donors, 56 Newcastle donors, and 15 patients with pediatric T-cell acute lymphoblastic leukemia (T-ALL), covariance-preserving reconstruction retained 91&ndash;97% of the improvement from full assay patterns over individual marker frequencies. Recipient-specific coexpression reduced mean deviance by 9.2%, 17.9%, and 46.0% relative to pools of other recipients matched to the same marker frequencies (paired donor-bootstrap 95% intervals, 2.3&ndash;15.6%, 12.6&ndash;23.0%, and 35.2&ndash;55.8%). Those pools contained 14&ndash;55 times more cells. The response rule concentrated 85&ndash;90% of the observed net improvement into 27 of 81 marker pairs and outperformed ranking by direct source-interaction strength in Newcastle and T-ALL.</p>
+        <p><b>Conclusions.</b> Recipient coexpression supports dependence predictions that individual marker frequencies and larger pooled samples do not recover. Reconstructing assay patterns before forming coarse queries preserves this information and identifies relationships that benefit from recipient-specific correction.</p>
       </div>
     </section>
 
     <section class="section light" id="background">
       <div class="container reading">
         <h2>Background</h2>
-        <p>Linked single-cell assays measure RNA, chromatin, proteins, molecular age, and lineage in the same cell or experimentally related unit. Joint latent-variable models integrate paired measurements or predict a missing modality. We consider a different information boundary: source donors have paired measurements, whereas a recipient provides only aggregate state counts for the same cell sample, with pairing withheld. The target is the recipient joint table that cell-level pairing would have revealed.</p>
-        <p>Marginal frequencies change with cell composition, activation, sequencing depth, and assay scale. Copying a source table therefore transfers abundance together with dependence. Signed Pearson and likelihood-ratio statistics summarize departure from independence, but their scale and attainable range depend on the margins. A statistic pooled across donors can consequently change meaning at recipient margins.</p>
-        <p>We study prediction from paired source donors and unpaired recipient margins. Auxiliary-file statistical matching uses external joint observations to supply relationships missing from recipient data. Here, donor-stratified conditional estimation separates the source interaction from donor variation, and the recipient margins determine the feasible joint tables. The prediction minimizing expected multinomial deviance is their conditional mean. When recipient interactions vary, this mean averages over the predictive distribution of log odds. A pairing-blinded CITE-seq experiment and ground-truth simulations assess the roles of marginal reconstruction, donor pooling, and the prediction rule.</p>
+        <p>Joint single-cell assays reveal how molecular measurements covary within cells. When a new cohort supplies the assays separately, a paired reference can support prediction of the missing joint distribution. The recipient still provides two kinds of information: the frequency of each molecular state and the patterns of states observed together within each assay. These are different constraints on the cross-assay prediction.</p>
+        <p>We derive the complete range of a binary association when only its two coarse frequencies and a fine interaction are known. The range gives an attainable worst-case prediction and an error floor that additional observations at the same coarse resolution cannot remove. We then measure the value of within-assay structure while holding the interaction, cells, and recipient marker frequencies fixed. This comparison separates the information retained by each representation from differences between fitted estimators.</p>
       </div>
     </section>
 
-    <section class="figure-section" aria-labelledby="workflow-caption">
+    <section class="section" id="method">
+      <div class="container reading">
+        <h2>Individual frequencies can all agree</h2>
+        <p>The ambiguity also occurs when every marker's individual frequency is known. Consider two binary RNA markers and one protein marker, coded as <i>Z</i><sub>1</sub>, <i>Z</i><sub>2</sub>, <i>W</i> &isin; {&minus;1, 1}, each with mean zero. Fix the fine interaction to <i>S</i> = <i>JZ</i><sub>2</sub><i>W</i>, with <i>J</i> &ne; 0. Let the recipient RNA distribution have correlation &rho; = E(<i>Z</i><sub>1</sub><i>Z</i><sub>2</sub>). Reconstruction gives</p>
+        <div class="equation" aria-label="The expected product of Z one and W equals rho times the hyperbolic tangent of J">
+          <span>E(<i>Z</i><sub>1</sub><i>W</i>) = &rho; tanh <i>J</i>.</span>
+        </div>
+        <p>Changing &rho; from negative to positive reverses the queried RNA&ndash;protein association without changing <i>J</i> or any individual marker frequency. Separate RNA profiles reveal &rho;; their individual frequencies do not.</p>
+        <h3>How coexpression changes the prediction</h3>
+        <p>For fixed positive assay distributions on finite supports, scale a bilinear interaction as <i>S</i><sub>t</sub>(<i>x</i>, <i>y</i>) = <i>t x</i><sup>&top;</sup><i>B y</i>, where <i>B</i> is the source interaction matrix and <i>t</i> sets its strength. Let &Sigma;<sub>x</sub> and &Sigma;<sub>y</sub> be the two within-assay covariance matrices. Near independence, the reconstructed cross-assay covariance satisfies</p>
+        <div class="equation" aria-label="Cross-assay covariance equals t Sigma x B Sigma y plus terms of order t squared">
+          <span>Cov<sub>q<sub>t</sub></sub>(<i>X</i>, <i>Y</i>) = <i>t</i>&Sigma;<sub>x</sub><i>B</i>&Sigma;<sub>y</sub> + O(<i>t</i><sup>2</sup>).</span>
+        </div>
+        <p>To first order, each predicted RNA&ndash;protein covariance sums source interactions weighted by recipient covariances in both assays. A source coefficient therefore need not equal the marginal association observed in a new population.</p>
+        <p>The response also predicts which queries are sensitive to replacing recipient coexpression by pooled structure. For a binary query with nonconstant marker frequencies, subtract the queried entries of &Sigma;<sub>x</sub><i>B</i>&Sigma;<sub>y</sub> for the recipient and pool, square the difference, and divide by the product of the two marker variances. This is the leading coefficient of twice the KL divergence between their query distributions near independence (Additional file 1). We test whether this score identifies relationships whose empirical prediction improves with recipient-specific reconstruction.</p>
+      </div>
+    </section>
+
+    <section class="section light" id="results">
+      <div class="container reading">
+        <h2>Recipient covariances recover most of the pattern-level gain</h2>
+        <p>The covariance-preserving replacement retained 91.36%, 97.36%, and 95.68% of the loss reduction from individual frequencies to full patterns in Cambridge, Newcastle, and T-ALL, respectively. Full patterns improved further by 4.74% (95% interval, 2.81&ndash;6.78%), 2.27% (1.25&ndash;3.37%), and 10.35% (7.59&ndash;13.74%), improving 22/24, 44/56, and 15/15 people.</p>
+        <p>Recipient-specific covariance also improved on both pooled controls. Against the source pool, deviance fell by 9.80%, 28.13%, and 60.57% in Cambridge, Newcastle, and T-ALL. Against other recipients in the same cohort, the reductions were 9.15% (95% interval, 2.29&ndash;15.57%), 17.94% (12.58&ndash;23.00%), and 45.97% (35.24&ndash;55.79%), with improvements in 15/24, 42/56, and 14/15 people.</p>
+      </div>
       <div class="container wide">
-        <figure class="hero-figure">
-          <div class="method-overview" role="img" aria-label="Conditional transport of pairwise association">
-            <article class="overview-stage source-stage">
-              <h3>Linked source donors</h3>
-              <div class="donor-stack" aria-hidden="true">
-                <div><i></i><i></i><i></i><i></i></div>
-                <div><i></i><i></i><i></i><i></i></div>
-                <div><i></i><i></i><i></i><i></i></div>
-              </div>
-              <p>Linked measurements define donor-level joint tables.</p>
-            </article>
-
-            <article class="overview-stage fit-stage">
-              <h3>Hierarchical conditional estimator</h3>
-              <div class="overview-equation">p(A<sub>de</sub> | m<sub>de</sub>, &mu;<sub>e</sub> + &delta;<sub>de</sub>)</div>
-              <div class="donor-effects" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><b></b></div>
-              <p>Conditioning on both margins isolates log-linear association, and donor shrinkage estimates the population component shared across donors.</p>
-            </article>
-
-            <article class="overview-stage recipient-stage">
-              <h3>Recipient reconstruction</h3>
-              <div class="recipient-overview" aria-hidden="true">
-                <div class="recipient-margins"><span>r<sub>+</sub></span><span>c<sub>+</sub></span></div>
-                <b>+</b>
-                <span class="population-odds">&mu;<sub>e</sub></span>
-                <b>=</b>
-                <div class="recipient-grid"><i></i><i></i><i></i><i></i></div>
-              </div>
-              <p>Combining this estimate with recipient margins reconstructs a feasible recipient table.</p>
-            </article>
+        <figure class="paper-figure">
+          <div class="figure-scroll" tabindex="0" role="region" aria-label="Recipient-specific structure figure">
+            <a href="assets/figures/assay-resolution.png" title="Open full-size figure"><img src="assets/figures/assay-resolution.png" alt="Deviance reductions with 95 percent intervals for recipient-specific covariance against source and cohort pools, and full patterns against covariance, in Cambridge, Newcastle, and T-ALL."></a>
           </div>
-          <figcaption id="workflow-caption"><b>Conditional prediction of pairwise dependence.</b> Linked source measurements define donor-level joint tables. Conditional estimation separates interaction from marginal abundance. The fitted interaction law and recipient margins determine the mean recipient table. A point-mass law gives population plug-in prediction; a distribution of interactions gives predictive integration. Comparisons retain the same source data and recipient margins.</figcaption>
+          <figcaption><b>Recipient-specific structure improves dependence transfer.</b> Squares and circles compare recipient covariance-preserving reconstruction with source and other-recipient pools, respectively. Triangles show the further improvement from full recipient patterns over recipient covariance alone. Points are relative mean-deviance reductions; lines are paired donor-bootstrap 95% intervals conditional on the fitted models and pools. All arms use the same source interaction and recipient marker frequencies. Cambridge and Newcastle belong to the same study.</figcaption>
         </figure>
       </div>
+      <div class="container reading">
+        <p>Each recipient supplied 256 adaptation cells per assay, compared with 3,072 source cells or 3,584&ndash;14,080 cells in the cohort pool. Matching individual frequencies and using more cells from other people did not recover the recipient-specific gain.</p>
+      </div>
     </section>
 
-    <section class="section light" id="method">
+    <section class="section" id="relationships">
       <div class="container reading">
-        <h2>Association coordinates</h2>
-        <p>For ordered RNA-protein pair <i>e</i>, let <i>P</i><sub>e</sub> be the positive joint-probability table of its binary states. Association is represented by the log odds ratio,</p>
-        <div class="equation" aria-label="The log odds ratio for a binary table">
-          <span>&theta;<sub>e</sub></span><span>=</span><span>log</span><span class="fraction"><i>P<sub>e,00</sub>P<sub>e,11</sub></i><b>P<sub>e,01</sub>P<sub>e,10</sub></b></span>
-        </div>
-        <p>Positive row and column tilts leave this interaction unchanged. Additional file 1 gives the multistate contrast representation and its invariance properties.</p>
+        <h2>Coexpression prioritizes recipient-specific corrections</h2>
+        <p>The response score concentrated the recipient-specific gain into relatively few relationships. Its top third accounted for 87.0%, 90.1%, and 85.5% of the net deviance reduction in Cambridge, Newcastle, and T-ALL, compared with 85.0%, 60.9%, and 38.5% under direct source-interaction ranking.</p>
       </div>
-
       <div class="container wide">
-        <div class="interactive-table" id="margin-lab">
-          <div class="interactive-copy">
-            <h3>Hierarchical conditional estimator</h3>
-            <p>For recipient <i>q</i>, the prediction is the fixed-margin expected table at transported population log odds. This table preserves the recipient margins without a pseudocount or post-fit projection.</p>
-            <div class="control">
-              <label for="rna-margin">Recipient row margin <output id="rna-output" for="rna-margin">62%</output></label>
-              <input id="rna-margin" type="range" min="15" max="85" value="62" step="1">
-            </div>
-            <div class="control">
-              <label for="protein-margin">Recipient column margin <output id="protein-output" for="protein-margin">38%</output></label>
-              <input id="protein-margin" type="range" min="15" max="85" value="38" step="1">
-            </div>
-            <div class="control">
-              <label for="odds-ratio">Transported odds ratio <output id="odds-output" for="odds-ratio">2.51</output></label>
-              <input id="odds-ratio" type="range" min="-160" max="160" value="92" step="1">
-            </div>
+        <figure class="paper-figure">
+          <div class="figure-scroll" tabindex="0" role="region" aria-label="Query-ranking curves">
+            <a href="assets/figures/assay-relationships.png" title="Open full-size figure"><img src="assets/figures/assay-relationships.png" alt="Cumulative net deviance gain by selected marker pairs. Covariance response captures 87, 90, and 86 percent at 27 pairs across the three cohorts; direct source strength captures 85, 61, and 38 percent."></a>
           </div>
-          <div class="table-wrap">
-            <div class="column-labels" aria-hidden="true"><span></span><span>Protein low</span><span>Protein high</span></div>
-            <div class="joint-table" role="img" aria-label="Fixed-margin expected table for 512 cells">
-              <div class="row-label">RNA low</div>
-              <div class="table-cell same"><strong id="cell-00">142.1</strong><small>cells</small></div>
-              <div class="table-cell different"><strong id="cell-01">52.5</strong><small>cells</small></div>
-              <div class="row-label">RNA high</div>
-              <div class="table-cell different"><strong id="cell-10">175.3</strong><small>cells</small></div>
-              <div class="table-cell same"><strong id="cell-11">142.1</strong><small>cells</small></div>
-            </div>
-            <div class="margin-summary"><span>Row margin <b id="rna-check">62.0%</b></span><span>Column margin <b id="protein-check">38.0%</b></span><span>Table total <b>512</b></span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container reading method-detail">
-        <h3>Prediction with recipient variation</h3>
-        <p>A population log odds specifies one interaction, whereas a new donor can differ from the population. For a predictive distribution <i>G</i><sub>e</sub> of recipient log odds, the corresponding mean table is</p>
-        <div class="equation">
-          <math display="block" aria-label="The predicted table integrates conditional expectations over recipient log odds">
-            <msubsup><mover><mi>N</mi><mo>^</mo></mover><mi>qe</mi><mtext>mix</mtext></msubsup><mo>=</mo><mo>&int;</mo>
-            <msub><mi mathvariant="double-struck">E</mi><mi>&theta;</mi></msub><mo>[</mo><msub><mi>N</mi><mi>qe</mi></msub><mo>|</mo><msub><mi>m</mi><mi>qe</mi></msub><mo>]</mo>
-            <mi mathvariant="normal">d</mi><msub><mi>G</mi><mi>e</mi></msub><mo>(</mo><mi>&theta;</mi><mo>)</mo>
-          </math>
-        </div>
-        <p>This prediction preserves both margins and minimizes expected recipient deviance under the mixture law. Evaluating the table at the mean log odds generally gives a different prediction because the conditional mean is nonlinear.</p>
-        <p>For a normal interaction distribution, we estimated the population mean and between-donor variance by exact conditional marginal maximum likelihood. The post hoc comparison evaluated both the population plug-in and mixture prediction from this fit. The original 12 calibration donors supplied each candidate fit, the 24 pilot donors selected its transport multiplier, and all 36 source donors supplied the final estimate. Multipliers scaled both the mean and standard deviation of log odds. Equal-tail 95% intervals for the recipient upper-left count used the fitted predictive distribution.</p>
-        <h3>Classical comparisons and controls</h3>
-        <p>The matched statistic comparator transfers either the signed root Pearson statistic or the signed root likelihood-ratio deviance from the row-plus-column independence model. We normalized statistics by table size, pooled them across source donors, rescaled them for each recipient, and inverted them at its margins. The Stephenson protocol used Paule-Mandel random-effects pooling. Both methods received the same recipient margins without recipient pairings.</p>
-        <p>The destroyed-link control permuted complete protein profiles within each donor before joint tables were formed. This preserved RNA and protein margins and dependence within the protein panel but removed cell-level RNA-protein linkage. We refitted the selected conditional estimator to the permuted tables. Fixed-margin independence provided a further control.</p>
-
-        <h3>Prespecified held evaluation</h3>
-        <p>The Stephenson analysis plan fixed eligibility, donor allocation, cell selection, state definitions, marker panels, tuning grids, comparators, loss, uncertainty, and success criteria before the Newcastle pairing outcomes were observed. The Cambridge pilot selected the final configuration from these grids, after which all Cambridge development donors supplied the final fit. Predictions used Newcastle margins alone and were recorded before RNA-protein pairing was restored for evaluation.</p>
-      </div>
-    </section>
-
-    <section class="section" id="results">
-      <div class="container reading">
-        <h2>Association transferred across recruitment sites</h2>
-        <p>Across 56 Newcastle donors, the hierarchical conditional estimator reached mean deviance 0.01220, compared with 0.01478 for signed-root deviance-statistic transfer. The corresponding 17.46% reduction had a paired-donor loss-difference interval of -0.00413 to -0.00080. The conditional estimate was better in 50/56 donors. All 36 Cambridge development donors supplied the final source fit after pilot selection.</p>
-      </div>
-      <div class="container wide">
-        <div class="result-grid" aria-label="Held-site results">
-          <div><strong>0.01220</strong><span>Hierarchical conditional estimator</span></div>
-          <div><strong>0.01478</strong><span>Signed-root deviance-statistic transfer</span></div>
-          <div><strong>17.46%</strong><span>Reduction in mean deviance</span></div>
-          <div><strong>50 / 56</strong><span>Newcastle donors with lower loss</span></div>
-        </div>
-      </div>
-      <div class="container reading result-copy">
-        <p>The estimator also reduced deviance by 46.36% relative to the destroyed-link fit of 0.02274 (paired-donor interval -0.01323 to -0.00749; 51/56 donors favorable). In post hoc fitted-baseline analyses, it improved on the common-effect conditional estimate by 6.18% and on pooled-table log odds with conditional reconstruction by 3.39%.</p>
-      </div>
-
-    </section>
-
-    <section class="section" id="predictive-results">
-      <div class="container reading">
-        <h2>Predictive integration improved calibrated transfer</h2>
-        <p>The post hoc comparison selected &alpha; = 0.75 for both normal random-effects predictions. The mixture reached mean deviance 0.011165, an 8.46% reduction relative to the original hierarchy (95% interval, 5.42&ndash;11.55%). It improved on common conditional estimation with matched ridge by 11.79% (7.43&ndash;16.10%). The population plug-in from the same random-effects fit reached 0.011315. Integrating its fitted variation reduced deviance by 1.33% (0.72&ndash;1.96%; 38/56 donors favorable), isolating the effect of the prediction rule.</p>
-        <p>Calibration also mattered. Without rescaling log odds, random-effects plug-in and mixture losses were 0.013865 and 0.013137, both above the original hierarchy. The calibrated mixture reduced loss by 24.44% relative to the frozen statistic comparator (95% interval, 16.03&ndash;31.16%). Equal-tail 95% count-interval coverage was 70.01% for the calibrated plug-in and 83.17% for the mixture; mean interval widths were 15.74 and 22.90 cells.</p>
-      </div>
-    </section>
-
-    <section class="section light" id="biological-controls">
-      <div class="container reading">
-        <h2>Composition and protein-state controls</h2>
-        <p>Two original held donors had only 0 and 3 counts across the selected nine-protein panel; the next-lowest total across the other 90 source and recipient donors was 6,560. A post hoc sensitivity retained the published predictions for the other 54 recipients. Their mean hierarchical deviance was 0.011393, a 23.69% reduction relative to statistic transfer (95% interval, 17.86&ndash;28.99%; 50/54 donors favorable) and a 4.77% reduction relative to common conditional estimation (2.99&ndash;6.53%; 44/54 favorable). The original 56-donor result was unchanged.</p>
-        <p>In these 54 recipients, the calibrated mixture retained a 6.77% gain over the original hierarchy (95% interval, 4.41&ndash;9.26%) and a 0.95% gain over its matched plug-in (0.55&ndash;1.36%; 36/54 donors favorable). Its mean deviance was 0.010622.</p>
-        <p>With source-defined protein thresholds, 54 recipient donors had informative pairs. The hierarchy reached mean deviance 0.007927, compared with 0.008147 for common conditional estimation: a 2.70% reduction (paired-donor 95% interval, 0.72&ndash;4.73%; 31/54 donors favorable). The same two low-signal donors had no informative pairs under this state definition.</p>
-        <p>All eight composition-preserving source fits converged. Their mean recipient deviance was 0.011867, compared with 0.012197 for intact source linkage. The intact-minus-control difference was 0.000330 (paired-donor 95% interval, -0.000335 to 0.001096; 31/56 donors favorable to intact linkage). Nested resampling over donors and source permutations gave a similar interval, -0.000336 to 0.001087.</p>
-      </div>
-    </section>
-
-    <section class="section" id="simulation">
-      <div class="container reading">
-        <h2>Conditioning and donor shrinkage separated distinct errors</h2>
-        <p>The factorial simulation separated donor heterogeneity from margin shift. With heterogeneous donor effects and source-like margins, the hierarchical estimator reached deviance 0.01493, compared with 0.01521 for the common-effect conditional estimate. The reduction was 1.85% (95% interval 1.52% to 2.18%). After the recipient margins shifted, conditional transport reduced deviance by 65.49% (63.02% to 67.72%) relative to raw signed-root deviance-statistic transfer.</p>
-        <p>When both source and recipient log odds varied with standard deviation 1.2, the hierarchical reduction relative to matched-ridge common estimation was 0.41% (95% interval, 0.33&ndash;0.49%) with source-like margins and 0.39% (0.31&ndash;0.47%) after margin shift. With population parameters known, integrating recipient variation reduced deviance relative to the population plug-in by 0.32% (0.22&ndash;0.42%) and 2.25% (1.88&ndash;2.61%), respectively. The latter comparison isolates the prediction rule from estimation of the interaction distribution. Additional file 1 reports all eight scenarios.</p>
-      </div>
-      <div class="container wide">
-        <figure class="simulation-figure">
-          <img src="assets/figures/simulation.svg" alt="Ground-truth estimator behavior">
-          <figcaption><b>Ground-truth estimator behavior.</b> <b>a</b>, relative change in recipient deviance for the hierarchical estimator against the common-effect conditional estimate. Negative values favor hierarchical shrinkage. <b>b</b>, reduction in deviance relative to raw signed-root deviance-statistic transfer before and after recipient-margin shift. Recipient log odds equal the population value in these four scenarios. Bars are 95% paired simulation-replicate bootstrap intervals across 128 replicates.</figcaption>
+          <figcaption><b>Unpaired coexpression identifies relationships that benefit from correction.</b> Pairs are ranked separately within each person. Curves show cumulative deviance improvement from recipient covariance over the cohort pool, divided by the net improvement across all 81 pairs. Teal uses the covariance-response score; gray uses direct source-interaction strength. The dotted line is the expected fraction under uniform selection. Curves are descriptive cohort aggregates; donor-bootstrap comparisons at 27 pairs are reported in the text. Net gain can exceed 100% when excluded corrections worsen prediction.</figcaption>
         </figure>
       </div>
+      <div class="container reading">
+        <p>In Newcastle, the mean gain per selected pair was 0.00506 under the response score and 0.00342 under direct ranking; the paired difference was 0.00164 (95% interval, 0.00085&ndash;0.00256). In T-ALL the gains were 0.02523 and 0.01135, a difference of 0.01388 (0.00906&ndash;0.01925). Both contrasts survived the six-comparison adjustment. Cambridge gave similar gains under the two rankings, 0.00168 and 0.00164 (difference, 0.00004; &minus;0.00077 to 0.00085).</p>
+        <p>In T-ALL, the three highest cohort-mean scores were for CD7 RNA&ndash;CD4 protein, CD4 RNA&ndash;CD52 protein, and CD7 RNA&ndash;CD52 protein; their mean deviance gains were 0.04513, 0.01245, and 0.04981. The original study used CD4 and CD7 to distinguish T-cell populations and included CD52 in a leukemia expression signature. These corrections concern marker combinations associated with the cohort's cellular heterogeneity.</p>
+      </div>
     </section>
 
-    <section class="section" id="discussion">
+    <section class="section light" id="discussion">
       <div class="container reading">
         <h2>Discussion</h2>
-        <p>Recipient margins and donor variation govern different parts of the prediction. Fixed-margin reconstruction absorbed abundance shifts in simulation and transferred RNA-surface-protein dependence from Cambridge to Newcastle without copying source marginal frequencies. The original hierarchy improved on common conditional estimation, but the matched comparison favored calibrated normal random effects. Integrating the fitted interaction distribution further improved prediction over its population plug-in, consistent with the decision rule derived for recipient deviance. The gain persisted after excluding the two low-signal protein panels.</p>
-        <p>Classical stratified odds-ratio models estimate association among observed tables; fixed-margin construction combines known margins with specified dependence. We join these operations in a predictive study design whose recipient pairing is absent at fit time. The statistic-transfer and conditional estimators receive the same linked source tables and recipient margins. Models such as totalVI and MultiVI solve missing-modality problems from paired observations or cell-level covariates; fitting them to recipient cells would change this information boundary. Exact conditional random-effects estimation supplies the direct classical comparison for transporting donor-varying log odds.</p>
+        <p>The resolution at which a relationship is reported need not be the resolution at which it should be transferred. A binary RNA&ndash;protein table depends on the distribution of finer cellular profiles. Reconstructing those profiles before aggregation allowed one source interaction to predict different recipient associations using measurements made separately within each assay.</p>
+        <p>The pooled controls distinguish recipient-specific coexpression from generic population structure: more observations from other people did not replace the recipient's own assay patterns.</p>
       </div>
     </section>
 
-    <section class="section light" id="limitations">
+    <section class="section" id="limitations">
       <div class="container reading">
         <h2>Limitations</h2>
-        <p>The held confirmation is observational and does not establish perturbation causality, molecular binding, or a regulatory mechanism. It uses binary states, 512 cells per donor, and nine RNA and nine protein markers. Shuffling within annotated cell types retained prediction accuracy, so the held-site result does not isolate within-cell-type dependence from association induced by cell composition. Source-defined protein thresholds extended the analysis beyond fixed 256/256 protein margins, but they are not validated positivity thresholds. Other cell budgets, broader panels, technologies, tissues, and state resolutions require independent replication. The 81 pairwise tables within a donor reuse cells and marker vectors; they do not specify a full multivariate cell distribution.</p>
-        <p>The held-site selection assigned no weight to graph regularization, so the empirical claim concerns hierarchical conditional transfer without graph or hypergraph smoothing. The fitted-interaction comparisons, predictive reanalysis, and biological sensitivities followed the held result and are not independent confirmations. Two recipients had almost no counts across the selected protein panel; median ranking nevertheless assigned balanced states through tie breaking. Their exclusion is a post hoc sensitivity, not a revision of the original confirmation.</p>
-        <p>Predictive integration assumes that the source interaction distribution applies to the recipient after calibration. Neither interval family achieved nominal 95% coverage. The count intervals condition on fitted parameters and do not include source-parameter uncertainty. Donor bootstrap intervals likewise condition on the fitted model, selected configuration, and cell subsamples. Normal random-effects estimation and predictive averaging are established statistical procedures; the results support their use in this prediction setting, not superiority of a new likelihood family.</p>
+        <p>The resolution and query-ranking analyses are retrospective analyses of previously examined recipients from two studies, not new confirmation. Intervals condition on the source fit and fitted pools, omitting their estimation uncertainty, dependence between overlapping cohort pools, and the adaptive research history. The earlier T-ALL model comparison was fixed before count access but did not pass its all-control superiority criterion.</p>
+        <p>The panel contains nine RNA and nine protein markers, and protein states use donor-wide ranks that include scoring values. Individual scoring-cell marker frequencies are supplied. Two Stephenson recipients have almost no counts across the protein panel and were retained. The task is fixed-margin dependence prediction, not missing-modality imputation without target assay values. The results do not isolate within-cell-type regulation or establish molecular binding, causal effects, or clinical utility.</p>
+        <p>The sharp interval assumes a known transferable interaction and two focal frequencies; it is not the identified set for the all-marker benchmark. The examples establish ambiguity, not its biological magnitude. Query-wise minimax predictions need not form a coherent multivariate law. Interaction drift, sampling error, and coarsening ambiguity remain distinct.</p>
+        <p>We tested one maximum-entropy replacement, which preserves fitted means and covariances but can induce higher-order correlations. The retained gain is descriptive, not causal mediation. The response expansion applies near independence, without an accuracy claim at the fitted interaction strength. Its query score predicts model discrepancy, not error against an arbitrary biological population. The query-ranking advantage over direct source strength was unresolved in Cambridge. Prioritization requires the full measured panel and does not establish savings from measuring fewer markers. Sorting and cell mixtures can contribute to the observed coexpression.</p>
+        <p>Reconstruction, noncollapsibility, and minimax KL prediction have established foundations. The theory concerns the resolution-dependent identified set; the experiments establish an information advantage, not a superior cost learner. The CHAMPOLLION comparator uses its no-prior objective with a common recipient adapter, not its complete published workflow.</p>
       </div>
     </section>
 
-    <section class="section conclusions" id="conclusions">
+    <section class="section light conclusions" id="conclusions">
       <div class="container reading">
         <h2>Conclusions</h2>
-        <p class="lead">Fixed-margin prediction reconstructs cell-level cross-modal dependence from linked source donors and recipient aggregate counts. The prespecified held-site experiment supported conditional transfer over matched statistic transfer and destroyed source linkage. A subsequent matched comparison improved prediction through calibrated normal random effects and integration over donor variation. Recipient margins, interaction calibration, and predictive averaging address distinct parts of the transfer problem.</p>
+        <p>Within-assay cellular patterns improved cross-cohort RNA&ndash;protein dependence prediction with the source interaction held fixed. Recipient-specific covariances retained most of this gain and outperformed source and cohort pools matched to the same marker frequencies. Full patterns improved further in each cohort. Separately measured recipient coexpression can therefore support molecular predictions that individual frequencies and cohort averages do not recover.</p>
       </div>
     </section>
 
-    <section class="section light" id="availability">
+    <section class="section" id="availability">
       <div class="container reading">
         <h2>Availability of data and materials</h2>
-        <p>All source datasets are public through the accessions listed in Additional file 1 and retain their original licenses. Analysis plans, MIT-licensed software, cohort and simulation results, and study records are available in the v2.0.4 public release. Raw matrices are not redistributed.</p>
-        <div class="publication-links bottom-links"><a href="assets/papers/fixed-margin-prediction.pdf">Paper</a><a href="assets/papers/additional-file-1.pdf">Additional file</a><a href="https://github.com/sushaan-k/coupling-fields-benchmark/tree/coupling-fields-v2.0.4-public-benchmark">Code</a><a href="https://github.com/sushaan-k/coupling-fields-benchmark/releases/tag/coupling-fields-v2.0.4-public-benchmark">Data</a></div>
+        <p>Source data are available through the accessions in Additional file 1, including GSE248287 for the T-ALL cohort. The original benchmark's analysis plans, MIT-licensed software, and study records are available in the <a href="https://github.com/sushaan-k/coupling-fields-benchmark/releases/tag/coupling-fields-v2.0.4-public-benchmark">v2.0.4 release</a>. The resolution and query-ranking analyses are subsequent work and are not included in that release. Additional file 1 documents their protocols and computational verification. Raw matrices are not redistributed.</p>
+        <div class="publication-links bottom-links">
+          <a href="assets/papers/assay-resolution.pdf">Paper</a>
+          <a href="assets/papers/assay-resolution-additional-file-1.pdf">Additional file</a>
+          <a href="https://github.com/sushaan-k/coupling-fields-benchmark/tree/main/paper/assay-resolution">Manuscript source</a>
+          <a href="https://github.com/sushaan-k/coupling-fields-benchmark/releases/tag/coupling-fields-v2.0.4-public-benchmark">Original benchmark</a>
+        </div>
       </div>
     </section>
   </main>
-  <footer>Fixed-margin prediction of cell-level RNA-surface-protein dependence across cohorts</footer>
+  <footer>Assay resolution governs the transfer of molecular dependence</footer>
 </body>
 </html>
