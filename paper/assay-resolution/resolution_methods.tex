@@ -1,0 +1,273 @@
+\section{Assay resolution and recipient coexpression}
+\label{sec:resolution}
+This section gives the theory and retrospective analyses added after the
+original fixed-margin benchmark. All resolution comparisons hold the source
+interaction fixed.
+
+\subsection{Sharp coarse prediction bound}\label{app:proof}
+Let $x,y$ range over finite assay-profile supports, let $S(x,y)$ be finite,
+and consider positive joint distributions
+\begin{equation}
+ q(x,y)=\exp\{S(x,y)+a(x)+b(y)\}.
+ \label{eq:resolution_joint}
+\end{equation}
+The binary queries $U=f(x)$ and $V=g(y)$ each have two nonempty fibers and
+known frequencies $m_U,m_V\in(0,1)$. For every rectangle crossing their four
+fibers, define
+\[
+ d=S(x_0,y_0)+S(x_1,y_1)-S(x_0,y_1)-S(x_1,y_0),
+\]
+where $f(x_0)=g(y_0)=0$ and $f(x_1)=g(y_1)=1$. Write $L=\min d$ and
+$H=\max d$. The closure of compatible coarse log odds is $[L,H]$.
+The following proof also gives the minimax prediction under these two
+frequency constraints.
+For the known margins $m_U,m_V$, write the compatible binary table as
+\[
+ P(t)=\begin{pmatrix}1-m_U-m_V+t&m_V-t\\m_U-t&t\end{pmatrix}.
+\]
+Let $t(\theta)$ be the unique interior cell probability giving log odds
+$\theta$, and put $l=t(L)$ and $h=t(H)$.
+
+Every fine distribution in Eq.~\eqref{eq:resolution_joint} satisfies
+\[
+ q(x_0,y_0)q(x_1,y_1)=e^d q(x_0,y_1)q(x_1,y_0).
+\]
+Summing over rectangles in the four coarse blocks expresses the coarse odds
+ratio as a positively weighted average of $e^d$. Its log therefore belongs to
+$[L,H]$. Concentrate the fine RNA masses $1-m_U,m_U$ on an extremizing $x_0,x_1$
+and protein masses $1-m_V,m_V$ on $y_0,y_1$. Their two-by-two reconstruction attains
+the corresponding endpoint. Positive fine distributions approximate these
+concentrated distributions while preserving the coarse margins. The positive
+fine-marginal domain is connected, and its entropic reconstruction is
+continuous, so the closure of attainable coarse tables is exactly
+$\{P(t):l\leq t\leq h\}$.
+
+For a fixed prediction, KL loss is convex in the true table, so its maximum on
+this segment occurs at an endpoint. Moving a predicted table along the segment
+increases its loss to one endpoint and decreases its loss to the other. There
+is a unique equalizing table $P_*$, which is a mixture of the endpoints. For
+$l<h$, define entropy as $\mathcal H(P)=-\sum P\log P$. The minimax log odds are
+\[
+ \theta_* = \frac{\mathcal H(P(l))-\mathcal H(P(h))}{h-l},
+ \qquad P_*=P(t(\theta_*)).
+\]
+For $l=h$, set $P_*=P(l)$.
+
+The equalizing construction is an information-radius minimax rule
+\cite{vanerven}. To prove optimality over all predictions, including those with different
+margins, choose the weight $w$ such that $P_*=wP(l)+(1-w)P(h)$. For any
+prediction $R$,
+\begin{align*}
+ &w\KL(P(l)\Vert R)+(1-w)\KL(P(h)\Vert R)\\
+ &\quad=R_*+\KL(P_*\Vert R),
+\end{align*}
+where $R_*=\KL(P(l)\Vert P_*)=\KL(P(h)\Vert P_*)$. The worst endpoint loss
+cannot be smaller than this weighted average. Equality is attained uniquely
+by $P_*$. All compatible populations induce the same independent unpaired
+Bernoulli observation laws with frequencies $m_U,m_V$. Convexity in the predicted
+distribution makes randomization unhelpful, so $R_*$ is also a lower bound
+for every sample-based predictor observing only these unpaired binary states.
+
+For the three-marker example in the main text, take the RNA distribution
+$r(z_1,z_2)=(1+\rho z_1z_2)/4$, with $|\rho|<1$. The joint distribution
+\[
+ q(z_1,z_2,w)=r(z_1,z_2)\frac{e^{Jz_2w}}{2\cosh J}
+\]
+has all three individual means zero and the required fine interaction.
+Conditional expectation gives
+$\mathbb E(W\mid Z_1,Z_2)=Z_2\tanh J$ and hence
+$\mathbb E(Z_1W)=\rho\tanh J$. All probabilities are positive, so the example does
+not depend on structural zeros.
+
+\subsection{Response to a transferred interaction}\label{app:response}
+The expansion below specializes the fixed-marginal response identities of
+Sei and Yano \cite{sei}. Fix positive marginal masses $r(x)$ and $c(y)$ on finite supports. Write
+$\bar x=x-\mathbb E_r X$, $\bar y=y-\mathbb E_c Y$, and
+$h=\bar x^\top B\bar y$. Centering changes the interaction only by additive
+assay functions. The reconstruction can therefore be written
+\[
+ q_t(x,y)=r(x)c(y)\exp\{t h(x,y)+\alpha_t(x)+\beta_t(y)\}.
+\]
+At $t=0$, the adjusting functions vanish. After fixing their additive gauge,
+the finite marginal equations have a nonsingular linearization at independence,
+so their solution is analytic near zero. Differentiating the marginal
+constraints once gives zero conditional means for
+$\partial_t\log q_t$. Centering $h$ in both arguments therefore gives
+$\partial_t\log q_t|_{t=0}=h$. Differentiating twice gives
+\begin{align*}
+ \left.\frac{\partial_t^2q_t}{rc}\right|_{t=0}
+ &=h^2-\mathbb E_c(h^2\mid x)\\
+ &\quad-\mathbb E_r(h^2\mid y)+\mathbb E_{rc}h^2.
+\end{align*}
+When multiplied by $\bar x_i\bar y_j$ and averaged under $rc$, the last
+three terms vanish. Define the third central moment tensors by
+$T^x_{iac}=\mathbb E_r(\bar X_i\bar X_a\bar X_c)$ and
+$T^y_{jbd}=\mathbb E_c(\bar Y_j\bar Y_b\bar Y_d)$. It follows that
+\begin{align*}
+ &\operatorname{Cov}_{q_t}(X_i,Y_j)=t(\Sigma_x B\Sigma_y)_{ij}\\*
+ &\quad+\frac{t^2}{2}\sum_{a,b,c,d}
+       B_{ab}B_{cd}T^x_{iac}T^y_{jbd}+O(t^3).
+\end{align*}
+For an explicit example, take three spins in each assay and let
+\[
+ r(x)=\frac{1+\rho_x x_1x_2x_3}{8},\qquad
+ c(y)=\frac{1+\rho_y y_1y_2y_3}{8},
+\]
+with $x_i,y_i\in\{-1,1\}$ and $|\rho_x|,|\rho_y|<1$. Every individual mean
+is zero and each within-assay covariance matrix is the identity. For diagonal
+$B=\operatorname{diag}(b_1,b_2,b_3)$,
+\[
+ \mathbb E_{q_t}(X_1Y_1)
+ =t b_1+t^2\rho_x\rho_y b_2b_3+O(t^3).
+\]
+The pairwise maximum-entropy replacement is uniform in each assay and loses
+the second term. Positive distributions with identical means and covariances
+can therefore give different RNA--protein associations under the same
+bilinear interaction.
+
+\subsubsection{Query discrepancy from covariance mismatch}\label{app:query}
+Consider recipient and pooled reconstructions with the same binary marker
+frequencies $m,n\in(0,1)$ and interaction $t x^\top B y$. Let $k_R$ and $k_P$
+be their respective queried entries of $\Sigma_x B\Sigma_y$. Both query tables
+equal the independent table $P_0$ at $t=0$, and
+\[
+ P_R(t)-P_P(t)=t(k_R-k_P)V+O(t^2),
+\]
+where $V=\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)$.
+Taylor expansion of KL divergence about the positive table $P_0$ gives
+\begin{align*}
+ &2\KL(P_R(t)\Vert P_P(t))\\*
+ &\quad=t^2(k_R-k_P)^2\sum_{u,v}\frac{V_{uv}^2}{(P_0)_{uv}}+O(t^3)\\*
+ &\quad=\frac{t^2(k_R-k_P)^2}{m(1-m)n(1-n)}+O(t^3).
+\end{align*}
+The coefficient is the response score used to rank queries. If the recipient
+model describes the true joint law, it is also the leading excess deviance
+from substituting pooled coexpression. The empirical comparison tests the
+ranking at the fitted interaction strength without imposing that equality.
+
+
+
+\subsection{Matched resolution and covariance analyses}
+
+The three recipient cohorts contain 24 Cambridge donors, 56 Newcastle donors,
+and 15 T-ALL patients. The same nine RNA and nine protein markers give 81
+ordered queries. All analyses retain the original deterministic 512-cell
+sample, donor-wide protein ranks, 256 adaptation cells, 256 scoring cells,
+and 12-donor source interaction with pairing-contrast penalty $10^{-4}$.
+The paired source fit is the only source of cross-assay interaction
+information. Recipient adaptation uses separate-assay patterns and the
+scoring sample's individual marker frequencies, not its pairings.
+
+The means-only reconstruction constrains all 18 individual frequencies.
+Each one-pattern arm additionally constrains that assay's full binary-profile
+histogram. The both-pattern arm constrains both histograms. Histograms receive
+four source-prior pseudocells and exponential tilts to the scoring-cell
+marker frequencies. Constant markers are restricted to their observed states.
+Matrix scaling fits complete pattern constraints, and moment matching fits
+individual-frequency constraints. These are reconstructions from the same
+interaction, not separately trained interaction models.
+
+The covariance arm replaces each smoothed and tilted histogram with its
+maximum-entropy distribution subject to the same first and second moments.
+For binary profiles its log density contains unary and pairwise terms.
+This replacement can induce higher-order correlations; it fixes pairwise
+moments rather than forcing all higher-order moments to vanish.
+The retained-gain fraction is
+\[
+ \frac{L_{\mathrm{means}}-L_{\mathrm{covariance}}}
+ {L_{\mathrm{means}}-L_{\mathrm{patterns}}},
+\]
+where each $L$ is the cohort's mean donor deviance. It is a descriptive loss
+decomposition, not an estimate of a mediated biological effect.
+
+\subsection{Recipient-specific and pooled coexpression}
+
+The source pool uses the 12 source donors' adaptation halves: 3,072 cells
+per assay. For each query person, the cohort pool uses every other recipient's
+adaptation half and excludes the query person. It contains 5,888 cells in
+Cambridge, 14,080 in Newcastle, and 3,584 in T-ALL. Both controls use four prior
+pseudocells per contributing person, preserving the prior fraction, then
+undergo the same tilting and maximum-entropy reconstruction at the query
+person's marker frequencies. The cohort pool uses recipient-cohort data but
+no scoring-cell patterns. These controls vary the origin of covariance
+without changing the interaction, marker frequencies, or scoring tables.
+
+\subsection{Query ranking and uncertainty}
+
+For RNA marker $i$ and protein marker $j$, define
+\[
+ s_{ij}=
+ \frac{\{(\Sigma_x B\Sigma_y)^{\mathrm{recipient}}_{ij}
+       -(\Sigma_x B\Sigma_y)^{\mathrm{pool}}_{ij}\}^{2}}
+ {m_i(1-m_i)n_j(1-n_j)}.
+\]
+The source-strength comparator is
+$B_{ij}^{2}m_i(1-m_i)n_j(1-n_j)$.
+Scores are zero for constant-marker queries. Both rankings use the fixed
+marker order to break ties. Pair-specific gain is the cohort-pool deviance
+minus recipient-covariance deviance, using unchanged predictions.
+The top 27, bottom 27, and source-ranked top 27 were specified before
+computing the pair-specific losses. Cumulative gain curves sum gains over
+people and selected queries, then divide by the sum over all 81 queries;
+they do not average person-specific percentages.
+
+All loss endpoints average twice KL over every marker pair, including
+constants, then equally over people. Each comparison uses 20,000 paired
+person-level bootstrap draws. The four analysis families use seeds
+906091--906094 and contain, respectively, nine pattern-resolution contrasts,
+six covariance-replacement contrasts, six recipient-versus-pool contrasts,
+and six query-ranking contrasts. For a family of $M$ comparisons, the
+Bonferroni percentile endpoints are $0.025/M$ and $1-0.025/M$.
+These intervals condition on the fixed source fit and fitted pools.
+
+\begin{table}[htbp]
+\caption{Query-ranking comparisons. Values are mean deviance-gain differences
+per selected pair. Intervals resample people and correct across six contrasts.}
+\centering\small
+\begin{tabularx}{\textwidth}{@{}lYrrY@{}}
+\toprule
+Cohort & Comparison & Difference & Favorable people & Bonferroni interval\\
+\midrule
+Cambridge & Response top vs bottom third & 0.001711 & 15/24 & $-0.000126$ to 0.003883\\
+Newcastle & Response top vs bottom third & 0.004983 & 44/56 & 0.002657 to 0.007787\\
+T-ALL & Response top vs bottom third & 0.024259 & 14/15 & 0.014180 to 0.037793\\
+Cambridge & Response vs source-ranked top third & 0.000038 & 11/24 & $-0.001043$ to 0.001154\\
+Newcastle & Response vs source-ranked top third & 0.001642 & 38/56 & 0.000612 to 0.002920\\
+T-ALL & Response vs source-ranked top third & 0.013881 & 14/15 & 0.007619 to 0.021405\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Relation to full-profile interaction fitting}
+
+The earlier T-ALL comparison used all 15 patients, the same permitted
+recipient information, and additional protein-abundance coordinates.
+A common recipient adapter compared the no-prior CHAMPOLLION inverse-transport
+objective \cite{champollion} with donor-wise joint fitting, query-targeted
+fitting, and a multinomial comparator. Mean losses were 0.008441, 0.008476,
+0.008602, and 0.010630, respectively. Query-targeted fitting improved on the
+multinomial comparator by 19.07\% (95\% interval, 13.05--24.36\%); its relative
+improvement over the CHAMPOLLION objective was $-1.91\%$
+($-6.26$ to 2.25\%). This comparison did not meet its all-control superiority
+criterion. It neither benchmarks the complete CHAMPOLLION workflow nor
+establishes a better interaction learner. The subsequent binary resolution
+analyses hold one fitted interaction constant.
+
+\subsection{Computational verification}
+
+Separate implementations reconstructed all 380 initial resolution predictions,
+190 covariance-preserving assay distributions and their 95 joint predictions,
+and 190 pooled-control predictions. Maximum absolute differences in predicted
+probabilities were $5.04\times10^{-11}$, $1.14\times10^{-10}$, and
+$1.27\times10^{-10}$, respectively. Verification recounted the scoring tables,
+checked exact marker margins, and checked source membership and exclusion of
+the query person from each cohort pool. Independently calculated query
+scores differed by at most $1.47\times10^{-10}$; pair-specific gain and
+bootstrap-summary differences were below $4\times10^{-16}$.
+Fourteen tests cover marginal constraints, reconstruction equivalence,
+covariance replacement, pool construction, and query scoring.
+
+Analysis plans preceded these computations but followed examination of earlier
+outcomes; the analyses are retrospective. The original public v2.0.4 benchmark
+is a separate release and does not contain the subsequent resolution,
+covariance, pooled-control, or query-ranking analyses.

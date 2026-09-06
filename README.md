@@ -1,5 +1,31 @@
 # Coupling-fields benchmark
 
+## Current paper
+
+**Assay resolution governs the transfer of molecular dependence**
+
+[Paper page](https://sushaan-k.github.io/coupling-fields-benchmark/) |
+[Paper](paper/assay-resolution/reader.pdf) |
+[Additional file 1](paper/assay-resolution/supplement.pdf) |
+[LaTeX source and build instructions](paper/assay-resolution/)
+
+The manuscript examines which recipient assay information supports
+RNA-protein dependence prediction with a fixed source interaction. This
+revision clarifies the coarsening result, covariance response, comparisons,
+and retrospective study design without changing the reported results.
+
+The original benchmark's code and results are preserved in the immutable
+[v2.0.4 release](https://github.com/sushaan-k/coupling-fields-benchmark/releases/tag/coupling-fields-v2.0.4-public-benchmark).
+That release does not include the later resolution and query-ranking analyses.
+The current update publishes manuscript sources, PDFs, and the paper page;
+it does not release a new analysis package or redistribute raw data.
+
+## Earlier benchmark documentation
+
+The documentation below describes the earlier benchmark snapshot retained
+on this branch. The original paper files remain in `paper/`; the current
+manuscript is in `paper/assay-resolution/`.
+
 This repository is a public, source-visible benchmark for
 perturbation-specific dependence in linked single-cell assays. It preserves
 positive, negative, and refused panels under one fixed evaluation contract.

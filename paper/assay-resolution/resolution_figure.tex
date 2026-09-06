@@ -1,0 +1,39 @@
+\definecolor{sourcepool}{HTML}{5D6670}
+\definecolor{cohortpool}{HTML}{217D91}
+\definecolor{fullpatterns}{HTML}{A64442}
+\begin{tikzpicture}
+\begin{axis}[
+ width=.875\textwidth,height=6.2cm,
+ xmin=0,xmax=80,ymin=.55,ymax=3.65,
+ xtick={0,20,40,60,80},ytick={1,2,3},
+ yticklabels={T-ALL ($n=15$),Newcastle ($n=56$),Cambridge ($n=24$)},
+ xlabel={Deviance reduction (\%)},
+ axis x line*=bottom,axis y line*=left,
+ tick align=outside,y tick style={draw=none},
+ xmajorgrids=true,grid style={gray!18},
+ axis line style={gray!55},
+ tick label style={font=\small},label style={font=\small},
+ legend style={draw=none,fill=white,at={(.99,.99)},anchor=north east,
+   legend columns=1,font=\small,row sep=3pt},
+ legend cell align=left,
+ every axis plot/.append style={only marks,mark size=2.4pt,line width=.8pt},
+ error bars/x dir=both,error bars/x explicit,
+ error bars/error mark options={rotate=90,mark size=3pt,line width=.8pt}
+]
+\addplot[color=sourcepool,mark=square*] coordinates {
+ (9.802959,3.18) += (6.327614,0) -= (6.695547,0)
+ (28.127161,2.18) += (5.067868,0) -= (5.241208,0)
+ (60.570808,1.18) += (7.427550,0) -= (8.208040,0)};
+\addlegendentry{Recipient vs. source pool}
+\addplot[color=cohortpool,mark=*] coordinates {
+ (9.151773,3) += (6.422499,0) -= (6.860723,0)
+ (17.936681,2) += (5.063675,0) -= (5.359103,0)
+ (45.974226,1) += (9.818266,0) -= (10.731197,0)};
+\addlegendentry{Recipient vs. cohort pool}
+\addplot[color=fullpatterns,mark=triangle*] coordinates {
+ (4.738083,2.82) += (2.037166,0) -= (1.927312,0)
+ (2.274555,1.82) += (1.091061,0) -= (1.025805,0)
+ (10.345925,.82) += (3.394911,0) -= (2.756633,0)};
+\addlegendentry{Full patterns vs. recipient}
+\end{axis}
+\end{tikzpicture}

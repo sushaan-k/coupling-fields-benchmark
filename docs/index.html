@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recipient coexpression supports dependence predictions that individual marker frequencies and larger pooled samples do not recover.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Assay resolution governs the transfer of molecular dependence">
+  <meta property="og:description" content="Recipient coexpression supports dependence predictions that individual marker frequencies and larger pooled samples do not recover.">
+  <meta property="og:url" content="https://sushaan-k.github.io/coupling-fields-benchmark/">
+  <meta property="og:image" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/assay-resolution-preview.png">
+  <meta property="og:image:secure_url" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/assay-resolution-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Assay resolution governs the transfer of molecular dependence. Sushaan Kandukoori, Pranava Kumar, Shrikrishna Ramesh.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Assay resolution governs the transfer of molecular dependence">
+  <meta name="twitter:description" content="Recipient coexpression supports dependence predictions that individual marker frequencies and larger pooled samples do not recover.">
+  <meta name="twitter:image" content="https://sushaan-k.github.io/coupling-fields-benchmark/assets/assay-resolution-preview.png">
+  <title>Assay resolution governs the transfer of molecular dependence</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css?v=20260906">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <main id="main">
+    <section class="publication-hero">
+      <div class="container hero-inner">
+        <h1><span>Assay resolution</span> governs the transfer of molecular dependence</h1>
+        <p class="authors"><span>Sushaan Kandukoori<sup>1</sup></span>, <span>Pranava Kumar<sup>2</sup></span>, <span>Shrikrishna Ramesh<sup>3</sup></span></p>
+        <p class="author-emails">
+          <a href="mailto:sushaankandukoori@gmail.com"><sup>1</sup>sushaankandukoori@gmail.com</a>
+          <a href="mailto:pranavak@mit.edu"><sup>2</sup>pranavak@mit.edu</a>
+          <a href="mailto:shrikrish.ramesh@gmail.com"><sup>3</sup>shrikrish.ramesh@gmail.com</a>
+        </p>
+        <div class="publication-links" aria-label="Paper resources">
+          <a href="assets/papers/assay-resolution.pdf">Paper</a>
+          <a href="assets/papers/assay-resolution-additional-file-1.pdf">Additional file</a>
+          <a href="https://github.com/sushaan-k/coupling-fields-benchmark/tree/main/paper/assay-resolution">Manuscript source</a>
+          <a href="https://github.com/sushaan-k/coupling-fields-benchmark/releases/tag/coupling-fields-v2.0.4-public-benchmark">Original benchmark</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="abstract">
+      <div class="container reading">
+        <h2>Abstract</h2>
+        <p><b>Background.</b> Separate molecular assays retain within-assay coexpression when cross-modal pairing is unavailable. We ask which aspects of this structure support RNA&ndash;protein dependence prediction from a paired reference.</p>
+        <p><b>Results.</b> We derive a sharp range and minimax predictor for binary association after coarsening a fixed fine-scale interaction. An expansion of the predicted covariance gives a query-ranking rule that requires no recipient pairings. In retrospective analyses of 24 Cambridge donors, 56 Newcastle donors, and 15 patients with pediatric T-cell acute lymphoblastic leukemia (T-ALL), covariance-preserving reconstruction retained 91&ndash;97% of the improvement from full assay patterns over individual marker frequencies. Recipient-specific coexpression reduced mean deviance by 9.2%, 17.9%, and 46.0% relative to pools of other recipients matched to the same marker frequencies (paired donor-bootstrap 95% intervals, 2.3&ndash;15.6%, 12.6&ndash;23.0%, and 35.2&ndash;55.8%). Those pools contained 14&ndash;55 times more cells. The response rule concentrated 85&ndash;90% of the observed net improvement into 27 of 81 marker pairs and outperformed ranking by direct source-interaction strength in Newcastle and T-ALL.</p>
+        <p><b>Conclusions.</b> Recipient coexpression supports dependence predictions that individual marker frequencies and larger pooled samples do not recover. Reconstructing assay patterns before forming coarse queries preserves this information and identifies relationships that benefit from recipient-specific correction.</p>
+      </div>
+    </section>
+
+    <section class="section light" id="background">
+      <div class="container reading">
+        <h2>Background</h2>
+        <p>Joint single-cell assays reveal how molecular measurements covary within cells. When a new cohort supplies the assays separately, a paired reference can support prediction of the missing joint distribution. The recipient still provides two kinds of information: the frequency of each molecular state and the patterns of states observed together within each assay. These are different constraints on the cross-assay prediction.</p>
+        <p>We derive the complete range of a binary association when only its two coarse frequencies and a fine interaction are known. The range gives an attainable worst-case prediction and an error floor that additional observations at the same coarse resolution cannot remove. We then measure the value of within-assay structure while holding the interaction, cells, and recipient marker frequencies fixed. This comparison separates the information retained by each representation from differences between fitted estimators.</p>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="container reading">
+        <h2>Individual frequencies can all agree</h2>
+        <p>The ambiguity also occurs when every marker's individual frequency is known. Consider two binary RNA markers and one protein marker, coded as <i>Z</i><sub>1</sub>, <i>Z</i><sub>2</sub>, <i>W</i> &isin; {&minus;1, 1}, each with mean zero. Fix the fine interaction to <i>S</i> = <i>JZ</i><sub>2</sub><i>W</i>, with <i>J</i> &ne; 0. Let the recipient RNA distribution have correlation &rho; = E(<i>Z</i><sub>1</sub><i>Z</i><sub>2</sub>). Reconstruction gives</p>
+        <div class="equation" aria-label="The expected product of Z one and W equals rho times the hyperbolic tangent of J">
+          <span>E(<i>Z</i><sub>1</sub><i>W</i>) = &rho; tanh <i>J</i>.</span>
+        </div>
+        <p>Changing &rho; from negative to positive reverses the queried RNA&ndash;protein association without changing <i>J</i> or any individual marker frequency. Separate RNA profiles reveal &rho;; their individual frequencies do not.</p>
+        <h3>How coexpression changes the prediction</h3>
+        <p>For fixed positive assay distributions on finite supports, scale a bilinear interaction as <i>S</i><sub>t</sub>(<i>x</i>, <i>y</i>) = <i>t x</i><sup>&top;</sup><i>B y</i>, where <i>B</i> is the source interaction matrix and <i>t</i> sets its strength. Let &Sigma;<sub>x</sub> and &Sigma;<sub>y</sub> be the two within-assay covariance matrices. Near independence, the reconstructed cross-assay covariance satisfies</p>
+        <div class="equation" aria-label="Cross-assay covariance equals t Sigma x B Sigma y plus terms of order t squared">
+          <span>Cov<sub>q<sub>t</sub></sub>(<i>X</i>, <i>Y</i>) = <i>t</i>&Sigma;<sub>x</sub><i>B</i>&Sigma;<sub>y</sub> + O(<i>t</i><sup>2</sup>).</span>
+        </div>
+        <p>To first order, each predicted RNA&ndash;protein covariance sums source interactions weighted by recipient covariances in both assays. A source coefficient therefore need not equal the marginal association observed in a new population.</p>
+        <p>The response also predicts which queries are sensitive to replacing recipient coexpression by pooled structure. For a binary query with nonconstant marker frequencies, subtract the queried entries of &Sigma;<sub>x</sub><i>B</i>&Sigma;<sub>y</sub> for the recipient and pool, square the difference, and divide by the product of the two marker variances. This is the leading coefficient of twice the KL divergence between their query distributions near independence (Additional file 1). We test whether this score identifies relationships whose empirical prediction improves with recipient-specific reconstruction.</p>
+      </div>
+    </section>
+
+    <section class="section light" id="results">
+      <div class="container reading">
+        <h2>Recipient covariances recover most of the pattern-level gain</h2>
+        <p>The covariance-preserving replacement retained 91.36%, 97.36%, and 95.68% of the loss reduction from individual frequencies to full patterns in Cambridge, Newcastle, and T-ALL, respectively. Full patterns improved further by 4.74% (95% interval, 2.81&ndash;6.78%), 2.27% (1.25&ndash;3.37%), and 10.35% (7.59&ndash;13.74%), improving 22/24, 44/56, and 15/15 people.</p>
+        <p>Recipient-specific covariance also improved on both pooled controls. Against the source pool, deviance fell by 9.80%, 28.13%, and 60.57% in Cambridge, Newcastle, and T-ALL. Against other recipients in the same cohort, the reductions were 9.15% (95% interval, 2.29&ndash;15.57%), 17.94% (12.58&ndash;23.00%), and 45.97% (35.24&ndash;55.79%), with improvements in 15/24, 42/56, and 14/15 people.</p>
+      </div>
+      <div class="container wide">
+        <figure class="paper-figure">
+          <div class="figure-scroll" tabindex="0" role="region" aria-label="Recipient-specific structure figure">
+            <a href="assets/figures/assay-resolution.png" title="Open full-size figure"><img src="assets/figures/assay-resolution.png" alt="Deviance reductions with 95 percent intervals for recipient-specific covariance against source and cohort pools, and full patterns against covariance, in Cambridge, Newcastle, and T-ALL."></a>
+          </div>
+          <figcaption><b>Recipient-specific structure improves dependence transfer.</b> Squares and circles compare recipient covariance-preserving reconstruction with source and other-recipient pools, respectively. Triangles show the further improvement from full recipient patterns over recipient covariance alone. Points are relative mean-deviance reductions; lines are paired donor-bootstrap 95% intervals conditional on the fitted models and pools. All arms use the same source interaction and recipient marker frequencies. Cambridge and Newcastle belong to the same study.</figcaption>
+        </figure>
+      </div>
+      <div class="container reading">
+        <p>Each recipient supplied 256 adaptation cells per assay, compared with 3,072 source cells or 3,584&ndash;14,080 cells in the cohort pool. Matching individual frequencies and using more cells from other people did not recover the recipient-specific gain.</p>
+      </div>
+    </section>
+
+    <section class="section" id="relationships">
+      <div class="container reading">
+        <h2>Coexpression prioritizes recipient-specific corrections</h2>
+        <p>The response score concentrated the recipient-specific gain into relatively few relationships. Its top third accounted for 87.0%, 90.1%, and 85.5% of the net deviance reduction in Cambridge, Newcastle, and T-ALL, compared with 85.0%, 60.9%, and 38.5% under direct source-interaction ranking.</p>
+      </div>
+      <div class="container wide">
+        <figure class="paper-figure">
+          <div class="figure-scroll" tabindex="0" role="region" aria-label="Query-ranking curves">
+            <a href="assets/figures/assay-relationships.png" title="Open full-size figure"><img src="assets/figures/assay-relationships.png" alt="Cumulative net deviance gain by selected marker pairs. Covariance response captures 87, 90, and 86 percent at 27 pairs across the three cohorts; direct source strength captures 85, 61, and 38 percent."></a>
+          </div>
+          <figcaption><b>Unpaired coexpression identifies relationships that benefit from correction.</b> Pairs are ranked separately within each person. Curves show cumulative deviance improvement from recipient covariance over the cohort pool, divided by the net improvement across all 81 pairs. Teal uses the covariance-response score; gray uses direct source-interaction strength. The dotted line is the expected fraction under uniform selection. Curves are descriptive cohort aggregates; donor-bootstrap comparisons at 27 pairs are reported in the text. Net gain can exceed 100% when excluded corrections worsen prediction.</figcaption>
+        </figure>
+      </div>
+      <div class="container reading">
+        <p>In Newcastle, the mean gain per selected pair was 0.00506 under the response score and 0.00342 under direct ranking; the paired difference was 0.00164 (95% interval, 0.00085&ndash;0.00256). In T-ALL the gains were 0.02523 and 0.01135, a difference of 0.01388 (0.00906&ndash;0.01925). Both contrasts survived the six-comparison adjustment. Cambridge gave similar gains under the two rankings, 0.00168 and 0.00164 (difference, 0.00004; &minus;0.00077 to 0.00085).</p>
+        <p>In T-ALL, the three highest cohort-mean scores were for CD7 RNA&ndash;CD4 protein, CD4 RNA&ndash;CD52 protein, and CD7 RNA&ndash;CD52 protein; their mean deviance gains were 0.04513, 0.01245, and 0.04981. The original study used CD4 and CD7 to distinguish T-cell populations and included CD52 in a leukemia expression signature. These corrections concern marker combinations associated with the cohort's cellular heterogeneity.</p>
+      </div>
+    </section>
+
+    <section class="section light" id="discussion">
+      <div class="container reading">
+        <h2>Discussion</h2>
+        <p>The resolution at which a relationship is reported need not be the resolution at which it should be transferred. A binary RNA&ndash;protein table depends on the distribution of finer cellular profiles. Reconstructing those profiles before aggregation allowed one source interaction to predict different recipient associations using measurements made separately within each assay.</p>
+        <p>The pooled controls distinguish recipient-specific coexpression from generic population structure: more observations from other people did not replace the recipient's own assay patterns.</p>
+      </div>
+    </section>
+
+    <section class="section" id="limitations">
+      <div class="container reading">
+        <h2>Limitations</h2>
+        <p>The resolution and query-ranking analyses are retrospective analyses of previously examined recipients from two studies, not new confirmation. Intervals condition on the source fit and fitted pools, omitting their estimation uncertainty, dependence between overlapping cohort pools, and the adaptive research history. The earlier T-ALL model comparison was fixed before count access but did not pass its all-control superiority criterion.</p>
+        <p>The panel contains nine RNA and nine protein markers, and protein states use donor-wide ranks that include scoring values. Individual scoring-cell marker frequencies are supplied. Two Stephenson recipients have almost no counts across the protein panel and were retained. The task is fixed-margin dependence prediction, not missing-modality imputation without target assay values. The results do not isolate within-cell-type regulation or establish molecular binding, causal effects, or clinical utility.</p>
+        <p>The sharp interval assumes a known transferable interaction and two focal frequencies; it is not the identified set for the all-marker benchmark. The examples establish ambiguity, not its biological magnitude. Query-wise minimax predictions need not form a coherent multivariate law. Interaction drift, sampling error, and coarsening ambiguity remain distinct.</p>
+        <p>We tested one maximum-entropy replacement, which preserves fitted means and covariances but can induce higher-order correlations. The retained gain is descriptive, not causal mediation. The response expansion applies near independence, without an accuracy claim at the fitted interaction strength. Its query score predicts model discrepancy, not error against an arbitrary biological population. The query-ranking advantage over direct source strength was unresolved in Cambridge. Prioritization requires the full measured panel and does not establish savings from measuring fewer markers. Sorting and cell mixtures can contribute to the observed coexpression.</p>
+        <p>Reconstruction, noncollapsibility, and minimax KL prediction have established foundations. The theory concerns the resolution-dependent identified set; the experiments establish an information advantage, not a superior cost learner. The CHAMPOLLION comparator uses its no-prior objective with a common recipient adapter, not its complete published workflow.</p>
+      </div>
+    </section>
+
+    <section class="section light conclusions" id="conclusions">
+      <div class="container reading">
+        <h2>Conclusions</h2>
+        <p>Within-assay cellular patterns improved cross-cohort RNA&ndash;protein dependence prediction with the source interaction held fixed. Recipient-specific covariances retained most of this gain and outperformed source and cohort pools matched to the same marker frequencies. Full patterns improved further in each cohort. Separately measured recipient coexpression can therefore support molecular predictions that individual frequencies and cohort averages do not recover.</p>
+      </div>
+    </section>
+
+    <section class="section" id="availability">
+      <div class="container reading">
+        <h2>Availability of data and materials</h2>
+        <p>Source data are available through the accessions in Additional file 1, including GSE248287 for the T-ALL cohort. The original benchmark's analysis plans, MIT-licensed software, and study records are available in the <a href="https://github.com/sushaan-k/coupling-fields-benchmark/releases/tag/coupling-fields-v2.0.4-public-benchmark">v2.0.4 release</a>. The resolution and query-ranking analyses are subsequent work and are not included in that release. Additional file 1 documents their protocols and computational verification. Raw matrices are not redistributed.</p>
+        <div class="publication-links bottom-links">
+          <a href="assets/papers/assay-resolution.pdf">Paper</a>
+          <a href="assets/papers/assay-resolution-additional-file-1.pdf">Additional file</a>
+          <a href="https://github.com/sushaan-k/coupling-fields-benchmark/tree/main/paper/assay-resolution">Manuscript source</a>
+          <a href="https://github.com/sushaan-k/coupling-fields-benchmark/releases/tag/coupling-fields-v2.0.4-public-benchmark">Original benchmark</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>Assay resolution governs the transfer of molecular dependence</footer>
+</body>
+</html>

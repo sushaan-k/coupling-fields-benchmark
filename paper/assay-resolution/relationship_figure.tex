@@ -1,0 +1,47 @@
+\definecolor{cohortpool}{HTML}{217D91}
+\definecolor{sourcepool}{HTML}{5D6670}
+\begin{tikzpicture}
+\begin{groupplot}[
+ group style={group size=3 by 1,horizontal sep=.65cm},
+ width=.36\textwidth,height=4.7cm,
+ xmin=0,xmax=81,ymin=0,ymax=110,
+ xtick={0,27,54,81},ytick={0,50,100},
+ xlabel={Selected pairs},
+ axis x line*=bottom,axis y line*=left,tick align=outside,
+ ymajorgrids=true,grid style={gray!18},axis line style={gray!55},
+ tick label style={font=\small},label style={font=\small},
+ title style={font=\small},
+ legend style={draw=none,legend columns=3,font=\small,column sep=8pt},
+ every axis plot/.append style={line width=.85pt,mark size=1.8pt}
+]
+\nextgroupplot[title={Cambridge ($n=24$)},ylabel={Net gain captured (\%)},
+ legend to name=relationshiplegend]
+\addplot[color=cohortpool,mark=*] coordinates {
+ (0,0) (9,80.119066) (18,85.617833) (27,87.020316) (36,98.084592)
+ (45,100.426107) (54,101.472095) (63,102.721954) (72,101.154307) (81,100)};
+\addlegendentry{Covariance response}
+\addplot[color=sourcepool,mark=square*] coordinates {
+ (0,0) (9,44.150126) (18,69.710520) (27,85.031480) (36,80.426033)
+ (45,80.986286) (54,88.367802) (63,85.716679) (72,92.601559) (81,100)};
+\addlegendentry{Direct source strength}
+\addplot[color=gray,densely dotted,no marks] coordinates {(0,0) (81,100)};
+\addlegendentry{Uniform selection}
+\nextgroupplot[title={Newcastle ($n=56$)},yticklabels=\empty]
+\addplot[color=cohortpool,mark=*] coordinates {
+ (0,0) (9,66.087773) (18,83.699910) (27,90.108397) (36,92.833433)
+ (45,96.354103) (54,98.542922) (63,99.582826) (72,99.668898) (81,100)};
+\addplot[color=sourcepool,mark=square*] coordinates {
+ (0,0) (9,29.400922) (18,46.799828) (27,60.890626) (36,71.959182)
+ (45,79.571250) (54,81.847824) (63,85.657623) (72,91.215940) (81,100)};
+\addplot[color=gray,densely dotted,no marks] coordinates {(0,0) (81,100)};
+\nextgroupplot[title={T-ALL ($n=15$)},yticklabels=\empty]
+\addplot[color=cohortpool,mark=*] coordinates {
+ (0,0) (9,53.828953) (18,73.403044) (27,85.541946) (36,90.335186)
+ (45,94.225120) (54,96.707447) (63,98.146734) (72,99.122589) (81,100)};
+\addplot[color=sourcepool,mark=square*] coordinates {
+ (0,0) (9,9.524368) (18,25.261325) (27,38.479910) (36,52.136278)
+ (45,64.058917) (54,77.324110) (63,83.043000) (72,87.138613) (81,100)};
+\addplot[color=gray,densely dotted,no marks] coordinates {(0,0) (81,100)};
+\end{groupplot}
+\end{tikzpicture}
+\par\smallskip\pgfplotslegendfromname{relationshiplegend}
