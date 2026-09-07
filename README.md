@@ -11,7 +11,7 @@
 
 The manuscript examines which recipient assay information supports
 RNA-protein dependence prediction with a fixed source interaction. This
-revision clarifies the coarsening result, covariance response, comparisons,
+revision gives the all-marker identified set, covariance response, comparisons,
 and retrospective study design without changing the reported results.
 
 The original benchmark's code and results are preserved in the immutable

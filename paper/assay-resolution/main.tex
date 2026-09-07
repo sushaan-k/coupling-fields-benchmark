@@ -40,7 +40,7 @@
 \abstract{
 \textbf{Background:} Separate molecular assays retain within-assay coexpression when cross-modal pairing is unavailable. We ask which aspects of this structure support RNA--protein dependence prediction from a paired reference.
 
-\textbf{Results:} We derive a sharp range and minimax predictor for binary association after coarsening a fixed fine-scale interaction. An expansion of the predicted covariance gives a query-ranking rule that requires no recipient pairings. In retrospective analyses of 24 Cambridge donors, 56 Newcastle donors, and 15 patients with pediatric T-cell acute lymphoblastic leukemia (T-ALL), covariance-preserving reconstruction retained 91--97\% of the improvement from full assay patterns over individual marker frequencies. Recipient-specific coexpression reduced mean deviance by 9.2\%, 17.9\%, and 46.0\% relative to pools of other recipients matched to the same marker frequencies (paired donor-bootstrap 95\% intervals, 2.3--15.6\%, 12.6--23.0\%, and 35.2--55.8\%). Those pools contained 14--55 times more cells. The response rule concentrated 85--90\% of the observed net improvement into 27 of 81 marker pairs and outperformed ranking by direct source-interaction strength in Newcastle and T-ALL.
+\textbf{Results:} We derive the sharp identified range and minimax predictor for a binary association given a fixed fine-scale interaction and within-assay moment constraints that determine the queried frequencies. The result applies directly when all individual marker frequencies are known; the case with only the two queried frequencies has a closed form. An expansion of the predicted covariance gives a query-ranking rule that requires no recipient pairings. In retrospective analyses of 24 Cambridge donors, 56 Newcastle donors, and 15 patients with pediatric T-cell acute lymphoblastic leukemia (T-ALL), covariance-preserving reconstruction retained 91--97\% of the improvement from full assay patterns over individual marker frequencies. Recipient-specific coexpression reduced mean deviance by 9.2\%, 17.9\%, and 46.0\% relative to pools of other recipients matched to the same marker frequencies (paired donor-bootstrap 95\% intervals, 2.3--15.6\%, 12.6--23.0\%, and 35.2--55.8\%). Those pools contained 14--55 times more cells. The response rule concentrated 85--90\% of the observed net improvement into 27 of 81 marker pairs and outperformed ranking by direct source-interaction strength in Newcastle and T-ALL.
 
 \textbf{Conclusions:} Recipient coexpression supports dependence predictions that individual marker frequencies and larger pooled samples do not recover. Reconstructing assay patterns before forming coarse queries preserves this information and identifies relationships that benefit from recipient-specific correction.
 }
@@ -66,10 +66,12 @@ patterns change, even if the fine interaction is fixed. This connects
 cross-cohort prediction to the noncollapsibility of marginal association
 \cite{ghosh}.
 
-We derive the complete range of a binary association when only its two coarse
-frequencies and a fine interaction are known. The range gives an attainable
-worst-case prediction and an error floor that additional observations at the
-same coarse resolution cannot remove. We then measure the value of
+We derive the complete range of a binary association under arbitrary
+within-assay moment constraints and a fixed fine interaction. This range
+applies to the full set of marker frequencies supplied in our benchmark; a
+closed form is available when only the two queried frequencies are retained.
+The range gives an attainable worst-case prediction and an error floor that
+additional observations at the same resolution cannot remove. We then measure the value of
 within-assay structure while holding the interaction, cells, and recipient
 marker frequencies fixed. This comparison separates the information retained
 by each representation from differences between fitted estimators.
@@ -98,30 +100,62 @@ marker indicators. The same interaction therefore supports several
 reconstructions, depending on the recipient constraints. The means-only model
 constrains marker frequencies but leaves within-assay dependence unconstrained.
 
-\subsection{A sharp limit after coarsening}
-Suppose the reported query is the pair of binary states $U=f(x)$ and $V=g(y)$.
-Assume that $S$ is known and transferable, and that the recipient reports only
-$m_U=\Pr(U=1)$ and $m_V=\Pr(V=1)$, both strictly between zero and one. For a fine
-rectangle with $f(x_0)=g(y_0)=0$ and $f(x_1)=g(y_1)=1$, define its contrast
+\subsection{A sharp limit at the observed resolution}
+Let the observed RNA and protein summaries be arbitrary finite collections of
+within-assay means. They define convex polytopes $\mathcal R$ and $\mathcal C$
+of complete assay distributions consistent with those summaries. For each
+$r\in\mathcal R$ and $c\in\mathcal C$, matrix scaling gives the unique joint
+distribution $Q_S(r,c)$ with interaction $S$ and assay marginals $r,c$.
+For a binary query $U=f(x)$ and $V=g(y)$, define
+\begin{align*}
+ \ell&=\min_{r\in\mathcal R,c\in\mathcal C}
+       \Pr_{Q_S(r,c)}(U=1,V=1),\\
+ h&=\max_{r\in\mathcal R,c\in\mathcal C}
+       \Pr_{Q_S(r,c)}(U=1,V=1).
+\end{align*}
+If the summaries determine the query frequencies
+$m_U=\Pr(U=1)$ and $m_V=\Pr(V=1)$, the closure of compatible query tables is
+exactly
+\begin{equation}
+ \left\{
+ \begin{pmatrix}1-m_U-m_V+t&m_V-t\\m_U-t&t\end{pmatrix}:
+ \ell\leq t\leq h
+ \right\}.
+ \label{eq:all-marker-interval}
+\end{equation}
+The result follows because $\mathcal R\times\mathcal C$ is compact and
+connected and the matrix-scaled reconstruction is continuous. It is the sharp
+identified set when all individual marker frequencies are supplied: take the
+defining means of $\mathcal R$ and $\mathcal C$ to be the frequencies of all
+markers. Complete assay-profile histograms collapse both polytopes to points.
+Thus the theoretical constraints now coincide with the means-only and
+full-pattern arms of the experiment. Additional file 1 gives the formal result
+and proof.
+
+The means-only exponential-family fit selects one member of this set by
+information projection. The interval records what the supplied frequencies
+identify without that additional selection.
+
+The unique minimax table $P_*$ equalizes the forward Kullback--Leibler (KL)
+loss from the endpoint tables $P(\ell)$ and $P(h)$:
+$\KL(P(\ell)\Vert P_*)=\KL(P(h)\Vert P_*)$. No estimator based only on the
+specified unpaired summaries can improve this worst-case loss. Computing
+$\ell$ and $h$ requires two finite constrained optimizations, each using the
+same matrix-scaled reconstruction as the prediction method.
+
+When the recipient retains only the two queried frequencies, the endpoints
+have a closed form. For a fine rectangle with
+$f(x_0)=g(y_0)=0$ and $f(x_1)=g(y_1)=1$, define its interaction contrast
 \begin{equation}
  d=S(x_0,y_0)+S(x_1,y_1)-S(x_0,y_1)-S(x_1,y_0).
  \label{eq:contrast}
 \end{equation}
-Let $L$ and $H$ be the smallest and largest such contrasts. The closure of
-compatible coarse log odds is exactly $[L,H]$. Thus the coarse relationship is
-identified precisely when $L=H$; its sign is fixed when this interval lies on
-one side of zero.
-
-Let $P_L$ and $P_H$ be the two tables with the observed margins and log odds
-$L$ and $H$. We measure loss by the Kullback--Leibler (KL) divergence from the
-true table to its prediction. The unique minimax table $P_*$ is a mixture of these
-endpoints satisfying $\KL(P_L\Vert P_*)=\KL(P_H\Vert P_*)$.
-Additional file 1 gives
-its explicit formula and proves that no estimator based only on independent
-unpaired coarse observations can beat this floor, even with unlimited cells.
-The information-radius argument uses classical minimax KL geometry
-\cite{vanerven}; the resolution-specific ingredient is the sharp compatible
-interval.
+Let $L$ and $H$ be the smallest and largest such contrasts. The compatible
+coarse log odds fill $[L,H]$ in closure, so $\ell$ and $h$ are the cell
+probabilities with margins $m_U,m_V$ and log odds $L,H$. The information-radius
+argument uses classical minimax KL geometry \cite{vanerven}; the new
+resolution-specific result is the exact interval induced by the observed
+within-assay constraints.
 
 \subsection{Individual frequencies can all agree}
 The ambiguity also occurs when every marker's individual frequency is known.
@@ -135,9 +169,11 @@ $\rho=\mathbb E(Z_1Z_2)$. Reconstruction gives
 \end{equation}
 Changing $\rho$ from negative to positive reverses the queried RNA--protein
 association without changing $J$ or any individual marker frequency. Separate
-RNA profiles reveal $\rho$; their individual frequencies do not. This example
-establishes ambiguity even when all marker frequencies are known; the sharp
-interval assumes only the two queried frequencies are known.
+RNA profiles reveal $\rho$; their individual frequencies do not. As $\rho$
+ranges over its compatible values, the all-marker interval for
+$\Pr(Z_1=1,W=1)$ is
+$[(1-|\tanh J|)/4,(1+|\tanh J|)/4]$. The example therefore gives a nondegenerate
+instance of Eq.~\eqref{eq:all-marker-interval}, not a separate ambiguity claim.
 
 \ifdefined\ReaderVersion\needspace{12\baselineskip}\fi
 \subsection{How coexpression changes the prediction}
@@ -411,11 +447,13 @@ prediction, not missing-modality imputation without target assay values. The
 results do not isolate within-cell-type regulation or establish molecular
 binding, causal effects, or clinical utility.
 
-The sharp interval assumes a known transferable interaction and two focal
-frequencies; it is not the identified set for the all-marker benchmark.
-The examples establish ambiguity, not its biological magnitude. Query-wise
-minimax predictions need not form a coherent multivariate law. Interaction
-drift, sampling error, and coarsening ambiguity remain distinct.
+The identified interval assumes a known transferable interaction, finite
+assay supports, and exact recipient summaries. Its all-marker endpoints require
+global optimization over the corresponding marginal polytopes; only the
+two-frequency case has the closed form reported here. The examples establish
+ambiguity, not its biological magnitude. Query-wise minimax predictions need
+not form a coherent multivariate law. Interaction drift, sampling error, and
+coarsening ambiguity remain distinct.
 
 We tested one maximum-entropy replacement, which preserves fitted means and
 covariances but can induce higher-order correlations. The retained

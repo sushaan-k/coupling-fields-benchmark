@@ -4,29 +4,107 @@ This section gives the theory and retrospective analyses added after the
 original fixed-margin benchmark. All resolution comparisons hold the source
 interaction fixed.
 
-\subsection{Sharp coarse prediction bound}\label{app:proof}
+\subsection{Sharp identified interval under arbitrary marginal constraints}\label{app:proof}
 Let $x,y$ range over finite assay-profile supports, let $S(x,y)$ be finite,
 and consider positive joint distributions
 \begin{equation}
  q(x,y)=\exp\{S(x,y)+a(x)+b(y)\}.
  \label{eq:resolution_joint}
 \end{equation}
-The binary queries $U=f(x)$ and $V=g(y)$ each have two nonempty fibers and
-known frequencies $m_U,m_V\in(0,1)$. For every rectangle crossing their four
-fibers, define
+
+Let $\phi(x)$ and $\psi(y)$ collect any finite sets of observed within-assay
+features, such as all individual marker indicators. For observed means
+$\mu_x,\mu_y$, define the marginal polytopes
+\begin{align*}
+ \mathcal R(\mu_x)&=\left\{r:\sum_xr(x)=1,
+   \ r\geq0,\ \sum_xr(x)\phi(x)=\mu_x\right\},\\
+ \mathcal C(\mu_y)&=\left\{c:\sum_yc(y)=1,
+   \ c\geq0,\ \sum_yc(y)\psi(y)=\mu_y\right\}.
+\end{align*}
+For each $r,c$, let $Q_S(r,c)$ be the unique minimizer over couplings with
+those marginals of
+\begin{equation}
+ \Phi_S(q)=\sum_{x,y}q(x,y)\{\log q(x,y)-S(x,y)\},
+ \label{eq:information-projection}
+\end{equation}
+with $0\log0=0$. For positive marginals, the Lagrange equations give
+Eq.~\eqref{eq:resolution_joint}; boundary cases are its closure.
+
+\begin{proposition}[Identified interval under observed assay summaries]
+\label{prop:all-marker-interval}
+Suppose $\mathcal R(\mu_x)$ and $\mathcal C(\mu_y)$ are nonempty. Let
+$U=f(x)$ and $V=g(y)$ be binary queries whose frequencies $m_U,m_V$ are fixed
+by the observed features. Define
+\begin{align*}
+ \ell&=\min_{r\in\mathcal R(\mu_x),c\in\mathcal C(\mu_y)}
+       \sum_{x,y}f(x)g(y)Q_S(r,c)(x,y),\\
+ h&=\max_{r\in\mathcal R(\mu_x),c\in\mathcal C(\mu_y)}
+       \sum_{x,y}f(x)g(y)Q_S(r,c)(x,y).
+\end{align*}
+Then the closure of query tables compatible with the interaction and observed
+summaries is exactly $\{P(t):\ell\leq t\leq h\}$, where
+\[
+ P(t)=\begin{pmatrix}1-m_U-m_V+t&m_V-t\\m_U-t&t\end{pmatrix}.
+\]
+Both endpoints are attained in the closed model. If $\ell<h$, the unique
+minimax prediction under forward KL loss is $P_*=P(t(\theta_*))$, where
+\[
+ \theta_*=\frac{\mathcal H(P(\ell))-\mathcal H(P(h))}{h-\ell},
+ \qquad \mathcal H(P)=-\sum P\log P,
+\]
+and $t(\theta)$ is the cell probability with margins $m_U,m_V$ and log odds
+$\theta$. For $\ell=h$, the query is identified and $P_*=P(\ell)$.
+\end{proposition}
+
+\begin{proof}
+The two marginal sets are compact convex polytopes. For fixed $r,c$, the
+transportation polytope is compact, and the strictly convex objective in
+Eq.~\eqref{eq:information-projection} has a unique minimizer. In finite
+dimensions the transportation polytope varies continuously with its
+margins. The minimum theorem and uniqueness therefore imply that $Q_S(r,c)$
+is continuous, including at boundary marginals. The queried cell probability
+is consequently a continuous real-valued function on the compact connected
+set $\mathcal R(\mu_x)\times\mathcal C(\mu_y)$. Its image is a compact connected
+subset of the real line, hence the interval $[\ell,h]$. The fixed query
+frequencies determine the other three cells, proving the identified-set claim.
+
+For a fixed prediction, KL loss is convex in the true table, so its maximum
+over the interval occurs at an endpoint. Parameterize fixed-margin predictions
+by log odds $\theta$. For an endpoint cell probability $t_0$,
+$\partial_\theta\KL(P(t_0)\Vert P(t(\theta)))=t(\theta)-t_0$.
+The two endpoint losses therefore vary in opposite directions between
+$\ell$ and $h$ and have a unique equalizer. Direct subtraction gives the stated
+$\theta_*$. To prove minimax optimality over all predictions, choose $w$ such
+that $P_*=wP(\ell)+(1-w)P(h)$. For any prediction $R$,
+\begin{align*}
+ &w\KL(P(\ell)\Vert R)+(1-w)\KL(P(h)\Vert R)\\
+ &\quad=R_*+\KL(P_*\Vert R),
+\end{align*}
+where
+$R_*=\KL(P(\ell)\Vert P_*)=\KL(P(h)\Vert P_*)$. The worst endpoint loss
+cannot be smaller than this weighted average, with equality uniquely at
+$P_*$. Populations throughout the identified interval have the same supplied
+summaries. Convexity in the prediction also makes randomization unhelpful.
+\end{proof}
+
+Taking $\phi$ and $\psi$ to be all marker indicators gives the identified set
+for the means-only benchmark. Taking them to be indicators of complete assay
+profiles makes both marginal polytopes singletons and collapses the interval.
+Thus the proposition compares exactly the information supplied to the two
+experimental arms.
+The means-only information projection is a point in this interval; the interval
+allows every complete assay marginal compatible with the reported frequencies.
+
+\subsubsection{Closed form with only the queried frequencies}
+Suppose the only constraints are the frequencies
+$m_U,m_V\in(0,1)$. For every rectangle crossing the four query fibers, define
 \[
  d=S(x_0,y_0)+S(x_1,y_1)-S(x_0,y_1)-S(x_1,y_0),
 \]
 where $f(x_0)=g(y_0)=0$ and $f(x_1)=g(y_1)=1$. Write $L=\min d$ and
-$H=\max d$. The closure of compatible coarse log odds is $[L,H]$.
-The following proof also gives the minimax prediction under these two
-frequency constraints.
-For the known margins $m_U,m_V$, write the compatible binary table as
-\[
- P(t)=\begin{pmatrix}1-m_U-m_V+t&m_V-t\\m_U-t&t\end{pmatrix}.
-\]
-Let $t(\theta)$ be the unique interior cell probability giving log odds
-$\theta$, and put $l=t(L)$ and $h=t(H)$.
+$H=\max d$. The closure of compatible coarse log odds is $[L,H]$, so
+Proposition~\ref{prop:all-marker-interval} has
+$\ell=t(L)$ and $h=t(H)$.
 
 Every fine distribution in Eq.~\eqref{eq:resolution_joint} satisfies
 \[
@@ -39,34 +117,10 @@ and protein masses $1-m_V,m_V$ on $y_0,y_1$. Their two-by-two reconstruction att
 the corresponding endpoint. Positive fine distributions approximate these
 concentrated distributions while preserving the coarse margins. The positive
 fine-marginal domain is connected, and its entropic reconstruction is
-continuous, so the closure of attainable coarse tables is exactly
-$\{P(t):l\leq t\leq h\}$.
-
-For a fixed prediction, KL loss is convex in the true table, so its maximum on
-this segment occurs at an endpoint. Moving a predicted table along the segment
-increases its loss to one endpoint and decreases its loss to the other. There
-is a unique equalizing table $P_*$, which is a mixture of the endpoints. For
-$l<h$, define entropy as $\mathcal H(P)=-\sum P\log P$. The minimax log odds are
-\[
- \theta_* = \frac{\mathcal H(P(l))-\mathcal H(P(h))}{h-l},
- \qquad P_*=P(t(\theta_*)).
-\]
-For $l=h$, set $P_*=P(l)$.
-
-The equalizing construction is an information-radius minimax rule
-\cite{vanerven}. To prove optimality over all predictions, including those with different
-margins, choose the weight $w$ such that $P_*=wP(l)+(1-w)P(h)$. For any
-prediction $R$,
-\begin{align*}
- &w\KL(P(l)\Vert R)+(1-w)\KL(P(h)\Vert R)\\
- &\quad=R_*+\KL(P_*\Vert R),
-\end{align*}
-where $R_*=\KL(P(l)\Vert P_*)=\KL(P(h)\Vert P_*)$. The worst endpoint loss
-cannot be smaller than this weighted average. Equality is attained uniquely
-by $P_*$. All compatible populations induce the same independent unpaired
-Bernoulli observation laws with frequencies $m_U,m_V$. Convexity in the predicted
-distribution makes randomization unhelpful, so $R_*$ is also a lower bound
-for every sample-based predictor observing only these unpaired binary states.
+continuous, so the closure of attainable coarse tables is exactly the stated
+interval. The equalizing prediction in
+Proposition~\ref{prop:all-marker-interval} is the corresponding
+information-radius minimax rule \cite{vanerven}.
 
 For the three-marker example in the main text, take the RNA distribution
 $r(z_1,z_2)=(1+\rho z_1z_2)/4$, with $|\rho|<1$. The joint distribution
@@ -77,7 +131,10 @@ has all three individual means zero and the required fine interaction.
 Conditional expectation gives
 $\mathbb E(W\mid Z_1,Z_2)=Z_2\tanh J$ and hence
 $\mathbb E(Z_1W)=\rho\tanh J$. All probabilities are positive, so the example does
-not depend on structural zeros.
+not depend on structural zeros. With all three individual means fixed at zero,
+$\rho$ ranges over $[-1,1]$ in closure. The sharp all-marker interval for
+$\Pr(Z_1=1,W=1)$ is therefore
+$[(1-|\tanh J|)/4,(1+|\tanh J|)/4]$.
 
 \subsection{Response to a transferred interaction}\label{app:response}
 The expansion below specializes the fixed-marginal response identities of
