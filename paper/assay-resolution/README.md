@@ -19,7 +19,8 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error supplement.tex
 
 `main.tex` is the shared manuscript source. The figures use TikZ and PGFPlots;
 their coordinates are embedded in `resolution_figure.tex` and
-`relationship_figure.tex`. The supplement includes `resolution_methods.tex`
+`relationship_figure.tex`; `continuation_figure.tex` reports the finite-strength
+response diagnostic. The supplement includes `resolution_methods.tex`
 and preserves the original benchmark protocols and outcomes.
 
 This directory contains the manuscript, not a new executable analysis release.

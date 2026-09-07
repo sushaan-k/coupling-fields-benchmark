@@ -51,7 +51,7 @@
       <div class="container reading">
         <h2>Abstract</h2>
         <p><b>Background.</b> Separate molecular assays retain within-assay coexpression when cross-modal pairing is unavailable. We ask which aspects of this structure support RNA&ndash;protein dependence prediction from a paired reference.</p>
-        <p><b>Results.</b> We derive the sharp identified range and minimax predictor for a binary association given a fixed fine-scale interaction and within-assay moment constraints that determine the queried frequencies. The result applies directly when all individual marker frequencies are known; the case with only the two queried frequencies has a closed form. An expansion of the predicted covariance gives a query-ranking rule that requires no recipient pairings. In retrospective analyses of 24 Cambridge donors, 56 Newcastle donors, and 15 patients with pediatric T-cell acute lymphoblastic leukemia (T-ALL), covariance-preserving reconstruction retained 91&ndash;97% of the improvement from full assay patterns over individual marker frequencies. Recipient-specific coexpression reduced mean deviance by 9.2%, 17.9%, and 46.0% relative to pools of other recipients matched to the same marker frequencies (paired donor-bootstrap 95% intervals, 2.3&ndash;15.6%, 12.6&ndash;23.0%, and 35.2&ndash;55.8%). Those pools contained 14&ndash;55 times more cells. The response rule concentrated 85&ndash;90% of the observed net improvement into 27 of 81 marker pairs and outperformed ranking by direct source-interaction strength in Newcastle and T-ALL.</p>
+        <p><b>Results.</b> We derive the sharp identified range and minimax predictor for a binary association given a fixed fine-scale interaction and within-assay moment constraints that determine the queried frequencies. The result applies directly when all individual marker frequencies are known; the case with only the two queried frequencies has a closed form. An exact response identity yields a local query-ranking rule that requires no recipient pairings. At the fitted interaction strength, its mean within-recipient Spearman correlation with exact model discrepancy was 0.939&ndash;0.942 across cohorts. In retrospective analyses of 24 Cambridge donors, 56 Newcastle donors, and 15 patients with pediatric T-cell acute lymphoblastic leukemia (T-ALL), covariance-preserving reconstruction retained 91&ndash;97% of the improvement from full assay patterns over individual marker frequencies. Recipient-specific coexpression reduced mean deviance by 9.2%, 17.9%, and 46.0% relative to pools of other recipients matched to the same marker frequencies (paired donor-bootstrap 95% intervals, 2.3&ndash;15.6%, 12.6&ndash;23.0%, and 35.2&ndash;55.8%). Those pools contained 14&ndash;55 times more cells. The response rule concentrated 85&ndash;90% of the observed net improvement into 27 of 81 marker pairs and outperformed ranking by direct source-interaction strength in Newcastle and T-ALL.</p>
         <p><b>Conclusions.</b> Recipient coexpression supports dependence predictions that individual marker frequencies and larger pooled samples do not recover. Reconstructing assay patterns before forming coarse queries preserves this information and identifies relationships that benefit from recipient-specific correction.</p>
       </div>
     </section>
@@ -82,6 +82,10 @@
           <span>Cov<sub>q<sub>t</sub></sub>(<i>X</i>, <i>Y</i>) = <i>t</i>&Sigma;<sub>x</sub><i>B</i>&Sigma;<sub>y</sub> + O(<i>t</i><sup>2</sup>).</span>
         </div>
         <p>To first order, each predicted RNA&ndash;protein covariance sums source interactions weighted by recipient covariances in both assays. A source coefficient therefore need not equal the marginal association observed in a new population.</p>
+        <p>This local formula is the initial value of an exact finite-strength identity. If <i>s</i><sub>t</sub> is the score along the fixed-marginal reconstruction, the marginal constraints remove its conditional means and give</p>
+        <div class="equation" aria-label="Covariance at fitted strength equals the integral of the score-weighted cross product along the interaction path">
+          <span>Cov<sub>q<sub>1</sub></sub>(<i>X</i>, <i>Y</i>) = &int;<sub>0</sub><sup>1</sup> E<sub>q<sub>t</sub></sub>[(<i>X</i> &minus; &mu;<sub>x</sub>)(<i>Y</i> &minus; &mu;<sub>y</sub>)<sup>&top;</sup><i>s</i><sub>t</sub>] d<i>t</i>.</span>
+        </div>
         <p>The response also predicts which queries are sensitive to replacing recipient coexpression by pooled structure. For a binary query with nonconstant marker frequencies, subtract the queried entries of &Sigma;<sub>x</sub><i>B</i>&Sigma;<sub>y</sub> for the recipient and pool, square the difference, and divide by the product of the two marker variances. This is the leading coefficient of twice the KL divergence between their query distributions near independence (Additional file 1). We test whether this score identifies relationships whose empirical prediction improves with recipient-specific reconstruction.</p>
       </div>
     </section>
@@ -124,7 +128,22 @@
       </div>
     </section>
 
-    <section class="section light" id="discussion">
+    <section class="section light" id="finite-strength">
+      <div class="container reading">
+        <h2>The response ranking persists at fitted strength</h2>
+        <p>The response coefficient remained closely aligned with exact model discrepancy as the interaction increased from independence to its fitted strength. At <i>t</i> = 1, mean within-recipient Spearman correlations were 0.941 in Cambridge (95% interval, 0.935&ndash;0.948), 0.942 in Newcastle (0.937&ndash;0.947), and 0.939 in T-ALL (0.919&ndash;0.954). The response and exact rankings shared 90.3%, 89.5%, and 89.1% of their top 27 queries. The cohort-aggregate exact discrepancy was 40.8%, 32.1%, and 28.3% of the quadratic approximation.</p>
+      </div>
+      <div class="container wide">
+        <figure class="paper-figure">
+          <div class="figure-scroll" tabindex="0" role="region" aria-label="Finite-strength response diagnostic">
+            <a href="assets/figures/assay-continuation.png" title="Open full-size figure"><img src="assets/figures/assay-continuation.png" alt="Rank fidelity remains above 0.93 at fitted interaction strength across Cambridge, Newcastle, and T-ALL, while exact discrepancy is smaller than its quadratic approximation."></a>
+          </div>
+          <figcaption><b>The response ranking remains stable from independence to the fitted interaction.</b> The left panel shows mean within-recipient Spearman correlation between the local response coefficient and exact finite-strength model discrepancy, with recipient-bootstrap 95% intervals. The right panel shows the ratio of summed exact discrepancy to the quadratic approximation. All points use the same 95 recipients, 81 queries, assay marginals, and source interaction as the primary analysis.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="discussion">
       <div class="container reading">
         <h2>Discussion</h2>
         <p>The resolution at which a relationship is reported need not be the resolution at which it should be transferred. A binary RNA&ndash;protein table depends on the distribution of finer cellular profiles. Reconstructing those profiles before aggregation allowed one source interaction to predict different recipient associations using measurements made separately within each assay.</p>
@@ -132,25 +151,25 @@
       </div>
     </section>
 
-    <section class="section" id="limitations">
+    <section class="section light" id="limitations">
       <div class="container reading">
         <h2>Limitations</h2>
         <p>The resolution and query-ranking analyses are retrospective analyses of previously examined recipients from two studies, not new confirmation. Intervals condition on the source fit and fitted pools, omitting their estimation uncertainty, dependence between overlapping cohort pools, and the adaptive research history. The earlier T-ALL model comparison was fixed before count access but did not pass its all-control superiority criterion.</p>
         <p>The panel contains nine RNA and nine protein markers, and protein states use donor-wide ranks that include scoring values. Individual scoring-cell marker frequencies are supplied. Two Stephenson recipients have almost no counts across the protein panel and were retained. The task is fixed-margin dependence prediction, not missing-modality imputation without target assay values. The results do not isolate within-cell-type regulation or establish molecular binding, causal effects, or clinical utility.</p>
         <p>The identified interval assumes a known transferable interaction, finite assay supports, and exact recipient summaries. Its all-marker endpoints require global optimization over the corresponding marginal polytopes; only the two-frequency case has the closed form reported here. The examples establish ambiguity, not its biological magnitude. Query-wise minimax predictions need not form a coherent multivariate law. Interaction drift, sampling error, and coarsening ambiguity remain distinct.</p>
-        <p>We tested one maximum-entropy replacement, which preserves fitted means and covariances but can induce higher-order correlations. The retained gain is descriptive, not causal mediation. The response expansion applies near independence, without an accuracy claim at the fitted interaction strength. Its query score predicts model discrepancy, not error against an arbitrary biological population. The query-ranking advantage over direct source strength was unresolved in Cambridge. Prioritization requires the full measured panel and does not establish savings from measuring fewer markers. Sorting and cell mixtures can contribute to the observed coexpression.</p>
+        <p>We tested one maximum-entropy replacement, which preserves fitted means and covariances but can induce higher-order correlations. The retained gain is descriptive, not causal mediation. The exact response identity holds at finite strength, but the query score is its local coefficient; at <i>t</i> = 1, the quadratic approximation exceeded the exact model discrepancy. The score predicts model discrepancy, not error against an arbitrary biological population. The query-ranking advantage over direct source strength was unresolved in Cambridge. Prioritization requires the full measured panel and does not establish savings from measuring fewer markers. Sorting and cell mixtures can contribute to the observed coexpression.</p>
         <p>Reconstruction, noncollapsibility, and minimax KL prediction have established foundations. The theory concerns the resolution-dependent identified set; the experiments establish an information advantage, not a superior cost learner. The CHAMPOLLION comparator uses its no-prior objective with a common recipient adapter, not its complete published workflow.</p>
       </div>
     </section>
 
-    <section class="section light conclusions" id="conclusions">
+    <section class="section conclusions" id="conclusions">
       <div class="container reading">
         <h2>Conclusions</h2>
         <p>Within-assay cellular patterns improved cross-cohort RNA&ndash;protein dependence prediction with the source interaction held fixed. Recipient-specific covariances retained most of this gain and outperformed source and cohort pools matched to the same marker frequencies. Full patterns improved further in each cohort. Separately measured recipient coexpression can therefore support molecular predictions that individual frequencies and cohort averages do not recover.</p>
       </div>
     </section>
 
-    <section class="section" id="availability">
+    <section class="section light" id="availability">
       <div class="container reading">
         <h2>Availability of data and materials</h2>
         <p>Source data are available through the accessions in Additional file 1, including GSE248287 for the T-ALL cohort. The original benchmark's analysis plans, MIT-licensed software, and study records are available in the <a href="https://github.com/sushaan-k/coupling-fields-benchmark/releases/tag/coupling-fields-v2.0.4-public-benchmark">v2.0.4 release</a>. The resolution and query-ranking analyses are subsequent work and are not included in that release. Additional file 1 documents their protocols and computational verification. Raw matrices are not redistributed.</p>

@@ -40,7 +40,7 @@
 \abstract{
 \textbf{Background:} Separate molecular assays retain within-assay coexpression when cross-modal pairing is unavailable. We ask which aspects of this structure support RNA--protein dependence prediction from a paired reference.
 
-\textbf{Results:} We derive the sharp identified range and minimax predictor for a binary association given a fixed fine-scale interaction and within-assay moment constraints that determine the queried frequencies. The result applies directly when all individual marker frequencies are known; the case with only the two queried frequencies has a closed form. An expansion of the predicted covariance gives a query-ranking rule that requires no recipient pairings. In retrospective analyses of 24 Cambridge donors, 56 Newcastle donors, and 15 patients with pediatric T-cell acute lymphoblastic leukemia (T-ALL), covariance-preserving reconstruction retained 91--97\% of the improvement from full assay patterns over individual marker frequencies. Recipient-specific coexpression reduced mean deviance by 9.2\%, 17.9\%, and 46.0\% relative to pools of other recipients matched to the same marker frequencies (paired donor-bootstrap 95\% intervals, 2.3--15.6\%, 12.6--23.0\%, and 35.2--55.8\%). Those pools contained 14--55 times more cells. The response rule concentrated 85--90\% of the observed net improvement into 27 of 81 marker pairs and outperformed ranking by direct source-interaction strength in Newcastle and T-ALL.
+\textbf{Results:} We derive the sharp identified range and minimax predictor for a binary association given a fixed fine-scale interaction and within-assay moment constraints that determine the queried frequencies. The result applies directly when all individual marker frequencies are known; the case with only the two queried frequencies has a closed form. An exact response identity yields a local query-ranking rule that requires no recipient pairings. At the fitted interaction strength, its mean within-recipient Spearman correlation with exact model discrepancy was 0.939--0.942 across cohorts. In retrospective analyses of 24 Cambridge donors, 56 Newcastle donors, and 15 patients with pediatric T-cell acute lymphoblastic leukemia (T-ALL), covariance-preserving reconstruction retained 91--97\% of the improvement from full assay patterns over individual marker frequencies. Recipient-specific coexpression reduced mean deviance by 9.2\%, 17.9\%, and 46.0\% relative to pools of other recipients matched to the same marker frequencies (paired donor-bootstrap 95\% intervals, 2.3--15.6\%, 12.6--23.0\%, and 35.2--55.8\%). Those pools contained 14--55 times more cells. The response rule concentrated 85--90\% of the observed net improvement into 27 of 81 marker pairs and outperformed ranking by direct source-interaction strength in Newcastle and T-ALL.
 
 \textbf{Conclusions:} Recipient coexpression supports dependence predictions that individual marker frequencies and larger pooled samples do not recover. Reconstructing assay patterns before forming coarse queries preserves this information and identifies relationships that benefit from recipient-specific correction.
 }
@@ -142,6 +142,13 @@ $\KL(P(\ell)\Vert P_*)=\KL(P(h)\Vert P_*)$. No estimator based only on the
 specified unpaired summaries can improve this worst-case loss. Computing
 $\ell$ and $h$ requires two finite constrained optimizations, each using the
 same matrix-scaled reconstruction as the prediction method.
+\ifdefined\ReaderVersion\needspace{5\baselineskip}\fi
+Writing $\mathcal H(P)=-\sum P\log P$, its log odds are
+\begin{equation}
+ \theta_*=\frac{\mathcal H(P(\ell))-\mathcal H(P(h))}{h-\ell}
+ \quad(\ell<h).
+ \label{eq:minimax}
+\end{equation}
 
 When the recipient retains only the two queried frequencies, the endpoints
 have a closed form. For a fine rectangle with
@@ -156,6 +163,13 @@ probabilities with margins $m_U,m_V$ and log odds $L,H$. The information-radius
 argument uses classical minimax KL geometry \cite{vanerven}; the new
 resolution-specific result is the exact interval induced by the observed
 within-assay constraints.
+
+To see the interval directly, sum the fine-table identity
+$q(x_0,y_0)q(x_1,y_1)=e^d q(x_0,y_1)q(x_1,y_0)$ over all rectangles.
+The coarse odds ratio is a positively weighted average of $e^d$, placing its
+log in $[L,H]$. Concentrating each assay margin on an extremizing pair of
+profiles attains either endpoint in closure. Continuity over the connected
+set of compatible margins fills the interval between them.
 
 \subsection{Individual frequencies can all agree}
 The ambiguity also occurs when every marker's individual frequency is known.
@@ -192,6 +206,18 @@ coefficient therefore need not equal the marginal association observed in a
 new population. This is the multivariate counterpart of
 Eq.~\eqref{eq:example}.
 
+This local formula is the initial value of an exact finite-strength identity.
+Let $s_t=\partial_t\log q_t(X,Y)$ be the score along the fixed-marginal
+reconstruction. The marginal constraints give
+$\mathbb E_{q_t}(s_t\mid X)=\mathbb E_{q_t}(s_t\mid Y)=0$, and hence
+\begin{equation}
+ \operatorname{Cov}_{q_1}(X,Y)
+ =\int_0^1\mathbb E_{q_t}\{\bar X\bar Y^\top s_t\}\,dt.
+ \label{eq:response-integral}
+\end{equation}
+At independence, $s_0=\bar X^\top B\bar Y$, which recovers
+Eq.~\eqref{eq:response}.
+
 The second-order term contracts two copies of $B$ with the third central
 moments of each assay (Additional file 1). Thus preserving means and
 covariances preserves the first-order prediction but does not determine the
@@ -207,6 +233,15 @@ two marker variances. This is the leading coefficient of twice the KL divergence
 between their query distributions near independence
 (Additional file 1). We test whether this score identifies relationships
 whose empirical prediction improves with recipient-specific reconstruction.
+
+We evaluated the response rule along
+$t\in\{0.05,0.10,0.25,0.50,0.75,1\}$. At each value, we exactly reconstructed
+the recipient covariance model and the leave-one-recipient-out cohort-pool
+model, then compared the response coefficient with twice the forward KL
+divergence between their 81 query tables. We report pooled and within-recipient
+Spearman correlations, top-27 overlap, and the ratio of exact discrepancy to
+its quadratic approximation. Recipient-bootstrap intervals used 20,000 draws
+with seed 906095.
 
 \subsection{Data and prediction protocol}
 The source comprised 12 Cambridge calibration donors from the Stephenson
@@ -387,6 +422,30 @@ Net gain can exceed 100\% when excluded corrections worsen prediction.}
 \label{fig:relationships}
 \end{figure*}
 
+\subsection{The response ranking persists at fitted strength}
+The response coefficient remained closely aligned with exact model discrepancy
+throughout the continuation (Fig.~\ref{fig:continuation}). At $t=1$, mean
+within-recipient Spearman correlations were 0.941 in Cambridge (95\% interval,
+0.935--0.948), 0.942 in Newcastle (0.937--0.947), and 0.939 in T-ALL
+(0.919--0.954). The response and exact rankings shared 90.3\%, 89.5\%, and
+89.1\% of their top 27 queries, respectively. The cohort-aggregate exact
+discrepancy at $t=1$ was 40.8\%, 32.1\%, and 28.3\% of the quadratic
+approximation.
+
+\begin{figure*}[t]
+\centering
+\input{continuation_figure.tex}
+\caption{\textbf{The response ranking remains stable from independence to the fitted interaction.}
+\textbf{a}, Mean within-recipient Spearman correlation between the local
+response coefficient and exact finite-strength model discrepancy; lines show
+recipient-bootstrap 95\% intervals. \textbf{b}, Ratio of summed exact
+discrepancy to the quadratic approximation. Exact discrepancy is twice the
+forward KL divergence from the recipient covariance reconstruction to the
+cohort-pool reconstruction. All points use the same 95 recipients, 81 queries,
+assay marginals, and source interaction as the primary analysis.}
+\label{fig:continuation}
+\end{figure*}
+
 \subsection{Matched interaction models and the original held-site study}
 An earlier comparison of full-profile models on the same T-ALL patients
 reached mean deviance 0.008441 with the matched CHAMPOLLION objective,
@@ -457,10 +516,10 @@ coarsening ambiguity remain distinct.
 
 We tested one maximum-entropy replacement, which preserves fitted means and
 covariances but can induce higher-order correlations. The retained
-gain is descriptive, not causal mediation. The response expansion applies near
-independence, without an accuracy claim at the fitted interaction strength.
-Its query score predicts model discrepancy, not error against an arbitrary
-biological population. The query-ranking advantage over direct source strength
+gain is descriptive, not causal mediation. The exact response identity holds
+at finite strength, but the quadratic coefficient overestimated the magnitude
+of model discrepancy at $t=1$. Its query score predicts model discrepancy, not
+error against an arbitrary biological population. The query-ranking advantage over direct source strength
 was unresolved in Cambridge. Prioritization requires the full measured panel
 and does not establish savings from measuring fewer markers. Sorting and cell
 mixtures can contribute to the observed coexpression.

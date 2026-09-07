@@ -145,6 +145,23 @@ assay functions. The reconstruction can therefore be written
 \[
  q_t(x,y)=r(x)c(y)\exp\{t h(x,y)+\alpha_t(x)+\beta_t(y)\}.
 \]
+Let $s_t=\partial_t\log q_t$. Differentiating the two fixed marginal
+constraints gives
+\[
+ \mathbb E_{q_t}(s_t\mid X)=0,\qquad
+ \mathbb E_{q_t}(s_t\mid Y)=0.
+\]
+Because the assay means do not vary with $t$,
+\begin{align}
+ \frac{d}{dt}\operatorname{Cov}_{q_t}(X,Y)
+ &=\mathbb E_{q_t}\{\bar X\bar Y^\top s_t\},\label{eq:exact-response}\\
+ \operatorname{Cov}_{q_1}(X,Y)
+ &=\int_0^1\mathbb E_{q_t}\{\bar X\bar Y^\top s_t\}\,dt.
+ \label{eq:exact-response-integral}
+\end{align}
+These identities are exact. At $t=0$, $q_0=rc$ and the centered interaction
+has zero conditional mean in either argument, so $s_0=h$.
+
 At $t=0$, the adjusting functions vanish. After fixing their additive gauge,
 the finite marginal equations have a nonsingular linearization at independence,
 so their solution is analytic near zero. Differentiating the marginal
@@ -203,6 +220,23 @@ from substituting pooled coexpression. The empirical comparison tests the
 ranking at the fitted interaction strength without imposing that equality.
 
 
+
+\subsection{Finite-strength response diagnostic}
+We scaled the frozen interaction over
+$t\in\{0.05,0.10,0.25,0.50,0.75,1\}$ without changing assay marginals,
+recipient pools, or queries. At each value, exact matrix scaling reconstructed
+the recipient covariance model and leave-one-recipient-out cohort-pool model.
+Their query discrepancy was twice the forward KL divergence from the recipient
+table to the pool table. We compared this quantity with the local response
+coefficient fixed before the continuation.
+
+For each cohort and value of $t$, we computed the pooled Spearman correlation,
+the mean within-recipient Spearman correlation, overlap between response-ranked
+and exact top-27 queries, and the ratio of summed exact discrepancy to its
+quadratic approximation. Recipient-bootstrap 95\% intervals used 20,000 draws
+with seed 906095. At $t=1$, independently reconstructed tables agreed with the
+frozen primary predictions to maximum absolute error
+$5.56\times10^{-16}$.
 
 \subsection{Matched resolution and covariance analyses}
 

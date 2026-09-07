@@ -1,0 +1,62 @@
+\definecolor{cambridge}{HTML}{5D6670}
+\definecolor{newcastle}{HTML}{217D91}
+\definecolor{tall}{HTML}{A64442}
+\begin{tikzpicture}
+\begin{groupplot}[
+ group style={group size=2 by 1,horizontal sep=1.8cm},
+ width=.44\textwidth,height=4.8cm,
+ xmin=0,xmax=1.02,xtick={0,.25,.5,.75,1},
+ xlabel={Interaction scale $t$},
+ axis x line*=bottom,axis y line*=left,tick align=outside,
+ ymajorgrids=true,grid style={gray!18},axis line style={gray!55},
+ tick label style={font=\small},label style={font=\small},
+ title style={font=\small},
+ legend style={draw=none,legend columns=3,font=\small,column sep=8pt},
+ every axis plot/.append style={line width=.9pt,mark size=1.9pt}
+]
+\nextgroupplot[
+ title={\textbf{a}\quad Rank fidelity},
+ ymin=.90,ymax=1.01,ytick={.90,.95,1.00},
+ ylabel={Mean within-recipient Spearman $\rho$},
+ legend to name=continuationlegend,
+ error bars/y dir=both,error bars/y explicit,
+ error bars/error mark options={rotate=90,mark size=2.5pt,line width=.7pt}
+]
+\addplot[color=cambridge,mark=square*] coordinates {
+ (.05,.99960) += (0,.00029) -= (0,.00049)
+ (.10,.99944) += (0,.00029) -= (0,.00048)
+ (.25,.99781) += (0,.00044) -= (0,.00055)
+ (.50,.98817) += (0,.00147) -= (0,.00158)
+ (.75,.96754) += (0,.00397) -= (0,.00405)
+ (1,.94139) += (0,.00695) -= (0,.00678)};
+\addlegendentry{Cambridge}
+\addplot[color=newcastle,mark=*] coordinates {
+ (.05,.99987) += (0,.00005) -= (0,.00005)
+ (.10,.99971) += (0,.00005) -= (0,.00006)
+ (.25,.99786) += (0,.00029) -= (0,.00032)
+ (.50,.98711) += (0,.00153) -= (0,.00163)
+ (.75,.96736) += (0,.00321) -= (0,.00346)
+ (1,.94221) += (0,.00501) -= (0,.00542)};
+\addlegendentry{Newcastle}
+\addplot[color=tall,mark=triangle*] coordinates {
+ (.05,.99989) += (0,.00005) -= (0,.00009)
+ (.10,.99971) += (0,.00008) -= (0,.00009)
+ (.25,.99737) += (0,.00087) -= (0,.00112)
+ (.50,.98368) += (0,.00500) -= (0,.00714)
+ (.75,.96307) += (0,.00942) -= (0,.01230)
+ (1,.93876) += (0,.01485) -= (0,.01946)};
+\addlegendentry{T-ALL}
+\nextgroupplot[
+ title={\textbf{b}\quad Magnitude},
+ ymin=.20,ymax=1.04,ytick={.25,.50,.75,1.00},
+ ylabel={Exact / quadratic ratio}
+]
+\addplot[color=cambridge,mark=square*] coordinates {
+ (.05,.99563) (.10,.98277) (.25,.90302) (.50,.71101) (.75,.53727) (1,.40796)};
+\addplot[color=newcastle,mark=*] coordinates {
+ (.05,.99349) (.10,.97490) (.25,.86482) (.50,.62855) (.75,.44350) (1,.32059)};
+\addplot[color=tall,mark=triangle*] coordinates {
+ (.05,.99220) (.10,.96934) (.25,.83849) (.50,.58307) (.75,.39962) (1,.28316)};
+\end{groupplot}
+\end{tikzpicture}
+\par\smallskip\pgfplotslegendfromname{continuationlegend}
