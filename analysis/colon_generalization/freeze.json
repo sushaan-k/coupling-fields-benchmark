@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-09-13T22:08:40.330199+00:00",
+  "status": "pre-count-access protocol",
+  "source_model": "published Cambridge interaction, no refit",
+  "sha256": {
+    "PLAN.md": "91c44b9430fc85c93bf220d34623af572ffa7103bd70c729685468bbcd4ee780",
+    "selection.json": "0312e28850d48ca2566886102ffbb03176181fcb16afda35a583766a6fdeb8f3",
+    "acquire.py": "e4f44d24f40ef16623f44da8c7270dfa90bba384cfce386029c776cc531c9a5d",
+    "run.py": "d30b0114641af33d80524b8651aca00482039d2ccd157ac83dabf8a2d670fba1",
+    "test_protocol.py": "dadafb022266c4303a1e9bbd747552f383f93f54b70f9db651f43a1a73b4ccbf",
+    "../assay_resolution/reconstruct.py": "0cc6391d12ba12bbaed129d790b4c40993ce8bd3804d14a8fc241bbc46286ddd",
+    "../assay_resolution/results/adaptation_only_results/source_fit.npz": "6b4e21f8d1741c936af542a65e6cc59bd56666bd6825d49e7cbb45405850606c"
+  }
+}
