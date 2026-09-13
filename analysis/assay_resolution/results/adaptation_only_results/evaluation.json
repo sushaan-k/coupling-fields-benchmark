@@ -1,0 +1,146 @@
+{
+  "Cambridge": {
+    "n": 24,
+    "mean_losses": {
+      "means_only": 0.02229248145400907,
+      "rna_patterns": 0.02059829725538722,
+      "protein_patterns": 0.01963778687149614,
+      "both_patterns": 0.018584759932466992,
+      "independence": 0.03450336183800891
+    },
+    "comparisons": {
+      "means_only": {
+        "reduction_percent": 16.632161516838593,
+        "bootstrap_95": [
+          13.049889025277546,
+          20.338536607629216
+        ],
+        "bootstrap_familywise": [
+          11.652257490722706,
+          21.72021413970745
+        ],
+        "donor_wins": 24
+      },
+      "protein_patterns": {
+        "reduction_percent": 5.362248536048597,
+        "bootstrap_95": [
+          3.326456816748889,
+          7.486434872068733
+        ],
+        "bootstrap_familywise": [
+          2.5654462613987796,
+          8.422700689644012
+        ],
+        "donor_wins": 21
+      },
+      "independence": {
+        "reduction_percent": 46.136379348420434,
+        "bootstrap_95": [
+          41.18328576240464,
+          50.59661549355148
+        ],
+        "bootstrap_familywise": [
+          38.90534714108491,
+          52.306758777901656
+        ],
+        "donor_wins": 23
+      }
+    }
+  },
+  "Newcastle": {
+    "n": 56,
+    "mean_losses": {
+      "means_only": 0.032326753717100074,
+      "rna_patterns": 0.027636927684236832,
+      "protein_patterns": 0.02609037486317415,
+      "both_patterns": 0.022889347887977276,
+      "independence": 0.04352354010749055
+    },
+    "comparisons": {
+      "means_only": {
+        "reduction_percent": 29.19379382078392,
+        "bootstrap_95": [
+          25.002153456812344,
+          33.28412017462488
+        ],
+        "bootstrap_familywise": [
+          23.217759255191922,
+          34.950567130262385
+        ],
+        "donor_wins": 55
+      },
+      "protein_patterns": {
+        "reduction_percent": 12.268995719624687,
+        "bootstrap_95": [
+          10.191696801858843,
+          14.311908327941515
+        ],
+        "bootstrap_familywise": [
+          9.288657218679347,
+          15.16227572108205
+        ],
+        "donor_wins": 55
+      },
+      "independence": {
+        "reduction_percent": 47.40926902672161,
+        "bootstrap_95": [
+          43.61561025779449,
+          51.00299759231404
+        ],
+        "bootstrap_familywise": [
+          41.94069894398283,
+          52.55155482808366
+        ],
+        "donor_wins": 55
+      }
+    }
+  },
+  "T-ALL": {
+    "n": 15,
+    "mean_losses": {
+      "means_only": 0.05847148169300709,
+      "rna_patterns": 0.045102680825010975,
+      "protein_patterns": 0.03808054375817609,
+      "both_patterns": 0.025986345045122372,
+      "independence": 0.07459124449042322
+    },
+    "comparisons": {
+      "means_only": {
+        "reduction_percent": 55.55723184584493,
+        "bootstrap_95": [
+          47.246075772920264,
+          62.667700236440496
+        ],
+        "bootstrap_familywise": [
+          43.95215438357376,
+          64.9610950174856
+        ],
+        "donor_wins": 15
+      },
+      "protein_patterns": {
+        "reduction_percent": 31.759522106238393,
+        "bootstrap_95": [
+          25.91408229434555,
+          37.860232653333206
+        ],
+        "bootstrap_familywise": [
+          23.744562701746936,
+          40.1938462810628
+        ],
+        "donor_wins": 15
+      },
+      "independence": {
+        "reduction_percent": 65.16166847375932,
+        "bootstrap_95": [
+          57.930067486131506,
+          70.99948470999593
+        ],
+        "bootstrap_familywise": [
+          54.65404555210775,
+          72.76621448785626
+        ],
+        "donor_wins": 15
+      }
+    }
+  }
+}

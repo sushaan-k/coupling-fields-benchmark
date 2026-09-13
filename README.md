@@ -11,14 +11,18 @@
 
 The manuscript examines which recipient assay information supports
 RNA-protein dependence prediction with a fixed source interaction. This
-revision gives the all-marker identified set, covariance response, comparisons,
-and retrospective study design without changing the reported results.
+revision gives the all-marker identified set, covariance response, and a new
+adaptation-only experiment in which scoring cells supply no prediction inputs.
+Across 95 recipients, retaining both assay-pattern distributions reduced error
+by 16.6%, 29.2%, and 55.6% over marker frequencies alone in the three cohorts.
 
 The original benchmark's code and results are preserved in the immutable
 [v2.0.4 release](https://github.com/sushaan-k/coupling-fields-benchmark/releases/tag/coupling-fields-v2.0.4-public-benchmark).
 That release does not include the later resolution and query-ranking analyses.
-The current update publishes manuscript sources, PDFs, and the paper page;
-it does not release a new analysis package or redistribute raw data.
+The current manuscript is accompanied by a [portable analysis artifact](analysis/assay_resolution/)
+with derived assay distributions, reconstruction code, predictions, and
+recipient-bootstrap verification. These retrospective analyses are not a new
+prospective confirmation. Raw data are not redistributed.
 
 ## Earlier benchmark documentation
 

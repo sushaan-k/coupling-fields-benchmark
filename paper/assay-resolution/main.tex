@@ -38,11 +38,11 @@
 \affil*[1]{\orgdiv{Affiliations withheld in the blinded manuscript}}
 
 \abstract{
-\textbf{Background:} Separate molecular assays retain within-assay coexpression when cross-modal pairing is unavailable. We ask which aspects of this structure support RNA--protein dependence prediction from a paired reference.
+\textbf{Background:} Separate molecular assays retain coexpression even when cross-assay cell pairing is unavailable. We ask which recipient measurements are needed to transfer RNA--protein dependence from a paired reference.
 
-\textbf{Results:} We derive the sharp identified range and minimax predictor for a binary association given a fixed fine-scale interaction and within-assay moment constraints that determine the queried frequencies. The result applies directly when all individual marker frequencies are known; the case with only the two queried frequencies has a closed form. An exact response identity yields a local query-ranking rule that requires no recipient pairings. At the fitted interaction strength, its mean within-recipient Spearman correlation with exact model discrepancy was 0.939--0.942 across cohorts. In retrospective analyses of 24 Cambridge donors, 56 Newcastle donors, and 15 patients with pediatric T-cell acute lymphoblastic leukemia (T-ALL), covariance-preserving reconstruction retained 91--97\% of the improvement from full assay patterns over individual marker frequencies. Recipient-specific coexpression reduced mean deviance by 9.2\%, 17.9\%, and 46.0\% relative to pools of other recipients matched to the same marker frequencies (paired donor-bootstrap 95\% intervals, 2.3--15.6\%, 12.6--23.0\%, and 35.2--55.8\%). Those pools contained 14--55 times more cells. The response rule concentrated 85--90\% of the observed net improvement into 27 of 81 marker pairs and outperformed ranking by direct source-interaction strength in Newcastle and T-ALL.
+\textbf{Results:} For finite assay profiles and a fixed interaction, we derive the sharp range of binary associations compatible with specified unpaired summaries and its minimax predictor. We evaluate reconstruction retrospectively in 24 Cambridge donors, 56 Newcastle donors, and 15 patients with pediatric T-cell acute lymphoblastic leukemia (T-ALL). With all recipient preprocessing and prediction inputs restricted to 256 adaptation cells, retaining both assay-pattern distributions reduced deviance on 256 untouched cells by 16.6\%, 29.2\%, and 55.6\% relative to individual frequencies (paired recipient-bootstrap 95\% intervals, 13.0--20.3\%, 25.0--33.3\%, and 47.2--62.7\%). Both patterns also improved on protein patterns alone in every cohort. In a separate fixed-frequency comparison, covariances retained 91--97\% of the pattern-level gain and recipient-specific structure outperformed larger matched pools. A covariance response formula identified queries benefiting from this correction, improving prioritization over direct interaction strength in Newcastle and T-ALL.
 
-\textbf{Conclusions:} Recipient coexpression supports dependence predictions that individual marker frequencies and larger pooled samples do not recover. Reconstructing assay patterns before forming coarse queries preserves this information and identifies relationships that benefit from recipient-specific correction.
+\textbf{Conclusions:} Assay summaries determine both the identifiable range of molecular dependence and the information available for its prediction. Preserving recipient coexpression improves held-cell prediction without supplying scoring-cell frequencies or cross-assay pairings.
 }
 \keywords{single-cell multi-omics; molecular dependence; coarsening; statistical matching; optimal transport}
 \maketitle
@@ -64,26 +64,30 @@ observations changes the relationships that such a model can recover. A coarse
 RNA--protein association can change when the frequencies of finer cellular
 patterns change, even if the fine interaction is fixed. This connects
 cross-cohort prediction to the noncollapsibility of marginal association
-\cite{ghosh}.
+\cite{ghosh,bergsma2002}. Existing methods reconstruct a joint table from
+specified marginals and interaction parameters \cite{hammond2024}. Here the
+complete marginals can themselves be unknown: observed within-assay summaries
+constrain them, leaving a set of possible coarse associations.
 
-We derive the complete range of a binary association under arbitrary
-within-assay moment constraints and a fixed fine interaction. This range
-applies to the full set of marker frequencies supplied in our benchmark; a
-closed form is available when only the two queried frequencies are retained.
-The range gives an attainable worst-case prediction and an error floor that
-additional observations at the same resolution cannot remove. We then measure the value of
-within-assay structure while holding the interaction, cells, and recipient
-marker frequencies fixed. This comparison separates the information retained
-by each representation from differences between fitted estimators.
+For finite assay supports and a specified interaction, we derive the sharp
+range of binary associations compatible with unpaired summaries that determine
+the query frequencies. The range gives a minimax prediction and quantifies
+ambiguity remaining after those summaries are known exactly. It includes the
+case in which every individual marker frequency is supplied; retaining only
+the two queried frequencies gives a closed form.
+We then test whether preserving within-assay structure improves prediction
+on untouched recipient cells. Each comparison holds the source interaction,
+cells, and estimated recipient marker frequencies fixed, separating the value
+of retained information from differences between fitted estimators.
 To identify which structure matters, we preserve recipient covariances with
 pairwise maximum-entropy models \cite{schneidman}, then compare them with
 models built from source donors or other recipients in the same cohort.
-A local response expansion connects these interventions to the predicted
+A response expansion explains how recipient coexpression changes a transferred
 association and gives a query-ranking rule computable from unpaired assays.
 
 \section{Methods}
 \subsection{Reconstruction at the observed assay resolution}
-Let $x$ and $y$ denote RNA and protein profiles on finite supports. A transferred interaction
+Let $x$ and $y$ denote RNA and protein profiles on finite supports. A finite transferred interaction
 $S(x,y)$ defines a family of recipient distributions
 \begin{equation}
  q(x,y)=\exp\{S(x,y)+a(x)+b(y)\}.
@@ -102,10 +106,11 @@ constrains marker frequencies but leaves within-assay dependence unconstrained.
 
 \subsection{A sharp limit at the observed resolution}
 Let the observed RNA and protein summaries be arbitrary finite collections of
-within-assay means. They define convex polytopes $\mathcal R$ and $\mathcal C$
+within-assay means. Assume they define nonempty convex polytopes $\mathcal R$ and $\mathcal C$
 of complete assay distributions consistent with those summaries. For each
-$r\in\mathcal R$ and $c\in\mathcal C$, matrix scaling gives the unique joint
-distribution $Q_S(r,c)$ with interaction $S$ and assay marginals $r,c$.
+$r\in\mathcal R$ and $c\in\mathcal C$, entropic reconstruction gives the unique
+joint distribution $Q_S(r,c)$ with interaction $S$ and assay marginals $r,c$,
+allowing zero-mass assay states (Additional file 1).
 For a binary query $U=f(x)$ and $V=g(y)$, define
 \begin{align*}
  \ell&=\min_{r\in\mathcal R,c\in\mathcal C}
@@ -114,7 +119,7 @@ For a binary query $U=f(x)$ and $V=g(y)$, define
        \Pr_{Q_S(r,c)}(U=1,V=1).
 \end{align*}
 If the summaries determine the query frequencies
-$m_U=\Pr(U=1)$ and $m_V=\Pr(V=1)$, the closure of compatible query tables is
+$m_U=\Pr(U=1)$ and $m_V=\Pr(V=1)$, the set of query tables from these reconstructions is
 exactly
 \begin{equation}
  \left\{
@@ -128,20 +133,22 @@ connected and the matrix-scaled reconstruction is continuous. It is the sharp
 identified set when all individual marker frequencies are supplied: take the
 defining means of $\mathcal R$ and $\mathcal C$ to be the frequencies of all
 markers. Complete assay-profile histograms collapse both polytopes to points.
-Thus the theoretical constraints now coincide with the means-only and
-full-pattern arms of the experiment. Additional file 1 gives the formal result
-and proof.
+These are the constraints used by the means-only and full-pattern
+reconstructions. Additional file 1 gives the formal result and proof.
 
 The means-only exponential-family fit selects one member of this set by
 information projection. The interval records what the supplied frequencies
 identify without that additional selection.
 
-The unique minimax table $P_*$ equalizes the forward Kullback--Leibler (KL)
+Write $P(t)$ for the table in Eq.~\eqref{eq:all-marker-interval}. The unique
+minimax table $P_*$ equalizes the forward Kullback--Leibler (KL)
 loss from the endpoint tables $P(\ell)$ and $P(h)$:
-$\KL(P(\ell)\Vert P_*)=\KL(P(h)\Vert P_*)$. No estimator based only on the
-specified unpaired summaries can improve this worst-case loss. Computing
-$\ell$ and $h$ requires two finite constrained optimizations, each using the
-same matrix-scaled reconstruction as the prediction method.
+$\KL(P(\ell)\Vert P_*)=\KL(P(h)\Vert P_*)$. Within this fixed-interaction
+family with exact population summaries, no predictor has smaller worst-case forward
+KL loss. Computing
+$\ell$ and $h$ requires global optimization over the marginal polytopes;
+these outer problems need not be convex. The interval is an analytic
+characterization, not a general efficient endpoint algorithm.
 \ifdefined\ReaderVersion\needspace{5\baselineskip}\fi
 Writing $\mathcal H(P)=-\sum P\log P$, its log odds are
 \begin{equation}
@@ -160,7 +167,7 @@ $f(x_0)=g(y_0)=0$ and $f(x_1)=g(y_1)=1$, define its interaction contrast
 Let $L$ and $H$ be the smallest and largest such contrasts. The compatible
 coarse log odds fill $[L,H]$ in closure, so $\ell$ and $h$ are the cell
 probabilities with margins $m_U,m_V$ and log odds $L,H$. The information-radius
-argument uses classical minimax KL geometry \cite{vanerven}; the new
+argument uses classical minimax KL geometry \cite{vanerven}; our
 resolution-specific result is the exact interval induced by the observed
 within-assay constraints.
 
@@ -208,7 +215,8 @@ Eq.~\eqref{eq:example}.
 
 This local formula is the initial value of an exact finite-strength identity.
 Let $s_t=\partial_t\log q_t(X,Y)$ be the score along the fixed-marginal
-reconstruction. The marginal constraints give
+reconstruction, and write $\bar X=X-\mathbb E_rX$ and
+$\bar Y=Y-\mathbb E_cY$. The marginal constraints give
 $\mathbb E_{q_t}(s_t\mid X)=\mathbb E_{q_t}(s_t\mid Y)=0$, and hence
 \begin{equation}
  \operatorname{Cov}_{q_1}(X,Y)
@@ -222,7 +230,7 @@ The second-order term contracts two copies of $B$ with the third central
 moments of each assay (Additional file 1). Thus preserving means and
 covariances preserves the first-order prediction but does not determine the
 prediction at the fitted interaction strength. The expansion specializes the dependence-model
-response identities of Sei and Yano \cite{sei}; it motivates a controlled test
+score-projection identities of Sei and Yano \cite{sei}; it motivates a controlled test
 of covariance against complete pattern information.
 
 The response also predicts which queries are sensitive to replacing recipient
@@ -234,7 +242,7 @@ between their query distributions near independence
 (Additional file 1). We test whether this score identifies relationships
 whose empirical prediction improves with recipient-specific reconstruction.
 
-We evaluated the response rule along
+In the fixed-frequency analysis, we evaluated the response rule along
 $t\in\{0.05,0.10,0.25,0.50,0.75,1\}$. At each value, we exactly reconstructed
 the recipient covariance model and the leave-one-recipient-out cohort-pool
 model, then compared the response coefficient with twice the forward KL
@@ -243,7 +251,7 @@ Spearman correlations, top-27 overlap, and the ratio of exact discrepancy to
 its quadratic approximation. Recipient-bootstrap intervals used 20,000 draws
 with seed 906095.
 
-\subsection{Data and prediction protocol}
+\subsection{Data and recipient information}
 The source comprised 12 Cambridge calibration donors from the Stephenson
 CITE-seq (cellular indexing of transcriptomes and epitopes by sequencing)
 study \cite{stephenson2021}. Recipients comprised the remaining 24
@@ -252,12 +260,46 @@ public pediatric T-ALL study, GSE248287 \cite{wiggers}, which sorted and remixed
 immune and malignant cells before sequencing. The fixed panel was
 CD4, CD7, CD14, CD19, CD33, CD38, CD44, CD47, and CD52 in both assays.
 Each person contributed 512 cells selected deterministically without consulting
-their molecular counts.
+their molecular counts. The first 256 cells supplied adaptation profiles;
+the remaining 256 supplied evaluation tables. Cross-assay correspondence in
+the adaptation half was discarded, so reconstruction received two separate
+assay distributions.
+
+\subsection{Prediction from adaptation cells alone}
+RNA states recorded detection. For each person and protein, the median count
+among the 256 adaptation cells defined a threshold. Counts strictly above this
+threshold were high; ties were low. The same threshold was applied to scoring
+cells without using their values to define it.
+
+We fitted the source interaction once on the 12 Cambridge source donors under
+these state definitions, using pairing contrasts with penalty $10^{-4}$.
+The contrasts compare observed cell pairs with within-donor swaps and remove
+additive assay effects from the likelihood \cite{sei}. A product-Bernoulli
+source prior with total pseudocount mass four smoothed each recipient
+adaptation histogram. The resulting
+histograms determined every recipient marginal constraint; no scoring-cell
+frequencies or pairings entered prediction.
+
+The four reconstructions retained individual frequencies, RNA patterns plus
+protein frequencies, protein patterns plus RNA frequencies, or both pattern
+distributions. All used the same interaction and the same estimated marker
+frequencies. An independence control used the product of those frequencies.
+Predictions were fixed before scoring the remaining 256 cells. Full patterns
+were compared with individual frequencies, protein patterns, and independence
+in each cohort, giving nine contrasts. Additional file 1 specifies the source
+fit, smoothing, and numerical checks.
+
+\subsection{Fixed-frequency decomposition of the information gain}
+To isolate dependence prediction from errors in estimated marker frequencies,
+we also analyzed the same recipients conditional on their scoring-cell
+frequencies. This analysis used the original donor-wide protein states and
+source fit described below. Its losses are reported separately because its
+states and permitted information differ from adaptation-only prediction.
 
 RNA states recorded detection. Protein states divided each person's 512 cells
 into lower and upper rank halves, with deterministic hash-based tie breaking.
 The first 256 cells supplied separate RNA and protein
-pattern histograms. Four source-prior pseudocells smoothed each histogram,
+pattern histograms. A source prior with total pseudocount mass four smoothed each histogram,
 which was tilted to the individual marker frequencies of the remaining 256
 cells. Cross-assay pairings in those remaining cells were used only for scoring.
 
@@ -284,7 +326,7 @@ To test recipient specificity, we constructed two pooled controls from the
 first 256 cells of either the 12 source donors or all other recipients in the
 query person's cohort. The latter pool excluded the query person and contained
 23 Cambridge donors, 55 Newcastle donors, or 14 T-ALL patients. Each contributor
-added four prior pseudocells, preserving the prior fraction. Pooled histograms
+added prior mass four, preserving the prior fraction. Pooled histograms
 underwent the same tilting to recipient marker frequencies and maximum-entropy
 replacement. The cohort control used other recipients' unpaired profiles;
 neither control used their scoring-cell patterns.
@@ -303,17 +345,51 @@ ranking changed.
 The outcome was twice the KL divergence from each empirical scoring table to
 its prediction, averaged over all 81 RNA--protein pairs and then equally over
 people. Constant-marker tables were retained. Intervals used 20,000 paired
-donor-bootstrap draws. Bonferroni percentile intervals were calculated within
+recipient-bootstrap draws. The adaptation-only analysis adjusted across its
+nine contrasts. For the fixed-frequency analyses, Bonferroni percentile intervals were calculated within
 three comparison families: nine contrasts between full patterns and the three
 less detailed representations; six contrasts comparing covariance-preserving reconstruction
 with full patterns or individual frequencies; and six contrasts comparing
 recipient-specific covariance with the two pools. The six query-ranking
-contrasts formed a fourth family. These analyses were specified
+contrasts formed a fourth family. Intervals reported as 95\% intervals are
+unadjusted; multiplicity-adjusted conclusions are stated separately. These analyses were specified
 after earlier outcomes had been examined and are retrospective.
 
 \section{Results}
+\subsection{Assay patterns improve prediction on untouched cells}
+Both assay-pattern distributions improved adaptation-only prediction in all
+three cohorts (Fig.~\ref{fig:adaptation}). Mean deviance fell from 0.02229 to
+0.01858 in Cambridge, from 0.03233 to 0.02289 in Newcastle, and from 0.05847
+to 0.02599 in T-ALL. These are reductions of 16.63\% (95\% interval,
+13.05--20.34\%), 29.19\% (25.00--33.28\%), and 55.56\%
+(47.25--62.67\%). Full patterns improved 24/24, 55/56, and 15/15 people,
+respectively.
+
+Retaining RNA patterns in addition to protein patterns reduced loss by
+5.36\% (95\% interval, 3.33--7.49\%), 12.27\% (10.19--14.31\%), and
+31.76\% (25.91--37.86\%). Reductions relative to independence were
+46.14\%, 47.41\%, and 65.16\%. All nine multiplicity-adjusted intervals
+had positive lower endpoints. Thus the pattern-level advantage persisted
+when recipient preprocessing and marginal estimates used adaptation cells
+alone, including the uncertainty those estimates introduce into held-cell
+prediction.
+
+\begin{figure*}[t]
+\centering
+\input{adaptation_figure.tex}
+\caption{\textbf{Separate assay patterns improve prediction without scoring-cell summaries.}
+Full-pattern reconstruction is compared with three controls at the same
+adaptation-derived marker frequencies. Points show relative mean-deviance
+reductions; bars are paired recipient-bootstrap 95\% intervals. Each cohort
+uses 256 adaptation and 256 scoring cells per person. Protein thresholds,
+assay histograms, and marker frequencies use adaptation cells only. The
+source interaction is fixed across arms. All nine Bonferroni percentile
+intervals have positive lower endpoints; nominal intervals are shown.}
+\label{fig:adaptation}
+\end{figure*}
+
 \subsection{Within-assay patterns improve dependence prediction}
-Retaining both assay patterns reduced deviance in all three cohorts
+Conditional on the scoring-cell frequencies, retaining both assay patterns reduced deviance in all three cohorts
 (Table~\ref{tab:resolution}). Relative to individual frequencies alone, the
 reductions were 36.55\% in Cambridge, 46.85\% in Newcastle, and 72.75\% in T-ALL.
 The full-pattern arm improved 23/24, 55/56, and 15/15 recipients, respectively.
@@ -351,9 +427,10 @@ endpoints. Retaining RNA patterns therefore improved prediction even when the
 full protein-pattern distribution was available.
 
 \subsection{Recipient covariances recover most of the pattern-level gain}
-The covariance-preserving replacement retained 91.36\%, 97.36\%, and 95.68\%
-of the loss reduction from individual frequencies to full patterns in
-Cambridge, Newcastle, and T-ALL, respectively. Full patterns improved further
+The covariance-preserving replacement retained 91.36\% (paired-bootstrap
+95\% interval, 89.09--94.03\%), 97.36\% (96.28--98.38\%), and 95.68\%
+(93.42--97.25\%) of the loss reduction from individual frequencies to full
+patterns in Cambridge, Newcastle, and T-ALL, respectively. Full patterns improved further
 by 4.74\% (95\% interval, 2.81--6.78\%), 2.27\% (1.25--3.37\%), and 10.35\%
 (7.59--13.74\%), improving 22/24, 44/56, and 15/15 people. All six contrasts
 remained positive under the separate Bonferroni adjustment. Pairwise
@@ -424,7 +501,7 @@ Net gain can exceed 100\% when excluded corrections worsen prediction.}
 
 \subsection{The response ranking persists at fitted strength}
 The response coefficient remained closely aligned with exact model discrepancy
-throughout the continuation (Fig.~\ref{fig:continuation}). At $t=1$, mean
+throughout the continuation (Additional file 1). At $t=1$, mean
 within-recipient Spearman correlations were 0.941 in Cambridge (95\% interval,
 0.935--0.948), 0.942 in Newcastle (0.937--0.947), and 0.939 in T-ALL
 (0.919--0.954). The response and exact rankings shared 90.3\%, 89.5\%, and
@@ -432,51 +509,15 @@ within-recipient Spearman correlations were 0.941 in Cambridge (95\% interval,
 discrepancy at $t=1$ was 40.8\%, 32.1\%, and 28.3\% of the quadratic
 approximation.
 
-\begin{figure*}[t]
-\centering
-\input{continuation_figure.tex}
-\caption{\textbf{The response ranking remains stable from independence to the fitted interaction.}
-\textbf{a}, Mean within-recipient Spearman correlation between the local
-response coefficient and exact finite-strength model discrepancy; lines show
-recipient-bootstrap 95\% intervals. \textbf{b}, Ratio of summed exact
-discrepancy to the quadratic approximation. Exact discrepancy is twice the
-forward KL divergence from the recipient covariance reconstruction to the
-cohort-pool reconstruction. All points use the same 95 recipients, 81 queries,
-assay marginals, and source interaction as the primary analysis.}
-\label{fig:continuation}
-\end{figure*}
-
-\subsection{Matched interaction models and the original held-site study}
-An earlier comparison of full-profile models on the same T-ALL patients
-reached mean deviance 0.008441 with the matched CHAMPOLLION objective,
-0.008476 with donor-wise joint fitting, and 0.008602 with query-targeted fitting.
-The multinomial comparator reached 0.010630. Query-targeted fitting reduced loss
-by 19.07\% relative to the multinomial model (95\% interval, 13.05--24.36\%),
-but its difference from the CHAMPOLLION objective was unresolved
-($-1.91$\%; $-6.26$ to 2.25\%). These models used the same permitted recipient
-information and additional protein-abundance coordinates (Additional file 1,
-Section 7). The binary resolution
-analysis isolates the value of recipient patterns within one model; the
-full-profile comparison assesses alternative fitted interactions.
-
-
-The original prespecified Stephenson experiment transferred pairwise log odds
-from all 36 Cambridge donors to 56 Newcastle donors. Hierarchical conditional
-prediction reduced mean deviance by 17.46\% relative to signed-statistic
-transfer (paired donor-bootstrap 95\% interval for the loss difference,
-$-0.00413$ to $-0.00080$;
-50/56 donors favorable). That experiment used 512 scoring cells and averaged
-over informative pairs. The present resolution analysis uses a 12-donor source,
-separate adaptation and scoring halves, and all 81 pairs. Additional file 1
-retains the original protocol, fitted classical comparisons, calibration
-sensitivities, and every recorded study outcome.
-
 \section{Discussion}
 The resolution at which a relationship is reported need not be the resolution
 at which it should be transferred. A binary RNA--protein table depends on the
 distribution of finer cellular profiles. Reconstructing those profiles before
 aggregation allowed one source interaction to predict different recipient
-associations using measurements made separately within each assay.
+associations using measurements made separately within each assay. The
+adaptation-only analysis establishes this advantage without supplying
+scoring-cell summaries. The conditional analysis then separates the
+contribution of coexpression from marginal-frequency estimation error.
 
 The pooled controls distinguish recipient-specific coexpression from generic
 population structure: more observations from other people did not replace
@@ -491,18 +532,20 @@ are unavailable. Together, these results connect the detail retained in
 separate assays to both the limits of prediction and the choice of queries.
 
 \section{Limitations}
-The resolution and query-ranking analyses are retrospective analyses of
-previously examined recipients from two studies, not new confirmation.
+The analyses are retrospective evaluations of previously examined recipients
+from two studies, not new confirmation. The adaptation-only test changes the
+protein-state definition as well as the information boundary; its effect sizes
+cannot be subtracted from the conditional results to measure information leakage.
 Intervals condition on the source fit and fitted pools, omitting their
 estimation uncertainty, dependence between overlapping cohort pools, and the
-adaptive research history. The earlier T-ALL model comparison was fixed before
-count access but did not pass its all-control superiority criterion.
+adaptive research history.
 
-The panel contains nine RNA and nine protein markers, and protein states use
-donor-wide ranks that include scoring values. Individual scoring-cell marker
-frequencies are supplied. Two Stephenson recipients have almost no counts across
+The panel contains nine RNA and nine protein markers. The conditional analysis
+uses donor-wide protein ranks and individual scoring-cell marker frequencies;
+the adaptation-only analysis uses neither. Two Stephenson recipients have almost no counts across
 the protein panel and were retained. The task is fixed-margin dependence
-prediction, not missing-modality imputation without target assay values. The
+prediction from separately measured assays, not missing-modality imputation
+without target assay observations. The
 results do not isolate within-cell-type regulation or establish molecular
 binding, causal effects, or clinical utility.
 
@@ -526,14 +569,15 @@ mixtures can contribute to the observed coexpression.
 
 Reconstruction, noncollapsibility, and minimax KL prediction have established
 foundations. The theory concerns the resolution-dependent identified set;
-the experiments establish an information advantage, not a superior cost
-learner. The CHAMPOLLION comparator uses its no-prior objective with a common
-recipient adapter, not its complete published workflow.
+the experiments establish an information advantage, not a superior interaction
+learner. The earlier matched CHAMPOLLION-objective comparison did not establish
+superiority and remains documented with the historical benchmark.
 
 \section{Conclusions}
-Within-assay cellular patterns improved cross-cohort RNA--protein dependence
-prediction with the source interaction held fixed. Recipient-specific
-covariances retained most of this gain and outperformed source and cohort
+Within-assay cellular patterns improved cross-cohort RNA--protein prediction
+with the source interaction held fixed, including prediction on untouched cells
+without their marginal summaries. In the conditional analysis, recipient-specific
+covariances retained most of the pattern-level gain and outperformed source and cohort
 pools matched to the same marker frequencies. Full patterns improved further
 in each cohort. Separately measured recipient coexpression can therefore
 support molecular predictions that individual frequencies and cohort averages
@@ -554,12 +598,14 @@ This study used only public, de-identified data and involved no new participants
 Not applicable.
 
 \subsection*{Availability of data and materials}
-Source data are available through the accessions in Additional file 1, including
-GSE248287 for the T-ALL cohort. The original benchmark's analysis plans,
-MIT-licensed software, and study records are available in the v2.0.4 release
-\cite{benchmark2026}. The resolution and query-ranking analyses are subsequent
-work and are not included in that release. Additional file 1 documents their
-protocols and computational verification. Raw matrices are not redistributed.
+Source data are available under E-MTAB-10026 (Stephenson CITE-seq) and
+GSE248287 (T-ALL). The original benchmark's analysis plans,
+software, and study records are available in the v2.0.4 release
+\cite{benchmark2026}. The accompanying analysis artifact contains derived
+assay distributions, reconstruction code, predictions, and recipient-level
+losses for the subsequent resolution analyses, together with executable
+checks of the reported comparisons. Additional file 1 specifies the protocols.
+Raw matrices are not redistributed.
 
 \subsection*{Competing interests}
 Competing-interest information is withheld in the blinded manuscript.
@@ -575,9 +621,9 @@ OpenAI Codex assisted with code development, literature retrieval, manuscript
 editing, and \LaTeX{} preparation.
 
 \subsection*{Additional file}
-Additional file 1 (PDF). \emph{Mathematical results and benchmark details}.
-Coarsening and response proofs, analysis protocols, comparator definitions,
-study outcomes, sensitivity analyses, and reproducibility information.
+Additional file 1 (PDF). \emph{Mathematical results and analysis protocols}.
+Identified-set and response proofs, adaptation-only and conditional protocols,
+cohort-level comparisons, and computational verification.
 
 \ifdefined\ReaderVersion\else
   \setlength{\bibsep}{3pt}

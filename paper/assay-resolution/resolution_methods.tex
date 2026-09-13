@@ -28,7 +28,9 @@ those marginals of
  \label{eq:information-projection}
 \end{equation}
 with $0\log0=0$. For positive marginals, the Lagrange equations give
-Eq.~\eqref{eq:resolution_joint}; boundary cases are its closure.
+Eq.~\eqref{eq:resolution_joint}. We define admissible reconstructions directly
+as $Q_S(r,c)$, allowing zero-mass assay states. This includes summary
+constraints that exclude every strictly positive assay distribution.
 
 \begin{proposition}[Identified interval under observed assay summaries]
 \label{prop:all-marker-interval}
@@ -41,13 +43,14 @@ by the observed features. Define
  h&=\max_{r\in\mathcal R(\mu_x),c\in\mathcal C(\mu_y)}
        \sum_{x,y}f(x)g(y)Q_S(r,c)(x,y).
 \end{align*}
-Then the closure of query tables compatible with the interaction and observed
-summaries is exactly $\{P(t):\ell\leq t\leq h\}$, where
+Then the query tables obtained from admissible reconstructions are
+exactly $\{P(t):\ell\leq t\leq h\}$, where
 \[
  P(t)=\begin{pmatrix}1-m_U-m_V+t&m_V-t\\m_U-t&t\end{pmatrix}.
 \]
-Both endpoints are attained in the closed model. If $\ell<h$, the unique
-minimax prediction under forward KL loss is $P_*=P(t(\theta_*))$, where
+Both endpoints are attained. If $\ell<h$, both query frequencies lie in
+$(0,1)$, and the unique minimax prediction under forward KL loss, among all
+single query-table predictions, is $P_*=P(t(\theta_*))$, where
 \[
  \theta_*=\frac{\mathcal H(P(\ell))-\mathcal H(P(h))}{h-\ell},
  \qquad \mathcal H(P)=-\sum P\log P,
@@ -60,9 +63,18 @@ $\theta$. For $\ell=h$, the query is identified and $P_*=P(\ell)$.
 The two marginal sets are compact convex polytopes. For fixed $r,c$, the
 transportation polytope is compact, and the strictly convex objective in
 Eq.~\eqref{eq:information-projection} has a unique minimizer. In finite
-dimensions the transportation polytope varies continuously with its
-margins. The minimum theorem and uniqueness therefore imply that $Q_S(r,c)$
-is continuous, including at boundary marginals. The queried cell probability
+dimensions its feasible couplings vary continuously with their margins. To
+see this at a boundary, let $r_n\to r$ and $c_n\to c$. Given any coupling $q$
+of $r,c$, apply maximal-coupling kernels carrying $r$ to $r_n$ and $c$ to
+$c_n$, independently conditional on its two coordinates. The resulting
+coupling $q_n$ has the new margins and satisfies
+\[
+ \|q_n-q\|_1\leq\|r_n-r\|_1+\|c_n-c\|_1.
+\]
+Conversely, any limit of couplings with margins $r_n,c_n$ has margins $r,c$.
+The objective is continuous at zero probabilities because $u\log u\to0$ and
+$S$ is finite. Compactness, these approximating couplings, and uniqueness of
+the minimizer imply $Q_S(r_n,c_n)\to Q_S(r,c)$. The queried cell probability
 is consequently a continuous real-valued function on the compact connected
 set $\mathcal R(\mu_x)\times\mathcal C(\mu_y)$. Its image is a compact connected
 subset of the real line, hence the interval $[\ell,h]$. The fixed query
@@ -75,7 +87,8 @@ $\partial_\theta\KL(P(t_0)\Vert P(t(\theta)))=t(\theta)-t_0$.
 The two endpoint losses therefore vary in opposite directions between
 $\ell$ and $h$ and have a unique equalizer. Direct subtraction gives the stated
 $\theta_*$. To prove minimax optimality over all predictions, choose $w$ such
-that $P_*=wP(\ell)+(1-w)P(h)$. For any prediction $R$,
+that $P_*=wP(\ell)+(1-w)P(h)$. A prediction assigning zero to an
+endpoint-positive cell has infinite worst-case loss. For any other prediction $R$,
 \begin{align*}
  &w\KL(P(\ell)\Vert R)+(1-w)\KL(P(h)\Vert R)\\
  &\quad=R_*+\KL(P_*\Vert R),
@@ -137,7 +150,7 @@ $\Pr(Z_1=1,W=1)$ is therefore
 $[(1-|\tanh J|)/4,(1+|\tanh J|)/4]$.
 
 \subsection{Response to a transferred interaction}\label{app:response}
-The expansion below specializes the fixed-marginal response identities of
+The expansion below specializes the fixed-marginal score-projection identities of
 Sei and Yano \cite{sei}. Fix positive marginal masses $r(x)$ and $c(y)$ on finite supports. Write
 $\bar x=x-\mathbb E_r X$, $\bar y=y-\mathbb E_c Y$, and
 $h=\bar x^\top B\bar y$. Centering changes the interaction only by additive
@@ -238,6 +251,64 @@ with seed 906095. At $t=1$, independently reconstructed tables agreed with the
 frozen primary predictions to maximum absolute error
 $5.56\times10^{-16}$.
 
+\begin{figure}[htbp]
+\centering
+\input{continuation_figure.tex}
+\caption{Mean within-recipient correlation between the local response score
+and exact discrepancy between recipient-covariance and cohort-pool models
+(left), and the ratio of exact discrepancy to its quadratic approximation
+(right). Bars are recipient-bootstrap 95\% intervals. This diagnostic uses
+the conditional fixed-frequency protocol.}
+\end{figure}
+
+\subsection{Adaptation-only prediction}
+The stricter analysis retains the source and recipient membership,
+nine-marker panel and deterministic cell selection. For each person, RNA is
+binary detection and protein is strict exceedance of the median count among
+the first 256 cells. Ties are low. Applying this threshold to the remaining
+256 cells does not modify the threshold. Source donors use the same definition.
+
+Four random within-donor matchings of the 512 source cells per donor, with
+seed 906096, form the pairing contrasts. The source fit uses penalty
+$10^{-4}$ without retuning. Each source-prior marker probability is
+$(n_1+1/2)/(6144+1)$, where $n_1$ counts the high state among the 12 source
+donors' 6144 cells. Their product-Bernoulli distribution supplies total
+pseudocount mass four to each recipient adaptation histogram, normalized
+together with its 256 observed cells. No scoring-cell summary is supplied.
+
+The four resolution arms constrain means, one complete assay distribution,
+or both complete distributions, as in the conditional analysis below. An
+independence arm is the product of the same estimated marker frequencies.
+All predictions were saved before forming the empirical scoring tables and
+their losses. Each loss averages twice forward KL over all 81 marker pairs.
+Twenty thousand paired recipient-bootstrap samples, seed 906097, provide
+nominal 95\% intervals and Bonferroni percentile intervals across the nine
+full-pattern contrasts with means, protein patterns, and independence.
+
+\begin{table}[htbp]
+\caption{Adaptation-only prediction. Mean recipient deviance over all 81 pairs.}
+\centering\small
+\begin{tabularx}{\textwidth}{@{}Yrrr@{}}
+\toprule
+Recipient information & Cambridge & Newcastle & T-ALL\\
+\midrule
+Individual frequencies & 0.022292 & 0.032327 & 0.058471\\
+RNA patterns, protein frequencies & 0.020598 & 0.027637 & 0.045103\\
+RNA frequencies, protein patterns & 0.019638 & 0.026090 & 0.038081\\
+Both assay patterns & 0.018585 & 0.022889 & 0.025986\\
+Independence at estimated frequencies & 0.034503 & 0.043524 & 0.074591\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+An independent implementation recounted raw thresholds and scoring tables,
+reconstructed the 12,288 source contrasts, and reproduced all 380 model
+reconstructions by iterative proportional fitting plus 95 independence tables.
+Maximum probability and loss differences were $7.68\times10^{-11}$ and
+$5.79\times10^{-12}$. Altering scoring counts left thresholds and predictions
+unchanged; permuting adaptation profiles separately within each assay also
+left predictions unchanged. All nine bootstrap contrasts were reproduced.
+
 \subsection{Matched resolution and covariance analyses}
 
 The three recipient cohorts contain 24 Cambridge donors, 56 Newcastle donors,
@@ -252,7 +323,7 @@ scoring sample's individual marker frequencies, not its pairings.
 The means-only reconstruction constrains all 18 individual frequencies.
 Each one-pattern arm additionally constrains that assay's full binary-profile
 histogram. The both-pattern arm constrains both histograms. Histograms receive
-four source-prior pseudocells and exponential tilts to the scoring-cell
+source-prior mass four and exponential tilts to the scoring-cell
 marker frequencies. Constant markers are restricted to their observed states.
 Matrix scaling fits complete pattern constraints, and moment matching fits
 individual-frequency constraints. These are reconstructions from the same
@@ -277,7 +348,7 @@ The source pool uses the 12 source donors' adaptation halves: 3,072 cells
 per assay. For each query person, the cohort pool uses every other recipient's
 adaptation half and excludes the query person. It contains 5,888 cells in
 Cambridge, 14,080 in Newcastle, and 3,584 in T-ALL. Both controls use four prior
-pseudocells per contributing person, preserving the prior fraction, then
+units of prior mass per contributing person, preserving the prior fraction, then
 undergo the same tilting and maximum-entropy reconstruction at the query
 person's marker frequencies. The cohort pool uses recipient-cohort data but
 no scoring-cell patterns. These controls vary the origin of covariance
@@ -355,10 +426,12 @@ checked exact marker margins, and checked source membership and exclusion of
 the query person from each cohort pool. Independently calculated query
 scores differed by at most $1.47\times10^{-10}$; pair-specific gain and
 bootstrap-summary differences were below $4\times10^{-16}$.
-Fourteen tests cover marginal constraints, reconstruction equivalence,
+Tests cover marginal constraints, reconstruction equivalence,
 covariance replacement, pool construction, and query scoring.
 
 Analysis plans preceded these computations but followed examination of earlier
 outcomes; the analyses are retrospective. The original public v2.0.4 benchmark
-is a separate release and does not contain the subsequent resolution,
-covariance, pooled-control, or query-ranking analyses.
+is a separate release. The accompanying analysis artifact contains the
+derived assay distributions, fitted interactions, predictions, and losses
+needed to reproduce the subsequent reconstructions and statistical summaries.
+It does not redistribute raw count matrices or reproduce their initial acquisition.

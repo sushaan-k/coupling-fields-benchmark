@@ -1,0 +1,107 @@
+{
+  "evidence_status": "retrospective_recipient_specificity_test",
+  "cohorts": {
+    "Cambridge": {
+      "n": 24,
+      "mean_losses": {
+        "recipient_covariance": 0.006398531895468578,
+        "source_pool": 0.00709394877411183,
+        "other_recipient_pool": 0.007043100483262367
+      },
+      "comparisons": {
+        "source_pool": {
+          "reduction_percent": 9.802958842627408,
+          "bootstrap_95": [
+            3.1074120630058206,
+            16.13057258981842
+          ],
+          "bootstrap_familywise": [
+            1.1096127695048705,
+            18.268890605083232
+          ],
+          "donor_wins": 15
+        },
+        "other_recipient_pool": {
+          "reduction_percent": 9.151773275499608,
+          "bootstrap_95": [
+            2.2910499341780004,
+            15.574272731979724
+          ],
+          "bootstrap_familywise": [
+            0.3271445599256253,
+            17.6904323734367
+          ],
+          "donor_wins": 15
+        }
+      }
+    },
+    "Newcastle": {
+      "n": 56,
+      "mean_losses": {
+        "recipient_covariance": 0.008571984917635318,
+        "source_pool": 0.011926598532413084,
+        "other_recipient_pool": 0.010445574246381697
+      },
+      "comparisons": {
+        "source_pool": {
+          "reduction_percent": 28.1271613667626,
+          "bootstrap_95": [
+            22.885953540114343,
+            33.1950297343004
+          ],
+          "bootstrap_familywise": [
+            21.246165157606935,
+            35.02689621063091
+          ],
+          "donor_wins": 52
+        },
+        "other_recipient_pool": {
+          "reduction_percent": 17.936680976590523,
+          "bootstrap_95": [
+            12.57757768781716,
+            23.000356334359044
+          ],
+          "bootstrap_familywise": [
+            10.731158263270522,
+            24.74908407066816
+          ],
+          "donor_wins": 42
+        }
+      }
+    },
+    "T-ALL": {
+      "n": 15,
+      "mean_losses": {
+        "recipient_covariance": 0.011553484090126633,
+        "source_pool": 0.029301853415976364,
+        "other_recipient_pool": 0.02138513390776288
+      },
+      "comparisons": {
+        "source_pool": {
+          "reduction_percent": 60.570807838976904,
+          "bootstrap_95": [
+            52.3627677495664,
+            67.99835789731752
+          ],
+          "bootstrap_familywise": [
+            49.72355819064728,
+            70.36984936028311
+          ],
+          "donor_wins": 15
+        },
+        "other_recipient_pool": {
+          "reduction_percent": 45.97422611446601,
+          "bootstrap_95": [
+            35.24302913901296,
+            55.79249180887716
+          ],
+          "bootstrap_familywise": [
+            31.684200358382046,
+            58.93449776023152
+          ],
+          "donor_wins": 14
+        }
+      }
+    }
+  }
+}

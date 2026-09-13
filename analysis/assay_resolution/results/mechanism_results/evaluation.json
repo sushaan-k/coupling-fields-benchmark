@@ -1,0 +1,110 @@
+{
+  "evidence_status": "retrospective_mechanism_intervention",
+  "cohorts": {
+    "Cambridge": {
+      "n": 24,
+      "mean_losses": {
+        "means_only": 0.009605962178560358,
+        "covariance_preserving": 0.006398531895468578,
+        "both_patterns": 0.0060953641659025415
+      },
+      "fraction_gain_retained": 0.9136421406059783,
+      "comparisons": {
+        "full_vs_covariance": {
+          "reduction_percent": 4.738082649564324,
+          "bootstrap_95": [
+            2.8107705653445287,
+            6.775248728141858
+          ],
+          "bootstrap_familywise": [
+            2.2072492173296663,
+            7.500171289224126
+          ],
+          "donor_wins": 22
+        },
+        "covariance_vs_means": {
+          "reduction_percent": 33.389994916391366,
+          "bootstrap_95": [
+            27.307729480569808,
+            39.14134251225824
+          ],
+          "bootstrap_familywise": [
+            25.296898829470454,
+            41.02296715630326
+          ],
+          "donor_wins": 23
+        }
+      }
+    },
+    "Newcastle": {
+      "n": 56,
+      "mean_losses": {
+        "means_only": 0.015761284759815728,
+        "covariance_preserving": 0.008571984917635318,
+        "both_patterns": 0.008377010371372551
+      },
+      "fraction_gain_retained": 0.9735959776131947,
+      "comparisons": {
+        "full_vs_covariance": {
+          "reduction_percent": 2.2745554050338956,
+          "bootstrap_95": [
+            1.2487507598963168,
+            3.3656162004616514
+          ],
+          "bootstrap_familywise": [
+            0.9333818790772804,
+            3.7060595156604297
+          ],
+          "donor_wins": 44
+        },
+        "covariance_vs_means": {
+          "reduction_percent": 45.61366634596903,
+          "bootstrap_95": [
+            37.82722406688682,
+            52.10973563884748
+          ],
+          "bootstrap_familywise": [
+            34.86436713588063,
+            54.22330486251356
+          ],
+          "donor_wins": 55
+        }
+      }
+    },
+    "T-ALL": {
+      "n": 15,
+      "mean_losses": {
+        "means_only": 0.03800677166989829,
+        "covariance_preserving": 0.011553484090126633,
+        "both_patterns": 0.010358169249651368
+      },
+      "fraction_gain_retained": 0.9567676216574355,
+      "comparisons": {
+        "full_vs_covariance": {
+          "reduction_percent": 10.345925360270813,
+          "bootstrap_95": [
+            7.589292511529654,
+            13.740836242492128
+          ],
+          "bootstrap_familywise": [
+            6.856212702228872,
+            15.237270737855173
+          ],
+          "donor_wins": 15
+        },
+        "covariance_vs_means": {
+          "reduction_percent": 69.6015115662215,
+          "bootstrap_95": [
+            62.6988490509522,
+            75.69333145289751
+          ],
+          "bootstrap_familywise": [
+            60.52071793739191,
+            77.4053848894605
+          ],
+          "donor_wins": 15
+        }
+      }
+    }
+  }
+}
