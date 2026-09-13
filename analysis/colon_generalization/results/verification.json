@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "donors": 11,
+  "independent_predictions": 55,
+  "maximum_prediction_difference": 6.322942169845192e-11,
+  "maximum_loss_difference": 1.3877787807814457e-17,
+  "truth_tables_exactly_recounted": 891,
+  "within_assay_permutation_invariant": true,
+  "bootstrap_comparisons_verified": 3
+}

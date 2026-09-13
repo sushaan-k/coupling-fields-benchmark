@@ -1,9 +1,9 @@
 \begin{tikzpicture}
 \begin{axis}[
- width=0.83\textwidth,height=6.1cm,
- xmin=0,xmax=80,ymin=0.55,ymax=3.45,
- xtick={0,20,40,60,80},ytick={1,2,3},
- yticklabels={T-ALL ($n=15$),Newcastle ($n=56$),Cambridge ($n=24$)},
+ width=0.83\textwidth,height=7.2cm,
+ xmin=0,xmax=80,ymin=0.55,ymax=4.45,
+ xtick={0,20,40,60,80},ytick={1,2,3,4},
+ yticklabels={Colon ($n=11$),T-ALL ($n=15$),Newcastle ($n=56$),Cambridge ($n=24$)},
  xlabel={Deviance reduction with both assay patterns (\%)},
  axis x line*=bottom,axis y line*=left,y axis line style={draw=none},
  ytick style={draw=none},
@@ -15,28 +15,32 @@
  error bars/.cd,x dir=both,x explicit]
  table[x=x,y=y,x error minus=lo,x error plus=hi,row sep=\\] {
  x y lo hi\\
- 16.63216 3.22 3.58227 3.70638\\
- 29.19379 2.22 4.19164 4.09033\\
- 55.55723 1.22 8.31116 7.11047\\
+ 16.63216 4.22 3.58227 3.70638\\
+ 29.19379 3.22 4.19164 4.09033\\
+ 55.55723 2.22 8.31116 7.11047\\
+ 15.65474 1.22 4.26562 5.43552\\
  };
 \addlegendentry{vs individual frequencies}
 \addplot[only marks,mark=square*,mark size=1.9pt,color=blue!65!black,
  error bars/.cd,x dir=both,x explicit]
  table[x=x,y=y,x error minus=lo,x error plus=hi,row sep=\\] {
  x y lo hi\\
- 5.36225 3 2.03579 2.12418\\
- 12.26900 2 2.07730 2.04291\\
- 31.75952 1 5.84544 6.10071\\
+ 5.36225 4 2.03579 2.12418\\
+ 12.26900 3 2.07730 2.04291\\
+ 31.75952 2 5.84544 6.10071\\
+ 5.42323 1 2.54451 3.23562\\
  };
 \addlegendentry{vs protein patterns}
 \addplot[only marks,mark=triangle*,mark size=2.4pt,color=red!65!black,
  error bars/.cd,x dir=both,x explicit]
  table[x=x,y=y,x error minus=lo,x error plus=hi,row sep=\\] {
  x y lo hi\\
- 46.13638 2.78 4.95309 4.46024\\
- 47.40927 1.78 3.79366 3.59373\\
- 65.16167 0.78 7.23160 5.83782\\
+ 46.13638 3.78 4.95309 4.46024\\
+ 47.40927 2.78 3.79366 3.59373\\
+ 65.16167 1.78 7.23160 5.83782\\
+ 31.13153 0.78 5.30344 5.98258\\
  };
 \addlegendentry{vs independence}
+\draw[dashed,black!30] (axis cs:0,1.5) -- (axis cs:80,1.5);
 \end{axis}
 \end{tikzpicture}

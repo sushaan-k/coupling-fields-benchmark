@@ -1,0 +1,13 @@
+{
+  "source_md5": "d0dbb0fc4c95fbd5ce8e72cf418aad21",
+  "public_commit": "b6e6cab01db19baae7ff6aa44ffafcb1330c46a6",
+  "shape": [
+    11,
+    512,
+    18
+  ],
+  "retained_files": {
+    "adaptation_counts.npz": "531484474a9e35e40afcb8d81edba20aeac0f69e5b8f8092bb1d0b9a89805ba6",
+    "scoring_counts.npz": "04d582be47b747b11f052c4e02380fcf064e38efba1e61a9ce88e57066930c3c"
+  }
+}

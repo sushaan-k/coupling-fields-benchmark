@@ -435,3 +435,61 @@ is a separate release. The accompanying analysis artifact contains the
 derived assay distributions, fitted interactions, predictions, and losses
 needed to reproduce the subsequent reconstructions and statistical summaries.
 It does not redistribute raw count matrices or reproduce their initial acquisition.
+
+\section{Independent colon-biopsy test}
+
+The colon-biopsy study \cite{mennillo2024} provides a separate tissue and study
+for the fixed blood-reference interaction. We used the public count layer of
+Figshare file 54027674 in article 21919356, version 3, associated with GSE250490.
+Only cells labeled as paired gene-expression and protein libraries were
+eligible. Biopsies were pooled within physical donors. Eleven of twelve donors
+met the fixed budget of 512 cells; the remaining donor had 433 eligible cells.
+Cell selection ordered barcodes by SHA-256 with the fixed salt
+\texttt{colon-generalization-v1} and physical-donor identifier. The selected
+matrix rows are released under anonymous donor labels.
+
+The protocol, selection, source fit, reconstruction code, and evaluation code
+were fixed publicly in commit \texttt{b6e6cab} before count access
+\cite{colontest2026}. Metadata inspection had established tissue, clinical
+groups, assay compatibility, and available cell numbers. The first 256
+selected cells defined RNA detection, protein thresholds, and smoothed
+within-assay distributions exactly as in the adaptation-only analysis.
+The remaining 256 cells supplied the endpoint. Predictions were saved and
+hashed before their scoring counts were opened. The source interaction and
+prior were unchanged, and no recipient parameter was selected.
+
+\begin{table}[htbp]
+\caption{Colon-biopsy mean deviance. Clinical-group columns are descriptive;
+the inferential unit is the physical donor and the primary analysis combines
+all eleven donors. Controls number four, aminosalicylate-treated patients four,
+and vedolizumab-treated patients three.}
+\centering\small
+\begin{tabularx}{\textwidth}{@{}Xrrrr@{}}
+\toprule
+Recipient information & All & Controls & Aminosalicylates & Vedolizumab\\
+\midrule
+Individual frequencies & 0.02588 & 0.02316 & 0.02796 & 0.02672\\
+RNA patterns & 0.02367 & 0.02171 & 0.02482 & 0.02476\\
+Protein patterns & 0.02308 & 0.02094 & 0.02428 & 0.02432\\
+Both patterns & 0.02183 & 0.02036 & 0.02212 & 0.02339\\
+Independence & 0.03169 & 0.02793 & 0.03584 & 0.03118\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The prespecified success criterion required at least 10\% reduction against
+individual frequencies and positive adjusted lower bounds against individual
+frequencies, protein patterns, and independence. Paired donor-bootstrap
+intervals used 20,000 draws with seed 9132026 and Bonferroni percentile endpoints
+$0.025/3$ and $1-0.025/3$. The adjusted intervals were 10.89--22.40\%,
+2.56--9.49\%, and 24.85--38.43\%, respectively. All five prediction arms,
+eleven donor losses, and 81 query-level mean losses are released. No clinical
+group or query was used to select a result or modify the model.
+
+An independent implementation reproduced all 55 donor-by-arm predictions
+with maximum probability difference $6.33\times10^{-11}$. It separately
+recounted the 891 scoring tables and reproduced all three bootstrap comparisons.
+Independent permutations within the two adaptation assays left prediction
+unchanged. The separate colon artifact includes acquisition and checksum
+verification, sufficient marginal distributions, predictions, losses, and
+scripts that reproduce reconstruction and the frozen endpoint.

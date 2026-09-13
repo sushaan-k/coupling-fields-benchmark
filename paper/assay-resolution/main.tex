@@ -40,7 +40,7 @@
 \abstract{
 \textbf{Background:} Separate molecular assays retain coexpression even when cross-assay cell pairing is unavailable. We ask which recipient measurements are needed to transfer RNA--protein dependence from a paired reference.
 
-\textbf{Results:} For finite assay profiles and a fixed interaction, we derive the sharp range of binary associations compatible with specified unpaired summaries and its minimax predictor. We evaluate reconstruction retrospectively in 24 Cambridge donors, 56 Newcastle donors, and 15 patients with pediatric T-cell acute lymphoblastic leukemia (T-ALL). With all recipient preprocessing and prediction inputs restricted to 256 adaptation cells, retaining both assay-pattern distributions reduced deviance on 256 untouched cells by 16.6\%, 29.2\%, and 55.6\% relative to individual frequencies (paired recipient-bootstrap 95\% intervals, 13.0--20.3\%, 25.0--33.3\%, and 47.2--62.7\%). Both patterns also improved on protein patterns alone in every cohort. In a separate fixed-frequency comparison, covariances retained 91--97\% of the pattern-level gain and recipient-specific structure outperformed larger matched pools. A covariance response formula identified queries benefiting from this correction, improving prioritization over direct interaction strength in Newcastle and T-ALL.
+\textbf{Results:} For finite assay profiles and a fixed interaction, we derive the sharp range of binary associations compatible with specified unpaired summaries and its minimax predictor. Retrospective reconstruction in 24 Cambridge donors, 56 Newcastle donors, and 15 patients with pediatric T-cell acute lymphoblastic leukemia (T-ALL) reduced deviance by 16.6\%, 29.2\%, and 55.6\% when both assay-pattern distributions replaced individual frequencies (paired recipient-bootstrap 95\% intervals, 13.0--20.3\%, 25.0--33.3\%, and 47.2--62.7\%). Recipient preprocessing and marginal estimates used 256 adaptation cells; 256 untouched cells supplied the endpoint. In an independent test specified publicly before count access, the unchanged blood-reference model reduced deviance by 15.7\% in 11 colon-biopsy donors (11.4--21.1\%), improving every donor. Both patterns also improved on protein patterns alone and independence after adjustment for the three prespecified comparisons. In a separate fixed-frequency comparison, covariances retained 91--97\% of the pattern-level gain and recipient-specific structure outperformed larger matched pools. A covariance response formula improved query prioritization over direct interaction strength in Newcastle and leukemia.
 
 \textbf{Conclusions:} Assay summaries determine both the identifiable range of molecular dependence and the information available for its prediction. Preserving recipient coexpression improves held-cell prediction without supplying scoring-cell frequencies or cross-assay pairings.
 }
@@ -355,6 +355,26 @@ contrasts formed a fourth family. Intervals reported as 95\% intervals are
 unadjusted; multiplicity-adjusted conclusions are stated separately. These analyses were specified
 after earlier outcomes had been examined and are retrospective.
 
+\subsection{Independent transfer from blood to colon}
+We applied the unchanged blood-reference interaction to colon-biopsy CITE-seq
+from healthy controls and patients with ulcerative colitis
+\cite{mennillo2024}. Eleven physical donors supplied at least 512 paired-assay
+cells: four controls, four patients receiving aminosalicylates, and three
+receiving vedolizumab. Biopsies from the same person were pooled; a twelfth
+donor had 433 eligible cells and did not meet the fixed cell budget.
+All deposited cell types were retained. The nine-marker panel, cell selection,
+state definitions, source fit, and prediction protocol were fixed publicly
+before molecular count access \cite{colontest2026}.
+
+The first 256 selected cells supplied separate assay distributions and the
+remaining 256 supplied scoring tables. No source refitting or recipient
+tuning was performed. The three prespecified comparisons tested full patterns
+against individual frequencies, protein patterns, and independence. Success
+required positive Bonferroni percentile lower bounds for all three comparisons
+and at least 10\% mean deviance reduction against individual frequencies.
+These intervals used 20,000 paired donor-bootstrap draws and were calculated
+separately from the retrospective cohorts.
+
 \section{Results}
 \subsection{Assay patterns improve prediction on untouched cells}
 Both assay-pattern distributions improved adaptation-only prediction in all
@@ -384,9 +404,24 @@ reductions; bars are paired recipient-bootstrap 95\% intervals. Each cohort
 uses 256 adaptation and 256 scoring cells per person. Protein thresholds,
 assay histograms, and marker frequencies use adaptation cells only. The
 source interaction is fixed across arms. All nine Bonferroni percentile
-intervals have positive lower endpoints; nominal intervals are shown.}
+intervals for the three retrospective cohorts have positive lower endpoints.
+The colon test, separated below, used the unchanged source model and a protocol
+published before count access; all three of its adjusted intervals are positive.
+Nominal intervals are shown.}
 \label{fig:adaptation}
 \end{figure*}
+
+\subsection{The blood-reference model transfers to colon biopsies}
+Full assay patterns reduced mean deviance from 0.02588 to 0.02183 in the
+11 independent colon donors, a reduction of 15.65\% (95\% interval,
+11.39--21.09\%; Fig.~\ref{fig:adaptation}). Every donor improved relative to
+individual frequencies. Loss fell by 5.42\% relative to protein patterns alone
+(2.88--8.66\%; 10/11 donors) and by 31.13\% relative to independence
+(25.83--37.11\%; 11/11 donors). The three adjusted lower bounds were
+10.89\%, 2.56\%, and 24.85\%, respectively, meeting the prespecified criterion.
+This transfer used recipient measurements made separately within each assay
+without changing the interaction learned in blood. Additional file 1 reports
+all five arms and the descriptive clinical-group summaries.
 
 \subsection{Within-assay patterns improve dependence prediction}
 Conditional on the scoring-cell frequencies, retaining both assay patterns reduced deviance in all three cohorts
@@ -518,6 +553,8 @@ associations using measurements made separately within each assay. The
 adaptation-only analysis establishes this advantage without supplying
 scoring-cell summaries. The conditional analysis then separates the
 contribution of coexpression from marginal-frequency estimation error.
+The independent colon test extends the pattern-level advantage to a new
+tissue and study without refitting the blood-reference interaction.
 
 The pooled controls distinguish recipient-specific coexpression from generic
 population structure: more observations from other people did not replace
@@ -532,8 +569,11 @@ are unavailable. Together, these results connect the detail retained in
 separate assays to both the limits of prediction and the choice of queries.
 
 \section{Limitations}
-The analyses are retrospective evaluations of previously examined recipients
-from two studies, not new confirmation. The adaptation-only test changes the
+The blood and leukemia analyses reuse previously examined recipients from two
+studies. The colon analysis was specified before count access, but uses one
+existing study and eleven donors; it is not a prospective specimen collection.
+Its clinical groups are too small to establish disease- or treatment-specific
+effects. The adaptation-only test changes the
 protein-state definition as well as the information boundary; its effect sizes
 cannot be subtracted from the conditional results to measure information leakage.
 Intervals condition on the source fit and fitted pools, omitting their
@@ -574,9 +614,10 @@ learner. The earlier matched CHAMPOLLION-objective comparison did not establish
 superiority and remains documented with the historical benchmark.
 
 \section{Conclusions}
-Within-assay cellular patterns improved cross-cohort RNA--protein prediction
-with the source interaction held fixed, including prediction on untouched cells
-without their marginal summaries. In the conditional analysis, recipient-specific
+Within-assay cellular patterns improved RNA--protein prediction across cohorts
+and in an independent blood-to-colon test with the source interaction held
+fixed, including prediction on untouched cells without supplying their marginal summaries.
+In the conditional analysis, recipient-specific
 covariances retained most of the pattern-level gain and outperformed source and cohort
 pools matched to the same marker frequencies. Full patterns improved further
 in each cohort. Separately measured recipient coexpression can therefore
@@ -598,8 +639,11 @@ This study used only public, de-identified data and involved no new participants
 Not applicable.
 
 \subsection*{Availability of data and materials}
-Source data are available under E-MTAB-10026 (Stephenson CITE-seq) and
-GSE248287 (T-ALL). The original benchmark's analysis plans,
+Source data are available under E-MTAB-10026 (Stephenson CITE-seq),
+GSE248287 (T-ALL), and GSE250490 (colon biopsies). The colon analysis uses
+the public count matrix in Figshare article 21919356, version 3
+\cite{mennillo2024}; its frozen protocol and complete results are released
+separately \cite{colontest2026}. The original benchmark's analysis plans,
 software, and study records are available in the v2.0.4 release
 \cite{benchmark2026}. The accompanying analysis artifact contains derived
 assay distributions, reconstruction code, predictions, and recipient-level

@@ -1,0 +1,82 @@
+{
+  "n": 11,
+  "mean_losses": {
+    "means_only": 0.025878174733614454,
+    "rna_patterns": 0.02367236804813164,
+    "protein_patterns": 0.023078621053933723,
+    "both_patterns": 0.02182701445318648,
+    "independence": 0.031693770565632745
+  },
+  "comparisons": {
+    "means_only": {
+      "reduction_percent": 15.654737330317637,
+      "bootstrap_95": [
+        11.389118548977876,
+        21.090259235395173
+      ],
+      "bootstrap_familywise": [
+        10.894291743696954,
+        22.395381710304722
+      ],
+      "donor_wins": 11
+    },
+    "protein_patterns": {
+      "reduction_percent": 5.423229567409105,
+      "bootstrap_95": [
+        2.8787203132125234,
+        8.658849792100593
+      ],
+      "bootstrap_familywise": [
+        2.556529495785492,
+        9.485743707427227
+      ],
+      "donor_wins": 10
+    },
+    "independence": {
+      "reduction_percent": 31.131531327311702,
+      "bootstrap_95": [
+        25.82809196916276,
+        37.11410851400056
+      ],
+      "bootstrap_familywise": [
+        24.850794640843333,
+        38.430951000908586
+      ],
+      "donor_wins": 11
+    }
+  },
+  "generalization_criterion_passed": true,
+  "descriptive_groups": {
+    "HC": {
+      "n": 4,
+      "mean_losses": {
+        "means_only": 0.023164640583741326,
+        "rna_patterns": 0.021706041989641288,
+        "protein_patterns": 0.020944794497838145,
+        "both_patterns": 0.020363123565318893,
+        "independence": 0.027928453538503525
+      }
+    },
+    "UCNB": {
+      "n": 4,
+      "mean_losses": {
+        "means_only": 0.02796221930415962,
+        "rna_patterns": 0.024820906882143105,
+        "protein_patterns": 0.024278958342035625,
+        "both_patterns": 0.02212169879247684,
+        "independence": 0.035842837318609426
+      }
+    },
+    "UCV": {
+      "n": 3,
+      "mean_losses": {
+        "means_only": 0.0267174941727184,
+        "rna_patterns": 0.024762751014103468,
+        "protein_patterns": 0.024323273411258627,
+        "both_patterns": 0.023385956517956146,
+        "independence": 0.03118210426450277
+      }
+    }
+  },
+  "prediction_sha256": "c7e9c792fc46d3d56155537131b5d3314a17710754804447891f0541936bb46f"
+}
